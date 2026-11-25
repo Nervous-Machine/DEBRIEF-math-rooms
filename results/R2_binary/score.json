@@ -1,0 +1,184 @@
+{
+ "regime": "R2_binary",
+ "calls": 16,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0016",
+   "ok"
+  ]
+ ],
+ "per_node": {
+  "N1": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 2
+  },
+  "N3": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N4": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N5": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N6": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N7": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N8": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N9": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N10": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N11": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N12": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N13": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N14": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N15": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "ROOT": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  }
+ },
+ "final_status_at_first_FINAL": "ok",
+ "shape": {
+  "declarations": 19,
+  "unused_by_root": [
+   "two_mul_sq_div_four_succ_lt",
+   "sq_div_four_eq_pred_sq_div_four_add_half"
+  ],
+  "unused_count": 2,
+  "root_found": true,
+  "depth": 7,
+  "own_lines_median": 10,
+  "own_lines": {
+   "forcingNumber": 5,
+   "sq_two_mul_div_four": 4,
+   "sq_two_mul_add_one_div_four": 5,
+   "two_mul_sq_div_four_succ_lt": 13,
+   "sq_div_four_eq_pred_sq_div_four_add_half": 13,
+   "low_degree_arith": 28,
+   "exists_card_mul_degree_le": 17,
+   "exists_low_degree_vertex": 10,
+   "card_edgeFinset_induce_compl_singleton_eq": 7,
+   "card_compl_singleton_subtype": 8,
+   "exists_vertex_delete_keeps_dense": 10,
+   "induce_isContained": 5,
+   "ncard_edgeSet_eq_card_edgeFinset": 9,
+   "exists_fin_copy": 12,
+   "exists_dense_fin_subgraph": 29,
+   "exists_le_ncard_edgeSet_eq": 13,
+   "dirac_erdos_exists": 15,
+   "forcingNumber_le_of_forall": 19,
+   "erdos_766.variants.dirac_erdos": 7
+  },
+  "retry_named": [],
+  "joins": [
+   "forcingNumber",
+   "sq_two_mul_div_four",
+   "sq_two_mul_add_one_div_four",
+   "ncard_edgeSet_eq_card_edgeFinset"
+  ],
+  "edges": 22
+ },
+ "fit": {
+  "sorry": 0,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": " disabled with `set_option linter.unusedTactic false`\nRooms/Axioms.lean:266:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nRooms/Axioms.lean:267:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nRooms/Axioms.lean:266:6: warning: Unused tactic linter: `exact csInf_le' h` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nRooms/Axioms.lean:267:6: warning: Unused tactic linter: `(apply Nat.sInf_le; exact h)` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n'Erdos766.erdos_766.variants.dirac_erdos' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": true,
+ "attempts_median": 1,
+ "attempts_median_joins": 1,
+ "attempts_median_leaves": 1.0,
+ "tokens_total": 151407
+}

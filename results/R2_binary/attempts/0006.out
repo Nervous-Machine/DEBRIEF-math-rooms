@@ -1,0 +1,49 @@
+Rooms/Target.lean:96:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target.lean:106:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target.lean:124:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:125:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:123:15: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:124:8: warning: Unused tactic linter: `(rw [Finset.sum_const, Finset.card_univ, smul_eq_mul])` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:125:8: warning: Unused tactic linter: `(rw [Finset.sum_const, Finset.card_univ]; rfl)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:135:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target.lean:154:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:155:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:154:6: warning: Unused tactic linter: `(rw [Fintype.card_compl_set]; simp)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:155:6: warning: Unused tactic linter: `simp` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

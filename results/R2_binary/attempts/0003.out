@@ -1,0 +1,29 @@
+Rooms/Target.lean:96:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target.lean:106:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target.lean:124:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:125:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:123:15: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:124:8: warning: Unused tactic linter: `(rw [Finset.sum_const, Finset.card_univ, smul_eq_mul])` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:125:8: warning: Unused tactic linter: `(rw [Finset.sum_const, Finset.card_univ]; rfl)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
