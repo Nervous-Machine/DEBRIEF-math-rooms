@@ -1,0 +1,131 @@
+{
+ "regime": "B2_A_full",
+ "calls": 4,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0004",
+   "ok"
+  ]
+ ],
+ "per_node": {
+  "N16": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N37": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N28": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  }
+ },
+ "final_status_at_first_FINAL": "ok",
+ "shape": {
+  "declarations": 41,
+  "unused_by_root": [
+   "lte_corollary",
+   "lemma_2_3",
+   "lemma_2_4",
+   "pow_gt_two_mul_add_one",
+   "geom_sum_modEq",
+   "lemma_2_7"
+  ],
+  "unused_count": 6,
+  "root_found": true,
+  "depth": 7,
+  "own_lines_median": 12,
+  "own_lines": {
+   "coprime_p_q": 2,
+   "lte_corollary": 20,
+   "parity_split": 12,
+   "coprime_sub_add_of_odd": 18,
+   "prime_pow_coprime_split": 14,
+   "caseA_reduce": 25,
+   "caseA_mod_p": 10,
+   "three_pow_odd_mod_seven": 12,
+   "caseA_pow_ne": 11,
+   "lemma_2_3": 3,
+   "lemma_2_4": 3,
+   "caseA_no_solution": 6,
+   "caseB_split": 40,
+   "pow_gt_two_mul_add_one": 6,
+   "prop_2_5": 15,
+   "lemma_2_6": 14,
+   "caseB_trivial": 9,
+   "nontrivial_bounds": 10,
+   "geom_identity": 3,
+   "geom_sum_modEq": 15,
+   "lemma_2_7": 32,
+   "nontrivial_b_pos": 6,
+   "s_sub_r_cases_aux": 17,
+   "s_sub_r_cases": 4,
+   "s_ne_r_add_one": 3,
+   "k_param": 11,
+   "remark_2_8": 11,
+   "amgm_core": 9,
+   "amgm_pair": 14,
+   "geom_sum_lower": 18,
+   "bound6": 26,
+   "aux_eq_int": 20,
+   "trunc_binom": 12,
+   "lhs_expansion": 22,
+   "rhs_expansion": 12,
+   "aux_b_odd": 18,
+   "aux_div": 12,
+   "two_pow_ge": 4,
+   "aux_solution": 23,
+   "caseB_nontrivial": 37,
+   "consecutive_exponents": 32
+  },
+  "retry_named": [
+   "s_sub_r_cases_aux"
+  ],
+  "joins": [
+   "coprime_p_q",
+   "coprime_sub_add_of_odd",
+   "caseA_pow_ne",
+   "geom_identity",
+   "s_sub_r_cases_aux",
+   "trunc_binom",
+   "lhs_expansion",
+   "aux_b_odd"
+  ],
+  "edges": 44
+ },
+ "fit": {
+  "sorry": 0,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "bled with `set_option linter.unusedVariables false`\nRooms/Axioms.lean:350:5: warning: Variable name `hv` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hv\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nRooms/Axioms.lean:583:57: warning: Variable name `hodd` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hodd\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'Panda2608.consecutive_exponents' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": true,
+ "attempts_median": 1,
+ "attempts_median_joins": 1.0,
+ "attempts_median_leaves": 1
+}

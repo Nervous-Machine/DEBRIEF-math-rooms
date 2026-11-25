@@ -1,0 +1,4 @@
+0001	2026-11-25T23:48:27Z	N16	error	rc=1	secs=4	bytes=11116
+0002	2026-11-25T23:56:16Z	N37	error	rc=1	secs=4	bytes=27708
+0003	2026-11-25T23:56:44Z	N28	ok	rc=0	secs=4	bytes=27734
+0004	2026-11-25T23:57:52Z	FINAL	ok	rc=0	secs=4	bytes=27734

@@ -1,0 +1,63 @@
+Rooms/Target_B2_A_full.lean:30:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B2_A_full.lean:100:46: error: unsolved goals
+p a b z : ℕ
+hp : Nat.Prime p
+hodd : Odd p
+h : p ^ (2 * a + 1) + (2 * p + 1) ^ (2 * b) = z ^ 2
+v : ℕ := (2 * p + 1) ^ b
+hv : v = (2 * p + 1) ^ b
+⊢ (p * 2 + 1) ^ (2 * b) = (p * 2 + 1) ^ (b * 2)
+Rooms/Target_B2_A_full.lean:102:41: error: failed to prove strict positivity, but it would be possible to prove nonnegativity if desired
+Rooms/Target_B2_A_full.lean:106:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B2_A_full.lean:166:5: warning: Variable name `hab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:180:42: error(lean.unknownIdentifier): Unknown constant `Nat.pos_pow_of_pos`
+Rooms/Target_B2_A_full.lean:183:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B2_A_full.lean:220:43: warning: Variable name `hodd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hodd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:243:61: error: unsolved goals
+p b : ℕ
+hp : Nat.Prime p
+h : (2 * p + 1) ^ (2 * b + 1) = 2 * p ^ b + 1
+hp2 : 2 ≤ p
+h1 : (2 * p + 1) ^ (b + 1) ≤ (2 * p + 1) ^ (2 * b + 1)
+h2 : (2 * p) ^ (b + 1) ≤ (2 * p + 1) ^ (b + 1)
+⊢ 2 ^ b * 2 * p ^ (b + 1) = 2 ^ b * 2 * (p ^ b * p)
+Rooms/Target_B2_A_full.lean:257:21: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  2*c - d ≥ 0
+  b ≥ 0
+where
+ b := ↑(p ^ a)
+ c := ↑(p ^ ?m.118)
+ d := ↑((2 * p + 1) ^ (2 * ?m.118 + 1))
+Rooms/Target_B2_A_full.lean:259:8: warning: declaration uses `sorry`

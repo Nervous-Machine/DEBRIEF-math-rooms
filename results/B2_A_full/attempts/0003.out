@@ -1,0 +1,48 @@
+Rooms/Target_B2_A_full.lean:166:5: warning: Variable name `hab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:172:50: warning: Variable name `hodd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hodd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:172:65: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:220:43: warning: Variable name `hodd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hodd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:349:52: warning: Variable name `hodd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hodd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:349:67: warning: Variable name `hcop` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcop
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:350:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_A_full.lean:583:57: warning: Variable name `hodd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hodd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

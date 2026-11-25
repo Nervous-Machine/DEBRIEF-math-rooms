@@ -1,0 +1,21 @@
+Rooms/Target_B2_C_binary.lean:25:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B2_C_binary.lean:43:2: error: No goals to be solved
+Rooms/Target_B2_C_binary.lean:66:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B2_C_binary.lean:79:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B2_C_binary.lean:66:10: warning: Unused tactic linter: `exact Nat.dvd_sub' h2 h1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B2_C_binary.lean:79:8: warning: Unused tactic linter: `exact hcop2.dvd_of_dvd_mul_right (by rwa [mul_comm] at h2v)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
