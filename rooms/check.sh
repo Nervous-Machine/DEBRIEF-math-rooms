@@ -31,7 +31,7 @@ if [ $RC -eq 0 ] && ! grep -q -e 'error' -e "declaration uses 'sorry'" "$LOG/$SE
 [ $RC -eq 124 ] && STATUS=timeout
 printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$SEQ" "$TS" "$NODE" "$STATUS" "rc=$RC" "secs=$SECS" "bytes=$(wc -c < "$FILE" | tr -d ' ')" >> "$HERE/results/$REGIME/calls.tsv"
 case "$REGIME" in
-  R1_full) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;
+  R1_full|R1_noplan) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;   # R1_noplan: full feedback, no blueprint (amendment A5)
   R2_binary) echo "$STATUS" ;;
   R3_none) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;   # FINAL only: the one check, shown in full
   *) echo "$STATUS" ;;

@@ -243,3 +243,22 @@ amendments:
       reported by Lean as never executed. This is a diagnostic after the run, not a registered measure; it is filed as
       gap EG2 with a prediction to be written before the next build.
     hypothesis_status: "refuted for this build, by the falsifier restated in A2 (finding F1)"
+  - id: A5
+    written: "2026-11-25T22:49Z, before the no-blueprint arm runs"
+    what: >
+      A fourth arm, R1_noplan: full Lean feedback, a fresh searcher (Claude Fable 5.1) given the Challenge and the
+      pinned Mathlib source and nothing else: no blueprint, no paper, no other regime's files. It draws its own rooms.
+      Heidi Bennett asked for it after build 1 to separate "the structure as prior transfers" from "the problem is
+      small": if this arm also finishes in a few calls, size is the next variable; if it thrashes at its joins, the
+      rooms were what made the fill cheap.
+    instruments:
+      - "rooms/check.sh sha256 9eb07fee71922b52a05be2360924d703c3114e17863ac2d7ec8bea902ed8ec91 (R1_noplan added to the full-output case; nothing else changed)"
+      - "rooms/SEARCHER_NOPLAN_PROMPT.md sha256 2a1151c7c57b668156a75e5015630f046447fb6e7b8088fbd4b3006b904ceabf (the searcher brief with the blueprint paragraphs removed; the searcher names its own lemmas to the tool)"
+    predictions:
+      - "Q1 first FINAL ok"
+      - "Q2 at least 6 check calls (twice R1's 3)"
+      - "Q3 at least 2 calls return error (R1 had 1)"
+      - "Q4 10 to 25 declarations; depth within 2 of R1's 7"
+      - "Q5 more tokens than R1 (99,114)"
+      - "Q6 at most 6 first combinators (R2's count): with full feedback, hedging stays low"
+      - "Q7 at least one lemma name is retried or revised: a lemma name receives 2 or more calls"
