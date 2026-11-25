@@ -22,9 +22,9 @@ if [ "$NODE" != FINAL ]; then
   USED=$(awk -F'\t' -v n="$NODE" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
   [ "$USED" -ge 12 ] && refuse "cap of 12 attempts reached for node $NODE"
 fi
-limactl copy "$FILE" primegaps:/home/heidibennett.guest/rooms/project/Rooms/Target.lean >/dev/null 2>&1 || { echo "tool error: copy failed" ; exit 4; }
+limactl copy "$FILE" "primegaps:/home/heidibennett.guest/rooms/project/Rooms/Target_$REGIME.lean" >/dev/null 2>&1 || { echo "tool error: copy failed" ; exit 4; }
 START=$(date +%s)
-limactl shell primegaps -- sh -c 'cd ~/rooms/project && PATH=$HOME/.elan/bin:$PATH timeout 600 lake env lean Rooms/Target.lean' > "$LOG/$SEQ.out" 2>&1
+limactl shell primegaps -- sh -c 'cd ~/rooms/project && PATH=$HOME/.elan/bin:$PATH timeout 600 lake env lean Rooms/Target_'"$REGIME"'.lean' > "$LOG/$SEQ.out" 2>&1
 RC=$?
 SECS=$(( $(date +%s) - START ))
 if [ $RC -eq 0 ] && ! grep -q -e 'error' -e "declaration uses 'sorry'" "$LOG/$SEQ.out"; then STATUS=ok; else STATUS=error; fi   # a file with sorry is not ok

@@ -77,3 +77,18 @@ instruments:
   searcher_brief: {path: rooms/SEARCHER_PROMPT_2608.md, sha256: "e92641f1ec5fa77f725225e1e3effbc78cc9ca15d099455c852214845994bcc8"}
   searcher_noplan_brief: {path: rooms/SEARCHER_NOPLAN_PROMPT_2608.md, sha256: "1d495ebdf9cd0c0ce05939966687bc224d852bbba67e0bca4a3ec06e595baef1"}
   audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
+
+amendments:
+  - id: A1
+    written: "2026-11-25T23:24Z, after the planner and before arms A, C, D; arm B is running"
+    planner: >
+      Claude Opus 5.5, fresh context, brief as registered. 37 nodes plus ROOT, 13 joins, following the paper's route
+      (parity split; Case A; Case B split; trivial split with LTE; non-trivial split with the gcd chain, s − r ∈ {1,2},
+      p = 2k² − 1; the auxiliary equation with the AM–GM bound and the mod 2k² congruence). Transcript audited with
+      rooms/audit.py: reads of the brief, the statement and the paper; grep and sed in the pinned Mathlib source; no
+      web, no git, no other build's files. Four paper steps had no direct Mathlib lemma and became nodes (the
+      truncated binomial expansion, the expansion of (2k²−1)^(b+1), the paired AM–GM on the geometric sum, the order of
+      3 mod 7 as a concrete residue fact).
+    sealed: "blueprint_2608_predictions.yaml, sha256 committed as blueprint_2608_predictions.sha256, held outside the repository by Heidi Bennett; opened after arm D"
+    leak: "the planner's report told the registrar that N37 is predicted hardest, N20 second, and ROOT's prediction; no other prediction has been read"
+    tool_change: "rooms/check.sh sha256 299ce1a2090238b31f4385535398d70044a1159dcf73ac3f730dc6b4a16fffca: the file compiled in the VM is now Rooms/Target_<REGIME>.lean instead of a shared Rooms/Target.lean, so two arms can run at once without clobbering each other; output rules unchanged. Arm B was launched before this change and continues under it."

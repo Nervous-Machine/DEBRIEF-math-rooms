@@ -1,0 +1,526 @@
+# Build 2, the planner's rooms for arXiv:2608.18608: statements, dependencies, Mathlib roots, join/leaf marks. Predictions sealed.
+root: consecutive_exponents
+nodes:
+- id: N01
+  name: coprime_p_q
+  statement: 'theorem coprime_p_q (p : ℕ) : Nat.Coprime p (2 * p + 1) := by
+
+    '
+  depends_on: []
+  mathlib_roots:
+  - Nat.coprime_mul_right_add_right
+  - Nat.coprime_one_right
+  kind: join
+- id: N02
+  name: lte_corollary
+  statement: "theorem lte_corollary (p : ℕ) (hp : p.Prime) (hodd : Odd p) (b : ℕ) :\n    padicValNat p ((2 * p +\
+    \ 1) ^ (2 * b + 1) - 1) = 1 + padicValNat p (2 * b + 1) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - padicValNat.pow_sub_pow
+  - padicValNat.mul
+  - padicValNat.self
+  - padicValNat.eq_zero_of_not_dvd
+  - Nat.Prime.two_le
+  - Fact.mk
+  - one_pow
+  kind: leaf
+- id: N03
+  name: parity_split
+  statement: "theorem parity_split (x y : ℕ) (hxy : x = y + 1 ∨ y = x + 1) :\n    (∃ a b : ℕ, x = 2 * a + 1 ∧ y\
+    \ = 2 * b ∧ (b = a ∨ b = a + 1)) ∨\n    (∃ a b : ℕ, x = 2 * a ∧ y = 2 * b + 1 ∧ (a = b + 1 ∨ a = b)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.even_or_odd'
+  - Nat.even_or_odd
+  kind: leaf
+- id: N04
+  name: coprime_sub_add_of_odd
+  statement: "theorem coprime_sub_add_of_odd (u v w : ℕ) (hvu : v < u) (hw : Odd w)\n    (h : (u - v) * (u + v)\
+    \ = w) (hcop : Nat.Coprime v w) :\n    Nat.Coprime (u - v) (u + v) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.coprime_of_dvd
+  - Nat.dvd_sub
+  - Odd.of_dvd_nat
+  - Nat.Coprime.dvd_of_dvd_mul_left
+  - Nat.Coprime.coprime_dvd_left
+  - Nat.Coprime.eq_one_of_dvd
+  - Nat.Prime.dvd_mul
+  kind: join
+- id: N05
+  name: prime_pow_coprime_split
+  statement: "theorem prime_pow_coprime_split (p m n k : ℕ) (hp : p.Prime) (h : m * n = p ^ k)\n    (hc : Nat.Coprime\
+    \ m n) : m = 1 ∨ n = 1 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.dvd_prime_pow
+  - Dvd.intro
+  - Nat.Coprime.pow
+  - Nat.coprime_pow_left_iff
+  - Nat.Prime.coprime_iff_not_dvd
+  kind: leaf
+- id: N06
+  name: caseA_reduce
+  statement: "theorem caseA_reduce (p a b z : ℕ) (hp : p.Prime) (hodd : Odd p)\n    (h : p ^ (2 * a + 1) + (2 *\
+    \ p + 1) ^ (2 * b) = z ^ 2) :\n    p ^ (2 * a + 1) = 2 * (2 * p + 1) ^ b + 1 := by\n"
+  depends_on:
+  - N01
+  - N04
+  - N05
+  mathlib_roots:
+  - Nat.sq_sub_sq
+  - Nat.pow_lt_pow_left
+  - Nat.Coprime.pow
+  - Odd.pow
+  - pow_mul
+  - Nat.sub_eq_iff_eq_add
+  kind: leaf
+- id: N07
+  name: caseA_mod_p
+  statement: "theorem caseA_mod_p (p n m : ℕ) (hp : p.Prime) (hn : 1 ≤ n)\n    (h : p ^ n = 2 * (2 * p + 1) ^ m\
+    \ + 1) : p = 3 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.ModEq
+  - Nat.ModEq.pow
+  - Nat.modEq_zero_iff_dvd
+  - Nat.prime_dvd_prime_iff_eq
+  - Nat.prime_three
+  - dvd_pow_self
+  - Nat.dvd_add_right
+  kind: join
+- id: N08
+  name: three_pow_odd_mod_seven
+  statement: 'theorem three_pow_odd_mod_seven (a : ℕ) : 3 ^ (2 * a + 1) % 7 ≠ 1 := by
+
+    '
+  depends_on: []
+  mathlib_roots:
+  - Nat.pow_mod
+  - pow_mul
+  - pow_succ
+  - Nat.mul_mod
+  - Nat.mod_two_eq_zero_or_one
+  kind: join
+- id: N09
+  name: lemma_2_3
+  statement: "theorem lemma_2_3 (p a : ℕ) (hp : p.Prime) (hodd : Odd p) :\n    p ^ (2 * a + 1) ≠ 2 * (2 * p + 1)\
+    \ ^ (a + 1) + 1 := by\n"
+  depends_on:
+  - N07
+  - N08
+  mathlib_roots:
+  - Nat.pow_mod
+  - Nat.mul_mod
+  - Nat.add_mod
+  kind: leaf
+- id: N10
+  name: lemma_2_4
+  statement: "theorem lemma_2_4 (p a : ℕ) (hp : p.Prime) (hodd : Odd p) (ha : 1 ≤ a) :\n    p ^ (2 * a + 1) ≠ 2\
+    \ * (2 * p + 1) ^ a + 1 := by\n"
+  depends_on:
+  - N07
+  - N08
+  mathlib_roots:
+  - Nat.pow_mod
+  - Nat.mul_mod
+  - Nat.add_mod
+  - Nat.exists_eq_add_of_le
+  kind: leaf
+- id: N11
+  name: caseA_no_solution
+  statement: "theorem caseA_no_solution (p a b z : ℕ) (hp : p.Prime) (hodd : Odd p) (hb : 1 ≤ b)\n    (hab : b =\
+    \ a ∨ b = a + 1)\n    (h : p ^ (2 * a + 1) + (2 * p + 1) ^ (2 * b) = z ^ 2) : False := by\n"
+  depends_on:
+  - N06
+  - N09
+  - N10
+  mathlib_roots: []
+  kind: join
+- id: N12
+  name: caseB_split
+  statement: "theorem caseB_split (p a b z : ℕ) (hp : p.Prime) (hodd : Odd p) (ha : 1 ≤ a)\n    (h : p ^ (2 * a)\
+    \ + (2 * p + 1) ^ (2 * b + 1) = z ^ 2) :\n    ∃ r s : ℕ, r * s = 2 * p + 1 ∧ Nat.Coprime r s ∧ r < s ∧\n   \
+    \   z = p ^ a + r ^ (2 * b + 1) ∧ s ^ (2 * b + 1) = r ^ (2 * b + 1) + 2 * p ^ a := by\n"
+  depends_on:
+  - N01
+  - N04
+  mathlib_roots:
+  - exists_eq_pow_of_mul_eq_pow
+  - Nat.Coprime.isUnit_gcd
+  - Nat.isUnit_iff
+  - Nat.sq_sub_sq
+  - Nat.pow_left_injective
+  - Nat.coprime_pow_left_iff
+  - Nat.coprime_pow_right_iff
+  - Nat.pow_lt_pow_iff_left
+  - mul_pow
+  - Nat.Coprime.pow
+  kind: join
+- id: N13
+  name: pow_gt_two_mul_add_one
+  statement: 'theorem pow_gt_two_mul_add_one (p b : ℕ) (hp : 3 ≤ p) (hb : 2 ≤ b) : 2 * b + 1 < p ^ b := by
+
+    '
+  depends_on: []
+  mathlib_roots:
+  - Nat.le_induction
+  - pow_succ
+  - Nat.pow_le_pow_left
+  kind: leaf
+- id: N14
+  name: prop_2_5
+  statement: "theorem prop_2_5 (p b : ℕ) (hp : p.Prime) (hodd : Odd p)\n    (h : (2 * p + 1) ^ (2 * b + 1) = 2 *\
+    \ p ^ (b + 1) + 1) : b = 0 := by\n"
+  depends_on:
+  - N02
+  - N13
+  mathlib_roots:
+  - padicValNat.mul
+  - padicValNat.prime_pow
+  - padicValNat.eq_zero_of_not_dvd
+  - padicValNat_dvd_iff_le
+  - pow_padicValNat_dvd
+  - Nat.le_of_dvd
+  - Nat.Prime.eq_two_or_odd'
+  - Nat.Prime.two_le
+  - Nat.prime_dvd_prime_iff_eq
+  kind: leaf
+- id: N15
+  name: lemma_2_6
+  statement: "theorem lemma_2_6 (p b : ℕ) (hp : p.Prime) :\n    (2 * p + 1) ^ (2 * b + 1) ≠ 2 * p ^ b + 1 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.pow_le_pow_left
+  - Nat.pow_le_pow_right
+  - Nat.pow_lt_pow_left
+  - pow_succ
+  - Nat.Prime.two_le
+  kind: leaf
+- id: N16
+  name: caseB_trivial
+  statement: "theorem caseB_trivial (p a b : ℕ) (hp : p.Prime) (hodd : Odd p) (hab : a = b + 1 ∨ a = b)\n    (h\
+    \ : (2 * p + 1) ^ (2 * b + 1) = 1 + 2 * p ^ a) : a = 1 ∧ b = 0 := by\n"
+  depends_on:
+  - N14
+  - N15
+  mathlib_roots: []
+  kind: join
+- id: N17
+  name: nontrivial_bounds
+  statement: "theorem nontrivial_bounds (p r s : ℕ) (hrs : r * s = 2 * p + 1) (hr : 1 < r) (hlt : r < s) :\n   \
+    \ 3 ≤ r ∧ s < p := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.odd_mul
+  - Odd
+  - Nat.odd_iff
+  - Nat.mul_le_mul_right
+  kind: leaf
+- id: N18
+  name: geom_identity
+  statement: "theorem geom_identity (r s n : ℕ) (hrs : r ≤ s) :\n    (∑ i ∈ Finset.range n, r ^ i * s ^ (n - 1 -\
+    \ i)) * (s - r) = s ^ n - r ^ n := by\n"
+  depends_on: []
+  mathlib_roots:
+  - geom_sum₂_mul_of_le
+  kind: join
+- id: N19
+  name: geom_sum_modEq
+  statement: "theorem geom_sum_modEq (r s n : ℕ) (hrs : r ≤ s) :\n    (∑ i ∈ Finset.range n, r ^ i * s ^ (n - 1\
+    \ - i)) ≡ n * r ^ (n - 1) [MOD (s - r)] := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.ModEq.sum
+  - Nat.ModEq.pow
+  - Nat.ModEq.mul_left
+  - Nat.modEq_iff_dvd'
+  - Finset.sum_const
+  - Finset.card_range
+  - smul_eq_mul
+  - pow_add
+  kind: leaf
+- id: N20
+  name: lemma_2_7
+  statement: "theorem lemma_2_7 (p r s a b : ℕ) (hp : p.Prime) (hodd : Odd p) (hcop : Nat.Coprime r s)\n    (hr\
+    \ : 3 ≤ r) (hlt : r < s) (hsp : s < p)\n    (h : (∑ i ∈ Finset.range (2 * b + 1), r ^ i * s ^ (2 * b - i)) *\
+    \ (s - r) = 2 * p ^ a) :\n    Nat.Coprime (s - r) (∑ i ∈ Finset.range (2 * b + 1), r ^ i * s ^ (2 * b - i))\
+    \ := by\n"
+  depends_on:
+  - N19
+  mathlib_roots:
+  - Nat.ModEq.dvd_iff
+  - Nat.Coprime.dvd_of_dvd_mul_right
+  - Nat.Coprime.pow_left
+  - Nat.coprime_self_sub_right
+  - Odd.of_dvd_nat
+  - Nat.mul_dvd_mul
+  - Nat.Coprime.dvd_of_dvd_mul_left
+  - Nat.dvd_prime_pow
+  - Nat.le_of_dvd
+  - Nat.coprime_of_dvd
+  kind: leaf
+- id: N21
+  name: nontrivial_b_pos
+  statement: "theorem nontrivial_b_pos (p r s a : ℕ) (hsp : s < p) (ha : 1 ≤ a)\n    (h : s = r + 2 * p ^ a) : False\
+    \ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.le_self_pow
+  kind: leaf
+- id: N22
+  name: s_sub_r_cases
+  statement: "theorem s_sub_r_cases (p u v a : ℕ) (hp : p.Prime) (hodd : Odd p) (hcop : Nat.Coprime u v)\n    (hv\
+    \ : 3 ≤ v) (hu : u < p) (h : v * u = 2 * p ^ a) :\n    (u = 1 ∧ v = 2 * p ^ a) ∨ (u = 2 ∧ v = p ^ a) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.Prime.coprime_iff_not_dvd
+  - Nat.Coprime.pow_right
+  - Nat.Coprime.dvd_of_dvd_mul_right
+  - Nat.le_of_dvd
+  - Nat.dvd_prime
+  - Nat.prime_two
+  - Nat.eq_of_mul_eq_mul_left
+  kind: leaf
+- id: N23
+  name: s_ne_r_add_one
+  statement: 'theorem s_ne_r_add_one (p r : ℕ) (h : r * (r + 1) = 2 * p + 1) : False := by
+
+    '
+  depends_on: []
+  mathlib_roots:
+  - Nat.even_mul_succ_self
+  - Nat.even_add_one
+  kind: leaf
+- id: N24
+  name: k_param
+  statement: "theorem k_param (p r : ℕ) (hr : 3 ≤ r) (h : r * (r + 2) = 2 * p + 1) :\n    ∃ k : ℕ, 2 ≤ k ∧ r = 2\
+    \ * k - 1 ∧ p = 2 * k ^ 2 - 1 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.odd_mul
+  - Nat.odd_iff
+  - Odd
+  kind: leaf
+- id: N25
+  name: remark_2_8
+  statement: "theorem remark_2_8 (p r s b : ℕ) (hb : 1 ≤ b) (hrs : r * s = 2 * p + 1)\n    (hS : ∑ i ∈ Finset.range\
+    \ (2 * b + 1), r ^ i * s ^ (2 * b - i) = p ^ b) : False := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.single_le_sum
+  - Finset.mem_range
+  - mul_pow
+  - Nat.pow_lt_pow_left
+  kind: leaf
+- id: N26
+  name: amgm_pair
+  statement: "theorem amgm_pair (X Y b i : ℕ) (hi : i ≤ 2 * b) :\n    2 * (Y ^ b * X ^ b) ≤ Y ^ i * X ^ (2 * b -\
+    \ i) + Y ^ (2 * b - i) * X ^ i := by\n"
+  depends_on: []
+  mathlib_roots:
+  - two_mul_le_add_sq
+  - pow_add
+  - mul_pow
+  - Nat.sub_add_cancel
+  - le_total
+  kind: leaf
+- id: N27
+  name: geom_sum_lower
+  statement: "theorem geom_sum_lower (X Y b : ℕ) :\n    (2 * b + 1) * (Y ^ b * X ^ b) ≤ ∑ i ∈ Finset.range (2 *\
+    \ b + 1), Y ^ i * X ^ (2 * b - i) := by\n"
+  depends_on:
+  - N26
+  mathlib_roots:
+  - Finset.sum_range_reflect
+  - Finset.sum_add_distrib
+  - Finset.sum_le_sum
+  - Finset.sum_const
+  - Finset.card_range
+  - Finset.mul_sum
+  kind: leaf
+- id: N28
+  name: bound6
+  statement: "theorem bound6 (k b : ℕ) (hk : 2 ≤ k) (hb : 1 ≤ b)\n    (hS : ∑ i ∈ Finset.range (2 * b + 1), (2 *\
+    \ k - 1) ^ i * (2 * k + 1) ^ (2 * b - i)\n      = (2 * k ^ 2 - 1) ^ (b + 1)) :\n    (2 * b + 1) * 2 ^ b < 2\
+    \ * k ^ 2 - 1 := by\n"
+  depends_on:
+  - N27
+  mathlib_roots:
+  - mul_pow
+  - Nat.pow_lt_pow_left
+  - pow_succ
+  - Nat.lt_of_mul_lt_mul_right
+  - Nat.mul_lt_mul_of_pos_left
+  kind: leaf
+- id: N29
+  name: aux_eq_int
+  statement: "theorem aux_eq_int (k b : ℕ) (hk : 2 ≤ k)\n    (hS : ∑ i ∈ Finset.range (2 * b + 1), (2 * k - 1) ^\
+    \ i * (2 * k + 1) ^ (2 * b - i)\n      = (2 * k ^ 2 - 1) ^ (b + 1)) :\n    (2 * (k : ℤ) + 1) ^ (2 * b + 1) -\
+    \ (2 * (k : ℤ) - 1) ^ (2 * b + 1)\n      = 2 * (2 * (k : ℤ) ^ 2 - 1) ^ (b + 1) := by\n"
+  depends_on:
+  - N18
+  mathlib_roots:
+  - geom_sum₂_mul
+  - Nat.cast_sum
+  - Nat.cast_sub
+  - Nat.cast_pow
+  - Nat.cast_mul
+  - push_cast
+  kind: leaf
+- id: N30
+  name: trunc_binom
+  statement: "theorem trunc_binom (t : ℤ) (n : ℕ) :\n    ∃ A : ℤ, (t + 1) ^ n = 1 + n * t + (n.choose 2 : ℤ) * t\
+    \ ^ 2 + (n.choose 3 : ℤ) * t ^ 3 + t ^ 4 * A := by\n"
+  depends_on: []
+  mathlib_roots:
+  - add_pow
+  - Finset.sum_range_succ
+  - Nat.choose_succ_succ
+  - Nat.choose_zero_right
+  - Nat.choose_one_right
+  - pow_succ
+  kind: join
+- id: N31
+  name: lhs_expansion
+  statement: "theorem lhs_expansion (k : ℤ) (b : ℕ) :\n    ∃ A : ℤ, (2 * k + 1) ^ (2 * b + 1) - (2 * k - 1) ^ (2\
+    \ * b + 1)\n      = 2 + 8 * (b : ℤ) * (2 * b + 1) * k ^ 2 + 16 * k ^ 4 * A := by\n"
+  depends_on:
+  - N30
+  mathlib_roots:
+  - Odd.neg_pow
+  - Nat.choose_two_right
+  - Nat.choose_symm_diff
+  - neg_add_eq_sub
+  - Nat.cast_mul
+  - Nat.cast_choose
+  kind: join
+- id: N32
+  name: rhs_expansion
+  statement: "theorem rhs_expansion (k : ℤ) (b : ℕ) (hb : Odd b) :\n    ∃ D : ℤ, (2 * k ^ 2 - 1) ^ (b + 1) = 1 -\
+    \ 2 * ((b : ℤ) + 1) * k ^ 2 + 4 * k ^ 4 * D := by\n"
+  depends_on:
+  - N30
+  mathlib_roots:
+  - Even.neg_pow
+  - Odd.add_one
+  - neg_sub
+  - Nat.cast_add
+  kind: leaf
+- id: N33
+  name: aux_b_odd
+  statement: "theorem aux_b_odd (k : ℤ) (b : ℕ) (hk : 2 ≤ k)\n    (h : (2 * k + 1) ^ (2 * b + 1) - (2 * k - 1) ^\
+    \ (2 * b + 1) = 2 * (2 * k ^ 2 - 1) ^ (b + 1)) :\n    Odd b := by\n"
+  depends_on:
+  - N31
+  mathlib_roots:
+  - Int.ModEq
+  - Int.ModEq.pow
+  - Int.emod_emod_of_dvd
+  - Int.modEq_iff_dvd
+  - Nat.even_or_odd
+  - Even.neg_one_pow
+  - Odd.neg_one_pow
+  - Int.le_of_dvd
+  kind: leaf
+- id: N34
+  name: aux_div
+  statement: "theorem aux_div (k : ℤ) (b : ℕ) (hk : 2 ≤ k)\n    (h : (2 * k + 1) ^ (2 * b + 1) - (2 * k - 1) ^ (2\
+    \ * b + 1) = 2 * (2 * k ^ 2 - 1) ^ (b + 1)) :\n    2 * k ^ 2 ∣ 4 * (b : ℤ) ^ 2 + 3 * b + 1 := by\n"
+  depends_on:
+  - N31
+  - N32
+  - N33
+  mathlib_roots:
+  - mul_left_cancel₀
+  - Dvd.intro
+  - pow_ne_zero
+  kind: leaf
+- id: N35
+  name: two_pow_ge
+  statement: 'theorem two_pow_ge (b : ℕ) (hb : 3 ≤ b) : 2 * b + 2 ≤ 2 ^ b := by
+
+    '
+  depends_on: []
+  mathlib_roots:
+  - Nat.le_induction
+  - pow_succ
+  kind: leaf
+- id: N36
+  name: aux_solution
+  statement: "theorem aux_solution (k b : ℕ) (hk : 2 ≤ k) (hb : 1 ≤ b)\n    (hS : ∑ i ∈ Finset.range (2 * b + 1),\
+    \ (2 * k - 1) ^ i * (2 * k + 1) ^ (2 * b - i)\n      = (2 * k ^ 2 - 1) ^ (b + 1)) :\n    k = 2 ∧ b = 1 := by\n"
+  depends_on:
+  - N28
+  - N29
+  - N33
+  - N34
+  - N35
+  mathlib_roots:
+  - Int.le_of_dvd
+  - Int.natCast_dvd_natCast
+  - Nat.le_of_dvd
+  - Nat.pow_le_pow_left
+  - Odd
+  kind: join
+- id: N37
+  name: caseB_nontrivial
+  statement: "theorem caseB_nontrivial (p a b r s : ℕ) (hp : p.Prime) (hodd : Odd p) (ha : 1 ≤ a)\n    (hab : a\
+    \ = b + 1 ∨ a = b) (hrs : r * s = 2 * p + 1) (hcop : Nat.Coprime r s)\n    (hr : 1 < r) (hlt : r < s) (h : s\
+    \ ^ (2 * b + 1) = r ^ (2 * b + 1) + 2 * p ^ a) :\n    p = 7 ∧ a = 2 ∧ b = 1 ∧ r = 3 := by\n"
+  depends_on:
+  - N17
+  - N18
+  - N20
+  - N21
+  - N22
+  - N23
+  - N24
+  - N25
+  - N36
+  mathlib_roots:
+  - Nat.sub_eq_iff_eq_add
+  - Nat.add_sub_cancel
+  - Finset.sum_range_one
+  - Nat.pos_of_ne_zero
+  kind: join
+- id: ROOT
+  name: consecutive_exponents
+  statement: "theorem consecutive_exponents (p x y z : ℕ) (hp : p.Prime) (hodd : Odd p)\n    (hx : 0 < x) (hy :\
+    \ 0 < y) (hz : 0 < z)\n    (hxy : x = y + 1 ∨ y = x + 1)\n    (h : p ^ x + (2 * p + 1) ^ y = z ^ 2) :\n    (x,\
+    \ y, z) = (2, 1, p + 1) ∨ (p = 7 ∧ (x, y, z) = (4, 3, 76)) := by\n"
+  depends_on:
+  - N03
+  - N11
+  - N12
+  - N16
+  - N37
+  mathlib_roots:
+  - Prod.mk.injEq
+  kind: join
+notes: 'Parity split (N03). Case A (x odd): z^2 - q^(2b) = p^(2a+1) is a coprime
+
+  factorization of a prime power (N04,N05), giving p^(2a+1) = 2q^b + 1 (N06); mod p forces p = 3
+
+  (N07), then 3^(odd) mod 7 kills both sub-cases (N08-N10, Lemmas 2.3/2.4). Case B (x even):
+
+  q^(2b+1) = (z-p^a)(z+p^a), coprime, so z-p^a = r^n, z+p^a = s^n with rs = q (N12). r = 1 is the
+
+  trivial split: Prop 2.5 via LTE (N02,N13,N14) and Lemma 2.6 (N15) leave (2,1,p+1). r > 1: geometric
+
+  sum identity, Lemma 2.7 gcd, s-r in {1,2}, s-r=2 gives r = 2k-1, p = 2k^2-1 (N17-N24); Remark 2.8
+
+  kills a = b (N25); a = b+1 gives the auxiliary equation, closed by AM-GM bound (6) (N26-N28) and
+
+  the mod-2k^2 argument (8) (N29-N34): k = 2, b = 1 (N36), so p = 7, (4,3,76) (N37).
+
+  Hardest: N37 (nine-node bookkeeping, nat subtraction) and N20 (Lemma 2.7''s
+
+  gcd chain). The binomial truncation (7) has no direct Mathlib form; I replaced it by a generic
+
+  truncated binomial (N30). The paper''s "(2k^2-1)^(b+1) = 1-2(b+1)k^2+4k^4D"
+
+  needs b+1 even, hence N33 before N32. No Mathlib lemma for the pairwise AM-GM on a geometric sum.
+
+  '
