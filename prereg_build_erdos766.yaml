@@ -1,0 +1,175 @@
+# Pre-registration, cycle "build-2026-11-25-erdos766": a small proof built from a fixed prior under three error-signal
+# regimes. Written 2026-11-25T21:45Z, BEFORE any planner or searcher has run. The pinned project exists in the VM
+# (Mathlib ccbef15e, Lean v4.35.0; the Challenge compiles with its sorry in 4 s) and the check tool has been dry-run on
+# the Challenge and on a deliberately false file; no proof work of any kind has been done. Changes after this point go
+# in an amendment at the end of this file, not in the body.
+#
+# Occasion. The Alpöge archive showed a proof whose shape (a chain of small steps, variant lemmas concentrated at the
+# joins, a third of its constants unused) reads as a search sized to a fast exact error signal. That reading rests on
+# one archive with no attempt log and no control over the signal. This cycle builds a small proof where both exist:
+# the prior is fixed (one 1964 paragraph of Erdős and Mathlib at one commit), a planner predicts the cost of each step
+# before any search, and the same blueprint is then searched three times with the error signal set differently each
+# time. The target is a theorem whose Lean statement and whose only Lean proof both appeared after June 2026, so a
+# search agent sealed from the web has seen neither.
+#
+# Design in one sentence (Heidi, 2026-11-25): the planner draws the rooms (the fixed structure from the paper and
+# Mathlib, the prior); the searcher works the hinges (the joins between rooms) with the feedback set by the regime; the
+# RH structure is retried on a different theorem to see how the model does when there is no human guide after the prior.
+#
+# Caveats stated before the data. (1) The mathematics (Dirac 1963, Erdős 1964) is old and the searcher's model knows
+# it; what is fresh is the Lean bridge, which is the thing being measured. (2) One theorem, one model, one run per
+# regime: this is an instrument shakedown and a first point, not a curve. (3) The control proof (Wentao Li with Claude
+# Opus 5.5, November 2026) is machine-assisted too; there is no human-only Lean control for this statement. (4) The
+# registrar (this session) has read the seven lemma docstrings of the control proof and the human paper. It therefore
+# may not act as planner or searcher. Planner and searcher are fresh contexts with the inputs listed below and nothing
+# else. (5) Freshness was checked on 2026-11-25 against GitHub code search, the machine libraries (atlas-lean,
+# math-proof/lemma, TauCeti, tengoku, LeanPool), formal-conjectures and the AFTD auto-formalizer index; a proof that
+# appears elsewhere after that date does not void the cycle but is recorded.
+
+mission: rooms-2026-11        # repository DEBRIEF-math-rooms, one repo for the whole experiment
+cycle: "build-2026-11-25-erdos766"
+kind: hypothesis           # this registration is the hypothesis cycle; results follow as data cycles, one per regime
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; planner and searcher as below)"
+dated: "2026-11-25"
+question: >
+  Given a fixed prior (Erdős's 1964 averaging paragraph and Mathlib at one commit) and a licensed Lean statement of
+  the Dirac–Erdős bound, how far does a planner's per-step cost prediction miss the search's actual cost, and how do
+  step size, retries and fit indicators change when the error signal is full Lean feedback, accept/reject only, or
+  absent until the end?
+
+target:
+  theorem: "Erdos766.erdos_766.variants.dirac_erdos"
+  statement_in_words: >
+    For 3 ≤ k ≤ n, every graph on n vertices with ⌊n²/4⌋+1 edges contains a subgraph on k vertices with ⌊k²/4⌋+1
+    edges (k = 3 is Mantel's theorem).
+  statement_source:
+    repository: "https://github.com/google-deepmind/formal-conjectures"
+    path: "FormalConjectures/ErdosProblems/766.lean"
+    commit: "691719db2653905d5fa0775408370fb058e4c59f"     # 2026-11-11; statement first added 2026-10-19
+    license: "Apache-2.0"
+    note: "copied verbatim with attribution; the searcher may not alter the statement or the definitions it uses"
+  challenge_file_sha256: "4558361d99720a21dc5b1f58c27c93f1be94dc93563669a6a6710d16300ced30"   # Challenge.lean as packaged for Palomar (imports Mathlib only; sorry)
+
+prior:
+  human_proof:
+    source: "Erdős, P., Extremal problems in graph theory, Theory of Graphs and its Applications (Smolenice 1963), 1964, p. 34"
+    pdf: "https://www.renyi.hu/~p_erdos/1964-06.pdf"
+    sha256: "da94695e12fd0b426935d086af9218e2a7ffa155e0ff900fccf67a85ae9637d1"
+    given_to: [planner]        # the searcher does not see the paper: the blueprint is its only prior
+  mathlib:
+    commit: "ccbef15ebdb41c2addfac682131f83c75904c3c1"   # 2026-10-16; the control's pin, so both chains stand on the same Mathlib and the control compiles in the same project
+    lean: "v4.35.0"
+    given_to: [planner, searcher]
+  excluded_from_planner_and_searcher:
+    - the control proof (fc-palomar-proofs, any file)
+    - for the searcher only: the human paper and the planner's predictions
+    - any web access, search tool or fetch tool
+    - this registration's predictions section
+    - the registrar's conversation
+
+control:
+  repository: "https://github.com/VictorLiwentao/fc-palomar-proofs"
+  path: "FCPalomar/Erdos766/Solution.lean"
+  commit: "57b5832f2db007a3cc3ffad09be4bad09b9e34ce"     # 2026-11-17
+  size: "212 lines, 7 declarations"
+  authorship: "Wentao Li, written with Claude Code (Claude Opus 5.5); Apache-2.0"
+  registry: "https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-19-000006"
+  used: "only after all three regimes have finished, for the shape comparison in the data cycles"
+
+roles:
+  registrar: "this session: writes this file, hashes it, runs the scorer, never writes Lean for the target"
+  planner:
+    context: fresh
+    model: claude-opus-5-5     # settled 2026-11-25
+    inputs: [human_proof, mathlib docs for the Mathlib commit, Challenge.lean]
+    output: >
+      blueprint.yaml: an ordered list of nodes (lemma statements in Lean, with the Mathlib facts each is expected to
+      rest on and which nodes depend on which), and for every node a prediction: attempts needed, tokens, wall
+      minutes, and whether the node is a join (≥2 dependents) or a leaf.
+    sealing: >
+      blueprint.yaml is split into blueprint_nodes.yaml (statements and dependencies, given to the searcher) and
+      blueprint_predictions.yaml (held by Heidi, sha256 committed before any searcher starts, opened by the scorer
+      after the last regime).
+  searcher:
+    context: fresh, one per regime, same model, same prompt apart from the regime's signal description
+    model: claude-fable-5-1    # settled 2026-11-25
+    inputs: [Challenge.lean, blueprint_nodes.yaml, mathlib, the regime's checker interface]   # no paper
+    tools: "a single `check` tool that writes the current file and runs `lake env lean` on it; nothing else"
+    seal: "no web, no search, no file access outside the project directory; every call to `check` is logged with the full file"
+  sealed_holder: "Heidi Bennett"
+
+regimes:                     # run in this order, each from a fresh searcher context
+  R1_full:
+    check_returns: "Lean's complete output: errors with positions, goal states, warnings"
+  R2_binary:
+    check_returns: "one token: ok or error"
+  R3_none:
+    check_returns: "nothing during the search; `check` is disabled until the searcher declares the file final, then runs once"
+
+caps:                        # a node that exceeds a cap is marked failed and the searcher moves on; exceeding is recorded, never extended
+  attempts_per_node: 12      # R1, R2; R3 has one attempt by construction
+  tokens_per_regime: 2000000 # input+output; settled 2026-11-25
+  wall_minutes_per_regime: 180      # settled 2026-11-25
+  lean_timeout_seconds: 600
+
+measurements:                # computed by the scorer from the check log and the final file; all written to results/ before the control is opened
+  per_node: [attempts, tokens, wall_minutes, final_status, statement_changed_from_blueprint, hypotheses_added, sorry_or_axiom_used]
+  per_regime:
+    - comparator_pass: "final file compiles against Challenge.lean's statement with the standard three axioms only"
+    - declarations_total, declarations_unused_by_root     # search residue
+    - retries: "declarations whose names match the retry regex of the suffix trace, plus attempt counts from the log"
+    - joins_vs_leaves: "median attempts at join nodes against leaf nodes"
+    - depth: "longest dependency path from the root to a Mathlib constant within the file"
+    - own_lines_median: "lines per declaration, for the step-size comparison with the archive's hinges (median 4, 7 after editing)"
+    - fit_indicators: "count of: statement changed, hypothesis added to the root or a node, sorry, axiom, definition altered, weaker variant proved instead"
+    - planner_error: "per node log2(actual_attempts / predicted_attempts), reported as median over joins and over leaves"
+  after_control_opened:
+    - shape_vs_control: "declarations, depth, own_lines_median, retry count for the control file under the same scorer"
+
+predictions:                 # the registrar's, fixed here; the planner's per-node predictions are sealed separately
+  - id: P1
+    says: "R1 and R2 pass the comparator; R3 does not pass as first declared final"
+  - id: P2
+    says: "median attempts per node in R2 ≥ 1.5 × median in R1"
+  - id: P3
+    says: "in R1 the planner's median log2 error is larger at joins than at leaves (the joins are where the target is learned from the signal)"
+  - id: P4
+    says: "R3's final file shows at least one fit indicator; R1's final file shows none that survives the comparator"
+  - id: P5
+    says: "R1 and R2 each leave at least one declaration unused by the root; R3 leaves none"
+  - id: P6
+    says: "R1's own_lines_median is at most 10, in the range of the archive's hinges"
+  - id: P7
+    says: "R1 uses fewer total tokens than R2"
+  - id: P8
+    says: "R1's depth is within 2 of the control's depth"
+
+instruments:                 # committed with this file; hashes fixed here. A change to any of them after this commit is an amendment.
+  check_tool: {path: rooms/check.sh, sha256: "326ffaf3973236bc58bbadfecba2a8e5d4fa23f02c4c0124b72da0244aae9262"}
+  planner_brief: {path: rooms/PLANNER_PROMPT.md, sha256: "d483bab99a4d7ddf3b10b0bf77c78d771cdafb092cae7d6f3d35249f60b0874c"}
+  searcher_brief: {path: rooms/SEARCHER_PROMPT.md, sha256: "26b7f24d8d798e1010abdb1d06497dc5f6c96c858a8a1fe7855916ec44305ebc"}
+  challenge: {path: rooms/Challenge.lean, sha256: "4558361d99720a21dc5b1f58c27c93f1be94dc93563669a6a6710d16300ced30"}
+  project_setup: {path: rooms/setup_project.sh, sha256: "fcac8aea39e5099832556bec510fdf5a564d4ed43c2af73d1551d8b85ea9b735"}
+  scorer: "rooms/score.py, to be written and committed before the first regime runs; its hash goes in amendment A1"
+  runtime: >
+    Planner and searchers run as Claude Code subagents on the host with fresh contexts, the brief as their whole prompt
+    and the input paths named in it. The check tool copies the file into the VM and compiles it there. The seal (no web,
+    no other Lean, no control) is by instruction, enforced after the fact by reading each agent's full transcript for any
+    web, fetch or git call; a breach is recorded and voids that regime's row.
+
+procedure:
+  1: "commit this file and its .sha256 (repo created and project pinned before writing; see header)"
+  2: "in the VM, create an empty project pinned to the Mathlib commit; fetch the Mathlib cache; place Challenge.lean; confirm it compiles with sorry"
+  3: "run the planner in a fresh context; split its output; commit sha256 of blueprint_predictions.yaml; hand the file to Heidi"
+  4: "run R1, R2, R3 in order, each in a fresh context, with the check tool logging every call"
+  5: "run the scorer on the three logs and final files; write results/ and the per-regime data cycles"
+  6: "open blueprint_predictions.yaml and the control; compute planner_error and shape_vs_control; record every miss against P1–P8"
+  7: "write the page; file the cycles; regenerate the board"
+
+not_covered:
+  - "no human-only Lean control exists for this statement"
+  - "one theorem; 1111 (Wagon) and 626 (Erdős's upper bound) are the next two under their own registrations"
+  - "one model; a second model is a separate cycle"
+  - "the searcher knows the mathematics in general but is given only the blueprint, not the paper; what is measured is the Lean bridge, not discovery"
+  - "the control is Opus 5.5 with a human; the searcher is Fable 5.1 from a blueprint, so the shape comparison is across models as well as across guidance"
+  - "freshness was checked on 2026-11-25 (GitHub code search; atlas-lean, math-proof/lemma, TauCeti, tengoku, LeanPool; formal-conjectures; the AFTD index); the statement entered formal-conjectures on 2026-10-19 and its only known Lean proof was registered on 2026-11-19, both after the searcher model's training cutoff"

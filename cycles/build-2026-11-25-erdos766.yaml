@@ -1,0 +1,50 @@
+# Cycle file; the ledger entry carries the mission fields. Never edited after merge.
+cycle: build-2026-11-25-erdos766
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+kind: hypothesis
+hypothesis: 'With the plan fixed, the search''s cost and shape are set by the error signal at the joins: full Lean
+  feedback gives small checked steps and search residue, accept-or-reject costs more attempts for the same result,
+  and no checker until the end produces a fit (a changed statement, an added hypothesis, a sorry or a weaker variant)
+  rather than a proof of the statement as given; and a planner''s sealed per-step cost predictions miss most at
+  the joins.'
+signals: the eight predictions P1–P8 in prereg_build_erdos766.yaml, scored from the check tool's log, the three
+  final files and the planner's sealed predictions
+endpoints: none public until the runs are filed; the registration, instruments and inputs are pinned in the repository
+measurements_needed: the three regime runs and the planner's blueprint, none of which exist yet
+bears_on: DEBRIEF-math-rooms EG1; DEBRIEF-math-riemann trace cycles of 23–25 November (the shape reading this tests)
+pinned:
+  sha256: 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc
+  file: prereg_build_erdos766.yaml
+  submitted_at: '2026-11-25T21:41:21Z'
+preregistered:
+  question: Given a fixed prior and a licensed Lean statement, how far does a planner's per-step cost prediction
+    miss the search's actual cost, and how do step size, retries and fit indicators change across three error-signal
+    regimes?
+  rule: predictions P1–P8 as written in the registration; a miss is recorded as a miss; the planner's per-node predictions
+    are sealed by hash before the first searcher runs and opened after the last
+  predictions:
+  - P1 R1 and R2 pass the comparator; R3 does not pass as first declared final
+  - P2 median attempts per node in R2 ≥ 1.5 × R1
+  - P3 the planner's median log2 error is larger at joins than at leaves in R1
+  - P4 R3 shows at least one fit indicator; R1 none surviving the comparator
+  - P5 R1 and R2 each leave at least one unused declaration; R3 none
+  - P6 R1 own_lines_median ≤ 10
+  - P7 R1 uses fewer total tokens than R2
+  - P8 R1 depth within 2 of the control's
+  commit: prereg_build_erdos766.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers:
+    predictions: 8
+    regimes: 3
+    nodes_expected: 10 to 30
+    signals_have_public_endpoint: false
+spoken: 'Nervous Machine registered the first build of the rooms experiment: the Dirac–Erdős bound from one page
+  of Erdős and Mathlib at one commit, a planner on Claude Opus 5.5 with sealed per-step predictions, and a searcher
+  on Claude Fable 5.1 under three error-signal regimes. The instruments are committed and hashed; the runs can begin.'
+finding_ids: []
+gap_ids:
+- EG1

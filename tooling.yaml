@@ -1,0 +1,11 @@
+# Tooling disclosure, read by DEBRIEF/tools/tooling.py into the ledger. The work here is Nervous Machine's own.
+claims:
+- by: Nervous Machine
+  models:
+  - claude-opus-5-5
+  - claude-fable-5-1
+  tier: subscription
+  basis: 'stated by the operator: the planner runs on Claude Opus 5.5 and the searcher on Claude Fable 5.1, both as
+    Claude Code subagents on the operator''s subscription; the registrar and scorer is Claude Fable 5.1'
+  work:
+    from: '2026-11-25'

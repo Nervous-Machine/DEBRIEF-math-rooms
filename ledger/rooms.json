@@ -1,0 +1,216 @@
+{
+ "missions": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-25T21:41:21Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "title": "Rooms and hinges: a small Lean proof built from a fixed prior under three error-signal regimes",
+   "kind": "learning",
+   "protocol_version": "0.1.0",
+   "label": "Rooms and hinges",
+   "area": "Experiment: machine proof search under controlled error signals",
+   "rests_on": "a licensed Lean statement, one page of a 1964 paper, Mathlib at one commit, and three logged search runs",
+   "pods": [
+    "DEBRIEF-math-rooms"
+   ],
+   "began": "2026-11-25",
+   "status": "active",
+   "record_quality": "full_ledger",
+   "record_note": "Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles.",
+   "record_limits": [
+    "Nothing has run yet. One theorem, one planner model, one searcher model, one run per regime are planned for the first series."
+   ],
+   "scope_limits": [
+    "The experiment measures the Lean bridge from a fixed blueprint to a licensed statement; it does not measure mathematical discovery, and it does not check the mathematics of the 1964 argument.",
+    "No human-only Lean proof of this statement exists to serve as a control; the existing proof is machine-assisted."
+   ],
+   "opening": {
+    "spoken": "This record holds an experiment: a small proof is built from a fixed prior, a planner predicts the cost of every step before any search, and the same plan is searched three times with the error signal set differently each time."
+   },
+   "short_version": {
+    "spoken": "The shape of a recent machine-built proof of the Riemann hypothesis suggested a search sized to a fast exact error signal, with retries concentrated at the joins. That reading came from one archive with no attempt log. Here the prior is fixed, the plan is drawn once by one model, the cost of each step is predicted and sealed, and a second model searches the plan under full Lean feedback, under accept or reject only, and with no checker until the end. The first target is the Dirac–Erdős bound, Erdős Problem 766, whose Lean statement and only Lean proof both appeared after the searcher model's training cutoff."
+   },
+   "what_happened": {
+    "spoken": "On 25 November 2026 the target was chosen from the untracked-claims backlog, the pinned Lean project was built in a virtual machine, the check tool was dry-run, and the registration with its predictions was committed. No planner or searcher has run."
+   },
+   "implications": {
+    "rely_on": [],
+    "do_not_rely_on": [
+     {
+      "spoken": "any result: none exists yet",
+      "finding_ids": []
+     }
+    ],
+    "stop": [],
+    "new": [
+     {
+      "spoken": "a registered experiment with eight predictions on the record, and a sealed-prediction protocol for the planner",
+      "finding_ids": []
+     }
+    ]
+   },
+   "certainty_statement": {
+    "spoken": "Nothing is accepted or certified. The registration is on the record and the runs are owed."
+   },
+   "sources": [
+    {
+     "kind": "repo",
+     "ref": "github.com/google-deepmind/formal-conjectures at commit 691719db2653905d5fa0775408370fb058e4c59f (2026-11-11), FormalConjectures/ErdosProblems/766.lean; licence Apache-2.0; the statement, added 2026-10-19"
+    },
+    {
+     "kind": "paper",
+     "ref": "Erdős, P., Extremal problems in graph theory, Theory of Graphs and its Applications (Smolenice 1963), 1964, 29–36, p. 34; https://www.renyi.hu/~p_erdos/1964-06.pdf, sha256 da94695e12fd0b426935d086af9218e2a7ffa155e0ff900fccf67a85ae9637d1"
+    },
+    {
+     "kind": "repo",
+     "ref": "github.com/VictorLiwentao/fc-palomar-proofs at commit 57b5832f2db007a3cc3ffad09be4bad09b9e34ce (2026-11-17), FCPalomar/Erdos766/Solution.lean; licence Apache-2.0; the control proof (Wentao Li with Claude Opus 5.5), opened only after the regimes run"
+    },
+    {
+     "kind": "registry",
+     "ref": "https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-19-000006"
+    },
+    {
+     "kind": "repo",
+     "ref": "github.com/leanprover-community/mathlib4 at commit ccbef15ebdb41c2addfac682131f83c75904c3c1 (2026-10-16), Lean v4.35.0"
+    }
+   ],
+   "tooling": [
+    {
+     "by": "Nervous Machine",
+     "tier": "subscription",
+     "basis": "stated by the operator: the planner runs on Claude Opus 5.5 and the searcher on Claude Fable 5.1, both as Claude Code subagents on the operator's subscription; the registrar and scorer is Claude Fable 5.1",
+     "models": [
+      {
+       "model": "Claude Opus 5.5",
+       "id": "claude-opus-5-5",
+       "vendor": "Anthropic",
+       "public_release": "2026-09-22",
+       "tiers_at_release": [
+        "api",
+        "subscription",
+        "subscription-pro"
+       ],
+       "public_at_the_time": "yes"
+      },
+      {
+       "model": "Claude Fable 5.1",
+       "id": "claude-fable-5-1",
+       "vendor": "Anthropic",
+       "public_release": "2026-09-01",
+       "tiers_at_release": [
+        "api"
+       ],
+       "public_at_the_time": "yes"
+      }
+     ],
+     "work": {
+      "from": "2026-11-25"
+     },
+     "duration": "not stated",
+     "compute": "not stated"
+    }
+   ]
+  }
+ ],
+ "cycles": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-25T21:41:21Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "cycle": "build-2026-11-25-erdos766",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "kind": "hypothesis",
+   "hypothesis": "With the plan fixed, the search's cost and shape are set by the error signal at the joins: full Lean feedback gives small checked steps and search residue, accept-or-reject costs more attempts for the same result, and no checker until the end produces a fit (a changed statement, an added hypothesis, a sorry or a weaker variant) rather than a proof of the statement as given; and a planner's sealed per-step cost predictions miss most at the joins.",
+   "signals": "the eight predictions P1–P8 in prereg_build_erdos766.yaml, scored from the check tool's log, the three final files and the planner's sealed predictions",
+   "endpoints": "none public until the runs are filed; the registration, instruments and inputs are pinned in the repository",
+   "measurements_needed": "the three regime runs and the planner's blueprint, none of which exist yet",
+   "bears_on": "DEBRIEF-math-rooms EG1; DEBRIEF-math-riemann trace cycles of 23–25 November (the shape reading this tests)",
+   "pinned": {
+    "sha256": "73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc",
+    "file": "prereg_build_erdos766.yaml",
+    "submitted_at": "2026-11-25T21:41:21Z"
+   },
+   "preregistered": {
+    "question": "Given a fixed prior and a licensed Lean statement, how far does a planner's per-step cost prediction miss the search's actual cost, and how do step size, retries and fit indicators change across three error-signal regimes?",
+    "rule": "predictions P1–P8 as written in the registration; a miss is recorded as a miss; the planner's per-node predictions are sealed by hash before the first searcher runs and opened after the last",
+    "predictions": [
+     "P1 R1 and R2 pass the comparator; R3 does not pass as first declared final",
+     "P2 median attempts per node in R2 ≥ 1.5 × R1",
+     "P3 the planner's median log2 error is larger at joins than at leaves in R1",
+     "P4 R3 shows at least one fit indicator; R1 none surviving the comparator",
+     "P5 R1 and R2 each leave at least one unused declaration; R3 none",
+     "P6 R1 own_lines_median ≤ 10",
+     "P7 R1 uses fewer total tokens than R2",
+     "P8 R1 depth within 2 of the control's"
+    ],
+    "commit": "prereg_build_erdos766.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 8,
+     "regimes": 3,
+     "nodes_expected": "10 to 30",
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered the first build of the rooms experiment: the Dirac–Erdős bound from one page of Erdős and Mathlib at one commit, a planner on Claude Opus 5.5 with sealed per-step predictions, and a searcher on Claude Fable 5.1 under three error-signal regimes. The instruments are committed and hashed; the runs can begin.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG1"
+   ]
+  }
+ ],
+ "findings": [],
+ "gaps": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-25T21:41:21Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "gap_id": "EG1",
+   "title": "The planner and the three regimes have not run",
+   "status": "proposed",
+   "opened_cycle": "build-2026-11-25-erdos766",
+   "priority": 1,
+   "history": [],
+   "closes_with": [
+    {
+     "what": "the planner's blueprint with its predictions sealed, then the three regime runs with their check logs and final files, scored against P1–P8",
+     "kind": "measurement",
+     "external": false,
+     "who_could_act": "Nervous Machine; the instruments are public and anyone may rerun the same registration"
+    }
+   ],
+   "spoken": "The registration is on the record. The blueprint, the three searches and the scoring are owed.",
+   "ask": {
+    "spoken": "Run the planner, seal its predictions, run the three regimes, score."
+   },
+   "expected_signal": "one data cycle per regime and one scoring cycle, each with its files committed",
+   "resolution_by": "none registered"
+  }
+ ],
+ "anomalies": [],
+ "background": [],
+ "sessions": []
+}

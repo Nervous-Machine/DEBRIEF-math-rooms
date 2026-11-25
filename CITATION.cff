@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+title: "DEBRIEF-math-rooms: rooms and hinges, a small Lean proof built from a fixed prior under three error-signal regimes"
+message: "Cite this record by version. Contributors of record are listed as authors; each is credited for the cycles they contributed."
+type: dataset
+version: 0.1.0
+date-released: 2026-11-25
+license: CC-BY-4.0
+repository-code: https://github.com/Nervous-Machine/DEBRIEF-math-rooms
+authors:
+  - family-names: Bennett
+    given-names: Heidi
+    affiliation: Nervous Machine
+    # designed the experiment and holds the sealed predictions; Claude Fable 5.1 as registrar and scorer
