@@ -1,0 +1,99 @@
+# SEALED planner predictions for build-2026-11-25-erdos766. Held by Heidi Bennett. Opened after regime R3.
+root: erdos_766.variants.dirac_erdos
+nodes:
+- id: N1
+  kind: leaf
+  predicted:
+    attempts: 4
+    tokens: 40000
+    minutes: 8
+- id: N2
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+- id: N3
+  kind: join
+  predicted:
+    attempts: 5
+    tokens: 60000
+    minutes: 12
+- id: N4
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 7
+- id: N5
+  kind: join
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 4
+- id: N6
+  kind: leaf
+  predicted:
+    attempts: 1
+    tokens: 8000
+    minutes: 2
+- id: N7
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 25000
+    minutes: 5
+- id: N8
+  kind: join
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 4
+- id: N9
+  kind: leaf
+  predicted:
+    attempts: 1
+    tokens: 5000
+    minutes: 1
+- id: N10
+  kind: join
+  predicted:
+    attempts: 1
+    tokens: 6000
+    minutes: 1
+- id: N11
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+- id: N12
+  kind: join
+  predicted:
+    attempts: 7
+    tokens: 110000
+    minutes: 22
+- id: N13
+  kind: leaf
+  predicted:
+    attempts: 4
+    tokens: 45000
+    minutes: 9
+- id: N14
+  kind: join
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+- id: N15
+  kind: leaf
+  predicted:
+    attempts: 1
+    tokens: 8000
+    minutes: 2
+- id: ROOT
+  kind: join
+  predicted:
+    attempts: 1
+    tokens: 10000
+    minutes: 2

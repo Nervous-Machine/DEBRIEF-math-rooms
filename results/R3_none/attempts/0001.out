@@ -1,0 +1,193 @@
+Rooms/Target.lean:53:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:59:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:64:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:70:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:53:10: warning: Unused tactic linter: `(rw [e1]; exact Nat.mul_div_cancel _ (by norm_num))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:59:8: warning: Unused tactic linter: `(ring_nf; omega)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:64:10: warning: Unused tactic linter: `(rw [e1, Nat.add_mul_div_right _ _ (by norm_num)]; norm_num)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:70:8: warning: Unused tactic linter: `(ring_nf; omega)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:83:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:88:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:97:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:102:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:83:10: warning: Unused tactic linter: `(rw [e1]; exact Nat.mul_div_cancel _ (by norm_num))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:88:10: warning: Unused tactic linter: `(rw [e3, Nat.add_mul_div_right _ _ (by norm_num)]; norm_num)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:97:10: warning: Unused tactic linter: `(rw [e1, Nat.add_mul_div_right _ _ (by norm_num)]; norm_num)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:102:10: warning: Unused tactic linter: `(rw [e3]; exact Nat.mul_div_cancel _ (by norm_num))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:136:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:137:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:138:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:139:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:136:11: warning: Unused tactic linter: `simpa [smul_eq_mul, nsmul_eq_mul] using h1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:137:11: warning: Unused tactic linter: `(rw [smul_eq_mul] at h1; exact h1)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:138:11: warning: Unused tactic linter: `(rw [nsmul_eq_mul, Nat.cast_id] at h1; exact h1)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:139:6: warning: Unused tactic linter: `(calc
+    Fintype.card V * G.degree x = ∑ _v : V, G.degree x := by simp
+    _ ≤ ∑ v, G.degree v := by
+      apply Finset.sum_le_sum
+      intro v _
+      rw [← hx]
+      exact G.minDegree_le_degree v
+    _ = 2 * G.edgeFinset.card := G.sum_degrees_eq_twice_card_edges)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:152:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target.lean:165:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:165:6: warning: Unused tactic linter: `simp [SimpleGraph.card_edgeFinset_induce_compl_singleton,
+  SimpleGraph.card_edgeFinset_deleteIncidenceSet]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:173:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:174:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:177:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:173:6: warning: Unused tactic linter: `(rw [Fintype.card_compl_set]; simp)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:174:6: warning: Unused tactic linter: `(
+  have h : Fintype.card ({ x }ᶜ : Set V) = (Finset.univ.erase x).card :=
+    Fintype.card_of_subtype (Finset.univ.erase x) (fun y => by simp)
+  rw [h, Finset.card_erase_of_mem (Finset.mem_univ x), Finset.card_univ])` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:177:6: warning: Unused tactic linter: `simp` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:194:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:195:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:194:6: warning: Unused tactic linter: `exact (SimpleGraph.Embedding.induce s).isContained` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:195:6: warning: Unused tactic linter: `exact (SimpleGraph.Copy.induce G s).isContained` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:202:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:203:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:202:6: warning: Unused tactic linter: `(rw [← SimpleGraph.coe_edgeFinset, Set.ncard_coe_finset])` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:203:6: warning: Unused tactic linter: `simp [SimpleGraph.edgeFinset, Set.ncard_eq_toFinset_card']` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:213:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:213:6: warning: Unused tactic linter: `(classical
+  rw [ncard_edgeSet_eq_card_edgeFinset]
+  exact ((G.overFinIso hc).card_edgeFinset_eq).symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:240:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:251:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:240:10: warning: Unused tactic linter: `(rw [hH1, hk']; exact he)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:251:12: warning: Unused tactic linter: `simpa using hx` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:265:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:265:10: warning: Unused tactic linter: `(
+  ext e
+  simp only [Set.mem_diff, and_iff_left_iff_imp]
+  intro he
+  exact H.edgeSet_subset_compl_diagSet (hts he))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:282:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:282:8: warning: Unused tactic linter: `omega` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:295:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:296:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:297:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target.lean:295:6: warning: Unused tactic linter: `(unfold forcingNumber; exact Nat.sInf_le h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:296:6: warning: Unused tactic linter: `(apply Nat.sInf_le; exact h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target.lean:297:6: warning: Unused tactic linter: `(apply Nat.sInf_le; simpa using h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

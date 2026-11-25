@@ -180,5 +180,53 @@
  "attempts_median": 1,
  "attempts_median_joins": 1,
  "attempts_median_leaves": 1.0,
- "tokens_total": 151407
+ "tokens_total": 151407,
+ "planner_error": {
+  "log2_by_node": {
+   "N1": -2.0,
+   "N3": -2.322,
+   "N4": -1.585,
+   "N5": -1.0,
+   "N6": 0.0,
+   "N7": -1.585,
+   "N8": -1.0,
+   "N9": 0.0,
+   "N10": 0.0,
+   "N11": -1.585,
+   "N12": -2.807,
+   "N13": -2.0,
+   "N14": -2.0,
+   "N15": 0.0,
+   "ROOT": 0.0
+  },
+  "median_joins": -1.0,
+  "median_leaves": -1.585,
+  "median_abs_joins": 1.0,
+  "median_abs_leaves": 1.585
+ },
+ "control_shape": {
+  "declarations": 9,
+  "unused_by_root": [],
+  "unused_count": 0,
+  "root_found": true,
+  "depth": 6,
+  "own_lines_median": 14,
+  "own_lines": {
+   "forcingNumber": 6,
+   "key_ineq": 29,
+   "inside": 2,
+   "inside_erase": 14,
+   "sum_card_inside_erase": 24,
+   "exists_dense_erase": 15,
+   "exists_dense_subset": 12,
+   "dirac_erdos": 45,
+   "erdos_766.variants.dirac_erdos": 7
+  },
+  "retry_named": [],
+  "joins": [
+   "forcingNumber",
+   "inside"
+  ],
+  "edges": 13
+ }
 }

@@ -1,0 +1,1 @@
+results/control_Erdos766_Solution.lean is a verbatim copy of FCPalomar/Erdos766/Solution.lean from github.com/VictorLiwentao/fc-palomar-proofs at commit 57b5832f2db007a3cc3ffad09be4bad09b9e34ce (Wentao Li, written with Claude Code / Claude Opus 5.5; Apache-2.0). Copied 2026-11-25 after the three regimes finished, for the shape comparison only.
