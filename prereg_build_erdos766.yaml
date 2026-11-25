@@ -173,3 +173,15 @@ not_covered:
   - "the searcher knows the mathematics in general but is given only the blueprint, not the paper; what is measured is the Lean bridge, not discovery"
   - "the control is Opus 5.5 with a human; the searcher is Fable 5.1 from a blueprint, so the shape comparison is across models as well as across guidance"
   - "freshness was checked on 2026-11-25 (GitHub code search; atlas-lean, math-proof/lemma, TauCeti, tengoku, LeanPool; formal-conjectures; the AFTD index); the statement entered formal-conjectures on 2026-10-19 and its only known Lean proof was registered on 2026-11-19, both after the searcher model's training cutoff"
+
+amendments:
+  - id: A1
+    written: "2026-11-25T21:44Z, after the planner was launched and before any searcher has run"
+    what_happened: >
+      The scorer named in the instruments block was written and dry-run on a synthetic log (two calls, the Challenge
+      itself as the file: it reports the two sorry occurrences as fit indicators and no comparator pass). No regime has
+      run. The planner (Claude Opus 5.5) was launched at the registered commit 890c527 and is running; its output has
+      not been read.
+    changes:
+      - "instruments.scorer: rooms/score.py, sha256 ec51e65980a5f43df0ab8d4152053c1ba58acf291db06f2492b02e0edc4c4898"
+      - "measurements.per_regime.tokens: per-node tokens are not measured (the harness reports tokens per run only); planner_error is computed on attempts, as P3 states"
