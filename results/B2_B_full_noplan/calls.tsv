@@ -1,0 +1,6 @@
+0001	2026-11-25T23:36:36Z	pow_sub_pow_ge	error	rc=1	secs=5	bytes=20512
+0002	2026-11-25T23:38:14Z	hard_case	error	rc=1	secs=11	bytes=20642
+0003	2026-11-25T23:39:30Z	consecutive_exponents	error	rc=1	secs=11	bytes=20571
+0004	2026-11-25T23:39:56Z	consecutive_exponents	error	rc=1	secs=13	bytes=20601
+0005	2026-11-25T23:41:20Z	consecutive_exponents	ok	rc=0	secs=11	bytes=21273
+0006	2026-11-25T23:42:15Z	FINAL	ok	rc=0	secs=10	bytes=21273

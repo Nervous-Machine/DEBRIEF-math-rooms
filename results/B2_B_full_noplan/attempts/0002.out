@@ -1,0 +1,163 @@
+Rooms/Target_B2_B_full_noplan.lean:258:51: warning: Variable name `hodd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hodd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B2_B_full_noplan.lean:346:8: error: No goals to be solved
+Rooms/Target_B2_B_full_noplan.lean:403:18: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1316 = ?m.1316
+but is expected to have type
+  True
+in the application
+  And.intro rfl
+Rooms/Target_B2_B_full_noplan.lean:403:23: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.1320 = ?m.1320
+but is expected to have type
+  True
+in the application
+  And.intro rfl
+Rooms/Target_B2_B_full_noplan.lean:373:8: error: unsolved goals
+case inl.inr.inr.inl
+p z : ℕ
+hp : Nat.Prime p
+hodd : Odd p
+hz : 0 < z
+hp2 : 2 ≤ p
+hp0Z : 0 < ↑p
+u v : ℕ
+huv : u * v = 2 * p + 1
+hlt : u < v
+hu0 : 0 < u
+hvle : v ≤ 2 * p + 1
+hodd_uv : Odd (u * v)
+hv_odd : Odd v
+hu2 : u % 2 = 1
+hv2 : v % 2 = 1
+huvZ : ↑v * ↑u = 2 * ↑p + 1
+hltZ : ↑u ≤ ↑v
+j : ℕ
+hj1 : j ≤ 1
+hj0 : j = 0
+he : v = u + 2 * 1
+hele : 1 ≤ p
+hve : v = u + 2
+hu3 : 3 ≤ u
+hua : u = 2 * 1 + 1
+ha1 : 1 ≤ 1
+hpZ : ↑p = 2 * (↑1 + 1) ^ 2 - 1
+e1 : ↑v = 2 * (↑1 + 1) + 1
+e2 : ↑u = 2 * (↑1 + 1) - 1
+hm2 : ↑1 + 1 = 2
+hy : 0 < 2 * 1 + 1
+hx : 0 < 2 * 1 + 1 + 1
+h : p ^ (2 * 1 + 1 + 1) + (2 * p + 1) ^ (2 * 1 + 1) = z ^ 2
+h' : p ^ (2 * (1 + 1)) + (2 * p + 1) ^ (2 * 1 + 1) = z ^ 2
+hv : v ^ (2 * 1 + 1) = u ^ (2 * 1 + 1) + 2 * p ^ (1 + 1)
+hzeq : z = u ^ (2 * 1 + 1) + p ^ (1 + 1)
+hc0 : 1 > 0
+hbound : (2 * ↑1 + 1) * (↑v - ↑u) * (2 * ↑p + 1) ^ 1 ≤ ↑u ^ (2 * 1 + 1) + 2 * ↑p ^ (1 + 1) - ↑u ^ (2 * 1 + 1)
+hQ : ↑p ^ 1 ≤ (2 * ↑p + 1) ^ 1
+hj : j ≤ 1 + 1
+hdvd : 2 * 1 ∣ 2 * p ^ (1 + 1)
+hedvd : 1 ∣ p ^ (1 + 1)
+hvZ : (2 * (↑1 + 1) + 1) ^ (2 * 1 + 1) = (2 * (↑1 + 1) - 1) ^ (2 * 1 + 1) + 2 * ↑p ^ (1 + 1)
+hp7 : p = 7
+⊢ (2 * 1 + 1) ^ (2 * 1 + 1) + 7 ^ (1 + 1) = 76
+Rooms/Target_B2_B_full_noplan.lean:415:39: error(lean.unknownIdentifier): Unknown identifier `p`
+Rooms/Target_B2_B_full_noplan.lean:416:31: error(lean.unknownIdentifier): Unknown identifier `p`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Rooms/Target_B2_B_full_noplan.lean:415:44: error: unsolved goals
+z : ℕ
+hz : 0 < z
+c : ℕ
+hy : 0 < 2 * c + 1
+hx : 0 < 2 * c + 1 + 1
+v : ℕ
+hc0 : c > 0
+hv_odd : Odd v
+hv2 : v % 2 = 1
+e j : ℕ
+hj : j ≤ c + 1
+hj1 : j ≤ 1
+hj0 : j = 1
+hp : Nat.Prime e
+hodd : Odd e
+hp2 : 2 ≤ e
+hp0Z : 0 < ↑e
+h : e ^ (2 * c + 1 + 1) + (2 * e + 1) ^ (2 * c + 1) = z ^ 2
+h' : e ^ (2 * (c + 1)) + (2 * e + 1) ^ (2 * c + 1) = z ^ 2
+hvle : v ≤ 2 * e + 1
+hQ : ↑e ^ c ≤ (2 * ↑e + 1) ^ c
+hdvd : 2 * e ∣ 2 * e ^ (c + 1)
+hedvd : e ∣ e ^ (c + 1)
+hele : e ≤ e
+hlt : 1 < v
+hu0 : 0 < 1
+hodd_uv : Odd (1 * v)
+hu_odd : Odd 1
+hu2 : 1 % 2 = 1
+he : v = 1 + 2 * e
+hltZ : ↑1 ≤ ↑v
+huv : 1 * v = 2 * e + 1
+hv : v ^ (2 * c + 1) = 1 ^ (2 * c + 1) + 2 * e ^ (c + 1)
+hzeq : z = 1 ^ (2 * c + 1) + e ^ (c + 1)
+hvZ : ↑v ^ (2 * c + 1) = ↑1 ^ (2 * c + 1) + 2 * ↑e ^ (c + 1)
+huvZ : ↑v * ↑1 = 2 * ↑e + 1
+hbound : (2 * ↑c + 1) * (↑v - ↑1) * (2 * ↑e + 1) ^ c ≤ ↑1 ^ (2 * c + 1) + 2 * ↑e ^ (c + 1) - ↑1 ^ (2 * c + 1)
+this : v = 1 + 2 * sorry
+⊢ ↑sorry * 2 = sorry * 2
+Rooms/Target_B2_B_full_noplan.lean:418:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑v - 1
+in the target expression
+  (2 * ↑c + 1) * (↑v - ↑1) * (2 * ↑e + 1) ^ c ≤ ↑1 ^ (2 * c + 1) + 2 * ↑e ^ (c + 1) - ↑1 ^ (2 * c + 1)
+
+case inl.inr.inr.inr
+z : ℕ
+hz : 0 < z
+c : ℕ
+hy : 0 < 2 * c + 1
+hx : 0 < 2 * c + 1 + 1
+v : ℕ
+hc0 : c > 0
+hv_odd : Odd v
+hv2 : v % 2 = 1
+e j : ℕ
+hj : j ≤ c + 1
+hj1 : j ≤ 1
+hj0 : j = 1
+hp : Nat.Prime e
+hodd : Odd e
+hp2 : 2 ≤ e
+hp0Z : 0 < ↑e
+h : e ^ (2 * c + 1 + 1) + (2 * e + 1) ^ (2 * c + 1) = z ^ 2
+h' : e ^ (2 * (c + 1)) + (2 * e + 1) ^ (2 * c + 1) = z ^ 2
+hvle : v ≤ 2 * e + 1
+hQ : ↑e ^ c ≤ (2 * ↑e + 1) ^ c
+hdvd : 2 * e ∣ 2 * e ^ (c + 1)
+hedvd : e ∣ e ^ (c + 1)
+hele : e ≤ e
+hlt : 1 < v
+hu0 : 0 < 1
+hodd_uv : Odd (1 * v)
+hu_odd : Odd 1
+hu2 : 1 % 2 = 1
+he : v = 1 + 2 * e
+hltZ : ↑1 ≤ ↑v
+huv : 1 * v = 2 * e + 1
+hv : v ^ (2 * c + 1) = 1 ^ (2 * c + 1) + 2 * e ^ (c + 1)
+hzeq : z = 1 ^ (2 * c + 1) + e ^ (c + 1)
+hvZ : ↑v ^ (2 * c + 1) = ↑1 ^ (2 * c + 1) + 2 * ↑e ^ (c + 1)
+huvZ : ↑v * ↑1 = 2 * ↑e + 1
+hbound : (2 * ↑c + 1) * (↑v - ↑1) * (2 * ↑e + 1) ^ c ≤ ↑1 ^ (2 * c + 1) + 2 * ↑e ^ (c + 1) - ↑1 ^ (2 * c + 1)
+hvp : ↑v - 1 = 2 * sorry
+⊢ False

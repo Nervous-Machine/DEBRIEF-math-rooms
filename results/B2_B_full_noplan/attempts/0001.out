@@ -1,0 +1,89 @@
+Rooms/Target_B2_B_full_noplan.lean:184:72: error: Application type mismatch: The argument
+  h4
+has type
+  (2 * ↑k + 1) * 2 ^ k * p ^ k ≤ p ^ k * p
+but is expected to have type
+  (2 * ↑k + 1) * 2 ^ k * p ^ k ≤ p * p ^ k
+in the application
+  le_of_mul_le_mul_right h4
+Rooms/Target_B2_B_full_noplan.lean:221:14: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`
+Rooms/Target_B2_B_full_noplan.lean:230:16: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`
+Rooms/Target_B2_B_full_noplan.lean:246:12: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`
+Rooms/Target_B2_B_full_noplan.lean:278:12: error(lean.unknownIdentifier): Unknown constant `Nat.Coprime.mul`
+Rooms/Target_B2_B_full_noplan.lean:279:6: error: No goals to be solved
+Rooms/Target_B2_B_full_noplan.lean:284:14: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`
+Rooms/Target_B2_B_full_noplan.lean:343:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 0
+  a ≥ 2
+  a ≥ 1
+where
+ a := ↑p
+ b := ↑(z ^ 2)
+ c := ↑(p ^ (2 * (0 + 1)))
+Rooms/Target_B2_B_full_noplan.lean:357:17: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑u * ↑v
+in the target expression
+  (2 * ↑c + 1) * (↑v - ↑u) * (↑v * ↑u) ^ c ≤ ↑u ^ (2 * c + 1) + 2 * ↑p ^ (c + 1) - ↑u ^ (2 * c + 1)
+
+case inl.inr.inr
+p z : ℕ
+hp : Nat.Prime p
+hodd : Odd p
+hz : 0 < z
+hp2 : 2 ≤ p
+hp0Z : 0 < ↑p
+c : ℕ
+hy : 0 < 2 * c + 1
+hx : 0 < 2 * c + 1 + 1
+h : p ^ (2 * c + 1 + 1) + (2 * p + 1) ^ (2 * c + 1) = z ^ 2
+h' : p ^ (2 * (c + 1)) + (2 * p + 1) ^ (2 * c + 1) = z ^ 2
+u v : ℕ
+huv : u * v = 2 * p + 1
+hlt : u < v
+hv : v ^ (2 * c + 1) = u ^ (2 * c + 1) + 2 * p ^ (c + 1)
+hzeq : z = u ^ (2 * c + 1) + p ^ (c + 1)
+hu0 : 0 < u
+hvle : v ≤ 2 * p + 1
+hc0 : c > 0
+hodd_uv : Odd (u * v)
+hu_odd : Odd u
+hv_odd : Odd v
+hu2 : u % 2 = 1
+hv2 : v % 2 = 1
+e : ℕ
+he : v = u + 2 * e
+hvZ : ↑v ^ (2 * c + 1) = ↑u ^ (2 * c + 1) + 2 * ↑p ^ (c + 1)
+huvZ : ↑u * ↑v = 2 * ↑p + 1
+hltZ : ↑u ≤ ↑v
+hbound : (2 * ↑c + 1) * (↑v - ↑u) * (↑v * ↑u) ^ c ≤ ↑u ^ (2 * c + 1) + 2 * ↑p ^ (c + 1) - ↑u ^ (2 * c + 1)
+⊢ (2 * c + 1 + 1, 2 * c + 1, z) = (2, 1, p + 1) ∨ p = 7 ∧ (2 * c + 1 + 1, 2 * c + 1, z) = (4, 3, 76)
+Rooms/Target_B2_B_full_noplan.lean:435:15: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑u * ↑v
+in the target expression
+  (2 * ↑c + 1) * (↑v - ↑u) * (↑v * ↑u) ^ c ≤ ↑u ^ (2 * c + 1) + 2 * ↑p ^ c - ↑u ^ (2 * c + 1)
+
+case inr.inl
+p z : ℕ
+hp : Nat.Prime p
+hodd : Odd p
+hz : 0 < z
+hp2 : 2 ≤ p
+hp0Z : 0 < ↑p
+c : ℕ
+hx : 0 < 2 * c
+hy : 0 < 2 * c + 1
+h : p ^ (2 * c) + (2 * p + 1) ^ (2 * c + 1) = z ^ 2
+u v : ℕ
+huv : u * v = 2 * p + 1
+hlt : u < v
+hv : v ^ (2 * c + 1) = u ^ (2 * c + 1) + 2 * p ^ c
+hzeq : z = u ^ (2 * c + 1) + p ^ c
+hc0 : 0 < c
+hvZ : ↑v ^ (2 * c + 1) = ↑u ^ (2 * c + 1) + 2 * ↑p ^ c
+huvZ : ↑u * ↑v = 2 * ↑p + 1
+hltZ : ↑u + 1 ≤ ↑v
+hbound : (2 * ↑c + 1) * (↑v - ↑u) * (↑v * ↑u) ^ c ≤ ↑u ^ (2 * c + 1) + 2 * ↑p ^ c - ↑u ^ (2 * c + 1)
+⊢ False

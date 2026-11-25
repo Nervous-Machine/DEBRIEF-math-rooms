@@ -1,0 +1,233 @@
+{
+ "regime": "B2_B_full_noplan",
+ "calls": 6,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0006",
+   "ok"
+  ]
+ ],
+ "per_node": {
+  "pow_sub_pow_ge": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 5
+  },
+  "hard_case": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 11
+  },
+  "consecutive_exponents": {
+   "attempts": 3,
+   "ok": 1,
+   "error": 2,
+   "timeout": 0,
+   "secs": 35
+  }
+ },
+ "final_status_at_first_FINAL": "ok",
+ "shape": {
+  "declarations": 10,
+  "unused_by_root": [],
+  "unused_count": 0,
+  "root_found": true,
+  "depth": 4,
+  "own_lines_median": 21.5,
+  "own_lines": {
+   "pow_sub_pow_ge": 22,
+   "two_mul_add_one_le_two_pow": 13,
+   "three_pow_odd_mod_seven": 14,
+   "expansion_even": 21,
+   "expansion_odd": 10,
+   "pow_sub_one_expansion": 12,
+   "hard_case": 73,
+   "no_sol_pow_p": 66,
+   "factor_pow_q": 52,
+   "consecutive_exponents": 155
+  },
+  "retry_named": [],
+  "joins": [
+   "pow_sub_pow_ge"
+  ],
+  "edges": 10
+ },
+ "fit": {
+  "sorry": 0,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [
+   {
+    "id": "N01",
+    "how": "absent"
+   },
+   {
+    "id": "N02",
+    "how": "absent"
+   },
+   {
+    "id": "N03",
+    "how": "absent"
+   },
+   {
+    "id": "N04",
+    "how": "absent"
+   },
+   {
+    "id": "N05",
+    "how": "absent"
+   },
+   {
+    "id": "N06",
+    "how": "absent"
+   },
+   {
+    "id": "N07",
+    "how": "absent"
+   },
+   {
+    "id": "N08",
+    "how": "signature differs"
+   },
+   {
+    "id": "N09",
+    "how": "absent"
+   },
+   {
+    "id": "N10",
+    "how": "absent"
+   },
+   {
+    "id": "N11",
+    "how": "absent"
+   },
+   {
+    "id": "N12",
+    "how": "absent"
+   },
+   {
+    "id": "N13",
+    "how": "absent"
+   },
+   {
+    "id": "N14",
+    "how": "absent"
+   },
+   {
+    "id": "N15",
+    "how": "absent"
+   },
+   {
+    "id": "N16",
+    "how": "absent"
+   },
+   {
+    "id": "N17",
+    "how": "absent"
+   },
+   {
+    "id": "N18",
+    "how": "absent"
+   },
+   {
+    "id": "N19",
+    "how": "absent"
+   },
+   {
+    "id": "N20",
+    "how": "absent"
+   },
+   {
+    "id": "N21",
+    "how": "absent"
+   },
+   {
+    "id": "N22",
+    "how": "absent"
+   },
+   {
+    "id": "N23",
+    "how": "absent"
+   },
+   {
+    "id": "N24",
+    "how": "absent"
+   },
+   {
+    "id": "N25",
+    "how": "absent"
+   },
+   {
+    "id": "N26",
+    "how": "absent"
+   },
+   {
+    "id": "N27",
+    "how": "absent"
+   },
+   {
+    "id": "N28",
+    "how": "absent"
+   },
+   {
+    "id": "N29",
+    "how": "absent"
+   },
+   {
+    "id": "N30",
+    "how": "absent"
+   },
+   {
+    "id": "N31",
+    "how": "absent"
+   },
+   {
+    "id": "N32",
+    "how": "absent"
+   },
+   {
+    "id": "N33",
+    "how": "absent"
+   },
+   {
+    "id": "N34",
+    "how": "absent"
+   },
+   {
+    "id": "N35",
+    "how": "absent"
+   },
+   {
+    "id": "N36",
+    "how": "absent"
+   },
+   {
+    "id": "N37",
+    "how": "absent"
+   }
+  ],
+  "total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "Rooms/Axioms.lean:311:31: warning: Variable name `hz` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hz\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'Panda2608.consecutive_exponents' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": true,
+ "attempts_median": 1,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": null
+}

@@ -1,0 +1,47 @@
+Rooms/Target_B2_B_full_noplan.lean:416:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑v - 1
+in the target expression
+  (2 * ↑c + 1) * (↑v - ↑1) * (2 * ↑p + 1) ^ c ≤ ↑1 ^ (2 * c + 1) + 2 * ↑p ^ (c + 1) - ↑1 ^ (2 * c + 1)
+
+case inl.inr.inr.inr
+p z : ℕ
+hp : Nat.Prime p
+hodd : Odd p
+hz : 0 < z
+hp2 : 2 ≤ p
+hp0Z : 0 < ↑p
+c : ℕ
+hy : 0 < 2 * c + 1
+hx : 0 < 2 * c + 1 + 1
+h : p ^ (2 * c + 1 + 1) + (2 * p + 1) ^ (2 * c + 1) = z ^ 2
+h' : p ^ (2 * (c + 1)) + (2 * p + 1) ^ (2 * c + 1) = z ^ 2
+v : ℕ
+hvle : v ≤ 2 * p + 1
+hc0 : c > 0
+hv_odd : Odd v
+hv2 : v % 2 = 1
+e : ℕ
+hQ : ↑p ^ c ≤ (2 * ↑p + 1) ^ c
+hdvd : 2 * e ∣ 2 * p ^ (c + 1)
+hedvd : e ∣ p ^ (c + 1)
+j : ℕ
+hj : j ≤ c + 1
+hj' : e = p
+hele : e ≤ p
+hj1 : j ≤ 1
+hj0 : j = 1
+huv : 1 * v = 2 * p + 1
+hlt : 1 < v
+hv : v ^ (2 * c + 1) = 1 ^ (2 * c + 1) + 2 * p ^ (c + 1)
+hzeq : z = 1 ^ (2 * c + 1) + p ^ (c + 1)
+hu0 : 0 < 1
+hodd_uv : Odd (1 * v)
+hu_odd : Odd 1
+hu2 : 1 % 2 = 1
+he : v = 1 + 2 * p
+hvZ : ↑v ^ (2 * c + 1) = ↑1 ^ (2 * c + 1) + 2 * ↑p ^ (c + 1)
+huvZ : ↑v * ↑1 = 2 * ↑p + 1
+hltZ : ↑1 ≤ ↑v
+hbound : (2 * ↑c + 1) * (↑v - ↑1) * (2 * ↑p + 1) ^ c ≤ ↑1 ^ (2 * c + 1) + 2 * ↑p ^ (c + 1) - ↑1 ^ (2 * c + 1)
+hvp : ↑v - 1 = 2 * ↑p
+⊢ False
