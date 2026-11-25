@@ -27,8 +27,12 @@ FIT_TOKENS = {"sorry": re.compile(r"\bsorry\b"), "admit": re.compile(r"\badmit\b
               "maxHeartbeats_raised": re.compile(r"maxHeartbeats\s+([5-9]\d{5,}|\d{7,})")}
 
 
+def strip_comments(s):
+    return re.sub(r"--[^\n]*", "", re.sub(r"/-.*?-/", "", s, flags=re.S))
+
+
 def norm(s):
-    return re.sub(r"\s+", " ", re.sub(r"--[^\n]*", "", s)).strip()
+    return re.sub(r"\s+", " ", strip_comments(s)).strip()
 
 
 def decls(text):
@@ -89,7 +93,7 @@ def shape(text):
 
 
 def fit_indicators(final_text, challenge_text, nodes):
-    f = {k: len(rx.findall(final_text)) for k, rx in FIT_TOKENS.items()}
+    f = {k: len(rx.findall(strip_comments(final_text))) for k, rx in FIT_TOKENS.items()}   # comments do not count
     # the root statement and the definitions it uses must appear verbatim (whitespace- and comment-insensitive)
     ch = [d for d in decls(challenge_text) if d[1] in ("def", "theorem", "lemma", "abbrev")]
     fn = {d[0]: d for d in decls(final_text)}

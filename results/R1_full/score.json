@@ -1,0 +1,89 @@
+{
+ "regime": "R1_full",
+ "calls": 3,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0003",
+   "ok"
+  ]
+ ],
+ "per_node": {
+  "N1": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N11": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  }
+ },
+ "final_status_at_first_FINAL": "ok",
+ "shape": {
+  "declarations": 18,
+  "unused_by_root": [],
+  "unused_count": 0,
+  "root_found": true,
+  "depth": 7,
+  "own_lines_median": 9.0,
+  "own_lines": {
+   "forcingNumber": 7,
+   "two_mul_sq_div_four_succ_lt": 19,
+   "sq_div_four_eq_pred_sq_div_four_add_half": 16,
+   "low_degree_arith_aux": 10,
+   "low_degree_arith": 7,
+   "exists_card_mul_degree_le": 9,
+   "exists_low_degree_vertex": 9,
+   "card_edgeFinset_induce_compl_singleton_eq": 7,
+   "card_compl_singleton_subtype": 6,
+   "exists_vertex_delete_keeps_dense": 10,
+   "induce_isContained": 5,
+   "ncard_edgeSet_eq_card_edgeFinset": 5,
+   "exists_fin_copy": 9,
+   "exists_dense_fin_subgraph": 27,
+   "exists_le_ncard_edgeSet_eq": 13,
+   "dirac_erdos_exists": 13,
+   "forcingNumber_le_of_forall": 13,
+   "erdos_766.variants.dirac_erdos": 7
+  },
+  "retry_named": [
+   "low_degree_arith_aux"
+  ],
+  "joins": [
+   "forcingNumber",
+   "ncard_edgeSet_eq_card_edgeFinset"
+  ],
+  "edges": 19
+ },
+ "fit": {
+  "sorry": 0,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "'Erdos766.erdos_766.variants.dirac_erdos' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": true,
+ "attempts_median": 1.0,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": 1.0,
+ "tokens_total": 99114
+}

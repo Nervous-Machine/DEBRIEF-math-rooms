@@ -211,3 +211,20 @@ amendments:
       Heidi Bennett, before any searcher ran: if the no-checker regime produces successful moves without any error
       signal, the thesis is disproven. In the registered terms, a clean comparator pass by R3 at its first FINAL refutes
       P1 and P4 and the hypothesis as filed.
+  - id: A3
+    written: "2026-11-25T22:05Z, after regime R1 finished and before R2 started"
+    times_corrected: >
+      The "written" times in A1 and A2 were estimates and are wrong; the commit times are the record: registration
+      890c527 at 21:41:42Z, scorer 36ae823 at 21:44:01Z, blueprint and A2 4241846 at 21:48:29Z, audit script 6505efa at
+      21:51:19Z. The planner ran between 21:44 and 21:48Z; the R1 searcher from 21:51:51Z to 21:59:46Z (its own date
+      calls; check-tool log 21:58:35Z to 21:59:43Z).
+    scorer_fix: >
+      Scoring R1 showed two defects in the scorer, both in how it reads the files, neither in a measure: it compared
+      declaration bodies with block comments included, so the Challenge's definition was reported "differs" because
+      the docstring of the following declaration differed; and it counted the word sorry inside comments. Both now
+      strip comments first. rooms/score.py sha256 5110ef491570726505af2ed5f57b9f20f0692eb6c538e257cf95f2046ab2a1dd. No number of record was computed before the fix.
+    r1_summary_from_the_log: >
+      3 check calls in total (N1 error, N11 ok, FINAL ok); the searcher wrote all 15 nodes and the root before its first
+      call. First FINAL ok; axioms propext, Classical.choice, Quot.sound; Challenge definitions and root verbatim.
+      18 declarations, depth 7, median 9 own lines, 0 unused, 1 helper added (low_degree_arith_aux, which the retry
+      regex flags on its _aux suffix; it is a helper, not a retry). Harness tokens 99,114; 8 minutes of 180.
