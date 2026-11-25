@@ -459,25 +459,43 @@
    "audience": "briefing",
    "finding_id": "F1",
    "kind": "ruled_out",
-   "title": "The hypothesis as filed: with the plan fixed, the search's cost and shape are set by the error signal at the joins, and no checker until the end produces a fit rather than a proof of the statement as given",
+   "spoken": "For this theorem, this blueprint and this searcher, the proof did not need the error signal. All three regimes produced the statement as given; the regime with no checker produced it blind, at first try. What changed with the signal was not success but hedging and cost: the searcher wrote more alternatives into its proofs and spent more tokens as the signal got coarser.",
+   "evidence": {
+    "numbers": {
+     "R1_calls": 3,
+     "R2_calls": 16,
+     "R3_calls": 1,
+     "first_FINAL": "ok, ok, ok",
+     "comparator_pass": "true, true, true",
+     "axioms_each": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "fit_indicators": "0, 0, 0",
+     "tokens": "99114, 151407, 165568",
+     "first_combinators": "0, 6, 20",
+     "predictions_held": "P6, P7, P8",
+     "predictions_missed": "P1, P2, P3, P4, P5"
+    },
+    "cycles": [
+     "data-2026-11-25-R1_full",
+     "data-2026-11-25-R2_binary",
+     "data-2026-11-25-R3_none",
+     "score-2026-11-25-erdos766"
+    ],
+    "confirmed_by": [
+     "the scorer run on the committed logs and files; the three final files recompiled in the pinned project with #print axioms (score.py); transcripts audited with audit.py"
+    ]
+   },
    "standing": {
     "status": "refuted",
-    "basis": "the no-checker regime's first FINAL compiled clean on the standard axioms with the statement verbatim and zero fit indicators (data-2026-11-25-R3_none), the outcome named beforehand as the disproof; five of eight registered predictions missed (score-2026-11-25-erdos766)",
-    "certainty": {
-     "earned": true,
-     "how": "deterministic: the scored file, the log and the scorer are committed; anyone can recompile the file in the pinned project"
-    }
+    "basis": "the no-checker regime's first FINAL compiled clean on the standard axioms with the statement verbatim and zero fit indicators (data-2026-11-25-R3_none), the outcome named beforehand as the disproof; five of eight registered predictions missed (score-2026-11-25-erdos766)"
    },
-   "spoken": "For this theorem, this blueprint and this searcher, the proof did not need the error signal. All three regimes produced the statement as given; the regime with no checker produced it blind, at first try. What changed with the signal was not success but hedging and cost: the searcher wrote more alternatives into its proofs and spent more tokens as the signal got coarser.",
-   "cycle_ids": [
-    "data-2026-11-25-R1_full",
-    "data-2026-11-25-R2_binary",
-    "data-2026-11-25-R3_none",
-    "score-2026-11-25-erdos766"
-   ],
-   "gap_ids": [
-    "EG1"
-   ]
+   "certainty": {
+    "earned": true,
+    "how": "deterministic: the scored file, the log and the scorer are committed; anyone can recompile the file in the pinned project"
+   }
   }
  ],
  "gaps": [
@@ -500,7 +518,9 @@
     {
      "cycle": "score-2026-11-25-erdos766",
      "dated": "2026-11-25",
-     "note": "the planner and the three regimes ran and were scored; the hypothesis is refuted for this build (F1)"
+     "hypothesis": "the planner and the three regimes run and are scored against P1–P8",
+     "before_data": true,
+     "result": "the planner and the three regimes ran and were scored; the hypothesis is refuted for this build (F1)"
     }
    ],
    "closes_with": [
