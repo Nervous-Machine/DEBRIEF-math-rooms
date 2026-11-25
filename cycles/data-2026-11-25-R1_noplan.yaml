@@ -1,0 +1,56 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-25-R1_noplan
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With full Lean feedback and no blueprint, does the searcher produce the statement as given, and with
+    how many calls, errors and what shape?
+  rule: 'amendment A5: predictions Q1–Q7 written before the run; the check tool logs every call; the scorer computes
+    every number'
+  predictions:
+  - Q1 first FINAL ok
+  - Q2 ≥ 6 calls
+  - Q3 ≥ 2 error calls
+  - Q4 10–25 declarations, depth within 2 of 7
+  - Q5 tokens > 99,114
+  - Q6 ≤ 6 first combinators
+  - Q7 a lemma name receives ≥ 2 calls
+  commit: prereg_build_erdos766.yaml
+  results:
+  - results/R1_noplan/score.json
+  - results/R1_noplan/final.lean
+  - results/R1_noplan/calls.tsv
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    check_calls: 3
+    error_calls: 0
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 93763
+    minutes: 8
+    lines: 180
+    declarations: 9
+    depth: 5
+    own_lines_median: 15
+    unused_by_root: 0
+    first_combinators: 0
+    lemmas_written: 7
+    held: Q1, Q6, Q7
+    missed: Q2 (3 calls), Q3 (0 errors), Q4 (9 declarations, depth 5), Q5 (93,763 tokens, fewer than R1)
+  misses:
+  - 'Q2: 3 calls'
+  - 'Q3: no call returned error; the second call on step_arith replaced a deprecated tactic after a warning'
+  - 'Q4: 9 declarations and depth 5, below the ranges'
+  - 'Q5: fewer tokens than the blueprint run'
+spoken: No blueprint, full feedback. The searcher chose its own route, the same vertex-deletion induction the planner
+  had drawn but in seven lemmas instead of fifteen, and the whole file compiled on its first check. Three calls,
+  none an error, eight minutes, fewer tokens than the blueprint run. Three of seven predictions held. The rooms
+  were not what made build 1 cheap; at this size the searcher draws them itself.
+finding_ids: []
+gap_ids:
+- EG2

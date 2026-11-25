@@ -23,13 +23,14 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | data-2026-11-25-R2_binary | 2026-11-25 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | confirmed |
 | data-2026-11-25-R3_none | 2026-11-25 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | refuted |
 | score-2026-11-25-erdos766 | 2026-11-25 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | mixed |
+| data-2026-11-25-R1_noplan | 2026-11-25 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | mixed |
 
 ## Gaps, in the order that would settle things fastest
 
 | priority | gap | status | closes with | who could act | signal expected | resolution by |
 |---|---|---|---|---|---|---|
 | 1 | The planner and the three regimes have not run | resolved learned | the planner's blueprint with its predictions sealed, then the three regime runs with their check logs and final files, scored against P1–P8 | Nervous Machine; the instruments are public and anyone may rerun the same registration | one data cycle per regime and one scoring cycle, each with its files committed | none registered |
-| 1 | Does hedging replace the signal? Untested: the first-combinator count rose 0, 6, 20 as the signal went from full to one word to none, in one build | proposed | a second build (Erdős 1111 or 626, with a printed human proof in the prior) under a registration that predicts the hedge count and token cost by regime before the run, and a no-blueprint arm with full feedback to test whether the structure as prior is what made the fill cheap | Nervous Machine, or anyone who reruns the instruments on another target | a registration with those predictions, then the runs | none registered |
+| 1 | Does hedging replace the signal? Untested: the first-combinator count rose 0, 6, 20 as the signal went from full to one word to none, in one build | proposed | a second build on a larger target, or one with a printed human proof in the prior (Erdős 1111 or 626), under a registration that predicts the hedge count and token cost by regime before the run | Nervous Machine, or anyone who reruns the instruments on another target | a registration with those predictions, then the runs | none registered |
 
 ## Corrections, retractions, ruled out
 

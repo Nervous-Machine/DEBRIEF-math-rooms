@@ -23,10 +23,13 @@ The planner draws the rooms: the fixed structure of a proof, from one page of a 
 | full Lean feedback | 3 | ok | 99,114 | 8 | 230 | 0 |
 | ok or error only | 16 | ok | 151,407 | 18 | 284 | 6 |
 | no checker until the end | 1 | ok | 165,568 | 16.5 | 314 | 20 |
+| no blueprint, full feedback | 3 | ok | 93,763 | 8 | 180 | 0 |
 
 The planner predicted 45 attempts, half a million tokens and a hundred minutes for the fill. No node anywhere took more than one call. The paper turned out to contain no proof, so this build measured the machine with no human argument in the prior at all.
 
-Next: a no-blueprint arm on the same theorem, and the second target with a printed human proof.
+Without a blueprint the searcher drew the same route in seven lemmas and compiled at first check, so the structure was not what made it cheap. Size is the next variable.
+
+Next: a larger target, or one with a printed human proof in the prior.
 
 ## Why this theorem
 

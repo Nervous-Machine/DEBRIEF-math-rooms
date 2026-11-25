@@ -8,6 +8,6 @@ One build showed the searcher writing more alternatives into its proofs as the s
 
 Status: proposed.
 
-- **a second build (Erdős 1111 or 626, with a printed human proof in the prior) under a registration that predicts the hedge count and token cost by regime before the run, and a no-blueprint arm with full feedback to test whether the structure as prior is what made the fill cheap** — contribution kind: data; who could act: Nervous Machine, or anyone who reruns the instruments on another target.
+- **a second build on a larger target, or one with a printed human proof in the prior (Erdős 1111 or 626), under a registration that predicts the hedge count and token cost by regime before the run** — contribution kind: data; who could act: Nervous Machine, or anyone who reruns the instruments on another target.
 
 Signal expected: a registration with those predictions, then the runs. Resolution by: none registered.

@@ -262,3 +262,19 @@ amendments:
       - "Q5 more tokens than R1 (99,114)"
       - "Q6 at most 6 first combinators (R2's count): with full feedback, hedging stays low"
       - "Q7 at least one lemma name is retried or revised: a lemma name receives 2 or more calls"
+  - id: A6
+    written: "2026-11-25T22:59Z, after the no-blueprint arm"
+    what_happened: >
+      R1_noplan ran 22:49:58Z to 22:57:30Z (93,763 tokens): 3 calls (step_arith ok with two deprecation warnings,
+      step_arith ok after replacing the tactic, FINAL ok). Whole file compiled at first check: 180 lines, 9
+      declarations (7 lemmas plus the two from the Challenge), depth 5, median 15 own lines, no hedges, nothing unused,
+      standard axioms, Challenge verbatim. Transcript audited: 13 shell calls and one read, no flags.
+    scorecard: "held Q1, Q6, Q7; missed Q2, Q3, Q4, Q5"
+    scorer_fix: >
+      The definition comparison read a declaration's text up to the next declaration header, so an `open` line the
+      searcher placed after the definition was counted as a change to it. The body now ends at the next top-level
+      command. rooms/score.py sha256 42aa48c1bab71ad9dccc809180efeaa07a00b204677f0ffe24a32384df51c34d. All four regimes rescored; no number of record changed for R1–R3.
+    reading: >
+      Size is the next variable. With the blueprint removed the searcher drew the same route in fewer rooms and
+      needed the signal even less. The structure-as-prior explanation is ruled out at this size; the fill is cheap
+      because the problem fits in one pass for this searcher.

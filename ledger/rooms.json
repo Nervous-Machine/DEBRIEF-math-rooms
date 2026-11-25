@@ -38,7 +38,7 @@
     "spoken": "The shape of a recent machine-built proof of the Riemann hypothesis suggested a search sized to a fast exact error signal, with retries concentrated at the joins. That reading came from one archive with no attempt log. Here the prior is fixed, the plan is drawn once by one model, the cost of each step is predicted and sealed, and a second model searches the plan under full Lean feedback, under accept or reject only, and with no checker until the end. The first target is the Dirac–Erdős bound, Erdős Problem 766, whose Lean statement and only Lean proof both appeared after the searcher model's training cutoff. Result: all three regimes produced the statement as given, the no-checker regime at first try, so the hypothesis as filed is refuted for this build. The signal changed hedging and cost, not success."
    },
    "what_happened": {
-    "spoken": "On 25 November 2026 the target was chosen from the untracked-claims backlog, the pinned project was built, the registration with eight predictions was committed, and the planner drew sixteen rooms with its cost predictions sealed. Three searchers then filled the rooms in fresh contexts: with full Lean feedback, three calls and done in eight minutes; with one word of feedback, one call per room, sixteen calls, eighteen minutes; with no checker at all, one call at the end, which compiled clean. All three rest on the standard axioms with the statement verbatim. The seal was opened and matched its hash; the control was scored with the same instrument."
+    "spoken": "On 25 November 2026 the target was chosen from the untracked-claims backlog, the pinned project was built, the registration with eight predictions was committed, and the planner drew sixteen rooms with its cost predictions sealed. Three searchers then filled the rooms in fresh contexts: with full Lean feedback, three calls and done in eight minutes; with one word of feedback, one call per room, sixteen calls, eighteen minutes; with no checker at all, one call at the end, which compiled clean. All three rest on the standard axioms with the statement verbatim. The seal was opened and matched its hash; the control was scored with the same instrument. A fourth arm, asked for by Heidi Bennett after the three: no blueprint, full feedback. The searcher drew its own route in seven lemmas and the file compiled at first check, in three calls and eight minutes."
    },
    "implications": {
     "rely_on": [
@@ -65,7 +65,7 @@
     ],
     "new": [
      {
-      "spoken": "hedging rose with the coarseness of the signal (0, 6, 20 first combinators) and so did tokens; the planner over-predicted cost everywhere, most at leaves; the no-blueprint arm and the second target are registered as the next questions",
+      "spoken": "hedging rose with the coarseness of the signal (0, 6, 20 first combinators) and so did tokens; the planner over-predicted cost everywhere, most at leaves; the no-blueprint arm and the second target are registered as the next questions; the no-blueprint arm rules out the structure-as-prior explanation at this size, so size is the next variable",
       "finding_ids": []
      }
     ]
@@ -444,6 +444,73 @@
    "gap_ids": [
     "EG1"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-25T22:59:43Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-25-R1_noplan.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-25-R1_noplan",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "With full Lean feedback and no blueprint, does the searcher produce the statement as given, and with how many calls, errors and what shape?",
+    "rule": "amendment A5: predictions Q1–Q7 written before the run; the check tool logs every call; the scorer computes every number",
+    "predictions": [
+     "Q1 first FINAL ok",
+     "Q2 ≥ 6 calls",
+     "Q3 ≥ 2 error calls",
+     "Q4 10–25 declarations, depth within 2 of 7",
+     "Q5 tokens > 99,114",
+     "Q6 ≤ 6 first combinators",
+     "Q7 a lemma name receives ≥ 2 calls"
+    ],
+    "commit": "prereg_build_erdos766.yaml",
+    "results": [
+     "results/R1_noplan/score.json",
+     "results/R1_noplan/final.lean",
+     "results/R1_noplan/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "check_calls": 3,
+     "error_calls": 0,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 93763,
+     "minutes": 8,
+     "lines": 180,
+     "declarations": 9,
+     "depth": 5,
+     "own_lines_median": 15,
+     "unused_by_root": 0,
+     "first_combinators": 0,
+     "lemmas_written": 7,
+     "held": "Q1, Q6, Q7",
+     "missed": "Q2 (3 calls), Q3 (0 errors), Q4 (9 declarations, depth 5), Q5 (93,763 tokens, fewer than R1)"
+    },
+    "misses": [
+     "Q2: 3 calls",
+     "Q3: no call returned error; the second call on step_arith replaced a deprecated tactic after a warning",
+     "Q4: 9 declarations and depth 5, below the ranges",
+     "Q5: fewer tokens than the blueprint run"
+    ]
+   },
+   "spoken": "No blueprint, full feedback. The searcher chose its own route, the same vertex-deletion induction the planner had drawn but in seven lemmas instead of fifteen, and the whole file compiled on its first check. Three calls, none an error, eight minutes, fewer tokens than the blueprint run. Three of seven predictions held. The rooms were not what made build 1 cheap; at this size the searcher draws them itself.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG2"
+   ]
   }
  ],
  "findings": [
@@ -553,10 +620,18 @@
    "status": "proposed",
    "opened_cycle": "score-2026-11-25-erdos766",
    "priority": 1,
-   "history": [],
+   "history": [
+    {
+     "cycle": "data-2026-11-25-R1_noplan",
+     "dated": "2026-11-25",
+     "hypothesis": "the rooms were what made the fill cheap",
+     "before_data": true,
+     "result": "no: without a blueprint the searcher drew the same route in seven lemmas and compiled at first check; the no-blueprint arm is done and the next build is a larger target"
+    }
+   ],
    "closes_with": [
     {
-     "what": "a second build (Erdős 1111 or 626, with a printed human proof in the prior) under a registration that predicts the hedge count and token cost by regime before the run, and a no-blueprint arm with full feedback to test whether the structure as prior is what made the fill cheap",
+     "what": "a second build on a larger target, or one with a printed human proof in the prior (Erdős 1111 or 626), under a registration that predicts the hedge count and token cost by regime before the run",
      "kind": "measurement",
      "external": false,
      "who_could_act": "Nervous Machine, or anyone who reruns the instruments on another target"

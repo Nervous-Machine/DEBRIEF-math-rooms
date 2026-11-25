@@ -19,6 +19,7 @@
 | R1 | Lean's complete output | 3 | ok | pass | 99,114 | 8 | 230 | 18 | 7 | 9 | 0 | 0 | 0 |
 | R2 | one word, ok or error | 16 | ok | pass | 151,407 | 18 | 284 | 19 | 7 | 10 | 2 | 6 | 12 |
 | R3 | nothing until FINAL | 1 | ok | pass | 165,568 | 16.5 | 314 | 17 | 7 | 14 | 0 | 20 | 28 |
+| no blueprint, full feedback (A5) | Lean's complete output; no plan | 3 | ok | pass | 93,763 | 8 | 180 | 9 | 5 | 15 | 0 | 0 | 0 |
 | control | (a person with Opus 5.5) | — | — | — | — | — | 212 | 9 | 6 | 14 | 0 | 0 | — |
 
 All three final files compile in the pinned project on `propext`, `Classical.choice` and `Quot.sound`, with the challenge's definitions and the root statement verbatim, no sorry, no added hypothesis, no changed node statement.
@@ -47,9 +48,9 @@ The planner over-predicted everywhere, and missed leaves more than joins. Both s
 
 **What this does not say.** Nothing here speaks to a size where a machine search has been seen to thrash, to a searcher without a blueprint, or to a prior that contains a human argument. The paper had none, so the human-experience question is untouched. The control was a person working with Opus 5.5; our searcher was Fable 5.1 from a blueprint, so the shape comparison (twice the declarations at the same depth, shorter steps) crosses models as well as guidance.
 
-## Next
+**The no-blueprint arm (amendment A5, run the same evening).** Heidi Bennett asked for it to separate "the structure as prior transfers" from "the problem is small". A fresh searcher with the statement and Mathlib only drew the same vertex-deletion induction in seven lemmas, and the whole file compiled at its first check: three calls, no errors, eight minutes, fewer tokens than the blueprint run, no hedges. Three of seven predictions held (it passed, it did not hedge, one lemma got a second call); it missed the predicted call count, error count, size and tokens, all on the low side. The rooms were not what made build 1 cheap. At this size the searcher draws them itself, and size is the next variable.
 
-- A no-blueprint arm with full feedback on the same theorem: if it also finishes in a few calls, the structure did not matter at this scale; if it thrashes at the joins, the rooms were what made the fill cheap.
+## Next
 - The second target with a printed human proof in the prior (Erdős 1111, Wagon 1980, or Erdős 626, Erdős 1962), with the hedge count and tokens by regime predicted before the run.
 
 ## Files

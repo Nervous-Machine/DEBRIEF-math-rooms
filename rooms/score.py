@@ -22,6 +22,7 @@ except ImportError:
 ROOT = "erdos_766.variants.dirac_erdos"
 DECL = re.compile(r"^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+|noncomputable\s+|nonrec\s+)*(theorem|lemma|def|abbrev|instance|structure|inductive|example)\s+([^\s:({\[]+)", re.M)
 RETRY = re.compile(r"((_alt\d*)+|_(bis|ter|quater)|_(new|old|v\d+|try\d*|attempt\d*|fix\d*|aux\d*|prime|redo|again|final|ok))$")
+CMD = re.compile(r"^(?:open|variable|section|namespace|end|set_option|attribute|universe|local|scoped|noncomputable section)\b", re.M)
 FIT_TOKENS = {"sorry": re.compile(r"\bsorry\b"), "admit": re.compile(r"\badmit\b"), "axiom": re.compile(r"^\s*axiom\b", re.M),
               "native_decide": re.compile(r"\bnative_decide\b"), "unsafe": re.compile(r"\bunsafe\b"),
               "maxHeartbeats_raised": re.compile(r"maxHeartbeats\s+([5-9]\d{5,}|\d{7,})")}
@@ -104,7 +105,7 @@ def fit_indicators(final_text, challenge_text, nodes):
             changed.append({"name": name, "how": "missing"})
         elif norm(fn[name][4].split(":=")[0]) != sig:
             changed.append({"name": name, "how": "signature differs"})
-        elif kind == "def" and norm(fn[name][4]) != norm(body):
+        elif kind == "def" and norm(CMD.split(fn[name][4])[0]) != norm(CMD.split(body)[0]):   # a body ends at the next top-level command
             changed.append({"name": name, "how": "definition body differs"})
     node_changed = []
     for n in nodes or []:
