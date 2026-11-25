@@ -1,0 +1,200 @@
+# The planner's rooms: node statements, dependencies, Mathlib roots and join/leaf marks. Predictions removed and sealed.
+root: erdos_766.variants.dirac_erdos
+nodes:
+- id: N1
+  name: two_mul_sq_div_four_succ_lt
+  statement: "theorem two_mul_sq_div_four_succ_lt (N : ℕ) (hN : 4 ≤ N) :\n    2 * (N ^ 2 / 4 + 1) < N * (N / 2 +\
+    \ 1) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.even_or_odd'
+  - Nat.div_add_mod
+  - Nat.mul_div_cancel_left
+  kind: leaf
+- id: N2
+  name: sq_div_four_eq_pred_sq_div_four_add_half
+  statement: "theorem sq_div_four_eq_pred_sq_div_four_add_half (N : ℕ) (hN : 1 ≤ N) :\n    N ^ 2 / 4 = (N - 1) ^\
+    \ 2 / 4 + N / 2 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.even_or_odd'
+  - Nat.add_mul_div_left
+  - Nat.div_add_mod
+  kind: leaf
+- id: N3
+  name: low_degree_arith
+  statement: "theorem low_degree_arith (N e d : ℕ) (hN : 4 ≤ N) (he : N ^ 2 / 4 + 1 ≤ e)\n    (hd : N * d ≤ 2 *\
+    \ e) : d + (N - 1) ^ 2 / 4 + 1 ≤ e := by\n"
+  depends_on:
+  - N1
+  - N2
+  mathlib_roots:
+  - Nat.mul_le_mul_left
+  - Nat.lt_of_not_le
+  kind: join
+- id: N4
+  name: exists_card_mul_degree_le
+  statement: "theorem exists_card_mul_degree_le {V : Type} [Fintype V] [DecidableEq V] [Nonempty V]\n    (G : SimpleGraph\
+    \ V) [DecidableRel G.Adj] :\n    ∃ x : V, Fintype.card V * G.degree x ≤ 2 * G.edgeFinset.card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.exists_minimal_degree_vertex
+  - SimpleGraph.minDegree_le_degree
+  - SimpleGraph.sum_degrees_eq_twice_card_edges
+  - Finset.card_nsmul_le_sum
+  - Finset.card_univ
+  kind: leaf
+- id: N5
+  name: exists_low_degree_vertex
+  statement: "theorem exists_low_degree_vertex {V : Type} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj] (N : ℕ) (hc : Fintype.card V = N) (hN : 4 ≤ N)\n    (he : N ^ 2 / 4 + 1 ≤ G.edgeFinset.card) :\n  \
+    \  ∃ x : V, G.degree x + (N - 1) ^ 2 / 4 + 1 ≤ G.edgeFinset.card := by\n"
+  depends_on:
+  - N3
+  - N4
+  mathlib_roots:
+  - Fintype.card_pos_iff
+  kind: join
+- id: N6
+  name: card_edgeFinset_induce_compl_singleton_eq
+  statement: "theorem card_edgeFinset_induce_compl_singleton_eq {V : Type} [Fintype V] [DecidableEq V]\n    (G :\
+    \ SimpleGraph V) [DecidableRel G.Adj] (x : V) :\n    (G.induce ({x}ᶜ : Set V)).edgeFinset.card = G.edgeFinset.card\
+    \ - G.degree x := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.card_edgeFinset_induce_compl_singleton
+  - SimpleGraph.card_edgeFinset_deleteIncidenceSet
+  kind: leaf
+- id: N7
+  name: card_compl_singleton_subtype
+  statement: "theorem card_compl_singleton_subtype {V : Type} [Fintype V] [DecidableEq V] (x : V) :\n    Fintype.card\
+    \ ({x}ᶜ : Set V) = Fintype.card V - 1 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Fintype.card_compl_set
+  - Set.card_singleton
+  kind: leaf
+- id: N8
+  name: exists_vertex_delete_keeps_dense
+  statement: "theorem exists_vertex_delete_keeps_dense {V : Type} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph\
+    \ V) [DecidableRel G.Adj] (N : ℕ) (hc : Fintype.card V = N) (hN : 4 ≤ N)\n    (he : N ^ 2 / 4 + 1 ≤ G.edgeFinset.card)\
+    \ :\n    ∃ x : V, (N - 1) ^ 2 / 4 + 1 ≤ (G.induce ({x}ᶜ : Set V)).edgeFinset.card := by\n"
+  depends_on:
+  - N5
+  - N6
+  mathlib_roots: []
+  kind: join
+- id: N9
+  name: induce_isContained
+  statement: "theorem induce_isContained {V : Type} (G : SimpleGraph V) (s : Set V) :\n    G.induce s ⊑ G := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.Copy.induce
+  - SimpleGraph.Embedding.induce
+  - SimpleGraph.Embedding.isContained
+  kind: leaf
+- id: N10
+  name: ncard_edgeSet_eq_card_edgeFinset
+  statement: "theorem ncard_edgeSet_eq_card_edgeFinset {V : Type} (G : SimpleGraph V) [Fintype G.edgeSet] :\n  \
+    \  G.edgeSet.ncard = G.edgeFinset.card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.ncard_eq_toFinset_card'
+  - SimpleGraph.edgeFinset
+  kind: join
+- id: N11
+  name: exists_fin_copy
+  statement: "theorem exists_fin_copy {V : Type} [Fintype V] [DecidableEq V] (G : SimpleGraph V)\n    [DecidableRel\
+    \ G.Adj] {k : ℕ} (hc : Fintype.card V = k) :\n    ∃ H : SimpleGraph (Fin k), H.edgeSet.ncard = G.edgeFinset.card\
+    \ ∧ H ⊑ G := by\n"
+  depends_on:
+  - N10
+  mathlib_roots:
+  - SimpleGraph.overFin
+  - SimpleGraph.overFinIso
+  - SimpleGraph.Iso.card_edgeFinset_eq
+  - SimpleGraph.Iso.isContained'
+  kind: leaf
+- id: N12
+  name: exists_dense_fin_subgraph
+  statement: "theorem exists_dense_fin_subgraph (k : ℕ) (hk : 3 ≤ k) :\n    ∀ (N : ℕ) (V : Type) [Fintype V] [DecidableEq\
+    \ V] (G : SimpleGraph V) [DecidableRel G.Adj],\n      Fintype.card V = N → k ≤ N → N ^ 2 / 4 + 1 ≤ G.edgeFinset.card\
+    \ →\n      ∃ H : SimpleGraph (Fin k), k ^ 2 / 4 + 1 ≤ H.edgeSet.ncard ∧ H ⊑ G := by\n"
+  depends_on:
+  - N7
+  - N8
+  - N9
+  - N11
+  mathlib_roots:
+  - Nat.le_induction
+  - SimpleGraph.IsContained.trans
+  kind: join
+- id: N13
+  name: exists_le_ncard_edgeSet_eq
+  statement: "theorem exists_le_ncard_edgeSet_eq {W : Type} [Finite W] (H : SimpleGraph W) (m : ℕ)\n    (hm : m\
+    \ ≤ H.edgeSet.ncard) :\n    ∃ H' : SimpleGraph W, H'.edgeSet.ncard = m ∧ H' ≤ H := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.exists_subset_card_eq
+  - SimpleGraph.fromEdgeSet
+  - SimpleGraph.edgeSet_fromEdgeSet
+  - SimpleGraph.edgeSet_subset_compl_diagSet
+  - SimpleGraph.fromEdgeSet_mono
+  - SimpleGraph.fromEdgeSet_edgeSet
+  kind: leaf
+- id: N14
+  name: dirac_erdos_exists
+  statement: "theorem dirac_erdos_exists (n k : ℕ) (hk : 3 ≤ k) (hkn : k ≤ n) (G : SimpleGraph (Fin n))\n    (hG\
+    \ : G.edgeSet.ncard = n ^ 2 / 4 + 1) :\n    ∃ H : SimpleGraph (Fin k), H.edgeSet.ncard = k ^ 2 / 4 + 1 ∧ H ⊑\
+    \ G := by\n"
+  depends_on:
+  - N10
+  - N12
+  - N13
+  mathlib_roots:
+  - SimpleGraph.IsContained.mono_left
+  - Fintype.card_fin
+  - Classical.decRel
+  kind: join
+- id: N15
+  name: forcingNumber_le_of_forall
+  statement: "theorem forcingNumber_le_of_forall (n k l m : ℕ)\n    (h : ∀ G : SimpleGraph (Fin n), G.edgeSet.ncard\
+    \ = m →\n      ∃ H : SimpleGraph (Fin k), H.edgeSet.ncard = l ∧ H ⊑ G) :\n    forcingNumber n k l ≤ m := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.sInf_le
+  kind: leaf
+- id: ROOT
+  name: erdos_766.variants.dirac_erdos
+  statement: "theorem erdos_766.variants.dirac_erdos (n k : ℕ) (hk : 3 ≤ k) (hkn : k ≤ n) :\n    forcingNumber n\
+    \ k (k ^ 2 / 4 + 1) ≤ n ^ 2 / 4 + 1 := by\n"
+  depends_on:
+  - N14
+  - N15
+  mathlib_roots: []
+  kind: join
+notes: 'Erdős gives no proof (p. 34 only cites Dirac and Erdős), so the route is my own elementary one.
+
+  Reduce the root to membership in the sInf set (N15) and to N14: every graph on Fin n with
+
+  ⌊n²/4⌋+1 edges contains a k-vertex graph with exactly ⌊k²/4⌋+1 edges. N14 comes from N12
+
+  (contains one with at least that many) plus edge trimming (N13). N12 is downward induction on the
+
+  vertex count N: at N = k transfer to Fin k (N11); for N > k ≥ 3, so N ≥ 4, a graph with
+
+  e ≥ ⌊N²/4⌋+1 edges has a vertex x with deg x ≤ e − ⌊(N−1)²/4⌋ − 1 (handshake + min degree, N4,
+
+  and floor arithmetic N1–N3, which uses N·(⌊N/2⌋+1) > 2(⌊N²/4⌋+1) for N ≥ 4), so G.induce {x}ᶜ
+
+  stays dense (N6, N8). No edge trimming is needed inside the induction.
+
+  Hardest: N12. Induction over types with subtype instances (Fintype/DecidableEq on {x}ᶜ, decidable
+
+  induce adjacency) that must line up with N6/N7, plus Copy transitivity. N3 is second: Nat
+
+  floor-division with a nonlinear product that omega cannot see.
+
+  Not in Mathlib: Dirac–Erdős itself, and a ready "subgraph with exactly m edges" lemma (N13).
+
+  '

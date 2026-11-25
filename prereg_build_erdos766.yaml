@@ -185,3 +185,29 @@ amendments:
     changes:
       - "instruments.scorer: rooms/score.py, sha256 ec51e65980a5f43df0ab8d4152053c1ba58acf291db06f2492b02e0edc4c4898"
       - "measurements.per_regime.tokens: per-node tokens are not measured (the harness reports tokens per run only); planner_error is computed on attempts, as P3 states"
+  - id: A2
+    written: "2026-11-25T22:20Z, after the planner finished and before any searcher has run"
+    what_happened: >
+      The planner (Claude Opus 5.5, fresh context, brief as registered) ran at commit 36ae823: 100,308 tokens, 23 tool
+      calls, 232 s. Its transcript was audited: no WebFetch, no WebSearch, no curl, no gh, no git, no subagent; reads
+      of the brief, the Challenge and the paper, and grep/sed/awk inside the pinned Mathlib source only. Output:
+      15 nodes plus a ROOT entry, each depending only on earlier nodes; joins N3, N5, N8, N10, N12, N14, ROOT.
+    correction_to_the_prior: >
+      The registration called the human proof "Erdős's 1964 averaging paragraph". The registrar read the paper after
+      the planner reported, and the planner is right: page 30 says "We will give no proofs in this paper", and page 34
+      states the result and credits Dirac and Erdős without an argument. The prior this build actually had was the
+      licensed statement and Mathlib at the pinned commit; the route in the blueprint is the planner's own. This is a
+      stronger version of the registered question (no human guide at all after the statement), not a weaker one, but
+      it is not the question as written, and the human-experience axis cannot be read from this build. The next two
+      targets carry printed human proofs (Wagon 1980 for Erdős 1111; Erdős 1962, Theorem 1, for Erdős 626), so the
+      contrast with and without a human argument in the prior is the series' second question, stated here before the
+      searcher runs.
+    sealed: >
+      blueprint_predictions.yaml, sha256 1cef8f3a958dbc8cd33f14b890c235cb2659294a2b8f11e5e2967aab449c6254 (the hash is
+      committed as blueprint_predictions.sha256), held outside the repository by Heidi Bennett; opened after R3. The
+      public blueprint_nodes.yaml is the same file with the predicted fields removed. The registrar has seen, from the
+      planner's report, that N12 is predicted hardest and N3 second; no other prediction has been read.
+    falsifier_restated: >
+      Heidi Bennett, before any searcher ran: if the no-checker regime produces successful moves without any error
+      signal, the thesis is disproven. In the registered terms, a clean comparator pass by R3 at its first FINAL refutes
+      P1 and P4 and the hypothesis as filed.
