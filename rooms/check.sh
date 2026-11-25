@@ -1,6 +1,6 @@
 #!/bin/sh
 # The searcher's only tool. usage: check.sh REGIME NODE FILE
-#   REGIME  R1_full | R2_binary | R3_none
+#   REGIME  a name containing full, binary or none (R1_full, R2_binary, R3_none, R1_noplan, B2_A_full, ...)
 #   NODE    a node id from blueprint_nodes.yaml, or FINAL to declare the file final
 #   FILE    the searcher's current Lean file (the whole development, one file)
 # Copies FILE into the pinned project in the VM as Rooms/Target.lean, compiles it with `lake env lean`, logs the file
@@ -17,7 +17,7 @@ N=$(ls "$LOG" | grep -c '\.lean$'); N=$((N+1)); SEQ=$(printf '%04d' "$N")
 TS=$(date -u +%FT%TZ)
 cp "$FILE" "$LOG/$SEQ.lean"
 refuse() { printf '%s\t%s\t%s\t%s\t%s\n' "$SEQ" "$TS" "$NODE" "refused" "$1" >> "$HERE/results/$REGIME/calls.tsv"; echo "refused: $1"; exit 3; }
-if [ "$REGIME" = R3_none ] && [ "$NODE" != FINAL ]; then refuse "no checker in this regime until FINAL"; fi
+case "$REGIME" in *none*) [ "$NODE" != FINAL ] && refuse "no checker in this regime until FINAL" ;; esac
 if [ "$NODE" != FINAL ]; then
   USED=$(awk -F'\t' -v n="$NODE" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
   [ "$USED" -ge 12 ] && refuse "cap of 12 attempts reached for node $NODE"
@@ -31,9 +31,9 @@ if [ $RC -eq 0 ] && ! grep -q -e 'error' -e "declaration uses 'sorry'" "$LOG/$SE
 [ $RC -eq 124 ] && STATUS=timeout
 printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$SEQ" "$TS" "$NODE" "$STATUS" "rc=$RC" "secs=$SECS" "bytes=$(wc -c < "$FILE" | tr -d ' ')" >> "$HERE/results/$REGIME/calls.tsv"
 case "$REGIME" in
-  R1_full|R1_noplan) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;   # R1_noplan: full feedback, no blueprint (amendment A5)
-  R2_binary) echo "$STATUS" ;;
-  R3_none) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;   # FINAL only: the one check, shown in full
+  *full*) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;      # full feedback (R1_full, R1_noplan, B2_*_full*)
+  *binary*) echo "$STATUS" ;;                             # one word
+  *none*) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;      # FINAL only: the one check, shown in full
   *) echo "$STATUS" ;;
 esac
 [ "$STATUS" = ok ]

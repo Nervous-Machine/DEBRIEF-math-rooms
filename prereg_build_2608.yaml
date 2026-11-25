@@ -1,0 +1,79 @@
+# Pre-registration, cycle "build-2026-11-25-panda2608": build 2 of the rooms experiment, an argument outside the
+# searcher's distribution. Written 2026-11-25T23:17Z, BEFORE the planner or any searcher has run. The Lean
+# statement compiles with its sorry in the pinned project (4 s). Changes after this point go in amendments at the end.
+#
+# Occasion. Build 1 (Erdős 766) and its no-blueprint arm showed a textbook argument that the searcher recalls rather
+# than finds: every regime passed, the no-checker one blind, the no-blueprint one in three calls. Heidi Bennett's
+# reading: everything was within the model's distribution, so neither the signal nor the rooms had work to do. Build
+# 2 takes a theorem whose proof was posted after the searcher model's training cutoff (June 2026): arXiv:2608.18608,
+# posted 19 August 2026, v2 19 October 2026, with no Lean trace anywhere on 2026-11-25 (GitHub code search: 9 hits,
+# all RSS mirrors and unrelated data files; not in the AFTD index, atlas-lean, math-proof/lemma, TauCeti, tengoku or
+# formal-conjectures by the scan of 2026-11-25). The mathematics is elementary (lifting the exponent, coprime
+# factorization of a prime power, an AM–GM bound, a binomial congruence) but the route is the author's, and the
+# searcher has not seen it.
+#
+# Caveats before the data. (1) The Lean statement was written by the registrar (this session) from Theorem 1.1 of the
+# paper; no third party has written or read it. That reading is an open gap. (2) The registrar read the whole paper
+# to write the statement and therefore may not plan or search. (3) The control for shape is absent: nobody has
+# formalized this theorem. (4) Four arms, one run each, same model as build 1; the planner sees the paper, the
+# searchers see the blueprint or nothing. (5) Out of distribution is a claim about the training cutoff, not a
+# measurement; a searcher that reproduces the author's route without the paper in arm B is evidence against it.
+
+mission: rooms-2026-11
+cycle: "build-2026-11-25-panda2608"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)"
+dated: "2026-11-25"
+question: >
+  With the proof's route outside the searcher's distribution, do the error-signal regimes separate on success and not
+  only on cost, and what does a human argument in the prior buy: does a searcher with the planner's rooms drawn from
+  the paper succeed where a searcher with the statement alone does not?
+
+target:
+  theorem: "Panda2608.consecutive_exponents"
+  statement_in_words: >
+    For p an odd prime and positive integers x, y, z with |x − y| = 1 and p^x + (2p+1)^y = z², the triple (x, y, z)
+    is (2, 1, p+1), or p = 7 and the triple is (4, 3, 76).
+  paper: "Subhasis Panda, On the Diophantine equation p^x + (2p+1)^y = z^2 with consecutive exponents, arXiv:2608.18608v2, 19 October 2026, Theorem 1.1"
+  lean_statement: {path: rooms/Challenge_2608.lean, sha256: "d5058034c8975985e689c0fd2ee778b7a4bc409bd513c72b7ff65155386c7bcb", written_by: "the registrar, 2026-11-25", read_by_others: "nobody yet"}
+
+prior:
+  human_proof: {pdf: "https://arxiv.org/pdf/2608.18608v2", sha256: "2b1ef41742f6c6fb60384a9d360e829c476a762c23037ca6c2bcca3ca5949a35", pages: 7, given_to: [planner]}
+  mathlib: {commit: "ccbef15ebdb41c2addfac682131f83c75904c3c1", lean: "v4.35.0", given_to: [planner, searcher]}
+  excluded_from_planner_and_searcher: ["any web access", "build 1's files (blueprint, results, trace, cycles, ledger, scorecard)", "for the searchers: the paper and the planner's predictions"]
+
+roles:
+  registrar: "this session: wrote the statement and this file; scores; audits; never writes Lean for the target beyond the statement"
+  planner: {context: fresh, model: claude-opus-5-5, inputs: [human_proof, Challenge_2608.lean, mathlib source], output: "blueprint_2608.yaml, split into blueprint_2608_nodes.yaml (public) and blueprint_2608_predictions.yaml (sealed by sha256, held by Heidi Bennett until arm D finishes)"}
+  searcher: {context: "fresh, one per arm", model: claude-fable-5-1, tools: "rooms/check.sh only", seal: "by instruction; audited after with rooms/audit.py"}
+
+arms:                       # run in this order after the planner; each from a fresh context
+  B2_A_full: {inputs: [Challenge_2608.lean, blueprint_2608_nodes.yaml, mathlib], check_returns: "Lean's complete output"}
+  B2_B_full_noplan: {inputs: [Challenge_2608.lean, mathlib], check_returns: "Lean's complete output", note: "no paper, no blueprint: the human-argument control"}
+  B2_C_binary: {inputs: [Challenge_2608.lean, blueprint_2608_nodes.yaml, mathlib], check_returns: "ok or error"}
+  B2_D_none: {inputs: [Challenge_2608.lean, blueprint_2608_nodes.yaml, mathlib], check_returns: "nothing until FINAL"}
+
+caps: {attempts_per_node: 12, tokens_per_arm: 2000000, wall_minutes_per_arm: 180, lean_timeout_seconds: 600}
+
+measurements: "as in prereg_build_erdos766.yaml, with the scorer called as: score.py . ARM --root consecutive_exponents --ns Panda2608 --challenge rooms/Challenge_2608.lean --blueprint blueprint_2608_nodes.yaml; first-combinator count and never-executed warnings are now registered measures (gap EG2)"
+
+predictions:
+  - {id: P1, says: "arm A passes the comparator at first FINAL, with at least 10 check calls and at least 3 error calls"}
+  - {id: P2, says: "arm B (statement only) does not pass at its first FINAL, or needs at least twice arm A's calls"}
+  - {id: P3, says: "arm C makes at least as many calls as arm A and has more first combinators than arm A"}
+  - {id: P4, says: "arm D's first FINAL does not compile clean"}
+  - {id: P5, says: "in arm A the planner's median absolute log2 attempt error is larger at joins than at leaves"}
+  - {id: P6, says: "at least half of arm A's error calls fall on nodes the planner marked join"}
+  - {id: P7, says: "first combinators: D > C > A"}
+  - {id: P8, says: "in arm A the node with the most calls is one of: the coprime factorization of q^(2b+1) into (2b+1)-th powers, the AM–GM bound, or the binomial congruence modulo 2k²"}
+  - {id: P9, says: "arm B, if it finishes, does not follow the author's route through the auxiliary equation (2k+1)^(2b+1) − (2k−1)^(2b+1) = 2(2k²−1)^(b+1); if it does, the out-of-distribution claim is weakened and recorded as such"}
+
+falsifier: "arm D compiling clean at first FINAL again: the no-signal regime succeeds on an argument the model has not seen, and the thesis retreats past this size and this novelty"
+
+instruments:
+  check_tool: {path: rooms/check.sh, sha256: "a77558e4419af17cb0d253ba4dd40229466c38eac65597211508e7033f8485ed", change: "regime matched by name pattern (full, binary, none) instead of fixed names"}
+  scorer: {path: rooms/score.py, sha256: "57bd0f3d3cdf26c2142b892a6b448f6ed4bf42f93a023d3608836f42753cf1b8", change: "--root, --ns, --challenge, --blueprint options; measures unchanged"}
+  planner_brief: {path: rooms/PLANNER_PROMPT_2608.md, sha256: "8e5511040be29622e7388654d6f939c02fe88c0aad54870296a5355e65332567"}
+  searcher_brief: {path: rooms/SEARCHER_PROMPT_2608.md, sha256: "e92641f1ec5fa77f725225e1e3effbc78cc9ca15d099455c852214845994bcc8"}
+  searcher_noplan_brief: {path: rooms/SEARCHER_NOPLAN_PROMPT_2608.md, sha256: "1d495ebdf9cd0c0ce05939966687bc224d852bbba67e0bca4a3ec06e595baef1"}
+  audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}

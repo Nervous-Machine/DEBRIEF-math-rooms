@@ -1,0 +1,47 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: build-2026-11-25-panda2608
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: 'With the proof''s route outside the searcher''s distribution, the error-signal regimes separate on
+  success: full feedback with the planner''s rooms passes with many calls and errors, one word costs more calls
+  and more hedging, no checker fails at first FINAL, and the statement-only arm fails or costs twice as much as
+  the arm with the human argument in the prior.'
+signals: predictions P1–P9 in prereg_build_2608.yaml, scored from the check logs, the final files and the sealed
+  planner predictions
+endpoints: none public until the runs are filed
+measurements_needed: the planner run and the four arms
+bears_on: DEBRIEF-math-rooms EG2 (hedging as signal substitute) and the human-experience question from build 1
+pinned:
+  sha256: ba38c2c6c63730b077bd46aba4867ddacaba2cc7f71d18a9b271ed8cb915e7aa
+  file: prereg_build_2608.yaml
+preregistered:
+  question: Do the regimes separate on success when the argument is new to the model, and what does a human argument
+    in the prior buy?
+  rule: P1–P9 as written; misses recorded; the planner's per-node predictions sealed by hash before any searcher
+    runs
+  predictions:
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  - P7
+  - P8
+  - P9
+  commit: prereg_build_2608.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers:
+    predictions: 9
+    arms: 4
+    signals_have_public_endpoint: false
+spoken: 'Nervous Machine registered build 2: Theorem 1.1 of a paper posted in August 2026, after the searcher model''s
+  training cutoff, stated in Lean by the registrar, to be built from the planner''s rooms under full feedback, one
+  word and no checker, with a statement-only arm as the control for the human argument.'
+finding_ids: []
+gap_ids:
+- EG2

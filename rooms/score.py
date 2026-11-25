@@ -19,7 +19,7 @@ try:
 except ImportError:
     sys.exit("score.py needs PyYAML")
 
-ROOT = "erdos_766.variants.dirac_erdos"
+ROOT = "erdos_766.variants.dirac_erdos"   # overridden by --root; --ns gives the namespace for #print axioms
 DECL = re.compile(r"^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+|noncomputable\s+|nonrec\s+)*(theorem|lemma|def|abbrev|instance|structure|inductive|example)\s+([^\s:({\[]+)", re.M)
 RETRY = re.compile(r"((_alt\d*)+|_(bis|ter|quater)|_(new|old|v\d+|try\d*|attempt\d*|fix\d*|aux\d*|prime|redo|again|final|ok))$")
 CMD = re.compile(r"^(?:open|variable|section|namespace|end|set_option|attribute|universe|local|scoped|noncomputable section)\b", re.M)
@@ -122,10 +122,10 @@ def fit_indicators(final_text, challenge_text, nodes):
     return f
 
 
-def axioms_in_vm(final_path):
+def axioms_in_vm(final_path, ns="Erdos766"):
     """Compile the final file plus `#print axioms ROOT` in the pinned project; returns the printed axiom line or the error."""
     try:
-        text = open(final_path).read() + f"\n#print axioms Erdos766.{ROOT}\n"
+        text = open(final_path).read() + f"\n#print axioms {ns}.{ROOT}\n"
         tmp = final_path + ".axioms.lean"
         open(tmp, "w").write(text)
         subprocess.run(["limactl", "copy", tmp, "primegaps:/home/heidibennett.guest/rooms/project/Rooms/Axioms.lean"], check=True, capture_output=True)
@@ -139,14 +139,18 @@ def axioms_in_vm(final_path):
 
 
 def main():
+    global ROOT
     repo = sys.argv[1]; regime = sys.argv[2]
     args = sys.argv[3:]
     opt = {args[i]: args[i + 1] for i in range(0, len(args) - 1, 2) if args[i].startswith("--")}
+    ROOT = opt.get("--root", ROOT); ns = opt.get("--ns", "Erdos766")
+    challenge_path = opt.get("--challenge", os.path.join(repo, "rooms", "Challenge.lean"))
+    blueprint_path = opt.get("--blueprint", os.path.join(repo, "blueprint_nodes.yaml"))
     rdir = os.path.join(repo, "results", regime)
     calls = [l.rstrip("\n").split("\t") for l in open(os.path.join(rdir, "calls.tsv"))] if os.path.exists(os.path.join(rdir, "calls.tsv")) else []
-    nodes = (yaml.safe_load(open(os.path.join(repo, "blueprint_nodes.yaml"))) or {}).get("nodes", []) if os.path.exists(os.path.join(repo, "blueprint_nodes.yaml")) else []
+    nodes = (yaml.safe_load(open(blueprint_path)) or {}).get("nodes", []) if os.path.exists(blueprint_path) else []
     kind = {n["id"]: n.get("kind", "leaf") for n in nodes}
-    challenge = open(os.path.join(repo, "rooms", "Challenge.lean")).read()
+    challenge = open(challenge_path).read()
     per_node, refused, finals = {}, 0, []
     for c in calls:
         seq, ts, node, status = c[0], c[1], c[2], c[3]
@@ -166,7 +170,7 @@ def main():
         score["final_status_at_first_FINAL"] = status
         score["shape"] = shape(text)
         score["fit"] = fit_indicators(text, challenge, nodes)
-        score["axioms"] = axioms_in_vm(dst) if status == "ok" else {"rc": None, "axioms": None, "tail": "final did not compile clean"}
+        score["axioms"] = axioms_in_vm(dst, ns) if status == "ok" else {"rc": None, "axioms": None, "tail": "final did not compile clean"}
         std = {"propext", "Classical.choice", "Quot.sound"}
         ax = score["axioms"]["axioms"]
         score["comparator_pass"] = bool(status == "ok" and ax is not None and set(ax) <= std and not score["fit"]["challenge_changed"] and score["shape"]["root_found"])
