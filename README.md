@@ -10,13 +10,23 @@ The planner draws the rooms: the fixed structure of a proof, from one page of a 
 | searcher | Claude Fable 5.1, from the blueprint and Mathlib only; no paper, no web, one check tool |
 | regimes | full Lean feedback · accept or reject only · no checker until the end |
 | first target | Erdős Problem 766, the Dirac–Erdős bound ([statement](rooms/Challenge.lean), Apache-2.0, from [formal-conjectures](https://github.com/google-deepmind/formal-conjectures)) |
-| prior | Erdős 1964, p. 34 (pinned by hash, not vendored) · Mathlib `ccbef15e`, Lean v4.35.0 |
+| prior | the statement and Mathlib `ccbef15e`, Lean v4.35.0; the 1964 paper (pinned by hash) turned out to state the result without proof |
 | control, opened after the runs | [Wentao Li's proof](https://github.com/VictorLiwentao/fc-palomar-proofs/tree/main/FCPalomar/Erdos766) with Claude Opus 5.5, registered on [Palomar](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-19-000006) |
-| written down first | [prereg_build_erdos766.yaml](prereg_build_erdos766.yaml): eight predictions |
+| written down first | [prereg_build_erdos766.yaml](prereg_build_erdos766.yaml): eight predictions, three held |
 
 ## Highlighted findings
 
-None yet. The planner and the three regimes have not run.
+**Build 1, Erdős 766 (25 Nov 2026): the proof did not need the signal.** Three searchers filled the planner's sixteen rooms under three regimes, and all three files compiled on the standard axioms with the statement verbatim. The one with no checker did it blind, at first try, which was the disproof named before it ran. What the signal changed was how the searcher paid: three calls with full feedback, one call per room with one word, and twenty hedged proofs with nothing. Three of eight predictions held. Full account: [trace/ROOMS-766.md](trace/ROOMS-766.md).
+
+| regime | calls | first FINAL | tokens | minutes | lines | `first` hedges |
+|---|---|---|---|---|---|---|
+| full Lean feedback | 3 | ok | 99,114 | 8 | 230 | 0 |
+| ok or error only | 16 | ok | 151,407 | 18 | 284 | 6 |
+| no checker until the end | 1 | ok | 165,568 | 16.5 | 314 | 20 |
+
+The planner predicted 45 attempts, half a million tokens and a hundred minutes for the fill. No node anywhere took more than one call. The paper turned out to contain no proof, so this build measured the machine with no human argument in the prior at all.
+
+Next: a no-blueprint arm on the same theorem, and the second target with a printed human proof.
 
 ## Why this theorem
 

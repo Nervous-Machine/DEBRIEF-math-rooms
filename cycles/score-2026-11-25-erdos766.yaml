@@ -1,0 +1,61 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: score-2026-11-25-erdos766
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Which of P1 to P8 held, and how far did the planner's sealed predictions miss?
+  rule: the sealed file was opened after R3 and its hash matched the committed hash; the control was copied under
+    its licence after R3 and scored with the same instrument
+  predictions:
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  - P7
+  - P8
+  commit: prereg_build_erdos766.yaml
+  results:
+  - results/R1_full/score.json
+  - results/R2_binary/score.json
+  - results/R3_none/score.json
+  - blueprint_predictions.yaml
+  - results/control_Erdos766_Solution.lean
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    held: P6, P7, P8
+    missed: P1, P2, P3, P4, P5
+    planner_predicted_attempts_total: 45
+    planner_predicted_tokens_total: 502000
+    planner_predicted_minutes_total: 101
+    actual_calls: 3, 16, 1
+    actual_tokens: 99114, 151407, 165568
+    actual_minutes: 8, 18, 16.5
+    planner_log2_error_R1_leaves: -1.79
+    planner_log2_error_R2_joins: -1.0
+    planner_log2_error_R2_leaves: -1.585
+    control_declarations: 9
+    control_depth: 6
+    control_own_lines_median: 14
+    first_combinators_by_regime: 0, 6, 20
+    seal_hash_matched: true
+  misses:
+  - P1 R3 passed
+  - P2 no retries anywhere
+  - P3 the planner over-predicted everywhere and missed leaves more than joins
+  - P4 no fit in R3
+  - P5 R1 left nothing unused
+spoken: 'Three of eight predictions held. The planner predicted forty-five attempts, half a million tokens and a
+  hundred minutes for the fill; the largest run took sixteen calls, and no node anywhere took more than one. Its
+  misses were over-predictions, larger at leaves than at joins. Against the control, the full-feedback file has
+  twice the declarations at the same depth and shorter steps. The one measure that moved with the signal was hedging:
+  zero, six and twenty first combinators as the signal went from full to one word to none, and tokens rose with
+  it. The hypothesis as filed is refuted for this build.'
+finding_ids: []
+gap_ids:
+- EG1

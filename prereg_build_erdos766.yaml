@@ -228,3 +228,18 @@ amendments:
       call. First FINAL ok; axioms propext, Classical.choice, Quot.sound; Challenge definitions and root verbatim.
       18 declarations, depth 7, median 9 own lines, 0 unused, 1 helper added (low_degree_arith_aux, which the retry
       regex flags on its _aux suffix; it is a helper, not a retry). Harness tokens 99,114; 8 minutes of 180.
+  - id: A4
+    written: "2026-11-25T23:05Z, after all three regimes and the scoring"
+    what_happened: >
+      R2 (22:01:32Z to 22:19:51Z, 151,407 tokens): 16 calls, one per node then FINAL, all ok. R3 (22:21:12Z to
+      22:37:49Z, 165,568 tokens): one call, FINAL, ok. All three final files pass the comparator in the pinned project
+      on propext, Classical.choice and Quot.sound with the Challenge verbatim. The sealed file was opened after R3 and
+      its sha256 matched blueprint_predictions.sha256. The control was copied under its Apache licence
+      (results/CONTROL_ATTRIBUTION.md) and scored with rooms/score.py. Transcripts of all three searchers audited with
+      rooms/audit.py: no web, no git, no other regime's directory, no control.
+    scorecard: "held P6, P7, P8; missed P1 (R3 passed), P2 (no retries anywhere), P3 (over-prediction, larger at leaves), P4 (no fit in R3), P5 (R1 left nothing unused)"
+    not_registered_but_observed: >
+      The first-combinator count in the final files rose 0, 6, 20 across R1, R2, R3, with 0, 12, 28 fallback branches
+      reported by Lean as never executed. This is a diagnostic after the run, not a registered measure; it is filed as
+      gap EG2 with a prediction to be written before the next build.
+    hypothesis_status: "refuted for this build, by the falsifier restated in A2 (finding F1)"

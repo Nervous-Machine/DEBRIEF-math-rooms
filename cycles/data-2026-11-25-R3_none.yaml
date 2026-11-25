@@ -1,0 +1,52 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-25-R3_none
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Given the planner's blueprint and the regime's error signal, does the searcher produce the statement
+    as given, and with what step size, retries and residue?
+  rule: the check tool logs every call; the scorer (rooms/score.py) computes every number from the log and the files;
+    the first FINAL call is the scored result
+  predictions:
+  - P1 does not pass as first declared final
+  - P4 at least one fit indicator
+  - P5 nothing unused
+  commit: prereg_build_erdos766.yaml
+  results:
+  - results/R3_none/score.json
+  - results/R3_none/final.lean
+  - results/R3_none/calls.tsv
+  before_data: true
+outcome:
+  verdict: refuted
+  numbers:
+    check_calls: 1
+    refused: 0
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 165568
+    minutes: 16.5
+    lines: 314
+    declarations: 17
+    depth: 7
+    own_lines_median: 14
+    unused_by_root: 0
+    first_combinators: 20
+    never_executed_warnings: 28
+    nodes_changed: 0
+    helpers_added: 0
+  misses:
+  - 'P1: the first FINAL compiled clean'
+  - 'P4: zero fit indicators; the statement and definitions verbatim, no sorry, no added hypothesis, no changed
+    node'
+spoken: No checker until the end. The searcher wrote the whole development blind, from the blueprint and the pinned
+  Mathlib source, and its one allowed call compiled clean on the standard axioms with the statement verbatim. Sixteen
+  and a half minutes and the most tokens of the three. It hedged twenty proofs with the first combinator; twenty-eight
+  fallback branches were never executed, because every primary alternative worked. This is the outcome Heidi Bennett
+  named beforehand as the disproof of the hypothesis as filed.
+finding_ids: []
+gap_ids:
+- EG1

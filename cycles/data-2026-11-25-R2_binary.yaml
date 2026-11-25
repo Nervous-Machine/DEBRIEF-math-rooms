@@ -1,0 +1,52 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-25-R2_binary
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Given the planner's blueprint and the regime's error signal, does the searcher produce the statement
+    as given, and with what step size, retries and residue?
+  rule: the check tool logs every call; the scorer (rooms/score.py) computes every number from the log and the files;
+    the first FINAL call is the scored result
+  predictions:
+  - P1 passes the comparator
+  - P2 attempts per node ≥ 1.5 × R1
+  - P5 leaves at least one unused declaration
+  - P7 more tokens than R1
+  commit: prereg_build_erdos766.yaml
+  results:
+  - results/R2_binary/score.json
+  - results/R2_binary/final.lean
+  - results/R2_binary/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 16
+    refused: 0
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 151407
+    minutes: 18
+    lines: 284
+    declarations: 19
+    depth: 7
+    own_lines_median: 10
+    unused_by_root: 2
+    first_combinators: 6
+    never_executed_warnings: 12
+    nodes_changed: 0
+    helpers_added: 2
+  misses:
+  - 'P2: attempts per node 1 in both regimes; the difference is calls per run (16 against 3), not retries'
+spoken: One word of feedback, ok or error. The searcher committed one room at a time, sixteen calls in blueprint
+  order and every one ok, then FINAL, clean on the standard axioms. Eighteen minutes and half again the tokens of
+  the full-feedback run. Unable to ask the kernel which spelling of a Mathlib lemma was right, it wrote alternatives
+  into six proofs with the first combinator and let the kernel choose; twelve fallback branches were never executed.
+  It found that the blueprint's route for the floor-arithmetic node does not close as drawn, proved that node directly,
+  and left two nodes proved but unused.
+finding_ids: []
+gap_ids:
+- EG1

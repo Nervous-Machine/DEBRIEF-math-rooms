@@ -1,0 +1,49 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-25-R1_full
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Given the planner's blueprint and the regime's error signal, does the searcher produce the statement
+    as given, and with what step size, retries and residue?
+  rule: the check tool logs every call; the scorer (rooms/score.py) computes every number from the log and the files;
+    the first FINAL call is the scored result
+  predictions:
+  - P1 passes the comparator
+  - P5 leaves at least one unused declaration
+  - P6 own_lines_median ≤ 10
+  commit: prereg_build_erdos766.yaml
+  results:
+  - results/R1_full/score.json
+  - results/R1_full/final.lean
+  - results/R1_full/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 3
+    refused: 0
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 99114
+    minutes: 8
+    lines: 230
+    declarations: 18
+    depth: 7
+    own_lines_median: 9
+    unused_by_root: 0
+    first_combinators: 0
+    never_executed_warnings: 0
+    nodes_changed: 0
+    helpers_added: 1
+  misses:
+  - 'P5: nothing unused'
+spoken: 'Full Lean feedback. The searcher wrote all fifteen nodes and the root before its first call, then made
+  three calls: one error (a decidability instance in the step that moves a graph onto Fin k), one repair, one FINAL
+  that compiled clean on the three standard axioms with the statement verbatim. Eight minutes of a three-hour budget.
+  One helper lemma was added for the floor-arithmetic node; nothing was left unused.'
+finding_ids: []
+gap_ids:
+- EG1

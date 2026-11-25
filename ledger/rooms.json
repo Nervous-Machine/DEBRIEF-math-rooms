@@ -22,9 +22,10 @@
    "began": "2026-11-25",
    "status": "active",
    "record_quality": "full_ledger",
-   "record_note": "Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles.",
+   "record_note": "Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles. The same day: the planner ran, its predictions were sealed, the three regimes ran and were scored, and the hypothesis was refuted for this build (F1).",
    "record_limits": [
-    "Nothing has run yet. One theorem, one planner model, one searcher model, one run per regime are planned for the first series."
+    "One theorem, one planner model, one searcher model, one run per regime. The target is 230 to 314 lines of Lean; nothing here speaks to a size where a machine search has been seen to thrash.",
+    "The prior held no human argument: the 1964 paper states the result without proof, so the human-experience axis is not measured by this build."
    ],
    "scope_limits": [
     "The experiment measures the Lean bridge from a fixed blueprint to a licensed statement; it does not measure mathematical discovery, and it does not check the mathematics of the 1964 argument.",
@@ -34,29 +35,43 @@
     "spoken": "This record holds an experiment: a small proof is built from a fixed prior, a planner predicts the cost of every step before any search, and the same plan is searched three times with the error signal set differently each time."
    },
    "short_version": {
-    "spoken": "The shape of a recent machine-built proof of the Riemann hypothesis suggested a search sized to a fast exact error signal, with retries concentrated at the joins. That reading came from one archive with no attempt log. Here the prior is fixed, the plan is drawn once by one model, the cost of each step is predicted and sealed, and a second model searches the plan under full Lean feedback, under accept or reject only, and with no checker until the end. The first target is the Dirac–Erdős bound, Erdős Problem 766, whose Lean statement and only Lean proof both appeared after the searcher model's training cutoff."
+    "spoken": "The shape of a recent machine-built proof of the Riemann hypothesis suggested a search sized to a fast exact error signal, with retries concentrated at the joins. That reading came from one archive with no attempt log. Here the prior is fixed, the plan is drawn once by one model, the cost of each step is predicted and sealed, and a second model searches the plan under full Lean feedback, under accept or reject only, and with no checker until the end. The first target is the Dirac–Erdős bound, Erdős Problem 766, whose Lean statement and only Lean proof both appeared after the searcher model's training cutoff. Result: all three regimes produced the statement as given, the no-checker regime at first try, so the hypothesis as filed is refuted for this build. The signal changed hedging and cost, not success."
    },
    "what_happened": {
-    "spoken": "On 25 November 2026 the target was chosen from the untracked-claims backlog, the pinned Lean project was built in a virtual machine, the check tool was dry-run, and the registration with its predictions was committed. No planner or searcher has run."
+    "spoken": "On 25 November 2026 the target was chosen from the untracked-claims backlog, the pinned project was built, the registration with eight predictions was committed, and the planner drew sixteen rooms with its cost predictions sealed. Three searchers then filled the rooms in fresh contexts: with full Lean feedback, three calls and done in eight minutes; with one word of feedback, one call per room, sixteen calls, eighteen minutes; with no checker at all, one call at the end, which compiled clean. All three rest on the standard axioms with the statement verbatim. The seal was opened and matched its hash; the control was scored with the same instrument."
    },
    "implications": {
-    "rely_on": [],
+    "rely_on": [
+     {
+      "spoken": "the three final files compile in the pinned project on the standard axioms with the licensed statement verbatim; the logs and scorer are committed",
+      "finding_ids": [
+       "F1"
+      ]
+     }
+    ],
     "do_not_rely_on": [
      {
-      "spoken": "any result: none exists yet",
+      "spoken": "any claim that this result carries to larger targets, to a searcher without a blueprint, or to a prior with a human argument; none of those was run",
       "finding_ids": []
      }
     ],
-    "stop": [],
+    "stop": [
+     {
+      "spoken": "reading the Alpöge archive's chain-and-retry shape as proof that machine search needs a fast signal to succeed; at this size it did not",
+      "finding_ids": [
+       "F1"
+      ]
+     }
+    ],
     "new": [
      {
-      "spoken": "a registered experiment with eight predictions on the record, and a sealed-prediction protocol for the planner",
+      "spoken": "hedging rose with the coarseness of the signal (0, 6, 20 first combinators) and so did tokens; the planner over-predicted cost everywhere, most at leaves; the no-blueprint arm and the second target are registered as the next questions",
       "finding_ids": []
      }
     ]
    },
    "certainty_statement": {
-    "spoken": "Nothing is accepted or certified. The registration is on the record and the runs are owed."
+    "spoken": "One finding is refuted under the rule written down first. The next questions are open gaps."
    },
    "sources": [
     {
@@ -174,9 +189,297 @@
    "gap_ids": [
     "EG1"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-25T22:40:25Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-25-R1_full.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-25-R1_full",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Given the planner's blueprint and the regime's error signal, does the searcher produce the statement as given, and with what step size, retries and residue?",
+    "rule": "the check tool logs every call; the scorer (rooms/score.py) computes every number from the log and the files; the first FINAL call is the scored result",
+    "predictions": [
+     "P1 passes the comparator",
+     "P5 leaves at least one unused declaration",
+     "P6 own_lines_median ≤ 10"
+    ],
+    "commit": "prereg_build_erdos766.yaml",
+    "results": [
+     "results/R1_full/score.json",
+     "results/R1_full/final.lean",
+     "results/R1_full/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 3,
+     "refused": 0,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 99114,
+     "minutes": 8,
+     "lines": 230,
+     "declarations": 18,
+     "depth": 7,
+     "own_lines_median": 9,
+     "unused_by_root": 0,
+     "first_combinators": 0,
+     "never_executed_warnings": 0,
+     "nodes_changed": 0,
+     "helpers_added": 1
+    },
+    "misses": [
+     "P5: nothing unused"
+    ]
+   },
+   "spoken": "Full Lean feedback. The searcher wrote all fifteen nodes and the root before its first call, then made three calls: one error (a decidability instance in the step that moves a graph onto Fin k), one repair, one FINAL that compiled clean on the three standard axioms with the statement verbatim. Eight minutes of a three-hour budget. One helper lemma was added for the floor-arithmetic node; nothing was left unused.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG1"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-25T22:40:25Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-25-R2_binary.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-25-R2_binary",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Given the planner's blueprint and the regime's error signal, does the searcher produce the statement as given, and with what step size, retries and residue?",
+    "rule": "the check tool logs every call; the scorer (rooms/score.py) computes every number from the log and the files; the first FINAL call is the scored result",
+    "predictions": [
+     "P1 passes the comparator",
+     "P2 attempts per node ≥ 1.5 × R1",
+     "P5 leaves at least one unused declaration",
+     "P7 more tokens than R1"
+    ],
+    "commit": "prereg_build_erdos766.yaml",
+    "results": [
+     "results/R2_binary/score.json",
+     "results/R2_binary/final.lean",
+     "results/R2_binary/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 16,
+     "refused": 0,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 151407,
+     "minutes": 18,
+     "lines": 284,
+     "declarations": 19,
+     "depth": 7,
+     "own_lines_median": 10,
+     "unused_by_root": 2,
+     "first_combinators": 6,
+     "never_executed_warnings": 12,
+     "nodes_changed": 0,
+     "helpers_added": 2
+    },
+    "misses": [
+     "P2: attempts per node 1 in both regimes; the difference is calls per run (16 against 3), not retries"
+    ]
+   },
+   "spoken": "One word of feedback, ok or error. The searcher committed one room at a time, sixteen calls in blueprint order and every one ok, then FINAL, clean on the standard axioms. Eighteen minutes and half again the tokens of the full-feedback run. Unable to ask the kernel which spelling of a Mathlib lemma was right, it wrote alternatives into six proofs with the first combinator and let the kernel choose; twelve fallback branches were never executed. It found that the blueprint's route for the floor-arithmetic node does not close as drawn, proved that node directly, and left two nodes proved but unused.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG1"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-25T22:40:25Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-25-R3_none.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-25-R3_none",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Given the planner's blueprint and the regime's error signal, does the searcher produce the statement as given, and with what step size, retries and residue?",
+    "rule": "the check tool logs every call; the scorer (rooms/score.py) computes every number from the log and the files; the first FINAL call is the scored result",
+    "predictions": [
+     "P1 does not pass as first declared final",
+     "P4 at least one fit indicator",
+     "P5 nothing unused"
+    ],
+    "commit": "prereg_build_erdos766.yaml",
+    "results": [
+     "results/R3_none/score.json",
+     "results/R3_none/final.lean",
+     "results/R3_none/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "refuted",
+    "numbers": {
+     "check_calls": 1,
+     "refused": 0,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 165568,
+     "minutes": 16.5,
+     "lines": 314,
+     "declarations": 17,
+     "depth": 7,
+     "own_lines_median": 14,
+     "unused_by_root": 0,
+     "first_combinators": 20,
+     "never_executed_warnings": 28,
+     "nodes_changed": 0,
+     "helpers_added": 0
+    },
+    "misses": [
+     "P1: the first FINAL compiled clean",
+     "P4: zero fit indicators; the statement and definitions verbatim, no sorry, no added hypothesis, no changed node"
+    ]
+   },
+   "spoken": "No checker until the end. The searcher wrote the whole development blind, from the blueprint and the pinned Mathlib source, and its one allowed call compiled clean on the standard axioms with the statement verbatim. Sixteen and a half minutes and the most tokens of the three. It hedged twenty proofs with the first combinator; twenty-eight fallback branches were never executed, because every primary alternative worked. This is the outcome Heidi Bennett named beforehand as the disproof of the hypothesis as filed.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG1"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-25T22:40:25Z",
+   "provenance": {
+    "source": "contributed cycle file score-2026-11-25-erdos766.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "score-2026-11-25-erdos766",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Which of P1 to P8 held, and how far did the planner's sealed predictions miss?",
+    "rule": "the sealed file was opened after R3 and its hash matched the committed hash; the control was copied under its licence after R3 and scored with the same instrument",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8"
+    ],
+    "commit": "prereg_build_erdos766.yaml",
+    "results": [
+     "results/R1_full/score.json",
+     "results/R2_binary/score.json",
+     "results/R3_none/score.json",
+     "blueprint_predictions.yaml",
+     "results/control_Erdos766_Solution.lean"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "held": "P6, P7, P8",
+     "missed": "P1, P2, P3, P4, P5",
+     "planner_predicted_attempts_total": 45,
+     "planner_predicted_tokens_total": 502000,
+     "planner_predicted_minutes_total": 101,
+     "actual_calls": "3, 16, 1",
+     "actual_tokens": "99114, 151407, 165568",
+     "actual_minutes": "8, 18, 16.5",
+     "planner_log2_error_R1_leaves": -1.79,
+     "planner_log2_error_R2_joins": -1.0,
+     "planner_log2_error_R2_leaves": -1.585,
+     "control_declarations": 9,
+     "control_depth": 6,
+     "control_own_lines_median": 14,
+     "first_combinators_by_regime": "0, 6, 20",
+     "seal_hash_matched": true
+    },
+    "misses": [
+     "P1 R3 passed",
+     "P2 no retries anywhere",
+     "P3 the planner over-predicted everywhere and missed leaves more than joins",
+     "P4 no fit in R3",
+     "P5 R1 left nothing unused"
+    ]
+   },
+   "spoken": "Three of eight predictions held. The planner predicted forty-five attempts, half a million tokens and a hundred minutes for the fill; the largest run took sixteen calls, and no node anywhere took more than one. Its misses were over-predictions, larger at leaves than at joins. Against the control, the full-feedback file has twice the declarations at the same depth and shorter steps. The one measure that moved with the signal was hedging: zero, six and twenty first combinators as the signal went from full to one word to none, and tokens rose with it. The hypothesis as filed is refuted for this build.",
+   "finding_ids": [
+    "F1"
+   ],
+   "gap_ids": [
+    "EG1"
+   ]
   }
  ],
- "findings": [],
+ "findings": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-25T21:41:21Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "finding_id": "F1",
+   "kind": "ruled_out",
+   "title": "The hypothesis as filed: with the plan fixed, the search's cost and shape are set by the error signal at the joins, and no checker until the end produces a fit rather than a proof of the statement as given",
+   "standing": {
+    "status": "refuted",
+    "basis": "the no-checker regime's first FINAL compiled clean on the standard axioms with the statement verbatim and zero fit indicators (data-2026-11-25-R3_none), the outcome named beforehand as the disproof; five of eight registered predictions missed (score-2026-11-25-erdos766)",
+    "certainty": {
+     "earned": true,
+     "how": "deterministic: the scored file, the log and the scorer are committed; anyone can recompile the file in the pinned project"
+    }
+   },
+   "spoken": "For this theorem, this blueprint and this searcher, the proof did not need the error signal. All three regimes produced the statement as given; the regime with no checker produced it blind, at first try. What changed with the signal was not success but hedging and cost: the searcher wrote more alternatives into its proofs and spent more tokens as the signal got coarser.",
+   "cycle_ids": [
+    "data-2026-11-25-R1_full",
+    "data-2026-11-25-R2_binary",
+    "data-2026-11-25-R3_none",
+    "score-2026-11-25-erdos766"
+   ],
+   "gap_ids": [
+    "EG1"
+   ]
+  }
+ ],
  "gaps": [
   {
    "schema_version": "nm-debrief-v1",
@@ -190,10 +493,16 @@
    "audience": "briefing",
    "gap_id": "EG1",
    "title": "The planner and the three regimes have not run",
-   "status": "proposed",
+   "status": "resolved_learned",
    "opened_cycle": "build-2026-11-25-erdos766",
    "priority": 1,
-   "history": [],
+   "history": [
+    {
+     "cycle": "score-2026-11-25-erdos766",
+     "dated": "2026-11-25",
+     "note": "the planner and the three regimes ran and were scored; the hypothesis is refuted for this build (F1)"
+    }
+   ],
    "closes_with": [
     {
      "what": "the planner's blueprint with its predictions sealed, then the three regime runs with their check logs and final files, scored against P1–P8",
@@ -207,6 +516,37 @@
     "spoken": "Run the planner, seal its predictions, run the three regimes, score."
    },
    "expected_signal": "one data cycle per regime and one scoring cycle, each with its files committed",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-25T21:41:21Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "gap_id": "EG2",
+   "title": "Does hedging replace the signal? Untested: the first-combinator count rose 0, 6, 20 as the signal went from full to one word to none, in one build",
+   "status": "proposed",
+   "opened_cycle": "score-2026-11-25-erdos766",
+   "priority": 1,
+   "history": [],
+   "closes_with": [
+    {
+     "what": "a second build (Erdős 1111 or 626, with a printed human proof in the prior) under a registration that predicts the hedge count and token cost by regime before the run, and a no-blueprint arm with full feedback to test whether the structure as prior is what made the fill cheap",
+     "kind": "measurement",
+     "external": false,
+     "who_could_act": "Nervous Machine, or anyone who reruns the instruments on another target"
+    }
+   ],
+   "spoken": "One build showed the searcher writing more alternatives into its proofs as the signal got coarser, and succeeding every time. Whether that is how a model pays for a missing signal, and whether it holds without a blueprint or at a size where the archive thrashed, is the next question.",
+   "ask": {
+    "spoken": "Register the second target with hedge count and tokens predicted by regime, and add the no-blueprint arm."
+   },
+   "expected_signal": "a registration with those predictions, then the runs",
    "resolution_by": "none registered"
   }
  ],
