@@ -152,5 +152,16 @@
  "attempts_median": 1,
  "attempts_median_joins": 2,
  "attempts_median_leaves": null,
- "tokens_total": 205979
+ "tokens_total": 205979,
+ "planner_error": {
+  "log2_by_node": {
+   "N03": -2.322,
+   "N10": -3.322,
+   "N16": -3.644
+  },
+  "median_joins": -3.644,
+  "median_leaves": null,
+  "median_abs_joins": 3.644,
+  "median_abs_leaves": null
+ }
 }

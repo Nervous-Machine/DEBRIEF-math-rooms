@@ -1,0 +1,484 @@
+# SEALED planner predictions for build 3, Erdős 569. Held by Heidi Bennett. Opened after the 569 arms.
+root: cambie_freschi
+root_reached: 0.003
+nodes:
+- id: N01
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 40000
+    minutes: 5
+    reached: 0.95
+- id: N02
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 150000
+    minutes: 20
+    reached: 0.75
+- id: N03
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 40000
+    minutes: 5
+    reached: 0.95
+- id: N04
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 20000
+    minutes: 3
+    reached: 0.97
+- id: N05
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 60000
+    minutes: 8
+    reached: 0.9
+- id: N06
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+- id: N07
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 60000
+    minutes: 8
+    reached: 0.85
+- id: N08
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 30000
+    minutes: 4
+    reached: 0.95
+- id: N09
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 50000
+    minutes: 6
+    reached: 0.9
+- id: N10
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 200000
+    minutes: 25
+    reached: 0.6
+- id: N11
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+- id: N12
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+- id: N13
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+- id: N14
+  kind: join
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.03
+- id: N15
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 80000
+    minutes: 10
+    reached: 0.85
+- id: N16
+  kind: leaf
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 2000000
+    minutes: 180
+    reached: 0.1
+- id: N17
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+- id: N18
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+- id: N19
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.5
+- id: N20
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 120000
+    minutes: 15
+    reached: 0.7
+- id: N21
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 70000
+    minutes: 8
+    reached: 0.85
+- id: N22
+  kind: leaf
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+- id: N23
+  kind: leaf
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+- id: N24
+  kind: leaf
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+- id: N25
+  kind: leaf
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 1500000
+    minutes: 150
+    reached: 0.12
+- id: N26
+  kind: leaf
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 1800000
+    minutes: 170
+    reached: 0.08
+- id: N27
+  kind: leaf
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+- id: N28
+  kind: leaf
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.01
+- id: N29
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+- id: N30
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.45
+- id: N31
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.45
+- id: N32
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+- id: N33
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.55
+- id: N34
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 650000
+    minutes: 75
+    reached: 0.3
+- id: N35
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+- id: N36
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+- id: N37
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+- id: N38
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 800000
+    minutes: 90
+    reached: 0.25
+- id: N39
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 300000
+    minutes: 35
+    reached: 0.5
+- id: N40
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 700000
+    minutes: 80
+    reached: 0.3
+- id: N41
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+- id: N42
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 80000
+    minutes: 10
+    reached: 0.85
+- id: N43
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+- id: N44
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 30000
+    minutes: 4
+    reached: 0.95
+- id: N45
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+- id: N46
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+- id: N47
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 350000
+    minutes: 40
+    reached: 0.5
+- id: N48
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+- id: N49
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 130000
+    minutes: 15
+    reached: 0.75
+- id: N50
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 800000
+    minutes: 90
+    reached: 0.3
+- id: N51
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 180000
+    minutes: 20
+    reached: 0.65
+- id: N52
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 200000
+    minutes: 25
+    reached: 0.6
+- id: N53
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+- id: N54
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 150000
+    minutes: 18
+    reached: 0.7
+- id: N55
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+- id: N56
+  kind: leaf
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.5
+- id: N57
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 1500000
+    minutes: 150
+    reached: 0.2
+- id: N58
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+- id: N59
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+- id: ROOT
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 50000
+    minutes: 6
+    reached: 0.9

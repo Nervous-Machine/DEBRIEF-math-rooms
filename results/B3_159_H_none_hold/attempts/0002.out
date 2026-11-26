@@ -1,0 +1,726 @@
+Rooms/Target_B3_159_H_none_hold.lean:44:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:46:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:48:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:52:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:44:4: warning: Unused tactic linter: `(
+  unfold SimpleGraph.graphRamsey
+  exact Nat.sInf_le h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:46:4: warning: Unused tactic linter: `(
+  apply Nat.sInf_le
+  exact h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:48:4: warning: Unused tactic linter: `(
+  unfold SimpleGraph.graphRamsey
+  apply Nat.sInf_le
+  simp only [Set.mem_setOf_eq]
+  exact h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:52:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:59:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:61:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:68:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:59:4: warning: Unused tactic linter: `(
+  rw [← SimpleGraph.cliqueFree_compl]
+  exact (SimpleGraph.not_cliqueFree_iff_top_isContained n).symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:61:4: warning: Unused tactic linter: `(
+  constructor
+  · intro h
+    rw [← SimpleGraph.cliqueFree_compl]
+    exact (SimpleGraph.not_cliqueFree_iff_top_isContained n).mpr h
+  · intro h
+    rw [← SimpleGraph.cliqueFree_compl] at h
+    exact (SimpleGraph.not_cliqueFree_iff_top_isContained n).mp h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:68:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:29: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:52: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:70: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:29: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:52: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:70: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:105:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:105:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:106:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:106:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:107:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:107:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:108:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:108:45: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:109:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:109:42: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:110:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:110:42: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:113:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:11: warning: Unused tactic linter: `simpa using hua` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:29: warning: Unused tactic linter: `simpa using hua.symm` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:52: warning: Unused tactic linter: `simpa using hva` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:93:70: warning: Unused tactic linter: `simpa using hva.symm` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:11: warning: Unused tactic linter: `simpa using hub` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:29: warning: Unused tactic linter: `simpa using hub.symm` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:52: warning: Unused tactic linter: `simpa using hvb` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:94:70: warning: Unused tactic linter: `simpa using hvb.symm` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:105:11: warning: Unused tactic linter: `(simp at hxy; exact hua.ne hxy)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:105:45: warning: Unused tactic linter: `(simp at hxy; exact hua.ne hxy.symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:106:11: warning: Unused tactic linter: `(simp at hxy; exact hva.ne hxy)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:106:45: warning: Unused tactic linter: `(simp at hxy; exact hva.ne hxy.symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:107:11: warning: Unused tactic linter: `(simp at hxy; exact hub.ne hxy)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:107:45: warning: Unused tactic linter: `(simp at hxy; exact hub.ne hxy.symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:108:11: warning: Unused tactic linter: `(simp at hxy; exact hvb.ne hxy)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:108:45: warning: Unused tactic linter: `(simp at hxy; exact hvb.ne hxy.symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:109:11: warning: Unused tactic linter: `(simp at hxy; exact huv hxy)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:109:42: warning: Unused tactic linter: `(simp at hxy; exact huv hxy.symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:110:11: warning: Unused tactic linter: `(simp at hxy; exact hab hxy)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:110:42: warning: Unused tactic linter: `(simp at hxy; exact hab hxy.symm)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:113:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:126:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:131:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:126:4: warning: Unused tactic linter: `(
+  rw [Finset.card_le_one]
+  intro a ha b hb
+  by_contra hab
+  simp only [Finset.mem_inter, SimpleGraph.mem_neighborFinset] at ha hb
+  exact hG (c4_of_common_nbrs G huv ha.1 ha.2 hb.1 hb.2 hab))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:131:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:144:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:149:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:144:4: warning: Unused tactic linter: `(
+  refine le_trans (Finset.card_le_card ?_) (c4_free_common_nbrs G hG hw.ne)
+  intro x hx
+  rw [Finset.mem_filter, SimpleGraph.mem_neighborFinset] at hx
+  rw [Finset.mem_inter, SimpleGraph.mem_neighborFinset, SimpleGraph.mem_neighborFinset]
+  exact hx)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:149:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:175:13: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:177:13: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:224:13: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:225:13: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:226:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:174:14: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:175:13: warning: Unused tactic linter: `(
+  rw [Finset.card_empty, Nat.mul_zero]
+  exact le_refl _)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:177:13: warning: Unused tactic linter: `(
+  simp
+  done)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:224:13: warning: Unused tactic linter: `nlinarith [ht'card, h1, h2, h3]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:225:13: warning: Unused tactic linter: `linarith [ht'card, h1, h2, h3]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:226:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:235:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:236:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:235:4: warning: Unused tactic linter: `exact greedy_indep_local_aux G D s.card s (le_refl _) hD` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:236:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:247:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:253:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:247:4: warning: Unused tactic linter: `(
+  by_contra hge
+  obtain ⟨u, hut, hucard⟩ := Finset.exists_subset_card_eq (not_lt.mp hge)
+  apply hα u
+  refine ⟨?_, hucard⟩
+  intro x hx y hy hxy
+  exact ht (Finset.coe_subset.mpr hut hx) (Finset.coe_subset.mpr hut hy) hxy)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:253:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:270:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:271:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:272:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:270:7: warning: Unused tactic linter: `linarith` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:271:7: warning: Unused tactic linter: `nlinarith` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:272:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:290:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:291:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:292:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:290:7: warning: Unused tactic linter: `nlinarith [Nat.mul_le_mul_left (2 * n + 1) h2, htcard]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:291:7: warning: Unused tactic linter: `nlinarith [htcard, h2]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:292:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:303:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:308:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:303:4: warning: Unused tactic linter: `(
+  apply graphRamsey_le_of_forall
+  intro C
+  by_cases hC : (SimpleGraph.cycleGraph 4).IsContained C
+  · exact Or.inl hC
+  · exact Or.inr ((complete_isContained_compl_iff C n).mpr (h C hC)))` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:308:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:320:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:325:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:320:4: warning: Unused tactic linter: `(
+  apply graphRamsey_le_of_c4_free_bound
+  intro G hG hα
+  classical
+  have h1 := card_le_quadratic_of_c4_free G hG hα
+  linarith)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:325:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:331:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:335:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:331:4: warning: Unused tactic linter: `(
+  by_contra hc
+  have hc' : n + 1 ≤ 2 * c := Nat.lt_of_not_le hc
+  have h2 := Nat.mul_le_mul_right (4 * m + 1) hc'
+  nlinarith [h, h2, Nat.zero_le m, Nat.zero_le c, Nat.zero_le n])` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:335:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:350:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:352:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:358:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:360:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:376:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:377:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:385:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:393:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:394:11: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:398:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:399:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:418:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:419:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:349:12: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:350:11: warning: Unused tactic linter: `(
+  norm_num
+  done)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:352:11: warning: Unused tactic linter: `nlinarith` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:357:12: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:358:11: warning: Unused tactic linter: `(
+  rw [← SimpleGraph.card_neighborFinset_eq_degree, SimpleGraph.neighborFinset_eq_filter]
+  exact rfl)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:360:11: warning: Unused tactic linter: `(
+  simp only [SimpleGraph.degree, SimpleGraph.neighborFinset_eq_filter]
+  done)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:376:11: warning: Unused tactic linter: `linarith [hv.2]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:377:11: warning: Unused tactic linter: `exact (mul_comm _ _).le.trans hv.2` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:385:11: warning: Unused tactic linter: `exact (Finset.card_filter_add_card_filter_not _).trans Finset.card_univ` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:393:11: warning: Unused tactic linter: `exact not_le.mp hv.2` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:394:11: warning: Unused tactic linter: `omega` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:398:9: warning: Unused tactic linter: `simp only [smul_eq_mul, ← Finset.mul_sum] at h1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:399:9: warning: Unused tactic linter: `simp only [nsmul_eq_mul, Nat.cast_id, ← Finset.mul_sum] at h1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:418:9: warning: Unused tactic linter: `linarith [h4, h5, h6, h7, h8, hsplit]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:419:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:428:11: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_159_H_none_hold.lean:436:11: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_159_H_none_hold.lean:445:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:445:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:471:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:472:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:471:7: warning: Unused tactic linter: `linarith [hsum, h2, h3, h4]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:472:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:490:9: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_159_H_none_hold.lean:498:65: warning: This simp argument is unused:
+  Nat.mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hemp, Finset.sum_empty, Finset.card_empty, mul_zero, Nat.zero_add, zero_add, Nat.add_zero,
+    add_zero] at hphi hΦ
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_hold.lean:499:13: warning: This simp argument is unused:
+  Nat.zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hemp, Finset.sum_empty, Finset.card_empty, Nat.mul_zero, mul_zero, zero_add, Nat.add_zero,
+    add_zero] at hphi hΦ
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_hold.lean:499:37: warning: This simp argument is unused:
+  Nat.add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hemp, Finset.sum_empty, Finset.card_empty, Nat.mul_zero, mul_zero, Nat.zero_add, zero_add,
+    add_zero] at hphi hΦ
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_hold.lean:499:51: warning: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hemp, Finset.sum_empty, Finset.card_empty, Nat.mul_zero, mul_zero, Nat.zero_add, zero_add,
+    Nat.add_zero] at hphi hΦ
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_hold.lean:504:13: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:509:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:504:13: warning: Unused tactic linter: `linarith [hΦ, hphi, hdeg]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:509:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:522:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:524:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:532:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:533:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:538:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:521:10: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:522:9: warning: Unused tactic linter: `(
+  rw [← SimpleGraph.card_neighborFinset_eq_degree, SimpleGraph.neighborFinset_eq_filter]
+  exact rfl)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:524:9: warning: Unused tactic linter: `(
+  simp only [SimpleGraph.degree, SimpleGraph.neighborFinset_eq_filter]
+  done)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:532:9: warning: Unused tactic linter: `linarith [hd]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:533:9: warning: Unused tactic linter: `nlinarith [hd]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:538:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:551:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:553:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:583:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:584:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:590:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:591:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:551:9: warning: Unused tactic linter: `(
+  simp
+  done)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:553:9: warning: Unused tactic linter: `exact Nat.zero_le _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:583:9: warning: Unused tactic linter: `simp only [smul_eq_mul] at h1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:584:9: warning: Unused tactic linter: `simp only [nsmul_eq_mul, Nat.cast_id] at h1` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:590:9: warning: Unused tactic linter: `linarith [h1, h2, h3, hA, hAs]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:591:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:594:8: warning: declaration uses `sorry`
+Rooms/Target_B3_159_H_none_hold.lean:625:7: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_159_H_none_hold.lean:631:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:634:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:631:9: warning: Unused tactic linter: `nlinarith [ht, hE, hB, ht0.le, mul_le_mul_of_nonneg_right hE ht0.le,
+  mul_le_mul_of_nonneg_right hB ht0.le]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:634:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:671:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:671:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:674:8: warning: declaration uses `sorry`
+Rooms/Target_B3_159_H_none_hold.lean:694:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:695:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:701:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:710:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:720:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:722:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:723:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:694:9: warning: Unused tactic linter: `field_simp` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:695:9: warning: Unused tactic linter: `(
+  rw [eq_sub_iff_add_eq, div_add_div_same, div_eq_iff hden]
+  ring)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:701:9: warning: Unused tactic linter: `field_simp` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:710:9: warning: Unused tactic linter: `(
+  rw [le_div_iff₀' hK]
+  exact h)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:720:7: warning: Unused tactic linter: `(
+  rw [div_eq_mul_inv] at h2
+  exact h2.trans (mul_comm _ _).le)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:722:7: warning: Unused tactic linter: `linarith [h2]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:723:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:745:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:745:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:759:7: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:764:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:772:9: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:773:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:759:7: warning: Unused tactic linter: `push_cast` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:764:9: warning: Unused tactic linter: `nlinarith [hfl, hx, hpow, hC, hCP]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:772:9: warning: Unused tactic linter: `nlinarith [hpow, hC, hCP]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:773:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:812:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_hold.lean:812:4: warning: Unused tactic linter: `sorry` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

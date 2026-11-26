@@ -360,7 +360,7 @@ theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [
          | (simp only [SimpleGraph.degree, SimpleGraph.neighborFinset_eq_filter]
             done)
        have hsum : ∑ u : V, G.degree u = 2 * G.edgeFinset.card :=
-         SimpleGraph.sum_degrees_eq_twice_card_edges
+         SimpleGraph.sum_degrees_eq_twice_card_edges G
        have hD : ∀ v ∈ Finset.univ.filter
            (fun v => Fintype.card V * G.degree v ≤ 4 * G.edgeFinset.card),
            ((Finset.univ.filter
@@ -670,12 +670,140 @@ theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) 
      exact mul_le_mul_of_nonneg_left h9 hK.le)
   | sorry
 
--- N16 (join over N10–N15; inherits the open room N13, left open; see NOTES.md)
+-- N16 (join over N10–N15; the reduction below rests on the open room N13; see NOTES.md)
 theorem c4_free_indep_power :
     ∃ ε K : ℝ, 0 < ε ∧ 0 < K ∧ ∀ (N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel G.Adj],
       ¬ (SimpleGraph.cycleGraph 4).IsContained G →
       ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧ K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (t.card : ℝ) := by
-  sorry
+  first
+  | (obtain ⟨δ, η, hδ, hδ', hη, hcore⟩ := core_near_extremal
+     obtain ⟨K₁, hK₁, hK⟩ := hcore (1 / 2) one_half_pos
+     obtain ⟨K₀, hK₀def⟩ : ∃ K₀ : ℝ, K₀ = K₁ * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) := ⟨_, rfl⟩
+     have h8' : (0 : ℝ) < 8
+     · norm_num
+     have hK₀pos : 0 < K₀
+     · rw [hK₀def]
+       exact mul_pos hK₁ (Real.rpow_pos_of_pos h8' _)
+     have h110 : (0 : ℝ) < 1 / 10
+     · norm_num
+     have h17 : (0 : ℝ) < 1 / 7
+     · norm_num
+     have hKpos : 0 < min (1 / 10) (min K₀ (1 / 7)) := lt_min h110 (lt_min hK₀pos h17)
+     have hKle1 : min (1 / 10) (min K₀ (1 / 7)) ≤ 1 / 10 := min_le_left _ _
+     have hKle2 : min (1 / 10) (min K₀ (1 / 7)) ≤ K₀ := le_trans (min_le_right _ _) (min_le_left _ _)
+     have h12δ : (0 : ℝ) ≤ (1 : ℝ) / 2 - δ
+     · linarith
+     have hδ2 : δ ≤ 1 / 2
+     · linarith
+     have hδη : (1 : ℝ) / 2 + δ ≤ (1 : ℝ) / 2 + η / 2
+     · linarith
+     have hexp0' : (0 : ℝ) < (1 : ℝ) / 2 + δ
+     · linarith
+     refine ⟨δ, min (1 / 10) (min K₀ (1 / 7)), hδ, hKpos, ?_⟩
+     intro N G inst hG
+     rcases Nat.eq_zero_or_pos N with hN0 | hNpos
+     · subst hN0
+       refine ⟨∅, ?_, ?_⟩
+       · rw [Finset.coe_empty]
+         exact Set.pairwise_empty _
+       · first
+         | (rw [Finset.card_empty, Nat.cast_zero, Real.zero_rpow hexp0'.ne', mul_zero]
+            done)
+         | (rw [Finset.card_empty, Nat.cast_zero, Real.zero_rpow hexp0'.ne', mul_zero]
+            exact le_refl _)
+         | (simp [Real.zero_rpow hexp0'.ne']
+            done)
+     · have hNr1 : (1 : ℝ) ≤ (N : ℝ) := Nat.one_le_cast.mpr hNpos
+       have hNr0 : (0 : ℝ) ≤ (N : ℝ) := Nat.cast_nonneg N
+       have hNr0' : (0 : ℝ) < (N : ℝ) := lt_of_lt_of_le one_pos hNr1
+       by_cases hE : (G.edgeFinset.card : ℝ) ≤ (N : ℝ) ^ ((3 : ℝ) / 2 - δ)
+       · -- sparse branch: N10 + N14
+         obtain ⟨t, htind, htcard⟩ := turan_weak G
+         rw [Fintype.card_fin] at htcard
+         have htc : ((N ^ 2 : ℕ) : ℝ) ≤ ((2 * (4 * G.edgeFinset.card + N) * t.card : ℕ) : ℝ) :=
+           Nat.cast_le.mpr htcard
+         push_cast at htc
+         have h14 := sparse_branch_arith δ hδ hδ2 (N : ℝ) (G.edgeFinset.card : ℝ) (t.card : ℝ) hNr1
+           (Nat.cast_nonneg _) hE htc
+         refine ⟨t, htind, ?_⟩
+         have hnn : 0 ≤ (N : ℝ) ^ ((1 : ℝ) / 2 + δ) := Real.rpow_nonneg hNr0 _
+         have hh := mul_le_mul_of_nonneg_right hKle1 hnn
+         first
+         | linarith [hh, h14]
+         | nlinarith [hh, h14, hnn]
+       · -- dense branch: N11 + N12 + N13 + N15
+         have hE' : (N : ℝ) ^ ((3 : ℝ) / 2 - δ) < (G.edgeFinset.card : ℝ) := not_le.mp hE
+         have ha0 : (0 : ℝ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 - δ) := Real.rpow_nonneg hNr0 _
+         have ha1 : (1 : ℝ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 - δ) := Real.one_le_rpow hNr1 h12δ
+         have hfl1 := Nat.lt_floor_add_one ((N : ℝ) ^ ((1 : ℝ) / 2 - δ))
+         have hfl2' : 1 ≤ ⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ := Nat.floor_pos.mpr ha1
+         have hfl2 : (1 : ℝ) ≤ (⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ : ℝ) := Nat.one_le_cast.mpr hfl2'
+         have hfloor : (N : ℝ) ^ ((1 : ℝ) / 2 - δ) / 2 ≤ (⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ : ℝ)
+         · by_cases h3 : (2 : ℝ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 - δ)
+           · linarith
+           · have h3' := not_le.mp h3
+             linarith
+         have hd1 : (⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ : ℝ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 - δ) :=
+           Nat.floor_le ha0
+         have hsplit : (N : ℝ) ^ ((3 : ℝ) / 2 - δ) = (N : ℝ) ^ ((1 : ℝ) / 2 - δ) * (N : ℝ)
+         · have e2 : (3 : ℝ) / 2 - δ = ((1 : ℝ) / 2 - δ) + 1
+           · ring
+           rw [e2, Real.rpow_add hNr0', Real.rpow_one]
+         have hd2 : (⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ : ℝ) * (N : ℝ) ≤ (N : ℝ) ^ ((3 : ℝ) / 2 - δ)
+         · rw [hsplit]
+           exact mul_le_mul_of_nonneg_right hd1 hNr0
+         have hd3 : (⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ : ℝ) * (N : ℝ) ≤ (G.edgeFinset.card : ℝ) :=
+           le_trans hd2 (le_of_lt hE')
+         have hd : ⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ * Fintype.card (Fin N) ≤ G.edgeFinset.card
+         · rw [Fintype.card_fin]
+           have hd4 : ((⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ * N : ℕ) : ℝ) ≤ ((G.edgeFinset.card : ℕ) : ℝ)
+           · rw [Nat.cast_mul]
+             exact hd3
+           exact Nat.cast_le.mp hd4
+         haveI : Nonempty (Fin N) := ⟨⟨0, hNpos⟩⟩
+         obtain ⟨s, hsne, hsmin⟩ := exists_dense_core G ⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ hd
+         have h12 := moore_bound_c4_free G hG s ⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ hsne hsmin
+         have h12' : ((⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ * ⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ : ℕ) : ℝ) ≤
+             ((2 * s.card : ℕ) : ℝ) := Nat.cast_le.mpr h12
+         push_cast at h12'
+         have hsq : (N : ℝ) ^ (1 - 2 * δ) = (N : ℝ) ^ ((1 : ℝ) / 2 - δ) * (N : ℝ) ^ ((1 : ℝ) / 2 - δ)
+         · rw [← Real.rpow_add hNr0']
+           have e : (1 : ℝ) / 2 - δ + ((1 : ℝ) / 2 - δ) = 1 - 2 * δ
+           · ring
+           rw [e]
+         have hN1 : (N : ℝ) ^ (1 - 2 * δ) ≤ 8 * (s.card : ℝ)
+         · rw [hsq]
+           have hm := mul_le_mul hfloor hfloor (div_nonneg ha0 zero_le_two) (Nat.cast_nonneg _)
+           first
+           | nlinarith [hm, h12']
+           | linarith [hm, h12']
+         have hsN : (s.card : ℝ) ≤ (N : ℝ)
+         · have h1 : s.card ≤ (Finset.univ : Finset (Fin N)).card :=
+             Finset.card_le_card (Finset.subset_univ s)
+           rw [Finset.card_fin] at h1
+           exact Nat.cast_le.mpr h1
+         have hsa : (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 - δ) :=
+           Real.rpow_le_rpow (Nat.cast_nonneg _) hsN h12δ
+         have hmin' : ∀ v ∈ s, (1 / 2 : ℝ) * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤
+             ((s.filter (G.Adj v)).card : ℝ)
+         · intro v hv
+           have h1 : (⌊(N : ℝ) ^ ((1 : ℝ) / 2 - δ)⌋₊ : ℝ) ≤ ((s.filter (G.Adj v)).card : ℝ) :=
+             Nat.cast_le.mpr (hsmin v hv)
+           linarith [hfloor, hsa]
+         obtain ⟨t, hts, htind, htcard⟩ := hK (Fin N) G s hG hmin'
+         have h15 := dense_branch_arith δ η K₁ hδ hδ' hη hK₁ (N : ℝ) (s.card : ℝ) hNr1
+           (Nat.cast_nonneg _) hN1
+         rw [← hK₀def] at h15
+         have hmono : (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 + η / 2) :=
+           Real.rpow_le_rpow_of_exponent_le hNr1 hδη
+         have hnn : 0 ≤ (N : ℝ) ^ ((1 : ℝ) / 2 + δ) := Real.rpow_nonneg hNr0 _
+         have hh1 := mul_le_mul_of_nonneg_right hKle2 hnn
+         have hh2 := mul_le_mul_of_nonneg_left hmono hK₀pos.le
+         refine ⟨t, htind, ?_⟩
+         first
+         | linarith [hh1, hh2, h15, htcard]
+         | nlinarith [hh1, hh2, h15, htcard, hnn])
+  | sorry
 
 -- N17
 theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ N) (hx : 0 ≤ x)
@@ -757,12 +885,13 @@ theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ
      first
      | rw [Nat.cast_add, Nat.cast_one]
      | push_cast
-     rcases le_or_lt 0 x with hx0 | hx0
+     by_cases hx0 : 0 ≤ x
      · have hfl : (⌊x⌋₊ : ℝ) ≤ x := Nat.floor_le hx0
        first
        | linarith [hfl, hx, hpow, hCP]
        | nlinarith [hfl, hx, hpow, hC, hCP]
-     · have hx1 : x < 1
+     · have hx0' : x < 0 := not_le.mp hx0
+       have hx1 : x < 1
        · linarith
        have hfl : ⌊x⌋₊ = 0 := Nat.floor_eq_zero.mpr hx1
        rw [hfl, Nat.cast_zero, zero_add]

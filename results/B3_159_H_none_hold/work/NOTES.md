@@ -37,8 +37,10 @@ FINAL, not off my belief. N13 and N16 are written as plain `sorry` (no proof att
 - N14 sparse_branch_arith — proof written (rpow algebra).
 - N15 dense_branch_arith — proof written (rpow algebra; the exponent inequality
   1/2+η/2 ≤ (1−2δ)(1/2+η) uses δ ≤ 1/8 and η ≥ 4δ).
-- N16 c4_free_indep_power — LEFT OPEN (`sorry`), no attempt. It is the join over N10–N15 and inherits
-  N13; with N13 open, writing the (long, floor-heavy) reduction blind would add no closed room.
+- N16 c4_free_indep_power — at the first (scored) FINAL: plain `sorry`, no attempt. After the scored call,
+  during the repair phase, the full reduction from N10–N15 and N13 was written and compiles (it chooses
+  ε = δ, K = min(1/10, K₁·8^(−(1/2+η)), 1/7), splits on E ≤ N^(3/2−δ); dense branch uses
+  d = ⌊N^(1/2−δ)⌋₊ with ⌊a⌋₊ ≥ a/2 for a ≥ 1 so no small-N case is needed). It still rests on N13.
 - N17 rpow_inversion — proof written (rpow algebra).
 - N18 card_le_power_of_c4_free — reduction written from N16 and N17 (so it is `sorry`-dependent through N16).
 - N19 floor_succ_le_power — proof written.
@@ -53,4 +55,23 @@ A proof of N13 (or any replacement for it that gives N16: every C4-free graph on
 independent set of size ≫ N^(1/2+ε)). Everything else in the blueprint is standard and is written here.
 
 ## FINAL result
-(to be filled in after the FINAL call)
+First FINAL (the scored call), 02:25 UTC: `[sorry]` — the file compiles, no errors.
+Declarations using `sorry` at the scored call: N10 turan_weak (a blind bug: `sum_degrees_eq_twice_card_edges`
+takes `G` explicitly and I passed it as a bare constant), N13 core_near_extremal (open core, no attempt),
+N16 c4_free_indep_power (no attempt), N19 floor_succ_le_power (a blind bug: `le_or_lt` no longer exists
+under that name at this Mathlib commit). All other rooms — N01–N09, N11, N12, N14, N15, N17, N18 and the
+reduction of ROOT — compiled without `sorry` in their own bodies at the scored call. N18 and ROOT are
+genuine reductions: they are proved from N16 (then sorry) and so rest on N13.
+
+Repairs after the scored call (unscored; recorded for the file's final state):
+- FINAL #2, 02:27 UTC: N10 (`G` passed explicitly) and N19 (`by_cases 0 ≤ x` instead of `le_or_lt`)
+  fixed; `[sorry]` with only N13 and N16 using `sorry`.
+- FINAL #3, 02:32 UTC: N16's reduction written; `[sorry]` with only N13 using `sorry`.
+Final state of the file: every room except N13 is proved; N16, N18 and ROOT are proved from N13.
+The root is NOT proved: it rests exactly on the open room N13.
+
+All node statements, the header, the `graphRamsey` definition and the root statement were checked
+programmatically against the blueprint and the Challenge file: verbatim.
+No `admit`, `axiom`, `native_decide`, `unsafe`, or `maxHeartbeats` anywhere in the file.
+Tools used: Bash only (cat/sed/grep/python for reading, writing and checking files; `sh rooms/check.sh`
+for the three FINAL calls). No web access, no other Lean invocation, nothing read outside the allowed set.

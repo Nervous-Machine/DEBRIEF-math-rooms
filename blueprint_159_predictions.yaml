@@ -1,0 +1,164 @@
+# SEALED planner predictions for build 3, Erdős 159. Held by Heidi Bennett. Opened after the 159 arms.
+root: erdos_159
+root_reached: 0.01
+nodes:
+- id: N01
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 3000
+    minutes: 2
+    reached: 0.97
+- id: N02
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 5000
+    minutes: 4
+    reached: 0.92
+- id: N03
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 25000
+    minutes: 20
+    reached: 0.8
+- id: N04
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 8000
+    minutes: 6
+    reached: 0.88
+- id: N05
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 45000
+    minutes: 35
+    reached: 0.7
+- id: N06
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 20000
+    minutes: 15
+    reached: 0.75
+- id: N07
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 20000
+    minutes: 15
+    reached: 0.72
+- id: N08
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 4000
+    minutes: 3
+    reached: 0.93
+- id: N09
+  kind: join
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 6000
+    minutes: 5
+    reached: 0.7
+- id: N10
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 60000
+    minutes: 45
+    reached: 0.55
+- id: N11
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 70000
+    minutes: 55
+    reached: 0.45
+- id: N12
+  kind: lemma
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 60000
+    minutes: 45
+    reached: 0.5
+- id: N13
+  kind: open_core
+  believed: unsure
+  predicted:
+    attempts: 60
+    tokens: 1500000
+    minutes: 900
+    reached: 0.01
+- id: N14
+  kind: arith
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 30000
+    minutes: 20
+    reached: 0.75
+- id: N15
+  kind: arith
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 40000
+    minutes: 25
+    reached: 0.65
+- id: N16
+  kind: join
+  believed: unsure
+  predicted:
+    attempts: 25
+    tokens: 200000
+    minutes: 150
+    reached: 0.01
+- id: N17
+  kind: arith
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 30000
+    minutes: 20
+    reached: 0.72
+- id: N18
+  kind: join
+  believed: unsure
+  predicted:
+    attempts: 6
+    tokens: 40000
+    minutes: 30
+    reached: 0.01
+- id: N19
+  kind: arith
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 12000
+    minutes: 8
+    reached: 0.85
+- id: ROOT
+  kind: join
+  believed: unsure
+  predicted:
+    attempts: 4
+    tokens: 25000
+    minutes: 20
+    reached: 0.01

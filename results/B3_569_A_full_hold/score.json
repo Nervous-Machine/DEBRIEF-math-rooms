@@ -123,7 +123,7 @@
   ],
   "unused_count": 1,
   "root_found": true,
-  "depth": 45,
+  "depth": 44,
   "own_lines_median": 20.0,
   "own_lines": {
    "graphRamsey": 22,
@@ -352,5 +352,29 @@
  ],
  "attempts_median": 1,
  "attempts_median_joins": 1.0,
- "attempts_median_leaves": 1
+ "attempts_median_leaves": 1,
+ "tokens_total": 349230,
+ "planner_error": {
+  "log2_by_node": {
+   "N01": 0.0,
+   "N56": -3.0,
+   "N19": -3.0,
+   "N45": -3.17,
+   "N40": -2.322,
+   "N58": -2.807,
+   "N57": -3.585,
+   "N50": -3.322,
+   "N39": -2.807,
+   "N35": -3.0,
+   "N34": -3.322,
+   "N18": -3.322,
+   "N30": -3.0,
+   "N31": -3.0,
+   "N33": -2.585
+  },
+  "median_joins": -2.9035,
+  "median_leaves": -3.0,
+  "median_abs_joins": 2.9035,
+  "median_abs_leaves": 3.0
+ }
 }

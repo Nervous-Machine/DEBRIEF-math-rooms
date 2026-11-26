@@ -1,0 +1,156 @@
+{
+ "regime": "B3_159_H_none_hold",
+ "calls": 3,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0001",
+   "sorry"
+  ],
+  [
+   "0002",
+   "sorry"
+  ],
+  [
+   "0003",
+   "sorry"
+  ]
+ ],
+ "per_node": {},
+ "final_status_at_first_FINAL": "sorry",
+ "shape": {
+  "declarations": 28,
+  "unused_by_root": [
+   "graphRamsey",
+   "c4_of_common_nbrs",
+   "c4_free_common_nbrs",
+   "c4_free_nbhd_local_degree",
+   "greedy_indep_local_aux",
+   "greedy_indep_local",
+   "degree_lt_of_c4_free_indepSetFree",
+   "card_le_quadratic_of_c4_free",
+   "graphRamsey_c4_le_quadratic",
+   "two_mul_le_of_markov",
+   "turan_weak",
+   "filter_card_le_erase_add",
+   "phi_le_phi_erase_add",
+   "exists_dense_core_aux",
+   "exists_dense_core",
+   "moore_bound_c4_free",
+   "core_near_extremal",
+   "sparse_branch_arith",
+   "dense_branch_arith"
+  ],
+  "unused_count": 19,
+  "root_found": true,
+  "depth": 3,
+  "own_lines_median": 21.0,
+  "own_lines": {
+   "graphRamsey": 15,
+   "graphRamsey_le_of_forall": 17,
+   "complete_isContained_compl_iff": 16,
+   "c4_of_common_nbrs": 45,
+   "c4_free_common_nbrs": 18,
+   "c4_free_nbhd_local_degree": 18,
+   "greedy_indep_local_aux": 77,
+   "greedy_indep_local": 11,
+   "card_lt_of_isIndepSet_of_indepSetFree": 16,
+   "degree_lt_of_c4_free_indepSetFree": 19,
+   "card_le_quadratic_of_c4_free": 20,
+   "graphRamsey_le_of_c4_free_bound": 16,
+   "graphRamsey_c4_le_quadratic": 17,
+   "two_mul_le_of_markov": 10,
+   "turan_weak": 84,
+   "filter_card_le_erase_add": 26,
+   "phi_le_phi_erase_add": 27,
+   "exists_dense_core_aux": 37,
+   "exists_dense_core": 29,
+   "moore_bound_c4_free": 53,
+   "core_near_extremal": 9,
+   "sparse_branch_arith": 34,
+   "dense_branch_arith": 37,
+   "c4_free_indep_power": 7,
+   "rpow_inversion": 45,
+   "card_le_power_of_c4_free": 22,
+   "floor_succ_le_power": 40,
+   "erdos_159": 26
+  },
+  "retry_named": [
+   "greedy_indep_local_aux",
+   "exists_dense_core_aux"
+  ],
+  "joins": [
+   "c4_of_common_nbrs",
+   "greedy_indep_local",
+   "card_lt_of_isIndepSet_of_indepSetFree",
+   "graphRamsey_le_of_c4_free_bound"
+  ],
+  "edges": 26
+ },
+ "fit": {
+  "sorry": 27,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "sorry_in": [
+   "graphRamsey_le_of_forall",
+   "complete_isContained_compl_iff",
+   "c4_of_common_nbrs",
+   "c4_free_common_nbrs",
+   "c4_free_nbhd_local_degree",
+   "greedy_indep_local_aux",
+   "greedy_indep_local",
+   "card_lt_of_isIndepSet_of_indepSetFree",
+   "degree_lt_of_c4_free_indepSetFree",
+   "card_le_quadratic_of_c4_free",
+   "graphRamsey_le_of_c4_free_bound",
+   "graphRamsey_c4_le_quadratic",
+   "two_mul_le_of_markov",
+   "turan_weak",
+   "filter_card_le_erase_add",
+   "phi_le_phi_erase_add",
+   "exists_dense_core_aux",
+   "exists_dense_core",
+   "moore_bound_c4_free",
+   "core_near_extremal",
+   "sparse_branch_arith",
+   "dense_branch_arith",
+   "c4_free_indep_power",
+   "rpow_inversion",
+   "card_le_power_of_c4_free",
+   "floor_succ_le_power",
+   "erdos_159"
+  ],
+  "root_sorry": true,
+  "total": 28,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "his linter can be disabled with `set_option linter.unusedTactic false`\nRooms/Axioms.lean:765:5: warning: Unused tactic linter: `·\n  have hx1 : x < 1\n  · linarith\n  have hfl : ⌊x⌋₊ = 0 := Nat.floor_eq_zero.mpr hx1\n  rw [hfl, Nat.cast_zero, zero_add]\n  first\n  | linarith [hpow, hCP]\n  | nlinarith [hpow, hC, hCP]` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nRooms/Axioms.lean:811:4: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nRooms/Axioms.lean:811:4: warning: Unused tactic linter: `sorry` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n'Erdos159.erdos_159' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": false,
+ "residual": true,
+ "rooms_proved": [],
+ "attempts_median": null,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": null,
+ "tokens_total": 0,
+ "planner_error": {
+  "log2_by_node": {},
+  "median_joins": null,
+  "median_leaves": null,
+  "median_abs_joins": null,
+  "median_abs_leaves": null
+ }
+}
