@@ -38,10 +38,9 @@
   },
   "retry_named": [],
   "joins": [
-   "step_arith",
    "ncard_edgeSet_eq_card_edgeFinset"
   ],
-  "edges": 12
+  "edges": 11
  },
  "fit": {
   "sorry": 0,
@@ -51,69 +50,12 @@
   "unsafe": 0,
   "maxHeartbeats_raised": 0,
   "challenge_changed": [],
-  "nodes_changed": [
-   {
-    "id": "N1",
-    "how": "absent"
-   },
-   {
-    "id": "N2",
-    "how": "absent"
-   },
-   {
-    "id": "N3",
-    "how": "absent"
-   },
-   {
-    "id": "N4",
-    "how": "signature differs"
-   },
-   {
-    "id": "N5",
-    "how": "absent"
-   },
-   {
-    "id": "N6",
-    "how": "absent"
-   },
-   {
-    "id": "N7",
-    "how": "absent"
-   },
-   {
-    "id": "N8",
-    "how": "absent"
-   },
-   {
-    "id": "N9",
-    "how": "absent"
-   },
-   {
-    "id": "N10",
-    "how": "signature differs"
-   },
-   {
-    "id": "N11",
-    "how": "absent"
-   },
-   {
-    "id": "N12",
-    "how": "absent"
-   },
-   {
-    "id": "N13",
-    "how": "signature differs"
-   },
-   {
-    "id": "N14",
-    "how": "absent"
-   },
-   {
-    "id": "N15",
-    "how": "absent"
-   }
-  ],
-  "total": 0
+  "nodes_changed": [],
+  "sorry_in_text": [],
+  "sorry_in": [],
+  "root_sorry": false,
+  "total": 0,
+  "fit_total": 0
  },
  "axioms": {
   "rc": 0,
@@ -125,6 +67,17 @@
   "tail": "'Erdos766.erdos_766.variants.dirac_erdos' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
  },
  "comparator_pass": true,
+ "residual": false,
+ "rooms_proved": [
+  "step_arith",
+  "ncard_edgeSet_eq_card_edgeFinset",
+  "ncard_edgeSet_induce_compl_singleton",
+  "exists_card_mul_degree_le",
+  "exists_le_ncard_edgeSet_eq",
+  "exists_copy_of_card_eq",
+  "main_induction",
+  "erdos_766.variants.dirac_erdos"
+ ],
  "attempts_median": 2,
  "attempts_median_joins": null,
  "attempts_median_leaves": null,
@@ -138,8 +91,10 @@
  },
  "control_shape": {
   "declarations": 9,
-  "unused_by_root": [],
-  "unused_count": 0,
+  "unused_by_root": [
+   "erdos_766.variants.dirac_erdos"
+  ],
+  "unused_count": 1,
   "root_found": true,
   "depth": 6,
   "own_lines_median": 14,
@@ -159,6 +114,6 @@
    "forcingNumber",
    "inside"
   ],
-  "edges": 13
+  "edges": 12
  }
 }

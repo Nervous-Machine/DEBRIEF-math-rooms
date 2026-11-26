@@ -89,7 +89,7 @@
    "graphRamsey_le_of_c4_free_bound",
    "filter_univ_adj_eq"
   ],
-  "edges": 36
+  "edges": 35
  },
  "fit": {
   "sorry": 1,
@@ -100,6 +100,9 @@
   "maxHeartbeats_raised": 0,
   "challenge_changed": [],
   "nodes_changed": [],
+  "sorry_in_text": [
+   "core_near_extremal"
+  ],
   "sorry_in": [
    "core_near_extremal"
   ],

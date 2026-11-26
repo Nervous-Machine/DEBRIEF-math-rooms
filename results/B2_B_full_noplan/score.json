@@ -65,157 +65,12 @@
   "unsafe": 0,
   "maxHeartbeats_raised": 0,
   "challenge_changed": [],
-  "nodes_changed": [
-   {
-    "id": "N01",
-    "how": "absent"
-   },
-   {
-    "id": "N02",
-    "how": "absent"
-   },
-   {
-    "id": "N03",
-    "how": "absent"
-   },
-   {
-    "id": "N04",
-    "how": "absent"
-   },
-   {
-    "id": "N05",
-    "how": "absent"
-   },
-   {
-    "id": "N06",
-    "how": "absent"
-   },
-   {
-    "id": "N07",
-    "how": "absent"
-   },
-   {
-    "id": "N08",
-    "how": "signature differs"
-   },
-   {
-    "id": "N09",
-    "how": "absent"
-   },
-   {
-    "id": "N10",
-    "how": "absent"
-   },
-   {
-    "id": "N11",
-    "how": "absent"
-   },
-   {
-    "id": "N12",
-    "how": "absent"
-   },
-   {
-    "id": "N13",
-    "how": "absent"
-   },
-   {
-    "id": "N14",
-    "how": "absent"
-   },
-   {
-    "id": "N15",
-    "how": "absent"
-   },
-   {
-    "id": "N16",
-    "how": "absent"
-   },
-   {
-    "id": "N17",
-    "how": "absent"
-   },
-   {
-    "id": "N18",
-    "how": "absent"
-   },
-   {
-    "id": "N19",
-    "how": "absent"
-   },
-   {
-    "id": "N20",
-    "how": "absent"
-   },
-   {
-    "id": "N21",
-    "how": "absent"
-   },
-   {
-    "id": "N22",
-    "how": "absent"
-   },
-   {
-    "id": "N23",
-    "how": "absent"
-   },
-   {
-    "id": "N24",
-    "how": "absent"
-   },
-   {
-    "id": "N25",
-    "how": "absent"
-   },
-   {
-    "id": "N26",
-    "how": "absent"
-   },
-   {
-    "id": "N27",
-    "how": "absent"
-   },
-   {
-    "id": "N28",
-    "how": "absent"
-   },
-   {
-    "id": "N29",
-    "how": "absent"
-   },
-   {
-    "id": "N30",
-    "how": "absent"
-   },
-   {
-    "id": "N31",
-    "how": "absent"
-   },
-   {
-    "id": "N32",
-    "how": "absent"
-   },
-   {
-    "id": "N33",
-    "how": "absent"
-   },
-   {
-    "id": "N34",
-    "how": "absent"
-   },
-   {
-    "id": "N35",
-    "how": "absent"
-   },
-   {
-    "id": "N36",
-    "how": "absent"
-   },
-   {
-    "id": "N37",
-    "how": "absent"
-   }
-  ],
-  "total": 0
+  "nodes_changed": [],
+  "sorry_in_text": [],
+  "sorry_in": [],
+  "root_sorry": false,
+  "total": 0,
+  "fit_total": 0
  },
  "axioms": {
   "rc": 0,
@@ -227,6 +82,19 @@
   "tail": "Rooms/Axioms.lean:311:31: warning: Variable name `hz` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hz\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'Panda2608.consecutive_exponents' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
  },
  "comparator_pass": true,
+ "residual": false,
+ "rooms_proved": [
+  "pow_sub_pow_ge",
+  "two_mul_add_one_le_two_pow",
+  "three_pow_odd_mod_seven",
+  "expansion_even",
+  "expansion_odd",
+  "pow_sub_one_expansion",
+  "hard_case",
+  "no_sol_pow_p",
+  "factor_pow_q",
+  "consecutive_exponents"
+ ],
  "attempts_median": 1,
  "attempts_median_joins": null,
  "attempts_median_leaves": null,

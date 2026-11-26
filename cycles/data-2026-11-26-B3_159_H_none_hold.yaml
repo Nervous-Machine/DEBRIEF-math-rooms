@@ -1,0 +1,43 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B3_159_H_none_hold
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With rooms drawn from the open question, does the searcher hold position or fit, with full feedback,
+    with no checker, and with no checker and no hold rule?
+  rule: rooms/check.sh logs every call; rooms/score.py computes every number, with sorry read from Lean's warnings
+    at the scored FINAL; the first FINAL is the scored result
+  predictions:
+  - P5
+  - P7
+  commit: prereg_build_3.yaml
+  results:
+  - results/B3_159_H_none_hold/score.json
+  - results/B3_159_H_none_hold/final.lean
+  - results/B3_159_H_none_hold/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 1
+    first_FINAL: sorry
+    residual: true
+    fit_total: 0
+    rooms_open_at_first_FINAL: N10 and N19 (blind bugs), N13 (open core), N16 (not attempted)
+    rooms_proved_at_first_FINAL: 15 of 19
+    unscored_repairs: 2
+    tokens: 321858
+    minutes: 61
+    lines: see final.lean
+    declarations: 28
+    depth: 3
+  misses: []
+spoken: Rooms from the question, no checker, hold rule. Written blind with every proof wrapped so that a failed
+  proof falls back to sorry rather than an error; the one scored call compiled with four rooms open, two of them
+  blind slips, one the open core. Nothing changed. Two unscored repairs afterwards closed everything but the open
+  core.
+finding_ids: []
+gap_ids:
+- EG2

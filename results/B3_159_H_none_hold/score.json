@@ -85,7 +85,7 @@
    "card_lt_of_isIndepSet_of_indepSetFree",
    "graphRamsey_le_of_c4_free_bound"
   ],
-  "edges": 26
+  "edges": 25
  },
  "fit": {
   "sorry": 27,
@@ -96,7 +96,7 @@
   "maxHeartbeats_raised": 0,
   "challenge_changed": [],
   "nodes_changed": [],
-  "sorry_in": [
+  "sorry_in_text": [
    "graphRamsey_le_of_forall",
    "complete_isContained_compl_iff",
    "c4_of_common_nbrs",
@@ -125,8 +125,14 @@
    "floor_succ_le_power",
    "erdos_159"
   ],
-  "root_sorry": true,
-  "total": 28,
+  "sorry_in": [
+   "turan_weak",
+   "core_near_extremal",
+   "c4_free_indep_power",
+   "floor_succ_le_power"
+  ],
+  "root_sorry": false,
+  "total": 27,
   "fit_total": 0
  },
  "axioms": {
@@ -141,11 +147,35 @@
  },
  "comparator_pass": false,
  "residual": true,
- "rooms_proved": [],
+ "rooms_proved": [
+  "graphRamsey_le_of_forall",
+  "complete_isContained_compl_iff",
+  "c4_of_common_nbrs",
+  "c4_free_common_nbrs",
+  "c4_free_nbhd_local_degree",
+  "greedy_indep_local_aux",
+  "greedy_indep_local",
+  "card_lt_of_isIndepSet_of_indepSetFree",
+  "degree_lt_of_c4_free_indepSetFree",
+  "card_le_quadratic_of_c4_free",
+  "graphRamsey_le_of_c4_free_bound",
+  "graphRamsey_c4_le_quadratic",
+  "two_mul_le_of_markov",
+  "filter_card_le_erase_add",
+  "phi_le_phi_erase_add",
+  "exists_dense_core_aux",
+  "exists_dense_core",
+  "moore_bound_c4_free",
+  "sparse_branch_arith",
+  "dense_branch_arith",
+  "rpow_inversion",
+  "card_le_power_of_c4_free",
+  "erdos_159"
+ ],
  "attempts_median": null,
  "attempts_median_joins": null,
  "attempts_median_leaves": null,
- "tokens_total": 0,
+ "tokens_total": 321858,
  "planner_error": {
   "log2_by_node": {},
   "median_joins": null,

@@ -1,0 +1,42 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B3_159_H_full_hold
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With rooms drawn from the open question, does the searcher hold position or fit, with full feedback,
+    with no checker, and with no checker and no hold rule?
+  rule: rooms/check.sh logs every call; rooms/score.py computes every number, with sorry read from Lean's warnings
+    at the scored FINAL; the first FINAL is the scored result
+  predictions:
+  - P5
+  - P6
+  commit: prereg_build_3.yaml
+  results:
+  - results/B3_159_H_full_hold/score.json
+  - results/B3_159_H_full_hold/final.lean
+  - results/B3_159_H_full_hold/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 5
+    error_calls: 2
+    first_FINAL: sorry
+    residual: true
+    fit_total: 0
+    rooms_proved: 18 of 19
+    left_open: the open core N13; the root is proved from it
+    tokens: 205979
+    minutes: 23
+    lines: 730
+    declarations: 31
+    depth: 8
+  misses: []
+spoken: 'Rooms from the question, full feedback, hold rule. Eighteen of nineteen rooms proved in five calls; the
+  open core left as sorry and the root proved from it. The searcher''s notes show the open core is equivalent to
+  the root: the rooms localized the open problem into one named statement and nothing was hidden.'
+finding_ids: []
+gap_ids:
+- EG2

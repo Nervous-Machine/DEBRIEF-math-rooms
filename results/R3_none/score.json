@@ -52,7 +52,11 @@
   "maxHeartbeats_raised": 0,
   "challenge_changed": [],
   "nodes_changed": [],
-  "total": 0
+  "sorry_in_text": [],
+  "sorry_in": [],
+  "root_sorry": false,
+  "total": 0,
+  "fit_total": 0
  },
  "axioms": {
   "rc": 0,
@@ -64,6 +68,25 @@
   "tail": "ms.lean:297:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nRooms/Axioms.lean:295:6: warning: Unused tactic linter: `(unfold forcingNumber; exact Nat.sInf_le h)` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nRooms/Axioms.lean:296:6: warning: Unused tactic linter: `(apply Nat.sInf_le; exact h)` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nRooms/Axioms.lean:297:6: warning: Unused tactic linter: `(apply Nat.sInf_le; simpa using h)` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n'Erdos766.erdos_766.variants.dirac_erdos' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
  },
  "comparator_pass": true,
+ "residual": false,
+ "rooms_proved": [
+  "two_mul_sq_div_four_succ_lt",
+  "sq_div_four_eq_pred_sq_div_four_add_half",
+  "low_degree_arith",
+  "exists_card_mul_degree_le",
+  "exists_low_degree_vertex",
+  "card_edgeFinset_induce_compl_singleton_eq",
+  "card_compl_singleton_subtype",
+  "exists_vertex_delete_keeps_dense",
+  "induce_isContained",
+  "ncard_edgeSet_eq_card_edgeFinset",
+  "exists_fin_copy",
+  "exists_dense_fin_subgraph",
+  "exists_le_ncard_edgeSet_eq",
+  "dirac_erdos_exists",
+  "forcingNumber_le_of_forall",
+  "erdos_766.variants.dirac_erdos"
+ ],
  "attempts_median": null,
  "attempts_median_joins": null,
  "attempts_median_leaves": null,
@@ -77,8 +100,10 @@
  },
  "control_shape": {
   "declarations": 9,
-  "unused_by_root": [],
-  "unused_count": 0,
+  "unused_by_root": [
+   "erdos_766.variants.dirac_erdos"
+  ],
+  "unused_count": 1,
   "root_found": true,
   "depth": 6,
   "own_lines_median": 14,
@@ -98,6 +123,6 @@
    "forcingNumber",
    "inside"
   ],
-  "edges": 13
+  "edges": 12
  }
 }

@@ -1,0 +1,57 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: score-2026-11-26-build3
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Which of P1 to P10 held, and what did the planners' sealed predictions say?
+  rule: both seals opened after the last arm; hashes matched; two scorer read-defects fixed and every arm of builds
+    1–3 rescored (amendment A2)
+  predictions:
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  - P7
+  - P8
+  - P9
+  - P10
+  commit: prereg_build_3.yaml
+  results:
+  - results/B3_569_A_full_hold/score.json
+  - results/B3_569_B_full_noplan_hold/score.json
+  - results/B3_159_H_full_hold/score.json
+  - results/B3_159_H_none_hold/score.json
+  - results/B3_159_H_none_plain/score.json
+  - blueprint_569_predictions.yaml
+  - blueprint_159_predictions.yaml
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    held: P2, P3, P4, P6, P7, P8, P9
+    missed: 'P1, P5 (by the letter: one disclosed type ascription), P10'
+    planner_569_root_reached: 0.003
+    planner_159_root_reached: 0.01
+    planner_569_rooms_predicted_reached_le_0.3: 14
+    rooms_proved_A_vs_B: 48 of 59 as stated vs 16 own lemmas
+    fit_total_all_arms: 1, 0, 0, 0, 0
+    first_combinators_159_none_hold: every proof (sorry fallback)
+    seal_hashes_matched: true
+  misses:
+  - P1 letter
+  - P5 letter
+  - P10
+spoken: 'Seven of ten predictions held. Every arm held position: nothing was weakened, no hypothesis added, no axiom
+  used, and every open room is named. The paper''s rooms let the searcher recover the whole of the Cambie–Freschi
+  argument except its literature inputs and one case analysis; the statement alone recovered the easy cases and
+  stopped at the paper''s content. On the open problem, three searchers localized the question into one room and
+  left it open, with and without a kernel, with and without the instruction. The planners were not over-confident
+  this time: both put the root near zero.'
+finding_ids:
+- F3
+gap_ids:
+- EG2

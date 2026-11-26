@@ -1,0 +1,48 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B3_569_A_full_hold
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With and without the paper's rooms, how much of the Cambie–Freschi argument does the searcher recover,
+    and does it hold position where it cannot?
+  rule: rooms/check.sh logs every call; rooms/score.py computes every number, with sorry read from Lean's warnings
+    at the scored FINAL; the first FINAL is the scored result
+  predictions:
+  - P1
+  - P2
+  - P4
+  - P5
+  commit: prereg_build_3.yaml
+  results:
+  - results/B3_569_A_full_hold/score.json
+  - results/B3_569_A_full_hold/final.lean
+  - results/B3_569_A_full_hold/calls.tsv
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    check_calls: 18
+    error_calls: 13
+    first_FINAL: sorry
+    residual_by_rule: false
+    fit_total: 1
+    fit_nature: a type ascription added to room N38, whose statement did not elaborate as drawn; disclosed
+    rooms_proved: 48 of 59 as stated
+    left_open: 9 literature rooms (Sidorenko/Goddard–Kleitman, Häggkvist, Jayawardene ×3, R(C5,K3), R(C6,K3), R(C6,K4),
+      R(C6,K5)) and Lemma 7
+    tokens: 349230
+    minutes: 47
+    lines: 1626
+    declarations: 62
+    depth: 10
+  misses:
+  - 'P1 and P5 by the letter: fit_total 1 for the disclosed ascription'
+spoken: 'Rooms from the paper, full feedback, hold rule. Forty-eight of fifty-nine rooms proved as stated in forty-seven
+  minutes: the whole of the paper''s own argument, with the nine literature inputs and Lemma 7''s final case analysis
+  left as sorry and named as such. One room''s statement did not elaborate and the searcher added the missing type,
+  said so, and changed nothing else. The root is proved from its open inputs.'
+finding_ids: []
+gap_ids:
+- EG2

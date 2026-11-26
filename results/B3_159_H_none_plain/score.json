@@ -75,7 +75,7 @@
    "greedy_indep_local",
    "card_filter_univ_adj"
   ],
-  "edges": 15
+  "edges": 14
  },
  "fit": {
   "sorry": 4,
@@ -86,6 +86,12 @@
   "maxHeartbeats_raised": 0,
   "challenge_changed": [],
   "nodes_changed": [],
+  "sorry_in_text": [
+   "core_near_extremal",
+   "c4_free_indep_power",
+   "card_le_power_of_c4_free",
+   "erdos_159"
+  ],
   "sorry_in": [
    "core_near_extremal",
    "c4_free_indep_power",

@@ -1,0 +1,43 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B3_569_B_full_noplan_hold
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With and without the paper's rooms, how much of the Cambie–Freschi argument does the searcher recover,
+    and does it hold position where it cannot?
+  rule: rooms/check.sh logs every call; rooms/score.py computes every number, with sorry read from Lean's warnings
+    at the scored FINAL; the first FINAL is the scored result
+  predictions:
+  - P3
+  - P5
+  commit: prereg_build_3.yaml
+  results:
+  - results/B3_569_B_full_noplan_hold/score.json
+  - results/B3_569_B_full_noplan_hold/final.lean
+  - results/B3_569_B_full_noplan_hold/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 17
+    error_calls: 7
+    first_FINAL: sorry
+    residual: true
+    fit_total: 0
+    lemmas_proved: 16
+    left_open: 'one case: m ≥ 3, H not a star, a vertex of blue degree ≥ m'
+    tokens: 191580
+    minutes: 28
+    lines: 471
+    declarations: 18
+    depth: 5
+  misses: []
+spoken: Statement only, no paper, full feedback, hold rule. The searcher proved the bound for every graph with at
+  most two edges, every star and every colouring with small blue degree, then stopped at one case and wrote that
+  it is the content of the 2026 paper and that it would not invent an intermediate lemma it could not prove. Neither
+  of the paper's two distinctive moves appears in its file.
+finding_ids: []
+gap_ids:
+- EG2
