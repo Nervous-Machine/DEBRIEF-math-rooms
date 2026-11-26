@@ -1,0 +1,25 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:64:33: error: Application type mismatch: The argument
+  mem_edgeSet
+has type
+  ∀ (G : SimpleGraph ?m.61) {v w : ?m.61}, s(v, w) ∈ G.edgeSet ↔ G.Adj v w
+but is expected to have type
+  ?m.59 ↔ H.Adj u v
+in the application
+  Iff.mp mem_edgeSet
+Rooms/Target_B3_569_B_full_noplan_hold.lean:71:46: error: Application type mismatch: The argument
+  mem_edgeSet
+has type
+  ∀ (G : SimpleGraph ?m.106) {v w : ?m.106}, s(v, w) ∈ G.edgeSet ↔ G.Adj v w
+but is expected to have type
+  s(w, x) ∈ H.edgeSet ↔ ?m.105
+in the application
+  Iff.mpr mem_edgeSet
+Rooms/Target_B3_569_B_full_noplan_hold.lean:78:47: error: Application type mismatch: The argument
+  mem_edgeSet
+has type
+  ∀ (G : SimpleGraph ?m.188) {v w : ?m.188}, s(v, w) ∈ G.edgeSet ↔ G.Adj v w
+but is expected to have type
+  s(w, w') ∈ H.edgeSet ↔ ?m.187
+in the application
+  Iff.mpr mem_edgeSet
+Rooms/Target_B3_569_B_full_noplan_hold.lean:102:8: warning: declaration uses `sorry`

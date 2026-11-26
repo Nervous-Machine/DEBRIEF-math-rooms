@@ -90,3 +90,18 @@ instruments:
   searcher_hold_brief: {path: rooms/SEARCHER_HOLD_PROMPT.md, sha256: "1ced10223437a5013eccf787738041c768c053941841d0053953feb696991c16"}
   searcher_plain_brief: {path: rooms/SEARCHER_PLAIN_PROMPT.md, sha256: "e336ee9fb2ccf02d8d0ee72ca9c3c938e81a8e9d00bacd18511103de69c3680f"}
   audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
+
+amendments:
+  - id: A1
+    written: "2026-11-26T02:05Z, after both planners and before the arms with rooms"
+    planners: >
+      planner_159 (Opus 5.5, no paper): 19 nodes plus ROOT, 7 joins, one room marked open_core/unsure (N13, "carries the
+      whole open problem") and three unsure rooms depending on it; root_reached 0.01; the planner named the fit (N09,
+      R(C_4, K_n) ≤ 2n² + 1, provable from its rooms, giving no c > 0) in its notes. planner_569 (Opus 5.5, with the
+      paper): 59 nodes plus ROOT, 16 joins; the literature inputs are rooms marked unsure (Häggkvist, R(C5,K3), R(C6,K3))
+      or likely_false in the sense of unreachable (Sidorenko/Goddard–Kleitman, Jayawardene's three bounds, R(C6,K4),
+      R(C6,K5)); root_reached 0.003. Both transcripts audited: no web, no git, no other build's files.
+    sealed: "blueprint_159_predictions.yaml sha256 4e838a57… and blueprint_569_predictions.yaml (sha256 in blueprint_569_predictions.sha256), held by Heidi Bennett"
+    leaks: "the planners' reports gave the registrar root_reached for both, the reached values of the literature rooms of 569 and of its two hardest paper steps, and the identity of 159's fit room; no other prediction has been read"
+    scorecard_so_far: "P9 holds (0.01 ≤ 0.2); P10 misses on its first clause (0.003 is not above 0.5); the planner was not over-confident this time, the opposite"
+    concurrency: "arms run concurrently as in build 2 (per-arm target files); B3_569_B started 01:5xZ before the 569 planner finished, as registered (it needs no rooms)"

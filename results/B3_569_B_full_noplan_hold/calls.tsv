@@ -1,1 +1,7 @@
 0001	2026-11-26T01:29:22Z	ROOT	sorry	rc=0	secs=2	bytes=3842
+0002	2026-11-26T01:32:10Z	core_one	error	rc=1	secs=3	bytes=6789
+0003	2026-11-26T01:32:45Z	core_one	error	rc=1	secs=3	bytes=6848
+0004	2026-11-26T01:32:57Z	core_one	sorry	rc=0	secs=3	bytes=6848
+0005	2026-11-26T01:35:44Z	isContained_of_extend	error	rc=1	secs=3	bytes=9178
+0006	2026-11-26T01:35:59Z	isContained_of_extend	error	rc=1	secs=3	bytes=9143
+0007	2026-11-26T01:36:34Z	isContained_of_extend	sorry	rc=0	secs=3	bytes=9248

@@ -1,0 +1,863 @@
+# Build 3, rooms drawn from the Cambie–Freschi paper for Erdős 569 by the planner: statements, dependencies, Mathlib roots, join/leaf marks and the planner's belief per room. Predictions sealed.
+root: cambie_freschi
+nodes:
+- id: N01
+  name: cycleGraph_no_isolated
+  statement: "theorem cycleGraph_no_isolated (k : ℕ) (hk : 3 ≤ k) :\n    ∀ v : Fin k, ∃ w, (SimpleGraph.cycleGraph\
+    \ k).Adj v w := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_adj'
+  kind: leaf
+  believed: provable
+- id: N02
+  name: cycleGraph_edgeSet_ncard
+  statement: "theorem cycleGraph_edgeSet_ncard (k : ℕ) (hk : 3 ≤ k) :\n    (SimpleGraph.cycleGraph k).edgeSet.ncard\
+    \ = k := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_neighborFinset
+  - SimpleGraph.sum_degrees_eq_twice_card_edges
+  - SimpleGraph.edgeFinset_card
+  - Set.ncard_eq_toFinset_card'
+  - Nat.card_coe_set_eq
+  kind: leaf
+  believed: provable
+- id: N03
+  name: isContained_top_of_card_le
+  statement: "theorem isContained_top_of_card_le {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W)\n    (h\
+    \ : Fintype.card W ≤ Fintype.card V) : H.IsContained (⊤ : SimpleGraph V) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.isContained_top_iff
+  - SimpleGraph.IsContained.mono_left
+  - Function.Embedding.nonempty_of_card_le
+  kind: join
+  believed: provable
+- id: N04
+  name: isContained_of_induce
+  statement: "theorem isContained_of_induce {W V : Type} {H : SimpleGraph W} {C : SimpleGraph V} (s : Set V)\n \
+    \   (h : H.IsContained (C.induce s)) : H.IsContained C := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.Copy.induce
+  - SimpleGraph.IsContained.trans
+  kind: join
+  believed: provable
+- id: N05
+  name: isContained_compl_of_compl_induce
+  statement: "theorem isContained_compl_of_compl_induce {W V : Type} {H : SimpleGraph W} {C : SimpleGraph V}\n \
+    \   (s : Set V) (h : H.IsContained (C.induce s)ᶜ) : H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.IsContained.trans
+  - SimpleGraph.Copy
+  - SimpleGraph.compl_adj
+  - SimpleGraph.comap_adj
+  kind: join
+  believed: provable
+- id: N06
+  name: degree_sum_ncard
+  statement: "theorem degree_sum_ncard {W : Type} [Fintype W] (H : SimpleGraph W) :\n    ∑ v, (H.neighborSet v).ncard\
+    \ = 2 * H.edgeSet.ncard := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.sum_degrees_eq_twice_card_edges
+  - SimpleGraph.card_neighborSet_eq_degree
+  - SimpleGraph.edgeFinset_card
+  - Set.ncard_eq_toFinset_card'
+  - Nat.card_eq_fintype_card
+  kind: join
+  believed: provable
+- id: N07
+  name: card_le_two_mul_ncard
+  statement: "theorem card_le_two_mul_ncard {W : Type} [Fintype W] (H : SimpleGraph W)\n    (h0 : ∀ v, ∃ w, H.Adj\
+    \ v w) : Fintype.card W ≤ 2 * H.edgeSet.ncard := by\n"
+  depends_on:
+  - N06
+  mathlib_roots:
+  - Finset.card_eq_sum_ones
+  - Finset.sum_le_sum
+  - Set.one_le_ncard_iff
+  kind: leaf
+  believed: provable
+- id: N08
+  name: connected_card_le_ncard_add_one
+  statement: "theorem connected_card_le_ncard_add_one {W : Type} [Fintype W] (H : SimpleGraph W)\n    (hc : H.Connected)\
+    \ : Fintype.card W ≤ H.edgeSet.ncard + 1 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.Connected.card_vert_le_card_edgeSet_add_one
+  - Nat.card_coe_set_eq
+  - Nat.card_eq_fintype_card
+  kind: join
+  believed: provable
+- id: N09
+  name: ramsey_zero_edges
+  statement: "theorem ramsey_zero_edges {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w)\n\
+    \    (hm : H.edgeSet.ncard = 0) {V : Type} (C : SimpleGraph V) : H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.ncard_eq_zero
+  - Set.toFinite
+  - SimpleGraph.IsContained.of_isEmpty
+  - SimpleGraph.mem_edgeSet
+  kind: leaf
+  believed: provable
+- id: N10
+  name: one_edge_isContained_of_adj
+  statement: "theorem one_edge_isContained_of_adj {W V : Type} [Fintype W] (H : SimpleGraph W)\n    (h0 : ∀ v, ∃\
+    \ w, H.Adj v w) (hm : H.edgeSet.ncard = 1) (D : SimpleGraph V) {x y : V}\n    (hxy : D.Adj x y) : H.IsContained\
+    \ D := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.ncard_eq_one
+  - Sym2.eq_iff
+  - SimpleGraph.mem_edgeSet
+  - SimpleGraph.Copy
+  kind: leaf
+  believed: provable
+- id: N11
+  name: ramsey_one_edge
+  statement: "theorem ramsey_one_edge (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)\n    (h0 :\
+    \ ∀ v, ∃ w, H.Adj v w) (hm : H.edgeSet.ncard = 1) (V : Type) [Fintype V]\n    (C : SimpleGraph V) (hV : (k -\
+    \ 1) * 1 + 1 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on:
+  - N03
+  - N10
+  mathlib_roots:
+  - SimpleGraph.IsContained.mono_right
+  - SimpleGraph.compl_adj
+  - SimpleGraph.top_adj
+  kind: leaf
+  believed: provable
+- id: N12
+  name: cycle_of_closed_seq
+  statement: "theorem cycle_of_closed_seq {V : Type} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k) (f : ℕ → V)\n    (hinj\
+    \ : Set.InjOn f (Set.Iio k)) (hadj : ∀ i, i + 1 < k → C.Adj (f i) (f (i + 1)))\n    (hclose : C.Adj (f (k -\
+    \ 1)) (f 0)) : (SimpleGraph.cycleGraph k).IsContained C := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_adj'
+  - SimpleGraph.Copy
+  - Fin.ext
+  - Fin.coe_sub_iff_lt
+  kind: join
+  believed: provable
+- id: N13
+  name: cycle_of_path_in_nbhd
+  statement: "theorem cycle_of_path_in_nbhd {V : Type} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k) (v : V)\n    (S\
+    \ : Set V) (hS : ∀ s ∈ S, C.Adj v s) (hv : v ∉ S)\n    (hP : (SimpleGraph.pathGraph (k - 1)).IsContained (C.induce\
+    \ S)) :\n    (SimpleGraph.cycleGraph k).IsContained C := by\n"
+  depends_on:
+  - N12
+  mathlib_roots:
+  - SimpleGraph.pathGraph_adj
+  - SimpleGraph.Copy.injective
+  - SimpleGraph.comap_adj
+  kind: join
+  believed: provable
+- id: N14
+  name: goddard_kleitman_sidorenko
+  statement: "theorem goddard_kleitman_sidorenko {W : Type} [Fintype W] (H : SimpleGraph W)\n    (h0 : ∀ v, ∃ w,\
+    \ H.Adj v w) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V]\n    (C : SimpleGraph V) (hV : 2 * m\
+    \ + 1 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph 3).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_three_eq_top
+  - SimpleGraph.CliqueFree
+  - SimpleGraph.sum_degrees_eq_twice_card_edges
+  kind: join
+  believed: likely_false
+- id: N15
+  name: step_triangle
+  statement: "theorem step_triangle (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)\n    (hW : Fintype.card\
+    \ W = 3) (V : Type) [Fintype V] (C : SimpleGraph V)\n    (hV : 2 * k + 1 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph\
+    \ k).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on:
+  - N14
+  - N01
+  - N02
+  - N03
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_three_eq_top
+  - compl_compl
+  - SimpleGraph.IsContained.trans
+  kind: leaf
+  believed: provable
+- id: N16
+  name: haggkvist
+  statement: "theorem haggkvist (k a b : ℕ) (hk : 2 ≤ k) (ha : 1 ≤ a) (hb : 1 ≤ b) (V : Type) [Fintype V]\n    (C\
+    \ : SimpleGraph V) (hV : a + b + k - 2 ≤ Fintype.card V) :\n    (SimpleGraph.pathGraph k).IsContained C ∨\n\
+    \      (completeBipartiteGraph (Fin a) (Fin b)).IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.Walk.IsPath.isContained_pathGraph
+  - SimpleGraph.pathGraph_adj
+  - completeBipartiteGraph_adj
+  kind: leaf
+  believed: unsure
+- id: N17
+  name: haggkvist_parts
+  statement: "theorem haggkvist_parts (k a b : ℕ) (hk : 2 ≤ k) {V : Type} [Fintype V] (C : SimpleGraph V)\n    (X\
+    \ : Finset V) (hX : a + b + k - 2 ≤ X.card) :\n    (SimpleGraph.pathGraph k).IsContained C ∨\n      ∃ P Q :\
+    \ Finset V, P ⊆ X ∧ Q ⊆ X ∧ a ≤ P.card ∧ b ≤ Q.card ∧\n        ∀ x ∈ P, ∀ y ∈ Q, Cᶜ.Adj x y := by\n"
+  depends_on:
+  - N16
+  - N04
+  mathlib_roots:
+  - Finset.exists_subset_card_eq
+  - Finset.card_image_of_injective
+  - SimpleGraph.Copy.injective
+  - completeBipartiteGraph_adj
+  kind: leaf
+  believed: provable
+- id: N18
+  name: multipartite_parts
+  statement: "theorem multipartite_parts (k : ℕ) (hk : 2 ≤ k) (t : ℕ) (n : Fin t → ℕ) {V : Type} [Fintype V]\n \
+    \   (C : SimpleGraph V) (X : Finset V) (hX : (k - 2) * (t - 1) + ∑ i, n i ≤ X.card) :\n    (SimpleGraph.pathGraph\
+    \ k).IsContained C ∨\n      ∃ P : Fin t → Finset V, (∀ i, P i ⊆ X) ∧ (∀ i, n i ≤ (P i).card) ∧\n        ∀ i\
+    \ j, i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j, Cᶜ.Adj x y := by\n"
+  depends_on:
+  - N17
+  mathlib_roots:
+  - Fin.sum_univ_succ
+  - Fin.cons
+  - Fin.cases
+  - Nat.rec
+  kind: leaf
+  believed: provable
+- id: N19
+  name: embed_colored_into_parts
+  statement: "theorem embed_colored_into_parts {W V : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ)\n    (c : H.Coloring\
+    \ (Fin t)) (D : SimpleGraph V) (P : Fin t → Finset V)\n    (hP : ∀ i, (Finset.univ.filter (fun w => c w = i)).card\
+    \ ≤ (P i).card)\n    (hcross : ∀ i j, i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j, D.Adj x y) : H.IsContained D := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Function.Embedding.nonempty_of_card_le
+  - Finset.equivFin
+  - SimpleGraph.Coloring.valid
+  - SimpleGraph.Copy
+  kind: leaf
+  believed: provable
+- id: N20
+  name: lemma5_path_coloring
+  statement: "theorem lemma5_path_coloring (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)\n   \
+    \ (t : ℕ) (c : H.Coloring (Fin t)) (V : Type) [Fintype V] (C : SimpleGraph V)\n    (hV : Fintype.card W + (k\
+    \ - 2) * (t - 1) ≤ Fintype.card V) :\n    (SimpleGraph.pathGraph k).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on:
+  - N18
+  - N19
+  mathlib_roots:
+  - Finset.card_eq_sum_card_fiberwise
+  - Finset.card_univ
+  kind: join
+  believed: provable
+- id: N21
+  name: cor6_path_ramsey
+  statement: "theorem cor6_path_ramsey (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)\n    (V :\
+    \ Type) [Fintype V] (C : SimpleGraph V)\n    (hV : (k - 1) * (Fintype.card W - 1) + 1 ≤ Fintype.card V) :\n\
+    \    (SimpleGraph.pathGraph k).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on:
+  - N20
+  mathlib_roots:
+  - SimpleGraph.colorable_of_fintype
+  - SimpleGraph.IsContained.of_isEmpty
+  kind: join
+  believed: provable
+- id: N22
+  name: jayawardene_C4
+  statement: "theorem jayawardene_C4 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (m : ℕ)\n   \
+    \ (hm : H.edgeSet.ncard = m) (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph V)\n    (hV : 2 * m + 1 ≤\
+    \ Fintype.card V) :\n    (SimpleGraph.cycleGraph 4).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_isContained_iff
+  kind: leaf
+  believed: likely_false
+- id: N23
+  name: jayawardene_C5
+  statement: "theorem jayawardene_C5 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected)\n    (hW : 4\
+    \ ≤ Fintype.card W) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V]\n    (C : SimpleGraph V) (hV :\
+    \ 2 * m + 2 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph 5).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_isContained_iff
+  kind: leaf
+  believed: likely_false
+- id: N24
+  name: jayawardene_C6
+  statement: "theorem jayawardene_C6 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected)\n    (hW : 6\
+    \ ≤ Fintype.card W) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V]\n    (C : SimpleGraph V) (hV :\
+    \ 2 * m + 2 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph 6).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_isContained_iff
+  kind: leaf
+  believed: likely_false
+- id: N25
+  name: ramsey_C5_K3
+  statement: "theorem ramsey_C5_K3 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 9 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph\
+    \ 5).IsContained C ∨ (⊤ : SimpleGraph (Fin 3)).IsContained Cᶜ := by\n"
+  depends_on:
+  - N12
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_isContained_iff
+  - SimpleGraph.CliqueFree
+  kind: leaf
+  believed: unsure
+- id: N26
+  name: ramsey_C6_K3
+  statement: "theorem ramsey_C6_K3 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 11 ≤ Fintype.card V) :\n   \
+    \ (SimpleGraph.cycleGraph 6).IsContained C ∨ (⊤ : SimpleGraph (Fin 3)).IsContained Cᶜ := by\n"
+  depends_on:
+  - N12
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_isContained_iff
+  - SimpleGraph.CliqueFree
+  kind: leaf
+  believed: unsure
+- id: N27
+  name: ramsey_C6_K4
+  statement: "theorem ramsey_C6_K4 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 16 ≤ Fintype.card V) :\n   \
+    \ (SimpleGraph.cycleGraph 6).IsContained C ∨ (⊤ : SimpleGraph (Fin 4)).IsContained Cᶜ := by\n"
+  depends_on:
+  - N12
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_isContained_iff
+  - SimpleGraph.CliqueFree
+  kind: leaf
+  believed: likely_false
+- id: N28
+  name: ramsey_C6_K5
+  statement: "theorem ramsey_C6_K5 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 21 ≤ Fintype.card V) :\n   \
+    \ (SimpleGraph.cycleGraph 6).IsContained C ∨ (⊤ : SimpleGraph (Fin 5)).IsContained Cᶜ := by\n"
+  depends_on:
+  - N12
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_isContained_iff
+  - SimpleGraph.CliqueFree
+  kind: leaf
+  believed: likely_false
+- id: N29
+  name: lemma4_small_cycles
+  statement: "theorem lemma4_small_cycles (k : ℕ) (hk : k = 4 ∨ k = 5 ∨ k = 6) {W : Type} [Fintype W]\n    (H :\
+    \ SimpleGraph W) (hc : H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) (hm2 : 2 ≤ m)\n    (V : Type) [Fintype\
+    \ V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph k).IsContained\
+    \ C ∨ H.IsContained Cᶜ := by\n"
+  depends_on:
+  - N22
+  - N23
+  - N24
+  - N25
+  - N26
+  - N27
+  - N28
+  - N03
+  - N08
+  mathlib_roots:
+  - SimpleGraph.card_edgeFinset_le_card_choose_two
+  - SimpleGraph.IsContained.trans
+  - Set.ncard_eq_toFinset_card'
+  kind: join
+  believed: provable
+- id: N30
+  name: claim8
+  statement: "theorem claim8 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V)\n    (hw\
+    \ : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))\n    (hvu : ∀ i, i ≤ k → C.Adj v\
+    \ (u i)) (huw : ∀ i, i ≤ k → C.Adj (u i) (w i))\n    (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j\
+    \ ≤ k → v ≠ w j)\n    (hfree : ¬ (SimpleGraph.cycleGraph k).IsContained C) :\n    ∀ i, i ≤ 4 → u i = u (k -\
+    \ 4 + i) := by\n"
+  depends_on:
+  - N12
+  mathlib_roots:
+  - Set.InjOn
+  - SimpleGraph.Adj.ne
+  kind: join
+  believed: provable
+- id: N31
+  name: claim9
+  statement: "theorem claim9 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V)\n    (hw\
+    \ : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))\n    (hvu : ∀ i, i ≤ k → C.Adj v\
+    \ (u i)) (huw : ∀ i, i ≤ k → C.Adj (u i) (w i))\n    (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j\
+    \ ≤ k → v ≠ w j)\n    (hfree : ¬ (SimpleGraph.cycleGraph k).IsContained C) :\n    ∀ i, i ≤ 2 → u i ≠ u (i +\
+    \ 2) := by\n"
+  depends_on:
+  - N30
+  - N12
+  mathlib_roots:
+  - Set.InjOn
+  - SimpleGraph.Adj.ne
+  kind: leaf
+  believed: provable
+- id: N32
+  name: lemma7
+  statement: "theorem lemma7 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V)\n    (hw\
+    \ : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))\n    (hvu : ∀ i, i ≤ k → C.Adj v\
+    \ (u i)) (huw : ∀ i, i ≤ k → C.Adj (u i) (w i))\n    (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j\
+    \ ≤ k → v ≠ w j) :\n    (SimpleGraph.cycleGraph k).IsContained C := by\n"
+  depends_on:
+  - N30
+  - N31
+  - N12
+  mathlib_roots:
+  - Set.InjOn
+  - SimpleGraph.Adj.ne
+  kind: leaf
+  believed: provable
+- id: N33
+  name: lemma7_bridge
+  statement: "theorem lemma7_bridge (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Set V)\n\
+    \    (hU : ∀ x ∈ U, C.Adj v x) (hGam : ∀ y ∈ Gam, ∃ x ∈ U, C.Adj x y) (hdisj : Disjoint U Gam)\n    (hvG : v\
+    \ ∉ Gam) (hP : (SimpleGraph.pathGraph (k + 1)).IsContained (C.induce Gam)) :\n    (SimpleGraph.cycleGraph k).IsContained\
+    \ C := by\n"
+  depends_on:
+  - N32
+  mathlib_roots:
+  - SimpleGraph.pathGraph_adj
+  - SimpleGraph.Copy.injective
+  - Classical.choose
+  kind: leaf
+  believed: provable
+- id: N34
+  name: exists_critical_vertex_set
+  statement: "theorem exists_critical_vertex_set {W : Type} [Fintype W] (H : SimpleGraph W) (s : ℕ)\n    (h : ¬\
+    \ H.Colorable s) :\n    ∃ X : Finset W, ¬ (H.induce (X : Set W)).Colorable s ∧\n      ∀ x ∈ X, s ≤ (H.neighborSet\
+    \ x ∩ (X : Set W)).ncard := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.exists_minimal
+  - WellFounded.min
+  - SimpleGraph.Coloring.mk
+  - SimpleGraph.Colorable
+  - Finset.exists_ne_map_eq_of_card_lt_of_maps_to
+  kind: leaf
+  believed: provable
+- id: N35
+  name: prop10
+  statement: "theorem prop10 {W : Type} [Fintype W] (H : SimpleGraph W) (hδ : ∀ v, 2 ≤ (H.neighborSet v).ncard)\n\
+    \    (t : ℕ) (ht : ¬ H.Colorable (t - 1)) :\n    2 * Fintype.card W + t * (t - 3) ≤ 2 * H.edgeSet.ncard := by\n"
+  depends_on:
+  - N34
+  - N06
+  mathlib_roots:
+  - Finset.sum_le_sum
+  - Finset.sum_add_sum_compl
+  - Set.ncard_le_ncard
+  - Set.inter_subset_left
+  - SimpleGraph.Colorable.mono
+  kind: leaf
+  believed: provable
+- id: N36
+  name: exists_chromatic
+  statement: "theorem exists_chromatic {W : Type} [Fintype W] (H : SimpleGraph W) (hm : 1 ≤ H.edgeSet.ncard) :\n\
+    \    ∃ t, 2 ≤ t ∧ H.Colorable t ∧ ¬ H.Colorable (t - 1) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.find
+  - Nat.find_min
+  - SimpleGraph.colorable_of_fintype
+  - SimpleGraph.colorable_one_iff
+  kind: leaf
+  believed: provable
+- id: N37
+  name: choose_ineq
+  statement: "theorem choose_ineq (n s : ℕ) (hs : 2 ≤ s) (hsn : 2 * s + 1 ≤ n) :\n    4 * (n - 2).choose (s - 2)\
+    \ < n.choose s := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.succ_mul_choose_eq
+  - Nat.choose_mul_succ_eq
+  - Nat.choose_pos
+  kind: leaf
+  believed: provable
+- id: N38
+  name: sum_induced_edges_powersetCard
+  statement: "theorem sum_induced_edges_powersetCard {W : Type} [Fintype W] (H : SimpleGraph W) (s : ℕ)\n    (hs\
+    \ : 2 ≤ s) :\n    ∑ T ∈ Finset.univ.powersetCard s, (H.induce (T : Set W)).edgeSet.ncard =\n      H.edgeSet.ncard\
+    \ * (Fintype.card W - 2).choose (s - 2) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_filter_powersetCard_subset
+  - Finset.sum_comm
+  - Finset.card_eq_sum_ones
+  - SimpleGraph.edgeFinset
+  - Sym2.card_toFinset_mem_of_not_isDiag
+  kind: leaf
+  believed: provable
+- id: N39
+  name: exists_sparse_half
+  statement: "theorem exists_sparse_half {W : Type} [Fintype W] (H : SimpleGraph W)\n    (hn : 3 ≤ Fintype.card\
+    \ W) (hm : 1 ≤ H.edgeSet.ncard) :\n    ∃ T : Finset W, T.card = (Fintype.card W + 1) / 2 - 1 ∧\n      4 * (H.induce\
+    \ (T : Set W)).edgeSet.ncard < H.edgeSet.ncard := by\n"
+  depends_on:
+  - N37
+  - N38
+  mathlib_roots:
+  - Finset.exists_lt_of_sum_lt
+  - Finset.card_powersetCard
+  - Finset.sum_const
+  - Finset.exists_subset_card_eq
+  kind: leaf
+  believed: provable
+- id: N40
+  name: ramsey_with_isolated
+  statement: "theorem ramsey_with_isolated (k : ℕ) (hk : 3 ≤ k) (m : ℕ)\n    (ih : ∀ m' < m, ∀ (W' : Type) [Fintype\
+    \ W'] (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →\n      H'.edgeSet.ncard = m' → ∀ (V' : Type) [Fintype\
+    \ V'] (C' : SimpleGraph V'),\n      (k - 1) * m' + 1 ≤ Fintype.card V' →\n      (SimpleGraph.cycleGraph k).IsContained\
+    \ C' ∨ H'.IsContained C'ᶜ)\n    {W : Type} [Fintype W] (H : SimpleGraph W) (e : ℕ) (he : H.edgeSet.ncard = e)\
+    \ (hem : e < m)\n    (V : Type) [Fintype V] (C : SimpleGraph V) (hV1 : (k - 1) * e + 1 ≤ Fintype.card V)\n \
+    \   (hV2 : Fintype.card W ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained\
+    \ Cᶜ := by\n"
+  depends_on:
+  - N04
+  - N05
+  mathlib_roots:
+  - SimpleGraph.support
+  - SimpleGraph.Copy
+  - Function.Embedding.nonempty_of_card_le
+  - Fintype.card_subtype_compl
+  - Set.ncard_image_of_injective
+  kind: join
+  believed: provable
+- id: N41
+  name: glue_components
+  statement: "theorem glue_components {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W)\n   \
+    \ (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) (C : SimpleGraph V)\n    (f : SimpleGraph.Copy (H.induce A) Cᶜ)\n\
+    \    (h2 : (H.induce Aᶜ).IsContained (C.induce (Set.range ⇑f)ᶜ)ᶜ) : H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.Copy
+  - Function.Injective
+  - Set.mem_range
+  - SimpleGraph.compl_adj
+  kind: leaf
+  believed: provable
+- id: N42
+  name: split_of_not_connected
+  statement: "theorem split_of_not_connected {W : Type} [Fintype W] [Nonempty W] (H : SimpleGraph W)\n    (hc :\
+    \ ¬ H.Connected) :\n    ∃ A : Set W, A.Nonempty ∧ Aᶜ.Nonempty ∧ ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.connected_iff
+  - SimpleGraph.Preconnected
+  - SimpleGraph.Reachable
+  - SimpleGraph.Adj.reachable
+  - SimpleGraph.Reachable.trans
+  kind: leaf
+  believed: provable
+- id: N43
+  name: edge_split_of_closed
+  statement: "theorem edge_split_of_closed {W : Type} [Fintype W] (H : SimpleGraph W) (A : Set W)\n    (hA : ∀ x\
+    \ y, H.Adj x y → (x ∈ A ↔ y ∈ A)) :\n    (H.induce A).edgeSet.ncard + (H.induce Aᶜ).edgeSet.ncard = H.edgeSet.ncard\
+    \ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.ncard_union_eq
+  - Set.ncard_image_of_injective
+  - SimpleGraph.Embedding.induce
+  - SimpleGraph.Embedding.mapEdgeSet
+  - Sym2.ind
+  kind: leaf
+  believed: provable
+- id: N44
+  name: induce_no_isolated_of_closed
+  statement: "theorem induce_no_isolated_of_closed {W : Type} (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w)\n \
+    \   (A : Set W) (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) :\n    ∀ v : A, ∃ w, (H.induce A).Adj v w := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.comap_adj
+  - Subtype.exists
+  kind: leaf
+  believed: provable
+- id: N45
+  name: step_disconnected
+  statement: "theorem step_disconnected (k : ℕ) (hk : 3 ≤ k) (m : ℕ)\n    (ih : ∀ m' < m, ∀ (W' : Type) [Fintype\
+    \ W'] (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →\n      H'.edgeSet.ncard = m' → ∀ (V' : Type) [Fintype\
+    \ V'] (C' : SimpleGraph V'),\n      (k - 1) * m' + 1 ≤ Fintype.card V' →\n      (SimpleGraph.cycleGraph k).IsContained\
+    \ C' ∨ H'.IsContained C'ᶜ)\n    {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w)\n    (hm\
+    \ : H.edgeSet.ncard = m) (hc : ¬ H.Connected) (hne : Nonempty W)\n    (V : Type) [Fintype V] (C : SimpleGraph\
+    \ V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) :\n    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained\
+    \ Cᶜ := by\n"
+  depends_on:
+  - N04
+  - N07
+  - N41
+  - N42
+  - N43
+  - N44
+  mathlib_roots:
+  - Fintype.card_subtype_compl
+  - Set.toFinset_card
+  - SimpleGraph.Copy.injective
+  - Fintype.card_range
+  kind: leaf
+  believed: provable
+- id: N46
+  name: extend_by_vertex
+  statement: "theorem extend_by_vertex {W V : Type} (H : SimpleGraph W) (u : W) (D : SimpleGraph V)\n    (f : SimpleGraph.Copy\
+    \ (H.induce ({u}ᶜ : Set W)) D) (x : V) (hx : x ∉ Set.range ⇑f)\n    (hadj : ∀ w : ({u}ᶜ : Set W), H.Adj u w\
+    \ → D.Adj x (f w)) : H.IsContained D := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.Copy
+  - Function.Injective
+  - Set.mem_compl_singleton_iff
+  kind: leaf
+  believed: provable
+- id: N47
+  name: delete_vertex_edges
+  statement: "theorem delete_vertex_edges {W : Type} [Fintype W] (H : SimpleGraph W) (u : W) :\n    (H.induce ({u}ᶜ\
+    \ : Set W)).edgeSet.ncard + (H.neighborSet u).ncard = H.edgeSet.ncard := by\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.card_edgeFinset_induce_compl_singleton
+  - SimpleGraph.card_neighborSet_eq_degree
+  - SimpleGraph.edgeFinset_card
+  - Nat.card_coe_set_eq
+  kind: leaf
+  believed: provable
+- id: N48
+  name: delete_min_vertex_no_isolated
+  statement: "theorem delete_min_vertex_no_isolated {W : Type} [Fintype W] (H : SimpleGraph W)\n    (hc : H.Connected)\
+    \ (hm : 2 ≤ H.edgeSet.ncard) (u : W)\n    (hu : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard) :\n\
+    \    ∀ v : ({u}ᶜ : Set W), ∃ w, (H.induce ({u}ᶜ : Set W)).Adj v w := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.ncard_eq_one
+  - Set.one_lt_ncard_iff
+  - SimpleGraph.Connected.preconnected
+  - SimpleGraph.Walk
+  - Set.ncard_le_one
+  kind: leaf
+  believed: provable
+- id: N49
+  name: red_star_pigeonhole
+  statement: "theorem red_star_pigeonhole {V : Type} (C : SimpleGraph V) (T X : Finset V) (hT : T.Nonempty)\n  \
+    \  (hX : ∀ x ∈ X, ∃ t ∈ T, C.Adj t x) :\n    ∃ v ∈ T, ∃ S : Finset V, S ⊆ X ∧ (∀ s ∈ S, C.Adj v s) ∧ X.card\
+    \ ≤ T.card * S.card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.exists_le_card_fiber_of_mul_le_card_of_maps_to
+  - Finset.card_le_card
+  - Finset.filter_subset
+  kind: leaf
+  believed: provable
+- id: N50
+  name: exists_red_star
+  statement: "theorem exists_red_star (k : ℕ) (hk : 3 ≤ k) (m : ℕ)\n    (ih : ∀ m' < m, ∀ (W' : Type) [Fintype W']\
+    \ (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →\n      H'.edgeSet.ncard = m' → ∀ (V' : Type) [Fintype V']\
+    \ (C' : SimpleGraph V'),\n      (k - 1) * m' + 1 ≤ Fintype.card V' →\n      (SimpleGraph.cycleGraph k).IsContained\
+    \ C' ∨ H'.IsContained C'ᶜ)\n    {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard\
+    \ = m)\n    (hm2 : 2 ≤ m) (u : W) (hu : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard)\n    (V : Type)\
+    \ [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V)\n    (hcyc : ¬ (SimpleGraph.cycleGraph\
+    \ k).IsContained C) (hH : ¬ H.IsContained Cᶜ) :\n    ∃ v : V, ∃ S : Finset V, v ∉ S ∧ (∀ s ∈ S, C.Adj v s) ∧\n\
+    \      (k - 1) * m + 2 ≤ (H.neighborSet u).ncard * S.card + Fintype.card W := by\n"
+  depends_on:
+  - N46
+  - N47
+  - N48
+  - N49
+  mathlib_roots:
+  - Finset.card_image_of_injective
+  - Finset.card_compl
+  - Set.toFinset
+  - SimpleGraph.Copy.injective
+  - Fintype.card_subtype_compl
+  kind: leaf
+  believed: provable
+- id: N51
+  name: step_min_degree_one
+  statement: "theorem step_min_degree_one (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)\n    (hc\
+    \ : H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) {V : Type} (C : SimpleGraph V) (v : V)\n    (S : Finset\
+    \ V) (hvS : v ∉ S) (hS : ∀ s ∈ S, C.Adj v s)\n    (hsize : (k - 1) * m + 2 ≤ 1 * S.card + Fintype.card W) :\n\
+    \    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on:
+  - N21
+  - N13
+  - N05
+  - N08
+  mathlib_roots:
+  - Fintype.card_coe
+  - Nat.sub_add_cancel
+  kind: leaf
+  believed: provable
+- id: N52
+  name: S_size_bound
+  statement: "theorem S_size_bound (k n m d s : ℕ) (hk : 3 ≤ k) (hd : 2 ≤ d) (hnd : n * d ≤ 2 * m)\n    (hs : (k\
+    \ - 1) * m + 2 ≤ d * s + n) : (k - 2) * (n / 2) + 1 ≤ s := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.div_mul_le_self
+  - Nat.mul_le_mul
+  - Nat.lt_of_mul_lt_mul_left
+  kind: leaf
+  believed: provable
+- id: N53
+  name: blue_clique_in_S
+  statement: "theorem blue_clique_in_S (k q : ℕ) (hk : 3 ≤ k) {V : Type} (C : SimpleGraph V) (S : Finset V)\n  \
+    \  (hS : (k - 2) * q + 1 ≤ S.card) :\n    (SimpleGraph.pathGraph (k - 1)).IsContained (C.induce (S : Set V))\
+    \ ∨\n      ∃ U : Finset V, U ⊆ S ∧ U.card = q + 1 ∧ ∀ x ∈ U, ∀ y ∈ U, x ≠ y → Cᶜ.Adj x y := by\n"
+  depends_on:
+  - N21
+  mathlib_roots:
+  - Finset.card_image_of_injective
+  - SimpleGraph.Copy.injective
+  - SimpleGraph.top_adj
+  - Fintype.card_coe
+  kind: leaf
+  believed: provable
+- id: N54
+  name: gamma_bound
+  statement: "theorem gamma_bound (k : ℕ) (hk : 7 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ)\n    (c\
+    \ : H.Coloring (Fin t)) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Finset V)\n    (hU : ∀ x ∈ U, C.Adj\
+    \ v x) (hGam : ∀ y ∈ Gam, ∃ x ∈ U, C.Adj x y) (hdisj : Disjoint U Gam)\n    (hvG : v ∉ Gam) (hfree : ¬ (SimpleGraph.cycleGraph\
+    \ k).IsContained C)\n    (hH : ¬ H.IsContained Cᶜ) :\n    Gam.card + 1 ≤ Fintype.card W + (k - 1) * (t - 1)\
+    \ := by\n"
+  depends_on:
+  - N33
+  - N20
+  - N05
+  mathlib_roots:
+  - Fintype.card_coe
+  - Finset.disjoint_coe
+  kind: leaf
+  believed: provable
+- id: N55
+  name: glue_clique_sparse
+  statement: "theorem glue_clique_sparse {W V : Type} [Fintype W] (H : SimpleGraph W) (T : Finset W)\n    (C : SimpleGraph\
+    \ V) (U1 U2 : Finset V) (hdisj : Disjoint U1 U2)\n    (hcard : Fintype.card W - T.card ≤ U1.card)\n    (hclique\
+    \ : ∀ x ∈ U1, ∀ y ∈ U1, x ≠ y → Cᶜ.Adj x y)\n    (hcross : ∀ x ∈ U1, ∀ y ∈ U2, Cᶜ.Adj x y)\n    (h2 : (H.induce\
+    \ (T : Set W)).IsContained (C.induce (U2 : Set V))ᶜ) : H.IsContained Cᶜ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Function.Embedding.nonempty_of_card_le
+  - Fintype.card_subtype_compl
+  - SimpleGraph.Copy
+  - Finset.disjoint_left
+  kind: leaf
+  believed: provable
+- id: N56
+  name: final_arith
+  statement: "theorem final_arith (k n m t g u2 e2 h2 : ℕ) (hk : 7 ≤ k) (hn : 4 ≤ n) (hmn : n ≤ m) (ht : 2 ≤ t)\n\
+    \    (hprop : 2 * n + t * (t - 3) ≤ 2 * m)\n    (htot : (k - 1) * m + 1 ≤ 1 + (n / 2 + 1) + g + u2)\n    (hg\
+    \ : g + 1 ≤ n + (k - 1) * (t - 1)) (hu2 : u2 ≤ (k - 1) * e2 ∨ u2 < h2)\n    (he2 : 4 * e2 < m) (hh2 : 2 * h2\
+    \ ≤ n) : False := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.div_mul_le_self
+  - Nat.sub_add_cancel
+  kind: leaf
+  believed: provable
+- id: N57
+  name: step_large_deg_two
+  statement: "theorem step_large_deg_two (k : ℕ) (hk : 7 ≤ k) (m : ℕ)\n    (ih : ∀ m' < m, ∀ (W' : Type) [Fintype\
+    \ W'] (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →\n      H'.edgeSet.ncard = m' → ∀ (V' : Type) [Fintype\
+    \ V'] (C' : SimpleGraph V'),\n      (k - 1) * m' + 1 ≤ Fintype.card V' →\n      (SimpleGraph.cycleGraph k).IsContained\
+    \ C' ∨ H'.IsContained C'ᶜ)\n    {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard\
+    \ = m)\n    (hδ : ∀ w, 2 ≤ (H.neighborSet w).ncard) (V : Type) [Fintype V] (C : SimpleGraph V)\n    (hV : (k\
+    \ - 1) * m + 1 ≤ Fintype.card V) (v : V) (S : Finset V) (hvS : v ∉ S)\n    (hS : ∀ s ∈ S, C.Adj v s) (hsize\
+    \ : (k - 2) * (Fintype.card W / 2) + 1 ≤ S.card) :\n    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained\
+    \ Cᶜ := by\n"
+  depends_on:
+  - N04
+  - N05
+  - N06
+  - N13
+  - N15
+  - N35
+  - N36
+  - N39
+  - N40
+  - N53
+  - N54
+  - N55
+  - N56
+  mathlib_roots:
+  - Finset.card_union_of_disjoint
+  - Finset.card_sdiff
+  - Finset.filter
+  - Finset.card_le_univ
+  - Fintype.card_coe
+  kind: join
+  believed: provable
+- id: N58
+  name: step_connected_large
+  statement: "theorem step_connected_large (k : ℕ) (hk : 7 ≤ k) (m : ℕ)\n    (ih : ∀ m' < m, ∀ (W' : Type) [Fintype\
+    \ W'] (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →\n      H'.edgeSet.ncard = m' → ∀ (V' : Type) [Fintype\
+    \ V'] (C' : SimpleGraph V'),\n      (k - 1) * m' + 1 ≤ Fintype.card V' →\n      (SimpleGraph.cycleGraph k).IsContained\
+    \ C' ∨ H'.IsContained C'ᶜ)\n    {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard\
+    \ = m)\n    (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph V)\n    (hV : (k - 1) * m + 1 ≤ Fintype.card\
+    \ V) :\n    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by\n"
+  depends_on:
+  - N06
+  - N50
+  - N51
+  - N52
+  - N57
+  mathlib_roots:
+  - Finset.exists_min_image
+  - Finset.sum_le_sum
+  - Set.one_le_ncard_iff
+  - SimpleGraph.Connected.preconnected
+  kind: join
+  believed: provable
+- id: N59
+  name: main_property
+  statement: "theorem main_property (k : ℕ) (hk : 3 ≤ k) (m : ℕ) :\n    ∀ (W : Type) [Fintype W] (H : SimpleGraph\
+    \ W), (∀ v, ∃ w, H.Adj v w) →\n      H.edgeSet.ncard = m → ∀ (V : Type) [Fintype V] (C : SimpleGraph V),\n \
+    \     (k - 1) * m + 1 ≤ Fintype.card V →\n      (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ\
+    \ := by\n"
+  depends_on:
+  - N09
+  - N11
+  - N14
+  - N29
+  - N45
+  - N58
+  - N08
+  mathlib_roots:
+  - Nat.strong_induction_on
+  - SimpleGraph.Connected
+  kind: join
+  believed: provable
+- id: ROOT
+  name: cambie_freschi
+  statement: "theorem cambie_freschi (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W)\n \
+    \   [DecidableRel H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) :\n    SimpleGraph.graphRamsey\
+    \ (SimpleGraph.cycleGraph k) H ≤ (k - 1) * m + 1 := by\n"
+  depends_on:
+  - N59
+  mathlib_roots:
+  - Nat.sInf_le
+  - SimpleGraph.degree_pos_iff_exists_adj
+  - Fintype.card_fin
+  kind: join
+  believed: provable
+notes: 'Route (paper''s): strong induction on m (N59) with k fixed. m=0 and m=1 are base cases (N09, N11).
+
+  Disconnected H splits at a closed vertex set and glues two inductive copies (N41-N45). Connected H:
+
+  k=3 is Theorem 1 (N14); k in {4,5,6} is Lemma 4 (N29) from Jayawardene''s three bounds and four small
+
+  Ramsey numbers (N22-N28); k>=7 (N58): delete a min-degree vertex u, extend the inductive copy or find a
+
+  red star (N46-N50). Degree 1: Corollary 6 in the star (N51). Degree >=2 (N57): blue clique U1 in S
+
+  (N52-N53), Gamma bounded by Lemma 7 and Lemma 5 (N30-N33, N54), sparse half T by averaging (N37-N39),
+
+  U2 bounded by the IH padded for isolated vertices (N40, N55), contradiction by arithmetic with
+
+  Proposition 10 (N34-N36, N56) unless n=3, handled by Theorem 1 swapped (N15). Lemma 5 uses Häggkvist in
+
+  "parts" form (N16-N20).
+
+  Hardest: the literature rooms. R(C6,K5)<=21 (N28) and Jayawardene''s thesis bounds have no short proof and
+
+  are far beyond brute force; Goddard-Kleitman (N14) is a multi-page argument, so the root is almost
+
+  surely not reached sorry-free. Among the paper''s own steps, N57 is the heaviest join.
+
+  Not in Mathlib: graph Ramsey numbers, Häggkvist, Theorem 1, critical subgraphs.
+
+  '

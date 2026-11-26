@@ -1,0 +1,112 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:126:10: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:126:22: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:129:10: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:129:22: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:132:10: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:132:22: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:137:10: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:137:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  dite (a = u) ?m.248 ?m.249
+in the target expression
+  { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } a =
+    { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } b
+
+case neg
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+u : W
+G : SimpleGraph V
+f : (induce {u}ᶜ H).Copy G
+x : V
+hx : ∀ (w : ↑{u}ᶜ), f w ≠ x
+hadj : ∀ (w : ↑{u}ᶜ), H.Adj u ↑w → G.Adj x (f w)
+hmem : ∀ (w : W), w ≠ u → w ∈ {u}ᶜ
+a b : W
+h :
+  { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } a =
+    { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } b
+ha : a = u
+hb : ¬b = u
+⊢ a = b
+Rooms/Target_B3_569_B_full_noplan_hold.lean:139:10: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:139:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  dite (a = u) ?m.253 ?m.254
+in the target expression
+  { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } a =
+    { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } b
+
+case pos
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+u : W
+G : SimpleGraph V
+f : (induce {u}ᶜ H).Copy G
+x : V
+hx : ∀ (w : ↑{u}ᶜ), f w ≠ x
+hadj : ∀ (w : ↑{u}ᶜ), H.Adj u ↑w → G.Adj x (f w)
+hmem : ∀ (w : W), w ≠ u → w ∈ {u}ᶜ
+a b : W
+h :
+  { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } a =
+    { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } b
+ha : ¬a = u
+hb : b = u
+⊢ a = b
+Rooms/Target_B3_569_B_full_noplan_hold.lean:141:10: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_B_full_noplan_hold.lean:141:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  dite (a = u) ?m.258 ?m.259
+in the target expression
+  { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } a =
+    { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } b
+
+case neg
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+u : W
+G : SimpleGraph V
+f : (induce {u}ᶜ H).Copy G
+x : V
+hx : ∀ (w : ↑{u}ᶜ), f w ≠ x
+hadj : ∀ (w : ↑{u}ᶜ), H.Adj u ↑w → G.Adj x (f w)
+hmem : ∀ (w : W), w ≠ u → w ∈ {u}ᶜ
+a b : W
+h :
+  { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } a =
+    { toFun := fun w => if h : w = u then x else f ⟨w, ⋯⟩, map_rel' := ⋯ } b
+ha : ¬a = u
+hb : ¬b = u
+⊢ a = b
+Rooms/Target_B3_569_B_full_noplan_hold.lean:147:8: warning: declaration uses `sorry`

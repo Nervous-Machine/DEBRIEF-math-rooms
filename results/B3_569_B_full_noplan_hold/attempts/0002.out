@@ -1,0 +1,4 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:63:26: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.mem_edgeSet.mp`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:70:38: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.mem_edgeSet.mpr`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:77:39: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.mem_edgeSet.mpr`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:101:8: warning: declaration uses `sorry`
