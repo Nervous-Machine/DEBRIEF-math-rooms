@@ -2453,7 +2453,7 @@
      "dated": "2026-11-26",
      "hypothesis": "the paper's core case, left without a check call in the statement-only arm, does not close under forced attempts at caps 12, 36 and 108",
      "before_data": true,
-     "result": "held: not closed at any cap; two sub-family theorems and an induction-free statement of the open configuration were proved instead; so of the two rooms forced so far, one (Lemma 7, with the paper's rooms) was in reach and one (the paper's core, from the statement alone) was not at a hundred and eight attempts; the 159 no-checker arms' unattempted rooms remain"
+     "result": "held: not closed at any cap; two sub-family theorems and an induction-free statement of the open configuration compiled on the standard axioms instead; so of the two rooms forced so far, one (Lemma 7, with the paper's rooms) was in reach and one (the paper's core, from the statement alone) was not at a hundred and eight attempts; the 159 no-checker arms' unattempted rooms remain"
     },
     {
      "cycle": "build-2026-11-26-corner",
