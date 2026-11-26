@@ -1,0 +1,337 @@
+{
+ "regime": "B2_C_binary",
+ "calls": 50,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0050",
+   "ok"
+  ]
+ ],
+ "per_node": {
+  "N01": {
+   "attempts": 2,
+   "ok": 1,
+   "error": 1,
+   "timeout": 0,
+   "secs": 6
+  },
+  "N02": {
+   "attempts": 4,
+   "ok": 3,
+   "error": 1,
+   "timeout": 0,
+   "secs": 11
+  },
+  "N03": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N04": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N06": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N07": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N09": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N12": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N13": {
+   "attempts": 2,
+   "ok": 1,
+   "error": 1,
+   "timeout": 0,
+   "secs": 6
+  },
+  "N14": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N15": {
+   "attempts": 7,
+   "ok": 2,
+   "error": 5,
+   "timeout": 0,
+   "secs": 21
+  },
+  "N16": {
+   "attempts": 2,
+   "ok": 1,
+   "error": 1,
+   "timeout": 0,
+   "secs": 7
+  },
+  "N17": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N19": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N20": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N21": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N23": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N25": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N26": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N27": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N28": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N29": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N30": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N31": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N32": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N33": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N34": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N35": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N36": {
+   "attempts": 1,
+   "ok": 1,
+   "error": 0,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N37": {
+   "attempts": 2,
+   "ok": 1,
+   "error": 1,
+   "timeout": 0,
+   "secs": 8
+  },
+  "ROOT": {
+   "attempts": 6,
+   "ok": 2,
+   "error": 4,
+   "timeout": 0,
+   "secs": 24
+  }
+ },
+ "final_status_at_first_FINAL": "ok",
+ "shape": {
+  "declarations": 47,
+  "unused_by_root": [],
+  "unused_count": 0,
+  "root_found": true,
+  "depth": 8,
+  "own_lines_median": 13,
+  "own_lines": {
+   "coprime_p_q": 5,
+   "prime_not_dvd_both": 8,
+   "lte_aux": 11,
+   "val_two_mul": 18,
+   "lte_corollary": 5,
+   "parity_split": 11,
+   "coprime_sub_add_of_odd": 26,
+   "prime_pow_coprime_split": 20,
+   "caseA_reduce": 33,
+   "caseA_mod_p": 20,
+   "three_pow_odd_mod_seven": 16,
+   "lemma_2_3": 12,
+   "lemma_2_4": 12,
+   "caseA_no_solution": 11,
+   "caseB_split": 72,
+   "pow_gt_two_mul_add_one": 12,
+   "prop_2_5": 36,
+   "lemma_2_6": 21,
+   "caseB_trivial": 10,
+   "nontrivial_bounds": 13,
+   "geom_identity": 5,
+   "geom_sum_modEq": 19,
+   "lemma_2_7": 31,
+   "nontrivial_b_pos": 6,
+   "s_sub_r_cases": 27,
+   "s_ne_r_add_one": 5,
+   "k_param": 14,
+   "remark_2_8": 10,
+   "two_mul_le_sq_add_sq": 10,
+   "amgm_pair_aux": 12,
+   "amgm_pair": 10,
+   "geom_sum_lower": 23,
+   "bound6_aux": 12,
+   "bound6": 22,
+   "aux_eq_int": 23,
+   "choose_succ_two": 5,
+   "choose_succ_three": 3,
+   "trunc_binom": 17,
+   "choose_two_odd": 7,
+   "lhs_expansion": 19,
+   "rhs_expansion": 13,
+   "aux_b_odd": 16,
+   "aux_div": 14,
+   "two_pow_ge": 8,
+   "aux_solution": 40,
+   "caseB_nontrivial": 52,
+   "consecutive_exponents": 42
+  },
+  "retry_named": [
+   "lte_aux",
+   "amgm_pair_aux",
+   "bound6_aux"
+  ],
+  "joins": [
+   "coprime_p_q",
+   "prime_not_dvd_both",
+   "lte_aux",
+   "val_two_mul",
+   "coprime_sub_add_of_odd",
+   "caseA_mod_p",
+   "three_pow_odd_mod_seven",
+   "geom_identity",
+   "two_mul_le_sq_add_sq",
+   "amgm_pair_aux",
+   "bound6_aux",
+   "choose_succ_two",
+   "choose_succ_three",
+   "trunc_binom",
+   "choose_two_odd",
+   "lhs_expansion",
+   "aux_b_odd"
+  ],
+  "edges": 65
+ },
+ "fit": {
+  "sorry": 0,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "can be disabled with `set_option linter.unusedSimpArgs false`\nRooms/Axioms.lean:776:10: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nRooms/Axioms.lean:777:10: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nRooms/Axioms.lean:776:10: warning: Unused tactic linter: `(simp at hg; exact hg)` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nRooms/Axioms.lean:777:10: warning: Unused tactic linter: `(simp at hg; omega)` does nothing.\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n'Panda2608.consecutive_exponents' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": true,
+ "attempts_median": 1,
+ "attempts_median_joins": 1.0,
+ "attempts_median_leaves": 1
+}
