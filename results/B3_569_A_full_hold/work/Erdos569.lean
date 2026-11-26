@@ -300,8 +300,53 @@ theorem multipartite_parts (k : ℕ) (hk : 2 ≤ k) (t : ℕ) (n : Fin t → ℕ
     (SimpleGraph.pathGraph k).IsContained C ∨
       ∃ P : Fin t → Finset V, (∀ i, P i ⊆ X) ∧ (∀ i, n i ≤ (P i).card) ∧
         ∀ i j, i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j, Cᶜ.Adj x y := by
-  sorry
-
+  classical
+  induction t generalizing X with
+  | zero =>
+    right
+    exact ⟨fun i => i.elim0, fun i => i.elim0, fun i => i.elim0, fun i => i.elim0⟩
+  | succ t ih =>
+    rw [Fin.sum_univ_succ] at hX
+    rcases Nat.eq_zero_or_pos t with rfl | ht
+    · right
+      refine ⟨fun _ => X, fun _ => le_rfl, fun i => ?_,
+        fun i j hij => absurd (Fin.ext (by have := i.isLt; have := j.isLt; omega)) hij⟩
+      have hi : i = 0 := Fin.ext (by have := i.isLt; simp only [Fin.val_zero]; omega)
+      subst hi
+      simpa using hX
+    · have hb : n 0 + ((k - 2) * (t - 1) + ∑ i : Fin t, n i.succ) + k - 2 ≤ X.card := by
+        have : (k - 2) * (t + 1 - 1) = (k - 2) * (t - 1) + (k - 2) := by
+          obtain ⟨t', rfl⟩ : ∃ t', t = t' + 1 := ⟨t - 1, by omega⟩
+          simp only [Nat.add_sub_cancel]
+          ring
+        omega
+      rcases haggkvist_parts k (n 0) ((k - 2) * (t - 1) + ∑ i : Fin t, n i.succ) hk C X hb with
+        h | ⟨P, Q, hPX, hQX, hPcard, hQcard, hPQ⟩
+      · exact Or.inl h
+      · rcases ih (fun i => n i.succ) Q hQcard with h | ⟨P', hP'Q, hP'card, hP'cross⟩
+        · exact Or.inl h
+        · right
+          refine ⟨Fin.cons P P', ?_, ?_, ?_⟩
+          · intro i
+            rcases Fin.eq_zero_or_eq_succ i with rfl | ⟨i', rfl⟩
+            · simp only [Fin.cons_zero]; exact hPX
+            · simp only [Fin.cons_succ]; exact (hP'Q i').trans hQX
+          · intro i
+            rcases Fin.eq_zero_or_eq_succ i with rfl | ⟨i', rfl⟩
+            · simp only [Fin.cons_zero]; exact hPcard
+            · simp only [Fin.cons_succ]; exact hP'card i'
+          · intro i j hij x hx y hy
+            rcases Fin.eq_zero_or_eq_succ i with rfl | ⟨i', rfl⟩ <;>
+              rcases Fin.eq_zero_or_eq_succ j with rfl | ⟨j', rfl⟩
+            · exact absurd rfl hij
+            · simp only [Fin.cons_zero] at hx
+              simp only [Fin.cons_succ] at hy
+              exact hPQ x hx y (hP'Q j' hy)
+            · simp only [Fin.cons_succ] at hx
+              simp only [Fin.cons_zero] at hy
+              exact (hPQ y hy x (hP'Q i' hx)).symm
+            · simp only [Fin.cons_succ] at hx hy
+              exact hP'cross i' j' (fun h => hij (by rw [h])) x hx y hy
 /-! N19 embed_colored_into_parts [leaf, believed provable] deps:  -/
 theorem embed_colored_into_parts {W V : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ)
     (c : H.Coloring (Fin t)) (D : SimpleGraph V) (P : Fin t → Finset V)
@@ -440,8 +485,68 @@ theorem claim8 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (
     (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j)
     (hfree : ¬ (SimpleGraph.cycleGraph k).IsContained C) :
     ∀ i, i ≤ 4 → u i = u (k - 4 + i) := by
-  sorry
-
+  intro i hi
+  by_contra hne
+  set j := k - 4 + i with hj
+  have hjk : j ≤ k := by omega
+  have hik : i ≤ k := by omega
+  let f : ℕ → V := fun n => if n = 0 then v else if n = 1 then u i else
+    if n ≤ k - 2 then w (i + (n - 2)) else u j
+  have hf0 : f 0 = v := by simp [f]
+  have hf1 : f 1 = u i := by simp [f]
+  have hfw : ∀ n, 2 ≤ n ∧ n ≤ k - 2 → f n = w (i + (n - 2)) := by
+    intro n hn
+    simp only [f]
+    rw [if_neg (by omega), if_neg (by omega), if_pos hn.2]
+  have hfk : f (k - 1) = u j := by
+    simp only [f]
+    rw [if_neg (by omega), if_neg (by omega), if_neg (by omega)]
+  have hcases : ∀ n, n < k → n = 0 ∨ n = 1 ∨ (2 ≤ n ∧ n ≤ k - 2) ∨ n = k - 1 := by
+    intro n hn; omega
+  have hvu' : ∀ l, l ≤ k → v ≠ u l := fun l hl => (hvu l hl).ne
+  have hwmem : ∀ n, 2 ≤ n ∧ n ≤ k - 2 → i + (n - 2) ∈ Set.Iic k := fun n hn => Set.mem_Iic.mpr (by omega)
+  apply hfree
+  refine cycle_of_closed_seq C k (by omega) f ?_ ?_ ?_
+  · intro a ha b hb hab
+    simp only [Set.mem_Iio] at ha hb
+    rcases hcases a ha with rfl | rfl | hamid | rfl <;> rcases hcases b hb with rfl | rfl | hbmid | rfl
+    · rfl
+    · rw [hf0, hf1] at hab; exact absurd hab (hvu' i hik)
+    · rw [hf0, hfw b hbmid] at hab; exact absurd hab (hvw _ (hwmem b hbmid))
+    · rw [hf0, hfk] at hab; exact absurd hab (hvu' j hjk)
+    · rw [hf1, hf0] at hab; exact absurd hab.symm (hvu' i hik)
+    · rfl
+    · rw [hf1, hfw b hbmid] at hab; exact absurd hab (huw' i _ hik (hwmem b hbmid))
+    · rw [hf1, hfk] at hab; exact absurd hab hne
+    · rw [hfw a hamid, hf0] at hab; exact absurd hab.symm (hvw _ (hwmem a hamid))
+    · rw [hfw a hamid, hf1] at hab; exact absurd hab.symm (huw' i _ hik (hwmem a hamid))
+    · rw [hfw a hamid, hfw b hbmid] at hab
+      have := hw (hwmem a hamid) (hwmem b hbmid) hab
+      omega
+    · rw [hfw a hamid, hfk] at hab; exact absurd hab.symm (huw' j _ hjk (hwmem a hamid))
+    · rw [hfk, hf0] at hab; exact absurd hab.symm (hvu' j hjk)
+    · rw [hfk, hf1] at hab; exact absurd hab.symm hne
+    · rw [hfk, hfw b hbmid] at hab; exact absurd hab (huw' j _ hjk (hwmem b hbmid))
+    · rfl
+  · intro a ha
+    rcases hcases a (by omega) with rfl | rfl | hamid | rfl
+    · rw [hf0, hf1]; exact hvu i hik
+    · rw [hf1, hfw 2 ⟨le_rfl, by omega⟩]
+      simp only [Nat.sub_self, add_zero]
+      exact huw i hik
+    · rcases Nat.lt_or_ge (a + 1) (k - 1) with ha1 | ha1
+      · rw [hfw a hamid, hfw (a + 1) ⟨by omega, by omega⟩]
+        have : i + (a + 1 - 2) = i + (a - 2) + 1 := by omega
+        rw [this]
+        exact hwadj _ (by omega)
+      · have ha' : a + 1 = k - 1 := by omega
+        rw [hfw a hamid, ha', hfk]
+        have : i + (a - 2) = j := by omega
+        rw [this]
+        exact (huw j hjk).symm
+    · omega
+  · rw [hfk, hf0]
+    exact (hvu j hjk).symm
 /-! N31 claim9 [leaf, believed provable] deps: N30 N12 -/
 theorem claim9 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V)
     (hw : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))
@@ -449,8 +554,42 @@ theorem claim9 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (
     (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j)
     (hfree : ¬ (SimpleGraph.cycleGraph k).IsContained C) :
     ∀ i, i ≤ 2 → u i ≠ u (i + 2) := by
-  sorry
-
+  intro i hi
+  intro heq
+  have h8 := claim8 k hk C v w u hw hwadj hvu huw huw' hvw hfree (i + 2) (by omega)
+  -- u (i+2) = u (k - 4 + (i + 2)) = u (i + k - 2)
+  have hik : i + k - 2 ≤ k := by omega
+  let f : ℕ → V := fun n => if n = 0 then u i else w (i + (n - 1))
+  have hf0 : f 0 = u i := by simp [f]
+  have hfw : ∀ n, 1 ≤ n → f n = w (i + (n - 1)) := by
+    intro n hn
+    simp only [f]
+    rw [if_neg (by omega)]
+  have hwmem : ∀ n, 1 ≤ n → n < k → i + (n - 1) ∈ Set.Iic k := fun n hn hnk => Set.mem_Iic.mpr (by omega)
+  apply hfree
+  refine cycle_of_closed_seq C k (by omega) f ?_ ?_ ?_
+  · intro a ha b hb hab
+    simp only [Set.mem_Iio] at ha hb
+    rcases Nat.eq_zero_or_pos a with rfl | ha0 <;> rcases Nat.eq_zero_or_pos b with rfl | hb0
+    · rfl
+    · rw [hf0, hfw b hb0] at hab; exact absurd hab (huw' i _ (by omega) (hwmem b hb0 hb))
+    · rw [hfw a ha0, hf0] at hab; exact absurd hab.symm (huw' i _ (by omega) (hwmem a ha0 ha))
+    · rw [hfw a ha0, hfw b hb0] at hab
+      have := hw (hwmem a ha0 ha) (hwmem b hb0 hb) hab
+      omega
+  · intro a ha
+    rcases Nat.eq_zero_or_pos a with rfl | ha0
+    · rw [hf0, hfw 1 le_rfl]
+      simp only [Nat.sub_self, add_zero]
+      exact huw i (by omega)
+    · rw [hfw a ha0, hfw (a + 1) (by omega)]
+      have : i + (a + 1 - 1) = i + (a - 1) + 1 := by omega
+      rw [this]
+      exact hwadj _ (by omega)
+  · rw [hfw (k - 1) (by omega), hf0]
+    have : i + (k - 1 - 1) = k - 4 + (i + 2) := by omega
+    rw [this, heq, h8]
+    exact (huw _ (by omega)).symm
 /-! N32 lemma7 [leaf, believed provable] deps: N30 N31 N12 -/
 theorem lemma7 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V)
     (hw : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))
@@ -464,21 +603,142 @@ theorem lemma7_bridge (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v
     (hU : ∀ x ∈ U, C.Adj v x) (hGam : ∀ y ∈ Gam, ∃ x ∈ U, C.Adj x y) (hdisj : Disjoint U Gam)
     (hvG : v ∉ Gam) (hP : (SimpleGraph.pathGraph (k + 1)).IsContained (C.induce Gam)) :
     (SimpleGraph.cycleGraph k).IsContained C := by
-  sorry
-
+  classical
+  obtain ⟨g⟩ := hP
+  let w : ℕ → V := fun i => if h : i < k + 1 then (g ⟨i, h⟩ : V) else v
+  have hw : ∀ i (h : i < k + 1), w i = (g ⟨i, h⟩ : V) := fun i h => by simp only [w, dif_pos h]
+  have hwG : ∀ i, i ≤ k → w i ∈ Gam := fun i hi => by
+    rw [hw i (by omega)]
+    exact (g _).2
+  have hex : ∀ i, ∃ x, i ≤ k → x ∈ U ∧ C.Adj x (w i) := by
+    intro i
+    by_cases hi : i ≤ k
+    · obtain ⟨x, hxU, hx⟩ := hGam (w i) (hwG i hi)
+      exact ⟨x, fun _ => ⟨hxU, hx⟩⟩
+    · exact ⟨v, fun h => absurd h hi⟩
+  choose u hu using hex
+  apply lemma7 k hk C v w u
+  · intro a ha b hb hab
+    simp only [Set.mem_Iic] at ha hb
+    rw [hw a (by omega), hw b (by omega)] at hab
+    have := g.injective (Subtype.val_injective hab)
+    simp only [Fin.mk.injEq] at this
+    exact this
+  · intro i hi
+    rw [hw i (by omega), hw (i + 1) (by omega)]
+    have : (SimpleGraph.pathGraph (k + 1)).Adj ⟨i, by omega⟩ ⟨i + 1, by omega⟩ := by
+      rw [SimpleGraph.pathGraph_adj]
+      left
+      rfl
+    exact g.toHom.map_adj this
+  · intro i hi
+    exact hU _ (hu i hi).1
+  · intro i hi
+    exact (hu i hi).2
+  · intro i j hi hj heq
+    exact Set.disjoint_left.mp hdisj (hu i hi).1 (heq ▸ hwG j hj)
+  · intro j hj heq
+    exact hvG (heq ▸ hwG j hj)
 /-! N34 exists_critical_vertex_set [leaf, believed provable] deps:  -/
 theorem exists_critical_vertex_set {W : Type} [Fintype W] (H : SimpleGraph W) (s : ℕ)
     (h : ¬ H.Colorable s) :
     ∃ X : Finset W, ¬ (H.induce (X : Set W)).Colorable s ∧
       ∀ x ∈ X, s ≤ (H.neighborSet x ∩ (X : Set W)).ncard := by
-  sorry
-
+  classical
+  let P : Finset W → Prop := fun X => ¬ (H.induce (X : Set W)).Colorable s
+  have huniv : P Finset.univ := by
+    intro hcol
+    apply h
+    obtain ⟨c⟩ := hcol
+    exact ⟨SimpleGraph.Coloring.mk (fun w => c ⟨w, Finset.mem_univ w⟩) (fun hvw => c.valid hvw)⟩
+  obtain ⟨X, hXP, hXmin⟩ := Finset.exists_min_image (Finset.univ.filter P) Finset.card
+    ⟨Finset.univ, Finset.mem_filter.mpr ⟨Finset.mem_univ _, huniv⟩⟩
+  have hXP' : P X := (Finset.mem_filter.mp hXP).2
+  refine ⟨X, hXP', ?_⟩
+  intro x hx
+  by_contra hlt
+  push_neg at hlt
+  have hcol : (H.induce ((X.erase x : Finset W) : Set W)).Colorable s := by
+    by_contra hnot
+    have hmem : X.erase x ∈ Finset.univ.filter P := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hnot⟩
+    have h1 := hXmin _ hmem
+    have h2 := Finset.card_erase_lt_of_mem hx
+    omega
+  obtain ⟨c⟩ := hcol
+  obtain ⟨s', rfl⟩ : ∃ s', s = s' + 1 := ⟨s - 1, by omega⟩
+  let c0 : W → Fin (s' + 1) := fun y => if hy : y ∈ X.erase x then c ⟨y, hy⟩ else 0
+  let N : Finset W := X.filter (fun y => H.Adj x y)
+  have hNcard : N.card < s' + 1 := by
+    have : N.card = (H.neighborSet x ∩ (X : Set W)).ncard := by
+      rw [Set.ncard_eq_toFinset_card']
+      congr 1
+      ext y
+      simp only [N, Finset.mem_filter, Set.mem_toFinset, Set.mem_inter_iff,
+        SimpleGraph.mem_neighborSet, Finset.mem_coe]
+      exact and_comm
+    omega
+  have hused : (N.image c0).card < (Finset.univ : Finset (Fin (s' + 1))).card := by
+    calc (N.image c0).card ≤ N.card := Finset.card_image_le
+      _ < s' + 1 := hNcard
+      _ = _ := by rw [Finset.card_univ, Fintype.card_fin]
+  obtain ⟨i, _, hi⟩ := Finset.exists_mem_notMem_of_card_lt_card hused
+  let c1 : W → Fin (s' + 1) := fun y => if y = x then i else c0 y
+  apply hXP'
+  refine ⟨SimpleGraph.Coloring.mk (fun y => c1 y.1) ?_⟩
+  intro a b hab
+  have hab' : H.Adj a.1 b.1 := hab
+  simp only [c1]
+  by_cases ha : a.1 = x <;> by_cases hb : b.1 = x
+  · exact absurd (ha.trans hb.symm) hab'.ne
+  · rw [if_pos ha, if_neg hb]
+    intro heq
+    apply hi
+    rw [Finset.mem_image]
+    exact ⟨b.1, Finset.mem_filter.mpr ⟨b.2, ha ▸ hab'⟩, heq.symm⟩
+  · rw [if_neg ha, if_pos hb]
+    intro heq
+    apply hi
+    rw [Finset.mem_image]
+    exact ⟨a.1, Finset.mem_filter.mpr ⟨a.2, hb ▸ hab'.symm⟩, heq⟩
+  · rw [if_neg ha, if_neg hb]
+    have ha' : a.1 ∈ X.erase x := Finset.mem_erase.mpr ⟨ha, a.2⟩
+    have hb' : b.1 ∈ X.erase x := Finset.mem_erase.mpr ⟨hb, b.2⟩
+    simp only [c0, dif_pos ha', dif_pos hb']
+    exact c.valid (show (H.induce _).Adj ⟨a.1, ha'⟩ ⟨b.1, hb'⟩ from hab')
 /-! N35 prop10 [leaf, believed provable] deps: N34 N06 -/
 theorem prop10 {W : Type} [Fintype W] (H : SimpleGraph W) (hδ : ∀ v, 2 ≤ (H.neighborSet v).ncard)
     (t : ℕ) (ht : ¬ H.Colorable (t - 1)) :
     2 * Fintype.card W + t * (t - 3) ≤ 2 * H.edgeSet.ncard := by
-  sorry
-
+  classical
+  rcases Nat.lt_or_ge t 3 with ht3 | ht3
+  · have h0 : t - 3 = 0 := by omega
+    rw [h0, mul_zero, add_zero]
+    have h1 : ∑ _v : W, 2 ≤ ∑ v, (H.neighborSet v).ncard := Finset.sum_le_sum (fun v _ => hδ v)
+    rw [degree_sum_ncard H, Finset.sum_const, Finset.card_univ, smul_eq_mul] at h1
+    omega
+  obtain ⟨X, hXcol, hXdeg⟩ := exists_critical_vertex_set H (t - 1) ht
+  have hsum := degree_sum_ncard H
+  have hXcard : t ≤ X.card := by
+    by_contra h
+    push_neg at h
+    apply hXcol
+    have := (H.induce (X : Set W)).colorable_of_fintype
+    simp only [Finset.coe_sort_coe, Fintype.card_coe] at this
+    exact this.mono (by omega)
+  have h1 : ∑ v ∈ X, (t - 1) ≤ ∑ v ∈ X, (H.neighborSet v).ncard :=
+    Finset.sum_le_sum (fun v hv => (hXdeg v hv).trans (Set.ncard_le_ncard Set.inter_subset_left))
+  have h2 : ∑ v ∈ Xᶜ, 2 ≤ ∑ v ∈ Xᶜ, (H.neighborSet v).ncard :=
+    Finset.sum_le_sum (fun v _ => hδ v)
+  rw [← Finset.sum_add_sum_compl X] at hsum
+  rw [Finset.sum_const, smul_eq_mul] at h1 h2
+  rw [Finset.card_compl] at h2
+  have hXle : X.card ≤ Fintype.card W := Finset.card_le_univ X
+  have hsub := Nat.sub_add_cancel hXle
+  obtain ⟨t', rfl⟩ : ∃ t', t = t' + 3 := ⟨t - 3, by omega⟩
+  rw [show t' + 3 - 1 = t' + 2 by omega] at h1
+  rw [show t' + 3 - 3 = t' by omega]
+  have h3 : (t' + 3) * t' ≤ X.card * t' := Nat.mul_le_mul_right t' hXcard
+  nlinarith
 /-! N36 exists_chromatic [leaf, believed provable] deps:  -/
 theorem exists_chromatic {W : Type} [Fintype W] (H : SimpleGraph W) (hm : 1 ≤ H.edgeSet.ncard) :
     ∃ t, 2 ≤ t ∧ H.Colorable t ∧ ¬ H.Colorable (t - 1) := by
@@ -533,15 +793,87 @@ theorem sum_induced_edges_powersetCard {W : Type} [Fintype W] (H : SimpleGraph W
     (hs : 2 ≤ s) :
     ∑ T ∈ (Finset.univ : Finset W).powersetCard s, (H.induce (T : Set W)).edgeSet.ncard =
       H.edgeSet.ncard * (Fintype.card W - 2).choose (s - 2) := by
-  sorry
-
+  classical
+  have hT : ∀ T : Finset W, (H.induce (T : Set W)).edgeSet.ncard =
+      (H.edgeFinset.filter (fun e => ∀ x ∈ e, x ∈ T)).card := by
+    intro T
+    rw [← SimpleGraph.coe_edgeFinset, Set.ncard_coe_finset]
+    have hmap' : (H.induce (T : Set W)).edgeFinset.card =
+        (H.edgeFinset ∩ (T : Set W).toFinset.sym2).card := by
+      have hmap := congrArg Finset.card
+        (SimpleGraph.map_edgeFinset_induce (G := H) (s := (T : Set W)))
+      rw [Finset.card_map] at hmap
+      convert hmap
+    refine hmap'.trans ?_
+    congr 1
+    ext e
+    simp only [Finset.mem_inter, Finset.mem_filter, Finset.mem_sym2_iff, Set.mem_toFinset,
+      Finset.mem_coe]
+  simp_rw [hT, Finset.card_filter]
+  rw [Finset.sum_comm]
+  rw [← SimpleGraph.coe_edgeFinset, Set.ncard_coe_finset, Finset.card_eq_sum_ones, Finset.sum_mul]
+  apply Finset.sum_congr rfl
+  intro e he
+  rw [one_mul]
+  simp only [Finset.sum_boole, Nat.cast_id]
+  have h2 : e.toFinset.card = 2 := Sym2.card_toFinset_of_not_isDiag e
+    (SimpleGraph.not_isDiag_of_mem_edgeSet H (SimpleGraph.mem_edgeFinset.mp he))
+  have hc := Finset.card_filter_powersetCard_subset e.toFinset Finset.univ s (Finset.subset_univ _)
+    (by omega)
+  rw [Finset.card_univ, h2] at hc
+  rw [← hc]
+  congr 1
+  apply Finset.filter_congr
+  intro T _
+  constructor
+  · intro h x hx
+    exact h x (Sym2.mem_toFinset.mp hx)
+  · intro h x hx
+    exact h (Sym2.mem_toFinset.mpr hx)
 /-! N39 exists_sparse_half [leaf, believed provable] deps: N37 N38 -/
 theorem exists_sparse_half {W : Type} [Fintype W] (H : SimpleGraph W)
     (hn : 3 ≤ Fintype.card W) (hm : 1 ≤ H.edgeSet.ncard) :
     ∃ T : Finset W, T.card = (Fintype.card W + 1) / 2 - 1 ∧
       4 * (H.induce (T : Set W)).edgeSet.ncard < H.edgeSet.ncard := by
-  sorry
-
+  classical
+  have hsn : (Fintype.card W + 1) / 2 - 1 ≤ Fintype.card W := by omega
+  rcases Nat.lt_or_ge ((Fintype.card W + 1) / 2 - 1) 2 with hs2 | hs2
+  · obtain ⟨T, -, hT⟩ := Finset.exists_subset_card_eq (s := (Finset.univ : Finset W)) hsn
+    refine ⟨T, hT, ?_⟩
+    have hempty : (H.induce (T : Set W)).edgeSet = ∅ := by
+      rw [Set.eq_empty_iff_forall_notMem]
+      intro e he
+      induction e using Sym2.ind with
+      | h a b =>
+      have hab : (H.induce (T : Set W)).Adj a b := he
+      have hne : (a : W) ≠ b := fun h => hab.ne (Subtype.ext h)
+      have hsub : ({(a : W), (b : W)} : Finset W) ⊆ T := by
+        intro x hx
+        rw [Finset.mem_insert, Finset.mem_singleton] at hx
+        rcases hx with rfl | rfl
+        · exact a.2
+        · exact b.2
+      have := Finset.card_le_card hsub
+      rw [Finset.card_pair hne] at this
+      omega
+    rw [hempty, Set.ncard_empty]
+    omega
+  · have hsn' : 2 * ((Fintype.card W + 1) / 2 - 1) + 1 ≤ Fintype.card W := by omega
+    have hchoose := choose_ineq (Fintype.card W) _ hs2 hsn'
+    have hsum := sum_induced_edges_powersetCard H _ hs2
+    have hlt : ∑ T ∈ (Finset.univ : Finset W).powersetCard ((Fintype.card W + 1) / 2 - 1),
+        4 * (H.induce (T : Set W)).edgeSet.ncard <
+        ∑ T ∈ (Finset.univ : Finset W).powersetCard ((Fintype.card W + 1) / 2 - 1), H.edgeSet.ncard := by
+      rw [← Finset.mul_sum, hsum, Finset.sum_const, Finset.card_powersetCard, Finset.card_univ,
+        smul_eq_mul]
+      calc 4 * (H.edgeSet.ncard * (Fintype.card W - 2).choose ((Fintype.card W + 1) / 2 - 1 - 2))
+          = H.edgeSet.ncard * (4 * (Fintype.card W - 2).choose ((Fintype.card W + 1) / 2 - 1 - 2)) := by
+            ring
+        _ < H.edgeSet.ncard * (Fintype.card W).choose ((Fintype.card W + 1) / 2 - 1) :=
+            Nat.mul_lt_mul_of_pos_left hchoose hm
+        _ = (Fintype.card W).choose ((Fintype.card W + 1) / 2 - 1) * H.edgeSet.ncard := mul_comm _ _
+    obtain ⟨T, hT, hlt'⟩ := Finset.exists_lt_of_sum_lt hlt
+    exact ⟨T, (Finset.mem_powersetCard.mp hT).2, hlt'⟩
 -- helper (the content of N41, placed here because N40 uses it; N41 below is proved from it)
 theorem glue_components_aux {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W)
     (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) (C : SimpleGraph V)
@@ -780,8 +1112,56 @@ theorem delete_min_vertex_no_isolated {W : Type} [Fintype W] (H : SimpleGraph W)
     (hc : H.Connected) (hm : 2 ≤ H.edgeSet.ncard) (u : W)
     (hu : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard) :
     ∀ v : ({u}ᶜ : Set W), ∃ w, (H.induce ({u}ᶜ : Set W)).Adj v w := by
-  sorry
-
+  classical
+  intro v
+  have hvu : (v : W) ≠ u := Set.mem_compl_singleton_iff.mp v.2
+  by_contra hcon
+  push_neg at hcon
+  -- every neighbor of v is u
+  have hNv : ∀ w, H.Adj v w → w = u := by
+    intro w hw
+    by_contra hwu
+    exact hcon ⟨w, Set.mem_compl_singleton_iff.mpr hwu⟩ hw
+  obtain ⟨w0, hw0⟩ := (hc.preconnected v u).nonempty_neighborSet_left hvu
+  have hw0u : w0 = u := hNv w0 hw0
+  have hvu' : H.Adj v u := hw0u ▸ hw0
+  have hNvle : (H.neighborSet v).ncard ≤ 1 := by
+    have hsub : H.neighborSet v ⊆ {u} := fun w hw => hNv w hw
+    calc (H.neighborSet v).ncard ≤ ({u} : Set W).ncard := Set.ncard_le_ncard hsub
+      _ = 1 := Set.ncard_singleton u
+  have hNule : (H.neighborSet u).ncard ≤ 1 := (hu v).trans hNvle
+  have hNu : ∀ w, H.Adj u w → w = v :=
+    fun w hw => (Set.ncard_le_one_iff (Set.toFinite _)).mp hNule hw hvu'.symm
+  -- {u, v} is closed under walks
+  have hclosed : ∀ (a x : W) (p : H.Walk a x), (a = u ∨ a = v) → (x = u ∨ x = v) := by
+    intro a x p
+    induction p with
+    | nil => exact id
+    | cons h p ih =>
+      intro ha
+      apply ih
+      rcases ha with rfl | rfl
+      · exact Or.inr (hNu _ h)
+      · exact Or.inl (hNv _ h)
+  have hall : ∀ x : W, x = u ∨ x = v := by
+    intro x
+    obtain ⟨p⟩ := hc.preconnected u x
+    exact hclosed u x p (Or.inl rfl)
+  -- then all edges equal s(u, v)
+  have hsub : H.edgeSet ⊆ {s(u, (v : W))} := by
+    intro e he
+    induction e using Sym2.ind with
+    | h a b =>
+    have hab : H.Adj a b := he
+    rw [Set.mem_singleton_iff, Sym2.eq_iff]
+    rcases hall a with rfl | rfl <;> rcases hall b with rfl | rfl
+    · exact absurd hab (H.irrefl)
+    · exact Or.inl ⟨rfl, rfl⟩
+    · exact Or.inr ⟨rfl, rfl⟩
+    · exact absurd hab (H.irrefl)
+  have := Set.ncard_le_ncard hsub
+  rw [Set.ncard_singleton] at this
+  omega
 /-! N49 red_star_pigeonhole [leaf, believed provable] deps:  -/
 theorem red_star_pigeonhole {V : Type} (C : SimpleGraph V) (T X : Finset V) (hT : T.Nonempty)
     (hX : ∀ x ∈ X, ∃ t ∈ T, C.Adj t x) :
@@ -816,8 +1196,71 @@ theorem exists_red_star (k : ℕ) (hk : 3 ≤ k) (m : ℕ)
     (hcyc : ¬ (SimpleGraph.cycleGraph k).IsContained C) (hH : ¬ H.IsContained Cᶜ) :
     ∃ v : V, ∃ S : Finset V, v ∉ S ∧ (∀ s ∈ S, C.Adj v s) ∧
       (k - 1) * m + 2 ≤ (H.neighborSet u).ncard * S.card + Fintype.card W := by
-  sorry
-
+  classical
+  have hne : Nonempty W := hc.nonempty
+  have hdel := delete_vertex_edges H u
+  rw [hm] at hdel
+  have hd1 : 1 ≤ (H.neighborSet u).ncard := by
+    obtain ⟨e, he⟩ := (Set.ncard_pos (Set.toFinite _)).mp (by omega : 0 < H.edgeSet.ncard)
+    induction e using Sym2.ind with
+    | h a b =>
+    have hab : H.Adj a b := he
+    have hex : (H.neighborSet u).Nonempty := by
+      by_cases hua : u = a
+      · exact ⟨b, hua ▸ hab⟩
+      · exact (hc.preconnected u a).nonempty_neighborSet_left hua
+    exact Nat.one_le_iff_ne_zero.mpr ((Set.ncard_pos (Set.toFinite _)).mpr hex).ne'
+  have h0' := delete_min_vertex_no_isolated H hc (by omega) u hu
+  have hm' : (H.induce ({u}ᶜ : Set W)).edgeSet.ncard < m := by omega
+  rcases ih _ hm' _ (H.induce ({u}ᶜ : Set W)) h0' rfl V C
+    (by have := Nat.mul_le_mul_left (k - 1) hm'.le; omega) with h | h
+  · exact absurd h hcyc
+  obtain ⟨f⟩ := h
+  let g : H.neighborSet u → V := fun w => f ⟨w.1, Set.mem_compl_singleton_iff.mpr w.2.ne.symm⟩
+  set T : Finset V := Finset.univ.image g with hT
+  set X : Finset V := Finset.univ.filter (fun x => x ∉ Set.range ⇑f) with hX
+  have hTcard : T.card ≤ (H.neighborSet u).ncard := by
+    calc T.card ≤ (Finset.univ : Finset (H.neighborSet u)).card := Finset.card_image_le
+      _ = Fintype.card (H.neighborSet u) := Finset.card_univ
+      _ = (H.neighborSet u).ncard := by rw [Set.ncard_eq_toFinset_card', Set.toFinset_card]
+  have hTne : T.Nonempty := by
+    obtain ⟨w, hw⟩ := (Set.ncard_pos (Set.toFinite _)).mp (by omega : 0 < (H.neighborSet u).ncard)
+    exact ⟨g ⟨w, hw⟩, Finset.mem_image_of_mem g (Finset.mem_univ _)⟩
+  have hXadj : ∀ x ∈ X, ∃ t ∈ T, C.Adj t x := by
+    intro x hx
+    have hx' : x ∉ Set.range ⇑f := (Finset.mem_filter.mp hx).2
+    by_contra hcon
+    push_neg at hcon
+    apply hH
+    apply extend_by_vertex H u Cᶜ f x hx'
+    intro w hw
+    rw [SimpleGraph.compl_adj]
+    refine ⟨fun h => hx' ⟨w, h.symm⟩, fun h => ?_⟩
+    have hfw : f w ∈ T := by
+      have : g ⟨w.1, hw⟩ = f w := rfl
+      rw [← this]
+      exact Finset.mem_image_of_mem g (Finset.mem_univ _)
+    exact hcon (f w) hfw h.symm
+  obtain ⟨v, hvT, S, hSX, hSadj, hcard⟩ := red_star_pigeonhole C T X hTne hXadj
+  refine ⟨v, S, ?_, hSadj, ?_⟩
+  · intro hvS
+    have hvX := hSX hvS
+    have hv' : v ∉ Set.range ⇑f := (Finset.mem_filter.mp hvX).2
+    rw [Finset.mem_image] at hvT
+    obtain ⟨w, _, rfl⟩ := hvT
+    exact hv' ⟨_, rfl⟩
+  · have hXcard : X.card = Fintype.card V - (Fintype.card W - 1) := by
+      have h1 : X.card = Fintype.card {x : V // ¬ x ∈ Set.range ⇑f} := (Fintype.card_subtype _).symm
+      have h2 : Fintype.card {x : V // ¬ x ∈ Set.range ⇑f} =
+          Fintype.card V - Fintype.card {x : V // x ∈ Set.range ⇑f} := Fintype.card_subtype_compl _
+      have h3 : Fintype.card {x : V // x ∈ Set.range ⇑f} = Fintype.card ({u}ᶜ : Set W) :=
+        Set.card_range_of_injective f.injective
+      have h4 : Fintype.card ({u}ᶜ : Set W) = Fintype.card W - Fintype.card ({u} : Set W) :=
+        Fintype.card_compl_set _
+      rw [h1, h2, h3, h4, Set.card_singleton]
+    have h5 : T.card * S.card ≤ (H.neighborSet u).ncard * S.card := Nat.mul_le_mul_right _ hTcard
+    have h6 : 1 ≤ Fintype.card W := Fintype.card_pos
+    omega
 /-! N51 step_min_degree_one [leaf, believed provable] deps: N21 N13 N05 N08 -/
 theorem step_min_degree_one (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)
     (hc : H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) {V : Type} (C : SimpleGraph V) (v : V)
@@ -1019,7 +1462,7 @@ theorem step_large_deg_two (k : ℕ) (hk : 7 ≤ k) (m : ℕ)
       rw [Set.ssubset_univ_iff]
       intro h
       have : w ∈ H.neighborSet w := h ▸ Set.mem_univ w
-      exact H.loopless w this
+      exact H.irrefl this
     have := Set.ncard_lt_ncard hss (Set.toFinite _)
     rw [Set.ncard_univ, Nat.card_eq_fintype_card] at this
     omega
