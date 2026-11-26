@@ -1,0 +1,37 @@
+Rooms/Target_B4_159_F_full_forced.lean:306:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:310:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:612:48: error: unsolved goals
+κ : ℝ
+hκ : 0 < κ
+V : Type
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+s : Finset V
+hG : ¬(SimpleGraph.cycleGraph 4).IsContained G
+hmin : ∀ v ∈ s, κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj v) s).card
+hcon : ∀ t ⊆ s, G.IsIndepSet ↑t → ↑t.card < 1 / 2 * ↑s.card ^ (1 / 2 + 1 / 25)
+t : Finset V
+hts : t ⊆ s
+hind : G.IsIndepSet ↑t
+hcard : s.card ≤ (2 * t.card + 1) * t.card
+hlt : ↑t.card < 1 / 2 * ↑s.card ^ (1 / 2 + 1 / 25)
+h2 : ↑s.card ≤ (2 * ↑t.card + 1) * ↑t.card
+ht0 : 0 ≤ ↑t.card
+hne : s.Nonempty
+hs1 : 1 ≤ ↑s.card
+hX1 : 1 ≤ ↑s.card ^ (1 / 2 + 1 / 25)
+⊢ False
+Rooms/Target_B4_159_F_full_forced.lean:643:28: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

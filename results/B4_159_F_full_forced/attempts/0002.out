@@ -1,0 +1,70 @@
+Rooms/Target_B4_159_F_full_forced.lean:306:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:310:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:483:8: error: linarith failed to find a contradiction
+κ : ℝ
+hκ : 0 < κ
+V : Type
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+s : Finset V
+hG : ¬(SimpleGraph.cycleGraph 4).IsContained G
+hmin : ∀ v ∈ s, κ * ↑s.card ^ (1 / 2 - 1 / 8) ≤ ↑(Finset.filter (G.Adj v) s).card
+hne : s.Nonempty
+v : V
+hv : v ∈ s
+hvmax : ∀ x' ∈ s, (Finset.filter (G.Adj x') s).card ≤ (Finset.filter (G.Adj v) s).card
+hs1 : 1 ≤ ↑s.card
+hp : 0 ≤ ↑s.card ^ (1 / 2 + 1 / 2)
+hsmall : ↑(Finset.filter (G.Adj v) s).card < 1 / 2 * ↑s.card ^ (1 / 2 + 1 / 2)
+t : Finset V
+hts : t ⊆ s
+hind : G.IsIndepSet ↑t
+hcard : s.card ≤ ((Finset.filter (G.Adj v) s).card + 1) * t.card
+h2 : ↑s.card ≤ (↑(Finset.filter (G.Adj v) s).card + 1) * ↑t.card
+ht0 : 0 ≤ ↑t.card
+a✝ : 4 * ↑s.card < ↑s.card ^ 2
+⊢ False
+failed
+Rooms/Target_B4_159_F_full_forced.lean:484:6: error: linarith failed to find a contradiction
+case inr.inr
+κ : ℝ
+hκ : 0 < κ
+V : Type
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+s : Finset V
+hG : ¬(SimpleGraph.cycleGraph 4).IsContained G
+hmin : ∀ v ∈ s, κ * ↑s.card ^ (1 / 2 - 1 / 8) ≤ ↑(Finset.filter (G.Adj v) s).card
+hne : s.Nonempty
+v : V
+hv : v ∈ s
+hvmax : ∀ x' ∈ s, (Finset.filter (G.Adj x') s).card ≤ (Finset.filter (G.Adj v) s).card
+hs1 : 1 ≤ ↑s.card
+hp : 0 ≤ ↑s.card ^ (1 / 2 + 1 / 2)
+hsmall : ↑(Finset.filter (G.Adj v) s).card < 1 / 2 * ↑s.card ^ (1 / 2 + 1 / 2)
+t : Finset V
+hts : t ⊆ s
+hind : G.IsIndepSet ↑t
+hcard : s.card ≤ ((Finset.filter (G.Adj v) s).card + 1) * t.card
+h2 : ↑s.card ≤ (↑(Finset.filter (G.Adj v) s).card + 1) * ↑t.card
+ht0 : 0 ≤ ↑t.card
+h3 : ↑s.card ^ (1 / 2 + 1 / 2) * ↑s.card ^ (1 / 2 + 1 / 2) ≤ 4 * ↑s.card
+a✝ : ↑t.card < 1 / 4 * ↑s.card ^ (1 / 2 + 1 / 2)
+⊢ False
+failed
+Rooms/Target_B4_159_F_full_forced.lean:513:28: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

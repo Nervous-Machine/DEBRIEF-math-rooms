@@ -48,7 +48,14 @@ Without a blueprint the searcher drew the same route in seven lemmas and compile
 | 159, rooms from the question | none | none | hold | 1 | sorry | 15 of 19 | 0 |
 | 159, rooms from the question | none | none | plain, no sorry allowed | 1 | error (one renamed lemma) | 15 of 19 | 0 |
 
-Next: the open-problem arm with another searcher model and under an incentive to declare success; readers for the two registrar-written statements.
+**Build 4, the two open rooms, made to try (26 Nov 2026): the rooms left open were not all out of reach.** Build 3's open cores had received no check call at all. Build 4 took the same files and made the searcher spend twelve genuine attempts on each room before it could leave it, with the tool refusing any attempt that hid a sorry. Lemma 7 of the human argument, which the build 3 searcher had declared beyond the budget without trying, closed at the first attempt on the standard axioms, 231 lines, fourteen minutes. The open core of Erdős 159 did not move in twelve: twelve routes, twelve errors, the same exponent wall read off Lean each time, five helper lemmas proved on the way, nothing changed to close it. Both forced arms cost less than the arms that never tried. Three of eight predictions held; the one that missed was the registered falsifier. Full account: [trace/ROOMS-4.md](trace/ROOMS-4.md).
+
+| arm | forced room | calls | errors | genuine attempts | room closed | fit new | tokens | minutes |
+|---|---|---|---|---|---|---|---|---|
+| 569 | Lemma 7 of the human proof | 2 | 0 | 1 | yes | 0 | 129,388 | 15 |
+| 159 | the open core | 13 | 12 | 12 | no | 0 | 173,299 | 23 |
+
+Next: force the remaining rooms left open without a check call, starting with the paper's core case in the statement-only 569 arm; the open-problem arm with another searcher model and under an incentive to declare success; readers for the two registrar-written statements.
 
 ## Why this theorem
 

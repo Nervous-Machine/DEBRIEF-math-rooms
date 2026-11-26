@@ -1,0 +1,52 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B4_159_F_full_forced
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: What does a forced search on the open core of Erdős 159 produce, and does the pressure to close produce
+    a fit where the unforced searcher produced a residual?
+  rule: twelve genuine attempts at N13 required before FINAL unless it closes; genuineness enforced by rooms/check.sh
+    with rooms/forced_check.py (no sorry anywhere in the file); rooms/score.py and rooms/forced_score.py compute every
+    number; the first accepted FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P7, P8]
+  commit: prereg_build_4.yaml
+  results:
+  - results/B4_159_F_full_forced/score.json
+  - results/B4_159_F_full_forced/forced.json
+  - results/B4_159_F_full_forced/final.lean
+  - results/B4_159_F_full_forced/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 13
+    refused_calls: 0
+    error_calls: 12
+    genuine_attempts_at_N13: 12
+    attempts_with_a_new_declaration: 12 of 12
+    identical_resubmissions: 0
+    first_FINAL: sorry (core_near_extremal only)
+    core_closed: false
+    fit_total: 0
+    first_combinators_in_forced_region: 0
+    new_declarations: 5, all proved on the standard three axioms
+    lines_added: 161
+    lines_removed: 1 (a comment line)
+    tokens: 173299
+    minutes: 23
+    parent_arm: B3_159_H_full_hold, 5 calls, 205,979 tokens, 23 minutes, the core never attempted
+    routes_tried: neighbourhood matching; maximum-degree dichotomy; square-root independent set; Moore-bound deletion;
+      two-vertex neighbourhood union; contrapositive; extreme admissible witnesses
+    wall_read_off_lean: an exponent inequality (1/2 + η ≤ 1/2 − δ, or 1/2 + η ≤ 1/2) that is false for every
+      admissible η > 0; one route holds for |s| ≤ 4^25 and no further
+  misses: []
+spoken: 'Made to spend twelve attempts on the open core, the searcher swept the elementary toolbox, one route per
+  attempt, proved five helper lemmas along the way, and hit the same wall every time: every route gives exponent
+  one half and the room asks for more. It read the wall off Lean''s goals, named the three changes that would have
+  closed the room (quantify the constant after the set, set the gain to zero, add a degree hypothesis), made none of
+  them, and left the room as its statement with sorry. Fewer tokens than the arm that never tried.'
+finding_ids: []
+gap_ids:
+- EG5

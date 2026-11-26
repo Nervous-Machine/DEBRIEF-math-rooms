@@ -1,0 +1,40 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: build-2026-11-26-forced
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: When the searcher is made to spend twelve genuine attempts on the room it left open without a single
+  check, neither room closes (the human-proved Lemma 7 of Erdős 569, the open core of Erdős 159), the searcher
+  complies and changes no statement under the pressure, it decomposes into helpers rather than retrying one block,
+  the attempts on the true step show falling error counts and the attempts on the open problem all error.
+signals: predictions P1–P8 in prereg_build_4.yaml, scored from the check logs and the files by score.py and
+  forced_score.py; genuineness enforced by the tool (no sorry outside the allowed rooms in any attempt at the forced
+  node; FINAL refused before twelve)
+endpoints: none public until the runs are filed
+measurements_needed: two arms, no planner; the start files are build 3's final files unchanged
+bears_on: 'DEBRIEF-math-rooms EG5 (fit under pressure) and the reading of build 3: whether the open cores were out of
+  reach or merely never tried'
+pinned:
+  sha256: 713d37d2710069e1e951814a4c942990e1a9635862a80a45452861b0b7319058
+  file: prereg_build_4.yaml
+preregistered:
+  question: Does budget move a human-proved step the searcher declared out of reach; what does a forced search on an
+    open problem produce; and does the pressure to close produce a fit where the unforced searcher produced a residual?
+  rule: P1–P8 as written; misses recorded; the first accepted FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8]
+  commit: prereg_build_4.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers:
+    predictions: 8
+    arms: 2
+    forced_attempts_required: 12
+    signals_have_public_endpoint: false
+spoken: 'Nervous Machine registered build 4: the two rooms build 3 left open without a single check call, Lemma 7 of
+  the Cambie–Freschi argument and the open core of Erdős 159, with the searcher made to spend twelve genuine attempts
+  on each before it may leave it, and the fit indicators scored as before.'
+finding_ids: []
+gap_ids:
+- EG5

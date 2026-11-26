@@ -1,0 +1,95 @@
+Rooms/Target_B4_159_F_full_forced.lean:306:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:310:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:628:43: error: unsolved goals
+κ : ℝ
+hκ : 0 < κ
+V : Type
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+s : Finset V
+hG : ¬(SimpleGraph.cycleGraph 4).IsContained G
+hmin : ∀ v ∈ s, κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj v) s).card
+v : V
+hv : v ∈ s
+hs1' : 1 ≤ ↑s.card
+hX0 : 0 ≤ ↑s.card ^ (1 / 2 + 1 / 25)
+hK1 : min (κ / 8) (1 / 4) ≤ κ / 8
+hK2 : min (κ / 8) (1 / 4) ≤ 1 / 4
+hK0 : 0 ≤ min (κ / 8) (1 / 4)
+hs1 : ¬s = {v}
+u : V
+hu : u ∈ s
+huv : u ≠ v
+t₁ : Finset V
+hts₁ : t₁ ⊆ s
+hind₁ : G.IsIndepSet ↑t₁
+hcard₁ : s.card ≤ (2 * t₁.card + 1) * t₁.card
+t₂ : Finset V
+hts₂ : t₂ ⊆ s
+hind₂ : G.IsIndepSet ↑t₂
+hcard₂ : (Finset.filter (G.Adj u) s).card + (Finset.filter (G.Adj v) s).card ≤ 3 * t₂.card + 3
+h1 : κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj u) s).card
+h2 : κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj v) s).card
+h3 : ↑(Finset.filter (G.Adj u) s).card + ↑(Finset.filter (G.Adj v) s).card ≤ 3 * ↑t₂.card + 3
+h4 : ↑s.card ≤ (2 * ↑t₁.card + 1) * ↑t₁.card
+ht₁0 : 0 ≤ ↑t₁.card
+hroot : (↑s.card ^ (1 / 2)) ^ 2 = ↑s.card
+hr0 : 0 ≤ ↑s.card ^ (1 / 2)
+hr1 : 1 ≤ ↑s.card ^ (1 / 2)
+hsq : ↑s.card ^ (1 / 2) ≤ 4 * ↑t₁.card
+⊢ False
+Rooms/Target_B4_159_F_full_forced.lean:630:43: error: unsolved goals
+κ : ℝ
+hκ : 0 < κ
+V : Type
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+s : Finset V
+hG : ¬(SimpleGraph.cycleGraph 4).IsContained G
+hmin : ∀ v ∈ s, κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj v) s).card
+v : V
+hv : v ∈ s
+hs1' : 1 ≤ ↑s.card
+hX0 : 0 ≤ ↑s.card ^ (1 / 2 + 1 / 25)
+hK1 : min (κ / 8) (1 / 4) ≤ κ / 8
+hK2 : min (κ / 8) (1 / 4) ≤ 1 / 4
+hK0 : 0 ≤ min (κ / 8) (1 / 4)
+hs1 : ¬s = {v}
+u : V
+hu : u ∈ s
+huv : u ≠ v
+t₁ : Finset V
+hts₁ : t₁ ⊆ s
+hind₁ : G.IsIndepSet ↑t₁
+hcard₁ : s.card ≤ (2 * t₁.card + 1) * t₁.card
+t₂ : Finset V
+hts₂ : t₂ ⊆ s
+hind₂ : G.IsIndepSet ↑t₂
+hcard₂ : (Finset.filter (G.Adj u) s).card + (Finset.filter (G.Adj v) s).card ≤ 3 * t₂.card + 3
+h1 : κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj u) s).card
+h2 : κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj v) s).card
+h3 : ↑(Finset.filter (G.Adj u) s).card + ↑(Finset.filter (G.Adj v) s).card ≤ 3 * ↑t₂.card + 3
+h4 : ↑s.card ≤ (2 * ↑t₁.card + 1) * ↑t₁.card
+ht₁0 : 0 ≤ ↑t₁.card
+hroot : (↑s.card ^ (1 / 2)) ^ 2 = ↑s.card
+hr0 : 0 ≤ ↑s.card ^ (1 / 2)
+hr1 : 1 ≤ ↑s.card ^ (1 / 2)
+hsq : ↑s.card ^ (1 / 2) ≤ 4 * ↑t₁.card
+hexp₁ : ↑s.card ^ (1 / 2 + 1 / 25) ≤ ↑s.card ^ (1 / 2)
+⊢ False
+Rooms/Target_B4_159_F_full_forced.lean:666:28: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

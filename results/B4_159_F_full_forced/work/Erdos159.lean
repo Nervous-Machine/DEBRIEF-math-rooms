@@ -419,7 +419,167 @@ theorem moore_bound_c4_free {V : Type*} [Fintype V] [DecidableEq V]
         _ = d * (d - 1) + d := by ring
     omega
 
--- N13 (open core: left as `sorry`, see NOTES.md)
+/-! ### Helpers for the open core N13 -/
+
+/-- In a `C₄`-free graph, the neighbourhood of `v` inside `s` induces a matching, so it contains
+an independent set of at least half its size. -/
+theorem nbhd_half_indep {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) (v : V) :
+    ∃ t ⊆ s.filter (G.Adj v), G.IsIndepSet (t : Set V) ∧ (s.filter (G.Adj v)).card ≤ 2 * t.card := by
+  obtain ⟨t, hts, hind, hcard⟩ := greedy_indep_local G (s.filter (G.Adj v)) 1 (fun w hw => by
+    have hw' : G.Adj v w := (Finset.mem_filter.1 hw).2
+    refine le_trans (Finset.card_le_card ?_) (c4_free_nbhd_local_degree G hG v w hw')
+    intro x hx
+    simp only [Finset.mem_filter, SimpleGraph.mem_neighborFinset] at hx ⊢
+    exact ⟨hx.1.2, hx.2⟩)
+  exact ⟨t, hts, hind, by omega⟩
+
+/-- The empty set is independent and meets the N13 bound (`0 ^ p = 0` for `p > 0`). -/
+theorem empty_case_N13 {V : Type*} (G : SimpleGraph V) (K p : ℝ) (hp : 0 < p) :
+    ∃ t ⊆ (∅ : Finset V), G.IsIndepSet (t : Set V) ∧
+      K * ((∅ : Finset V).card : ℝ) ^ p ≤ (t.card : ℝ) := by
+  refine ⟨∅, Finset.Subset.refl _, ?_, ?_⟩
+  · rw [Finset.coe_empty]
+    exact Set.pairwise_empty _
+  · simp only [Finset.card_empty, Nat.cast_zero]
+    rw [Real.zero_rpow hp.ne']
+    simp
+
+/-- Every finite set `s` in a `C₄`-free graph carries an independent set `t` with
+`|s| ≤ (2|t|+1)|t|`, i.e. of size about `√|s|`: either the vertex of maximum internal degree has a
+large neighbourhood (which induces a matching), or all internal degrees are small (greedy). -/
+theorem exists_indep_sqrt {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) :
+    ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ s.card ≤ (2 * t.card + 1) * t.card := by
+  rcases s.eq_empty_or_nonempty with rfl | hne
+  · refine ⟨∅, Finset.Subset.refl _, ?_, by simp⟩
+    rw [Finset.coe_empty]
+    exact Set.pairwise_empty _
+  obtain ⟨v, hv, hvmax⟩ := s.exists_max_image (fun u => (s.filter (G.Adj u)).card) hne
+  obtain ⟨t₁, ht₁s, hind₁, hcard₁⟩ := nbhd_half_indep G hG s v
+  obtain ⟨t₂, ht₂s, hind₂, hcard₂⟩ := greedy_indep_local G s _ (fun u hu => hvmax u hu)
+  rcases le_or_gt t₁.card t₂.card with h | h
+  · refine ⟨t₂, ht₂s, hind₂, ?_⟩
+    calc s.card ≤ ((s.filter (G.Adj v)).card + 1) * t₂.card := hcard₂
+      _ ≤ (2 * t₂.card + 1) * t₂.card := Nat.mul_le_mul_right _ (by omega)
+  · refine ⟨t₁, ht₁s.trans (Finset.filter_subset _ _), hind₁, ?_⟩
+    calc s.card ≤ ((s.filter (G.Adj v)).card + 1) * t₂.card := hcard₂
+      _ ≤ (2 * t₁.card + 1) * t₁.card := Nat.mul_le_mul (by omega) h.le
+
+/-- Deleting a vertex of minimum internal degree together with its neighbourhood: by the Moore
+bound N12 that neighbourhood has at most `M + 1` vertices once `2|s| ≤ (M+1)²`, and `C₄`-freeness is
+inherited, so repeating yields an independent set `t` with `|s| ≤ (M+2)|t|`. -/
+theorem exists_indep_moore {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (M : ℕ) (s : Finset V)
+    (hs : 2 * s.card ≤ (M + 1) * (M + 1)) :
+    ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ s.card ≤ (M + 2) * t.card := by
+  induction s using Finset.strongInduction with
+  | H s ih =>
+    rcases s.eq_empty_or_nonempty with rfl | hne
+    · refine ⟨∅, Finset.Subset.refl _, ?_, by simp⟩
+      rw [Finset.coe_empty]
+      exact Set.pairwise_empty _
+    · obtain ⟨v, hv, hvmin⟩ := s.exists_min_image (fun u => (s.filter (G.Adj u)).card) hne
+      have hmoore := moore_bound_c4_free G hG s _ hne (fun u hu => hvmin u hu)
+      have hdM : (s.filter (G.Adj v)).card ≤ M + 1 := by
+        by_contra h
+        push Not at h
+        have : (M + 2) * (M + 2) ≤ (s.filter (G.Adj v)).card * (s.filter (G.Adj v)).card :=
+          Nat.mul_le_mul h h
+        nlinarith
+      set s' := s.filter (fun x => ¬ (x = v ∨ G.Adj v x)) with hs'
+      have hs'sub : s' ⊆ s := Finset.filter_subset _ _
+      have hvs' : v ∉ s' := by simp [hs']
+      have hss' : s' ⊂ s := Finset.ssubset_iff_subset_ne.2 ⟨hs'sub, fun h => hvs' (h ▸ hv)⟩
+      have hs'card : 2 * s'.card ≤ (M + 1) * (M + 1) :=
+        le_trans (Nat.mul_le_mul_left 2 (Finset.card_le_card hs'sub)) hs
+      obtain ⟨t', ht's', ht'ind, ht'card⟩ := ih s' hss' hs'card
+      have hvt' : v ∉ t' := fun h => hvs' (ht's' h)
+      refine ⟨insert v t', Finset.insert_subset hv (ht's'.trans hs'sub), ?_, ?_⟩
+      · rw [Finset.coe_insert]
+        refine Set.pairwise_insert.2 ⟨ht'ind, fun b hb _ => ?_⟩
+        have hb' : b ∈ s' := ht's' hb
+        simp only [hs', Finset.mem_filter, not_or] at hb'
+        exact ⟨hb'.2.2, fun h => hb'.2.2 h.symm⟩
+      · rw [Finset.card_insert_of_notMem hvt']
+        have h1 : (s.filter (fun x => x = v ∨ G.Adj v x)).card + s'.card = s.card :=
+          Finset.card_filter_add_card_filter_not _
+        have h2 : (s.filter (fun x => x = v ∨ G.Adj v x)).card ≤ M + 2 := by
+          calc (s.filter (fun x => x = v ∨ G.Adj v x)).card
+              ≤ (insert v (s.filter (G.Adj v))).card := by
+                apply Finset.card_le_card
+                intro x hx
+                simp only [Finset.mem_filter, Finset.mem_insert] at hx ⊢
+                rcases hx.2 with h | h
+                · exact Or.inl h
+                · exact Or.inr ⟨hx.1, h⟩
+            _ ≤ (s.filter (G.Adj v)).card + 1 := Finset.card_insert_le _ _
+            _ ≤ M + 2 := by omega
+        calc s.card = (s.filter (fun x => x = v ∨ G.Adj v x)).card + s'.card := h1.symm
+          _ ≤ (M + 2) + (M + 2) * t'.card := Nat.add_le_add h2 ht'card
+          _ = (M + 2) * (t'.card + 1) := by ring
+
+/-- Two-vertex route. In a `C₄`-free graph, for distinct `u v`, the pruned union
+`(N_s(u) \ {v}) ∪ (N_s(v) \ {u})` has internal maximum degree at most `2` (every vertex has at most
+one common neighbour with `u` and one with `v`), so it carries an independent set `t` with
+`deg_s(u) + deg_s(v) ≤ 3|t| + 3`. -/
+theorem two_nbhd_union {V : Type*} [Fintype V] [DecidableEq V]
+    (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) {u v : V} (huv : u ≠ v) :
+    ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧
+      (s.filter (G.Adj u)).card + (s.filter (G.Adj v)).card ≤ 3 * t.card + 3 := by
+  have hdeg : ∀ x ∈ (s.filter (G.Adj u)).erase v ∪ (s.filter (G.Adj v)).erase u,
+      (((s.filter (G.Adj u)).erase v ∪ (s.filter (G.Adj v)).erase u).filter (G.Adj x)).card ≤ 2 := by
+    intro x hx
+    have hxu : x ≠ u := by
+      rintro rfl
+      rcases Finset.mem_union.1 hx with h | h
+      · exact (Finset.mem_filter.1 (Finset.mem_of_mem_erase h)).2.ne rfl
+      · exact (Finset.ne_of_mem_erase h) rfl
+    have hxv : x ≠ v := by
+      rintro rfl
+      rcases Finset.mem_union.1 hx with h | h
+      · exact (Finset.ne_of_mem_erase h) rfl
+      · exact (Finset.mem_filter.1 (Finset.mem_of_mem_erase h)).2.ne rfl
+    rw [Finset.filter_union]
+    refine (Finset.card_union_le _ _).trans ?_
+    have ha : (((s.filter (G.Adj u)).erase v).filter (G.Adj x)).card ≤ 1 := by
+      refine le_trans (Finset.card_le_card ?_) (c4_free_common_nbrs G hG hxu)
+      intro y hy
+      simp only [Finset.mem_filter, Finset.mem_erase, Finset.mem_inter,
+        SimpleGraph.mem_neighborFinset] at hy ⊢
+      exact ⟨hy.2, hy.1.2.2⟩
+    have hb : (((s.filter (G.Adj v)).erase u).filter (G.Adj x)).card ≤ 1 := by
+      refine le_trans (Finset.card_le_card ?_) (c4_free_common_nbrs G hG hxv)
+      intro y hy
+      simp only [Finset.mem_filter, Finset.mem_erase, Finset.mem_inter,
+        SimpleGraph.mem_neighborFinset] at hy ⊢
+      exact ⟨hy.2, hy.1.2.2⟩
+    omega
+  obtain ⟨t, hts, hind, hcard⟩ := greedy_indep_local G _ 2 hdeg
+  refine ⟨t, hts.trans ?_, hind, ?_⟩
+  · intro y hy
+    rcases Finset.mem_union.1 hy with h | h
+    · exact (Finset.mem_filter.1 (Finset.mem_of_mem_erase h)).1
+    · exact (Finset.mem_filter.1 (Finset.mem_of_mem_erase h)).1
+  · have hinter : ((s.filter (G.Adj u)).erase v ∩ (s.filter (G.Adj v)).erase u).card ≤ 1 := by
+      refine le_trans (Finset.card_le_card ?_) (c4_free_common_nbrs G hG huv)
+      intro y hy
+      simp only [Finset.mem_inter, Finset.mem_erase, Finset.mem_filter,
+        SimpleGraph.mem_neighborFinset] at hy ⊢
+      exact ⟨hy.1.2.2, hy.2.2.2⟩
+    have hA : (s.filter (G.Adj u)).card - 1 ≤ ((s.filter (G.Adj u)).erase v).card :=
+      Finset.pred_card_le_card_erase
+    have hB : (s.filter (G.Adj v)).card - 1 ≤ ((s.filter (G.Adj v)).erase u).card :=
+      Finset.pred_card_le_card_erase
+    have hU := Finset.card_union_add_card_inter ((s.filter (G.Adj u)).erase v)
+      ((s.filter (G.Adj v)).erase u)
+    omega
+
+-- N13 (open core: left as `sorry` after twelve genuine attempts, see NOTES.md)
 theorem core_near_extremal :
     ∃ δ η : ℝ, 0 < δ ∧ δ ≤ 1 / 8 ∧ 4 * δ ≤ η ∧ ∀ κ : ℝ, 0 < κ → ∃ K : ℝ, 0 < K ∧
       ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (s : Finset V),

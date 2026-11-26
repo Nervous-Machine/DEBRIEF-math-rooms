@@ -1,0 +1,41 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: score-2026-11-26-build4
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Which of P1 to P8 held?
+  rule: scored from the check logs, the files and Lean's warnings; misses recorded; amendment A1
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8]
+  commit: prereg_build_4.yaml
+  results:
+  - results/B4_569_F_full_forced/score.json
+  - results/B4_569_F_full_forced/forced.json
+  - results/B4_159_F_full_forced/score.json
+  - results/B4_159_F_full_forced/forced.json
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    held: P2, P4 (on 159; 569 had one attempt), P7
+    held_in_substance_missed_by_letter: P3 (the 569 fit count of 1 is the ascription inherited from the start file; nothing changed in this build)
+    missed: P1 on 569 (Lemma 7 closed), P5 on 569 (two first-combinators with real alternatives), P6 (one attempt), P8 (both arms cheaper than their parents)
+    lemma7_axioms: propext, Classical.choice, Quot.sound
+    core_159_attempts_errors: 12 of 12
+    fit_new_this_build: 0 and 0
+    tokens: 129388 and 173299 against 349230 and 205979
+  misses:
+  - P1 (569)
+  - P3 letter
+  - P5 letter (569)
+  - P6
+  - P8
+spoken: 'Three of eight predictions held and the one that mattered missed: the human-proved step the searcher had
+  declared out of reach closed at the first forced attempt. The open core did not move in twelve. Nothing was
+  changed in either file under the pressure to close. Both forced arms cost less than the arms that never tried.'
+finding_ids:
+- F4
+gap_ids:
+- EG5
+- EG6

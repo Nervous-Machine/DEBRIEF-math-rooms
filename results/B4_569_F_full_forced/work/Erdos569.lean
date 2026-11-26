@@ -590,13 +590,243 @@ theorem claim9 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (
     have : i + (k - 1 - 1) = k - 4 + (i + 2) := by omega
     rw [this, heq, h8]
     exact (huw _ (by omega)).symm
+/-- Helper for N32: a `k`-cycle through `v` built from two disjoint segments `w a … w b` and `w p … w q` of
+the path, joined through `u a`, `u b = u p` and `u q`. -/
+theorem lemma7_cycle_v {V : Type} (C : SimpleGraph V) (k : ℕ) (v : V) (w u : ℕ → V)
+    (hw : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))
+    (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i, i ≤ k → C.Adj (u i) (w i))
+    (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j)
+    (a b p q : ℕ) (hab : a < b) (hbk : b ≤ k) (hpq : p < q) (hqa : q < a)
+    (hlen : k = (b - a) + (q - p) + 6) (hub : u b = u p)
+    (hab' : u a ≠ u b) (hbq : u b ≠ u q) (haq : u a ≠ u q) :
+    (SimpleGraph.cycleGraph k).IsContained C := by
+  have hvu' : ∀ l, l ≤ k → v ≠ u l := fun l hl => (hvu l hl).ne
+  obtain ⟨L, hL⟩ : ∃ L, L = b - a := ⟨_, rfl⟩
+  obtain ⟨M, hM⟩ : ∃ M, M = q - p := ⟨_, rfl⟩
+  obtain ⟨f, hf⟩ : ∃ f : ℕ → V, ∀ n, f n = if n = 0 then v else if n = 1 then u a else
+      if n ≤ L + 2 then w (a + (n - 2)) else if n = L + 3 then u b else
+      if n ≤ L + M + 4 then w (p + (n - (L + 4))) else u q := ⟨_, fun n => rfl⟩
+  have hf0 : f 0 = v := by rw [hf, if_pos rfl]
+  have hf1 : f 1 = u a := by rw [hf, if_neg (by omega), if_pos rfl]
+  have hfw1 : ∀ n, 2 ≤ n → n ≤ L + 2 → f n = w (a + (n - 2)) := by
+    intro n h1 h2
+    rw [hf, if_neg (by omega), if_neg (by omega), if_pos h2]
+  have hfb : f (L + 3) = u b := by
+    rw [hf, if_neg (by omega), if_neg (by omega), if_neg (by omega), if_pos rfl]
+  have hfw2 : ∀ n, L + 4 ≤ n → n ≤ L + M + 4 → f n = w (p + (n - (L + 4))) := by
+    intro n h1 h2
+    rw [hf, if_neg (by omega), if_neg (by omega), if_neg (by omega), if_neg (by omega), if_pos h2]
+  have hfq : f (L + M + 5) = u q := by
+    rw [hf, if_neg (by omega), if_neg (by omega), if_neg (by omega), if_neg (by omega),
+      if_neg (by omega)]
+  have key : ∀ n, n < k →
+      (n = 0 ∧ f n = v) ∨ (n = 1 ∧ f n = u a) ∨
+      (2 ≤ n ∧ n ≤ L + 2 ∧ f n = w (a + (n - 2))) ∨ (n = L + 3 ∧ f n = u b) ∨
+      (L + 4 ≤ n ∧ n ≤ L + M + 4 ∧ f n = w (p + (n - (L + 4)))) ∨
+      (n = L + M + 5 ∧ f n = u q) := by
+    intro n hn
+    rcases Nat.lt_or_ge n 2 with h | h
+    · rcases Nat.lt_or_ge n 1 with h' | h'
+      · left; exact ⟨by omega, by rw [show n = 0 by omega]; exact hf0⟩
+      · right; left; exact ⟨by omega, by rw [show n = 1 by omega]; exact hf1⟩
+    · rcases Nat.lt_or_ge n (L + 3) with h' | h'
+      · right; right; left; exact ⟨h, by omega, hfw1 n h (by omega)⟩
+      · rcases Nat.lt_or_ge n (L + 4) with h'' | h''
+        · right; right; right; left
+          exact ⟨by omega, by rw [show n = L + 3 by omega]; exact hfb⟩
+        · rcases Nat.lt_or_ge n (L + M + 5) with h''' | h'''
+          · right; right; right; right; left; exact ⟨h'', by omega, hfw2 n h'' (by omega)⟩
+          · right; right; right; right; right
+            exact ⟨by omega, by rw [show n = L + M + 5 by omega]; exact hfq⟩
+  refine cycle_of_closed_seq C k (by omega) f ?_ ?_ ?_
+  · intro n hn m hm hnm
+    simp only [Set.mem_Iio] at hn hm
+    rcases key n hn with ⟨hn1, hfn⟩ | ⟨hn1, hfn⟩ | ⟨hn1, hn2, hfn⟩ | ⟨hn1, hfn⟩ |
+        ⟨hn1, hn2, hfn⟩ | ⟨hn1, hfn⟩ <;>
+    rcases key m hm with ⟨hm1, hfm⟩ | ⟨hm1, hfm⟩ | ⟨hm1, hm2, hfm⟩ | ⟨hm1, hfm⟩ |
+        ⟨hm1, hm2, hfm⟩ | ⟨hm1, hfm⟩ <;>
+    rw [hfn, hfm] at hnm <;>
+    first
+    | omega
+    | exact absurd hnm (hvu' _ (by omega))
+    | exact absurd hnm.symm (hvu' _ (by omega))
+    | exact absurd hnm (hvw _ (by omega))
+    | exact absurd hnm.symm (hvw _ (by omega))
+    | exact absurd hnm (huw' _ _ (by omega) (by omega))
+    | exact absurd hnm.symm (huw' _ _ (by omega) (by omega))
+    | exact absurd hnm hab'
+    | exact absurd hnm.symm hab'
+    | exact absurd hnm hbq
+    | exact absurd hnm.symm hbq
+    | exact absurd hnm haq
+    | exact absurd hnm.symm haq
+    | (have := hw (Set.mem_Iic.mpr (by omega)) (Set.mem_Iic.mpr (by omega)) hnm; omega)
+  · intro i hi
+    have hcases : i = 0 ∨ i = 1 ∨ (2 ≤ i ∧ i + 1 ≤ L + 2) ∨ i = L + 2 ∨ i = L + 3 ∨
+        (L + 4 ≤ i ∧ i + 1 ≤ L + M + 4) ∨ i = L + M + 4 := by omega
+    rcases hcases with rfl | rfl | ⟨h1, h2⟩ | rfl | rfl | ⟨h1, h2⟩ | rfl
+    · show C.Adj (f 0) (f 1)
+      rw [hf0, hf1]; exact hvu a (by omega)
+    · show C.Adj (f 1) (f 2)
+      rw [hf1, hfw1 2 le_rfl (by omega), show a + (2 - 2) = a by omega]
+      exact huw a (by omega)
+    · rw [hfw1 i h1 (by omega), hfw1 (i + 1) (by omega) h2,
+        show a + (i + 1 - 2) = a + (i - 2) + 1 by omega]
+      exact hwadj _ (by omega)
+    · rw [hfw1 (L + 2) (by omega) le_rfl, show L + 2 + 1 = L + 3 by omega, hfb,
+        show a + (L + 2 - 2) = b by omega]
+      exact (huw b hbk).symm
+    · rw [hfb, show L + 3 + 1 = L + 4 by omega, hfw2 (L + 4) le_rfl (by omega),
+        show p + (L + 4 - (L + 4)) = p by omega, hub]
+      exact huw p (by omega)
+    · rw [hfw2 i h1 (by omega), hfw2 (i + 1) (by omega) h2,
+        show p + (i + 1 - (L + 4)) = p + (i - (L + 4)) + 1 by omega]
+      exact hwadj _ (by omega)
+    · rw [hfw2 (L + M + 4) (by omega) le_rfl, show L + M + 4 + 1 = L + M + 5 by omega, hfq,
+        show p + (L + M + 4 - (L + 4)) = q by omega]
+      exact (huw q (by omega)).symm
+  · rw [show k - 1 = L + M + 5 by omega, hfq, hf0]
+    exact (hvu q (by omega)).symm
+
+/-- Helper for N32: a `k`-cycle avoiding `v`, built from two disjoint segments `w a … w b` and
+`w p … w q` of the path, joined through `u b = u p` and `u q = u a`. -/
+theorem lemma7_cycle_two {V : Type} (C : SimpleGraph V) (k : ℕ) (w u : ℕ → V)
+    (hw : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))
+    (huw : ∀ i, i ≤ k → C.Adj (u i) (w i))
+    (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j)
+    (a b p q : ℕ) (hab : a < b) (hbp : b < p) (hpq : p < q) (hqk : q ≤ k)
+    (hlen : k = (b - a) + (q - p) + 4) (hub : u b = u p) (huq : u q = u a) (hab' : u a ≠ u b) :
+    (SimpleGraph.cycleGraph k).IsContained C := by
+  obtain ⟨L, hL⟩ : ∃ L, L = b - a := ⟨_, rfl⟩
+  obtain ⟨M, hM⟩ : ∃ M, M = q - p := ⟨_, rfl⟩
+  obtain ⟨f, hf⟩ : ∃ f : ℕ → V, ∀ n, f n = if n = 0 then u a else if n ≤ L + 1 then w (a + (n - 1))
+      else if n = L + 2 then u b else w (p + (n - (L + 3))) := ⟨_, fun n => rfl⟩
+  have hf0 : f 0 = u a := by rw [hf, if_pos rfl]
+  have hfw1 : ∀ n, 1 ≤ n → n ≤ L + 1 → f n = w (a + (n - 1)) := by
+    intro n h1 h2
+    rw [hf, if_neg (by omega), if_pos h2]
+  have hfb : f (L + 2) = u b := by
+    rw [hf, if_neg (by omega), if_neg (by omega), if_pos rfl]
+  have hfw2 : ∀ n, L + 3 ≤ n → f n = w (p + (n - (L + 3))) := by
+    intro n h1
+    rw [hf, if_neg (by omega), if_neg (by omega), if_neg (by omega)]
+  have key : ∀ n, n < k → (n = 0 ∧ f n = u a) ∨ (1 ≤ n ∧ n ≤ L + 1 ∧ f n = w (a + (n - 1))) ∨
+      (n = L + 2 ∧ f n = u b) ∨ (L + 3 ≤ n ∧ n ≤ L + M + 3 ∧ f n = w (p + (n - (L + 3)))) := by
+    intro n hn
+    rcases Nat.lt_or_ge n 1 with h | h
+    · left; exact ⟨by omega, by rw [show n = 0 by omega]; exact hf0⟩
+    · rcases Nat.lt_or_ge n (L + 2) with h' | h'
+      · right; left; exact ⟨h, by omega, hfw1 n h (by omega)⟩
+      · rcases Nat.lt_or_ge n (L + 3) with h'' | h''
+        · right; right; left; exact ⟨by omega, by rw [show n = L + 2 by omega]; exact hfb⟩
+        · right; right; right; exact ⟨h'', by omega, hfw2 n h''⟩
+  refine cycle_of_closed_seq C k (by omega) f ?_ ?_ ?_
+  · intro n hn m hm hnm
+    simp only [Set.mem_Iio] at hn hm
+    rcases key n hn with ⟨hn1, hfn⟩ | ⟨hn1, hn2, hfn⟩ | ⟨hn1, hfn⟩ | ⟨hn1, hn2, hfn⟩ <;>
+    rcases key m hm with ⟨hm1, hfm⟩ | ⟨hm1, hm2, hfm⟩ | ⟨hm1, hfm⟩ | ⟨hm1, hm2, hfm⟩ <;>
+    rw [hfn, hfm] at hnm <;>
+    first
+    | omega
+    | exact absurd hnm (huw' _ _ (by omega) (by omega))
+    | exact absurd hnm.symm (huw' _ _ (by omega) (by omega))
+    | exact absurd hnm hab'
+    | exact absurd hnm.symm hab'
+    | (have := hw (Set.mem_Iic.mpr (by omega)) (Set.mem_Iic.mpr (by omega)) hnm; omega)
+  · intro i hi
+    have hcases : i = 0 ∨ (1 ≤ i ∧ i + 1 ≤ L + 1) ∨ i = L + 1 ∨ i = L + 2 ∨
+        (L + 3 ≤ i ∧ i + 1 ≤ L + M + 3) := by omega
+    rcases hcases with rfl | ⟨h1, h2⟩ | rfl | rfl | ⟨h1, h2⟩
+    · show C.Adj (f 0) (f 1)
+      rw [hf0, hfw1 1 le_rfl (by omega), show a + (1 - 1) = a by omega]
+      exact huw a (by omega)
+    · rw [hfw1 i h1 (by omega), hfw1 (i + 1) (by omega) h2,
+        show a + (i + 1 - 1) = a + (i - 1) + 1 by omega]
+      exact hwadj _ (by omega)
+    · rw [hfw1 (L + 1) (by omega) le_rfl, show L + 1 + 1 = L + 2 by omega, hfb,
+        show a + (L + 1 - 1) = b by omega]
+      exact (huw b (by omega)).symm
+    · rw [hfb, show L + 2 + 1 = L + 3 by omega, hfw2 (L + 3) le_rfl,
+        show p + (L + 3 - (L + 3)) = p by omega, hub]
+      exact huw p (by omega)
+    · rw [hfw2 i h1, hfw2 (i + 1) (by omega),
+        show p + (i + 1 - (L + 3)) = p + (i - (L + 3)) + 1 by omega]
+      exact hwadj _ (by omega)
+  · rw [show k - 1 = L + M + 3 by omega, hfw2 (L + M + 3) (by omega),
+      show p + (L + M + 3 - (L + 3)) = q by omega, hf0, ← huq]
+    exact (huw q hqk).symm
+
 /-! N32 lemma7 [leaf, believed provable] deps: N30 N31 N12 -/
 theorem lemma7 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V)
     (hw : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))
     (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i, i ≤ k → C.Adj (u i) (w i))
     (huw' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) :
     (SimpleGraph.cycleGraph k).IsContained C := by
-  sorry
+  by_contra hfree
+  have h8 := claim8 k hk C v w u hw hwadj hvu huw huw' hvw hfree
+  have h9 := claim9 k hk C v w u hw hwadj hvu huw huw' hvw hfree
+  have h80 : u 0 = u (k - 4) := by
+    have := h8 0 (by omega); rwa [show k - 4 + 0 = k - 4 by omega] at this
+  have h81 : u 1 = u (k - 3) := by
+    have := h8 1 (by omega); rwa [show k - 4 + 1 = k - 3 by omega] at this
+  have h82 : u 2 = u (k - 2) := by
+    have := h8 2 (by omega); rwa [show k - 4 + 2 = k - 2 by omega] at this
+  have h83 : u 3 = u (k - 1) := by
+    have := h8 3 (by omega); rwa [show k - 4 + 3 = k - 1 by omega] at this
+  have h84 : u 4 = u k := by
+    have := h8 4 (by omega); rwa [show k - 4 + 4 = k by omega] at this
+  have h902 : u 0 ≠ u 2 := h9 0 (by omega)
+  have h913 : u 1 ≠ u 3 := h9 1 (by omega)
+  have h924 : u 2 ≠ u 4 := h9 2 (by omega)
+  apply hfree
+  rcases Nat.lt_or_ge k 8 with hk7 | hk8
+  · -- k = 7: `u` is 3-periodic with three distinct values; cycle u0 w0 w1 u1 w4 w5 w6.
+    rw [show k - 4 = 3 by omega] at h80
+    rw [show k - 3 = 4 by omega] at h81
+    rw [show k - 1 = 6 by omega] at h83
+    exact lemma7_cycle_two C k w u hw hwadj huw huw' 0 1 4 6 (by omega) (by omega) (by omega)
+      (by omega) (by omega) h81 (h83.symm.trans h80.symm) (fun h => h913 (h.symm.trans h80))
+  · by_cases h04 : u 4 = u 0
+    · by_cases h14 : u 1 = u 4
+      · by_cases h23 : u 2 = u 3
+        · -- u0 w0 w1 w2 u2 w3 … w(k-3), closing through u(k-3) = u1 = u0
+          exact lemma7_cycle_two C k w u hw hwadj huw huw' 0 2 3 (k - 3) (by omega) (by omega)
+            (by omega) (by omega) (by omega) h23 (h81.symm.trans (h14.trans h04)) h902
+        · -- v u3 w3 … w(k-4) u(k-4)=u1 w1 w2 u2 v
+          have hub : u (k - 4) = u 1 := h80.symm.trans (h14.trans h04).symm
+          exact lemma7_cycle_v C k v w u hw hwadj hvu huw huw' hvw 3 (k - 4) 1 2 (by omega)
+            (by omega) (by omega) (by omega) (by omega) hub
+            (fun h => h913 (h.trans hub).symm)
+            (fun h => h902 ((h14.trans h04).symm.trans (hub.symm.trans h)))
+            (fun h => h23 h.symm)
+      · by_cases h12 : u 1 = u 2
+        · by_cases h30 : u 3 = u 0
+          · -- u3 w3 … w(k-3) u(k-3)=u(k-2) w(k-2) w(k-1) w k, closing through u k = u 3
+            exact lemma7_cycle_two C k w u hw hwadj huw huw' 3 (k - 3) (k - 2) k (by omega)
+              (by omega) (by omega) le_rfl (by omega) (h81.symm.trans (h12.trans h82))
+              (h84.symm.trans (h04.trans h30.symm)) (fun h => h913 (h.trans h81.symm).symm)
+          · -- v u3 w3 … w(k-4) u(k-4)=u0 w0 w1 u1 v
+            exact lemma7_cycle_v C k v w u hw hwadj hvu huw huw' hvw 3 (k - 4) 0 1 (by omega)
+              (by omega) (by omega) (by omega) (by omega) h80.symm
+              (fun h => h30 (h.trans h80.symm))
+              (fun h => h14 (h.symm.trans (h80.symm.trans h04.symm)))
+              (fun h => h913 h.symm)
+        · -- v u4 w4 … w(k-3) u(k-3)=u1 w1 w2 u2 v
+          exact lemma7_cycle_v C k v w u hw hwadj hvu huw huw' hvw 4 (k - 3) 1 2 (by omega)
+            (by omega) (by omega) (by omega) (by omega) h81.symm
+            (fun h => h14 (h.trans h81.symm).symm)
+            (fun h => h12 (h81.trans h))
+            (fun h => h924 h.symm)
+    · -- u4 ≠ u0 forces k ≥ 9; then v u4 w4 … w(k-4) u(k-4)=u0 w0 w1 w2 u2 v
+      have hk9 : 9 ≤ k := by
+        by_contra hlt
+        rw [show k - 4 = 4 by omega] at h80
+        exact h04 h80.symm
+      exact lemma7_cycle_v C k v w u hw hwadj hvu huw huw' hvw 4 (k - 4) 0 2 (by omega)
+        (by omega) (by omega) (by omega) (by omega) h80.symm
+        (fun h => h04 (h.trans h80.symm))
+        (fun h => h902 (h80.trans h))
+        (fun h => h924 h.symm)
 
 /-! N33 lemma7_bridge [leaf, believed provable] deps: N32 -/
 theorem lemma7_bridge (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Set V)

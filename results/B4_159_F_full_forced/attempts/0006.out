@@ -1,0 +1,54 @@
+Rooms/Target_B4_159_F_full_forced.lean:306:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:310:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B4_159_F_full_forced.lean:548:44: error: Application type mismatch: The argument
+  Nat.add_le_add ?m.229 ?m.230
+has type
+  ?m.225 + ?m.227 ≤ ?m.226 + ?m.228
+but is expected to have type
+  (Finset.filter (G.Adj x) ((Finset.filter (G.Adj u) s).erase v)).card +
+      (Finset.filter (G.Adj x) ((Finset.filter (G.Adj v) s).erase u)).card ≤
+    2
+in the application
+  LE.le.trans
+    (Finset.card_union_le (Finset.filter (G.Adj x) ((Finset.filter (G.Adj u) s).erase v))
+      (Finset.filter (G.Adj x) ((Finset.filter (G.Adj v) s).erase u)))
+    (Nat.add_le_add ?m.229 ?m.230)
+Rooms/Target_B4_159_F_full_forced.lean:614:43: error: unsolved goals
+κ : ℝ
+hκ : 0 < κ
+V : Type
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+s : Finset V
+hG : ¬(SimpleGraph.cycleGraph 4).IsContained G
+hmin : ∀ v ∈ s, κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj v) s).card
+v : V
+hv : v ∈ s
+hs1' : 1 ≤ ↑s.card
+hX0 : 0 ≤ ↑s.card ^ (1 / 2 + 1 / 25)
+hs1 : ¬s = {v}
+u : V
+hu : u ∈ s
+huv : u ≠ v
+t : Finset V
+hts : t ⊆ s
+hind : G.IsIndepSet ↑t
+hcard : (Finset.filter (G.Adj u) s).card + (Finset.filter (G.Adj v) s).card ≤ 3 * t.card + 3
+h1 : κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj u) s).card
+h2 : κ * ↑s.card ^ (1 / 2 - 1 / 100) ≤ ↑(Finset.filter (G.Adj v) s).card
+h3 : ↑(Finset.filter (G.Adj u) s).card + ↑(Finset.filter (G.Adj v) s).card ≤ 3 * ↑t.card + 3
+⊢ False
+Rooms/Target_B4_159_F_full_forced.lean:650:28: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

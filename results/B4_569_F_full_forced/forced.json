@@ -1,0 +1,96 @@
+{
+ "summary": {
+  "arm": "B4_569_F_full_forced",
+  "forced_node": "N32",
+  "forced_name": "lemma7",
+  "allowed_sorry": [
+   "goddard_kleitman_sidorenko",
+   "haggkvist",
+   "jayawardene_C4",
+   "jayawardene_C5",
+   "jayawardene_C6",
+   "ramsey_C5_K3",
+   "ramsey_C6_K3",
+   "ramsey_C6_K4",
+   "ramsey_C6_K5"
+  ],
+  "calls_logged": 2,
+  "genuine_attempts_at_forced_node": 1,
+  "refusals": {},
+  "refused_finals": 0,
+  "forced_closed_at_first_final": true,
+  "first_final_status": "sorry",
+  "errors_first_genuine": 0,
+  "errors_last_genuine": 0,
+  "genuine_statuses": [
+   "sorry"
+  ],
+  "genuine_with_new_declarations": 1,
+  "genuine_same_as_previous": 0,
+  "hedges_in_forced_region_at_first_final": 2,
+  "new_declarations_at_first_final": 2,
+  "sorry_outside_allowed_at_first_final": [],
+  "minutes_to_first_final": 0.8,
+  "tokens": 129388
+ },
+ "calls": [
+  {
+   "seq": "0001",
+   "ts": "2026-11-26T18:23:50Z",
+   "node": "N32",
+   "status": "sorry",
+   "detail": "rc=0 secs=11 bytes=96803",
+   "new_declarations": 2,
+   "new_names": [
+    "lemma7_cycle_v",
+    "lemma7_cycle_two"
+   ],
+   "forced_own_lines": 72,
+   "hedges_in_forced_region": 2,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 1857,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "goddard_kleitman_sidorenko",
+    "haggkvist",
+    "jayawardene_C4",
+    "jayawardene_C5",
+    "jayawardene_C6",
+    "ramsey_C5_K3",
+    "ramsey_C6_K3",
+    "ramsey_C6_K4",
+    "ramsey_C6_K5"
+   ]
+  },
+  {
+   "seq": "0002",
+   "ts": "2026-11-26T18:24:39Z",
+   "node": "FINAL",
+   "status": "sorry",
+   "detail": "rc=0 secs=11 bytes=96803",
+   "new_declarations": 2,
+   "new_names": [
+    "lemma7_cycle_v",
+    "lemma7_cycle_two"
+   ],
+   "forced_own_lines": 72,
+   "hedges_in_forced_region": 2,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 1857,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "goddard_kleitman_sidorenko",
+    "haggkvist",
+    "jayawardene_C4",
+    "jayawardene_C5",
+    "jayawardene_C6",
+    "ramsey_C5_K3",
+    "ramsey_C6_K3",
+    "ramsey_C6_K4",
+    "ramsey_C6_K5"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B4_569_F_full_forced
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Does budget move a human-proved step the searcher had declared out of reach (Lemma 7 of Erdős 569, left
+    as sorry in build 3 with no check call against it)?
+  rule: twelve genuine attempts at N32 required before FINAL unless it closes; genuineness enforced by rooms/check.sh
+    with rooms/forced_check.py; rooms/score.py and rooms/forced_score.py compute every number; the first accepted
+    FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P6, P8]
+  commit: prereg_build_4.yaml
+  results:
+  - results/B4_569_F_full_forced/score.json
+  - results/B4_569_F_full_forced/forced.json
+  - results/B4_569_F_full_forced/final.lean
+  - results/B4_569_F_full_forced/calls.tsv
+  before_data: true
+outcome:
+  verdict: refuted
+  numbers:
+    check_calls: 2
+    refused_calls: 0
+    error_calls: 0
+    genuine_attempts_at_N32: 1
+    first_FINAL: sorry (the nine literature rooms only)
+    lemma7_closed: true
+    lemma7_axioms: propext, Classical.choice, Quot.sound
+    new_declarations: 2 (lemma7_cycle_v 165 lines with its comments, lemma7_cycle_two; lemma7 body 72 lines)
+    lines_added: 231
+    lines_removed: 1 (the sorry)
+    fit_total: 1 inherited from the start file (the disclosed N38 ascription); 0 new
+    first_combinators_in_forced_region: 2, both `first | omega | exact …` with real alternatives and no sorry
+    rooms_proved: 49 of 59 and ROOT
+    tokens: 129388
+    minutes_to_FINAL: 15
+    parent_arm: B3_569_A_full_hold, 18 calls, 349,230 tokens, 47 minutes, Lemma 7 never attempted
+  misses:
+  - P1 (569 half)
+  - P4 (no twelve attempts to count; one)
+  - P5 letter (two first-combinators with real alternatives, no sorry fallback)
+  - P6 (no second attempt to compare)
+  - P8 (fewer tokens and minutes than the parent)
+spoken: 'Made to try, the searcher proved Lemma 7 at its first genuine attempt: a case analysis on which of five hub
+  vertices coincide, each case closed by an explicit k-cycle through two new helper lemmas, 231 lines, compiled at
+  first contact, resting on the standard three axioms. In build 3 the same model, same file, same signal left this
+  room as sorry without one check call and wrote that it could not complete the case analysis in the budget. Nothing
+  else in the file changed: the only removed line is the sorry.'
+finding_ids: []
+gap_ids:
+- EG5

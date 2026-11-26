@@ -32,6 +32,16 @@ Status: proposed.
 
 Signal expected: a read cycle. Resolution by: none registered.
 
+## 2. The searcher's own estimate of reach ran conservative on a true step; which of the other rooms left open across builds 3 and 4 are reachable when forced is unmeasured (ledger id EG6)
+
+Build 4 found one room the searcher had declared out of reach and proved it at the first forced attempt. The record cannot yet say whether that is the exception or the rule for the rooms it leaves open.
+
+Status: proposed.
+
+- **the 569 statement-only arm's open core case (the paper's content, left as sorry in B3_569_B without a check call) under the forced rule; and the two 159 no-checker arms' unattempted rooms under the same rule; a room that closes is the signal** — contribution kind: data; who could act: Nervous Machine, or anyone with the instruments.
+
+Signal expected: data cycles under a registration with the closure predicted first. Resolution by: none registered.
+
 ## 3. With rooms drawn from the question and no proof in reach, the searcher holds position under the hold rule (residual, nothing changed) in every arm, including… (ledger id HG2)
 
 With rooms drawn from the question and no proof in reach, the searcher holds position under the hold rule (residual, nothing changed) in every arm, including without a checker; on the solved problem the paper's rooms let it recover more of the structure than the statement alone; and on the open problem the plain brief without a kernel still yields a residual rather than a fit.
@@ -51,3 +61,13 @@ Status: proposed.
 - **the Erdős 159 plain-brief arm rerun with a different searcher model, and with this model under a brief that rewards a declared success, under the same scorer; a fit indicator in either is the signal** — contribution kind: data; who could act: Nervous Machine, or anyone with the instruments and another model.
 
 Signal expected: data cycles under a registration with the fit count predicted first. Resolution by: none registered.
+
+## 4. When the searcher is made to spend twelve genuine attempts on the room it left open without a single check, neither room closes (the human-proved Lemma 7 of… (ledger id HG3)
+
+When the searcher is made to spend twelve genuine attempts on the room it left open without a single check, neither room closes (the human-proved Lemma 7 of Erdős 569, the open core of Erdős 159), the searcher complies and changes no statement under the pressure, it decomposes into helpers rather than retrying one block, the attempts on the true step show falling error counts and the attempts on the open problem all error.
+
+Status: immovable.
+
+- **two arms, no planner; the start files are build 3's final files unchanged** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P8 in prereg_build_4.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness enforced by the tool (no sorry…. Resolution by: none registered.
