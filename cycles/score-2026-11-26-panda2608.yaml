@@ -1,0 +1,58 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: score-2026-11-26-panda2608
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Which of P1 to P9 held, and how far did the planner's sealed predictions miss?
+  rule: the sealed file was opened after arm D and its hash matched; no control exists for this theorem
+  predictions:
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  - P7
+  - P8
+  - P9
+  commit: prereg_build_2608.yaml
+  results:
+  - results/B2_A_full/score.json
+  - results/B2_B_full_noplan/score.json
+  - results/B2_C_binary/score.json
+  - results/B2_D_none/score.json
+  - blueprint_2608_predictions.yaml
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    held: P3, P6
+    missed: P1, P2, P4, P5, P7, P8, P9
+    planner_predicted_attempts_total: 165
+    planner_predicted_tokens_total: 2613000
+    planner_predicted_minutes_total: 519
+    actual_calls_A_B_C_D: 4, 6, 50, 1
+    actual_tokens_A_B_C_D: 176408, 176823, 266879, 250342
+    actual_minutes_A_B_C_D: 33, 24, 42, 69
+    planner_abs_log2_error_A_joins: 2.16
+    planner_abs_log2_error_A_leaves: 2.81
+    first_combinators_A_B_C_D: 0, 0, 14, 0
+    seal_hash_matched: true
+  misses:
+  - P1 cost
+  - P2
+  - P4
+  - P5 (leaves missed more than joins again)
+  - P7
+  - 'P8 (degenerate: every node one call)'
+  - P9
+spoken: 'Two of nine predictions held: one word of feedback cost more calls and more hedging than full feedback,
+  and arm A''s two errors fell on join rooms. The planner predicted 165 attempts, 2.6 million tokens and nine hours
+  for the fill; the full-feedback arm took four calls and 33 minutes, and no room anywhere took more than one call
+  under full feedback. The no-checker arm passed clean. The statement-only arm rediscovered the author''s route.
+  The hypothesis as filed is refuted for this build.'
+finding_ids: []
+gap_ids:
+- EG2

@@ -229,5 +229,13 @@
  "comparator_pass": true,
  "attempts_median": 1,
  "attempts_median_joins": null,
- "attempts_median_leaves": null
+ "attempts_median_leaves": null,
+ "tokens_total": 176823,
+ "planner_error": {
+  "log2_by_node": {},
+  "median_joins": null,
+  "median_leaves": null,
+  "median_abs_joins": null,
+  "median_abs_leaves": null
+ }
 }

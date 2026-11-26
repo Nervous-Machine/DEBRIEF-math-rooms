@@ -1,0 +1,105 @@
+{
+ "regime": "B2_D_none",
+ "calls": 1,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0001",
+   "ok"
+  ]
+ ],
+ "per_node": {},
+ "final_status_at_first_FINAL": "ok",
+ "shape": {
+  "declarations": 38,
+  "unused_by_root": [],
+  "unused_count": 0,
+  "root_found": true,
+  "depth": 7,
+  "own_lines_median": 15.0,
+  "own_lines": {
+   "coprime_p_q": 4,
+   "lte_corollary": 26,
+   "parity_split": 10,
+   "coprime_sub_add_of_odd": 23,
+   "prime_pow_coprime_split": 14,
+   "caseA_reduce": 27,
+   "caseA_mod_p": 14,
+   "three_pow_odd_mod_seven": 15,
+   "lemma_2_3": 13,
+   "lemma_2_4": 13,
+   "caseA_no_solution": 11,
+   "caseB_split": 44,
+   "pow_gt_two_mul_add_one": 9,
+   "prop_2_5": 36,
+   "lemma_2_6": 15,
+   "caseB_trivial": 12,
+   "nontrivial_bounds": 12,
+   "geom_identity": 5,
+   "geom_sum_modEq": 16,
+   "lemma_2_7": 30,
+   "nontrivial_b_pos": 6,
+   "s_sub_r_cases": 28,
+   "s_ne_r_add_one": 6,
+   "k_param": 13,
+   "remark_2_8": 10,
+   "amgm_pair": 21,
+   "geom_sum_lower": 23,
+   "bound6": 28,
+   "aux_eq_int": 16,
+   "trunc_binom": 21,
+   "lhs_expansion": 19,
+   "rhs_expansion": 13,
+   "aux_b_odd": 19,
+   "aux_div": 14,
+   "two_pow_ge": 8,
+   "aux_solution": 29,
+   "caseB_nontrivial": 49,
+   "consecutive_exponents": 39
+  },
+  "retry_named": [],
+  "joins": [
+   "coprime_p_q",
+   "coprime_sub_add_of_odd",
+   "caseA_mod_p",
+   "three_pow_odd_mod_seven",
+   "geom_identity",
+   "trunc_binom",
+   "lhs_expansion",
+   "aux_b_odd"
+  ],
+  "edges": 45
+ },
+ "fit": {
+  "sorry": 0,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "ed with `set_option linter.unusedVariables false`\nRooms/Axioms.lean:636:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\nRooms/Axioms.lean:699:31: warning: Variable name `hz` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hz\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'Panda2608.consecutive_exponents' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": true,
+ "attempts_median": null,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": null,
+ "tokens_total": 250342,
+ "planner_error": {
+  "log2_by_node": {},
+  "median_joins": null,
+  "median_leaves": null,
+  "median_abs_joins": null,
+  "median_abs_leaves": null
+ }
+}

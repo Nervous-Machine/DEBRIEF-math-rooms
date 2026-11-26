@@ -22,10 +22,11 @@
    "began": "2026-11-25",
    "status": "active",
    "record_quality": "full_ledger",
-   "record_note": "Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles. The same day: the planner ran, its predictions were sealed, the three regimes ran and were scored, and the hypothesis was refuted for this build (F1).",
+   "record_note": "Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles. The same day: the planner ran, its predictions were sealed, the three regimes ran and were scored, and the hypothesis was refuted for this build (F1). On 25–26 November build 2 (arXiv:2608.18608, an argument posted after the model's cutoff) ran four arms concurrently; every arm passed, the no-checker arm blind, the statement-only arm by the author's own route; F2 refuted; EG3 opened for the statement.",
    "record_limits": [
-    "One theorem, one planner model, one searcher model, one run per regime. The target is 230 to 314 lines of Lean; nothing here speaks to a size where a machine search has been seen to thrash.",
-    "The prior held no human argument: the 1964 paper states the result without proof, so the human-experience axis is not measured by this build."
+    "Two theorems, 230 to 850 lines of Lean each; both arguments turned out to be within the searcher model's reach, so no arm has yet shown the regime the Alpöge archive showed.",
+    "Build 1's prior held no human argument (the 1964 paper states the result without proof); build 2's human argument was rebuilt by the searcher from the statement alone, so the human-experience axis has measured zero twice at this level.",
+    "Build 2's Lean statement was written by the registrar and read by nobody else (EG3)."
    ],
    "scope_limits": [
     "The experiment measures the Lean bridge from a fixed blueprint to a licensed statement; it does not measure mathematical discovery, and it does not check the mathematics of the 1964 argument.",
@@ -35,10 +36,10 @@
     "spoken": "This record holds an experiment: a small proof is built from a fixed prior, a planner predicts the cost of every step before any search, and the same plan is searched three times with the error signal set differently each time."
    },
    "short_version": {
-    "spoken": "The shape of a recent machine-built proof of the Riemann hypothesis suggested a search sized to a fast exact error signal, with retries concentrated at the joins. That reading came from one archive with no attempt log. Here the prior is fixed, the plan is drawn once by one model, the cost of each step is predicted and sealed, and a second model searches the plan under full Lean feedback, under accept or reject only, and with no checker until the end. The first target is the Dirac–Erdős bound, Erdős Problem 766, whose Lean statement and only Lean proof both appeared after the searcher model's training cutoff. Result: all three regimes produced the statement as given, the no-checker regime at first try, so the hypothesis as filed is refuted for this build. The signal changed hedging and cost, not success."
+    "spoken": "The shape of a recent machine-built proof of the Riemann hypothesis suggested a search sized to a fast exact error signal, with retries concentrated at the joins. That reading came from one archive with no attempt log. Here the prior is fixed, the plan is drawn once by one model, the cost of each step is predicted and sealed, and a second model searches the plan under full Lean feedback, under accept or reject only, and with no checker until the end. The first target is the Dirac–Erdős bound, Erdős Problem 766, whose Lean statement and only Lean proof both appeared after the searcher model's training cutoff. Result: all three regimes produced the statement as given, the no-checker regime at first try, so the hypothesis as filed is refuted for this build. The signal changed hedging and cost, not success. Build 2 repeated the result on an argument posted after the model's cutoff: all four arms passed, the no-checker one blind, the statement-only one by the author's route. Posting date is not distribution."
    },
    "what_happened": {
-    "spoken": "On 25 November 2026 the target was chosen from the untracked-claims backlog, the pinned project was built, the registration with eight predictions was committed, and the planner drew sixteen rooms with its cost predictions sealed. Three searchers then filled the rooms in fresh contexts: with full Lean feedback, three calls and done in eight minutes; with one word of feedback, one call per room, sixteen calls, eighteen minutes; with no checker at all, one call at the end, which compiled clean. All three rest on the standard axioms with the statement verbatim. The seal was opened and matched its hash; the control was scored with the same instrument. A fourth arm, asked for by Heidi Bennett after the three: no blueprint, full feedback. The searcher drew its own route in seven lemmas and the file compiled at first check, in three calls and eight minutes."
+    "spoken": "On 25 November 2026 the target was chosen from the untracked-claims backlog, the pinned project was built, the registration with eight predictions was committed, and the planner drew sixteen rooms with its cost predictions sealed. Three searchers then filled the rooms in fresh contexts: with full Lean feedback, three calls and done in eight minutes; with one word of feedback, one call per room, sixteen calls, eighteen minutes; with no checker at all, one call at the end, which compiled clean. All three rest on the standard axioms with the statement verbatim. The seal was opened and matched its hash; the control was scored with the same instrument. A fourth arm, asked for by Heidi Bennett after the three: no blueprint, full feedback. The searcher drew its own route in seven lemmas and the file compiled at first check, in three calls and eight minutes. Build 2 took a theorem whose proof was posted after the searcher model's training cutoff, stated in Lean by the registrar. The planner drew 38 rooms from the paper. Four arms ran at once: rooms with full feedback, four calls; statement only with full feedback, six calls and the author's own route; rooms with one word of feedback, fifty calls and fourteen hedged proofs; rooms with no checker, one call, clean. All four rest on the standard axioms with the statement verbatim."
    },
    "implications": {
     "rely_on": [
@@ -61,17 +62,23 @@
       "finding_ids": [
        "F1"
       ]
+     },
+     {
+      "spoken": "using posting date as a proxy for an argument being outside the model's reach; the statement-only arm rebuilt a 2026 route in 24 minutes",
+      "finding_ids": [
+       "F2"
+      ]
      }
     ],
     "new": [
      {
-      "spoken": "hedging rose with the coarseness of the signal (0, 6, 20 first combinators) and so did tokens; the planner over-predicted cost everywhere, most at leaves; the no-blueprint arm and the second target are registered as the next questions; the no-blueprint arm rules out the structure-as-prior explanation at this size, so size is the next variable",
+      "spoken": "hedging rose with the coarseness of the signal (0, 6, 20 first combinators) and so did tokens; the planner over-predicted cost everywhere, most at leaves; the no-blueprint arm and the second target are registered as the next questions; the no-blueprint arm rules out the structure-as-prior explanation at this size, so size is the next variable; in build 2 the one-word regime cost 50 calls against 4 and 14 hedged proofs against none, so the signal's price is now measured on two theorems, and the next target must be chosen by capability, not date",
       "finding_ids": []
      }
     ]
    },
    "certainty_statement": {
-    "spoken": "One finding is refuted under the rule written down first. The next questions are open gaps."
+    "spoken": "Two findings are refuted under rules written down first. The next target and the reading of build 2's statement are open gaps."
    },
    "sources": [
     {
@@ -567,6 +574,314 @@
     "EG2",
     "HG1"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T00:36:33Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-25-B2_A_full.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-25-B2_A_full",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement as given, and with what calls, errors, hedging and residue?",
+    "rule": "the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P6",
+     "P8"
+    ],
+    "commit": "prereg_build_2608.yaml",
+    "results": [
+     "results/B2_A_full/score.json",
+     "results/B2_A_full/final.lean",
+     "results/B2_A_full/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "check_calls": 4,
+     "error_calls": 2,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 176408,
+     "minutes": 33,
+     "lines": 652,
+     "declarations": 41,
+     "depth": 7,
+     "own_lines_median": 12,
+     "unused_by_root": 6,
+     "first_combinators": 0,
+     "nodes_changed": 0,
+     "helpers_added": 3
+    },
+    "misses": [
+     "P1: passed, but 4 calls and 2 errors against the predicted ≥10 and ≥3",
+     "P8: every node took one call; the max-call node is not one of the three named"
+    ]
+   },
+   "spoken": "Rooms from the paper, full feedback. The searcher wrote sixteen rooms before its first check and the rest before its second; six small errors across those two calls, one repair, FINAL clean. All 38 statements unchanged. Six rooms proved but unused: the searcher went around the lifting-the-exponent rooms with a size bound and around the gcd chain with a coprimality shortcut.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG2"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T00:36:33Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-25-B2_B_full_noplan.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-25-B2_B_full_noplan",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement as given, and with what calls, errors, hedging and residue?",
+    "rule": "the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result",
+    "predictions": [
+     "P2",
+     "P9"
+    ],
+    "commit": "prereg_build_2608.yaml",
+    "results": [
+     "results/B2_B_full_noplan/score.json",
+     "results/B2_B_full_noplan/final.lean",
+     "results/B2_B_full_noplan/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "refuted",
+    "numbers": {
+     "check_calls": 6,
+     "error_calls": 4,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 176823,
+     "minutes": 24,
+     "lines": 464,
+     "declarations": 10,
+     "depth": 4,
+     "own_lines_median": 21.5,
+     "unused_by_root": 0,
+     "first_combinators": 0,
+     "lemmas_written": 9
+    },
+    "misses": [
+     "P2: passed at first FINAL in 6 calls, 1.5 × arm A's",
+     "P9: the route runs through the author's auxiliary equation (2m+1)^(2k+1) − (2m−1)^(2k+1) = 2p^(k+1) with p = 2m² − 1 and the congruence modulo 4m⁴; the out-of-distribution claim is weakened as the registration said it would be"
+    ]
+   },
+   "spoken": "Statement only: no paper, no blueprint, full feedback. The searcher chose its own route and it is the paper's: coprime odd powers, the pairing bound, the auxiliary equation, the expansion modulo 4m⁴, p = 7. Four shallow errors, FINAL clean in 24 minutes. The human argument in the prior bought nothing at this level, because the searcher rebuilt it from the statement.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG2"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T00:36:33Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-25-B2_C_binary.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-25-B2_C_binary",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement as given, and with what calls, errors, hedging and residue?",
+    "rule": "the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result",
+    "predictions": [
+     "P3",
+     "P7"
+    ],
+    "commit": "prereg_build_2608.yaml",
+    "results": [
+     "results/B2_C_binary/score.json",
+     "results/B2_C_binary/final.lean",
+     "results/B2_C_binary/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 50,
+     "error_calls": 15,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 266879,
+     "minutes": 42,
+     "lines": 854,
+     "declarations": 47,
+     "depth": 8,
+     "own_lines_median": 13,
+     "unused_by_root": 0,
+     "first_combinators": 14,
+     "never_executed_warnings": 21,
+     "nodes_changed": 0,
+     "helpers_added": 9,
+     "calls_by_node_max": "N15: 7, ROOT: 6, N02: 4"
+    },
+    "misses": []
+   },
+   "spoken": "One word of feedback, with the rooms. Fifty calls, fifteen errors, FINAL clean in 42 minutes with half again the tokens of full feedback. Without positions the searcher bisected by hand: a wrong factor in Lemma 2.6's bound cost seven calls, a tuple goal at the root six, lifting the exponent four; five errors were its own assembly script duplicating a line. Fourteen hedged proofs, 21 fallbacks never executed. All 38 statements unchanged, nothing unused.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG2"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T00:36:33Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-26-B2_D_none.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-26-B2_D_none",
+   "dated": "2026-11-25",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement as given, and with what calls, errors, hedging and residue?",
+    "rule": "the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result",
+    "predictions": [
+     "P4",
+     "P7"
+    ],
+    "commit": "prereg_build_2608.yaml",
+    "results": [
+     "results/B2_D_none/score.json",
+     "results/B2_D_none/final.lean",
+     "results/B2_D_none/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "refuted",
+    "numbers": {
+     "check_calls": 1,
+     "error_calls": 0,
+     "first_FINAL": "ok",
+     "comparator_pass": true,
+     "axioms": "propext, Classical.choice, Quot.sound",
+     "tokens": 250342,
+     "minutes": 69,
+     "lines": 736,
+     "declarations": 38,
+     "depth": 7,
+     "own_lines_median": 15,
+     "unused_by_root": 0,
+     "first_combinators": 0,
+     "never_executed_warnings": 0,
+     "nodes_changed": 0,
+     "helpers_added": 0
+    },
+    "misses": [
+     "P4: the first FINAL compiled clean",
+     "P7: no hedges at all in the no-checker file"
+    ]
+   },
+   "spoken": "No checker until the end, with the rooms. The searcher wrote 736 lines over 69 minutes without compiling once, and its one allowed call came back clean on the standard axioms with every statement unchanged and no hedge in the file. This is the falsifier named before the build, fired a second time, on an argument posted after the model's training cutoff.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG2"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T00:36:33Z",
+   "provenance": {
+    "source": "contributed cycle file score-2026-11-26-panda2608.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "score-2026-11-26-panda2608",
+   "dated": "2026-11-26",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Which of P1 to P9 held, and how far did the planner's sealed predictions miss?",
+    "rule": "the sealed file was opened after arm D and its hash matched; no control exists for this theorem",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8",
+     "P9"
+    ],
+    "commit": "prereg_build_2608.yaml",
+    "results": [
+     "results/B2_A_full/score.json",
+     "results/B2_B_full_noplan/score.json",
+     "results/B2_C_binary/score.json",
+     "results/B2_D_none/score.json",
+     "blueprint_2608_predictions.yaml"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "held": "P3, P6",
+     "missed": "P1, P2, P4, P5, P7, P8, P9",
+     "planner_predicted_attempts_total": 165,
+     "planner_predicted_tokens_total": 2613000,
+     "planner_predicted_minutes_total": 519,
+     "actual_calls_A_B_C_D": "4, 6, 50, 1",
+     "actual_tokens_A_B_C_D": "176408, 176823, 266879, 250342",
+     "actual_minutes_A_B_C_D": "33, 24, 42, 69",
+     "planner_abs_log2_error_A_joins": 2.16,
+     "planner_abs_log2_error_A_leaves": 2.81,
+     "first_combinators_A_B_C_D": "0, 0, 14, 0",
+     "seal_hash_matched": true
+    },
+    "misses": [
+     "P1 cost",
+     "P2",
+     "P4",
+     "P5 (leaves missed more than joins again)",
+     "P7",
+     "P8 (degenerate: every node one call)",
+     "P9"
+    ]
+   },
+   "spoken": "Two of nine predictions held: one word of feedback cost more calls and more hedging than full feedback, and arm A's two errors fell on join rooms. The planner predicted 165 attempts, 2.6 million tokens and nine hours for the fill; the full-feedback arm took four calls and 33 minutes, and no room anywhere took more than one call under full feedback. The no-checker arm passed clean. The statement-only arm rediscovered the author's route. The hypothesis as filed is refuted for this build.",
+   "finding_ids": [
+    "F2"
+   ],
+   "gap_ids": [
+    "EG2"
+   ]
   }
  ],
  "findings": [
@@ -618,6 +933,57 @@
    "certainty": {
     "earned": true,
     "how": "deterministic: the scored file, the log and the scorer are committed; anyone can recompile the file in the pinned project"
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-25T21:41:21Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "finding_id": "F2",
+   "kind": "ruled_out",
+   "spoken": "On an argument posted after the searcher model's training cutoff, every regime produced the statement as given, the no-checker arm blind in one call, and the statement-only arm rediscovered the author's route without the paper. Posting date did not put the argument outside the model's reach. The signal changed cost: one word of feedback cost twelve times the calls and fourteen hedged proofs.",
+   "evidence": {
+    "numbers": {
+     "A_calls": 4,
+     "B_calls": 6,
+     "C_calls": 50,
+     "D_calls": 1,
+     "first_FINAL": "ok, ok, ok, ok",
+     "comparator_pass": "true ×4",
+     "axioms_each": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "first_combinators": "0, 0, 14, 0",
+     "tokens": "176408, 176823, 266879, 250342",
+     "predictions_held": "P3, P6",
+     "predictions_missed": "P1, P2, P4, P5, P7, P8, P9"
+    },
+    "cycles": [
+     "data-2026-11-25-B2_A_full",
+     "data-2026-11-25-B2_B_full_noplan",
+     "data-2026-11-25-B2_C_binary",
+     "data-2026-11-26-B2_D_none",
+     "score-2026-11-26-panda2608"
+    ],
+    "confirmed_by": [
+     "the scorer run on the committed logs and files; the four final files recompiled in the pinned project with #print axioms; transcripts audited with audit.py"
+    ]
+   },
+   "standing": {
+    "status": "refuted",
+    "basis": "arm D's first FINAL compiled clean with zero fit indicators (the falsifier named in prereg_build_2608.yaml); arm B followed the author's route (P9); seven of nine predictions missed"
+   },
+   "certainty": {
+    "earned": true,
+    "how": "deterministic: the scored files, logs and scorer are committed; anyone can recompile the files in the pinned project"
    }
   }
  ],
@@ -690,11 +1056,18 @@
      "before_data": true,
      "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
      "result": "hypothesis build-2026-11-25-panda2608 by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) bears on this gap (see HG1)"
+    },
+    {
+     "cycle": "score-2026-11-26-panda2608",
+     "dated": "2026-11-26",
+     "hypothesis": "hedging replaces the signal, and a post-cutoff argument separates the regimes on success",
+     "before_data": true,
+     "result": "half: the one-word arm hedged 14 proofs and the others none, so hedging appeared where the signal was coarse but not where it was absent; no regime failed; posting date did not take the argument outside the model's reach"
     }
    ],
    "closes_with": [
     {
-     "what": "a second build on a larger target, or one with a printed human proof in the prior (Erdős 1111 or 626), under a registration that predicts the hedge count and token cost by regime before the run",
+     "what": "a target outside the searcher's reach, chosen by capability rather than date: a result whose Lean proof is long because the mathematics is (hundreds of lemmas, several Mathlib theories joined), or whose human proof the searcher cannot rebuild from the statement in a no-plan arm; registered with the hedge count and calls by regime predicted first",
      "kind": "measurement",
      "external": false,
      "who_could_act": "Nervous Machine, or anyone who reruns the instruments on another target"
@@ -752,6 +1125,37 @@
     "spoken": "The measurement named by the submitter, made public at an endpoint."
    },
    "expected_signal": "predictions P1–P9 in prereg_build_2608.yaml, scored from the check logs, the final files and the sealed planner predictions",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-25T21:41:21Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "gap_id": "EG3",
+   "title": "The Lean statement of Theorem 1.1 of arXiv:2608.18608 was written by the registrar and has been read by nobody else",
+   "status": "proposed",
+   "opened_cycle": "build-2026-11-25-panda2608",
+   "priority": 2,
+   "history": [],
+   "closes_with": [
+    {
+     "what": "a reading of rooms/Challenge_2608.lean against the paper's Theorem 1.1 by someone who did not write it, signing or refusing",
+     "kind": "read",
+     "external": true,
+     "who_could_act": "anyone who reads Lean and elementary number theory; about twenty minutes"
+    }
+   ],
+   "spoken": "Every arm of build 2 proved the statement the registrar wrote. Whether that statement is the paper's theorem is a separate question, and nobody has answered it.",
+   "ask": {
+    "spoken": "Read the Lean statement against Theorem 1.1 and sign or refuse."
+   },
+   "expected_signal": "a read cycle",
    "resolution_by": "none registered"
   }
  ],

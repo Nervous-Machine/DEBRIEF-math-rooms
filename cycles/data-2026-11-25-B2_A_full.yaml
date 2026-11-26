@@ -1,0 +1,48 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-25-B2_A_full
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement
+    as given, and with what calls, errors, hedging and residue?
+  rule: the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result
+  predictions:
+  - P1
+  - P6
+  - P8
+  commit: prereg_build_2608.yaml
+  results:
+  - results/B2_A_full/score.json
+  - results/B2_A_full/final.lean
+  - results/B2_A_full/calls.tsv
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    check_calls: 4
+    error_calls: 2
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 176408
+    minutes: 33
+    lines: 652
+    declarations: 41
+    depth: 7
+    own_lines_median: 12
+    unused_by_root: 6
+    first_combinators: 0
+    nodes_changed: 0
+    helpers_added: 3
+  misses:
+  - 'P1: passed, but 4 calls and 2 errors against the predicted ≥10 and ≥3'
+  - 'P8: every node took one call; the max-call node is not one of the three named'
+spoken: 'Rooms from the paper, full feedback. The searcher wrote sixteen rooms before its first check and the rest
+  before its second; six small errors across those two calls, one repair, FINAL clean. All 38 statements unchanged.
+  Six rooms proved but unused: the searcher went around the lifting-the-exponent rooms with a size bound and around
+  the gcd chain with a coprimality shortcut.'
+finding_ids: []
+gap_ids:
+- EG2

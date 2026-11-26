@@ -1,0 +1,48 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B2_D_none
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement
+    as given, and with what calls, errors, hedging and residue?
+  rule: the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result
+  predictions:
+  - P4
+  - P7
+  commit: prereg_build_2608.yaml
+  results:
+  - results/B2_D_none/score.json
+  - results/B2_D_none/final.lean
+  - results/B2_D_none/calls.tsv
+  before_data: true
+outcome:
+  verdict: refuted
+  numbers:
+    check_calls: 1
+    error_calls: 0
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 250342
+    minutes: 69
+    lines: 736
+    declarations: 38
+    depth: 7
+    own_lines_median: 15
+    unused_by_root: 0
+    first_combinators: 0
+    never_executed_warnings: 0
+    nodes_changed: 0
+    helpers_added: 0
+  misses:
+  - 'P4: the first FINAL compiled clean'
+  - 'P7: no hedges at all in the no-checker file'
+spoken: No checker until the end, with the rooms. The searcher wrote 736 lines over 69 minutes without compiling
+  once, and its one allowed call came back clean on the standard axioms with every statement unchanged and no hedge
+  in the file. This is the falsifier named before the build, fired a second time, on an argument posted after the
+  model's training cutoff.
+finding_ids: []
+gap_ids:
+- EG2

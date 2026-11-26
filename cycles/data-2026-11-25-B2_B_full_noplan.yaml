@@ -1,0 +1,48 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-25-B2_B_full_noplan
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement
+    as given, and with what calls, errors, hedging and residue?
+  rule: the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result
+  predictions:
+  - P2
+  - P9
+  commit: prereg_build_2608.yaml
+  results:
+  - results/B2_B_full_noplan/score.json
+  - results/B2_B_full_noplan/final.lean
+  - results/B2_B_full_noplan/calls.tsv
+  before_data: true
+outcome:
+  verdict: refuted
+  numbers:
+    check_calls: 6
+    error_calls: 4
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 176823
+    minutes: 24
+    lines: 464
+    declarations: 10
+    depth: 4
+    own_lines_median: 21.5
+    unused_by_root: 0
+    first_combinators: 0
+    lemmas_written: 9
+  misses:
+  - 'P2: passed at first FINAL in 6 calls, 1.5 × arm A''s'
+  - 'P9: the route runs through the author''s auxiliary equation (2m+1)^(2k+1) − (2m−1)^(2k+1) = 2p^(k+1) with p
+    = 2m² − 1 and the congruence modulo 4m⁴; the out-of-distribution claim is weakened as the registration said
+    it would be'
+spoken: 'Statement only: no paper, no blueprint, full feedback. The searcher chose its own route and it is the paper''s:
+  coprime odd powers, the pairing bound, the auxiliary equation, the expansion modulo 4m⁴, p = 7. Four shallow errors,
+  FINAL clean in 24 minutes. The human argument in the prior bought nothing at this level, because the searcher
+  rebuilt it from the statement.'
+finding_ids: []
+gap_ids:
+- EG2

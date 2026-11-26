@@ -1,0 +1,231 @@
+# SEALED planner predictions for build-2026-11-25-panda2608. Held by Heidi Bennett. Opened after arm D.
+root: consecutive_exponents
+nodes:
+- id: N01
+  kind: join
+  predicted:
+    attempts: 1
+    tokens: 12000
+    minutes: 2
+- id: N02
+  kind: leaf
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+- id: N03
+  kind: leaf
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 4
+- id: N04
+  kind: join
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+- id: N05
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 8
+- id: N06
+  kind: leaf
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 15
+- id: N07
+  kind: join
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 8
+- id: N08
+  kind: join
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+- id: N09
+  kind: leaf
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+- id: N10
+  kind: leaf
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+- id: N11
+  kind: join
+  predicted:
+    attempts: 1
+    tokens: 12000
+    minutes: 3
+- id: N12
+  kind: join
+  predicted:
+    attempts: 8
+    tokens: 150000
+    minutes: 30
+- id: N13
+  kind: leaf
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+- id: N14
+  kind: leaf
+  predicted:
+    attempts: 7
+    tokens: 130000
+    minutes: 25
+- id: N15
+  kind: leaf
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+- id: N16
+  kind: join
+  predicted:
+    attempts: 2
+    tokens: 15000
+    minutes: 3
+- id: N17
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 7
+- id: N18
+  kind: join
+  predicted:
+    attempts: 1
+    tokens: 8000
+    minutes: 2
+- id: N19
+  kind: leaf
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 14
+- id: N20
+  kind: leaf
+  predicted:
+    attempts: 9
+    tokens: 170000
+    minutes: 35
+- id: N21
+  kind: leaf
+  predicted:
+    attempts: 1
+    tokens: 8000
+    minutes: 2
+- id: N22
+  kind: leaf
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 15
+- id: N23
+  kind: leaf
+  predicted:
+    attempts: 1
+    tokens: 8000
+    minutes: 2
+- id: N24
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 7
+- id: N25
+  kind: leaf
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 8
+- id: N26
+  kind: leaf
+  predicted:
+    attempts: 7
+    tokens: 110000
+    minutes: 22
+- id: N27
+  kind: leaf
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 20
+- id: N28
+  kind: leaf
+  predicted:
+    attempts: 7
+    tokens: 120000
+    minutes: 25
+- id: N29
+  kind: leaf
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 20
+- id: N30
+  kind: join
+  predicted:
+    attempts: 5
+    tokens: 90000
+    minutes: 18
+- id: N31
+  kind: join
+  predicted:
+    attempts: 7
+    tokens: 130000
+    minutes: 25
+- id: N32
+  kind: leaf
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 15
+- id: N33
+  kind: leaf
+  predicted:
+    attempts: 7
+    tokens: 130000
+    minutes: 25
+- id: N34
+  kind: leaf
+  predicted:
+    attempts: 5
+    tokens: 90000
+    minutes: 18
+- id: N35
+  kind: leaf
+  predicted:
+    attempts: 2
+    tokens: 15000
+    minutes: 3
+- id: N36
+  kind: join
+  predicted:
+    attempts: 8
+    tokens: 140000
+    minutes: 28
+- id: N37
+  kind: join
+  predicted:
+    attempts: 10
+    tokens: 180000
+    minutes: 35
+- id: ROOT
+  kind: join
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 20

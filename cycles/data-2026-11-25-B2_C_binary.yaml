@@ -1,0 +1,48 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-25-B2_C_binary
+dated: '2026-11-25'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With the planner's rooms (or none) and the arm's error signal, does the searcher produce the statement
+    as given, and with what calls, errors, hedging and residue?
+  rule: the check tool logs every call; rooms/score.py computes every number; the first FINAL is the scored result
+  predictions:
+  - P3
+  - P7
+  commit: prereg_build_2608.yaml
+  results:
+  - results/B2_C_binary/score.json
+  - results/B2_C_binary/final.lean
+  - results/B2_C_binary/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 50
+    error_calls: 15
+    first_FINAL: ok
+    comparator_pass: true
+    axioms: propext, Classical.choice, Quot.sound
+    tokens: 266879
+    minutes: 42
+    lines: 854
+    declarations: 47
+    depth: 8
+    own_lines_median: 13
+    unused_by_root: 0
+    first_combinators: 14
+    never_executed_warnings: 21
+    nodes_changed: 0
+    helpers_added: 9
+    calls_by_node_max: 'N15: 7, ROOT: 6, N02: 4'
+  misses: []
+spoken: 'One word of feedback, with the rooms. Fifty calls, fifteen errors, FINAL clean in 42 minutes with half
+  again the tokens of full feedback. Without positions the searcher bisected by hand: a wrong factor in Lemma 2.6''s
+  bound cost seven calls, a tuple goal at the root six, lifting the exponent four; five errors were its own assembly
+  script duplicating a line. Fourteen hedged proofs, 21 fallbacks never executed. All 38 statements unchanged, nothing
+  unused.'
+finding_ids: []
+gap_ids:
+- EG2

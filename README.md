@@ -9,10 +9,10 @@ The planner draws the rooms: the fixed structure of a proof, from one page of a 
 | planner | Claude Opus 5.5, from the paper and Mathlib; predictions sealed by hash, held by Heidi Bennett |
 | searcher | Claude Fable 5.1, from the blueprint and Mathlib only; no paper, no web, one check tool |
 | regimes | full Lean feedback · accept or reject only · no checker until the end |
-| first target | Erdős Problem 766, the Dirac–Erdős bound ([statement](rooms/Challenge.lean), Apache-2.0, from [formal-conjectures](https://github.com/google-deepmind/formal-conjectures)) |
+| targets so far | build 1: Erdős Problem 766, the Dirac–Erdős bound ([statement](rooms/Challenge.lean), Apache-2.0, from [formal-conjectures](https://github.com/google-deepmind/formal-conjectures)) |
 | prior | the statement and Mathlib `ccbef15e`, Lean v4.35.0; the 1964 paper (pinned by hash) turned out to state the result without proof |
 | control, opened after the runs | [Wentao Li's proof](https://github.com/VictorLiwentao/fc-palomar-proofs/tree/main/FCPalomar/Erdos766) with Claude Opus 5.5, registered on [Palomar](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-19-000006) |
-| written down first | [prereg_build_erdos766.yaml](prereg_build_erdos766.yaml): eight predictions, three held |
+| written down first | [prereg_build_erdos766.yaml](prereg_build_erdos766.yaml): eight predictions, three held · [prereg_build_2608.yaml](prereg_build_2608.yaml): nine predictions, two held |
 
 ## Highlighted findings
 
@@ -27,9 +27,18 @@ The planner draws the rooms: the fixed structure of a proof, from one page of a 
 
 The planner predicted 45 attempts, half a million tokens and a hundred minutes for the fill. No node anywhere took more than one call. The paper turned out to contain no proof, so this build measured the machine with no human argument in the prior at all.
 
-Without a blueprint the searcher drew the same route in seven lemmas and compiled at first check, so the structure was not what made it cheap. Size is the next variable.
+Without a blueprint the searcher drew the same route in seven lemmas and compiled at first check, so the structure was not what made it cheap.
 
-Next: a larger target, or one with a printed human proof in the prior.
+**Build 2, arXiv:2608.18608 (25–26 Nov 2026): posting date is not distribution.** A Diophantine theorem whose proof was posted after the searcher model's training cutoff, stated in Lean by the registrar, built under four arms at once. All four passed. The no-checker arm wrote 736 lines blind and compiled at first contact. The statement-only arm, with no paper, rebuilt the author's route in 24 minutes. The one-word arm paid for its signal: fifty calls against four, fourteen hedged proofs against none. Two of nine predictions held. Full account: [trace/ROOMS-2608.md](trace/ROOMS-2608.md).
+
+| arm | prior | signal | calls | errors | first FINAL | tokens | minutes | lines | `first` hedges |
+|---|---|---|---|---|---|---|---|---|---|
+| rooms, full feedback | paper via the planner | complete | 4 | 2 | ok | 176,408 | 33 | 652 | 0 |
+| statement only, full feedback | none | complete | 6 | 4 | ok | 176,823 | 24 | 464 | 0 |
+| rooms, one word | paper via the planner | ok or error | 50 | 15 | ok | 266,879 | 42 | 854 | 14 |
+| rooms, no checker | paper via the planner | none until the end | 1 | 0 | ok | 250,342 | 69 | 736 | 0 |
+
+Next: a target chosen by capability rather than date, a reader for build 2's Lean statement, and a fifth arm where the searcher writes the statement itself.
 
 ## Why this theorem
 

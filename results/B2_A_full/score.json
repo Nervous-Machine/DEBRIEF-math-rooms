@@ -127,5 +127,17 @@
  "comparator_pass": true,
  "attempts_median": 1,
  "attempts_median_joins": 1.0,
- "attempts_median_leaves": 1
+ "attempts_median_leaves": 1,
+ "tokens_total": 176408,
+ "planner_error": {
+  "log2_by_node": {
+   "N16": -1.0,
+   "N37": -3.322,
+   "N28": -2.807
+  },
+  "median_joins": -2.161,
+  "median_leaves": -2.807,
+  "median_abs_joins": 2.161,
+  "median_abs_leaves": 2.807
+ }
 }

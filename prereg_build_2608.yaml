@@ -92,3 +92,21 @@ amendments:
     sealed: "blueprint_2608_predictions.yaml, sha256 committed as blueprint_2608_predictions.sha256, held outside the repository by Heidi Bennett; opened after arm D"
     leak: "the planner's report told the registrar that N37 is predicted hardest, N20 second, and ROOT's prediction; no other prediction has been read"
     tool_change: "rooms/check.sh sha256 299ce1a2090238b31f4385535398d70044a1159dcf73ac3f730dc6b4a16fffca: the file compiled in the VM is now Rooms/Target_<REGIME>.lean instead of a shared Rooms/Target.lean, so two arms can run at once without clobbering each other; output rules unchanged. Arm B was launched before this change and continues under it."
+  - id: A2
+    written: "2026-11-26T00:50Z, after all four arms and the scoring"
+    what_happened: >
+      Arms ran concurrently after A1 (B from 23:18Z, A from 23:24Z, C from 23:25Z, D from 23:25Z; last FINAL 00:32Z).
+      A: 4 calls, 2 errors, FINAL ok, 652 lines, 176,408 tokens. B: 6 calls, 4 errors, FINAL ok, 464 lines, 176,823
+      tokens, the author's route. C: 50 calls, 15 errors, FINAL ok, 854 lines, 266,879 tokens, 14 first combinators.
+      D: 1 call, FINAL ok, 736 lines, 250,342 tokens, no hedges. All four pass the comparator on the standard axioms
+      with the statement verbatim. Seal opened after D; sha256 matched. Four transcripts audited: no web, no git, no
+      other arm's files; two searchers attempted to read their own calls.tsv after FINAL and were refused by the
+      permission layer, which is recorded here.
+    scorecard: "held P3, P6; missed P1 (cost), P2, P4, P5, P7, P8 (degenerate: every node one call under full feedback), P9"
+    planner: "predicted 165 attempts, 2,613,000 tokens, 519 minutes; arm A took 4 calls, 176,408 tokens, 33 minutes; median absolute log2 attempt error 2.16 at joins, 2.81 at leaves"
+    hypothesis_status: "refuted for this build (finding F2); the falsifier fired a second time"
+    reading: >
+      Posting date did not put the argument outside the model's reach: the statement-only arm rebuilt the author's
+      route in 24 minutes. The one-word regime is the only one that has shown the signal's price in the log, on both
+      builds. The next target must be chosen by capability rather than date (gap EG2, revised), and the Lean statement
+      of this build needs a reader (gap EG3).
