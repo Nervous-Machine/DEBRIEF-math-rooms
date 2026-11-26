@@ -1,0 +1,99 @@
+# Pre-registration, cycle "build-2026-11-26-corner": build 5 of the rooms experiment, the scaled-down corner.
+# Written 2026-11-26T19:40Z, BEFORE any searcher of this build has run. No planner; no rooms; the start file is the
+# statement-only searcher's final file from build 3, unchanged. Amendments are appended below a marker line after the
+# runs; this registered text is never edited. (Build 4's registered body ended with an empty amendments list, which
+# the validator then read as the marker; this body ends before any such key.)
+#
+# Occasion. Heidi Bennett's equation (2026-11-26): the outcome of a machine proof is some function of checker
+# precision, shared foundation, a formal statement, compute, and route knowledge (human or planner), and the terms
+# trade: more compute may stand in for a weaker foundation or less expertise, more expertise for less compute. The
+# labs' big proofs are the far corner of that space (unknown hinges, compute spent liberally, foundation built on the
+# way) and cannot be rerun here. What can be run is the exchange rate on one hinge whose answer is known to exist:
+# how much compute buys how much route. Build 4 showed the attempt budget was never the binding constraint in builds
+# 1 to 4 (both forced arms finished under a tenth of the token cap and were cheaper than their parents), so the
+# dose can be raised without new instruments.
+#
+# The hinge. Erdős 569's remaining case as the statement-only searcher of build 3 carved it: `core_ge_three_nonstar`
+# (k ≥ 3, m ≥ 3, H not a star, a colouring with a vertex of blue degree ≥ m; conclude red C_k or blue H). The
+# searcher wrote that it is "the content of the paper" and left it without a check call. The human proof
+# (Cambie–Freschi) closes this case through a second-neighbourhood lemma, a colour-critical subgraph bound and three
+# literature inputs not in Mathlib (Häggkvist; Jayawardene's cycle bounds; small Ramsey numbers). Whether a route
+# around the literature exists is not known to the registrar.
+#
+# Caveats before the data. (1) The registrar read the paper and may not search. (2) Three fresh contexts at three
+# caps is a dose-response with one point per dose, not a curve with error bars. (3) The searcher does not see the
+# paper, the build 3 planner's rooms, or any build 3 or 4 notes: statement, its own earlier file, Mathlib, Lean.
+# (4) Genuineness is tool-enforced as in build 4; a helper left open does not count. (5) The 108-cap arm may hit its
+# wall or token cap, or the agent harness's context limit, before 108 attempts; that is a result and is predicted.
+# (6) "Distinctive moves" (P4) are a registrar reading of the new lemma statements, labelled as such, with the
+# statements quoted in the amendment.
+
+mission: rooms-2026-11
+cycle: "build-2026-11-26-corner"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)"
+dated: "2026-11-26"
+question: >
+  On one hinge whose proof exists (the paper's remaining case, carved by the searcher itself from the statement
+  alone), how does the probability of closing it, the amount of structure built around it, and the recovery of the
+  human route change as the forced attempt budget rises from 12 to 36 to 108, with the checker, foundation and
+  statement held fixed and no route given?
+
+target:
+  theorem: "Erdos569.cambie_freschi"
+  forced_lemma: core_ge_three_nonstar
+  start_file: {path: results/B3_569_B_full_noplan_hold/final.lean, sha256: "c60fd0551651b91038d14ce505a0519e9d808c8ec31ec31e7b9af1592798003d", note: "16 lemmas proved from the statement alone; core_ge_three_nonstar as sorry; the root proved from it"}
+  allowed_open: "none"
+  lean_statement: {path: rooms/Challenge_569.lean, sha256: "7da12a9a023cc3bbff5a75ffd83cbd8d3d6e0edc31b22a7a515432938cc543bb"}
+
+prior:
+  mathlib: {commit: "ccbef15ebdb41c2addfac682131f83c75904c3c1", lean: "v4.35.0"}
+  excluded: ["any web access", "the paper", "blueprint_569_nodes.yaml and every other build's files and notes", "the other arms of this build"]
+
+roles:
+  searchers: {model: claude-fable-5-1, context: "fresh, one per arm", tool: "rooms/check.sh only", seal: "by instruction; audited after with rooms/audit.py", inputs: [Challenge_569.lean, the start file as working file, mathlib source]}
+
+arms:                       # fresh contexts; run concurrently (per-arm target files); the cap is the dose
+  B5_C12_full_forced:  {cap: 12,  tokens: 2000000, wall_minutes: 180, brief: rooms/SEARCHER_CORNER_PROMPT.md, check_returns: "Lean's complete output"}
+  B5_C36_full_forced:  {cap: 36,  tokens: 3000000, wall_minutes: 300, brief: rooms/SEARCHER_CORNER_PROMPT.md, check_returns: "Lean's complete output"}
+  B5_C108_full_forced: {cap: 108, tokens: 6000000, wall_minutes: 600, brief: rooms/SEARCHER_CORNER_PROMPT.md, check_returns: "Lean's complete output"}
+
+forced_rule: >
+  As build 4 (results/<ARM>/forced.conf; a call tagged with the forced lemma is refused unless the file has no sorry;
+  FINAL refused before the cap while the lemma still has sorry), with the per-node cap read from forced.conf (cap=)
+  instead of the fixed 12. The cap applies to calls tagged with the forced lemma; helpers added for it are tagged with
+  it. lean_timeout_seconds 600.
+
+measurements: >
+  rooms/score.py per arm (--root cambie_freschi --ns Erdos569 --challenge rooms/Challenge_569.lean --blueprint none)
+  for shape, fit and axioms at the first accepted FINAL; rooms/forced_score.py per arm for the attempt record (per
+  call: errors, new declarations, forced body lines, hedges in the forced region, identity with the previous attempt;
+  summary: genuine attempts, refusals, closed, errors first and last, new declarations at FINAL, minutes, tokens).
+  Derived for the dose-response: closed (yes/no) by cap; proved new declarations at FINAL by cap; tokens per genuine
+  attempt by cap; median errors in the first and last third of genuine attempts by cap; the registrar's reading of
+  the new lemma statements for the paper's two distinctive moves (a second-neighbourhood lemma; a colour-critical or
+  chromatic subgraph bound), quoted.
+
+predictions:
+  - {id: P1, says: "the lemma does not close in the 12-cap arm"}
+  - {id: P2, says: "the lemma does not close in any arm: the paper's route runs through literature not in Mathlib and a route around it within 108 attempts is not expected (a closure at any cap is the falsifier: compute bought the route)"}
+  - {id: P3, says: "proved new declarations at the first accepted FINAL rise strictly with the cap: C12 < C36 < C108"}
+  - {id: P4, says: "no arm's final file contains either of the paper's two distinctive moves, by the registrar's reading of the new statements"}
+  - {id: P5, says: "fit_total 0 in every arm (nothing changed under rising pressure)"}
+  - {id: P6, says: "no `first |` hedge in the forced region of any arm's first accepted FINAL (full signal)"}
+  - {id: P7, says: "the 108-cap arm does not complete 108 genuine attempts within its caps (wall, tokens, or the harness's context)"}
+  - {id: P8, says: "in every arm the median Lean error count over the last third of genuine attempts is at least the median over the first third: attempts do not converge"}
+
+falsifiers: >
+  P2 failing at any cap is the result that matters: compute bought a route a human needed a paper and three
+  literature inputs for, and the cap at which it closed is one point on the exchange rate. P4 failing without P2
+  failing shows the route being recovered before it is completed. P5 failing shows rising pressure producing a fit.
+
+instruments:
+  check_tool: {path: rooms/check.sh, sha256: "e36c434355420c055678f02ebf139fb214ef904395d6a3e8cf8e3edf3b292e44", change: "per-arm cap from forced.conf in *forced* regimes; default 12 unchanged elsewhere"}
+  forced_check: {path: rooms/forced_check.py, sha256: "9d7eb5a344c597f1e125fdf5b94c93cffe7c8aaf802da659286748df206a3b59"}
+  forced_scorer: {path: rooms/forced_score.py, sha256: "65f41d641c1c6fa9acdfb0094661d6109a0670883c64d7be01d4a507a1b3942a"}
+  scorer: {path: rooms/score.py, sha256: "649e6ced4ccf1d23ab8c33d1e6028987f0834f23060cd1d58abc6d3b268e51a8"}
+  searcher_corner_brief: {path: rooms/SEARCHER_CORNER_PROMPT.md, sha256: "048688293473d71d9d02220c6c1ff083f6cde6e54eef1b978bc59977b17248bc", new: true}
+  audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
+  smoke_test: "the configurable cap was exercised once on a scratch regime at cap 2 before registration (refused sorry body; refused FINAL at 0 of 2; two genuine attempts errored; third refused by cap; FINAL accepted); its log was moved out of results/ and is not data"

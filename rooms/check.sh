@@ -9,7 +9,8 @@
 #   R2_binary  the single word ok or error
 #   R3_none    nothing until NODE is FINAL; before that the call is refused and not compiled
 #   *forced*   (build 4) as *full*, plus the forced-attempt rule below
-# Caps: 12 calls per node (R1, R2). A call past the cap is refused, logged, and not compiled. FINAL is always compiled.
+# Caps: 12 calls per node (R1, R2), or cap= from results/<REGIME>/forced.conf in *forced* regimes (build 5). A call past the cap is
+# refused, logged, and not compiled. FINAL is always compiled.
 set -u
 REGIME=${1:?regime}; NODE=${2:?node}; FILE=${3:?file}
 HERE=$(cd "$(dirname "$0")/.." && pwd)
@@ -19,9 +20,11 @@ TS=$(date -u +%FT%TZ)
 cp "$FILE" "$LOG/$SEQ.lean"
 refuse() { printf '%s\t%s\t%s\t%s\t%s\n' "$SEQ" "$TS" "$NODE" "refused" "$1" >> "$HERE/results/$REGIME/calls.tsv"; echo "refused: $1"; exit 3; }
 case "$REGIME" in *none*) [ "$NODE" != FINAL ] && refuse "no checker in this regime until FINAL" ;; esac
+CAP=12
+case "$REGIME" in *forced*) FCONF="$HERE/results/$REGIME/forced.conf"; [ -f "$FCONF" ] && C=$(sed -n 's/^cap=//p' "$FCONF") && [ -n "$C" ] && CAP=$C ;; esac   # build 5: per-arm cap
 if [ "$NODE" != FINAL ]; then
   USED=$(awk -F'\t' -v n="$NODE" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
-  [ "$USED" -ge 12 ] && refuse "cap of 12 attempts reached for node $NODE"
+  [ "$USED" -ge "$CAP" ] && refuse "cap of $CAP attempts reached for node $NODE"
 fi
 # *forced* regimes (build 4): results/<REGIME>/forced.conf names the forced node (node=, name=, allowed=). A call tagged
 # with the forced node is refused unless the file has no sorry outside the allowed rooms (a genuine attempt); a FINAL
@@ -35,8 +38,8 @@ case "$REGIME" in *forced*)
   fi
   if [ "$NODE" = FINAL ]; then
     DONE=$(awk -F'\t' -v n="$FNODE" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
-    if [ "$DONE" -lt 12 ] && ! python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$HERE/$FALLOW" >/dev/null; then
-      refuse "FINAL refused: $FNODE has $DONE of 12 genuine attempts and the file still has sorry outside the allowed rooms"
+    if [ "$DONE" -lt "$CAP" ] && ! python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$HERE/$FALLOW" >/dev/null; then
+      refuse "FINAL refused: $FNODE has $DONE of $CAP genuine attempts and the file still has sorry outside the allowed rooms"
     fi
   fi ;;
 esac
