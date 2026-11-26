@@ -1,0 +1,50 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: build-2026-11-26-hypothesis
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: With rooms drawn from the question and no proof in reach, the searcher holds position under the hold
+  rule (residual, nothing changed) in every arm, including without a checker; on the solved problem the paper's
+  rooms let it recover more of the structure than the statement alone; and on the open problem the plain brief without
+  a kernel still yields a residual rather than a fit.
+signals: predictions P1–P10 in prereg_build_3.yaml, scored from the check logs, the final files and the sealed planner
+  predictions
+endpoints: none public until the runs are filed
+measurements_needed: two planner runs and five arms
+bears_on: 'DEBRIEF-math-rooms EG2 (revised: a target outside the searcher''s reach) and the fit-versus-residual
+  constraint'
+pinned:
+  sha256: a1057c90dbbad965c728bcca579f59800f42515bb9c077b979a6873bc069ca6f
+  file: prereg_build_3.yaml
+preregistered:
+  question: Hold position or fit, with and without a checker, when no proof is in reach; and what the paper's rooms
+    recover that the statement alone does not.
+  rule: P1–P10 as written; misses recorded; planners' per-node predictions sealed by hash before any searcher of
+    that target runs
+  predictions:
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  - P7
+  - P8
+  - P9
+  - P10
+  commit: prereg_build_3.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers:
+    predictions: 10
+    arms: 5
+    targets: 2
+    signals_have_public_endpoint: false
+spoken: 'Nervous Machine registered build 3: two Erdős Ramsey problems, one solved by a human paper in June 2026
+  and one open, with the rooms drawn from the question and a hold-position rule under which leaving the root as
+  sorry is the correct outcome and changing the claim is the failure.'
+finding_ids: []
+gap_ids:
+- EG2
