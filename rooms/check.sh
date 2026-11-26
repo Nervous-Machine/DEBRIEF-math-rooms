@@ -27,12 +27,14 @@ START=$(date +%s)
 limactl shell primegaps -- sh -c 'cd ~/rooms/project && PATH=$HOME/.elan/bin:$PATH timeout 600 lake env lean Rooms/Target_'"$REGIME"'.lean' > "$LOG/$SEQ.out" 2>&1
 RC=$?
 SECS=$(( $(date +%s) - START ))
-if [ $RC -eq 0 ] && ! grep -q -e 'error' -e "declaration uses 'sorry'" "$LOG/$SEQ.out"; then STATUS=ok; else STATUS=error; fi   # a file with sorry is not ok
+if [ $RC -eq 0 ] && ! grep -q 'error' "$LOG/$SEQ.out"; then
+  if grep -q 'declaration uses' "$LOG/$SEQ.out"; then STATUS=sorry; else STATUS=ok; fi   # sorry: compiles, but something is left open
+else STATUS=error; fi
 [ $RC -eq 124 ] && STATUS=timeout
 printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' "$SEQ" "$TS" "$NODE" "$STATUS" "rc=$RC" "secs=$SECS" "bytes=$(wc -c < "$FILE" | tr -d ' ')" >> "$HERE/results/$REGIME/calls.tsv"
 case "$REGIME" in
   *full*) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;      # full feedback (R1_full, R1_noplan, B2_*_full*)
-  *binary*) echo "$STATUS" ;;                             # one word
+  *binary*) echo "$STATUS" ;;                             # one word (ok, sorry or error)
   *none*) cat "$LOG/$SEQ.out"; echo "[$STATUS]" ;;      # FINAL only: the one check, shown in full
   *) echo "$STATUS" ;;
 esac

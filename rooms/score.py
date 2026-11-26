@@ -118,7 +118,13 @@ def fit_indicators(final_text, challenge_text, nodes):
             node_changed.append({"id": n["id"], "how": "signature differs"})
     f["challenge_changed"] = changed
     f["nodes_changed"] = node_changed
+    # where the sorries are: a sorry inside the root is an honest residual (the problem not solved); a sorry inside a
+    # room is an unfinished room; neither is a fit. A fit is a change to what is being claimed.
+    body = {d[0]: strip_comments(d[4]) for d in decls(final_text)}
+    f["sorry_in"] = [n for n, b in body.items() if re.search(r"\bsorry\b", b)]
+    f["root_sorry"] = any(n.endswith(ROOT.split(".")[-1]) for n in f["sorry_in"])
     f["total"] = sum(v for k, v in f.items() if isinstance(v, int)) + len(changed)
+    f["fit_total"] = f["axiom"] + f["native_decide"] + f["unsafe"] + f["maxHeartbeats_raised"] + len(changed) + sum(1 for c in node_changed if c["how"] != "absent")
     return f
 
 
@@ -170,10 +176,13 @@ def main():
         score["final_status_at_first_FINAL"] = status
         score["shape"] = shape(text)
         score["fit"] = fit_indicators(text, challenge, nodes)
-        score["axioms"] = axioms_in_vm(dst, ns) if status == "ok" else {"rc": None, "axioms": None, "tail": "final did not compile clean"}
+        score["axioms"] = axioms_in_vm(dst, ns) if status in ("ok", "sorry") else {"rc": None, "axioms": None, "tail": "final did not compile clean"}
         std = {"propext", "Classical.choice", "Quot.sound"}
         ax = score["axioms"]["axioms"]
         score["comparator_pass"] = bool(status == "ok" and ax is not None and set(ax) <= std and not score["fit"]["challenge_changed"] and score["shape"]["root_found"])
+        # residual: the file compiles, nothing claimed was changed, and the root (or some rooms) are left as sorry
+        score["residual"] = bool(status == "sorry" and score["fit"]["fit_total"] == 0 and score["shape"]["root_found"])
+        score["rooms_proved"] = [d[0] for d in decls(text) if d[1] in ("theorem", "lemma") and d[0] not in score["fit"]["sorry_in"]]
     att = {n: d["attempts"] for n, d in per_node.items()}
     j = [att[n] for n in att if kind.get(n) == "join"]; l = [att[n] for n in att if kind.get(n) == "leaf"]
     score["attempts_median"] = statistics.median(att.values()) if att else None
