@@ -1,0 +1,9 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:280:59: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ↑(Cᶜ.neighborSet x)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Rooms/Target_B3_569_B_full_noplan_hold.lean:301:61: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ↑(Cᶜ.neighborSet x)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Rooms/Target_B3_569_B_full_noplan_hold.lean:306:8: warning: declaration uses `sorry`

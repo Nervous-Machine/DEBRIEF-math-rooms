@@ -1,0 +1,8 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:149:42: warning: `SimpleGraph.isClique_iff_induce_eq` has been deprecated: Use `SimpleGraph.induce_eq_top` instead
+
+Note: The updated constant has a different type:
+  ∀ {α : Type u_1} {G : SimpleGraph α} {s : Set α}, induce s G = ⊤ ↔ G.IsClique s
+instead of
+  ∀ {α : Type u_1} (G : SimpleGraph α) {s : Set α}, G.IsClique s ↔ induce s G = ⊤
+Rooms/Target_B3_569_B_full_noplan_hold.lean:149:42: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.isClique_iff_induce_eq.mp`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:158:8: warning: declaration uses `sorry`

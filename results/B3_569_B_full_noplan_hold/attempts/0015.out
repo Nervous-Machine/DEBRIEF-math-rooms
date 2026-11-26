@@ -1,0 +1,91 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:374:42: warning: This simp argument is unused:
+  hab.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hac, hbc, had, hbd, hcd.ne, hpq, hpq.symm, hrt, hrt.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:374:50: warning: This simp argument is unused:
+  hac
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hbc, had, hbd, hcd.ne, hpq, hpq.symm, hrt, hrt.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:374:55: warning: This simp argument is unused:
+  hbc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, had, hbd, hcd.ne, hpq, hpq.symm, hrt, hrt.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:374:60: warning: This simp argument is unused:
+  had
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, hbc, hbd, hcd.ne, hpq, hpq.symm, hrt, hrt.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:374:65: warning: This simp argument is unused:
+  hbd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, hbc, had, hcd.ne, hpq, hpq.symm, hrt, hrt.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:374:70: warning: This simp argument is unused:
+  hcd.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, hbc, had, hbd, hpq, hpq.symm, hrt, hrt.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:380:42: warning: This simp argument is unused:
+  hab.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hac, hbc, had, hbd, hcd.ne, hpq.ne, hpq.ne.symm, hrt.ne, hrt.ne.symm, hpr,
+    hpr.symm, hpt, hpt.symm, hqr, hqr.symm, hqt, hqt.symm] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:380:50: warning: This simp argument is unused:
+  hac
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hbc, had, hbd, hcd.ne, hpq.ne, hpq.ne.symm, hrt.ne, hrt.ne.symm,
+    hpr, hpr.symm, hpt, hpt.symm, hqr, hqr.symm, hqt, hqt.symm] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:380:55: warning: This simp argument is unused:
+  hbc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, had, hbd, hcd.ne, hpq.ne, hpq.ne.symm, hrt.ne, hrt.ne.symm,
+    hpr, hpr.symm, hpt, hpt.symm, hqr, hqr.symm, hqt, hqt.symm] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:380:60: warning: This simp argument is unused:
+  had
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, hbc, hbd, hcd.ne, hpq.ne, hpq.ne.symm, hrt.ne, hrt.ne.symm,
+    hpr, hpr.symm, hpt, hpt.symm, hqr, hqr.symm, hqt, hqt.symm] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:380:65: warning: This simp argument is unused:
+  hbd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, hbc, had, hcd.ne, hpq.ne, hpq.ne.symm, hrt.ne, hrt.ne.symm,
+    hpr, hpr.symm, hpt, hpt.symm, hqr, hqr.symm, hqt, hqt.symm] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:380:70: warning: This simp argument is unused:
+  hcd.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hba, hca, hcb, hda, hdb, hdc, hab.ne, hac, hbc, had, hbd, hpq.ne, hpq.ne.symm, hrt.ne, hrt.ne.symm, hpr,
+    hpr.symm, hpt, hpt.symm, hqr, hqr.symm, hqt, hqt.symm] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_B_full_noplan_hold.lean:419:8: warning: declaration uses `sorry`

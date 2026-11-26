@@ -1,0 +1,9 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:217:46: error: Application type mismatch: The argument
+  h'
+has type
+  ⟨↑a, ⋯⟩ = ⟨↑b, ⋯⟩
+but is expected to have type
+  a = b
+in the application
+  congrArg Subtype.val h'
+Rooms/Target_B3_569_B_full_noplan_hold.lean:279:8: warning: declaration uses `sorry`

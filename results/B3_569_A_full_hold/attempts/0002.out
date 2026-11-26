@@ -1,0 +1,104 @@
+Rooms/Target_B3_569_A_full_hold.lean:90:36: error(lean.unknownIdentifier): Unknown constant `Set.ncard_pos.mpr`
+Rooms/Target_B3_569_A_full_hold.lean:134:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:134:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:136:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:136:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:142:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:142:22: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:143:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:143:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:134:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg hba]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_A_full_hold.lean:136:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg hba]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_A_full_hold.lean:154:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:192:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:223:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:244:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:251:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:259:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:267:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:274:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:281:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:288:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:295:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:302:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:309:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:314:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:319:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:324:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:329:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:336:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:345:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:354:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:362:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:369:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:376:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:382:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:387:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:392:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:399:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:406:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:418:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:425:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:431:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:437:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:443:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:455:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:461:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:466:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:473:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:479:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:493:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:501:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:506:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:513:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:522:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:531:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:539:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:552:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:564:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:575:8: warning: declaration uses `sorry`

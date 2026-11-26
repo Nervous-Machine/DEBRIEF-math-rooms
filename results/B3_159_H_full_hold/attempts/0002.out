@@ -1,0 +1,35 @@
+Rooms/Target_B3_159_H_full_hold.lean:306:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_159_H_full_hold.lean:310:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_159_H_full_hold.lean:309:4: error: unsolved goals
+case neg
+V : Type u_1
+inst✝² : Fintype V
+inst✝¹ : DecidableEq V
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+s : Finset V
+v : V
+hv : v ∈ s
+h1 :
+  ∑ u ∈ s, (Finset.filter (G.Adj u) s).card =
+    (Finset.filter (G.Adj v) s).card + ∑ u ∈ s.erase v, (Finset.filter (G.Adj u) s).card
+u : V
+a✝ : u ∈ s.erase v
+huv : ¬G.Adj u v
+hmem : v ∉ Finset.filter (G.Adj u) s
+⊢ (Finset.filter (G.Adj u) s).card ≤ (Finset.filter (G.Adj u) s).card + 0
+Rooms/Target_B3_159_H_full_hold.lean:449:28: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B3_159_H_full_hold.lean:504:11: error(lean.unknownIdentifier): Unknown identifier `le_or_lt`
+Rooms/Target_B3_159_H_full_hold.lean:504:29: error: Tactic `rcases` failed: `x✝ : ?m.120` is not an inductive datatype
+Rooms/Target_B3_159_H_full_hold.lean:526:8: warning: declaration uses `sorry`

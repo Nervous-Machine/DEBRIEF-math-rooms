@@ -1,0 +1,29 @@
+Rooms/Target_B3_569_B_full_noplan_hold.lean:216:46: error: Application type mismatch: The argument
+  Function.Embedding.injective e (Subtype.ext h)
+has type
+  ⟨↑a, ⋯⟩ = ⟨↑b, ⋯⟩
+but is expected to have type
+  a = b
+in the application
+  congrArg Subtype.val (Function.Embedding.injective e (Subtype.ext h))
+Rooms/Target_B3_569_B_full_noplan_hold.lean:218:6: error: Type mismatch: After simplification, term
+  (e ⟨↑w, Finset.mem_erase.mpr ⟨w.property, Finset.mem_univ ↑w⟩⟩).property
+ has type
+  True
+but is expected to have type
+  G.Adj x ↑(e ⟨↑w, ⋯⟩)
+Rooms/Target_B3_569_B_full_noplan_hold.lean:258:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_B_full_noplan_hold.lean:269:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_B_full_noplan_hold.lean:277:8: warning: declaration uses `sorry`

@@ -5,3 +5,13 @@
 0005	2026-11-26T01:35:44Z	isContained_of_extend	error	rc=1	secs=3	bytes=9178
 0006	2026-11-26T01:35:59Z	isContained_of_extend	error	rc=1	secs=3	bytes=9143
 0007	2026-11-26T01:36:34Z	isContained_of_extend	sorry	rc=0	secs=3	bytes=9248
+0008	2026-11-26T01:38:07Z	cycleGraph_isContained_of_isClique	error	rc=1	secs=3	bytes=9870
+0009	2026-11-26T01:38:18Z	cycleGraph_isContained_of_isClique	sorry	rc=0	secs=3	bytes=9862
+0010	2026-11-26T01:45:06Z	exists_isClique_of_compl_degree_le	error	rc=1	secs=3	bytes=16193
+0011	2026-11-26T01:45:36Z	star_isContained_of_le_degree	error	rc=1	secs=3	bytes=16245
+0012	2026-11-26T01:45:55Z	star_isContained_of_le_degree	sorry	rc=0	secs=3	bytes=16239
+0013	2026-11-26T01:46:43Z	cycleGraph_isContained_of_compl_degree_lt	error	rc=1	secs=3	bytes=17498
+0014	2026-11-26T01:47:01Z	cycleGraph_isContained_of_compl_degree_lt	sorry	rc=0	secs=3	bytes=17552
+0015	2026-11-26T01:50:51Z	isContained_of_ncard_edgeSet_eq_two	sorry	rc=0	secs=3	bytes=23373
+0016	2026-11-26T01:52:39Z	isContained_of_ncard_edgeSet_eq_two	sorry	rc=0	secs=3	bytes=23293
+0017	2026-11-26T01:54:34Z	FINAL	sorry	rc=0	secs=3	bytes=23293

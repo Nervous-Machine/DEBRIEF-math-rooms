@@ -1,0 +1,65 @@
+Rooms/Target_B3_569_A_full_hold.lean:45:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:55:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:60:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:65:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:70:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:75:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:80:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:85:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:90:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:96:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:103:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:109:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:116:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:123:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:130:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:137:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:145:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:153:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:160:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:167:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:174:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:181:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:188:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:195:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:200:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:205:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:210:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:215:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:222:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:231:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:240:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:248:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:255:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:262:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:268:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:273:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:280:48: error: Type mismatch
+  T
+has type
+  Finset ?m.11
+but is expected to have type
+  Set W
+Rooms/Target_B3_569_A_full_hold.lean:285:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:292:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:304:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:311:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:317:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:323:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:329:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:341:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:347:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:352:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:359:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:365:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:379:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:387:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:392:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:399:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:408:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:417:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:425:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:438:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:450:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:461:8: warning: declaration uses `sorry`
