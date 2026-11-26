@@ -1,0 +1,287 @@
+# Build 3, rooms drawn from the OPEN question Erdős 159 by the planner with no paper: statements, dependencies, Mathlib roots, join/leaf marks and the planner's belief per room. Predictions sealed.
+root: erdos_159
+nodes:
+- id: N01
+  name: graphRamsey_le_of_forall
+  statement: "theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β]\n    (G : SimpleGraph α) (H\
+    \ : SimpleGraph β) (N : ℕ)\n    (h : ∀ C : SimpleGraph (Fin N), G.IsContained C ∨ H.IsContained Cᶜ) :\n    SimpleGraph.graphRamsey\
+    \ G H ≤ N\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.sInf_le
+  kind: lemma
+  believed: provable
+- id: N02
+  name: complete_isContained_compl_iff
+  statement: "theorem complete_isContained_compl_iff {V : Type*} (C : SimpleGraph V) (n : ℕ) :\n    (SimpleGraph.completeGraph\
+    \ (Fin n)).IsContained Cᶜ ↔ ¬ C.IndepSetFree n\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.not_cliqueFree_iff_top_isContained
+  - SimpleGraph.cliqueFree_compl
+  kind: lemma
+  believed: provable
+- id: N03
+  name: c4_free_common_nbrs
+  statement: "theorem c4_free_common_nbrs {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {u v : V} (huv : u ≠ v) :\n    (G.neighborFinset\
+    \ u ∩ G.neighborFinset v).card ≤ 1\n"
+  depends_on: []
+  mathlib_roots:
+  - SimpleGraph.cycleGraph_adj
+  - SimpleGraph.cycleGraph_isContained_iff
+  - Finset.card_le_one
+  - SimpleGraph.Copy
+  kind: lemma
+  believed: provable
+- id: N04
+  name: c4_free_nbhd_local_degree
+  statement: "theorem c4_free_nbhd_local_degree {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V)\
+    \ [DecidableRel G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (v w : V) (hw : G.Adj v w) :\n\
+    \    ((G.neighborFinset v).filter (G.Adj w)).card ≤ 1\n"
+  depends_on:
+  - N03
+  mathlib_roots:
+  - SimpleGraph.mem_neighborFinset
+  - Finset.card_le_card
+  - SimpleGraph.Adj.ne
+  kind: lemma
+  believed: provable
+- id: N05
+  name: greedy_indep_local
+  statement: "theorem greedy_indep_local {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj] (s : Finset V) (D : ℕ)\n    (hD : ∀ v ∈ s, (s.filter (G.Adj v)).card ≤ D) :\n    ∃ t ⊆ s, G.IsIndepSet\
+    \ (t : Set V) ∧ s.card ≤ (D + 1) * t.card\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.strongInduction
+  - Finset.card_sdiff
+  - SimpleGraph.isIndepSet_iff
+  - Finset.card_insert_of_notMem
+  kind: lemma
+  believed: provable
+- id: N06
+  name: degree_lt_of_c4_free_indepSetFree
+  statement: "theorem degree_lt_of_c4_free_indepSetFree {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph\
+    \ V) [DecidableRel G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {n : ℕ} (hα : G.IndepSetFree\
+    \ n) (v : V) :\n    G.degree v < 2 * n\n"
+  depends_on:
+  - N04
+  - N05
+  mathlib_roots:
+  - Finset.exists_subset_card_eq
+  - SimpleGraph.isNIndepSet_iff
+  - SimpleGraph.card_neighborFinset_eq_degree
+  kind: join
+  believed: provable
+- id: N07
+  name: card_le_quadratic_of_c4_free
+  statement: "theorem card_le_quadratic_of_c4_free {N n : ℕ} (G : SimpleGraph (Fin N)) [DecidableRel G.Adj]\n  \
+    \  (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (hα : G.IndepSetFree n) :\n    N ≤ 2 * n * n\n"
+  depends_on:
+  - N05
+  - N06
+  mathlib_roots:
+  - Finset.exists_subset_card_eq
+  - SimpleGraph.isNIndepSet_iff
+  - Fintype.card_fin
+  - Finset.filter_univ_mem
+  kind: join
+  believed: provable
+- id: N08
+  name: graphRamsey_le_of_c4_free_bound
+  statement: "theorem graphRamsey_le_of_c4_free_bound (n N : ℕ)\n    (h : ∀ G : SimpleGraph (Fin N), ¬ (SimpleGraph.cycleGraph\
+    \ 4).IsContained G → ¬ G.IndepSetFree n) :\n    SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph\
+    \ (Fin n)) ≤ N\n"
+  depends_on:
+  - N01
+  - N02
+  mathlib_roots:
+  - Classical.or_iff_not_imp_left
+  kind: join
+  believed: provable
+- id: N09
+  name: graphRamsey_c4_le_quadratic
+  statement: "theorem graphRamsey_c4_le_quadratic (n : ℕ) :\n    SimpleGraph.graphRamsey (SimpleGraph.cycleGraph\
+    \ 4) (SimpleGraph.completeGraph (Fin n)) ≤ 2 * n * n + 1\n"
+  depends_on:
+  - N07
+  - N08
+  mathlib_roots: []
+  kind: join
+  believed: provable
+- id: N10
+  name: turan_weak
+  statement: "theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]\
+    \ :\n    ∃ t : Finset V, G.IsIndepSet (t : Set V) ∧\n      Fintype.card V ^ 2 ≤ 2 * (4 * G.edgeFinset.card +\
+    \ Fintype.card V) * t.card\n"
+  depends_on:
+  - N05
+  mathlib_roots:
+  - SimpleGraph.sum_degrees_eq_twice_card_edges
+  - Finset.card_filter_le
+  - Finset.sum_le_sum
+  - Finset.card_le_card
+  kind: lemma
+  believed: provable
+- id: N11
+  name: exists_dense_core
+  statement: "theorem exists_dense_core {V : Type*} [Fintype V] [DecidableEq V] [Nonempty V]\n    (G : SimpleGraph\
+    \ V) [DecidableRel G.Adj] (d : ℕ)\n    (hd : d * Fintype.card V ≤ G.edgeFinset.card) :\n    ∃ s : Finset V,\
+    \ s.Nonempty ∧ ∀ v ∈ s, d ≤ (s.filter (G.Adj v)).card\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.strongInduction
+  - SimpleGraph.sum_degrees_eq_twice_card_edges
+  - Finset.sum_filter
+  - Finset.card_erase_of_mem
+  kind: lemma
+  believed: provable
+- id: N12
+  name: moore_bound_c4_free
+  statement: "theorem moore_bound_c4_free {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) (d : ℕ) (hs : s.Nonempty)\n \
+    \   (hmin : ∀ v ∈ s, d ≤ (s.filter (G.Adj v)).card) :\n    d * d ≤ 2 * s.card\n"
+  depends_on:
+  - N03
+  mathlib_roots:
+  - Finset.card_biUnion
+  - Finset.card_le_card
+  - Finset.pairwiseDisjoint
+  - Finset.card_sdiff
+  kind: lemma
+  believed: provable
+- id: N13
+  name: core_near_extremal
+  statement: "theorem core_near_extremal :\n    ∃ δ η : ℝ, 0 < δ ∧ δ ≤ 1 / 8 ∧ 4 * δ ≤ η ∧ ∀ κ : ℝ, 0 < κ → ∃ K\
+    \ : ℝ, 0 < K ∧\n      ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (s :\
+    \ Finset V),\n        ¬ (SimpleGraph.cycleGraph 4).IsContained G →\n        (∀ v ∈ s, κ * (s.card : ℝ) ^ ((1\
+    \ : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj v)).card : ℝ)) →\n        ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K * (s.card\
+    \ : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card : ℝ)\n"
+  depends_on: []
+  mathlib_roots: []
+  kind: open_core
+  believed: unsure
+- id: N14
+  name: sparse_branch_arith
+  statement: "theorem sparse_branch_arith (δ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 2) (N E t : ℝ) (hN : 1 ≤ N)\n    (hE0\
+    \ : 0 ≤ E) (hE : E ≤ N ^ ((3 : ℝ) / 2 - δ)) (ht : N ^ 2 ≤ 2 * (4 * E + N) * t) :\n    N ^ ((1 : ℝ) / 2 + δ)\
+    \ ≤ 10 * t\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.rpow_le_rpow_of_exponent_le
+  - Real.rpow_add
+  - Real.rpow_natCast
+  - Real.rpow_pos_of_pos
+  kind: arith
+  believed: provable
+- id: N15
+  name: dense_branch_arith
+  statement: "theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK : 0 < K)\n\
+    \    (N M : ℝ) (hN : 1 ≤ N) (hM : 0 ≤ M) (hNM : N ^ (1 - 2 * δ) ≤ 8 * M) :\n    K * (8 : ℝ) ^ (-((1 : ℝ) / 2\
+    \ + η)) * N ^ ((1 : ℝ) / 2 + η / 2) ≤ K * M ^ ((1 : ℝ) / 2 + η)\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.rpow_le_rpow
+  - Real.rpow_mul
+  - Real.mul_rpow
+  - Real.rpow_neg
+  - Real.rpow_le_rpow_of_exponent_le
+  kind: arith
+  believed: provable
+- id: N16
+  name: c4_free_indep_power
+  statement: "theorem c4_free_indep_power :\n    ∃ ε K : ℝ, 0 < ε ∧ 0 < K ∧ ∀ (N : ℕ) (G : SimpleGraph (Fin N))\
+    \ [DecidableRel G.Adj],\n      ¬ (SimpleGraph.cycleGraph 4).IsContained G →\n      ∃ t : Finset (Fin N), G.IsIndepSet\
+    \ (t : Set (Fin N)) ∧ K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (t.card : ℝ)\n"
+  depends_on:
+  - N10
+  - N11
+  - N12
+  - N13
+  - N14
+  - N15
+  mathlib_roots:
+  - Nat.floor_le
+  - Nat.lt_floor_add_one
+  - Real.rpow_natCast
+  - Fintype.card_fin
+  kind: join
+  believed: unsure
+- id: N17
+  name: rpow_inversion
+  statement: "theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ N) (hx : 0 ≤ x)\n    (h :\
+    \ K * N ^ ((1 : ℝ) / 2 + ε) ≤ x) :\n    N ≤ K ^ (-(2 / (1 + 2 * ε))) * x ^ (2 - 4 * ε / (1 + 2 * ε))\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.rpow_le_rpow
+  - Real.rpow_mul
+  - Real.mul_rpow
+  - Real.rpow_neg
+  - Real.rpow_one
+  kind: arith
+  believed: provable
+- id: N18
+  name: card_le_power_of_c4_free
+  statement: "theorem card_le_power_of_c4_free :\n    ∃ c C : ℝ, 0 < c ∧ c ≤ 2 ∧ 0 ≤ C ∧ ∀ (n N : ℕ) (G : SimpleGraph\
+    \ (Fin N)) [DecidableRel G.Adj], 1 ≤ n →\n      ¬ (SimpleGraph.cycleGraph 4).IsContained G → G.IndepSetFree\
+    \ n → (N : ℝ) ≤ C * (n : ℝ) ^ (2 - c)\n"
+  depends_on:
+  - N16
+  - N17
+  mathlib_roots:
+  - Finset.exists_subset_card_eq
+  - SimpleGraph.isNIndepSet_iff
+  kind: join
+  believed: unsure
+- id: N19
+  name: floor_succ_le_power
+  statement: "theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ) (hn : 1 ≤ n)\n    (hx :\
+    \ x ≤ C * (n : ℝ) ^ (2 - c)) :\n    ((⌊x⌋₊ + 1 : ℕ) : ℝ) ≤ (C + 1) * (n : ℝ) ^ (2 - c)\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.floor_le
+  - Nat.floor_eq_zero
+  - Real.one_le_rpow
+  kind: arith
+  believed: provable
+- id: ROOT
+  name: erdos_159
+  statement: "theorem erdos_159 :\n    ∃ (c : ℝ) (_ : 0 < c) (C : ℝ),\n      ∀ (n : ℕ), 1 ≤ n →\n        (SimpleGraph.graphRamsey\
+    \ (SimpleGraph.cycleGraph 4)\n          (SimpleGraph.completeGraph (Fin n)) : ℝ) ≤ C * (n : ℝ) ^ (2 - c)\n"
+  depends_on:
+  - N08
+  - N18
+  - N19
+  mathlib_roots:
+  - Nat.lt_floor_add_one
+  kind: join
+  believed: unsure
+notes: 'Path: Ramsey bound <- every C4-free graph with no independent n-set has at most C n^(2-c) vertices <- every
+  C4-free
+
+  graph on N vertices has an independent set of size K N^(1/2+eps) (N16). N16 splits on edge count: sparse graphs
+
+  (E <= N^(3/2-delta)) fall to the Turan-type bound N10 with N14; dense graphs yield, by N11 and the Moore bound
+  N12, a
+
+  set s of size about N^(1-2 delta) with internal minimum degree about |s|^(1/2-delta), and N13 must then find an
+
+  independent set of size |s|^(1/2+eta) with eta >= 4 delta. N13 is the room I cannot see into: it carries the whole
+
+  open problem (near-extremal C4-free graphs, polarity-graph-like, must have independence number polynomially above
+
+  sqrt N). I cannot name its internal rooms honestly; N16, N18 and ROOT inherit its reach. All other rooms are
+
+  standard and provable; the risky provable ones are N05, N10, N11, N12 (finset induction and counting).
+
+  The fit: N09, R(C4,K_n) <= 2n^2 + 1, the exponent-2 bound from "C4-free means each neighbourhood induces a
+
+  matching, so degree < 2n". A searcher under pressure would prove N09 (or a log-improved n^2/log n bound via a
+
+  Shearer-type lemma for locally sparse graphs) and present it as the result; neither gives c > 0. Another fit is
+  to
+
+  add a hypothesis to N13 (e.g. assume regularity, or a specific algebraic graph) or to quantify c after n.
+
+  '
