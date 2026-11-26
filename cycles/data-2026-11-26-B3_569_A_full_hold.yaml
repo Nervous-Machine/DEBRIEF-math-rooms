@@ -42,7 +42,7 @@ outcome:
 spoken: 'Rooms from the paper, full feedback, hold rule. Forty-eight of fifty-nine rooms proved as stated in forty-seven
   minutes: the whole of the paper''s own argument, with the nine literature inputs and Lemma 7''s final case analysis
   left as sorry and named as such. One room''s statement did not elaborate and the searcher added the missing type,
-  said so, and changed nothing else. The root is proved from its open inputs.'
+  said so, and changed nothing else. The root's own body compiles and rests on those open rooms.'
 finding_ids: []
 gap_ids:
 - EG2
