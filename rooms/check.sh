@@ -8,6 +8,7 @@
 #   R1_full    Lean's complete output
 #   R2_binary  the single word ok or error
 #   R3_none    nothing until NODE is FINAL; before that the call is refused and not compiled
+#   *forced*   (build 4) as *full*, plus the forced-attempt rule below
 # Caps: 12 calls per node (R1, R2). A call past the cap is refused, logged, and not compiled. FINAL is always compiled.
 set -u
 REGIME=${1:?regime}; NODE=${2:?node}; FILE=${3:?file}
@@ -22,6 +23,23 @@ if [ "$NODE" != FINAL ]; then
   USED=$(awk -F'\t' -v n="$NODE" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
   [ "$USED" -ge 12 ] && refuse "cap of 12 attempts reached for node $NODE"
 fi
+# *forced* regimes (build 4): results/<REGIME>/forced.conf names the forced node (node=, name=, allowed=). A call tagged
+# with the forced node is refused unless the file has no sorry outside the allowed rooms (a genuine attempt); a FINAL
+# is refused while the forced node has fewer than 12 genuine attempts and the file still has sorry outside them.
+case "$REGIME" in *forced*)
+  FCONF="$HERE/results/$REGIME/forced.conf"
+  [ -f "$FCONF" ] || { echo "tool error: forced.conf missing"; exit 4; }
+  FNODE=$(sed -n 's/^node=//p' "$FCONF"); FALLOW=$(sed -n 's/^allowed=//p' "$FCONF")
+  if [ "$NODE" = "$FNODE" ]; then
+    BAD=$(python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$HERE/$FALLOW") || refuse "not a genuine attempt at $FNODE: sorry in $BAD"
+  fi
+  if [ "$NODE" = FINAL ]; then
+    DONE=$(awk -F'\t' -v n="$FNODE" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
+    if [ "$DONE" -lt 12 ] && ! python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$HERE/$FALLOW" >/dev/null; then
+      refuse "FINAL refused: $FNODE has $DONE of 12 genuine attempts and the file still has sorry outside the allowed rooms"
+    fi
+  fi ;;
+esac
 limactl copy "$FILE" "primegaps:/home/heidibennett.guest/rooms/project/Rooms/Target_$REGIME.lean" >/dev/null 2>&1 || { echo "tool error: copy failed" ; exit 4; }
 START=$(date +%s)
 limactl shell primegaps -- sh -c 'cd ~/rooms/project && PATH=$HOME/.elan/bin:$PATH timeout 600 lake env lean Rooms/Target_'"$REGIME"'.lean' > "$LOG/$SEQ.out" 2>&1
