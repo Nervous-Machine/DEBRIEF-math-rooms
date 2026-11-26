@@ -151,5 +151,6 @@
  ],
  "attempts_median": 1,
  "attempts_median_joins": 2,
- "attempts_median_leaves": null
+ "attempts_median_leaves": null,
+ "tokens_total": 205979
 }

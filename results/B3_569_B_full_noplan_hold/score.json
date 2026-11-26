@@ -1,0 +1,396 @@
+{
+ "regime": "B3_569_B_full_noplan_hold",
+ "calls": 17,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0017",
+   "sorry"
+  ]
+ ],
+ "per_node": {
+  "ROOT": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 2
+  },
+  "core_one": {
+   "attempts": 3,
+   "ok": 0,
+   "error": 3,
+   "timeout": 0,
+   "secs": 9
+  },
+  "isContained_of_extend": {
+   "attempts": 3,
+   "ok": 0,
+   "error": 3,
+   "timeout": 0,
+   "secs": 9
+  },
+  "cycleGraph_isContained_of_isClique": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 6
+  },
+  "exists_isClique_of_compl_degree_le": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 3
+  },
+  "star_isContained_of_le_degree": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 6
+  },
+  "cycleGraph_isContained_of_compl_degree_lt": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 6
+  },
+  "isContained_of_ncard_edgeSet_eq_two": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 6
+  }
+ },
+ "final_status_at_first_FINAL": "sorry",
+ "shape": {
+  "declarations": 18,
+  "unused_by_root": [
+   "isContained_compl_of_comap"
+  ],
+  "unused_count": 1,
+  "root_found": true,
+  "depth": 5,
+  "own_lines_median": 18.0,
+  "own_lines": {
+   "graphRamsey": 11,
+   "graphRamsey_le_of_forall": 7,
+   "isEmpty_of_ncard_edgeSet_eq_zero": 9,
+   "cycleGraph_isContained_top": 6,
+   "isContained_of_ncard_edgeSet_eq_one": 32,
+   "core_one": 19,
+   "isContained_compl_of_comap": 10,
+   "isContained_of_extend": 29,
+   "cycleGraph_isContained_of_isClique": 11,
+   "exists_isClique_of_compl_degree_le": 48,
+   "star_isContained_of_le_degree": 27,
+   "core_star": 47,
+   "cycleGraph_isContained_of_compl_degree_lt": 17,
+   "isContained_of_ncard_edgeSet_eq_two": 89,
+   "core_two_nonstar": 33,
+   "core_ge_three_nonstar": 8,
+   "core": 34,
+   "cambie_freschi": 12
+  },
+  "retry_named": [],
+  "joins": [
+   "cycleGraph_isContained_top",
+   "cycleGraph_isContained_of_isClique",
+   "exists_isClique_of_compl_degree_le",
+   "cycleGraph_isContained_of_compl_degree_lt",
+   "core"
+  ],
+  "edges": 26
+ },
+ "fit": {
+  "sorry": 1,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [
+   {
+    "id": "N01",
+    "how": "absent"
+   },
+   {
+    "id": "N02",
+    "how": "absent"
+   },
+   {
+    "id": "N03",
+    "how": "absent"
+   },
+   {
+    "id": "N04",
+    "how": "absent"
+   },
+   {
+    "id": "N05",
+    "how": "absent"
+   },
+   {
+    "id": "N06",
+    "how": "absent"
+   },
+   {
+    "id": "N07",
+    "how": "absent"
+   },
+   {
+    "id": "N08",
+    "how": "absent"
+   },
+   {
+    "id": "N09",
+    "how": "absent"
+   },
+   {
+    "id": "N10",
+    "how": "absent"
+   },
+   {
+    "id": "N11",
+    "how": "absent"
+   },
+   {
+    "id": "N12",
+    "how": "absent"
+   },
+   {
+    "id": "N13",
+    "how": "absent"
+   },
+   {
+    "id": "N14",
+    "how": "absent"
+   },
+   {
+    "id": "N15",
+    "how": "absent"
+   },
+   {
+    "id": "N16",
+    "how": "absent"
+   },
+   {
+    "id": "N17",
+    "how": "absent"
+   },
+   {
+    "id": "N18",
+    "how": "absent"
+   },
+   {
+    "id": "N19",
+    "how": "absent"
+   },
+   {
+    "id": "N20",
+    "how": "absent"
+   },
+   {
+    "id": "N21",
+    "how": "absent"
+   },
+   {
+    "id": "N22",
+    "how": "absent"
+   },
+   {
+    "id": "N23",
+    "how": "absent"
+   },
+   {
+    "id": "N24",
+    "how": "absent"
+   },
+   {
+    "id": "N25",
+    "how": "absent"
+   },
+   {
+    "id": "N26",
+    "how": "absent"
+   },
+   {
+    "id": "N27",
+    "how": "absent"
+   },
+   {
+    "id": "N28",
+    "how": "absent"
+   },
+   {
+    "id": "N29",
+    "how": "absent"
+   },
+   {
+    "id": "N30",
+    "how": "absent"
+   },
+   {
+    "id": "N31",
+    "how": "absent"
+   },
+   {
+    "id": "N32",
+    "how": "absent"
+   },
+   {
+    "id": "N33",
+    "how": "absent"
+   },
+   {
+    "id": "N34",
+    "how": "absent"
+   },
+   {
+    "id": "N35",
+    "how": "absent"
+   },
+   {
+    "id": "N36",
+    "how": "absent"
+   },
+   {
+    "id": "N37",
+    "how": "absent"
+   },
+   {
+    "id": "N38",
+    "how": "absent"
+   },
+   {
+    "id": "N39",
+    "how": "absent"
+   },
+   {
+    "id": "N40",
+    "how": "absent"
+   },
+   {
+    "id": "N41",
+    "how": "absent"
+   },
+   {
+    "id": "N42",
+    "how": "absent"
+   },
+   {
+    "id": "N43",
+    "how": "absent"
+   },
+   {
+    "id": "N44",
+    "how": "absent"
+   },
+   {
+    "id": "N45",
+    "how": "absent"
+   },
+   {
+    "id": "N46",
+    "how": "absent"
+   },
+   {
+    "id": "N47",
+    "how": "absent"
+   },
+   {
+    "id": "N48",
+    "how": "absent"
+   },
+   {
+    "id": "N49",
+    "how": "absent"
+   },
+   {
+    "id": "N50",
+    "how": "absent"
+   },
+   {
+    "id": "N51",
+    "how": "absent"
+   },
+   {
+    "id": "N52",
+    "how": "absent"
+   },
+   {
+    "id": "N53",
+    "how": "absent"
+   },
+   {
+    "id": "N54",
+    "how": "absent"
+   },
+   {
+    "id": "N55",
+    "how": "absent"
+   },
+   {
+    "id": "N56",
+    "how": "absent"
+   },
+   {
+    "id": "N57",
+    "how": "absent"
+   },
+   {
+    "id": "N58",
+    "how": "absent"
+   },
+   {
+    "id": "N59",
+    "how": "absent"
+   }
+  ],
+  "sorry_in": [
+   "core_ge_three_nonstar"
+  ],
+  "root_sorry": false,
+  "total": 1,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "Rooms/Axioms.lean:418:8: warning: declaration uses `sorry`\n'Erdos569.cambie_freschi' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": false,
+ "residual": true,
+ "rooms_proved": [
+  "graphRamsey_le_of_forall",
+  "isEmpty_of_ncard_edgeSet_eq_zero",
+  "cycleGraph_isContained_top",
+  "isContained_of_ncard_edgeSet_eq_one",
+  "core_one",
+  "isContained_compl_of_comap",
+  "isContained_of_extend",
+  "cycleGraph_isContained_of_isClique",
+  "exists_isClique_of_compl_degree_le",
+  "star_isContained_of_le_degree",
+  "core_star",
+  "cycleGraph_isContained_of_compl_degree_lt",
+  "isContained_of_ncard_edgeSet_eq_two",
+  "core_two_nonstar",
+  "core",
+  "cambie_freschi"
+ ],
+ "attempts_median": 2.0,
+ "attempts_median_joins": 1,
+ "attempts_median_leaves": null,
+ "tokens_total": 191580
+}
