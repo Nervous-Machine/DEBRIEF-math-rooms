@@ -1,0 +1,237 @@
+Rooms/Target_B3_569_A_full_hold.lean:134:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:134:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:136:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:136:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:142:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:142:22: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:143:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:143:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:134:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg hba]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_A_full_hold.lean:136:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg hba]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_A_full_hold.lean:154:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:192:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:223:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:244:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:298:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:332:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  { toFun := φ, map_rel' := ⋯ } a
+in the target expression
+  D.Adj (φ a) (φ b)
+
+case neg
+W V : Type
+inst✝ : Fintype W
+H : SimpleGraph W
+t : ℕ
+c : H.Coloring (Fin t)
+D : SimpleGraph V
+P : Fin t → Finset V
+hP : ∀ (i : Fin t), {w | c w = i}.card ≤ (P i).card
+hcross : ∀ (i j : Fin t), i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j, D.Adj x y
+hemb : ∀ (i : Fin t), Nonempty ({ w // c w = i } ↪ ↥(P i))
+e : (i : Fin t) → { w // c w = i } ↪ ↥(P i) := fun i => ⋯.some
+φ : W → V := fun w => ↑((e (c w)) ⟨w, ⋯⟩)
+hφ : ∀ (w : W), φ w ∈ P (c w)
+key : ∀ (w : W) (j : Fin t) (h : c w = j), ↑((e j) ⟨w, h⟩) = φ w
+a b : W
+hab : { toFun := φ, map_rel' := ⋯ } a = { toFun := φ, map_rel' := ⋯ } b
+hab' : φ a = φ b
+hc : ¬c a = c b
+this : D.Adj (φ a) (φ b)
+⊢ a = b
+Rooms/Target_B3_569_A_full_hold.lean:366:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:373:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:380:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:387:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:392:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:397:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:402:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:407:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:414:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:423:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:432:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:440:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:447:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:454:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:470:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:497:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:509:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:516:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:535:14: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.mem_support.mpr`
+Rooms/Target_B3_569_A_full_hold.lean:535:66: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.mem_support.mpr`
+Rooms/Target_B3_569_A_full_hold.lean:538:22: error(lean.unknownIdentifier): Unknown constant `SimpleGraph.mem_support.mp`
+Rooms/Target_B3_569_A_full_hold.lean:538:11: error: Tactic `rcases` failed: `x✝ : ?m.119` is not an inductive datatype
+Rooms/Target_B3_569_A_full_hold.lean:548:10: error(lean.unknownIdentifier): Unknown identifier `glue_components`
+Rooms/Target_B3_569_A_full_hold.lean:549:4: error: No goals to be solved
+Rooms/Target_B3_569_A_full_hold.lean:564:76: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:565:83: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:581:46: error(lean.unknownIdentifier): Unknown identifier `hab`
+Rooms/Target_B3_569_A_full_hold.lean:628:12: error(lean.unknownIdentifier): Unknown constant `Sym2.map_pair_eq`
+Rooms/Target_B3_569_A_full_hold.lean:634:12: error(lean.unknownIdentifier): Unknown constant `Sym2.map_pair_eq`
+Rooms/Target_B3_569_A_full_hold.lean:646:8: error(lean.unknownIdentifier): Unknown constant `Sym2.map_pair_eq`
+Rooms/Target_B3_569_A_full_hold.lean:696:68: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  H.edgeSet.ncard
+in the target expression
+  (k - 1) * m = (k - 1) * m1 + (k - 1) * m2
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m' < m,
+    ∀ (W' : Type) [Fintype W'] (H' : SimpleGraph W'),
+      (∀ (v : W'), ∃ w, H'.Adj v w) →
+        H'.edgeSet.ncard = m' →
+          ∀ (V' : Type) [inst : Fintype V'] (C' : SimpleGraph V'),
+            (k - 1) * m' + 1 ≤ Fintype.card V' → (SimpleGraph.cycleGraph k).IsContained C' ∨ H'.IsContained C'ᶜ
+W : Type
+inst✝¹ : Fintype W
+H : SimpleGraph W
+h0 : ∀ (v : W), ∃ w, H.Adj v w
+hm : H.edgeSet.ncard = m
+hc : ¬H.Connected
+hne : Nonempty W
+V : Type
+inst✝ : Fintype V
+C : SimpleGraph V
+hV : (k - 1) * m + 1 ≤ Fintype.card V
+A : Set W
+hAne : A.Nonempty
+hAcne : Aᶜ.Nonempty
+hA : ∀ (x y : W), H.Adj x y → (x ∈ A ↔ y ∈ A)
+h0A : ∀ (v : ↑A), ∃ w, (SimpleGraph.induce A H).Adj v w
+hAc : ∀ (x y : W), H.Adj x y → (x ∈ Aᶜ ↔ y ∈ Aᶜ)
+h0Ac : ∀ (v : ↑Aᶜ), ∃ w, (SimpleGraph.induce Aᶜ H).Adj v w
+m1 : ℕ := (SimpleGraph.induce A H).edgeSet.ncard
+hm1 : m1 = (SimpleGraph.induce A H).edgeSet.ncard
+m2 : ℕ := (SimpleGraph.induce Aᶜ H).edgeSet.ncard
+hsplit : m1 + m2 = H.edgeSet.ncard
+hm2 : m2 = (SimpleGraph.induce Aᶜ H).edgeSet.ncard
+hcardA : Fintype.card ↑A ≤ 2 * m1
+hcardAc : Fintype.card ↑Aᶜ ≤ 2 * m2
+hApos : 1 ≤ Fintype.card ↑A
+hAcpos : 1 ≤ Fintype.card ↑Aᶜ
+hm1lt : m1 < m
+hm2lt : m2 < m
+f : (SimpleGraph.induce A H).Copy Cᶜ
+hrange : Fintype.card ↑(Set.range ⇑f) = Fintype.card ↑A
+hcompl : Fintype.card ↑(Set.range ⇑f)ᶜ = Fintype.card V - Fintype.card ↑(Set.range ⇑f)
+hk1 : 2 ≤ k - 1
+⊢ (k - 1) * m = (k - 1) * m1 + (k - 1) * m2
+Rooms/Target_B3_569_A_full_hold.lean:709:41: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:711:32: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:745:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:760:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:774:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:811:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:869:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:895:82: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:896:83: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:919:64: error: Type mismatch
+  Eq.symm hab' ▸ heU1 b hb
+has type
+  ↑(g ⟨a, ha⟩) ∈ U1
+but is expected to have type
+  ?m.403 ∈ U2
+Rooms/Target_B3_569_A_full_hold.lean:921:64: error: Type mismatch
+  hab' ▸ heU1 a ha
+has type
+  ↑(g ⟨b, hb⟩) ∈ U1
+but is expected to have type
+  ?m.425 ∈ U2
+Rooms/Target_B3_569_A_full_hold.lean:959:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:972:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:1015:6: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲

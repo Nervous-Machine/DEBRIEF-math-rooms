@@ -321,22 +321,30 @@ theorem embed_colored_into_parts {W V : Type} [Fintype W] (H : SimpleGraph W) (t
     rfl
   refine ⟨⟨⟨φ, fun {a b} hab => ?_⟩, fun a b hab => ?_⟩⟩
   · exact hcross _ _ (c.valid hab) _ (hφ a) _ (hφ b)
-  · by_cases hc : c a = c b
+  · have hab' : φ a = φ b := hab
+    by_cases hc : c a = c b
     · have h1 := key b (c a) hc.symm
       have h2 : (e (c a) ⟨a, rfl⟩ : V) = φ a := rfl
-      have h3 : (e (c a) ⟨a, rfl⟩ : V) = (e (c a) ⟨b, hc.symm⟩ : V) := by rw [h1, h2]; exact hab
+      have h3 : (e (c a) ⟨a, rfl⟩ : V) = (e (c a) ⟨b, hc.symm⟩ : V) := by rw [h1, h2]; exact hab'
       have h4 := (e (c a)).injective (Subtype.val_injective h3)
       exact congrArg Subtype.val h4
     · have := hcross _ _ hc _ (hφ a) _ (hφ b)
-      rw [hab] at this
-      exact absurd this (D.loopless _)
+      exact absurd hab' this.ne
 /-! N20 lemma5_path_coloring [join, believed provable] deps: N18 N19 -/
 theorem lemma5_path_coloring (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)
     (t : ℕ) (c : H.Coloring (Fin t)) (V : Type) [Fintype V] (C : SimpleGraph V)
     (hV : Fintype.card W + (k - 2) * (t - 1) ≤ Fintype.card V) :
     (SimpleGraph.pathGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
+  classical
+  have hsum : ∑ i : Fin t, (Finset.univ.filter (fun w => c w = i)).card = Fintype.card W := by
+    rw [← Finset.card_univ]
+    exact (Finset.card_eq_sum_card_fiberwise (s := Finset.univ) (t := Finset.univ) (f := c)
+      (fun x _ => Finset.mem_univ _)).symm
+  rcases multipartite_parts k hk t (fun i => (Finset.univ.filter (fun w => c w = i)).card) C
+    Finset.univ (by rw [hsum, Finset.card_univ]; omega) with h | h
+  · exact Or.inl h
+  · obtain ⟨P, _, hP, hcross⟩ := h
+    exact Or.inr (embed_colored_into_parts H t c Cᶜ P hP hcross)
 /-! N21 cor6_path_ramsey [join, believed provable] deps: N20 -/
 theorem cor6_path_ramsey (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W)
     (V : Type) [Fintype V] (C : SimpleGraph V)
@@ -399,8 +407,32 @@ theorem lemma4_small_cycles (k : ℕ) (hk : k = 4 ∨ k = 5 ∨ k = 6) {W : Type
     (H : SimpleGraph W) (hc : H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) (hm2 : 2 ≤ m)
     (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) :
     (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
+  classical
+  have hn := connected_card_le_ncard_add_one H hc
+  rw [hm] at hn
+  have hclique : ∀ r, Fintype.card W ≤ r → (⊤ : SimpleGraph (Fin r)).IsContained Cᶜ →
+      H.IsContained Cᶜ :=
+    fun r hr h => (isContained_top_of_card_le H (by simpa using hr)).trans h
+  rcases hk with rfl | rfl | rfl
+  · exact jayawardene_C4 H hc m hm hm2 V C (by omega)
+  · rcases Nat.lt_or_ge (Fintype.card W) 4 with h4 | h4
+    · rcases ramsey_C5_K3 V C (by omega) with h | h
+      · exact Or.inl h
+      · exact Or.inr (hclique 3 (by omega) h)
+    · exact jayawardene_C5 H hc h4 m hm V C (by omega)
+  · rcases Nat.lt_or_ge (Fintype.card W) 6 with h6 | h6
+    · rcases Nat.lt_or_ge (Fintype.card W) 4 with h4 | h4
+      · rcases ramsey_C6_K3 V C (by omega) with h | h
+        · exact Or.inl h
+        · exact Or.inr (hclique 3 (by omega) h)
+      · rcases Nat.lt_or_ge (Fintype.card W) 5 with h5 | h5
+        · rcases ramsey_C6_K4 V C (by omega) with h | h
+          · exact Or.inl h
+          · exact Or.inr (hclique 4 (by omega) h)
+        · rcases ramsey_C6_K5 V C (by omega) with h | h
+          · exact Or.inl h
+          · exact Or.inr (hclique 5 (by omega) h)
+    · exact jayawardene_C6 H hc h6 m hm V C (by omega)
 /-! N30 claim8 [join, believed provable] deps: N12 -/
 theorem claim8 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V)
     (hw : Set.InjOn w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1)))
@@ -510,20 +542,8 @@ theorem exists_sparse_half {W : Type} [Fintype W] (H : SimpleGraph W)
       4 * (H.induce (T : Set W)).edgeSet.ncard < H.edgeSet.ncard := by
   sorry
 
-/-! N40 ramsey_with_isolated [join, believed provable] deps: N04 N05 -/
-theorem ramsey_with_isolated (k : ℕ) (hk : 3 ≤ k) (m : ℕ)
-    (ih : ∀ m' < m, ∀ (W' : Type) [Fintype W'] (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →
-      H'.edgeSet.ncard = m' → ∀ (V' : Type) [Fintype V'] (C' : SimpleGraph V'),
-      (k - 1) * m' + 1 ≤ Fintype.card V' →
-      (SimpleGraph.cycleGraph k).IsContained C' ∨ H'.IsContained C'ᶜ)
-    {W : Type} [Fintype W] (H : SimpleGraph W) (e : ℕ) (he : H.edgeSet.ncard = e) (hem : e < m)
-    (V : Type) [Fintype V] (C : SimpleGraph V) (hV1 : (k - 1) * e + 1 ≤ Fintype.card V)
-    (hV2 : Fintype.card W ≤ Fintype.card V) :
-    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
-/-! N41 glue_components [leaf, believed provable] deps:  -/
-theorem glue_components {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W)
+-- helper (the content of N41, placed here because N40 uses it; N41 below is proved from it)
+theorem glue_components_aux {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W)
     (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) (C : SimpleGraph V)
     (f : SimpleGraph.Copy (H.induce A) Cᶜ)
     (h2 : (H.induce Aᶜ).IsContained (C.induce (Set.range ⇑f)ᶜ)ᶜ) : H.IsContained Cᶜ := by
@@ -543,15 +563,62 @@ theorem glue_components {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W)
       have := g.toHom.map_adj (show (H.induce Aᶜ).Adj ⟨a, ha⟩ ⟨b, hb⟩ from hab)
       rw [SimpleGraph.compl_adj] at this ⊢
       exact ⟨fun h => this.1 (Subtype.ext h), this.2⟩
-  · by_cases ha : a ∈ A <;> by_cases hb : b ∈ A
-    · rw [hφA a ha, hφA b hb] at hab
-      exact congrArg Subtype.val (f.injective hab)
-    · rw [hφA a ha, hφA' b hb] at hab
-      exact absurd ⟨⟨a, ha⟩, hab⟩ (hgnot b hb)
-    · rw [hφA' a ha, hφA b hb] at hab
-      exact absurd ⟨⟨b, hb⟩, hab.symm⟩ (hgnot a ha)
-    · rw [hφA' a ha, hφA' b hb] at hab
-      exact congrArg Subtype.val (g.injective (Subtype.val_injective hab))
+  · have hab' : φ a = φ b := hab
+    clear hab
+    by_cases ha : a ∈ A <;> by_cases hb : b ∈ A
+    · rw [hφA a ha, hφA b hb] at hab'
+      exact congrArg Subtype.val (f.injective hab')
+    · rw [hφA a ha, hφA' b hb] at hab'
+      exact absurd ⟨⟨a, ha⟩, hab'⟩ (hgnot b hb)
+    · rw [hφA' a ha, hφA b hb] at hab'
+      exact absurd ⟨⟨b, hb⟩, hab'.symm⟩ (hgnot a ha)
+    · rw [hφA' a ha, hφA' b hb] at hab'
+      exact congrArg Subtype.val (g.injective (Subtype.val_injective hab'))
+/-! N40 ramsey_with_isolated [join, believed provable] deps: N04 N05 -/
+theorem ramsey_with_isolated (k : ℕ) (hk : 3 ≤ k) (m : ℕ)
+    (ih : ∀ m' < m, ∀ (W' : Type) [Fintype W'] (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →
+      H'.edgeSet.ncard = m' → ∀ (V' : Type) [Fintype V'] (C' : SimpleGraph V'),
+      (k - 1) * m' + 1 ≤ Fintype.card V' →
+      (SimpleGraph.cycleGraph k).IsContained C' ∨ H'.IsContained C'ᶜ)
+    {W : Type} [Fintype W] (H : SimpleGraph W) (e : ℕ) (he : H.edgeSet.ncard = e) (hem : e < m)
+    (V : Type) [Fintype V] (C : SimpleGraph V) (hV1 : (k - 1) * e + 1 ≤ Fintype.card V)
+    (hV2 : Fintype.card W ≤ Fintype.card V) :
+    (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
+  classical
+  set A := H.support with hAdef
+  have hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A) := fun x y hxy =>
+    ⟨fun _ => (SimpleGraph.mem_support H).mpr ⟨x, hxy.symm⟩, fun _ => (SimpleGraph.mem_support H).mpr ⟨y, hxy⟩⟩
+  have h0A : ∀ v : A, ∃ w, (H.induce A).Adj v w := by
+    intro v
+    obtain ⟨w, hw⟩ := (SimpleGraph.mem_support H).mp v.2
+    exact ⟨⟨w, (hA _ _ hw).mp v.2⟩, hw⟩
+  have heA : (H.induce A).edgeSet.ncard = e := by
+    rw [← he, ← SimpleGraph.coe_edgeFinset, Set.ncard_coe_finset, ← SimpleGraph.coe_edgeFinset,
+      Set.ncard_coe_finset]
+    exact SimpleGraph.card_edgeFinset_induce_support
+  rcases ih e hem A (H.induce A) h0A heA V C hV1 with h | h
+  · exact Or.inl h
+  · obtain ⟨f⟩ := h
+    right
+    apply glue_components_aux H A hA C f
+    have hbot : H.induce Aᶜ ≤ ⊥ := by
+      intro x y hxy
+      exact absurd ((SimpleGraph.mem_support H).mpr ⟨y.val, hxy⟩) x.2
+    refine SimpleGraph.IsContained.mono_left hbot ?_
+    have hrange : Fintype.card (Set.range ⇑f) = Fintype.card A :=
+      Set.card_range_of_injective f.injective
+    have hcompl : Fintype.card ↥(Set.range ⇑f)ᶜ = Fintype.card V - Fintype.card (Set.range ⇑f) :=
+      Fintype.card_compl_set _
+    have hcomplA : Fintype.card ↥Aᶜ = Fintype.card W - Fintype.card A := Fintype.card_compl_set _
+    rw [SimpleGraph.bot_isContained_iff_card_le, hcomplA, hcompl, hrange]
+    omega
+/-! N41 glue_components [leaf, believed provable] deps:  -/
+theorem glue_components {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W)
+    (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) (C : SimpleGraph V)
+    (f : SimpleGraph.Copy (H.induce A) Cᶜ)
+    (h2 : (H.induce Aᶜ).IsContained (C.induce (Set.range ⇑f)ᶜ)ᶜ) : H.IsContained Cᶜ := by
+  exact glue_components_aux H A hA C f h2
+
 /-! N42 split_of_not_connected [leaf, believed provable] deps:  -/
 theorem split_of_not_connected {W : Type} [Fintype W] [Nonempty W] (H : SimpleGraph W)
     (hc : ¬ H.Connected) :
@@ -571,8 +638,51 @@ theorem split_of_not_connected {W : Type} [Fintype W] [Nonempty W] (H : SimpleGr
 theorem edge_split_of_closed {W : Type} [Fintype W] (H : SimpleGraph W) (A : Set W)
     (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) :
     (H.induce A).edgeSet.ncard + (H.induce Aᶜ).edgeSet.ncard = H.edgeSet.ncard := by
-  sorry
-
+  classical
+  have hinj1 : Function.Injective (Sym2.map (Subtype.val : A → W)) :=
+    Sym2.map.injective Subtype.val_injective
+  have hinj2 : Function.Injective (Sym2.map (Subtype.val : ↥Aᶜ → W)) :=
+    Sym2.map.injective Subtype.val_injective
+  have hunion : H.edgeSet = Sym2.map Subtype.val '' (H.induce A).edgeSet ∪
+      Sym2.map Subtype.val '' (H.induce Aᶜ).edgeSet := by
+    ext e
+    induction e using Sym2.ind with
+    | h x y =>
+    simp only [SimpleGraph.mem_edgeSet, Set.mem_union, Set.mem_image]
+    constructor
+    · intro hxy
+      by_cases hx : x ∈ A
+      · left
+        exact ⟨s(⟨x, hx⟩, ⟨y, (hA x y hxy).mp hx⟩), hxy, rfl⟩
+      · right
+        exact ⟨s(⟨x, hx⟩, ⟨y, fun hy => hx ((hA x y hxy).mpr hy)⟩), hxy, rfl⟩
+    · rintro (⟨e', he', hee'⟩ | ⟨e', he', hee'⟩)
+      · induction e' using Sym2.ind with
+        | h a b =>
+        rw [Sym2.map_mk, Sym2.eq_iff] at hee'
+        rcases hee' with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+        · exact he'
+        · exact he'.symm
+      · induction e' using Sym2.ind with
+        | h a b =>
+        rw [Sym2.map_mk, Sym2.eq_iff] at hee'
+        rcases hee' with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+        · exact he'
+        · exact he'.symm
+  have hdisj : Disjoint (Sym2.map Subtype.val '' (H.induce A).edgeSet)
+      (Sym2.map Subtype.val '' (H.induce Aᶜ).edgeSet) := by
+    rw [Set.disjoint_left]
+    rintro e ⟨e1, _, rfl⟩ ⟨e2, _, h12⟩
+    induction e1 using Sym2.ind with
+    | h a b =>
+    induction e2 using Sym2.ind with
+    | h c d =>
+    rw [Sym2.map_mk, Sym2.map_mk, Sym2.eq_iff] at h12
+    rcases h12 with ⟨h1, _⟩ | ⟨h1, _⟩
+    · exact c.2 (h1 ▸ a.2)
+    · exact c.2 (h1 ▸ b.2)
+  rw [hunion, Set.ncard_union_eq hdisj, Set.ncard_image_of_injective _ hinj1,
+    Set.ncard_image_of_injective _ hinj2]
 /-! N44 induce_no_isolated_of_closed [leaf, believed provable] deps:  -/
 theorem induce_no_isolated_of_closed {W : Type} (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w)
     (A : Set W) (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) :
@@ -590,34 +700,70 @@ theorem step_disconnected (k : ℕ) (hk : 3 ≤ k) (m : ℕ)
     (hm : H.edgeSet.ncard = m) (hc : ¬ H.Connected) (hne : Nonempty W)
     (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) :
     (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
+  classical
+  obtain ⟨A, hAne, hAcne, hA⟩ := split_of_not_connected H hc
+  have h0A := induce_no_isolated_of_closed H h0 A hA
+  have hAc : ∀ x y, H.Adj x y → (x ∈ Aᶜ ↔ y ∈ Aᶜ) := fun x y hxy => by
+    simp only [Set.mem_compl_iff]
+    exact not_congr (hA x y hxy)
+  have h0Ac := induce_no_isolated_of_closed H h0 Aᶜ hAc
+  have hsplit := edge_split_of_closed H A hA
+  set m1 := (H.induce A).edgeSet.ncard with hm1
+  set m2 := (H.induce Aᶜ).edgeSet.ncard with hm2
+  have hcardA : Fintype.card A ≤ 2 * m1 := card_le_two_mul_ncard _ h0A
+  have hcardAc : Fintype.card ↥Aᶜ ≤ 2 * m2 := card_le_two_mul_ncard _ h0Ac
+  have hApos : 1 ≤ Fintype.card A := Fintype.card_pos_iff.mpr hAne.to_subtype
+  have hAcpos : 1 ≤ Fintype.card ↥Aᶜ := Fintype.card_pos_iff.mpr hAcne.to_subtype
+  have hm1lt : m1 < m := by omega
+  have hm2lt : m2 < m := by omega
+  rcases ih m1 hm1lt A (H.induce A) h0A rfl V C
+    (by have := Nat.mul_le_mul_left (k - 1) hm1lt.le; omega) with h | h
+  · exact Or.inl h
+  · obtain ⟨f⟩ := h
+    have hrange : Fintype.card (Set.range ⇑f) = Fintype.card A :=
+      Set.card_range_of_injective f.injective
+    have hcompl : Fintype.card ↥(Set.range ⇑f)ᶜ = Fintype.card V - Fintype.card (Set.range ⇑f) :=
+      Fintype.card_compl_set _
+    have hk1 : 2 ≤ k - 1 := by omega
+    have hV' : (k - 1) * m2 + 1 ≤ Fintype.card ↥(Set.range ⇑f)ᶜ := by
+      rw [hcompl, hrange]
+      have h1 : (k - 1) * m = (k - 1) * m1 + (k - 1) * m2 := by rw [← hm, ← hsplit]; ring
+      have h2 : 2 * m1 ≤ (k - 1) * m1 := Nat.mul_le_mul_right m1 hk1
+      omega
+    rcases ih m2 hm2lt ↥Aᶜ (H.induce Aᶜ) h0Ac rfl ↥(Set.range ⇑f)ᶜ (C.induce (Set.range ⇑f)ᶜ) hV'
+      with h2 | h2
+    · exact Or.inl (isContained_of_induce _ h2)
+    · exact Or.inr (glue_components H A hA C f h2)
 /-! N46 extend_by_vertex [leaf, believed provable] deps:  -/
 theorem extend_by_vertex {W V : Type} (H : SimpleGraph W) (u : W) (D : SimpleGraph V)
     (f : SimpleGraph.Copy (H.induce ({u}ᶜ : Set W)) D) (x : V) (hx : x ∉ Set.range ⇑f)
     (hadj : ∀ w : ({u}ᶜ : Set W), H.Adj u w → D.Adj x (f w)) : H.IsContained D := by
   classical
-  refine ⟨⟨⟨fun w => if h : w = u then x else f ⟨w, Set.mem_compl_singleton_iff.mpr h⟩, ?_⟩, ?_⟩⟩
-  · intro a b hab
-    by_cases ha : a = u
+  let φ : W → V := fun w => if h : w = u then x else f ⟨w, Set.mem_compl_singleton_iff.mpr h⟩
+  have hφu : φ u = x := by simp only [φ, dif_pos rfl]
+  have hφ : ∀ w (h : w ≠ u), φ w = f ⟨w, Set.mem_compl_singleton_iff.mpr h⟩ :=
+    fun w h => by simp only [φ, dif_neg h]
+  refine ⟨⟨⟨φ, fun {a b} hab => ?_⟩, fun a b hab => ?_⟩⟩
+  · by_cases ha : a = u
     · have hb : b ≠ u := fun hb => hab.ne (ha.trans hb.symm)
-      simp only [dif_pos ha, dif_neg hb]
+      rw [ha, hφu, hφ b hb]
       exact hadj ⟨b, Set.mem_compl_singleton_iff.mpr hb⟩ (ha ▸ hab)
     · by_cases hb : b = u
-      · simp only [dif_pos hb, dif_neg ha]
+      · rw [hb, hφu, hφ a ha]
         exact (hadj ⟨a, Set.mem_compl_singleton_iff.mpr ha⟩ (hb ▸ hab.symm)).symm
-      · simp only [dif_neg ha, dif_neg hb]
+      · rw [hφ a ha, hφ b hb]
         exact f.toHom.map_adj (show (H.induce _).Adj ⟨a, Set.mem_compl_singleton_iff.mpr ha⟩
           ⟨b, Set.mem_compl_singleton_iff.mpr hb⟩ from hab)
-  · intro a b hab
+  · have hab' : φ a = φ b := hab
+    clear hab
     by_cases ha : a = u <;> by_cases hb : b = u
     · exact ha.trans hb.symm
-    · rw [dif_pos ha, dif_neg hb] at hab
-      exact absurd ⟨⟨b, Set.mem_compl_singleton_iff.mpr hb⟩, hab.symm⟩ hx
-    · rw [dif_neg ha, dif_pos hb] at hab
-      exact absurd ⟨⟨a, Set.mem_compl_singleton_iff.mpr ha⟩, hab⟩ hx
-    · rw [dif_neg ha, dif_neg hb] at hab
-      exact congrArg Subtype.val (f.injective hab)
+    · rw [ha, hφu, hφ b hb] at hab'
+      exact absurd ⟨⟨b, Set.mem_compl_singleton_iff.mpr hb⟩, hab'.symm⟩ hx
+    · rw [hb, hφu, hφ a ha] at hab'
+      exact absurd ⟨⟨a, Set.mem_compl_singleton_iff.mpr ha⟩, hab'⟩ hx
+    · rw [hφ a ha, hφ b hb] at hab'
+      exact congrArg Subtype.val (f.injective hab')
 /-! N47 delete_vertex_edges [leaf, believed provable] deps:  -/
 theorem delete_vertex_edges {W : Type} [Fintype W] (H : SimpleGraph W) (u : W) :
     (H.induce ({u}ᶜ : Set W)).edgeSet.ncard + (H.neighborSet u).ncard = H.edgeSet.ncard := by
@@ -678,8 +824,20 @@ theorem step_min_degree_one (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H :
     (S : Finset V) (hvS : v ∉ S) (hS : ∀ s ∈ S, C.Adj v s)
     (hsize : (k - 1) * m + 2 ≤ 1 * S.card + Fintype.card W) :
     (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
+  classical
+  have hn := connected_card_le_ncard_add_one H hc
+  rw [hm] at hn
+  have hcard : (k - 1 - 1) * (Fintype.card W - 1) + 1 ≤ Fintype.card (S : Set V) := by
+    simp only [Finset.coe_sort_coe, Fintype.card_coe]
+    have h1 : (k - 1 - 1) * (Fintype.card W - 1) ≤ (k - 2) * m := Nat.mul_le_mul (by omega) (by omega)
+    have h2 : (k - 1) * m = (k - 2) * m + m := by
+      obtain ⟨k', rfl⟩ : ∃ k', k = k' + 3 := ⟨k - 3, by omega⟩
+      rw [show k' + 3 - 1 = k' + 2 by omega, show k' + 3 - 2 = k' + 1 by omega]
+      ring
+    omega
+  rcases cor6_path_ramsey (k - 1) (by omega) H (S : Set V) (C.induce (S : Set V)) hcard with h | h
+  · exact Or.inl (cycle_of_path_in_nbhd C k hk v (S : Set V) hS hvS h)
+  · exact Or.inr (isContained_compl_of_compl_induce _ h)
 /-! N52 S_size_bound [leaf, believed provable] deps:  -/
 theorem S_size_bound (k n m d s : ℕ) (hk : 3 ≤ k) (hd : 2 ≤ d) (hnd : n * d ≤ 2 * m)
     (hs : (k - 1) * m + 2 ≤ d * s + n) : (k - 2) * (n / 2) + 1 ≤ s := by
@@ -706,8 +864,33 @@ theorem blue_clique_in_S (k q : ℕ) (hk : 3 ≤ k) {V : Type} (C : SimpleGraph 
     (hS : (k - 2) * q + 1 ≤ S.card) :
     (SimpleGraph.pathGraph (k - 1)).IsContained (C.induce (S : Set V)) ∨
       ∃ U : Finset V, U ⊆ S ∧ U.card = q + 1 ∧ ∀ x ∈ U, ∀ y ∈ U, x ≠ y → Cᶜ.Adj x y := by
-  sorry
-
+  classical
+  have hk' : 2 ≤ k - 1 := by omega
+  have hcard : (k - 1 - 1) * (Fintype.card (Fin (q + 1)) - 1) + 1 ≤ Fintype.card (S : Set V) := by
+    simp only [Fintype.card_fin, Nat.add_sub_cancel, Finset.coe_sort_coe, Fintype.card_coe]
+    rw [show k - 1 - 1 = k - 2 by omega]
+    exact hS
+  rcases cor6_path_ramsey (k - 1) hk' (⊤ : SimpleGraph (Fin (q + 1))) (S : Set V)
+    (C.induce (S : Set V)) hcard with h | h
+  · exact Or.inl h
+  · right
+    obtain ⟨g⟩ := h
+    have hinj : Function.Injective (fun i : Fin (q + 1) => (g i : V)) :=
+      fun i j h => g.injective (Subtype.val_injective h)
+    refine ⟨Finset.univ.image (fun i => (g i : V)), ?_, ?_, ?_⟩
+    · intro x hx
+      rw [Finset.mem_image] at hx
+      obtain ⟨i, _, rfl⟩ := hx
+      exact (g i).2
+    · rw [Finset.card_image_of_injective _ hinj, Finset.card_univ, Fintype.card_fin]
+    · intro x hx y hy hxy
+      rw [Finset.mem_image] at hx hy
+      obtain ⟨i, _, rfl⟩ := hx
+      obtain ⟨j, _, rfl⟩ := hy
+      have hij : i ≠ j := fun h => hxy (by rw [h])
+      have := g.toHom.map_adj ((SimpleGraph.top_adj i j).mpr hij)
+      rw [SimpleGraph.compl_adj] at this ⊢
+      exact ⟨fun h => this.1 (Subtype.ext h), this.2⟩
 /-! N54 gamma_bound [leaf, believed provable] deps: N33 N20 N05 -/
 theorem gamma_bound (k : ℕ) (hk : 7 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ)
     (c : H.Coloring (Fin t)) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Finset V)
@@ -715,8 +898,18 @@ theorem gamma_bound (k : ℕ) (hk : 7 ≤ k) {W : Type} [Fintype W] (H : SimpleG
     (hvG : v ∉ Gam) (hfree : ¬ (SimpleGraph.cycleGraph k).IsContained C)
     (hH : ¬ H.IsContained Cᶜ) :
     Gam.card + 1 ≤ Fintype.card W + (k - 1) * (t - 1) := by
-  sorry
-
+  classical
+  by_contra hcon
+  push_neg at hcon
+  have hcard : Fintype.card W + (k + 1 - 2) * (t - 1) ≤ Fintype.card (Gam : Set V) := by
+    simp only [Finset.coe_sort_coe, Fintype.card_coe]
+    rw [show k + 1 - 2 = k - 1 by omega]
+    omega
+  rcases lemma5_path_coloring (k + 1) (by omega) H t c (Gam : Set V) (C.induce (Gam : Set V)) hcard
+    with h | h
+  · exact hfree (lemma7_bridge k hk C v (U : Set V) (Gam : Set V) hU hGam
+      (Finset.disjoint_coe.mpr hdisj) hvG h)
+  · exact hH (isContained_compl_of_compl_induce _ h)
 /-! N55 glue_clique_sparse [leaf, believed provable] deps:  -/
 theorem glue_clique_sparse {W V : Type} [Fintype W] (H : SimpleGraph W) (T : Finset W)
     (C : SimpleGraph V) (U1 U2 : Finset V) (hdisj : Disjoint U1 U2)
@@ -724,8 +917,46 @@ theorem glue_clique_sparse {W V : Type} [Fintype W] (H : SimpleGraph W) (T : Fin
     (hclique : ∀ x ∈ U1, ∀ y ∈ U1, x ≠ y → Cᶜ.Adj x y)
     (hcross : ∀ x ∈ U1, ∀ y ∈ U2, Cᶜ.Adj x y)
     (h2 : (H.induce (T : Set W)).IsContained (C.induce (U2 : Set V))ᶜ) : H.IsContained Cᶜ := by
-  sorry
-
+  classical
+  obtain ⟨g⟩ := h2
+  have hemb : Nonempty ({w // w ∉ T} ↪ U1) := by
+    apply Function.Embedding.nonempty_of_card_le
+    rw [Fintype.card_coe]
+    refine le_trans (le_of_eq ?_) hcard
+    rw [Fintype.card_subtype_compl, Fintype.card_coe]
+  let e := hemb.some
+  let φ : W → V := fun w => if h : w ∈ T then (g ⟨w, h⟩ : V) else (e ⟨w, h⟩ : V)
+  have hφT : ∀ w (h : w ∈ T), φ w = (g ⟨w, h⟩ : V) := fun w h => by simp only [φ, dif_pos h]
+  have hφT' : ∀ w (h : w ∉ T), φ w = (e ⟨w, h⟩ : V) := fun w h => by simp only [φ, dif_neg h]
+  have hgU2 : ∀ w (h : w ∈ T), (g ⟨w, h⟩ : V) ∈ U2 := fun w h => (g ⟨w, h⟩).2
+  have heU1 : ∀ w (h : w ∉ T), (e ⟨w, h⟩ : V) ∈ U1 := fun w h => (e ⟨w, h⟩).2
+  refine ⟨⟨⟨φ, fun {a b} hab => ?_⟩, fun a b hab => ?_⟩⟩
+  · by_cases ha : a ∈ T <;> by_cases hb : b ∈ T
+    · rw [hφT a ha, hφT b hb]
+      have := g.toHom.map_adj (show (H.induce (T : Set W)).Adj ⟨a, ha⟩ ⟨b, hb⟩ from hab)
+      rw [SimpleGraph.compl_adj] at this ⊢
+      exact ⟨fun h => this.1 (Subtype.ext h), this.2⟩
+    · rw [hφT a ha, hφT' b hb]
+      exact (hcross _ (heU1 b hb) _ (hgU2 a ha)).symm
+    · rw [hφT' a ha, hφT b hb]
+      exact hcross _ (heU1 a ha) _ (hgU2 b hb)
+    · rw [hφT' a ha, hφT' b hb]
+      apply hclique _ (heU1 a ha) _ (heU1 b hb)
+      intro h
+      exact hab.ne (congrArg Subtype.val (e.injective (Subtype.val_injective h)))
+  · have hab' : φ a = φ b := hab
+    clear hab
+    by_cases ha : a ∈ T <;> by_cases hb : b ∈ T
+    · rw [hφT a ha, hφT b hb] at hab'
+      exact congrArg Subtype.val (g.injective (Subtype.val_injective hab'))
+    · rw [hφT a ha, hφT' b hb] at hab'
+      have h1 : (e ⟨b, hb⟩ : V) ∈ U2 := by rw [← hab']; exact hgU2 a ha
+      exact absurd h1 (Finset.disjoint_left.mp hdisj (heU1 b hb))
+    · rw [hφT' a ha, hφT b hb] at hab'
+      have h1 : (e ⟨a, ha⟩ : V) ∈ U2 := by rw [hab']; exact hgU2 b hb
+      exact absurd h1 (Finset.disjoint_left.mp hdisj (heU1 a ha))
+    · rw [hφT' a ha, hφT' b hb] at hab'
+      exact congrArg Subtype.val (e.injective (Subtype.val_injective hab'))
 /-! N56 final_arith [leaf, believed provable] deps:  -/
 theorem final_arith (k n m t g u2 e2 h2 : ℕ) (hk : 7 ≤ k) (hn : 4 ≤ n) (hmn : n ≤ m) (ht : 2 ≤ t)
     (hprop : 2 * n + t * (t - 3) ≤ 2 * m)
@@ -771,8 +1002,96 @@ theorem step_large_deg_two (k : ℕ) (hk : 7 ≤ k) (m : ℕ)
     (hV : (k - 1) * m + 1 ≤ Fintype.card V) (v : V) (S : Finset V) (hvS : v ∉ S)
     (hS : ∀ s ∈ S, C.Adj v s) (hsize : (k - 2) * (Fintype.card W / 2) + 1 ≤ S.card) :
     (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
+  classical
+  have hk3 : 3 ≤ k := by omega
+  by_contra hcon
+  have hcyc : ¬ (SimpleGraph.cycleGraph k).IsContained C := fun h => hcon (Or.inl h)
+  have hH : ¬ H.IsContained Cᶜ := fun h => hcon (Or.inr h)
+  have hnm : Fintype.card W ≤ m := by
+    have h1 : ∑ _w : W, 2 ≤ ∑ w, (H.neighborSet w).ncard := Finset.sum_le_sum (fun w _ => hδ w)
+    rw [degree_sum_ncard H, hm, Finset.sum_const, Finset.card_univ, smul_eq_mul] at h1
+    omega
+  have hne : Nonempty W := hc.nonempty
+  have hn3 : 3 ≤ Fintype.card W := by
+    obtain ⟨w⟩ := hne
+    have h2 := hδ w
+    have hss : H.neighborSet w ⊂ Set.univ := by
+      rw [Set.ssubset_univ_iff]
+      intro h
+      have : w ∈ H.neighborSet w := h ▸ Set.mem_univ w
+      exact H.loopless w this
+    have := Set.ncard_lt_ncard hss (Set.toFinite _)
+    rw [Set.ncard_univ, Nat.card_eq_fintype_card] at this
+    omega
+  rcases Nat.lt_or_ge (Fintype.card W) 4 with hn4 | hn4
+  · have h3 : Fintype.card W = 3 := by omega
+    have hV' : 2 * k + 1 ≤ Fintype.card V := by
+      have := Nat.mul_le_mul_left (k - 1) (show 3 ≤ m by omega)
+      omega
+    exact hcon (step_triangle k hk3 H h3 V C hV')
+  · have hm1 : 1 ≤ H.edgeSet.ncard := by omega
+    obtain ⟨t, ht2, ⟨c⟩, hnot⟩ := exists_chromatic H hm1
+    have hprop := prop10 H hδ t hnot
+    rw [hm] at hprop
+    rcases blue_clique_in_S k (Fintype.card W / 2) hk3 C S hsize with hpath | ⟨U1, hU1S, hU1card, hU1clique⟩
+    · exact hcyc (cycle_of_path_in_nbhd C k hk3 v (S : Set V) hS hvS hpath)
+    set Gam := (Finset.univ.filter (fun y => y ∉ U1 ∧ y ≠ v ∧ ∃ x ∈ U1, C.Adj x y)) with hGam
+    set U2 := (Finset.univ.filter (fun y => y ∉ U1 ∧ y ≠ v ∧ ∀ x ∈ U1, ¬ C.Adj x y)) with hU2
+    have hU1v : ∀ x ∈ U1, C.Adj v x := fun x hx => hS x (hU1S hx)
+    have hGamprop : ∀ y ∈ Gam, ∃ x ∈ U1, C.Adj x y := fun y hy => (Finset.mem_filter.mp hy).2.2.2
+    have hdisjG : Disjoint U1 Gam := by
+      rw [Finset.disjoint_left]
+      intro x hx hxG
+      exact (Finset.mem_filter.mp hxG).2.1 hx
+    have hvG : v ∉ Gam := fun h => (Finset.mem_filter.mp h).2.2.1 rfl
+    have hg := gamma_bound k hk H t c C v U1 Gam hU1v hGamprop hdisjG hvG hcyc hH
+    have hcover : ∀ y : V, y ∈ ({v} ∪ U1 ∪ Gam ∪ U2 : Finset V) := by
+      intro y
+      by_cases hy1 : y = v
+      · simp [hy1]
+      by_cases hy2 : y ∈ U1
+      · simp [hy2]
+      by_cases hy3 : ∃ x ∈ U1, C.Adj x y
+      · have : y ∈ Gam := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hy2, hy1, hy3⟩
+        simp [this]
+      · push_neg at hy3
+        have : y ∈ U2 := Finset.mem_filter.mpr ⟨Finset.mem_univ _, hy2, hy1, hy3⟩
+        simp [this]
+    have htot : Fintype.card V ≤ 1 + U1.card + Gam.card + U2.card := by
+      have h4 := Finset.card_le_card (fun y _ => hcover y : (Finset.univ : Finset V) ⊆ _)
+      have h1 := Finset.card_union_le ({v} ∪ U1 ∪ Gam) U2
+      have h2 := Finset.card_union_le ({v} ∪ U1) Gam
+      have h3 := Finset.card_union_le ({v} : Finset V) U1
+      rw [Finset.card_univ] at h4
+      rw [Finset.card_singleton] at h3
+      omega
+    obtain ⟨T, hTcard, hTsparse⟩ := exists_sparse_half H hn3 hm1
+    rw [hm] at hTsparse
+    have hdisjU : Disjoint U1 U2 := by
+      rw [Finset.disjoint_left]
+      intro x hx hxU
+      exact (Finset.mem_filter.mp hxU).2.1 hx
+    have hcross : ∀ x ∈ U1, ∀ y ∈ U2, Cᶜ.Adj x y := by
+      intro x hx y hy
+      have hy' := Finset.mem_filter.mp hy
+      rw [SimpleGraph.compl_adj]
+      exact ⟨fun h => hy'.2.1 (h ▸ hx), hy'.2.2.2 x hx⟩
+    have hu2 : U2.card ≤ (k - 1) * (H.induce (T : Set W)).edgeSet.ncard ∨ U2.card < T.card := by
+      by_contra hcon2
+      push_neg at hcon2
+      obtain ⟨h1, h2⟩ := hcon2
+      have hV1 : (k - 1) * (H.induce (T : Set W)).edgeSet.ncard + 1 ≤ Fintype.card (U2 : Set V) := by
+        simp only [Finset.coe_sort_coe, Fintype.card_coe]
+        omega
+      have hV2 : Fintype.card (T : Set W) ≤ Fintype.card (U2 : Set V) := by
+        simp only [Finset.coe_sort_coe, Fintype.card_coe]
+        exact h2
+      rcases ramsey_with_isolated k hk3 m ih (H.induce (T : Set W)) _ rfl (by omega) (U2 : Set V)
+        (C.induce (U2 : Set V)) hV1 hV2 with h | h
+      · exact hcyc (isContained_of_induce _ h)
+      · exact hH (glue_clique_sparse H T C U1 U2 hdisjU (by omega) hU1clique hcross h)
+    exact final_arith k (Fintype.card W) m t Gam.card U2.card (H.induce (T : Set W)).edgeSet.ncard
+      T.card hk hn4 hnm ht2 hprop (by omega) hg hu2 hTsparse (by omega)
 /-! N58 step_connected_large [join, believed provable] deps: N06 N50 N51 N52 N57 -/
 theorem step_connected_large (k : ℕ) (hk : 7 ≤ k) (m : ℕ)
     (ih : ∀ m' < m, ∀ (W' : Type) [Fintype W'] (H' : SimpleGraph W'), (∀ v, ∃ w, H'.Adj v w) →
@@ -783,16 +1102,71 @@ theorem step_connected_large (k : ℕ) (hk : 7 ≤ k) (m : ℕ)
     (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph V)
     (hV : (k - 1) * m + 1 ≤ Fintype.card V) :
     (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
+  classical
+  have hk3 : 3 ≤ k := by omega
+  have hne : Nonempty W := hc.nonempty
+  have h0 : ∀ v, ∃ w, H.Adj v w := by
+    intro v
+    obtain ⟨e, he⟩ := (Set.ncard_pos (Set.toFinite _)).mp (by omega : 0 < H.edgeSet.ncard)
+    induction e using Sym2.ind with
+    | h a b =>
+    have hab : H.Adj a b := he
+    by_cases hva : v = a
+    · exact ⟨b, hva ▸ hab⟩
+    · obtain ⟨x, hx⟩ := (hc.preconnected v a).nonempty_neighborSet_left hva
+      exact ⟨x, hx⟩
+  obtain ⟨u, _, hu⟩ := Finset.exists_min_image Finset.univ (fun w => (H.neighborSet w).ncard)
+    Finset.univ_nonempty
+  have hu' : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard :=
+    fun w => hu w (Finset.mem_univ w)
+  by_contra hcon
+  have hcyc : ¬ (SimpleGraph.cycleGraph k).IsContained C := fun h => hcon (Or.inl h)
+  have hH : ¬ H.IsContained Cᶜ := fun h => hcon (Or.inr h)
+  obtain ⟨v, S, hvS, hS, hsize⟩ := exists_red_star k hk3 m ih H hc hm hm2 u hu' V C hV hcyc hH
+  have hd1 : 1 ≤ (H.neighborSet u).ncard := by
+    obtain ⟨w, hw⟩ := h0 u
+    exact Nat.one_le_iff_ne_zero.mpr ((Set.ncard_pos (Set.toFinite _)).mpr ⟨w, hw⟩).ne'
+  rcases Nat.lt_or_ge (H.neighborSet u).ncard 2 with hd2 | hd2
+  · have hd1' : (H.neighborSet u).ncard = 1 := by omega
+    rw [hd1'] at hsize
+    rcases step_min_degree_one k hk3 H hc m hm C v S hvS hS hsize with h | h
+    · exact hcyc h
+    · exact hH h
+  · have hnd : Fintype.card W * (H.neighborSet u).ncard ≤ 2 * m := by
+      calc Fintype.card W * (H.neighborSet u).ncard = ∑ _w : W, (H.neighborSet u).ncard := by
+            rw [Finset.sum_const, Finset.card_univ, smul_eq_mul]
+        _ ≤ ∑ w, (H.neighborSet w).ncard := Finset.sum_le_sum (fun w _ => hu' w)
+        _ = 2 * H.edgeSet.ncard := degree_sum_ncard H
+        _ = 2 * m := by rw [hm]
+    have hS' := S_size_bound k (Fintype.card W) m (H.neighborSet u).ncard S.card hk3 hd2 hnd hsize
+    rcases step_large_deg_two k hk m ih H hc hm (fun w => hd2.trans (hu' w)) V C hV v S hvS hS hS'
+      with h | h
+    · exact hcyc h
+    · exact hH h
 /-! N59 main_property [join, believed provable] deps: N09 N11 N14 N29 N45 N58 N08 -/
 theorem main_property (k : ℕ) (hk : 3 ≤ k) (m : ℕ) :
     ∀ (W : Type) [Fintype W] (H : SimpleGraph W), (∀ v, ∃ w, H.Adj v w) →
       H.edgeSet.ncard = m → ∀ (V : Type) [Fintype V] (C : SimpleGraph V),
       (k - 1) * m + 1 ≤ Fintype.card V →
       (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
-  sorry
-
+  induction m using Nat.strong_induction_on with
+  | _ m ih =>
+  intro W _ H h0 hm V _ C hV
+  rcases Nat.lt_or_ge m 2 with hm2 | hm2
+  · interval_cases m
+    · exact Or.inr (ramsey_zero_edges H h0 hm C)
+    · exact ramsey_one_edge k hk H h0 hm V C hV
+  · rcases isEmpty_or_nonempty W with hW | hW
+    · exact Or.inr SimpleGraph.IsContained.of_isEmpty
+    · by_cases hc : H.Connected
+      · rcases Nat.lt_or_ge k 7 with hk7 | hk7
+        · rcases Nat.lt_or_ge k 4 with hk4 | hk4
+          · have hk3 : k = 3 := by omega
+            subst hk3
+            exact goddard_kleitman_sidorenko H h0 m hm V C (by omega)
+          · exact lemma4_small_cycles k (by omega) H hc m hm hm2 V C hV
+        · exact step_connected_large k hk7 m ih H hc hm hm2 V C hV
+      · exact step_disconnected k hk m ih H h0 hm hc hW V C hV
 /-! ## Root -/
 
 /-- **Cambie–Freschi (2026), Theorem 3.** For every `k ≥ 3` and every graph `H` with `m` edges and no isolated
@@ -800,6 +1174,10 @@ vertices, `R(C_k, H) ≤ (k - 1) * m + 1`. -/
 theorem cambie_freschi (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W)
     [DecidableRel H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) :
     SimpleGraph.graphRamsey (SimpleGraph.cycleGraph k) H ≤ (k - 1) * m + 1 := by
-  sorry
-
+  apply Nat.sInf_le
+  rw [Set.mem_setOf_eq]
+  intro C
+  apply main_property k hk m W H ?_ hm (Fin ((k - 1) * m + 1)) C (by simp)
+  intro v
+  exact (SimpleGraph.degree_pos_iff_exists_adj H v).mp (h0 v)
 end Erdos569

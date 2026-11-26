@@ -1,0 +1,142 @@
+Rooms/Target_B3_569_A_full_hold.lean:134:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:134:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:136:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:136:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:142:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:142:22: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:143:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:143:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:134:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg hba]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_A_full_hold.lean:136:17: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg hba]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_569_A_full_hold.lean:154:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:192:8: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:223:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:244:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:298:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:365:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:372:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:379:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:386:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:391:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:396:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:401:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:406:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:413:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:422:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:431:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:439:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:446:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:453:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:469:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:496:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:508:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:515:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:529:76: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:530:83: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:579:10: error(lean.unknownIdentifier): Unknown identifier `glue_components`
+Rooms/Target_B3_569_A_full_hold.lean:580:4: error: No goals to be solved
+Rooms/Target_B3_569_A_full_hold.lean:715:41: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:717:32: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:751:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:766:18: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:780:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:817:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:875:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_569_A_full_hold.lean:901:82: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:902:83: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_569_A_full_hold.lean:967:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:980:8: warning: declaration uses `sorry`
+Rooms/Target_B3_569_A_full_hold.lean:1023:6: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲

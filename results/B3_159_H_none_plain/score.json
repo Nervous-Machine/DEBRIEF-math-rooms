@@ -1,0 +1,129 @@
+{
+ "regime": "B3_159_H_none_plain",
+ "calls": 2,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0001",
+   "error"
+  ],
+  [
+   "0002",
+   "sorry"
+  ]
+ ],
+ "per_node": {},
+ "final_status_at_first_FINAL": "error",
+ "shape": {
+  "declarations": 23,
+  "unused_by_root": [
+   "graphRamsey",
+   "graphRamsey_le_of_forall",
+   "complete_isContained_compl_iff",
+   "c4_free_common_nbrs",
+   "c4_free_nbhd_local_degree",
+   "greedy_indep_local",
+   "degree_lt_of_c4_free_indepSetFree",
+   "card_filter_univ_adj",
+   "card_le_quadratic_of_c4_free",
+   "graphRamsey_le_of_c4_free_bound",
+   "graphRamsey_c4_le_quadratic",
+   "turan_arith",
+   "turan_weak",
+   "exists_dense_core",
+   "moore_bound_c4_free",
+   "core_near_extremal",
+   "sparse_branch_arith",
+   "dense_branch_arith",
+   "c4_free_indep_power",
+   "rpow_inversion",
+   "card_le_power_of_c4_free",
+   "floor_succ_le_power"
+  ],
+  "unused_count": 22,
+  "root_found": true,
+  "depth": 1,
+  "own_lines_median": 18,
+  "own_lines": {
+   "graphRamsey": 9,
+   "graphRamsey_le_of_forall": 9,
+   "complete_isContained_compl_iff": 5,
+   "c4_free_common_nbrs": 31,
+   "c4_free_nbhd_local_degree": 14,
+   "greedy_indep_local": 55,
+   "degree_lt_of_c4_free_indepSetFree": 18,
+   "card_filter_univ_adj": 8,
+   "card_le_quadratic_of_c4_free": 21,
+   "graphRamsey_le_of_c4_free_bound": 9,
+   "graphRamsey_c4_le_quadratic": 9,
+   "turan_arith": 21,
+   "turan_weak": 49,
+   "exists_dense_core": 84,
+   "moore_bound_c4_free": 55,
+   "core_near_extremal": 9,
+   "sparse_branch_arith": 20,
+   "dense_branch_arith": 24,
+   "c4_free_indep_power": 7,
+   "rpow_inversion": 24,
+   "card_le_power_of_c4_free": 6,
+   "floor_succ_le_power": 28,
+   "erdos_159": 8
+  },
+  "retry_named": [],
+  "joins": [
+   "c4_free_common_nbrs",
+   "greedy_indep_local",
+   "card_filter_univ_adj"
+  ],
+  "edges": 15
+ },
+ "fit": {
+  "sorry": 4,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "sorry_in": [
+   "core_near_extremal",
+   "c4_free_indep_power",
+   "card_le_power_of_c4_free",
+   "erdos_159"
+  ],
+  "root_sorry": true,
+  "total": 5,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": null,
+  "axioms": null,
+  "tail": "final did not compile clean"
+ },
+ "comparator_pass": false,
+ "residual": false,
+ "rooms_proved": [
+  "graphRamsey_le_of_forall",
+  "complete_isContained_compl_iff",
+  "c4_free_common_nbrs",
+  "c4_free_nbhd_local_degree",
+  "greedy_indep_local",
+  "degree_lt_of_c4_free_indepSetFree",
+  "card_filter_univ_adj",
+  "card_le_quadratic_of_c4_free",
+  "graphRamsey_le_of_c4_free_bound",
+  "graphRamsey_c4_le_quadratic",
+  "turan_arith",
+  "turan_weak",
+  "exists_dense_core",
+  "moore_bound_c4_free",
+  "sparse_branch_arith",
+  "dense_branch_arith",
+  "rpow_inversion",
+  "floor_succ_le_power"
+ ],
+ "attempts_median": null,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": null
+}

@@ -1,0 +1,100 @@
+Rooms/Target_B3_159_H_none_plain.lean:75:42: warning: This simp argument is unused:
+  SimpleGraph.Walk.IsPath.nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.support_cons, SimpleGraph.Walk.support_nil,
+    SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu, hbv, hua', hva', hub', hvb',
+    hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_plain.lean:76:91: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, hau, hav, hbu, hbv, hua',
+    hva', hub', hvb', hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_plain.lean:77:19: warning: This simp argument is unused:
+  hbv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu,
+    hua', hva', hub', hvb', hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_plain.lean:77:30: warning: This simp argument is unused:
+  hva'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu,
+    hbv, hua', hub', hvb', hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_plain.lean:77:53: warning: This simp argument is unused:
+  hba
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu,
+    hbv, hua', hva', hub', hvb', hab, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B3_159_H_none_plain.lean:73:21: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:77:72: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:73:21: warning: Unused tactic linter: `simp` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:77:68: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:77:72: warning: Unused tactic linter: `tauto` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:254:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:255:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:253:17: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:254:10: warning: Unused tactic linter: `norm_num` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:255:10: warning: Unused tactic linter: `exact Nat.zero_le _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B3_159_H_none_plain.lean:308:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B3_159_H_none_plain.lean:318:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B3_159_H_none_plain.lean:346:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B3_159_H_none_plain.lean:435:8: warning: declaration uses `sorry`
+Rooms/Target_B3_159_H_none_plain.lean:467:28: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B3_159_H_none_plain.lean:491:8: warning: declaration uses `sorry`
+Rooms/Target_B3_159_H_none_plain.lean:524:8: warning: declaration uses `sorry`
+Rooms/Target_B3_159_H_none_plain.lean:559:8: warning: declaration uses `sorry`
