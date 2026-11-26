@@ -55,7 +55,15 @@ Without a blueprint the searcher drew the same route in seven lemmas and compile
 | 569 | Lemma 7 of the human proof | 2 | 0 | 1 | yes | 0 | 129,388 | 15 |
 | 159 | the open core | 13 | 12 | 12 | no | 0 | 173,299 | 23 |
 
-Next: force the remaining rooms left open without a check call, starting with the paper's core case in the statement-only 569 arm; the open-problem arm with another searcher model and under an incentive to declare success; readers for the two registrar-written statements.
+**Build 5, one known hinge at three budgets (26 Nov 2026): compute bought structure, not the route.** The paper's remaining case of Erdős 569, as the statement-only searcher had carved it and left it without a check call, forced at attempt caps of 12, 36 and 108 from the statement alone. It did not close at any cap. What rose with the budget was what stood around it: a case and a reduction, then the whole induction proved modulo one explicit hypothesis, then two complete theorems nobody asked for (every forest; every graph against the four-cycle) and the open case stated with no induction left in it. Cost per attempt fell by a factor of three as the cap rose and no cap was reached. Nothing was changed at any cap. Four of eight predictions held; the falsifier did not fire. Full account: [trace/ROOMS-5.md](trace/ROOMS-5.md).
+
+| cap | genuine attempts | closed | new helpers proved | file lines | tokens | minutes | fit |
+|---|---|---|---|---|---|---|---|
+| 12 | 12 | no | 20 | 932 | 235,797 | 35 | 0 |
+| 36 | 36 | no | 19 | 1,207 | 355,152 | 61 | 0 |
+| 108 | 108 | no | 94 | 3,483 | 637,423 | 131 | 0 |
+
+Next: the open-problem arm with another searcher model and under an incentive to declare success; the unattempted rooms of the no-checker arms under the forced rule; readers for the two registrar-written statements and for the two sub-family theorems.
 
 ## Why this theorem
 

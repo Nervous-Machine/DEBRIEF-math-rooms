@@ -1,0 +1,63 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B5_C108_full_forced
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Does the paper's remaining case of Erdős 569 close under 108 forced attempts from the statement alone,
+    what structure is built around it, and does the 108-cap arm run into a cap?
+  rule: 108 genuine attempts at core_ge_three_nonstar required before FINAL unless it closes; genuineness (no sorry
+    anywhere) enforced by rooms/check.sh with rooms/forced_check.py at cap 108; rooms/score.py and
+    rooms/forced_score.py compute every number; the first accepted FINAL is the scored result
+  predictions: [P2, P3, P4, P5, P6, P7, P8]
+  commit: prereg_build_5.yaml
+  results:
+  - results/B5_C108_full_forced/score.json
+  - results/B5_C108_full_forced/forced.json
+  - results/B5_C108_full_forced/final.lean
+  - results/B5_C108_full_forced/calls.tsv
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    cap: 108
+    check_calls: 109
+    refused_calls: 0
+    error_calls: 108
+    genuine_attempts: 108
+    attempts_with_a_new_declaration: 108 of 108
+    identical_resubmissions: 0
+    first_FINAL: sorry (core_ge_three_nonstar only)
+    lemma_closed: false
+    fit_total: 0
+    first_combinators_in_forced_region: 0
+    no_op_placeholders: 0
+    new_declarations_proved: 94, none removed, none found false
+    file_lines: 3483 from 471
+    errors_median_first_third_vs_last_third: 2.0 against 3.0 (no convergence; maximum 15; no attempt error-free)
+    complete_theorems_proved_on_the_way: 'cambie_freschi_four: R(C₄, H) ≤ 3m + 1 for every H with m edges and no
+      isolated vertices; cambie_freschi_of_isAcyclic: R(C_k, F) ≤ (k − 1)m + 1 for every forest F; both on the
+      standard three axioms (#print axioms in the pinned project)'
+    established_in_the_file: 'the forced lemma reduced to an induction-free residue (core_of_residue_pure): a
+      connected H′ with minimum degree 2, maximum degree Δ with (k−1)Δ ≤ (k−2)(|W′|−1), m′ ≥ 4, k ≠ 4, and a
+      colouring of K_{(k−1)m′+1} whose red graph is C_k-free, not (k−1)-colourable, with every red degree in
+      [(k−1)Δ, (k−2)(|W′|−1)], red domination of small sets, a red K_{2,k−1} at every vertex and a red C₄; the
+      forced lemma follows from the impossibility of that configuration, which was not shown'
+    tokens: 637423
+    tokens_per_genuine_attempt: 5902
+    minutes: 131 of 600
+    caps_hit: none (P7 missed)
+    parent_arm: B3_569_B_full_noplan_hold, 17 calls, 191,580 tokens, 28 minutes, the case never attempted
+  misses:
+  - P7 (all 108 attempts completed in 131 minutes and 637,423 tokens; no cap was reached)
+  - P4 letter at this cap, by the registrar's reading (the paper's Lemma 7 mechanism, a cycle closed through apex vertices over a path, and a layered second-neighbourhood structure appear in red; the paper's colour-critical edge bound does not)
+spoken: 'A hundred and eight forced attempts from the statement alone did not close the paper''s remaining case,
+  and proved the theorem outright for two families on the way: every forest, and every graph against the
+  four-cycle. The general case was reduced to a single configuration with no induction left in it, a dense
+  red-and-blue colouring the searcher could describe in ten properties and could not refute. Error counts did not
+  fall across the run; every attempt failed at the step the searcher had marked as the gap. The arm finished its
+  hundred and eight attempts in two hours and used a tenth of its budget. Nothing was changed to close it.'
+finding_ids: []
+gap_ids:
+- EG6

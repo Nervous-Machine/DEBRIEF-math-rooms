@@ -1,0 +1,55 @@
+Rooms/Target_B5_C108_full_forced.lean:2470:70: error: Application type mismatch: The argument
+  hzx
+has type
+  z ≠ x
+but is expected to have type
+  x ≠ z
+in the application
+  cycleGraph_five_of_common_red_edge C' x z y₁ y₂ y₃ hzx
+Rooms/Target_B5_C108_full_forced.lean:2474:29: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≥ 1
+  e ≥ 4
+  d ≥ 0
+  c ≥ 0
+  b ≥ 3
+  b - d ≤ 0
+  4*b - f ≥ 0
+  4*b - g ≥ 0
+  a ≥ 3
+  a - c ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑m'
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑↑x
+ g := ↑↑z
+Rooms/Target_B5_C108_full_forced.lean:2476:24: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 0
+  g ≥ 0
+  g - h ≤ 0
+  f ≥ 0
+  f - g ≥ 1
+  f - h ≤ 0
+  e ≥ 0
+  e ≥ 2
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑↑x
+ g := ↑↑z
+ h := ↑(k - 1) * ↑m'

@@ -1,0 +1,38 @@
+Rooms/Target_B5_C36_full_forced.lean:1038:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1107:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1216:12: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (400000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B5_C36_full_forced.lean:1100:4: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (400000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B5_C36_full_forced.lean:1229:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:1231:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,0 +1,71 @@
+Rooms/Target_B5_C36_full_forced.lean:1038:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1107:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1215:12: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  x ≥ 0
+  v ≥ 0
+  v - x ≤ 0
+  v ≥ 0
+  t ≥ 0
+  t - v ≥ 0
+  s ≥ 0
+  r ≥ 1
+  r - 2*s - v + x ≥ 0
+  r + v - x ≤ -1
+  q ≥ 0
+  q + v - x ≤ -1
+  2*q - r + v - x ≤ 0
+  o ≥ 0
+  o - 2*r ≥ 2
+  l ≥ 0
+  l + o ≥ 0
+  l + o - x ≤ 0
+  j ≥ 0
+  j - l ≤ 0
+  i ≥ 0
+  i - x ≤ 0
+  h ≥ 0
+  c ≥ 2
+  c ≥ 1
+  c + h ≥ 1
+  c + h - i ≥ 0
+  c + h - j ≤ 0
+where
+ c := ↑(H.degree u)
+ h := ↑(induce {u}ᶜ H).edgeSet.ncard
+ i := ↑(Fintype.card W - 1)
+ j := ↑(Cᶜ.degree x₀)
+ l := ↑(k - 1) * ↑m'
+ o := ↑(k - 1) * ↑d
+ q := ↑(C.degree a)
+ r := ↑(k - 2)
+ s := ↑(C.degree b)
+ t := ↑(Cᶜ.degree a)
+ v := ↑(n - (p.length + 1))
+ x := ↑(n - 1)
+Rooms/Target_B5_C36_full_forced.lean:1228:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:1230:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

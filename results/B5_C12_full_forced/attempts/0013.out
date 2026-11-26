@@ -1,0 +1,13 @@
+Rooms/Target_B5_C12_full_forced.lean:488:61: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Rooms/Target_B5_C12_full_forced.lean:734:32: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C12_full_forced.lean:879:8: warning: declaration uses `sorry`

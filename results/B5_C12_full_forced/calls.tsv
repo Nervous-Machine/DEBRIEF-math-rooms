@@ -1,0 +1,13 @@
+0001	2026-11-26T19:48:13Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=25958
+0002	2026-11-26T19:49:21Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=27345
+0003	2026-11-26T19:51:34Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=29598
+0004	2026-11-26T19:55:02Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=34038
+0005	2026-11-26T19:58:01Z	core_ge_three_nonstar	error	rc=1	secs=4	bytes=38655
+0006	2026-11-26T19:58:35Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=38704
+0007	2026-11-26T20:04:27Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=44348
+0008	2026-11-26T20:05:37Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=44379
+0009	2026-11-26T20:10:02Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=48053
+0010	2026-11-26T20:12:08Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=48448
+0011	2026-11-26T20:13:43Z	core_ge_three_nonstar	error	rc=1	secs=4	bytes=50507
+0012	2026-11-26T20:14:23Z	core_ge_three_nonstar	error	rc=1	secs=3	bytes=51094
+0013	2026-11-26T20:15:58Z	FINAL	sorry	rc=0	secs=3	bytes=44739

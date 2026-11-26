@@ -1,0 +1,91 @@
+Rooms/Target_B5_C108_full_forced.lean:3262:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  k ≥ 0
+  j ≥ 0
+  j - k ≥ 1
+  i ≥ 0
+  h ≥ 2
+  2*h - i ≤ 0
+  g ≥ 2
+  e ≥ 0
+  d ≥ 0
+  c ≥ 3
+  c - e ≤ 0
+  c - h ≥ 1
+  2*c - j ≥ 0
+  2*c - k ≥ 0
+  b ≥ 3
+  b - d ≤ 0
+where
+ b := ↑H.edgeSet.ncard
+ c := ↑m'
+ d := ↑(Cᶜ.degree hx✝.choose)
+ e := ↑(C'ᶜ.degree x)
+ g := ↑Yz.card
+ h := ↑(H'.degree u)
+ i := ↑(C'.degree x)
+ j := ↑↑x
+ k := ↑↑z
+Rooms/Target_B5_C108_full_forced.lean:3291:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  g - h ≥ 1
+  g - i ≤ 0
+  f ≥ 3
+  e ≥ 0
+  e - 2*f ≥ -1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑t
+ g := ↑↑x
+ h := ↑↑z
+ i := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:3337:24: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  s ≥ 0
+  r ≥ 0
+  r - s ≤ 0
+  q ≥ 0
+  q - r ≥ 1
+  q - s ≤ 0
+  o ≥ 0
+  n ≥ 4
+  n - o ≥ 0
+  l ≥ 0
+  l - n ≥ -3
+  j ≥ 2
+  i ≥ 0
+  i - n ≥ 0
+  h ≥ 0
+  g ≥ 3
+  g - h ≤ 0
+  g - j ≥ 1
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+where
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree hx✝.choose)
+ g := ↑m'
+ h := ↑(C'ᶜ.degree x)
+ i := ↑Yz.card
+ j := ↑(H'.degree u)
+ l := ↑(k - 1) * ↑(H'.degree u)
+ n := ↑(k - 1)
+ o := ↑(insert c p.support.toFinset).card
+ q := ↑↑x
+ r := ↑↑z
+ s := ↑(k - 1) * ↑m'

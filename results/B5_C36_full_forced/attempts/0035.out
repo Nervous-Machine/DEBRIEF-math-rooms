@@ -1,0 +1,73 @@
+Rooms/Target_B5_C36_full_forced.lean:1048:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1117:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1173:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1181:26: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Nonempty W
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Rooms/Target_B5_C36_full_forced.lean:1181:15: error: Tactic `rcases` failed: `x✝ : ?m.302` is not an inductive datatype
+Rooms/Target_B5_C36_full_forced.lean:1208:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  s ≥ 0
+  r ≥ 0
+  r - s ≤ 0
+  q ≥ 0
+  q - s ≤ 0
+  q ≥ 0
+  o ≥ 0
+  o - q ≥ 0
+  o - s ≤ 0
+  l ≥ 1
+  l - q + 2*r - s ≥ 0
+  l + 2*o - q - s ≥ 0
+  j ≥ 0
+  j - 2*l ≥ 2
+  i ≥ 0
+  i - o ≥ 0
+  i - r ≥ 0
+  i + j ≥ 0
+  i + j - s ≤ 0
+  h ≥ 2
+  g ≥ 0
+  g - h ≥ 0
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ -1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+where
+ c := ↑H✝.edgeSet.ncard
+ d := ↑(C✝ᶜ.degree hx.choose)
+ e := ↑(k - 1) * ↑m✝
+ f := ↑(Fintype.card W✝)
+ g := ↑m
+ h := ↑H.maxDegree
+ i := ↑(k - 1) * ↑(m - H.maxDegree)
+ j := ↑(k - 1) * ↑H.maxDegree
+ l := ↑(k - 2)
+ o := ↑(Cᶜ.degree a)
+ q := ↑(n - (p.length + 1))
+ r := ↑(Cᶜ.degree b)
+ s := ↑(n - 1)

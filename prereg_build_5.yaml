@@ -97,3 +97,52 @@ instruments:
   searcher_corner_brief: {path: rooms/SEARCHER_CORNER_PROMPT.md, sha256: "048688293473d71d9d02220c6c1ff083f6cde6e54eef1b978bc59977b17248bc", new: true}
   audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
   smoke_test: "the configurable cap was exercised once on a scratch regime at cap 2 before registration (refused sorry body; refused FINAL at 0 of 2; two genuine attempts errored; third refused by cap; FINAL accepted); its log was moved out of results/ and is not data"
+
+# ---- Amendment A1 ---- appended after the runs; the registered text above is unedited.
+amendments:
+  - id: A1
+    written: "2026-11-26T21:56Z, after all three arms, the scoring and the transcript audits"
+    what_happened: >
+      All three arms started 19:41:15Z from the same file and ran concurrently. B5_C12 (235,797 tokens, 35 min): 13
+      calls, 12 genuine, 12 errors, 0 refused, FINAL sorry; 20 helpers proved; the triangle case closed and the leaf
+      case reduced to the same statement at m−1; from attempt 5 open sub-cases marked with the no-op tactic `skip`
+      and a residual comment (1,1,2,2,3,3,3,3 marks in attempts 5–12), which the no-sorry rule had not anticipated;
+      counted as a diagnostic. B5_C36 (355,152 tokens, 61 min): 37 calls, 36 genuine, 36 errors, 0 refused, FINAL
+      sorry; 19 helpers proved; the whole strong induction on m proved as core_all_of_gap (standard axioms) modulo one
+      explicit hypothesis hgap, which the forced lemma fails to discharge; matchings, disconnected H, stars and the
+      large-blue-degree case all discharged. B5_C108 (637,423 tokens, 131 min): 109 calls, 108 genuine, 108 errors,
+      0 refused, FINAL sorry; 94 helpers proved, none removed; two complete theorems on the standard axioms,
+      cambie_freschi_four (every H against C₄) and cambie_freschi_of_isAcyclic (every forest against C_k); the forced
+      lemma reduced to an induction-free residue of ten properties (core_of_residue_pure) that was not refuted. The
+      lemma did not close at any cap; no statement changed at any cap; no hedge at any FINAL.
+    scorecard: >
+      Held: P1, P2 (the falsifier did not fire), P5, P6. Held in substance, missed by the letter: P3 (new
+      declarations 20, 19, 94; the count dipped at 36 while the content grew by a whole induction; file lines 932,
+      1207, 3483), P8 (no convergence at 12 and 108; at 36 the median error count fell from 2 to 1 as the search
+      narrowed to one goal). Missed: P7 (the 108 arm completed in 131 of 600 minutes and 637,423 of 6,000,000 tokens;
+      no cap and no context limit was reached), and P4 at cap 108 by the registrar's reading: the file contains the
+      mechanism of the paper's Lemma 7, a k-cycle closed through apex vertices adjacent to the ends of a red path
+      (cycleGraph_isContained_of_isPath_apex, cycleGraph_of_isPath_two_apexes, cycleGraph_of_two_paths_two_apexes),
+      and a layered second-neighbourhood structure built from the non-extension condition (layers_of_residue), both
+      applied to the red graph; the paper's colour-critical edge bound (Proposition 10) does not appear, only a
+      chromatic condition on red and a pigeonhole (isContained_of_red_colorable). This is a reading of statements,
+      labelled as such; the statements are quoted in trace/ROOMS-5.md.
+    dose_response: >
+      closed: no, no, no. New declarations 20, 19, 94. Tokens 235,797; 355,152; 637,423. Tokens per genuine attempt
+      19,650; 9,865; 5,902. Minutes 35, 61, 131. Fit 0, 0, 0. What each cap bought: a case and a reduction; the whole
+      induction modulo one hypothesis; two sub-family theorems and an induction-free statement of the gap.
+    seal_notes: >
+      All three transcripts audited with rooms/audit.py: no web, no git, no gh, no other arm's files, no blueprint.
+      The C12 searcher once issued a command to list its own attempts directory and grep an output file; the
+      permission layer denied it before it ran; recorded as an attempt against the letter with no effect.
+    not_registered_but_observed: >
+      Three different ways of carrying an open sub-case under a no-sorry rule, one per arm: no-op placeholders with
+      comments, an explicit hypothesis of a proved lemma, and attempts that each fail at a stated gap. All three are
+      disclosed; none moves the hypothesis into the forced lemma's statement. The complete theorems for forests and
+      for k = 4 were not asked for and are the clearest instance so far of compute buying route: the route for
+      sub-families the human proof covers in passing, not the route through the general case.
+    hypothesis_status: >
+      held in substance: closure did not move with the budget on this hinge, structure did, the constraint held at
+      every cap, and the one open configuration is now stated without induction; the cost per attempt fell with the
+      cap rather than any cap being reached, so the budget was again not the limit.
+    instruments: "unchanged since registration"

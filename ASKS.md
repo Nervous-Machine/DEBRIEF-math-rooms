@@ -71,3 +71,13 @@ Status: immovable.
 - **two arms, no planner; the start files are build 3's final files unchanged** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P8 in prereg_build_4.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness enforced by the tool (no sorry…. Resolution by: none registered.
+
+## 5. On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call),… (ledger id HG4)
+
+On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call), raising the forced attempt budget from 12 to 36 to 108 does not close it, builds strictly more proved structure around it, does not recover the paper's two distinctive moves, and produces no fit; the attempts do not converge and the largest arm runs into a cap before 108 attempts.
+
+Status: immovable.
+
+- **three arms at caps 12, 36 and 108, fresh contexts, no planner, no paper, no rooms** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P8 in prereg_build_5.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness and the per-arm cap enforced by…. Resolution by: none registered.

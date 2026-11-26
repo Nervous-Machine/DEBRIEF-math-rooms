@@ -1,0 +1,164 @@
+Rooms/Target_B5_C12_full_forced.lean:488:61: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Rooms/Target_B5_C12_full_forced.lean:636:63: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 3
+where
+ c := ↑k
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree x)
+Rooms/Target_B5_C12_full_forced.lean:637:10: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 3
+where
+ c := ↑k
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree x)
+Rooms/Target_B5_C12_full_forced.lean:637:21: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 3
+where
+ c := ↑k
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree x)
+Rooms/Target_B5_C12_full_forced.lean:637:32: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≤ 0
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 3
+where
+ c := ↑k
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree x)
+ f := ↑↑x
+ g := ↑(k - 1) * ↑m
+Rooms/Target_B5_C12_full_forced.lean:637:43: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≤ 0
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 3
+where
+ c := ↑k
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree x)
+ f := ↑↑x
+ g := ↑(k - 1) * ↑m
+Rooms/Target_B5_C12_full_forced.lean:637:54: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≤ 0
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 3
+where
+ c := ↑k
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree x)
+ f := ↑↑x
+ g := ↑(k - 1) * ↑m
+Rooms/Target_B5_C12_full_forced.lean:637:65: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  f - g ≤ 0
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 3
+where
+ c := ↑k
+ d := ↑H.edgeSet.ncard
+ e := ↑(Cᶜ.degree x)
+ f := ↑↑x
+ g := ↑(k - 1) * ↑m
+Rooms/Target_B5_C12_full_forced.lean:659:75: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 0
+  e ≥ 3
+  e - f ≤ 0
+  d ≥ 3
+where
+ d := ↑k
+ e := ↑H.edgeSet.ncard
+ f := ↑(Cᶜ.degree x)
+Rooms/Target_B5_C12_full_forced.lean:659:88: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 0
+  e ≥ 3
+  e - f ≤ 0
+  d ≥ 3
+  d - g ≥ 1
+where
+ d := ↑k
+ e := ↑H.edgeSet.ncard
+ f := ↑(Cᶜ.degree x)
+ g := ↑(Cᶜ.neighborFinset x).card
+Rooms/Target_B5_C12_full_forced.lean:647:16: warning: This simp argument is unused:
+  hab.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hbc.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq, hqr, hpr, hpq.symm, hqr.symm, hpr.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:647:24: warning: This simp argument is unused:
+  hbc.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq, hqr, hpr, hpq.symm, hqr.symm, hpr.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:647:32: warning: This simp argument is unused:
+  hac.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hbc.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq, hqr, hpr, hpq.symm, hqr.symm, hpr.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:655:16: warning: This simp argument is unused:
+  hab.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hbc.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq.ne, hqr.ne, hpr.ne, hpq.ne.symm, hqr.ne.symm,
+    hpr.ne.symm] at hyz ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:655:24: warning: This simp argument is unused:
+  hbc.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq.ne, hqr.ne, hpr.ne, hpq.ne.symm, hqr.ne.symm,
+    hpr.ne.symm] at hyz ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:655:32: warning: This simp argument is unused:
+  hac.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hbc.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq.ne, hqr.ne, hpr.ne, hpq.ne.symm, hqr.ne.symm,
+    hpr.ne.symm] at hyz ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

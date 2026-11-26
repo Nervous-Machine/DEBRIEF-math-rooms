@@ -1,0 +1,58 @@
+Rooms/Target_B5_C108_full_forced.lean:2313:30: error: Type mismatch
+  rfl
+has type
+  ?m.234 = ?m.234
+but is expected to have type
+  z = x
+Rooms/Target_B5_C108_full_forced.lean:2348:24: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 0
+  g ≥ 0
+  g - h ≤ 0
+  f ≥ 0
+  f - g ≥ 1
+  f - h ≤ 0
+  e ≥ 0
+  e ≥ 2
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑↑x
+ g := ↑↑z
+ h := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2354:22: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  l ≥ 0
+  j ≥ 0
+  j - l ≤ 0
+  i ≥ 0
+  i - j ≥ 1
+  i - l ≤ 0
+  h ≥ 1
+  g ≥ 0
+  g - h ≥ 3
+  f ≥ 0
+  e ≥ 3
+  e - f ≤ 0
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+where
+ c := ↑H.edgeSet.ncard
+ d := ↑(Cᶜ.degree hx✝.choose)
+ e := ↑m'
+ f := ↑(C'ᶜ.degree x)
+ g := ↑Yz.card
+ h := ↑(k - 4)
+ i := ↑↑x
+ j := ↑↑z
+ l := ↑(k - 1) * ↑m'

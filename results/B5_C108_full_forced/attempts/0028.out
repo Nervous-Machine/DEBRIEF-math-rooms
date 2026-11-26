@@ -1,0 +1,41 @@
+Rooms/Target_B5_C108_full_forced.lean:2114:60: error(lean.invalidField): Invalid field `le`: The environment does not contain `Nat.le.le`, so it is not possible to project the field `le` from an expression
+  hu2
+of type `Nat.le 2 (H'.degree u)`
+Rooms/Target_B5_C108_full_forced.lean:2114:95: error: Application type mismatch: The argument
+  w
+has type
+  Fin ((k - 1) * m' + 1)
+but is expected to have type
+  ↑{u}ᶜ
+in the application
+  g w
+Rooms/Target_B5_C108_full_forced.lean:2243:24: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  o ≥ 0
+  o ≥ 2
+  n ≥ 2
+  l ≥ 0
+  j ≥ 0
+  j - l ≥ 1
+  i ≥ 0
+  h ≥ 0
+  h - i ≥ 0
+  d ≥ 0
+  d ≥ 1
+  d + n ≥ 3
+  c ≥ 0
+  c - d - n ≥ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑(C'ᶜ.degree x)
+ d := ↑(m' - H'.degree u)
+ h := ↑(C'.neighborFinset x).card
+ i := ↑Y.card
+ j := ↑(Finset.univ \ Y).card
+ l := ↑(k - 1) * ↑(m' - H'.degree u)
+ n := ↑Nu.card
+ o := ↑Yz.card

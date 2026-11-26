@@ -1,0 +1,199 @@
+Rooms/Target_B5_C108_full_forced.lean:610:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:610:24: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:610:37: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:610:49: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:616:10: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:616:22: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:618:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:620:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:622:10: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:622:22: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:624:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:626:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:628:10: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:628:22: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:631:12: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:631:25: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:633:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:633:25: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:635:12: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:635:25: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:668:6: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a.edgeFinset.card = (H.deleteEdges {s(a, b)}).edgeFinset.card
+Error: Application type mismatch: The argument
+  fun a_1 b_1 =>
+    instDecidableComapAdj (⇑(Function.Embedding.subtype fun x => x ∈ {a, b}ᶜ)) (H.deleteEdges {s(a, b)}) a_1 b_1
+has type
+  (a_1 b_1 : ↑{a, b}ᶜ) →
+    Decidable
+      ((SimpleGraph.comap (⇑(Function.Embedding.subtype fun x => x ∈ {a, b}ᶜ)) (H.deleteEdges {s(a, b)})).Adj a_1 b_1)
+but is expected to have type
+  DecidableRel _a.Adj
+in the application
+  @fintypeEdgeSet (↑{a, b}ᶜ) _a Sym2.instFintype fun a_1 b_1 =>
+    instDecidableComapAdj (⇑(Function.Embedding.subtype fun x => x ∈ {a, b}ᶜ)) (H.deleteEdges {s(a, b)}) a_1 b_1
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+W : Type u_1
+inst✝² : Fintype W
+inst✝¹ : DecidableEq W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+a b : W
+hab : H.Adj a b
+ha : ∀ (w : W), H.Adj a w → w = b
+hb : ∀ (w : W), H.Adj b w → w = a
+hsupp : (H.deleteEdges {s(a, b)}).support ⊆ {a, b}ᶜ
+hind : induce {a, b}ᶜ (H.deleteEdges {s(a, b)}) = induce {a, b}ᶜ H
+h1 : (induce {a, b}ᶜ (H.deleteEdges {s(a, b)})).edgeFinset.card = (H.deleteEdges {s(a, b)}).edgeFinset.card
+⊢ (induce {a, b}ᶜ H).edgeSet.ncard = H.edgeSet.ncard - 1
+Rooms/Target_B5_C108_full_forced.lean:716:41: error: linarith failed to find a contradiction
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm1 : 1 ≤ m
+W : Type
+inst✝³ : Fintype W
+inst✝² : DecidableEq W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+a b : W
+hab : H.Adj a b
+ha : ∀ (w : W), H.Adj a w → w = b
+hb : ∀ (w : W), H.Adj b w → w = a
+ih : ∀ (C' : SimpleGraph (Fin ((k - 1) * (m - 1) + 1))), cycleGraph k ⊑ C' ∨ induce {a, b}ᶜ H ⊑ C'ᶜ
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+hC : Cᶜ = ⊥
+a✝ : (k - 1) * m + 1 < k
+⊢ False
+failed
+Rooms/Target_B5_C108_full_forced.lean:721:26: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  m - 1 + 1
+in the target expression
+  (k - 1) * m = (k - 1) * (m - 1).succ
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm1 : 1 ≤ m
+W : Type
+inst✝³ : Fintype W
+inst✝² : DecidableEq W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+a b : W
+hab : H.Adj a b
+ha : ∀ (w : W), H.Adj a w → w = b
+hb : ∀ (w : W), H.Adj b w → w = a
+ih : ∀ (C' : SimpleGraph (Fin ((k - 1) * (m - 1) + 1))), cycleGraph k ⊑ C' ∨ induce {a, b}ᶜ H ⊑ C'ᶜ
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+hC : ¬Cᶜ = ⊥
+x y : Fin ((k - 1) * m + 1)
+hxy : Cᶜ.Adj x y
+⊢ (k - 1) * m = (k - 1) * (m - 1).succ
+Rooms/Target_B5_C108_full_forced.lean:805:29: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 1
+  e ≥ 1
+  e + f ≥ 3
+  d ≥ 0
+  d - e - f ≥ 0
+  d - g ≤ 0
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  b - e - f ≥ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(C'ᶜ.degree x)
+ e := ↑(H'.degree v)
+ f := ↑(m' - H'.degree v)
+ g := ↑(k - 1) * ↑(m' - H'.degree v)
+Rooms/Target_B5_C108_full_forced.lean:807:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 1
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  d - f ≥ 1
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  b - d ≥ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑H'.edgeSet.ncard
+ e := ↑(C'ᶜ.degree x)
+ f := ↑(H'.degree v)

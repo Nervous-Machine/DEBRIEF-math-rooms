@@ -1,0 +1,32 @@
+Rooms/Target_B5_C36_full_forced.lean:572:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:601:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:607:38: error(lean.invalidField): Invalid field `exists_isPath_forall_isPath_length_le_length`: The environment does not contain `SimpleGraph.exists_isPath_forall_isPath_length_le_length`, so it is not possible to project the field `exists_isPath_forall_isPath_length_le_length` from an expression
+  C
+of type `SimpleGraph (Fin n)`
+Rooms/Target_B5_C36_full_forced.lean:607:13: error: Tactic `rcases` failed: `x✝ : ?m.592` is not an inductive datatype
+Rooms/Target_B5_C36_full_forced.lean:642:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:644:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

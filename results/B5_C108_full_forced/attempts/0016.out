@@ -1,0 +1,30 @@
+Rooms/Target_B5_C108_full_forced.lean:1467:21: warning: `SimpleGraph.Walk.isPath_iff_eq_nil` has been deprecated: Use `SimpleGraph.Walk.isPath_iff_nil` instead
+
+Note: The updated constant has a different type:
+  ∀ {V : Type u} {G : SimpleGraph V} {u : V} {p : G.Walk u u}, p.IsPath ↔ p.Nil
+instead of
+  ∀ {V : Type u} {G : SimpleGraph V} {u : V} {p : G.Walk u u}, p.IsPath ↔ p = Walk.nil
+Rooms/Target_B5_C108_full_forced.lean:1528:58: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  l ≥ 0
+  j ≥ 0
+  j - l ≥ 0
+  i ≥ 2
+  g ≥ 2
+  e ≥ 2
+  d ≥ 0
+  d - i ≥ 1
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(C'ᶜ.degree x)
+ e := ↑(H'.degree u)
+ g := ↑(H'.degree v)
+ i := ↑(m' - 1)
+ j := ↑(k - 1) * ↑m'
+ l := ↑(k - 1) * ↑(m' - 1)

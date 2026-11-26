@@ -1,0 +1,52 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: score-2026-11-26-build5
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Which of P1 to P8 held, and what is the dose-response of closure, structure and route recovery against
+    the attempt cap?
+  rule: scored from the check logs, the files and Lean's warnings; misses recorded; amendment A1
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8]
+  commit: prereg_build_5.yaml
+  results:
+  - results/B5_C12_full_forced/forced.json
+  - results/B5_C36_full_forced/forced.json
+  - results/B5_C108_full_forced/forced.json
+  - results/B5_C12_full_forced/score.json
+  - results/B5_C36_full_forced/score.json
+  - results/B5_C108_full_forced/score.json
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    held: P1, P2 (no closure at any cap; the falsifier did not fire), P5, P6
+    held_in_substance_missed_by_letter: P3 (new declarations 20, 19, 94; file lines 932, 1207, 3483; content rose at every step and the count dipped once), P8 (held at caps 12 and 108, missed at 36 where the search narrowed to one goal)
+    missed: P7 (the 108 arm completed in 131 of 600 minutes and 637,423 of 6,000,000 tokens), P4 at cap 108 by the registrar's reading (the Lemma 7 cycle-through-apexes mechanism and a layered second neighbourhood appear in red; the colour-critical edge bound does not)
+    closed_by_cap: no, no, no
+    new_declarations_by_cap: 20, 19, 94
+    file_lines_by_cap: 932, 1207, 3483
+    tokens_by_cap: 235797, 355152, 637423
+    tokens_per_genuine_attempt_by_cap: 19650, 9865, 5902
+    minutes_by_cap: 35, 61, 131
+    fit_by_cap: 0, 0, 0
+    hedges_at_FINAL_by_cap: 0, 0, 0
+    refusals_by_cap: 0, 0, 0
+    what_each_cap_bought: 'the triangle case and a leaf reduction; the whole induction modulo one explicit hypothesis;
+      two complete sub-family theorems (forests; k = 4) and an induction-free description of the one open configuration'
+    open_placeholders: 'cap 12: no-op skip marks with residual comments from attempt 5; cap 36: failing automation
+      calls, then one explicit hypothesis; cap 108: each attempt failing at its stated gap'
+  misses:
+  - P3 letter
+  - P4 letter (108)
+  - P7
+  - P8 (36)
+spoken: 'Four of eight predictions held and the falsifier did not fire: a hundred and eight forced attempts bought
+  the theorem for forests and for the four-cycle, the whole induction, and a ten-property description of the one
+  configuration that remains, and did not buy the route through it. Compute per attempt fell by a factor of three
+  as the cap rose; closure did not move. Nothing was changed at any cap.'
+finding_ids:
+- F5
+gap_ids:
+- EG6

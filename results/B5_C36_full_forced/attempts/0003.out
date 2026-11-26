@@ -1,0 +1,13 @@
+Rooms/Target_B5_C36_full_forced.lean:546:10: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.
+Rooms/Target_B5_C36_full_forced.lean:552:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:554:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

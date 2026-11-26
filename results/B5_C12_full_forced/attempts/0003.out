@@ -1,0 +1,75 @@
+Rooms/Target_B5_C12_full_forced.lean:488:61: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Rooms/Target_B5_C12_full_forced.lean:536:41: error: Tactic `assumption` failed
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+x : Fin ((k - 1) * m + 1)
+hxdeg : m ≤ Cᶜ.degree x
+u : W
+hsum : C.degree x + Cᶜ.degree x = (k - 1) * m
+hbig : (k - 1) * (m - 1) + 1 ≤ Cᶜ.degree x
+e : Fin ((k - 1) * (m - 1) + 1) ↪ Fin ((k - 1) * m + 1)
+he : ∀ (i : Fin ((k - 1) * (m - 1) + 1)), e i ∈ Cᶜ.neighborFinset x
+he' : ∀ (i : Fin ((k - 1) * (m - 1) + 1)), Cᶜ.Adj x (e i)
+hred : ¬cycleGraph k ⊑ SimpleGraph.comap (⇑e) C
+⊢ cycleGraph k ⊑ SimpleGraph.comap (⇑e) C
+Rooms/Target_B5_C12_full_forced.lean:544:80: error: Tactic `assumption` failed
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+x : Fin ((k - 1) * m + 1)
+hxdeg : m ≤ Cᶜ.degree x
+u : W
+hsum : C.degree x + Cᶜ.degree x = (k - 1) * m
+hbig : Cᶜ.degree x < (k - 1) * (m - 1) + 1
+hred : k - 1 ≤ C.degree x
+⊢ C.IsClique ↑(C.neighborFinset x)
+Rooms/Target_B5_C12_full_forced.lean:545:10: error: Tactic `assumption` failed
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+x : Fin ((k - 1) * m + 1)
+hxdeg : m ≤ Cᶜ.degree x
+u : W
+hsum : C.degree x + Cᶜ.degree x = (k - 1) * m
+hbig : Cᶜ.degree x < (k - 1) * (m - 1) + 1
+hred : k - 1 ≤ C.degree x
+⊢ k ≤ C.degree x

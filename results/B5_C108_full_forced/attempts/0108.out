@@ -1,0 +1,17 @@
+Rooms/Target_B5_C108_full_forced.lean:3460:25: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ i ≤ 2
+  h ≥ 0
+  h ≥ 0
+  g ≥ 2
+  e ≥ 4
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx.choose)
+ e := ↑m'
+ g := ↑(H'.degree u)
+ h := ↑(k - 1) * ↑(H'.degree u)
+ i := ↑q.support.toFinset.card

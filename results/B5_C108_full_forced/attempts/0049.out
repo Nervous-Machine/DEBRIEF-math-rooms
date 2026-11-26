@@ -1,0 +1,140 @@
+Rooms/Target_B5_C108_full_forced.lean:2559:64: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Fintype.card (Fin ?n)
+in the target expression
+  Fintype.card W' - 1 + H'.degree u * ((k - 2) * (Fintype.card W' - 1)) < (k - 1) * m' + 1
+
+k : ℕ
+hk : 3 ≤ k
+hres :
+  ∀ (m' : ℕ) (W' : Type) [inst : Fintype W'] (H' : SimpleGraph W') [inst_1 : DecidableRel H'.Adj],
+    (∀ (v : W'), 2 ≤ H'.degree v) →
+      H'.edgeSet.ncard = m' →
+        3 ≤ m' →
+          (¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀) →
+            H'.Preconnected →
+              (∀ (v : W'), (k - 1) * H'.degree v ≤ (k - 2) * (Fintype.card W' - 1)) →
+                (∀ m'' < m',
+                    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_2 : DecidableRel H''.Adj],
+                      (∀ (v : W''), 0 < H''.degree v) →
+                        H''.edgeSet.ncard = m'' →
+                          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ) →
+                  ∀ (C' : SimpleGraph (Fin ((k - 1) * m' + 1))) [inst_2 : DecidableRel C'.Adj]
+                    (x : Fin ((k - 1) * m' + 1)),
+                    (∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x) →
+                      m' ≤ C'ᶜ.degree x →
+                        (∀ (v : W'), C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1) →
+                          (∀ (z : Fin ((k - 1) * m' + 1)), C'.degree z ≤ (k - 2) * (Fintype.card W' - 1)) →
+                            (∀ (u : W') (f : (induce {u}ᶜ H').Copy C'ᶜ) (y : Fin ((k - 1) * m' + 1)),
+                                (∀ (w : ↑{u}ᶜ), f w ≠ y) → ∃ w, H'.Adj u ↑w ∧ ¬C'ᶜ.Adj y (f w)) →
+                              (∀ (u v : W') (f : (H'.deleteEdges {s(u, v)}).Copy C'ᶜ), C'.Adj (f u) (f v)) →
+                                ¬cycleGraph k ⊑ C' →
+                                  k ≠ 4 →
+                                    (∀ (x' : Fin ((k - 1) * m' + 1)),
+                                        ∃ z, z ≠ x' ∧ k - 2 < {y ∈ C'.neighborFinset x' | C'.Adj y z}.card) →
+                                      ¬C'.Colorable (k - 1) →
+                                        (∀ (u : W'),
+                                            (k - 1) * m' + 1 ≤
+                                              Fintype.card W' - 1 + H'.degree u * ((k - 2) * (Fintype.card W' - 1))) →
+                                          False
+m : ℕ
+hm1 : 1 ≤ m
+W : Type
+inst✝⁴ : Fintype W
+H : SimpleGraph W
+inst✝³ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h2' : ∀ (v : W'), 2 ≤ H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hconn : H'.Preconnected
+hmax : ∀ (v : W'), (k - 1) * H'.degree v ≤ (k - 2) * (Fintype.card W' - 1)
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall : ∀ (v : W'), C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+hred : ∀ (z : Fin ((k - 1) * m' + 1)), C'.degree z ≤ (k - 2) * (Fintype.card W' - 1)
+hnoext :
+  ∀ (u : W') (f : (induce {u}ᶜ H').Copy C'ᶜ) (y : Fin ((k - 1) * m' + 1)),
+    (∀ (w : ↑{u}ᶜ), f w ≠ y) → ∃ w, H'.Adj u ↑w ∧ ¬C'ᶜ.Adj y (f w)
+hnoedge : ∀ (u v : W') (f : (H'.deleteEdges {s(u, v)}).Copy C'ᶜ), C'.Adj (f u) (f v)
+hredC : ¬cycleGraph k ⊑ C'
+hk4 : k ≠ 4
+hK2 : ∀ (x' : Fin ((k - 1) * m' + 1)), ∃ z, z ≠ x' ∧ k - 2 < {y ∈ C'.neighborFinset x' | C'.Adj y z}.card
+hcol : ¬C'.Colorable (k - 1)
+u : W'
+hu : Fintype.card W' - 1 + H'.degree u * ((k - 2) * (Fintype.card W' - 1)) < (k - 1) * m' + 1
+hu2 : 2 ≤ H'.degree u
+hult : H'.degree u < m'
+h0' : ∀ (w : W'), 0 < H'.degree w
+hmu : (induce {u}ᶜ H').edgeSet.ncard = m' - H'.degree u
+ih' : ∀ (C'' : SimpleGraph (Fin ((k - 1) * (m' - H'.degree u) + 1))), cycleGraph k ⊑ C'' ∨ induce {u}ᶜ H' ⊑ C''ᶜ
+hn : (k - 1) * (m' - H'.degree u) + 1 ≤ (k - 1) * m' + 1
+⊢ Fintype.card W' - 1 + H'.degree u * ((k - 2) * (Fintype.card W' - 1)) < (k - 1) * m' + 1
+Rooms/Target_B5_C108_full_forced.lean:2602:26: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 0
+  g ≥ 0
+  g - h ≤ 0
+  f ≥ 0
+  f - g ≥ 1
+  f - h ≤ 0
+  e ≥ 0
+  e ≥ 2
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑↑x
+ g := ↑↑z
+ h := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2606:24: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  g - h ≥ 1
+  g - i ≤ 0
+  f ≥ 3
+  e ≥ 0
+  e - f ≥ 1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑(k - 2)
+ g := ↑↑x
+ h := ↑↑z
+ i := ↑(k - 1) * ↑m'

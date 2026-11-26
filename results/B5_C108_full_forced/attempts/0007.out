@@ -1,0 +1,193 @@
+Rooms/Target_B5_C108_full_forced.lean:843:45: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => H.Adj _a ↑w
+Error: Application type mismatch: The argument
+  w
+has type
+  ↑(leafFree H v)
+but is expected to have type
+  { x // x ∈ leafFree H _a }
+in the application
+  ↑w
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+W : Type u_1
+inst✝² : Fintype W
+inst✝¹ : DecidableEq W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+v : W
+w : ↑(leafFree H v)
+hwv : ↑w ≠ v
+hwl : ¬(H.Adj v ↑w ∧ H.degree ↑w = 1)
+hvw : ¬H.Adj v ↑w
+z : W
+hz : H.Adj (↑w) z
+h : z = v
+⊢ H.Adj v ↑w
+Rooms/Target_B5_C108_full_forced.lean:857:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Finset.image ⇑f.toHom ?m.100).card
+in the target expression
+  (Finset.image (fun w => f w) Finset.univ).card = Fintype.card ↑(leafFree H v)
+
+W : Type u_1
+V : Type u_2
+inst✝⁵ : Fintype W
+inst✝⁴ : DecidableEq W
+inst✝³ : Fintype V
+inst✝² : DecidableEq V
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+v : W
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+x : V
+f : (induce (leafFree H v) H).Copy G
+hf : ∀ (w : ↑(leafFree H v)), G.Adj x (f w)
+hx : Fintype.card W - 1 ≤ G.degree x
+L : Finset W := {w | H.Adj v w ∧ H.degree w = 1}
+hL : L = {w | H.Adj v w ∧ H.degree w = 1}
+A : Finset V := G.neighborFinset x \ Finset.image (fun w => f w) Finset.univ
+hA : A = G.neighborFinset x \ Finset.image (fun w => f w) Finset.univ
+⊢ (Finset.image (fun w => f w) Finset.univ).card = Fintype.card ↑(leafFree H v)
+Rooms/Target_B5_C108_full_forced.lean:897:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ↑(g w) ∈ _a
+Error: Application type mismatch: The argument
+  g
+has type
+  ↥L ↪ ↥A
+but is expected to have type
+  ↥L ↪ ↥_a
+in the application
+  ⇑g
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+W : Type u_1
+V : Type u_2
+inst✝⁵ : Fintype W
+inst✝⁴ : DecidableEq W
+inst✝³ : Fintype V
+inst✝² : DecidableEq V
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+v : W
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+x : V
+f : (induce (leafFree H v) H).Copy G
+hf : ∀ (w : ↑(leafFree H v)), G.Adj x (f w)
+hx : Fintype.card W - 1 ≤ G.degree x
+L : Finset W := {w | H.Adj v w ∧ H.degree w = 1}
+hL : L = {w | H.Adj v w ∧ H.degree w = 1}
+A : Finset V := G.neighborFinset x \ Finset.image (fun w => f w) Finset.univ
+hA : A = G.neighborFinset x \ Finset.image (fun w => f w) Finset.univ
+himg : (Finset.image (fun w => f w) Finset.univ).card = Fintype.card ↑(leafFree H v)
+hpart : Finset.univ = (leafFree H v).toFinset ∪ (L ∪ {v})
+hd1 : Disjoint (leafFree H v).toFinset (L ∪ {v})
+hd2 : Disjoint L {v}
+hsplit : Fintype.card W = Fintype.card ↑(leafFree H v) + L.card + 1
+hsub : Finset.image (fun w => f w) Finset.univ ⊆ G.neighborFinset x
+hAcard : L.card ≤ A.card
+g : ↥L ↪ ↥A
+hmemL : ∀ (w : W), w ≠ v → w ∉ leafFree H v → w ∈ L
+hgA : ∀ (w : ↥L), ↑(g w) ∈ A
+w : ↥L
+this : ↑(g w) ∈ A
+⊢ G.Adj x ↑(g w)
+Rooms/Target_B5_C108_full_forced.lean:901:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ↑(g w) ∈ _a
+Error: Application type mismatch: The argument
+  g
+has type
+  ↥L ↪ ↥A
+but is expected to have type
+  ↥L ↪ ↥_a
+in the application
+  ⇑g
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+W : Type u_1
+V : Type u_2
+inst✝⁵ : Fintype W
+inst✝⁴ : DecidableEq W
+inst✝³ : Fintype V
+inst✝² : DecidableEq V
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+v : W
+G : SimpleGraph V
+inst✝ : DecidableRel G.Adj
+x : V
+f : (induce (leafFree H v) H).Copy G
+hf : ∀ (w : ↑(leafFree H v)), G.Adj x (f w)
+hx : Fintype.card W - 1 ≤ G.degree x
+L : Finset W := {w | H.Adj v w ∧ H.degree w = 1}
+hL : L = {w | H.Adj v w ∧ H.degree w = 1}
+A : Finset V := G.neighborFinset x \ Finset.image (fun w => f w) Finset.univ
+hA : A = G.neighborFinset x \ Finset.image (fun w => f w) Finset.univ
+himg : (Finset.image (fun w => f w) Finset.univ).card = Fintype.card ↑(leafFree H v)
+hpart : Finset.univ = (leafFree H v).toFinset ∪ (L ∪ {v})
+hd1 : Disjoint (leafFree H v).toFinset (L ∪ {v})
+hd2 : Disjoint L {v}
+hsplit : Fintype.card W = Fintype.card ↑(leafFree H v) + L.card + 1
+hsub : Finset.image (fun w => f w) Finset.univ ⊆ G.neighborFinset x
+hAcard : L.card ≤ A.card
+g : ↥L ↪ ↥A
+hmemL : ∀ (w : W), w ≠ v → w ∉ leafFree H v → w ∈ L
+hgA : ∀ (w : ↥L), ↑(g w) ∈ A
+hgx : ∀ (w : ↥L), G.Adj x ↑(g w)
+w : ↥L
+w' : ↑(leafFree H v)
+h : ↑(g w) = f w'
+this : ↑(g w) ∈ A
+⊢ False
+Rooms/Target_B5_C108_full_forced.lean:1018:29: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 1
+  e ≥ 1
+  e + f ≥ 3
+  d ≥ 0
+  d - e - f ≥ 0
+  d - g ≤ 0
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  b - e - f ≥ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(C'ᶜ.degree x)
+ e := ↑(H'.degree v)
+ f := ↑(m' - H'.degree v)
+ g := ↑(k - 1) * ↑(m' - H'.degree v)
+Rooms/Target_B5_C108_full_forced.lean:1020:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 1
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  d - f ≥ 1
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  b - d ≥ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑H'.edgeSet.ncard
+ e := ↑(C'ᶜ.degree x)
+ f := ↑(H'.degree v)

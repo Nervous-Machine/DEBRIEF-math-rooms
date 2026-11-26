@@ -1,0 +1,160 @@
+Rooms/Target_B5_C36_full_forced.lean:448:2: error: Type mismatch
+  degree_le_card_edgeFinset H
+has type
+  ∀ (v : W) [inst : Fintype ↑(H.neighborSet v)] [inst_1 : Fintype ↑H.edgeSet], H.degree v ≤ H.edgeFinset.card
+but is expected to have type
+  H.degree u ≤ H.edgeFinset.card
+Rooms/Target_B5_C36_full_forced.lean:518:12: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => (_a.orderEmbOfFin ⋯) i ∈ _a
+Error: Application type mismatch: The argument
+  i
+has type
+  Fin S.card
+but is expected to have type
+  Fin _a.card
+in the application
+  (_a.orderEmbOfFin ⋯) i
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [DecidableRel H.Adj],
+      H.edgeSet.ncard = m_1 →
+        ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst✝¹ : Fintype W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+hpos : m > 0
+u : W
+d : ℕ := H.degree u
+hu : 0 < d
+hd : d = H.degree u
+m' : ℕ := m - d
+hm' : m' = m - d
+hdm : d ≤ m
+hm'lt : m' < m
+hH' : (induce {u}ᶜ H).edgeSet.ncard = m'
+hcard' : Fintype.card ↑{u}ᶜ = Fintype.card W - 1
+x : Fin n
+hx1 : (k - 1) * m' + 1 ≤ Cᶜ.degree x
+hx2 : Fintype.card W - 1 ≤ Cᶜ.degree x
+S : Finset (Fin n) := Cᶜ.neighborFinset x
+hS : S = Cᶜ.neighborFinset x
+e : Fin S.card ↪ Fin n := (S.orderEmbOfFin ⋯).toEmbedding
+i : Fin S.card
+this : (S.orderEmbOfFin ⋯) i ∈ S
+⊢ Cᶜ.Adj x (e i)
+Rooms/Target_B5_C36_full_forced.lean:520:41: error: Type mismatch
+  card_neighborFinset_eq_degree
+has type
+  ∀ (G : SimpleGraph ?m.421) (v : ?m.421) [inst : Fintype ↑(G.neighborSet v)], (G.neighborFinset v).card = G.degree v
+but is expected to have type
+  S.card = Cᶜ.degree x
+Rooms/Target_B5_C36_full_forced.lean:542:59: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  g ≥ 0
+  f ≥ 0
+  e ≥ 1
+  e ≥ 1
+  e + f ≥ 1
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 1
+  b - g ≥ 1
+  b - h ≤ 0
+  a ≥ 3
+  a - i ≥ 1
+where
+ a := ↑k
+ b := ↑n
+ c := ↑(k - 1) * ↑m
+ e := ↑(H.degree u)
+ f := ↑(induce {u}ᶜ H).edgeSet.ncard
+ g := ↑(Fintype.card W - 1)
+ h := ↑(max ((k - 1) * m') (Fintype.card W - 2) + 1) * ↑T.card
+ i := ↑T.card
+Rooms/Target_B5_C36_full_forced.lean:546:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  i ≥ 0
+  h ≥ 0
+  h - j ≤ 0
+  g ≥ 0
+  f ≥ 0
+  e ≥ 1
+  e ≥ 1
+  e + f ≥ 1
+  2*e + 2*f - g ≥ 1
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 1
+  b - g ≥ 1
+  b - h ≤ 0
+  a ≥ 3
+  a - i ≥ 1
+where
+ a := ↑k
+ b := ↑n
+ c := ↑(k - 1) * ↑m
+ e := ↑(H.degree u)
+ f := ↑(induce {u}ᶜ H).edgeSet.ncard
+ g := ↑(Fintype.card W - 1)
+ h := ↑(max ((k - 1) * m') (Fintype.card W - 2) + 1) * ↑T.card
+ i := ↑T.card
+ j := ↑(max ((k - 1) * m') (Fintype.card W - 2) + 1) * ↑(k - 1)
+Rooms/Target_B5_C36_full_forced.lean:563:41: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Fintype.card (Fin ?n)
+in the target expression
+  Fintype.card W ≤ (k - 1) * m + 1
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+hx : ∃ x, m ≤ Cᶜ.degree x
+hW : Fintype.card W ≤ (k - 1) * m + 1
+⊢ Fintype.card W ≤ (k - 1) * m + 1
+Rooms/Target_B5_C36_full_forced.lean:563:78: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Fintype.card (Fin ?n)
+in the target expression
+  (k - 1) * m + 1 ≤ (k - 1) * m + 1
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+hx : ∃ x, m ≤ Cᶜ.degree x
+hW : Fintype.card W ≤ (k - 1) * m + 1
+⊢ (k - 1) * m + 1 ≤ (k - 1) * m + 1

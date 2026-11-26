@@ -1,0 +1,139 @@
+Rooms/Target_B5_C36_full_forced.lean:612:18: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 1
+  f ≥ 1
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 0
+  c ≥ 0
+  c - f ≥ 0
+  c - f - g ≥ 0
+where
+ c := ↑p.length
+ d := ↑N.card
+ e := ↑(G.degree a)
+ f := ↑i
+ g := ↑(k - 2)
+Rooms/Target_B5_C36_full_forced.lean:624:24: error: Application type mismatch: The argument
+  hi.left
+has type
+  i ∈ Finset.Icc 1 L ∧ G.Adj a (p.getVert i)
+but is expected to have type
+  ?m.740 ∈ N
+in the application
+  hNsub hi.left
+Rooms/Target_B5_C36_full_forced.lean:634:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 1
+  h ≥ 0
+  h + i ≥ 0
+  g ≥ 0
+  f ≥ 0
+  f + g ≥ 0
+  f + g - h - i ≤ 0
+  e ≥ 0
+  e - h ≤ 0
+  d ≥ 0
+  d - f - g + h ≤ -1
+  d + f + g - h - i ≤ 0
+  c ≥ 0
+  c - f - g ≤ 0
+where
+ c := ↑(G.degree a)
+ d := ↑N₁.card
+ e := ↑(N \ N₁).card
+ f := ↑(N \ {i ∈ N | i + (k - 2) ≤ L}).card
+ g := ↑{i ∈ N | i + (k - 2) ≤ L}.card
+ h := ↑(k - 2)
+ i := ↑(L - (k - 2))
+Rooms/Target_B5_C36_full_forced.lean:680:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:709:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:755:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  q ≥ 1
+  o ≥ 0
+  l ≥ 0
+  l - 2*o + q ≥ 0
+  l - o ≥ 1
+  l - q ≥ 1
+  j ≥ 0
+  i ≥ 0
+  i + j ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  f ≥ 0
+  e ≥ 1
+  e ≥ 1
+  e + f ≥ 1
+  c ≥ 0
+  c - g ≥ 1
+  c - i - j ≥ 1
+  c - l ≥ 1
+where
+ c := ↑n
+ e := ↑(H.degree u)
+ f := ↑(induce {u}ᶜ H).edgeSet.ncard
+ g := ↑(Fintype.card W - 1)
+ h := ↑(Cᶜ.degree x₀)
+ i := ↑(k - 1) * ↑m'
+ j := ↑(k - 1) * ↑d
+ l := ↑p.length
+ o := ↑(C.degree a)
+ q := ↑(k - 2)
+Rooms/Target_B5_C36_full_forced.lean:758:51: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  o ≥ 0
+  l ≥ 0
+  l - o ≥ 0
+  j ≥ 0
+  j - l ≥ 1
+  j - o ≥ 0
+  i ≥ 0
+  h ≥ 0
+  g ≥ 1
+  g ≥ 1
+  g + h ≥ 1
+  g + h - o ≤ 0
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  e - i ≥ 1
+  c ≥ 3
+where
+ c := ↑k
+ e := ↑n
+ f := ↑(k - 1) * ↑m
+ g := ↑(H.degree u)
+ h := ↑(induce {u}ᶜ H).edgeSet.ncard
+ i := ↑(Fintype.card W - 1)
+ j := ↑(Cᶜ.degree x₀)
+ l := ↑(k - 1) * ↑m'
+ o := ↑(Cᶜ.degree y)
+Rooms/Target_B5_C36_full_forced.lean:764:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:766:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

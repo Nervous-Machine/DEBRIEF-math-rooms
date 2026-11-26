@@ -1,0 +1,104 @@
+Rooms/Target_B5_C108_full_forced.lean:1103:4: error: linarith failed to find a contradiction
+case inl
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝⁵ : Fintype W
+H : SimpleGraph W
+inst✝⁴ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝³ : DecidableRel C.Adj
+hx✝ : ∃ x, m ≤ Cᶜ.degree x
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h0' : ∀ (v : W'), 0 < H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hiso : ¬∃ a b, H'.Adj a b ∧ (∀ (w : W'), H'.Adj a w → w = b) ∧ ∀ (w : W'), H'.Adj b w → w = a
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall :
+  ∀ (v : W'),
+    C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1 ∨
+      (∃ w, H'.Adj v w ∧ H'.degree w = 1) ∧ C'ᶜ.degree x < Fintype.card W' - 1
+T : Finset (Fin ((k - 1) * m' + 1))
+hT : C'.IsClique ↑T
+hcard : (k - 1) * m' + 1 ≤ (C'ᶜ.degree x + 1) * T.card
+hW' : Nonempty W'
+v : W'
+hv : ∀ (w : W'), H'.degree w ≤ H'.degree v
+hvlt : H'.degree v < m'
+h : C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+a✝ : T.card < k
+⊢ False
+failed
+Rooms/Target_B5_C108_full_forced.lean:1104:4: error: linarith failed to find a contradiction
+case inr
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝⁵ : Fintype W
+H : SimpleGraph W
+inst✝⁴ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝³ : DecidableRel C.Adj
+hx✝ : ∃ x, m ≤ Cᶜ.degree x
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h0' : ∀ (v : W'), 0 < H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hiso : ¬∃ a b, H'.Adj a b ∧ (∀ (w : W'), H'.Adj a w → w = b) ∧ ∀ (w : W'), H'.Adj b w → w = a
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall :
+  ∀ (v : W'),
+    C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1 ∨
+      (∃ w, H'.Adj v w ∧ H'.degree w = 1) ∧ C'ᶜ.degree x < Fintype.card W' - 1
+T : Finset (Fin ((k - 1) * m' + 1))
+hT : C'.IsClique ↑T
+hcard : (k - 1) * m' + 1 ≤ (C'ᶜ.degree x + 1) * T.card
+hW' : Nonempty W'
+v : W'
+hv : ∀ (w : W'), H'.degree w ≤ H'.degree v
+hvlt : H'.degree v < m'
+h : (∃ w, H'.Adj v w ∧ H'.degree w = 1) ∧ C'ᶜ.degree x < Fintype.card W' - 1
+a✝ : T.card < k
+⊢ False
+failed

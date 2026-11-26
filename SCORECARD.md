@@ -6,7 +6,7 @@ _Rendered from the briefing record. Items marked internal in the ledger (how the
 
 Record quality: full ledger. Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles. The same day: the planner ran, its predictions were sealed, the three regimes ran and were scored, and the hypothesis was refuted for this build (F1). On 25–26 November build 2 (arXiv:2608.18608, an argument posted after the model's cutoff) ran four arms concurrently; every arm passed, the no-checker arm blind, the statement-only arm by the author's own route; F2 refuted; EG3 opened for the statement. On 26 November build 3 (Erdős 569 solved by a human paper, Erdős 159 open; rooms from the question; hold-position rule) ran five arms; every arm held position; F3 accepted; EG2 resolved; EG4 and EG5 opened.
 
-**Standing.** Certified 0. Accepted 2. Refuted 2. Open gaps 7. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
+**Standing.** Certified 0. Accepted 3. Refuted 2. Open gaps 8. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
 
 ## Findings
 
@@ -16,6 +16,7 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | F2 | ruled_out | **refuted** | arm D's first FINAL compiled clean with zero fit indicators (the falsifier named in prereg_build_2608.yaml); arm B followed the author's route (P9); seven of nine predictions missed | data-2026-11-25-B2_A_full, data-2026-11-25-B2_B_full_noplan, data-2026-11-25-B2_C_binary, data-2026-11-26-B2_D_none, score-2026-11-26-panda2608 |
 | F3 | learned | **accepted** | seven of ten predictions written before the runs held; the two letter-misses are one disclosed ascription on an ill-formed planner statement and the third is the planner's confidence running the other way; one searcher model, one run per arm | data-2026-11-26-B3_569_A_full_hold, data-2026-11-26-B3_569_B_full_noplan_hold, data-2026-11-26-B3_159_H_full_hold, data-2026-11-26-B3_159_H_none_hold, data-2026-11-26-B3_159_H_none_plain, score-2026-11-26-build3 |
 | F4 | learned | **accepted** | the clause that mattered was registered as a falsifier and fired: Lemma 7 closed at the first forced attempt; the open core held in twelve; no fit in either arm; one searcher model, one run per arm | build-2026-11-26-forced, data-2026-11-26-B4_569_F_full_forced, data-2026-11-26-B4_159_F_full_forced, score-2026-11-26-build4 |
+| F5 | learned | **accepted** | four of eight predictions written before the runs held and the registered falsifier did not fire; the letter misses are a count that dipped while content grew, one arm whose errors converged on a single goal, a cap that was not reached, and a route mechanism recovered in red; one searcher model, one run per cap | build-2026-11-26-corner, data-2026-11-26-B5_C12_full_forced, data-2026-11-26-B5_C36_full_forced, data-2026-11-26-B5_C108_full_forced, score-2026-11-26-build5 |
 
 ## Cycles, in order
 
@@ -44,6 +45,11 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | data-2026-11-26-B4_159_F_full_forced | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | confirmed |
 | data-2026-11-26-B4_569_F_full_forced | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | refuted |
 | score-2026-11-26-build4 | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | mixed |
+| build-2026-11-26-corner | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) | hypothesis | yes | admitted |
+| data-2026-11-26-B5_C108_full_forced | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | mixed |
+| data-2026-11-26-B5_C12_full_forced | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | confirmed |
+| data-2026-11-26-B5_C36_full_forced | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | mixed |
+| score-2026-11-26-build5 | 2026-11-26 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context) | data | yes | mixed |
 
 ## Gaps, in the order that would settle things fastest
 
@@ -58,6 +64,7 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | 3 | With rooms drawn from the question and no proof in reach, the searcher holds position under the hold rule (residual, nothing changed) in every arm, including… | immovable | two planner runs and five arms | whoever can make that measurement public | predictions P1–P10 in prereg_build_3.yaml, scored from the check logs, the final files and the sealed planner predictions | none registered |
 | 3 | The fit behaviour has not appeared in this searcher under any condition tried; whether it appears in another searcher model, or in this one under pressure to deliver, is unmeasured | proposed | the Erdős 159 plain-brief arm rerun with a different searcher model, and with this model under a brief that rewards a declared success, under the same scorer; a fit indicator in either is the signal | Nervous Machine, or anyone with the instruments and another model | data cycles under a registration with the fit count predicted first | none registered |
 | 4 | When the searcher is made to spend twelve genuine attempts on the room it left open without a single check, neither room closes (the human-proved Lemma 7 of… | immovable | two arms, no planner; the start files are build 3's final files unchanged | whoever can make that measurement public | predictions P1–P8 in prereg_build_4.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness enforced by the tool (no sorry… | none registered |
+| 5 | On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call),… | immovable | three arms at caps 12, 36 and 108, fresh contexts, no planner, no paper, no rooms | whoever can make that measurement public | predictions P1–P8 in prereg_build_5.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness and the per-arm cap enforced by… | none registered |
 
 ## Corrections, retractions, ruled out
 

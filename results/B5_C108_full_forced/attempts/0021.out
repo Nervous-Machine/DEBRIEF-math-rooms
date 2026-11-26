@@ -1,0 +1,160 @@
+Rooms/Target_B5_C108_full_forced.lean:1467:21: warning: `SimpleGraph.Walk.isPath_iff_eq_nil` has been deprecated: Use `SimpleGraph.Walk.isPath_iff_nil` instead
+
+Note: The updated constant has a different type:
+  ∀ {V : Type u} {G : SimpleGraph V} {u : V} {p : G.Walk u u}, p.IsPath ↔ p.Nil
+instead of
+  ∀ {V : Type u} {G : SimpleGraph V} {u : V} {p : G.Walk u u}, p.IsPath ↔ p = Walk.nil
+Rooms/Target_B5_C108_full_forced.lean:1786:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Finset.image ⇑f.toHom ?m.439).card
+in the target expression
+  (Finset.image (fun w => f w) Finset.univ).card = Fintype.card W' - 1
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝⁵ : Fintype W
+H : SimpleGraph W
+inst✝⁴ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝³ : DecidableRel C.Adj
+hx✝ : ∃ x, m ≤ Cᶜ.degree x
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h2' : ∀ (v : W'), 2 ≤ H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hconn : H'.Preconnected
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall : ∀ (v : W'), C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+hred : ∀ (z : Fin ((k - 1) * m' + 1)), C'.degree z ≤ (k - 2) * (Fintype.card W' - 1)
+hW' : Nonempty W'
+u : W'
+hu : ∀ (w : W'), H'.degree u ≤ H'.degree w
+hu2 : 2 ≤ H'.degree u
+hult : H'.degree u < m'
+h0' : ∀ (w : W'), 0 < H'.degree w
+hmu : (induce {u}ᶜ H').edgeSet.ncard = m' - H'.degree u
+ih' : ∀ (C'' : SimpleGraph (Fin ((k - 1) * (m' - H'.degree u) + 1))), cycleGraph k ⊑ C'' ∨ induce {u}ᶜ H' ⊑ C''ᶜ
+hle : (k - 1) * (m' - H'.degree u) + 1 ≤ (k - 1) * m' + 1
+f : (induce {u}ᶜ H').Copy C'ᶜ
+I : Finset (Fin ((k - 1) * m' + 1)) := Finset.image (fun w => f w) Finset.univ
+hI : I = Finset.image (fun w => f w) Finset.univ
+Nu : Finset ↑{u}ᶜ := {w | H'.Adj u ↑w}
+hNu : Nu = {w | H'.Adj u ↑w}
+B : Finset (Fin ((k - 1) * m' + 1)) := Nu.biUnion fun w => C'.neighborFinset (f w)
+hB : B = Nu.biUnion fun w => C'.neighborFinset (f w)
+⊢ (Finset.image (fun w => f w) Finset.univ).card = Fintype.card W' - 1
+Rooms/Target_B5_C108_full_forced.lean:1812:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  o ≥ 1
+  n ≥ 0
+  l ≥ 0
+  l - n ≥ 0
+  j ≥ 2
+  i ≥ 0
+  g ≥ 0
+  g - i ≥ 0
+  e ≥ 0
+  e ≥ 1
+  e + j ≥ 3
+  e + j - o ≤ -1
+  2*e + 2*j - o ≥ 0
+  d ≥ 0
+  d - e - j ≥ 0
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(C'ᶜ.degree x)
+ e := ↑(m' - H'.degree u)
+ g := ↑(k - 1) * ↑m'
+ i := ↑(k - 1) * ↑(m' - H'.degree u)
+ j := ↑Nu.card
+ l := ↑(H'.degree u) * ↑((k - 2) * (Fintype.card W' - 1))
+ n := ↑B.card
+ o := ↑(Fintype.card W')
+Rooms/Target_B5_C108_full_forced.lean:1818:4: error: linarith failed to find a contradiction
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝⁵ : Fintype W
+H : SimpleGraph W
+inst✝⁴ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝³ : DecidableRel C.Adj
+hx✝ : ∃ x, m ≤ Cᶜ.degree x
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h2' : ∀ (v : W'), 2 ≤ H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hconn : H'.Preconnected
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall : ∀ (v : W'), C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+hred : ∀ (z : Fin ((k - 1) * m' + 1)), C'.degree z ≤ (k - 2) * (Fintype.card W' - 1)
+hW' : Nonempty W'
+u : W'
+hu : ∀ (w : W'), H'.degree u ≤ H'.degree w
+hu2 : 2 ≤ H'.degree u
+hult : H'.degree u < m'
+h0' : ∀ (w : W'), 0 < H'.degree w
+hmu : (induce {u}ᶜ H').edgeSet.ncard = m' - H'.degree u
+ih' : ∀ (C'' : SimpleGraph (Fin ((k - 1) * (m' - H'.degree u) + 1))), cycleGraph k ⊑ C'' ∨ induce {u}ᶜ H' ⊑ C''ᶜ
+hle : (k - 1) * (m' - H'.degree u) + 1 ≤ (k - 1) * m' + 1
+f : (induce {u}ᶜ H').Copy C'ᶜ
+I : Finset (Fin ((k - 1) * m' + 1)) := Finset.image (fun w => f w) Finset.univ
+hI : I = Finset.image (fun w => f w) Finset.univ
+Nu : Finset ↑{u}ᶜ := {w | H'.Adj u ↑w}
+hNu : Nu = {w | H'.Adj u ↑w}
+B : Finset (Fin ((k - 1) * m' + 1)) := Nu.biUnion fun w => C'.neighborFinset (f w)
+hB : B = Nu.biUnion fun w => C'.neighborFinset (f w)
+hIcard : I.card = Fintype.card W' - 1
+hNucard : Nu.card = H'.degree u
+hBcard : B.card ≤ H'.degree u * ((k - 2) * (Fintype.card W' - 1))
+hcard : 2 * Fintype.card W' ≤ 2 * m'
+this : (I ∪ B).card ≤ I.card + B.card
+a✝ : (k - 1) * m' + 1 - (I ∪ B).card ≤ 0
+⊢ False
+failed

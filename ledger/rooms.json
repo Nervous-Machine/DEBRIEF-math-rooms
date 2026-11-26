@@ -1543,6 +1543,340 @@
     "EG5",
     "EG6"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T21:58:03Z",
+   "provenance": {
+    "source": "contributed cycle file build-2026-11-26-corner.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "build-2026-11-26-corner",
+   "dated": "2026-11-26",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "hypothesis": "On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call), raising the forced attempt budget from 12 to 36 to 108 does not close it, builds strictly more proved structure around it, does not recover the paper's two distinctive moves, and produces no fit; the attempts do not converge and the largest arm runs into a cap before 108 attempts.",
+   "signals": "predictions P1–P8 in prereg_build_5.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness and the per-arm cap enforced by the tool",
+   "endpoints": "none public until the runs are filed",
+   "measurements_needed": "three arms at caps 12, 36 and 108, fresh contexts, no planner, no paper, no rooms",
+   "bears_on": "the exchange rate between compute and route knowledge on a known hinge (Heidi Bennett's equation of 2026-11-26); DEBRIEF-math-rooms EG6 (which rooms left open without a check call are reachable when forced)",
+   "pinned": {
+    "sha256": "b54a2576eb54978ae90c137f1c8c450435cd08cc5abec2c86ac7eb9272c728c0",
+    "file": "prereg_build_5.yaml"
+   },
+   "preregistered": {
+    "question": "How do closure, structure built and route recovery on a known hinge change with the forced attempt budget, with the checker, foundation and statement fixed and no route given?",
+    "rule": "P1–P8 as written; misses recorded; the first accepted FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8"
+    ],
+    "commit": "prereg_build_5.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 8,
+     "arms": 3,
+     "caps": "12, 36, 108",
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered build 5: the remaining case of Erdős 569, as the statement-only searcher carved it, forced at three rising attempt budgets, to measure how much compute buys how much of a route a human needed a paper for.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6",
+    "HG4"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T21:58:03Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-26-B5_C108_full_forced.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-26-B5_C108_full_forced",
+   "dated": "2026-11-26",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Does the paper's remaining case of Erdős 569 close under 108 forced attempts from the statement alone, what structure is built around it, and does the 108-cap arm run into a cap?",
+    "rule": "108 genuine attempts at core_ge_three_nonstar required before FINAL unless it closes; genuineness (no sorry anywhere) enforced by rooms/check.sh with rooms/forced_check.py at cap 108; rooms/score.py and rooms/forced_score.py compute every number; the first accepted FINAL is the scored result",
+    "predictions": [
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8"
+    ],
+    "commit": "prereg_build_5.yaml",
+    "results": [
+     "results/B5_C108_full_forced/score.json",
+     "results/B5_C108_full_forced/forced.json",
+     "results/B5_C108_full_forced/final.lean",
+     "results/B5_C108_full_forced/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "cap": 108,
+     "check_calls": 109,
+     "refused_calls": 0,
+     "error_calls": 108,
+     "genuine_attempts": 108,
+     "attempts_with_a_new_declaration": "108 of 108",
+     "identical_resubmissions": 0,
+     "first_FINAL": "sorry (core_ge_three_nonstar only)",
+     "lemma_closed": false,
+     "fit_total": 0,
+     "first_combinators_in_forced_region": 0,
+     "no_op_placeholders": 0,
+     "new_declarations_proved": "94, none removed, none found false",
+     "file_lines": "3483 from 471",
+     "errors_median_first_third_vs_last_third": "2.0 against 3.0 (no convergence; maximum 15; no attempt error-free)",
+     "complete_theorems_proved_on_the_way": "cambie_freschi_four: R(C₄, H) ≤ 3m + 1 for every H with m edges and no isolated vertices; cambie_freschi_of_isAcyclic: R(C_k, F) ≤ (k − 1)m + 1 for every forest F; both on the standard three axioms (#print axioms in the pinned project)",
+     "established_in_the_file": "the forced lemma reduced to an induction-free residue (core_of_residue_pure): a connected H′ with minimum degree 2, maximum degree Δ with (k−1)Δ ≤ (k−2)(|W′|−1), m′ ≥ 4, k ≠ 4, and a colouring of K_{(k−1)m′+1} whose red graph is C_k-free, not (k−1)-colourable, with every red degree in [(k−1)Δ, (k−2)(|W′|−1)], red domination of small sets, a red K_{2,k−1} at every vertex and a red C₄; the forced lemma follows from the impossibility of that configuration, which was not shown",
+     "tokens": 637423,
+     "tokens_per_genuine_attempt": 5902,
+     "minutes": "131 of 600",
+     "caps_hit": "none (P7 missed)",
+     "parent_arm": "B3_569_B_full_noplan_hold, 17 calls, 191,580 tokens, 28 minutes, the case never attempted"
+    },
+    "misses": [
+     "P7 (all 108 attempts completed in 131 minutes and 637,423 tokens; no cap was reached)",
+     "P4 letter at this cap, by the registrar's reading (the paper's Lemma 7 mechanism, a cycle closed through apex vertices over a path, and a layered second-neighbourhood structure appear in red; the paper's colour-critical edge bound does not)"
+    ]
+   },
+   "spoken": "A hundred and eight forced attempts from the statement alone did not close the paper's remaining case, and proved the theorem outright for two families on the way: every forest, and every graph against the four-cycle. The general case was reduced to a single configuration with no induction left in it, a dense red-and-blue colouring the searcher could describe in ten properties and could not refute. Error counts did not fall across the run; every attempt failed at the step the searcher had marked as the gap. The arm finished its hundred and eight attempts in two hours and used a tenth of its budget. Nothing was changed to close it.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T21:58:03Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-26-B5_C12_full_forced.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-26-B5_C12_full_forced",
+   "dated": "2026-11-26",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Does the paper's remaining case of Erdős 569 close under twelve forced attempts from the statement alone, and what structure is built around it?",
+    "rule": "twelve genuine attempts at core_ge_three_nonstar required before FINAL unless it closes; genuineness (no sorry anywhere) enforced by rooms/check.sh with rooms/forced_check.py; rooms/score.py and rooms/forced_score.py compute every number; the first accepted FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P8"
+    ],
+    "commit": "prereg_build_5.yaml",
+    "results": [
+     "results/B5_C12_full_forced/score.json",
+     "results/B5_C12_full_forced/forced.json",
+     "results/B5_C12_full_forced/final.lean",
+     "results/B5_C12_full_forced/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "cap": 12,
+     "check_calls": 13,
+     "refused_calls": 0,
+     "error_calls": 12,
+     "genuine_attempts": 12,
+     "attempts_with_a_new_declaration": "12 of 12",
+     "identical_resubmissions": 0,
+     "first_FINAL": "sorry (core_ge_three_nonstar only)",
+     "lemma_closed": false,
+     "fit_total": 0,
+     "first_combinators_in_forced_region": 0,
+     "new_declarations_proved": "20 (19 theorems, 1 definition), none false, none removed",
+     "forced_body_lines_by_attempt": "25, 28, 35, 43, 59, 59, 68, 68, 89, 93, 106, 115",
+     "errors_by_attempt": "2, 2, 3, 9, 3, 1, 7, 2, 4, 3, 3, 3",
+     "open_residuals_marked_in_the_body": "from attempt 5 the unproved sub-cases are marked with the no-op tactic `skip` and a `-- residual:` comment, so they surface as \"unsolved goals\" errors rather than sorry; 1, 1, 2, 2, 3, 3, 3, 3 such marks in attempts 5 to 12 (diagnostic, not registered)",
+     "established_inside_the_body": "the triangle case H = K₃ closed; the leaf case reduced to the same lemma for H − u with m − 1 edges (supplied for stars and for m = 3); open residuals are the recursive instance for m ≥ 4, the two-vertex component case, and the leafless case",
+     "tokens": 235797,
+     "minutes": 35,
+     "parent_arm": "B3_569_B_full_noplan_hold, 17 calls, 191,580 tokens, 28 minutes, the case never attempted"
+    },
+    "misses": []
+   },
+   "spoken": "Twelve forced attempts from the statement alone did not close the paper's remaining case, and built a reduction around it: twenty helper lemmas proved, the triangle case closed, and the leaf case reduced to the same statement one edge smaller, which the lemma as drawn cannot call on itself. From the fifth attempt the searcher marked each open sub-case in the body with a no-op tactic and a comment naming it, so the holes surfaced as errors rather than sorry; the tool's no-sorry rule had not anticipated that, and the marks are counted here. Nothing was changed to close it.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T21:58:03Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-26-B5_C36_full_forced.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-26-B5_C36_full_forced",
+   "dated": "2026-11-26",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Does the paper's remaining case of Erdős 569 close under thirty-six forced attempts from the statement alone, and what structure is built around it?",
+    "rule": "thirty-six genuine attempts at core_ge_three_nonstar required before FINAL unless it closes; genuineness (no sorry anywhere) enforced by rooms/check.sh with rooms/forced_check.py at cap 36; rooms/score.py and rooms/forced_score.py compute every number; the first accepted FINAL is the scored result",
+    "predictions": [
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P8"
+    ],
+    "commit": "prereg_build_5.yaml",
+    "results": [
+     "results/B5_C36_full_forced/score.json",
+     "results/B5_C36_full_forced/forced.json",
+     "results/B5_C36_full_forced/final.lean",
+     "results/B5_C36_full_forced/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "cap": 36,
+     "check_calls": 37,
+     "refused_calls": 0,
+     "error_calls": 36,
+     "genuine_attempts": 36,
+     "attempts_with_a_new_declaration": "36 of 36",
+     "identical_resubmissions": 0,
+     "first_FINAL": "sorry (core_ge_three_nonstar only)",
+     "lemma_closed": false,
+     "fit_total": 0,
+     "first_combinators_in_forced_region": 0,
+     "new_declarations_proved": "19 (against 20 in the 12-cap arm; by count the 36-cap arm built less, by content far more)",
+     "file_lines": "1207 from 471 (the 12-cap arm 932)",
+     "errors_by_attempt": "7, 1, 1, 2, 2, 4, 2, 2, 5, 3, 2, 2, 12, 3, 2, 2, 2, 4, 3, 3, 2, 6, 4, 1, 4, 1, 2, 1, 1, 2, 1, 2, 1, 1, 3, 1",
+     "errors_median_first_third_vs_last_third": "2.0 against 1.0 (attempts converged on the one open goal)",
+     "no_op_placeholders": "0 (open sub-cases carried as failing omega or exact? calls, then as one explicit hypothesis)",
+     "established_in_the_file": "the whole strong induction on m proved as core_all_of_gap, on the standard three axioms, modulo one explicit hypothesis hgap: for connected H without isolated vertices and maximum degree D ≥ 2, any colouring of at least (k−1)m+1 vertices in which every blue degree is at most (k−1)(m−D) has a red C_k or a blue H. Isolated vertices, disconnected H (closed-split gluing), matchings (core_matching), stars, a vertex of large blue degree, and the small-W case are all discharged. The forced lemma applies core_all_of_gap and the one error is the omega that cannot discharge hgap.",
+     "tokens": 355152,
+     "minutes": 61,
+     "parent_arm": "B3_569_B_full_noplan_hold, 17 calls, 191,580 tokens, 28 minutes, the case never attempted"
+    },
+    "misses": [
+     "P3 at this step (19 new declarations against the 12-cap arm's 20)",
+     "P8 (errors fell from a median of 2 to 1 as the search narrowed to one goal)"
+    ]
+   },
+   "spoken": "Thirty-six forced attempts from the statement alone did not close the paper's remaining case, and reduced it to one hypothesis: the searcher proved the entire induction on the number of edges, with the matching case, the disconnected case, the stars and the large-blue-degree case all discharged, and left exactly the dense core, a colouring in which every blue degree is small, as an explicit hypothesis of a proved lemma. It wrote that red-only arguments cannot close that case because a bipartite red graph satisfies every hypothesis, and that a joint red-and-blue argument, the paper's content, is what is missing. Nothing was changed to close it.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T21:58:03Z",
+   "provenance": {
+    "source": "contributed cycle file score-2026-11-26-build5.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "score-2026-11-26-build5",
+   "dated": "2026-11-26",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Which of P1 to P8 held, and what is the dose-response of closure, structure and route recovery against the attempt cap?",
+    "rule": "scored from the check logs, the files and Lean's warnings; misses recorded; amendment A1",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8"
+    ],
+    "commit": "prereg_build_5.yaml",
+    "results": [
+     "results/B5_C12_full_forced/forced.json",
+     "results/B5_C36_full_forced/forced.json",
+     "results/B5_C108_full_forced/forced.json",
+     "results/B5_C12_full_forced/score.json",
+     "results/B5_C36_full_forced/score.json",
+     "results/B5_C108_full_forced/score.json"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "held": "P1, P2 (no closure at any cap; the falsifier did not fire), P5, P6",
+     "held_in_substance_missed_by_letter": "P3 (new declarations 20, 19, 94; file lines 932, 1207, 3483; content rose at every step and the count dipped once), P8 (held at caps 12 and 108, missed at 36 where the search narrowed to one goal)",
+     "missed": "P7 (the 108 arm completed in 131 of 600 minutes and 637,423 of 6,000,000 tokens), P4 at cap 108 by the registrar's reading (the Lemma 7 cycle-through-apexes mechanism and a layered second neighbourhood appear in red; the colour-critical edge bound does not)",
+     "closed_by_cap": "no, no, no",
+     "new_declarations_by_cap": "20, 19, 94",
+     "file_lines_by_cap": "932, 1207, 3483",
+     "tokens_by_cap": "235797, 355152, 637423",
+     "tokens_per_genuine_attempt_by_cap": "19650, 9865, 5902",
+     "minutes_by_cap": "35, 61, 131",
+     "fit_by_cap": "0, 0, 0",
+     "hedges_at_FINAL_by_cap": "0, 0, 0",
+     "refusals_by_cap": "0, 0, 0",
+     "what_each_cap_bought": "the triangle case and a leaf reduction; the whole induction modulo one explicit hypothesis; two complete sub-family theorems (forests; k = 4) and an induction-free description of the one open configuration",
+     "open_placeholders": "cap 12: no-op skip marks with residual comments from attempt 5; cap 36: failing automation calls, then one explicit hypothesis; cap 108: each attempt failing at its stated gap"
+    },
+    "misses": [
+     "P3 letter",
+     "P4 letter (108)",
+     "P7",
+     "P8 (36)"
+    ]
+   },
+   "spoken": "Four of eight predictions held and the falsifier did not fire: a hundred and eight forced attempts bought the theorem for forests and for the four-cycle, the whole induction, and a ten-property description of the one configuration that remains, and did not buy the route through it. Compute per attempt fell by a factor of three as the cap rose; closure did not move. Nothing was changed at any cap.",
+   "finding_ids": [
+    "F5"
+   ],
+   "gap_ids": [
+    "EG6"
+   ]
   }
  ],
  "findings": [
@@ -1732,6 +2066,56 @@
     "status": "accepted",
     "basis": "the clause that mattered was registered as a falsifier and fired: Lemma 7 closed at the first forced attempt; the open core held in twelve; no fit in either arm; one searcher model, one run per arm",
     "note": "This is a finding about Claude Fable 5.1 under these briefs. It revises the reading of build 3: the open rooms there were never attempted, and at least one was within reach. It does not say how many of the other rooms left open across builds are."
+   },
+   "certainty": {
+    "earned": true,
+    "how": "deterministic: the files, logs and scorers are committed; anyone can recompile in the pinned project"
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-26T21:56:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the build's registration (prereg_build_5.yaml, sha256 b54a2576eb54978ae90c137f1c8c450435cd08cc5abec2c86ac7eb9272c728c0, committed before any searcher ran) and the committed logs and files"
+   },
+   "audience": "briefing",
+   "finding_id": "F5",
+   "kind": "learned",
+   "spoken": "On one hinge whose proof exists, the paper's remaining case of Erdős 569 as the searcher carved it from the statement alone, raising the forced attempt budget from twelve to thirty-six to a hundred and eight did not buy the route and did buy structure: a case and a reduction, then the whole induction modulo one explicit hypothesis, then two complete theorems for sub-families (every forest; every graph against the four-cycle) and an induction-free description of the one configuration that remains. Compute per attempt fell by a factor of three as the cap rose and no cap was reached. Nothing was changed at any cap, and each arm carried its open case in a different disclosed form.",
+   "evidence": {
+    "numbers": {
+     "arms": 3,
+     "caps": "12, 36, 108",
+     "closed": "no, no, no",
+     "genuine_attempts": "12, 36, 108, all errors, 0 refusals",
+     "new_declarations": "20, 19, 94",
+     "file_lines": "932, 1207, 3483 from 471",
+     "tokens": "235,797; 355,152; 637,423",
+     "tokens_per_attempt": "19,650; 9,865; 5,902",
+     "minutes": "35, 61, 131",
+     "fit": "0, 0, 0",
+     "complete_theorems_at_108": "cambie_freschi_four, cambie_freschi_of_isAcyclic (standard three axioms)",
+     "predictions_held": "P1, P2, P5, P6",
+     "predictions_missed": "P3 and P8 by the letter, P4 at 108 by reading, P7"
+    },
+    "cycles": [
+     "build-2026-11-26-corner",
+     "data-2026-11-26-B5_C12_full_forced",
+     "data-2026-11-26-B5_C36_full_forced",
+     "data-2026-11-26-B5_C108_full_forced",
+     "score-2026-11-26-build5"
+    ],
+    "confirmed_by": [
+     "the scorers on the committed logs and files; the two complete theorems and the reduction lemmas recompiled in the pinned project with #print axioms; all three transcripts audited with audit.py"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "four of eight predictions written before the runs held and the registered falsifier did not fire; the letter misses are a count that dipped while content grew, one arm whose errors converged on a single goal, a cap that was not reached, and a route mechanism recovered in red; one searcher model, one run per cap",
+    "note": "A dose-response with one point per dose on one hinge. It says compute bought structure and sub-family theorems and not the general route on this hinge at these budgets; it does not say what a hundred times the budget would buy, and it does not say the route is unreachable."
    },
    "certainty": {
     "earned": true,
@@ -2063,7 +2447,22 @@
    "status": "proposed",
    "opened_cycle": "score-2026-11-26-build4",
    "priority": 2,
-   "history": [],
+   "history": [
+    {
+     "cycle": "score-2026-11-26-build5",
+     "dated": "2026-11-26",
+     "hypothesis": "the paper's core case, left without a check call in the statement-only arm, does not close under forced attempts at caps 12, 36 and 108",
+     "before_data": true,
+     "result": "held: not closed at any cap; two sub-family theorems and an induction-free statement of the open configuration were proved instead; so of the two rooms forced so far, one (Lemma 7, with the paper's rooms) was in reach and one (the paper's core, from the statement alone) was not at a hundred and eight attempts; the 159 no-checker arms' unattempted rooms remain"
+    },
+    {
+     "cycle": "build-2026-11-26-corner",
+     "hypothesis": "On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call),…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "hypothesis build-2026-11-26-corner by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) bears on this gap (see HG4)"
+    }
+   ],
    "closes_with": [
     {
      "what": "the 569 statement-only arm's open core case (the paper's content, left as sorry in B3_569_B without a check call) under the forced rule; and the two 159 no-checker arms' unattempted rooms under the same rule; a room that closes is the signal",
@@ -2124,6 +2523,53 @@
     "spoken": "The measurement named by the submitter, made public at an endpoint."
    },
    "expected_signal": "predictions P1–P8 in prereg_build_4.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness enforced by the tool (no sorry…",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-26T21:58:03Z",
+   "provenance": {
+    "source": "hypothesis cycle build-2026-11-26-corner"
+   },
+   "audience": "briefing",
+   "gap_id": "HG4",
+   "title": "On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call),…",
+   "status": "immovable",
+   "opened_cycle": "build-2026-11-26-corner",
+   "priority": 5,
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+    "github": null,
+    "cycle": "build-2026-11-26-corner",
+    "sha256": "b54a2576eb54978ae90c137f1c8c450435cd08cc5abec2c86ac7eb9272c728c0",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "build-2026-11-26-corner",
+     "hypothesis": "On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call),…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar); pinned sha256 b54a2576eb54…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "three arms at caps 12, 36 and 108, fresh contexts, no planner, no paper, no rooms",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the statement alone and left without a check call), raising the forced attempt budget from 12 to 36 to 108 does not close it, builds strictly more proved structure around it, does not recover the paper's two distinctive moves, and produces no fit; the attempts do not converge and the largest arm runs into a cap before 108 attempts.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P8 in prereg_build_5.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness and the per-arm cap enforced by…",
    "resolution_by": "none registered"
   }
  ],

@@ -1,0 +1,75 @@
+Rooms/Target_B5_C36_full_forced.lean:572:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:601:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:635:40: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  q ≥ 2
+  o ≥ 0
+  l ≥ 0
+  l - o ≤ 0
+  j ≥ 0
+  j - q ≤ -1
+  j + l - o ≥ 0
+  i ≥ 0
+  h ≥ 0
+  h + i ≥ 0
+  h + i - o ≤ 0
+  g ≥ 0
+  g - h ≤ 0
+  g - l ≥ 0
+  f ≥ 0
+  f - o ≤ 0
+  e ≥ 0
+  c ≥ 1
+  c ≥ 1
+  c + e ≥ 1
+where
+ c := ↑(H.degree u)
+ e := ↑(induce {u}ᶜ H).edgeSet.ncard
+ f := ↑(Fintype.card W - 1)
+ g := ↑(Cᶜ.degree x₀)
+ h := ↑(k - 1) * ↑m'
+ i := ↑(k - 1) * ↑d
+ j := ↑p.length
+ l := ↑(Cᶜ.degree a)
+ o := ↑(n - 1)
+ q := ↑(k - 1)
+Rooms/Target_B5_C36_full_forced.lean:636:60: error: Application type mismatch: The argument
+  hfree
+has type
+  IsEmpty ((cycleGraph k).Copy C)
+but is expected to have type
+  ¬cycleGraph k ⊑ ?m.970
+in the application
+  @degree_add_one_le_length_of_longest_path ?m.967 ?m.968 ?m.969 ?m.970 ?m.971 k hk hfree
+Rooms/Target_B5_C36_full_forced.lean:637:8: error: `exact?` could not close the goal. Try `apply?` to see partial suggestions.
+Rooms/Target_B5_C36_full_forced.lean:638:8: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B5_C36_full_forced.lean:644:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:646:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

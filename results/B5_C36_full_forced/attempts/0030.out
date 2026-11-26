@@ -1,0 +1,200 @@
+Rooms/Target_B5_C36_full_forced.lean:1038:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1107:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1258:22: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => (_a.orderEmbOfFin ⋯) (f' w') ∈ _a
+Error: Application type mismatch: The argument
+  e'
+has type
+  Fin T.card ↪ Fin n
+but is expected to have type
+  Fin _a.card ↪ Fin n
+in the application
+  ⇑e'
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [inst_1 : DecidableRel H.Adj],
+      (∀ (v : W), 0 < H.degree v) →
+        H.edgeSet.ncard = m_1 →
+          ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst✝¹ : Fintype W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+Q :
+  ∀ m' < m,
+    ∀ (W' : Type) [inst : Fintype W'] (H' : SimpleGraph W') [DecidableRel H'.Adj],
+      H'.edgeSet.ncard = m' →
+        ∀ (n' : ℕ),
+          Fintype.card W' ≤ n' → (k - 1) * m' + 1 ≤ n' → ∀ (C' : SimpleGraph (Fin n')), cycleGraph k ⊑ C' ∨ H' ⊑ C'ᶜ
+hpos : m > 0
+a₀ b₀ : W
+hab₀ : H.Adj a₀ b₀
+this✝ : Nonempty W
+hsplit :
+  ∀ (S : Set W),
+    (∀ (a b : W), H.Adj a b → (a ∈ S ↔ b ∈ S)) →
+      (∀ w ∈ S, ∃ z, H.Adj w z) → 0 < (induce S H).edgeSet.ncard → (induce Sᶜ H).edgeSet.ncard ≤ 0
+u : W
+d : ℕ := H.degree u
+hu' : H.maxDegree = d
+hu : 0 < d
+hd : d = H.degree u
+m' : ℕ := m - d
+hm' : m' = m - d
+hdm : d ≤ m
+hm'lt : m' < m
+hH' : (induce {u}ᶜ H).edgeSet.ncard = m'
+hcard' : Fintype.card ↑{u}ᶜ = Fintype.card W - 1
+hD2 : H.maxDegree ≥ 2
+hx : ∀ (x : Fin n), (k - 1) * m' + 1 ≤ Cᶜ.degree x → Cᶜ.degree x < Fintype.card W - 1
+this : Nonempty (Fin n)
+x₀ : Fin n
+hx₀ : Cᶜ.maxDegree = Cᶜ.degree x₀
+hb : ∀ (x : Fin n), Cᶜ.degree x ≤ Cᶜ.degree x₀
+hfree' : IsEmpty ((cycleGraph k).Copy C)
+hblue : IsEmpty (H.Copy Cᶜ)
+hfree : ¬cycleGraph k ⊑ C
+hbm : m ≤ Cᶜ.degree x₀
+a b : Fin n
+p : C.Walk a b
+hp : p.IsPath
+hmax : ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.length
+hred : ∀ (y : Fin n), C.degree y + Cᶜ.degree y = n - 1
+h1 : Cᶜ.degree x₀ < (k - 1) * m' + 1
+hD : (k - 1) * m' + (k - 1) * d = (k - 1) * m
+hdegL : C.degree a ≤ p.length
+hkL : k - 1 ≤ p.length
+hL : C.degree a + 1 ≤ p.length
+hchord : ∀ (j : ℕ), 1 ≤ j → j + (k - 2) ≤ p.length → C.Adj a (p.getVert j) → ¬C.Adj a (p.getVert (j + (k - 2)))
+h2a : 2 * C.degree a ≤ p.length + (k - 2)
+hmax' : ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.reverse.length
+h2b : 2 * C.degree b ≤ p.length + (k - 2)
+hLb : p.length < n
+hD2' : (k - 1) * 2 ≤ (k - 1) * d
+hoff : Finset.univ \ p.support.toFinset ⊆ Cᶜ.neighborFinset a
+hoffc : n - (p.length + 1) ≤ Cᶜ.degree a
+R : Finset (Fin n)
+hR : R = Finset.univ.erase x₀
+hRcard : R.card = n - 1
+e : Fin R.card ↪ Fin n := (R.orderEmbOfFin ⋯).toEmbedding
+hmemR : ∀ z ∈ R, z ≠ x₀
+he : ∀ (i : Fin R.card), e i ≠ x₀
+hWm1 : Fintype.card W ≤ m + 1
+f : (induce {u}ᶜ H).Copy (SimpleGraph.comap (⇑e) C)ᶜ
+hle : (SimpleGraph.comap (⇑e) C)ᶜ ≤ SimpleGraph.comap (⇑e) Cᶜ
+g : (induce {u}ᶜ H).Copy Cᶜ :=
+  (Embedding.comap e Cᶜ).toCopy.comp ((Copy.ofLE (SimpleGraph.comap (⇑e) C)ᶜ (SimpleGraph.comap (⇑e) Cᶜ) hle).comp f)
+hg : ∀ (w : ↑{u}ᶜ), g w = e (f w)
+w : ↑{u}ᶜ
+hw : H.Adj u ↑w
+hredw : ¬Cᶜ.Adj x₀ (g w)
+hgw : C.Adj x₀ (g w)
+hY : (k - 1) * m' + 1 - Cᶜ.degree x₀ ≤ (C.neighborFinset x₀).card
+Y : Finset (Fin n)
+hYsub : Y ⊆ C.neighborFinset x₀
+hYcard : Y.card = (k - 1) * m' + 1 - Cᶜ.degree x₀
+T : Finset (Fin n)
+hT : T = Cᶜ.neighborFinset x₀ ∪ Y
+hdisj : Disjoint (Cᶜ.neighborFinset x₀) Y
+hTcard : T.card = (k - 1) * m' + 1
+hmemT : ∀ z ∈ T, z ≠ x₀
+e' : Fin T.card ↪ Fin n := (T.orderEmbOfFin ⋯).toEmbedding
+he' : ∀ (i : Fin T.card), e' i ≠ x₀
+f' : (induce {u}ᶜ H).Copy (SimpleGraph.comap (⇑e') C)ᶜ
+hle' : (SimpleGraph.comap (⇑e') C)ᶜ ≤ SimpleGraph.comap (⇑e') Cᶜ
+g' : (induce {u}ᶜ H).Copy Cᶜ :=
+  (Embedding.comap e' Cᶜ).toCopy.comp
+    ((Copy.ofLE (SimpleGraph.comap (⇑e') C)ᶜ (SimpleGraph.comap (⇑e') Cᶜ) hle').comp f')
+hg' : ∀ (w : ↑{u}ᶜ), g' w = e' (f' w)
+w' : ↑{u}ᶜ
+hw' : H.Adj u ↑w'
+hredw' : ¬Cᶜ.Adj x₀ (g' w')
+hmem : (T.orderEmbOfFin ⋯) (f' w') ∈ T
+⊢ g' w' ∈ Y
+Rooms/Target_B5_C36_full_forced.lean:1263:16: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  y ≥ 1
+  x ≥ 0
+  x - y ≤ 0
+  x ≥ 1
+  v ≥ 0
+  v - x ≥ 0
+  t ≥ 0
+  s ≥ 0
+  s - t ≤ 0
+  s ≥ 0
+  r ≥ 0
+  r - s ≥ 0
+  q ≥ 0
+  o ≥ 1
+  o - 2*q - s + t ≥ 0
+  o + s - t ≤ -1
+  l ≥ 0
+  l + s - t ≤ -1
+  2*l - o + s - t ≤ 0
+  j ≥ 0
+  j - 2*o ≥ 2
+  j - t + y ≤ 1
+  j + y ≥ 1
+  i ≥ 0
+  i - t ≤ 0
+  h ≥ 0
+  c ≥ 2
+  c ≥ 1
+  c + h ≥ 1
+  c + h - i ≥ 0
+  c + h + x - y ≤ 0
+where
+ c := ↑(H.degree u)
+ h := ↑(induce {u}ᶜ H).edgeSet.ncard
+ i := ↑(Fintype.card W - 1)
+ j := ↑(k - 1) * ↑d
+ l := ↑(C.degree a)
+ o := ↑(k - 2)
+ q := ↑(C.degree b)
+ r := ↑(Cᶜ.degree a)
+ s := ↑(n - (p.length + 1))
+ t := ↑(n - 1)
+ v := ↑(C.neighborFinset x₀).card
+ x := ↑Y.card
+ y := ↑T.card
+Rooms/Target_B5_C36_full_forced.lean:1276:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:1278:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

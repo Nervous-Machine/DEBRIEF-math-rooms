@@ -1,0 +1,431 @@
+Rooms/Target_B5_C36_full_forced.lean:547:89: error: unexpected token 'set_option'; expected 'lemma'
+Rooms/Target_B5_C36_full_forced.lean:573:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:602:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Try this:
+  [apply] refine Nat.not_succ_le_zero ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ ℕ
+  -- ⊢ Nat.succ ?_ ≤ 0
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (ne_self_iff_false ?_).mp fun a => ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (iff_false_intro fun a => ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine false_of_true_iff_false ?_
+  -- Remaining subgoals:
+  -- ⊢ True ↔ False
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Ne.irrefl fun a => ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine false_of_true_eq_false ?_
+  -- Remaining subgoals:
+  -- ⊢ True = False
+Try this:
+  [apply] refine true_iff_false.mp ?_
+  -- Remaining subgoals:
+  -- ⊢ True ↔ False
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine false_of_ne fun a => ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (not_iff_false_intro ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine not_true.mp ?_
+  -- Remaining subgoals:
+  -- ⊢ ¬True
+Try this:
+  [apply] refine false_iff_true.mp ?_
+  -- Remaining subgoals:
+  -- ⊢ False ↔ True
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine neZero_zero_iff_false.mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine (and_not_self_iff ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ Prop
+  -- ⊢ ?_ ∧ ¬?_
+Try this:
+  [apply] refine (not_and_self_iff ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ Prop
+  -- ⊢ ¬?_ ∧ ?_
+Try this:
+  [apply] refine (Bool.eq_true_and_eq_false_self ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ Bool
+  -- ⊢ ?_ = true ∧ ?_ = false
+Try this:
+  [apply] refine (Bool.not_eq_self ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ Bool
+  -- ⊢ (!?_) = ?_
+Try this:
+  [apply] refine (Bool.eq_false_and_eq_true_self ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ Bool
+  -- ⊢ ?_ = false ∧ ?_ = true
+Try this:
+  [apply] refine (Bool.eq_not_self ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ Bool
+  -- ⊢ ?_ = !?_
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (List.mem_nil_iff ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Fin.exists_fin_zero.mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (List.minIdxOn_nil_eq_iff_false ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (List.maxIdxOn_nil_eq_iff_false ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (Array.mem_empty_iff ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine (Int.negSucc_not_nonneg ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ ℕ
+  -- ⊢ 0 ≤ Int.negSucc ?_
+Try this:
+  [apply] refine (Int.negSucc_not_pos ?_).mp ?_
+  -- Remaining subgoals:
+  -- ⊢ ℕ
+  -- ⊢ 0 < Int.negSucc ?_
+Try this:
+  [apply] refine Int.Internal.Linear.le_unsat ?_ ?_ ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ Int.Internal.Linear.Context
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ Int.Internal.Linear.Poly.isUnsatLe ?_ = true
+  -- ⊢ Int.Internal.Linear.Poly.denote' ?_ ?_ ≤ 0
+Try this:
+  [apply] refine Int.Internal.Linear.cooper_unsat ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ Int.Internal.Linear.Context
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ ℤ
+  -- ⊢ ℤ
+  -- ⊢ ℤ
+  -- ⊢ Int.Internal.Linear.cooper_unsat_cert ?_ ?_ ?_ ?_ ?_ ?_ = true
+  -- ⊢ Int.Internal.Linear.Poly.denote' ?_ ?_ ≤ 0
+  -- ⊢ Int.Internal.Linear.Poly.denote' ?_ ?_ ≤ 0
+  -- ⊢ ?_ ∣ Int.Internal.Linear.Poly.denote' ?_ ?_
+Try this:
+  [apply] refine Int.Internal.Linear.diseq_unsat ?_ ?_ ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ Int.Internal.Linear.Context
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ Int.Internal.Linear.Poly.isUnsatDiseq_k ?_ = true
+  -- ⊢ Int.Internal.Linear.Poly.denote' ?_ ?_ ≠ 0
+Try this:
+  [apply] refine Int.Internal.Linear.eq_unsat ?_ ?_ ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ Int.Internal.Linear.Context
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ Int.Internal.Linear.Poly.isUnsatEq ?_ = true
+  -- ⊢ Int.Internal.Linear.Poly.denote' ?_ ?_ = 0
+Try this:
+  [apply] refine Int.Internal.Linear.dvd_unsat ?_ ?_ ?_ ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ Int.Internal.Linear.Context
+  -- ⊢ ℤ
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ Int.Internal.Linear.Poly.isUnsatDvd ?_ ?_ = true
+  -- ⊢ ?_ ∣ Int.Internal.Linear.Poly.denote' ?_ ?_
+Try this:
+  [apply] refine Int.Internal.Linear.eq_unsat_coeff ?_ ?_ ?_ ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ Int.Internal.Linear.Context
+  -- ⊢ Int.Internal.Linear.Poly
+  -- ⊢ ℤ
+  -- ⊢ Int.Internal.Linear.eq_unsat_coeff_cert ?_ ?_ = true
+  -- ⊢ Int.Internal.Linear.Poly.denote' ?_ ?_ = 0
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (Vector.mem_empty_iff ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (empty_relation_apply ?_ ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine IsEmpty.exists_iff.mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine IsEmpty.false ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine false_of_nontrivial_of_subsingleton ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (lt_self_iff_false ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine LT.lt.false ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Set.exists_mem_empty.mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (Set.mem_empty_iff_false ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine Aesop.BuiltinRules.empty_false ?_
+  -- Remaining subgoals:
+  -- ⊢ Empty
+Try this:
+  [apply] refine Aesop.BuiltinRules.pEmpty_false ?_
+  -- Remaining subgoals:
+  -- ⊢ PEmpty.{_}
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (Finset.exists_mem_empty_iff ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Finite.false ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Infinite.false ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine not_finite ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine List.Duplicate.elim_nil ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine List.Duplicate.elim_singleton ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Fintype.false ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine false_of_nontrivial_of_product_domain ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine PrincipalSeg.irrefl ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine Nat.prime_zero_false ?_
+  -- Remaining subgoals:
+  -- ⊢ Nat.Prime 0
+Try this:
+  [apply] refine Nat.prime_one_false ?_
+  -- Remaining subgoals:
+  -- ⊢ Nat.Prime 1
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CharP.false_of_nontrivial_of_char_one)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.Limits.cokernel_not_iso_of_nonzero (fun a => ?_) ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.Limits.kernel_not_iso_of_nonzero (fun a => ?_) ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.WithInitial.false_of_to_star' ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.WithInitial.false_of_to_star ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.WithTerminal.false_of_from_star' ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.WithTerminal.false_of_from_star ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine not_preirreducible_nontrivial_t2 ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine TopologicalSpace.Opens.mem_bot.mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine ComplexShape.Embedding.BoundaryGE.false_of_isTruncLE ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine ComplexShape.Embedding.BoundaryLE.false_of_isTruncGE ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (CategoryTheory.bot_apply ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (CategoryTheory.Sieve.bot_apply ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.zero_not_simple ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Try this:
+  [apply] refine SSet.stdSimplex.not_hasDimensionLT ?_ ?_
+  -- Remaining subgoals:
+  -- ⊢ ℕ
+  -- ⊢ autoParam ((SSet.stdSimplex.obj { len := ?_ }).HasDimensionLT ?_) SSet.stdSimplex.not_hasDimensionLT._auto_1
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (SSet.prodStdSimplex.pairingCore.isIndex_zero ?_ ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (bot_adj ?_ ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.hom_inl_inr_false ?_ ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.hom_inr_inl_false ?_ ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.PreGaloisCategory.not_initial_of_inhabited ?_ ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.PreGaloisCategory.IsConnected.notInitial ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine CategoryTheory.Join.false_of_right_to_left ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (Digraph.bot_adj ?_ ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine (Graph.noEdge_isLink ?_ ?_ ?_ ?_ ?_).mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine reachable_deleteEdges_iff_exists_cycle.aux (fun p => ?_) ?_ ?_ ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Ordnode.delta_lt_false ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine FirstOrder.Language.Formula.realize_bot.mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine FirstOrder.Language.BoundedFormula.realize_bot.mp ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine FirstOrder.Language.Theory.CompleteType.false_of_mem_of_not_mem ?_ ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Fermat42.not_minimal ?_ ?_ ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+found a partial proof, but the corresponding tactic failed:
+  (expose_names; refine Sat.Valuation.by_cases (fun a => ?_) ?_)
+
+It may be possible to correct this proof by adding type annotations, explicitly specifying implicit arguments, or eliminating unnecessary function abstractions.
+Rooms/Target_B5_C36_full_forced.lean:645:51: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  o ≥ 0
+  l ≥ 0
+  l - o ≥ 0
+  j ≥ 0
+  j - l ≥ 1
+  j - o ≥ 0
+  i ≥ 0
+  h ≥ 0
+  g ≥ 1
+  g ≥ 1
+  g + h ≥ 1
+  g + h - o ≤ 0
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  e - i ≥ 1
+  c ≥ 3
+where
+ c := ↑k
+ e := ↑n
+ f := ↑(k - 1) * ↑m
+ g := ↑(H.degree u)
+ h := ↑(induce {u}ᶜ H).edgeSet.ncard
+ i := ↑(Fintype.card W - 1)
+ j := ↑(Cᶜ.degree x₀)
+ l := ↑(k - 1) * ↑m'
+ o := ↑(Cᶜ.degree y)
+Rooms/Target_B5_C36_full_forced.lean:651:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:653:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

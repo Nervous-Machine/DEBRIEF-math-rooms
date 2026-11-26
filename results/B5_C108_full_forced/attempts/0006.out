@@ -1,0 +1,85 @@
+Rooms/Target_B5_C108_full_forced.lean:675:10: warning: `Set.ncard_diff_singleton_of_mem` has been deprecated: Use `Set.ncard_sdiff_singleton_of_mem` instead
+
+Hint: Replace the deprecated name:
+  Set.ncard_s̲diff_singleton_of_mem
+Rooms/Target_B5_C108_full_forced.lean:766:12: error: overloaded, errors 
+  failed to synthesize instance of type class
+    Insert W (Finset W)
+  
+  Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+  
+  766:13 `v` is not a field of structure `Finset`
+Rooms/Target_B5_C108_full_forced.lean:773:15: error: overloaded, errors 
+  failed to synthesize instance of type class
+    Insert W (Finset W)
+  
+  Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+  
+  773:16 `v` is not a field of structure `Finset`
+Rooms/Target_B5_C108_full_forced.lean:773:46: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableEq W
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Rooms/Target_B5_C108_full_forced.lean:790:12: error: overloaded, errors 
+  failed to synthesize instance of type class
+    Insert W (Finset W)
+  
+  Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+  
+  790:13 `v` is not a field of structure `Finset`
+Rooms/Target_B5_C108_full_forced.lean:797:15: error: overloaded, errors 
+  failed to synthesize instance of type class
+    Insert W (Finset W)
+  
+  Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+  
+  797:16 `v` is not a field of structure `Finset`
+Rooms/Target_B5_C108_full_forced.lean:797:46: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableEq W
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Rooms/Target_B5_C108_full_forced.lean:820:8: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  Fintype ↑((induce (leafFree H v) H).neighborSet w)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Rooms/Target_B5_C108_full_forced.lean:903:29: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 0
+  f ≥ 1
+  e ≥ 1
+  e + f ≥ 3
+  d ≥ 0
+  d - e - f ≥ 0
+  d - g ≤ 0
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  b - e - f ≥ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(C'ᶜ.degree x)
+ e := ↑(H'.degree v)
+ f := ↑(m' - H'.degree v)
+ g := ↑(k - 1) * ↑(m' - H'.degree v)
+Rooms/Target_B5_C108_full_forced.lean:905:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  f ≥ 1
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  d - f ≥ 1
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  b - d ≥ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑H'.edgeSet.ncard
+ e := ↑(C'ᶜ.degree x)
+ f := ↑(H'.degree v)

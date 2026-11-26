@@ -1,0 +1,1550 @@
+Rooms/Target_B5_C36_full_forced.lean:693:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  g a
+in the target expression
+  { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+
+case neg
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+v : W
+G : SimpleGraph V
+x y : V
+hxy : G.Adj x y
+a b : W
+huv : H.Adj a v
+hu : ∀ (w : W), H.Adj a w → w = v
+hv : ∀ (w : W), H.Adj v w → w = a
+f : (induce {a, v}ᶜ H).Copy G
+hx : ∀ (w : ↑{a, v}ᶜ), f w ≠ x
+hy : ∀ (w : ↑{a, v}ᶜ), f w ≠ y
+hmem : ∀ (w : W), w ≠ a → w ≠ v → w ∈ {a, v}ᶜ
+hne : a ≠ v
+g : W → V := fun w => if h : w = a then x else if h' : w = v then y else f ⟨w, ⋯⟩
+gu : g a = x
+gv : g v = y
+gw : ∀ (w : W) (h : w ≠ a) (h' : w ≠ v), g w = f ⟨w, ⋯⟩
+h : { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+hb : ¬b = a
+⊢ a = b
+Rooms/Target_B5_C36_full_forced.lean:701:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  g b
+in the target expression
+  { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+
+case pos
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+v : W
+G : SimpleGraph V
+x y : V
+hxy : G.Adj x y
+a b : W
+huv : H.Adj b v
+hu : ∀ (w : W), H.Adj b w → w = v
+hv : ∀ (w : W), H.Adj v w → w = b
+f : (induce {b, v}ᶜ H).Copy G
+hx : ∀ (w : ↑{b, v}ᶜ), f w ≠ x
+hy : ∀ (w : ↑{b, v}ᶜ), f w ≠ y
+hmem : ∀ (w : W), w ≠ b → w ≠ v → w ∈ {b, v}ᶜ
+hne : b ≠ v
+g : W → V := fun w => if h : w = b then x else if h' : w = v then y else f ⟨w, ⋯⟩
+gu : g b = x
+gv : g v = y
+gw : ∀ (w : W) (h : w ≠ b) (h' : w ≠ v), g w = f ⟨w, ⋯⟩
+h : { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+ha : ¬a = b
+⊢ a = b
+Rooms/Target_B5_C36_full_forced.lean:711:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  g a
+in the target expression
+  { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+
+case neg
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+u : W
+G : SimpleGraph V
+x y : V
+hxy : G.Adj x y
+a b : W
+ha : ¬a = u
+hb : ¬b = u
+huv : H.Adj u a
+hu : ∀ (w : W), H.Adj u w → w = a
+hv : ∀ (w : W), H.Adj a w → w = u
+f : (induce {u, a}ᶜ H).Copy G
+hx : ∀ (w : ↑{u, a}ᶜ), f w ≠ x
+hy : ∀ (w : ↑{u, a}ᶜ), f w ≠ y
+hmem : ∀ (w : W), w ≠ u → w ≠ a → w ∈ {u, a}ᶜ
+hne : u ≠ a
+g : W → V := fun w => if h : w = u then x else if h' : w = a then y else f ⟨w, ⋯⟩
+gu : g u = x
+gv : g a = y
+gw : ∀ (w : W) (h : w ≠ u) (h' : w ≠ a), g w = f ⟨w, ⋯⟩
+h : { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+hb' : ¬b = a
+⊢ a = b
+Rooms/Target_B5_C36_full_forced.lean:714:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  g b
+in the target expression
+  { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+
+case pos
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+u : W
+G : SimpleGraph V
+x y : V
+hxy : G.Adj x y
+a b : W
+ha : ¬a = u
+hb : ¬b = u
+huv : H.Adj u b
+hu : ∀ (w : W), H.Adj u w → w = b
+hv : ∀ (w : W), H.Adj b w → w = u
+f : (induce {u, b}ᶜ H).Copy G
+hx : ∀ (w : ↑{u, b}ᶜ), f w ≠ x
+hy : ∀ (w : ↑{u, b}ᶜ), f w ≠ y
+hmem : ∀ (w : W), w ≠ u → w ≠ b → w ∈ {u, b}ᶜ
+hne : u ≠ b
+g : W → V := fun w => if h : w = u then x else if h' : w = b then y else f ⟨w, ⋯⟩
+gu : g u = x
+gv : g b = y
+gw : ∀ (w : W) (h : w ≠ u) (h' : w ≠ b), g w = f ⟨w, ⋯⟩
+h : { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+ha' : ¬a = b
+⊢ a = b
+Rooms/Target_B5_C36_full_forced.lean:716:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  g a
+in the target expression
+  { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+
+case neg
+W : Type u_1
+V : Type u_2
+inst✝ : DecidableEq W
+H : SimpleGraph W
+u v : W
+huv : H.Adj u v
+hu : ∀ (w : W), H.Adj u w → w = v
+hv : ∀ (w : W), H.Adj v w → w = u
+G : SimpleGraph V
+f : (induce {u, v}ᶜ H).Copy G
+x y : V
+hxy : G.Adj x y
+hx : ∀ (w : ↑{u, v}ᶜ), f w ≠ x
+hy : ∀ (w : ↑{u, v}ᶜ), f w ≠ y
+hmem : ∀ (w : W), w ≠ u → w ≠ v → w ∈ {u, v}ᶜ
+hne : u ≠ v
+g : W → V := fun w => if h : w = u then x else if h' : w = v then y else f ⟨w, ⋯⟩
+gu : g u = x
+gv : g v = y
+gw : ∀ (w : W) (h : w ≠ u) (h' : w ≠ v), g w = f ⟨w, ⋯⟩
+a b : W
+h : { toFun := g, map_rel' := ⋯ } a = { toFun := g, map_rel' := ⋯ } b
+ha : ¬a = u
+hb : ¬b = u
+ha' : ¬a = v
+hb' : ¬b = v
+⊢ a = b
+Rooms/Target_B5_C36_full_forced.lean:776:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (deleteEdges ?m.483 ?m.484).Adj ?m.481 ?m.482
+in the target expression
+  (w, z) ∈ {(u_1, v_1) | (H.deleteEdges {s(u, v)}).Adj u_1 v_1}
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [inst_1 : DecidableRel H.Adj],
+      (∀ (w : W), H.degree w ≤ 1) →
+        H.edgeSet.ncard = m_1 →
+          ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst✝¹ : Fintype W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+hdeg : ∀ (w : W), H.degree w ≤ 1
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+hpos : m > 0
+u v : W
+huv : H.Adj u v
+hne : u ≠ v
+honly : ∀ (a b c : W), H.Adj a b → H.Adj a c → b = c
+hu : ∀ (w : W), H.Adj u w → w = v
+hv : ∀ (w : W), H.Adj v w → w = u
+hkm : (k - 1) * 1 ≤ (k - 1) * m
+hC : ¬Cᶜ = ⊥
+x y : Fin n
+hxy : Cᶜ.Adj x y
+hxy' : x ≠ y
+w z : W
+hz : (w, z) ∈ {(u_1, v_1) | (H.deleteEdges {s(u, v)}).Adj u_1 v_1}
+⊢ w ∈ {u, v}ᶜ
+Rooms/Target_B5_C36_full_forced.lean:792:52: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => _a.edgeFinset.card = m - 1
+Error: Application type mismatch: The argument
+  fun a b => instDecidableComapAdj (⇑(Function.Embedding.subtype fun x => x ∈ {u, v}ᶜ)) H a b
+has type
+  (a b : ↑{u, v}ᶜ) → Decidable ((SimpleGraph.comap (⇑(Function.Embedding.subtype fun x => x ∈ {u, v}ᶜ)) H).Adj a b)
+but is expected to have type
+  DecidableRel _a.Adj
+in the application
+  @fintypeEdgeSet (↑{u, v}ᶜ) _a Sym2.instFintype fun a b =>
+    instDecidableComapAdj (⇑(Function.Embedding.subtype fun x => x ∈ {u, v}ᶜ)) H a b
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [inst_1 : DecidableRel H.Adj],
+      (∀ (w : W), H.degree w ≤ 1) →
+        H.edgeSet.ncard = m_1 →
+          ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst✝¹ : Fintype W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+hdeg : ∀ (w : W), H.degree w ≤ 1
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+hpos : m > 0
+u v : W
+huv : H.Adj u v
+hne : u ≠ v
+honly : ∀ (a b c : W), H.Adj a b → H.Adj a c → b = c
+hu : ∀ (w : W), H.Adj u w → w = v
+hv : ∀ (w : W), H.Adj v w → w = u
+hkm : (k - 1) * 1 ≤ (k - 1) * m
+hC : ¬Cᶜ = ⊥
+x y : Fin n
+hxy : Cᶜ.Adj x y
+hxy' : x ≠ y
+hsupp : (H.deleteEdges {s(u, v)}).support ⊆ {u, v}ᶜ
+hind : induce {u, v}ᶜ H = induce {u, v}ᶜ (H.deleteEdges {s(u, v)})
+⊢ (induce {u, v}ᶜ H).edgeFinset.card = m - 1
+Rooms/Target_B5_C36_full_forced.lean:800:64: error(lean.unknownIdentifier): Unknown constant `Set.Nat.card_coe_set_eq`
+Rooms/Target_B5_C36_full_forced.lean:812:12: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => (_a.orderEmbOfFin ⋯) i ∈ _a
+Error: Application type mismatch: The argument
+  i
+has type
+  Fin S.card
+but is expected to have type
+  Fin _a.card
+in the application
+  (_a.orderEmbOfFin ⋯) i
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [inst_1 : DecidableRel H.Adj],
+      (∀ (w : W), H.degree w ≤ 1) →
+        H.edgeSet.ncard = m_1 →
+          ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst✝¹ : Fintype W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+hdeg : ∀ (w : W), H.degree w ≤ 1
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+hpos : m > 0
+u v : W
+huv : H.Adj u v
+hne : u ≠ v
+honly : ∀ (a b c : W), H.Adj a b → H.Adj a c → b = c
+hu : ∀ (w : W), H.Adj u w → w = v
+hv : ∀ (w : W), H.Adj v w → w = u
+hkm : (k - 1) * 1 ≤ (k - 1) * m
+hC : ¬Cᶜ = ⊥
+x y : Fin n
+hxy : Cᶜ.Adj x y
+hxy' : x ≠ y
+hsupp : (H.deleteEdges {s(u, v)}).support ⊆ {u, v}ᶜ
+hind : induce {u, v}ᶜ H = induce {u, v}ᶜ (H.deleteEdges {s(u, v)})
+hH' : (induce {u, v}ᶜ H).edgeSet.ncard = m - 1
+hdeg' : ∀ (w : ↑{u, v}ᶜ), (induce {u, v}ᶜ H).degree w ≤ 1
+hcard' : Fintype.card ↑{u, v}ᶜ = Fintype.card W - 2
+S : Finset (Fin n)
+hS : S = (Finset.univ.erase x).erase y
+hScard : S.card = n - 2
+e : Fin S.card ↪ Fin n := (S.orderEmbOfFin ⋯).toEmbedding
+i : Fin S.card
+this : (S.orderEmbOfFin ⋯) i ∈ S
+⊢ e i ≠ x ∧ e i ≠ y
+Rooms/Target_B5_C36_full_forced.lean:815:59: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≥ 1
+  g ≥ 0
+  f ≥ 0
+  f - g ≤ 0
+  f - h ≥ -1
+  f - i ≥ -1
+  d ≥ 0
+  d - f ≤ 0
+  c ≥ 0
+  b ≥ 2
+  a ≥ 0
+  a - b ≥ 0
+  a - f ≤ 1
+where
+ a := ↑(k - 1) * ↑m
+ b := ↑(k - 1)
+ c := ↑(m - 1)
+ d := ↑(Fintype.card W - 2)
+ f := ↑(n - 2)
+ g := ↑(k - 1) * ↑(m - 1)
+ h := ↑↑y
+ i := ↑↑x
+Rooms/Target_B5_C36_full_forced.lean:857:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:890:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:944:8: error: `grind` failed
+case grind.1.1.2.2.2.2.1.1.1.2.1.1.1.1.1.1.2.2.1.1.1.1.1.1.2.1.1.1.1.1.1.2
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [DecidableRel H.Adj],
+      H.edgeSet.ncard = m_1 →
+        ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst : Fintype W
+H : SimpleGraph W
+inst_1 : DecidableRel H.Adj
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+hpos : m > 0
+a₀ b₀ : W
+hab₀ : H.Adj a₀ b₀
+this_1 : Nonempty W
+u : W
+d : ℕ := H.degree u
+hu' : H.maxDegree = d
+hu : 0 < d
+hd : d = H.degree u
+m' : ℕ := m - d
+hm' : m' = m - d
+hdm : d ≤ m
+hm'lt : m' < m
+hH' : (induce {u}ᶜ H).edgeSet.ncard = m'
+hcard' : Fintype.card ↑{u}ᶜ = Fintype.card W - 1
+hD2 : H.maxDegree ≥ 2
+hx : ∀ (x : Fin n), (k - 1) * m' + 1 ≤ Cᶜ.degree x → Cᶜ.degree x < Fintype.card W - 1
+this : Nonempty (Fin n)
+x₀ : Fin n
+hx₀ : Cᶜ.maxDegree = Cᶜ.degree x₀
+hb : ∀ (x : Fin n), Cᶜ.degree x ≤ Cᶜ.degree x₀
+hfree' : IsEmpty ((cycleGraph k).Copy C)
+hblue : IsEmpty (H.Copy Cᶜ)
+hfree : ¬cycleGraph k ⊑ C
+a b : Fin n
+p : C.Walk a b
+hp : p.IsPath
+hmax : ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.length
+hred : ∀ (y : Fin n), C.degree y + Cᶜ.degree y = n - 1
+h1 : Cᶜ.degree x₀ < (k - 1) * m' + 1
+hD : (k - 1) * m' + (k - 1) * d = (k - 1) * m
+hdegL : C.degree a ≤ p.length
+hkL : k - 1 ≤ p.length
+hL : C.degree a + 1 ≤ p.length
+hchord : ∀ (j : ℕ), 1 ≤ j → j + (k - 2) ≤ p.length → C.Adj a (p.getVert j) → ¬C.Adj a (p.getVert (j + (k - 2)))
+h2a : 2 * C.degree a ≤ p.length + (k - 2)
+hmax' : ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.reverse.length
+h2b : 2 * C.degree b ≤ p.length + (k - 2)
+hLb : p.length < n
+h : -1 * ↑(Fintype.card W) + 1 ≤ 0
+h_1 : H.degree u + (k - 2) ≤ p.length
+left : ¬p.length = 0
+right : ¬p.Nil
+left_1 : ¬p.reverse.length = 0
+right_1 : ¬p.reverse.Nil
+h_4 : ¬((edgeSetEmbedding W) H).ncard = 0
+h_5 : ¬((edgeSetEmbedding W) H).ncard = m - H.degree u
+h_6 : m + (k - 2) ≤ p.length
+h_7 : 1 ≤ m + (k - 2)
+h_8 : m + 2 * (k - 2) ≤ p.length
+h_9 : ¬n + (k - 2) ≤ p.length
+h_10 : 1 ≤ H.degree u + (k - 2)
+h_11 : H.degree u + 2 * (k - 2) ≤ p.length
+h_12 : 1 ≤ m + 2 * (k - 2)
+h_13 : m + 3 * (k - 2) ≤ p.length
+h_14 : 1 ≤ H.degree u + 2 * (k - 2)
+h_15 : H.degree u + 3 * (k - 2) ≤ p.length
+h_16 : ¬n + 2 * (k - 2) ≤ p.length
+h_17 : ¬n + 3 * (k - 2) ≤ p.length
+h_18 : 1 ≤ H.degree u + 3 * (k - 2)
+h_19 : H.degree u + 4 * (k - 2) ≤ p.length
+h_20 : 1 ≤ m + 3 * (k - 2)
+h_21 : m + 4 * (k - 2) ≤ p.length
+h_22 : 1 ≤ H.degree u + 4 * (k - 2)
+h_23 : H.degree u + 5 * (k - 2) ≤ p.length
+h_24 : ¬n + 4 * (k - 2) ≤ p.length
+h_25 : 1 ≤ m + 4 * (k - 2)
+h_26 : m + 5 * (k - 2) ≤ p.length
+h_27 : 1 ≤ m + 5 * (k - 2)
+h_28 : m + 6 * (k - 2) ≤ p.length
+h_29 : 1 ≤ H.degree u + 5 * (k - 2)
+h_30 : H.degree u + 6 * (k - 2) ≤ p.length
+h_31 : ¬n + 5 * (k - 2) ≤ p.length
+⊢ False
+[grind] Goal diagnostics
+  [facts] Asserted facts
+    [prop] 3 ≤ k
+    [prop] ∀ (m_1 : ℕ),
+          m_1 + 1 ≤ m →
+            ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [(a b : W) → Decidable (H.Adj a b)],
+              ((edgeSetEmbedding W) H).ncard = m_1 →
+                ∀ (n : ℕ),
+                  Fintype.card W ≤ n →
+                    (k - 1) * m_1 + 1 ≤ n →
+                      ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ↑(k - 1) = if -1 * ↑k + 1 ≤ 0 then ↑k + -1 else 0
+    [prop] ((edgeSetEmbedding W) H).ncard = m
+    [prop] Fintype.card W ≤ n
+    [prop] (k - 1) * m + 1 ≤ n
+    [prop] 1 ≤ m
+    [prop] H.Adj a₀ b₀
+    [prop] Nonempty W
+    [prop] H.maxDegree = H.degree u
+    [prop] 1 ≤ H.degree u
+    [prop] H.degree u ≤ m
+    [prop] m - H.degree u + 1 ≤ m
+    [prop] ↑(m - H.degree u) = if -1 * ↑m + ↑(H.degree u) ≤ 0 then ↑m + -1 * ↑(H.degree u) else 0
+    [prop] ((edgeSetEmbedding (Subtype (Membership.mem {u}ᶜ)))
+              (SimpleGraph.comap (⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))) H)).ncard =
+          m - H.degree u
+    [prop] Fintype.card (Subtype (Membership.mem {u}ᶜ)) = Fintype.card W - 1
+    [prop] ↑(Fintype.card W - 1) = if -1 * ↑(Fintype.card W) + 1 ≤ 0 then ↑(Fintype.card W) + -1 else 0
+    [prop] 2 ≤ H.maxDegree
+    [prop] ∀ (x : Fin n), (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x → Cᶜ.degree x + 1 ≤ Fintype.card W - 1
+    [prop] Nonempty (Fin n)
+    [prop] Cᶜ.maxDegree = Cᶜ.degree x₀
+    [prop] ∀ (x : Fin n), Cᶜ.degree x ≤ Cᶜ.degree x₀
+    [prop] IsEmpty ((cycleGraph k).Copy C)
+    [prop] IsEmpty (H.Copy Cᶜ)
+    [prop] ¬Nonempty ((cycleGraph k).Copy C)
+    [prop] p.IsPath
+    [prop] ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.length
+    [prop] ∀ (y : Fin n), C.degree y + Cᶜ.degree y = n - 1
+    [prop] Cᶜ.degree x₀ ≤ (k - 1) * (m - H.degree u)
+    [prop] (k - 1) * H.degree u + (k - 1) * (m - H.degree u) = (k - 1) * m
+    [prop] C.degree a ≤ p.length
+    [prop] k - 1 ≤ p.length
+    [prop] C.degree a + 1 ≤ p.length
+    [prop] ∀ (j : ℕ), 1 ≤ j → j + (k - 2) ≤ p.length → C.Adj a (p.getVert j) → ¬C.Adj a (p.getVert (j + (k - 2)))
+    [prop] ↑(k - 2) = if -1 * ↑k + 2 ≤ 0 then ↑k + -2 else 0
+    [prop] 2 * C.degree a ≤ p.length + (k - 2)
+    [prop] ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.reverse.length
+    [prop] 2 * C.degree b ≤ p.length + (k - 2)
+    [prop] p.length + 1 ≤ n
+    [prop] ∀ (W : Type) (H : SimpleGraph W),
+          ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+            ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)) (n : ℕ),
+              Fintype.card W ≤ n →
+                (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n →
+                  ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] m - H.degree u + 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+            Fintype.card W ≤ n →
+              (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = 0 →
+            Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] H.Adj a₀ b₀ → ¬a₀ = b₀
+    [prop] 1 ≤ n
+    [prop] Function.Injective ⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x₀ → Cᶜ.degree x₀ + 1 ≤ Fintype.card W - 1
+    [prop] p.IsPath → p.bypass = p
+    [prop] (p.reverse.length = 0) = p.reverse.Nil
+    [prop] (p.length = 0) = p.Nil
+    [prop] p.reverse.IsPath → p.reverse.length ≤ p.length
+    [prop] C.degree b + Cᶜ.degree b = n - 1
+    [prop] ↑(n - 1) = if -1 * ↑n + 1 ≤ 0 then ↑n + -1 else 0
+    [prop] C.degree a + Cᶜ.degree a = n - 1
+    [prop] C.degree x₀ + Cᶜ.degree x₀ = n - 1
+    [prop] 1 ≤ H.degree u →
+          H.degree u + (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u)) → ¬C.Adj a (p.getVert (H.degree u + (k - 2)))
+    [prop] 1 ≤ m → m + (k - 2) ≤ p.length → C.Adj a (p.getVert m) → ¬C.Adj a (p.getVert (m + (k - 2)))
+    [prop] p.IsPath → p.length ≤ p.reverse.length
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          Fintype.card W ≤ n →
+            (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] m - H.degree u + 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+            Fintype.card W ≤ n →
+              (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] C.Adj a (p.getVert (m + (k - 2))) → ¬a = p.getVert (m + (k - 2))
+    [prop] C.Adj a (p.getVert m) → ¬a = p.getVert m
+    [prop] C.Adj a (p.getVert (H.degree u + (k - 2))) → ¬a = p.getVert (H.degree u + (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u)) → ¬a = p.getVert (H.degree u)
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree a → Cᶜ.degree a + 1 ≤ Fintype.card W - 1
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree b → Cᶜ.degree b + 1 ≤ Fintype.card W - 1
+    [prop] Cᶜ.degree a ≤ Cᶜ.degree x₀
+    [prop] Cᶜ.degree b ≤ Cᶜ.degree x₀
+    [prop] p.reverse.IsPath → p.reverse.bypass = p.reverse
+    [prop] 1 ≤ n → n + (k - 2) ≤ p.length → C.Adj a (p.getVert n) → ¬C.Adj a (p.getVert (n + (k - 2)))
+    [prop] 1 ≤ m + (k - 2) →
+          m + 2 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + (k - 2))) → ¬C.Adj a (p.getVert (m + 2 * (k - 2)))
+    [prop] 1 ≤ H.degree u + (k - 2) →
+          H.degree u + 2 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 2 * (k - 2)))
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] p.Nil → a = b
+    [prop] p.reverse.Nil → b = a
+    [prop] C.Adj a (p.getVert (H.degree u + 2 * (k - 2))) → ¬a = p.getVert (H.degree u + 2 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 2 * (k - 2))) → ¬a = p.getVert (m + 2 * (k - 2))
+    [prop] C.Adj a (p.getVert (n + (k - 2))) → ¬a = p.getVert (n + (k - 2))
+    [prop] C.Adj a (p.getVert n) → ¬a = p.getVert n
+    [prop] 1 ≤ H.degree u + 2 * (k - 2) →
+          H.degree u + 3 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 2 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 3 * (k - 2)))
+    [prop] 1 ≤ m + 2 * (k - 2) →
+          m + 3 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 2 * (k - 2))) → ¬C.Adj a (p.getVert (m + 3 * (k - 2)))
+    [prop] 1 ≤ n + (k - 2) →
+          n + 2 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + (k - 2))) → ¬C.Adj a (p.getVert (n + 2 * (k - 2)))
+    [prop] C.Adj a (p.getVert (n + 2 * (k - 2))) → ¬a = p.getVert (n + 2 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 3 * (k - 2))) → ¬a = p.getVert (m + 3 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 3 * (k - 2))) → ¬a = p.getVert (H.degree u + 3 * (k - 2))
+    [prop] 1 ≤ n + 2 * (k - 2) →
+          n + 3 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 2 * (k - 2))) → ¬C.Adj a (p.getVert (n + 3 * (k - 2)))
+    [prop] 1 ≤ m + 3 * (k - 2) →
+          m + 4 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 3 * (k - 2))) → ¬C.Adj a (p.getVert (m + 4 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 3 * (k - 2) →
+          H.degree u + 4 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 3 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 4 * (k - 2)))
+    [prop] C.Adj a (p.getVert (H.degree u + 4 * (k - 2))) → ¬a = p.getVert (H.degree u + 4 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 4 * (k - 2))) → ¬a = p.getVert (m + 4 * (k - 2))
+    [prop] C.Adj a (p.getVert (n + 3 * (k - 2))) → ¬a = p.getVert (n + 3 * (k - 2))
+    [prop] 1 ≤ H.degree u + 4 * (k - 2) →
+          H.degree u + 5 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 4 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 5 * (k - 2)))
+    [prop] 1 ≤ m + 4 * (k - 2) →
+          m + 5 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 4 * (k - 2))) → ¬C.Adj a (p.getVert (m + 5 * (k - 2)))
+    [prop] 1 ≤ n + 3 * (k - 2) →
+          n + 4 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 3 * (k - 2))) → ¬C.Adj a (p.getVert (n + 4 * (k - 2)))
+    [prop] -1 * ↑(Fintype.card W) + 1 ≤ 0
+    [prop] C.Adj a (p.getVert (n + 4 * (k - 2))) → ¬a = p.getVert (n + 4 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 5 * (k - 2))) → ¬a = p.getVert (m + 5 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 5 * (k - 2))) → ¬a = p.getVert (H.degree u + 5 * (k - 2))
+    [prop] 1 ≤ n + 4 * (k - 2) →
+          n + 5 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 4 * (k - 2))) → ¬C.Adj a (p.getVert (n + 5 * (k - 2)))
+    [prop] 1 ≤ m + 5 * (k - 2) →
+          m + 6 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 5 * (k - 2))) → ¬C.Adj a (p.getVert (m + 6 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 5 * (k - 2) →
+          H.degree u + 6 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 5 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 6 * (k - 2)))
+    [prop] C.Adj a (p.getVert (H.degree u + 6 * (k - 2))) → ¬a = p.getVert (H.degree u + 6 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 6 * (k - 2))) → ¬a = p.getVert (m + 6 * (k - 2))
+    [prop] C.Adj a (p.getVert (n + 5 * (k - 2))) → ¬a = p.getVert (n + 5 * (k - 2))
+    [prop] 1 ≤ H.degree u + 6 * (k - 2) →
+          H.degree u + 7 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 6 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 7 * (k - 2)))
+    [prop] 1 ≤ m + 6 * (k - 2) →
+          m + 7 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 6 * (k - 2))) → ¬C.Adj a (p.getVert (m + 7 * (k - 2)))
+    [prop] 1 ≤ n + 5 * (k - 2) →
+          n + 6 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 5 * (k - 2))) → ¬C.Adj a (p.getVert (n + 6 * (k - 2)))
+    [prop] C.Adj a (p.getVert (n + 6 * (k - 2))) → ¬a = p.getVert (n + 6 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 7 * (k - 2))) → ¬a = p.getVert (m + 7 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 7 * (k - 2))) → ¬a = p.getVert (H.degree u + 7 * (k - 2))
+    [prop] 1 ≤ n + 6 * (k - 2) →
+          n + 7 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 6 * (k - 2))) → ¬C.Adj a (p.getVert (n + 7 * (k - 2)))
+    [prop] 1 ≤ m + 7 * (k - 2) →
+          m + 8 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 7 * (k - 2))) → ¬C.Adj a (p.getVert (m + 8 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 7 * (k - 2) →
+          H.degree u + 8 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 7 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 8 * (k - 2)))
+    [prop] H.degree u + (k - 2) ≤ p.length
+    [prop] ¬p.length = 0
+    [prop] ¬p.Nil
+    [prop] ¬p.reverse.length = 0
+    [prop] ¬p.reverse.Nil
+    [prop] ¬((edgeSetEmbedding W) H).ncard = 0
+    [prop] ¬((edgeSetEmbedding W) H).ncard = m - H.degree u
+    [prop] m + (k - 2) ≤ p.length
+    [prop] 1 ≤ m + (k - 2)
+    [prop] m + 2 * (k - 2) ≤ p.length
+    [prop] ¬n + (k - 2) ≤ p.length
+    [prop] 1 ≤ H.degree u + (k - 2)
+    [prop] H.degree u + 2 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 2 * (k - 2)
+    [prop] m + 3 * (k - 2) ≤ p.length
+    [prop] 1 ≤ H.degree u + 2 * (k - 2)
+    [prop] H.degree u + 3 * (k - 2) ≤ p.length
+    [prop] ¬n + 2 * (k - 2) ≤ p.length
+    [prop] ¬n + 3 * (k - 2) ≤ p.length
+    [prop] 1 ≤ H.degree u + 3 * (k - 2)
+    [prop] H.degree u + 4 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 3 * (k - 2)
+    [prop] m + 4 * (k - 2) ≤ p.length
+    [prop] 1 ≤ H.degree u + 4 * (k - 2)
+    [prop] H.degree u + 5 * (k - 2) ≤ p.length
+    [prop] ¬n + 4 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 4 * (k - 2)
+    [prop] m + 5 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 5 * (k - 2)
+    [prop] m + 6 * (k - 2) ≤ p.length
+    [prop] 1 ≤ H.degree u + 5 * (k - 2)
+    [prop] H.degree u + 6 * (k - 2) ≤ p.length
+    [prop] ¬n + 5 * (k - 2) ≤ p.length
+  [eqc] True propositions
+    [prop] IsEmpty (H.Copy Cᶜ)
+    [prop] IsEmpty ((cycleGraph k).Copy C)
+    [prop] Nonempty W
+    [prop] Nonempty (Fin n)
+    [prop] -1 * ↑k + 1 ≤ 0
+    [prop] -1 * ↑k + 2 ≤ 0
+    [prop] -1 * ↑m + ↑(H.degree u) ≤ 0
+    [prop] -1 * ↑n + 1 ≤ 0
+    [prop] -1 * ↑(Fintype.card W) + 1 ≤ 0
+    [prop] Fintype.card W ≤ n
+    [prop] 1 ≤ m
+    [prop] 1 ≤ H.degree u
+    [prop] 2 ≤ H.maxDegree
+    [prop] 3 ≤ k
+    [prop] H.degree u ≤ m
+    [prop] C.degree a ≤ p.length
+    [prop] Cᶜ.degree x₀ ≤ (k - 1) * (m - H.degree u)
+    [prop] C.degree a + 1 ≤ p.length
+    [prop] p.length + 1 ≤ n
+    [prop] (k - 1) * m + 1 ≤ n
+    [prop] m - H.degree u + 1 ≤ m
+    [prop] 2 * C.degree a ≤ p.length + (k - 2)
+    [prop] 2 * C.degree b ≤ p.length + (k - 2)
+    [prop] k - 1 ≤ p.length
+    [prop] H.Adj a₀ b₀
+    [prop] p.IsPath
+    [prop] ∀ (W : Type) (H : SimpleGraph W),
+          ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+            ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)) (n : ℕ),
+              Fintype.card W ≤ n →
+                (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n →
+                  ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ∀ (j : ℕ), 1 ≤ j → j + (k - 2) ≤ p.length → C.Adj a (p.getVert j) → ¬C.Adj a (p.getVert (j + (k - 2)))
+    [prop] ∀ (m_1 : ℕ),
+          m_1 + 1 ≤ m →
+            ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [(a b : W) → Decidable (H.Adj a b)],
+              ((edgeSetEmbedding W) H).ncard = m_1 →
+                ∀ (n : ℕ),
+                  Fintype.card W ≤ n →
+                    (k - 1) * m_1 + 1 ≤ n →
+                      ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ∀ (y : Fin n), C.degree y + Cᶜ.degree y = n - 1
+    [prop] ∀ (x : Fin n), Cᶜ.degree x ≤ Cᶜ.degree x₀
+    [prop] ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.length
+    [prop] ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.reverse.length
+    [prop] ∀ (x : Fin n), (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x → Cᶜ.degree x + 1 ≤ Fintype.card W - 1
+    [prop] ¬a₀ = b₀
+    [prop] (p.length = 0) = p.Nil
+    [prop] (p.reverse.length = 0) = p.reverse.Nil
+    [prop] p.bypass = p
+    [prop] Function.Injective ⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))
+    [prop] 1 ≤ n
+    [prop] p.length ≤ p.reverse.length
+    [prop] m + (k - 2) ≤ p.length
+    [prop] H.degree u + (k - 2) ≤ p.length
+    [prop] ((edgeSetEmbedding W) H).ncard = 0 →
+          Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+          Fintype.card W ≤ n →
+            (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = 0 →
+            Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] 1 ≤ m → m + (k - 2) ≤ p.length → C.Adj a (p.getVert m) → ¬C.Adj a (p.getVert (m + (k - 2)))
+    [prop] 1 ≤ H.degree u →
+          H.degree u + (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u)) → ¬C.Adj a (p.getVert (H.degree u + (k - 2)))
+    [prop] m + (k - 2) ≤ p.length → C.Adj a (p.getVert m) → ¬C.Adj a (p.getVert (m + (k - 2)))
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] H.degree u + (k - 2) ≤ p.length →
+          C.Adj a (p.getVert (H.degree u)) → ¬C.Adj a (p.getVert (H.degree u + (k - 2)))
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x₀ → Cᶜ.degree x₀ + 1 ≤ Fintype.card W - 1
+    [prop] m - H.degree u + 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+            Fintype.card W ≤ n →
+              (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] H.Adj a₀ b₀ → ¬a₀ = b₀
+    [prop] C.Adj a (p.getVert m) → ¬C.Adj a (p.getVert (m + (k - 2)))
+    [prop] C.Adj a (p.getVert (H.degree u)) → ¬C.Adj a (p.getVert (H.degree u + (k - 2)))
+    [prop] p.IsPath → p.bypass = p
+    [prop] p.IsPath → p.length ≤ p.reverse.length
+    [prop] p.reverse.IsPath → p.reverse.length ≤ p.length
+    [prop] 1 ≤ m + (k - 2)
+    [prop] 1 ≤ H.degree u + (k - 2)
+    [prop] Cᶜ.degree a ≤ Cᶜ.degree x₀
+    [prop] Cᶜ.degree b ≤ Cᶜ.degree x₀
+    [prop] m + 2 * (k - 2) ≤ p.length
+    [prop] H.degree u + 2 * (k - 2) ≤ p.length
+    [prop] (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n
+    [prop] 1 ≤ n → n + (k - 2) ≤ p.length → C.Adj a (p.getVert n) → ¬C.Adj a (p.getVert (n + (k - 2)))
+    [prop] 1 ≤ m + (k - 2) →
+          m + 2 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + (k - 2))) → ¬C.Adj a (p.getVert (m + 2 * (k - 2)))
+    [prop] 1 ≤ H.degree u + (k - 2) →
+          H.degree u + 2 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 2 * (k - 2)))
+    [prop] m + 2 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + (k - 2))) → ¬C.Adj a (p.getVert (m + 2 * (k - 2)))
+    [prop] n + (k - 2) ≤ p.length → C.Adj a (p.getVert n) → ¬C.Adj a (p.getVert (n + (k - 2)))
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          Fintype.card W ≤ n →
+            (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] H.degree u + 2 * (k - 2) ≤ p.length →
+          C.Adj a (p.getVert (H.degree u + (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 2 * (k - 2)))
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree a → Cᶜ.degree a + 1 ≤ Fintype.card W - 1
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree b → Cᶜ.degree b + 1 ≤ Fintype.card W - 1
+    [prop] C.Adj a (p.getVert m) → ¬a = p.getVert m
+    [prop] C.Adj a (p.getVert (H.degree u)) → ¬a = p.getVert (H.degree u)
+    [prop] C.Adj a (p.getVert (m + (k - 2))) → ¬a = p.getVert (m + (k - 2))
+    [prop] C.Adj a (p.getVert (m + (k - 2))) → ¬C.Adj a (p.getVert (m + 2 * (k - 2)))
+    [prop] C.Adj a (p.getVert (H.degree u + (k - 2))) → ¬a = p.getVert (H.degree u + (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 2 * (k - 2)))
+    [prop] p.reverse.IsPath → p.reverse.bypass = p.reverse
+    [prop] p.Nil → a = b
+    [prop] p.reverse.Nil → b = a
+    [prop] 1 ≤ m + 2 * (k - 2)
+    [prop] 1 ≤ n + (k - 2)
+    [prop] 1 ≤ H.degree u + 2 * (k - 2)
+    [prop] m + 3 * (k - 2) ≤ p.length
+    [prop] H.degree u + 3 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 2 * (k - 2) →
+          m + 3 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 2 * (k - 2))) → ¬C.Adj a (p.getVert (m + 3 * (k - 2)))
+    [prop] 1 ≤ n + (k - 2) →
+          n + 2 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + (k - 2))) → ¬C.Adj a (p.getVert (n + 2 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 2 * (k - 2) →
+          H.degree u + 3 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 2 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 3 * (k - 2)))
+    [prop] m + 3 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 2 * (k - 2))) → ¬C.Adj a (p.getVert (m + 3 * (k - 2)))
+    [prop] n + 2 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + (k - 2))) → ¬C.Adj a (p.getVert (n + 2 * (k - 2)))
+    [prop] H.degree u + 3 * (k - 2) ≤ p.length →
+          C.Adj a (p.getVert (H.degree u + 2 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 3 * (k - 2)))
+    [prop] C.Adj a (p.getVert n) → ¬a = p.getVert n
+    [prop] C.Adj a (p.getVert (m + 2 * (k - 2))) → ¬a = p.getVert (m + 2 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 2 * (k - 2))) → ¬C.Adj a (p.getVert (m + 3 * (k - 2)))
+    [prop] C.Adj a (p.getVert (n + (k - 2))) → ¬a = p.getVert (n + (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 2 * (k - 2))) → ¬a = p.getVert (H.degree u + 2 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 2 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 3 * (k - 2)))
+    [prop] 1 ≤ m + 3 * (k - 2)
+    [prop] 1 ≤ n + 2 * (k - 2)
+    [prop] 1 ≤ H.degree u + 3 * (k - 2)
+    [prop] m + 4 * (k - 2) ≤ p.length
+    [prop] H.degree u + 4 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 3 * (k - 2) →
+          m + 4 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 3 * (k - 2))) → ¬C.Adj a (p.getVert (m + 4 * (k - 2)))
+    [prop] 1 ≤ n + 2 * (k - 2) →
+          n + 3 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 2 * (k - 2))) → ¬C.Adj a (p.getVert (n + 3 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 3 * (k - 2) →
+          H.degree u + 4 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 3 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 4 * (k - 2)))
+    [prop] m + 4 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 3 * (k - 2))) → ¬C.Adj a (p.getVert (m + 4 * (k - 2)))
+    [prop] n + 3 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 2 * (k - 2))) → ¬C.Adj a (p.getVert (n + 3 * (k - 2)))
+    [prop] H.degree u + 4 * (k - 2) ≤ p.length →
+          C.Adj a (p.getVert (H.degree u + 3 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 4 * (k - 2)))
+    [prop] C.Adj a (p.getVert (m + 3 * (k - 2))) → ¬a = p.getVert (m + 3 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 3 * (k - 2))) → ¬C.Adj a (p.getVert (m + 4 * (k - 2)))
+    [prop] C.Adj a (p.getVert (n + 2 * (k - 2))) → ¬a = p.getVert (n + 2 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 3 * (k - 2))) → ¬a = p.getVert (H.degree u + 3 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 3 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 4 * (k - 2)))
+    [prop] 1 ≤ m + 4 * (k - 2)
+    [prop] 1 ≤ n + 3 * (k - 2)
+    [prop] 1 ≤ H.degree u + 4 * (k - 2)
+    [prop] m + 5 * (k - 2) ≤ p.length
+    [prop] H.degree u + 5 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 4 * (k - 2) →
+          m + 5 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 4 * (k - 2))) → ¬C.Adj a (p.getVert (m + 5 * (k - 2)))
+    [prop] 1 ≤ n + 3 * (k - 2) →
+          n + 4 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 3 * (k - 2))) → ¬C.Adj a (p.getVert (n + 4 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 4 * (k - 2) →
+          H.degree u + 5 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 4 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 5 * (k - 2)))
+    [prop] m + 5 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 4 * (k - 2))) → ¬C.Adj a (p.getVert (m + 5 * (k - 2)))
+    [prop] n + 4 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 3 * (k - 2))) → ¬C.Adj a (p.getVert (n + 4 * (k - 2)))
+    [prop] H.degree u + 5 * (k - 2) ≤ p.length →
+          C.Adj a (p.getVert (H.degree u + 4 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 5 * (k - 2)))
+    [prop] C.Adj a (p.getVert (m + 4 * (k - 2))) → ¬a = p.getVert (m + 4 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 4 * (k - 2))) → ¬C.Adj a (p.getVert (m + 5 * (k - 2)))
+    [prop] C.Adj a (p.getVert (n + 3 * (k - 2))) → ¬a = p.getVert (n + 3 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 4 * (k - 2))) → ¬a = p.getVert (H.degree u + 4 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 4 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 5 * (k - 2)))
+    [prop] 1 ≤ m + 5 * (k - 2)
+    [prop] 1 ≤ n + 4 * (k - 2)
+    [prop] 1 ≤ H.degree u + 5 * (k - 2)
+    [prop] m + 6 * (k - 2) ≤ p.length
+    [prop] H.degree u + 6 * (k - 2) ≤ p.length
+    [prop] 1 ≤ m + 5 * (k - 2) →
+          m + 6 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 5 * (k - 2))) → ¬C.Adj a (p.getVert (m + 6 * (k - 2)))
+    [prop] 1 ≤ n + 4 * (k - 2) →
+          n + 5 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 4 * (k - 2))) → ¬C.Adj a (p.getVert (n + 5 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 5 * (k - 2) →
+          H.degree u + 6 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 5 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 6 * (k - 2)))
+    [prop] m + 6 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 5 * (k - 2))) → ¬C.Adj a (p.getVert (m + 6 * (k - 2)))
+    [prop] n + 5 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 4 * (k - 2))) → ¬C.Adj a (p.getVert (n + 5 * (k - 2)))
+    [prop] H.degree u + 6 * (k - 2) ≤ p.length →
+          C.Adj a (p.getVert (H.degree u + 5 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 6 * (k - 2)))
+    [prop] C.Adj a (p.getVert (m + 5 * (k - 2))) → ¬a = p.getVert (m + 5 * (k - 2))
+    [prop] C.Adj a (p.getVert (m + 5 * (k - 2))) → ¬C.Adj a (p.getVert (m + 6 * (k - 2)))
+    [prop] C.Adj a (p.getVert (n + 4 * (k - 2))) → ¬a = p.getVert (n + 4 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 5 * (k - 2))) → ¬a = p.getVert (H.degree u + 5 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 5 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 6 * (k - 2)))
+    [prop] 1 ≤ n + 5 * (k - 2)
+    [prop] 1 ≤ m + 6 * (k - 2) →
+          m + 7 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 6 * (k - 2))) → ¬C.Adj a (p.getVert (m + 7 * (k - 2)))
+    [prop] 1 ≤ n + 5 * (k - 2) →
+          n + 6 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 5 * (k - 2))) → ¬C.Adj a (p.getVert (n + 6 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 6 * (k - 2) →
+          H.degree u + 7 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 6 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 7 * (k - 2)))
+    [prop] n + 6 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 5 * (k - 2))) → ¬C.Adj a (p.getVert (n + 6 * (k - 2)))
+    [prop] C.Adj a (p.getVert (m + 6 * (k - 2))) → ¬a = p.getVert (m + 6 * (k - 2))
+    [prop] C.Adj a (p.getVert (n + 5 * (k - 2))) → ¬a = p.getVert (n + 5 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 6 * (k - 2))) → ¬a = p.getVert (H.degree u + 6 * (k - 2))
+    [prop] 1 ≤ m + 7 * (k - 2) →
+          m + 8 * (k - 2) ≤ p.length → C.Adj a (p.getVert (m + 7 * (k - 2))) → ¬C.Adj a (p.getVert (m + 8 * (k - 2)))
+    [prop] 1 ≤ n + 6 * (k - 2) →
+          n + 7 * (k - 2) ≤ p.length → C.Adj a (p.getVert (n + 6 * (k - 2))) → ¬C.Adj a (p.getVert (n + 7 * (k - 2)))
+    [prop] 1 ≤ H.degree u + 7 * (k - 2) →
+          H.degree u + 8 * (k - 2) ≤ p.length →
+            C.Adj a (p.getVert (H.degree u + 7 * (k - 2))) → ¬C.Adj a (p.getVert (H.degree u + 8 * (k - 2)))
+    [prop] C.Adj a (p.getVert (m + 7 * (k - 2))) → ¬a = p.getVert (m + 7 * (k - 2))
+    [prop] C.Adj a (p.getVert (n + 6 * (k - 2))) → ¬a = p.getVert (n + 6 * (k - 2))
+    [prop] C.Adj a (p.getVert (H.degree u + 7 * (k - 2))) → ¬a = p.getVert (H.degree u + 7 * (k - 2))
+  [eqc] False propositions
+    [prop] Nonempty ((cycleGraph k).Copy C)
+    [prop] a₀ = b₀
+    [prop] ((edgeSetEmbedding W) H).ncard = 0
+    [prop] ((edgeSetEmbedding W) H).ncard = m - H.degree u
+    [prop] p.length = 0
+    [prop] p.reverse.length = 0
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x₀
+    [prop] p.Nil
+    [prop] p.reverse.Nil
+    [prop] n + (k - 2) ≤ p.length
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree a
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree b
+    [prop] n + 2 * (k - 2) ≤ p.length
+    [prop] n + 3 * (k - 2) ≤ p.length
+    [prop] n + 4 * (k - 2) ≤ p.length
+    [prop] n + 5 * (k - 2) ≤ p.length
+  [eqc] Equivalence classes
+    [eqc] {m, ((edgeSetEmbedding W) H).ncard}
+    [eqc] {p, p.bypass}
+    [eqc] {Fintype.card (Subtype (Membership.mem {u}ᶜ)), Fintype.card W - 1}
+    [eqc] {((edgeSetEmbedding (Subtype (Membership.mem {u}ᶜ)))
+            (SimpleGraph.comap (⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))) H)).ncard,
+        m - H.degree u}
+    [eqc] {Compl.adjDecidable (Fin n) C, fun a b => Compl.adjDecidable (Fin n) C a b}
+    [eqc] {H.degree u, H.maxDegree}
+    [eqc] {Cᶜ.degree x₀, Cᶜ.maxDegree}
+    [eqc] {neighborSet.memDecidable H u, fun a => neighborSet.memDecidable H u a}
+    [eqc] {neighborSet.memDecidable C a, fun a_1 => neighborSet.memDecidable C a a_1}
+    [eqc] {neighborSet.memDecidable C b, fun a => neighborSet.memDecidable C b a}
+    [eqc] {neighborSet.memDecidable Cᶜ x₀, fun a => neighborSet.memDecidable Cᶜ x₀ a}
+    [eqc] {(k - 1) * m + 1, (k - 1) * ((edgeSetEmbedding W) H).ncard + 1}
+    [eqc] {(k - 1) * H.degree u + (k - 1) * (m - H.degree u), (k - 1) * m, (k - 1) * ((edgeSetEmbedding W) H).ncard}
+    [eqc] {Nonempty (H.Copy Cᶜ),
+        Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        Fintype.card W ≤ n →
+          (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)}
+    [eqc] {neighborSet.memDecidable C x₀, fun a => neighborSet.memDecidable C x₀ a}
+    [eqc] {neighborSet.memDecidable Cᶜ a, fun a_1 => neighborSet.memDecidable Cᶜ a a_1}
+    [eqc] {neighborSet.memDecidable Cᶜ b, fun a => neighborSet.memDecidable Cᶜ b a}
+    [eqc] {C.degree x₀ + Cᶜ.degree x₀, C.degree a + Cᶜ.degree a, C.degree b + Cᶜ.degree b, n - 1}
+    [eqc] {Fintype.card W ≤ n →
+          (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)}
+    [eqc] {a = b, b = a}
+    [eqc] others
+      [eqc] {↑m, ↑((edgeSetEmbedding W) H).ncard}
+      [eqc] {↑(H.degree u), ↑H.maxDegree}
+      [eqc] {↑((k - 1) * H.degree u + (k - 1) * (m - H.degree u)), ↑((k - 1) * m)}
+      [eqc] {↑(k - 1), if -1 * ↑k + 1 ≤ 0 then ↑k + -1 else 0, ↑k + -1}
+      [eqc] {↑(k - 2), if -1 * ↑k + 2 ≤ 0 then ↑k + -2 else 0, ↑k + -2}
+      [eqc] {↑(m - H.degree u),
+          if -1 * ↑m + ↑(H.degree u) ≤ 0 then ↑m + -1 * ↑(H.degree u) else 0,
+          ↑m + -1 * ↑(H.degree u)}
+      [eqc] {↑(Fintype.card W - 1),
+          if -1 * ↑(Fintype.card W) + 1 ≤ 0 then ↑(Fintype.card W) + -1 else 0,
+          ↑(Fintype.card W) + -1}
+      [eqc] {if -1 * ↑n + 1 ≤ 0 then ↑n + -1 else 0,
+          ↑n + -1,
+          ↑(C.degree x₀ + Cᶜ.degree x₀),
+          ↑(C.degree a + Cᶜ.degree a),
+          ↑(C.degree b + Cᶜ.degree b),
+          ↑(n - 1)}
+      [eqc] {↑(k - 1) * ↑m + -1 * ↑n + 1, ↑(k - 1) * ↑((edgeSetEmbedding W) H).ncard + -1 * ↑n + 1}
+      [eqc] {↑(k - 1) * ↑m + -1 * ↑n, ↑(k - 1) * ↑((edgeSetEmbedding W) H).ncard + -1 * ↑n}
+      [eqc] {↑(k - 1) * ↑m, ↑(k - 1) * ↑((edgeSetEmbedding W) H).ncard}
+  [cases] Case analyses
+    [cases] [1/2]: if -1 * ↑(Fintype.card W) + 1 ≤ 0 then ↑(Fintype.card W) + -1 else 0
+      [cases] source: Initial goal
+    [cases] [1/2]: H.degree u + (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [2/2]: (p.length = 0) = p.Nil
+      [cases] source: E-matching `Walk.length_eq_zero_iff`
+    [cases] [2/2]: (p.reverse.length = 0) = p.reverse.Nil
+      [cases] source: E-matching `Walk.length_eq_zero_iff`
+    [cases] [2/2]: ((edgeSetEmbedding W) H).ncard = 0
+      [cases] source: E-matching `ih`
+    [cases] [2/2]: ((edgeSetEmbedding W) H).ncard = m - H.degree u
+      [cases] source: E-matching `ih`
+    [cases] [1/2]: m + (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ m + (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: m + 2 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [2/2]: n + (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ H.degree u + (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: H.degree u + 2 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ m + 2 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: m + 3 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ H.degree u + 2 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: H.degree u + 3 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [2/2]: n + 2 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [2/2]: n + 3 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ H.degree u + 3 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: H.degree u + 4 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ m + 3 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: m + 4 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ H.degree u + 4 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: H.degree u + 5 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [2/2]: n + 4 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ m + 4 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: m + 5 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ m + 5 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: m + 6 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: 1 ≤ H.degree u + 5 * (k - 2)
+      [cases] source: E-matching `hchord`
+    [cases] [1/2]: H.degree u + 6 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+    [cases] [2/2]: n + 5 * (k - 2) ≤ p.length
+      [cases] source: E-matching `hchord`
+  [ematch] E-matching patterns
+    [thm] ih: [@LE.le `[ℕ] `[instLENat] (#10 + 1) `[m],
+         @DFunLike.coe (@RelEmbedding (SimpleGraph #8) (Set _) _ _) (SimpleGraph _) _ _ (edgeSetEmbedding _) #6,
+         @LE.le `[ℕ] `[instLENat] (Fintype.card _ #7) #3,
+         @Copy (Fin _) `[Fin k] `[cycleGraph k] #0]
+    [thm] ih: [@Copy (Fin #3) `[Fin k] `[cycleGraph k] #0,
+         @Copy (Fin _) #8 #6 (@compl (SimpleGraph (Fin _)) _ #0),
+         @LE.le `[ℕ] `[instLENat] ((@HMul.hMul `[ℕ] `[ℕ] `[ℕ] `[instHMul] `[k - 1] #10) + 1) #3]
+    [thm] Sym2.rel_iff': [Sym2.Rel #2 #1 #0]
+    [thm] natCast_apply_eq_smul: [@DFunLike.coe #7 #6 _ #5 (@NatCast.natCast _ #4 #1) #0]
+    [thm] natCast_apply_eq_const: [@DFunLike.coe #8 #7 _ #5 (@NatCast.natCast _ #4 #1) #0]
+    [thm] sub_apply: [@DFunLike.coe #9 #8 _ #6 (@HSub.hSub _ _ _ _ #2 #1) #0]
+    [thm] mul_apply_eq_comp: [@DFunLike.coe #7 #6 _ #5 (@HMul.hMul _ _ _ _ #2 #1) #0]
+    [thm] add_apply: [@DFunLike.coe #9 #8 _ #6 (@HAdd.hAdd _ _ _ _ #2 #1) #0]
+    [thm] mul_apply: [@DFunLike.coe #9 #8 _ #6 (@HMul.hMul _ _ _ _ #2 #1) #0]
+    [thm] map_sub: [@DFunLike.coe #7 #9 _ #6 #2 (@HSub.hSub _ _ _ _ #1 #0)]
+    [thm] map_add: [@DFunLike.coe #7 #9 _ #4 #2 (@HAdd.hAdd _ _ _ _ #1 #0)]
+    [thm] map_mul: [@DFunLike.coe #7 #9 _ #4 #2 (@HMul.hMul _ _ _ _ #1 #0)]
+    [thm] Set.subset_def: [@LE.le (Set #2) _ #1 #0]
+    [thm] Adj.ne: [@Adj #4 #3 #2 #1]
+    [thm] Fin.pos': [Nonempty (Fin #1)]
+    [thm] Inclusion.IntervalDyadicReal.mem_iff_mem_map: [@Membership.mem `[ℝ] `[Inclusion.Interval
+           Dyadic] `[Inclusion.instMembershipOfToSet] #0 #1]
+    [thm] Multiset.mem_add: [@Membership.mem #3 _ _ (@HAdd.hAdd _ _ _ _ #1 #0) #2]
+    [thm] Set.mem_compl_iff: [@Membership.mem #2 (Set _) _ (@compl (Set _) _ #1) #0]
+    [thm] Bool.compl_singleton: [@compl `[Set
+           Bool] `[Set.instCompl] (@singleton `[Bool] `[Set Bool] `[Set.instSingletonSet] #0)]
+    [thm] Set.mem_singleton_iff: [@Membership.mem #2 (Set _) _ (@singleton _ (Set _) _ #0) #1]
+    [thm] Set.singleton_subset_iff: [@LE.le (Set #2) _ (@singleton _ (Set _) _ #1) #0]
+    [thm] Function.Embedding.injective: [@DFunLike.coe (Function.Embedding #2 #1) _ _ _ #0]
+    [thm] hx: [@LE.le `[ℕ] `[instLENat] `[(k - 1) * (m - H.degree u) + 1] (@degree `[Fin n] `[Cᶜ] #1 _)]
+    [thm] hx: [@degree `[Fin n] `[Cᶜ] #1 _]
+    [thm] hx: [@LE.le `[ℕ] `[instLENat] (@HAdd.hAdd `[ℕ] `[ℕ] `[ℕ] `[instHAdd] (@degree `[Fin
+             n] `[Cᶜ] #1 _) `[1]) `[Fintype.card W - 1]]
+    [thm] hx: [@LE.le `[ℕ] `[instLENat] ((@degree `[Fin n] `[Cᶜ] #1 _) + 1) `[Fintype.card W - 1]]
+    [thm] hb: [@LE.le `[ℕ] `[instLENat] (@degree `[Fin n] `[Cᶜ] #0 _) `[Cᶜ.degree x₀]]
+    [thm] hb: [@degree `[Fin n] `[Cᶜ] #0 _]
+    [thm] Fin.isEmpty_iff: [IsEmpty (Fin #0)]
+    [thm] Walk.IsPath.bypass_eq_self: [@Walk.IsPath #6 #5 #4 #3 #1]
+    [thm] hmax: [@Walk.IsPath `[Fin n] `[C] #3 #2 #1]
+    [thm] Walk.length_eq_zero_iff: [@Walk.length #4 #3 #2 #1 #0]
+    [thm] hmax: [@LE.le `[ℕ] `[instLENat] (@Walk.length `[Fin n] `[C] #3 #2 #1) `[p.length]]
+    [thm] hmax: [@Walk.length `[Fin n] `[C] #3 #2 #1]
+    [thm] hred: [@degree `[Fin n] `[C] #0 _]
+    [thm] hred: [@degree `[Fin n] `[Cᶜ] #0 _]
+    [thm] hchord: [@LE.le `[ℕ] `[instLENat] `[1] #3]
+    [thm] hchord: [@LE.le `[ℕ] `[instLENat] (@HAdd.hAdd `[ℕ] `[ℕ] `[ℕ] `[instHAdd] #3 `[k - 2]) `[p.length]]
+    [thm] hchord: [@Adj `[Fin n] `[C] `[a] (@Walk.getVert `[Fin n] `[C] `[a] `[b] `[p] #3)]
+    [thm] hchord: [@Walk.getVert `[Fin n] `[C] `[a] `[b] `[p] #3]
+    [thm] hchord: [@Adj `[Fin
+           n] `[C] `[a] (@Walk.getVert `[Fin
+            n] `[C] `[a] `[b] `[p] (@HAdd.hAdd `[ℕ] `[ℕ] `[ℕ] `[instHAdd] #3 `[k - 2]))]
+    [thm] hchord: [@Walk.getVert `[Fin n] `[C] `[a] `[b] `[p] (@HAdd.hAdd `[ℕ] `[ℕ] `[ℕ] `[instHAdd] #3 `[k - 2])]
+    [thm] hmax': [@Walk.IsPath `[Fin n] `[C] #3 #2 #1]
+    [thm] hmax': [@LE.le `[ℕ] `[instLENat] (@Walk.length `[Fin n] `[C] #3 #2 #1) `[p.reverse.length]]
+    [thm] hmax': [@Walk.length `[Fin n] `[C] #3 #2 #1]
+    [thm] local_0: [Nonempty (@Copy (Fin #3) #8 #7 (@compl (SimpleGraph (Fin _)) _ #0))]
+    [thm] local_0: [@Copy (Fin #3) #8 #7 (@compl (SimpleGraph (Fin _)) _ #0)]
+    [thm] local_0: [@LE.le `[ℕ] `[instLENat] ((@Set.ncard _ (@DFunLike.coe (@RelEmbedding (SimpleGraph #8) (Set _) _ _) (SimpleGraph _) _ _ (edgeSetEmbedding _) #7)) + 1) `[m],
+         @LE.le `[ℕ] `[instLENat] (Fintype.card _ #5) #3,
+         @Copy (Fin _) `[Fin k] `[cycleGraph k] #0]
+    [thm] local_0: [@Copy (Fin #3) `[Fin k] `[cycleGraph k] #0, @Copy (Fin _) #8 #7 (@compl (SimpleGraph (Fin _)) _ #0)]
+    [thm] Walk.Nil.eq: [@Walk.Nil #5 #4 #3 #2 #1]
+  [cutsat] Assignment satisfying linear constraints
+    [assign] k := 3
+    [assign] m := 2
+    [assign] n := 9
+    [assign] d := 22
+    [assign] m' := 23
+    [assign] Fintype.card W := 1
+    [assign] Fintype.card (Subtype (Membership.mem {u}ᶜ)) := 0
+    [assign] ((edgeSetEmbedding W) H).ncard := 2
+    [assign] ((edgeSetEmbedding (Subtype (Membership.mem {u}ᶜ)))
+            (SimpleGraph.comap (⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))) H)).ncard := 0
+    [assign] H.degree u := 2
+    [assign] C.degree a := 4
+    [assign] C.degree b := 4
+    [assign] Cᶜ.degree x₀ := 4
+    [assign] H.maxDegree := 2
+    [assign] Cᶜ.maxDegree := 4
+    [assign] p.length := 8
+    [assign] p.reverse.length := 8
+    [assign] C.degree x₀ := 4
+    [assign] Cᶜ.degree a := 4
+    [assign] Cᶜ.degree b := 4
+  [ring] Rings
+    [ring] Ring `ℤ`
+      [basis] Basis
+        [_] ↑k + -1 * ↑(k - 1) + -1 = 0
+        [_] ↑(Fintype.card W) + -1 * ↑(Fintype.card W - 1) + -1 = 0
+        [_] ↑(k - 1) + -1 * ↑(k - 2) + -1 = 0
+        [_] ↑m + -1 * ↑(H.degree u) + -1 * ↑(m - H.degree u) = 0
+        [_] ↑(H.degree u) + -1 * ↑H.maxDegree = 0
+        [_] ↑(m - H.degree u) + ↑H.maxDegree + -1 * ↑((edgeSetEmbedding W) H).ncard = 0
+    [ring] Ring `Lean.Grind.Ring.OfSemiring.Q ℕ`
+      [basis] Basis
+        [_] ↑(k - 1) * ↑(H.degree u) + ↑(k - 1) * ↑(m - H.degree u) + -1 * (↑(k - 1) * ↑m) = 0
+        [_] ↑(C.degree b) + ↑(Cᶜ.degree b) + -1 * ↑(n - 1) = 0
+        [_] ↑(n - 1) + -1 * ↑(C.degree a) + -1 * ↑(Cᶜ.degree a) = 0
+        [_] ↑(C.degree a) + ↑(Cᶜ.degree a) + -1 * ↑(C.degree x₀) + -1 * ↑(Cᶜ.degree x₀) = 0
+      [diseqs] Disequalities
+        [_] ¬↑m = 0
+        [_] ¬-1 * ↑(m - H.degree u) + ↑m = 0
+  [limits] Thresholds reached
+    [limit] maximum number of case-splits has been reached, threshold: `(splits := 9)`
+    [limit] maximum term generation has been reached, threshold: `(gen := 8)`
+[grind] Diagnostics
+  [ematch] E-matching Diagnostics
+    [thm] Theorem Instance Count
+      [thm] Adj.ne ↦ 24
+      [thm] hchord ↦ 23
+      [thm] ih ↦ 5
+      [thm] hb ↦ 3
+      [thm] hred ↦ 3
+      [thm] hx ↦ 3
+      [thm] hmax ↦ 2
+      [thm] hmax' ↦ 2
+      [thm] local_0 ↦ 2
+      [thm] Walk.length_eq_zero_iff ↦ 2
+      [thm] Walk.IsPath.bypass_eq_self ↦ 2
+      [thm] Walk.Nil.eq ↦ 2
+      [thm] Fin.pos' ↦ 1
+      [thm] Function.Embedding.injective ↦ 1
+Rooms/Target_B5_C36_full_forced.lean:947:8: error: `grind` failed
+case grind.1.2.2.1.1
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [DecidableRel H.Adj],
+      H.edgeSet.ncard = m_1 →
+        ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst : Fintype W
+H : SimpleGraph W
+inst_1 : DecidableRel H.Adj
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+hpos : m > 0
+a₀ b₀ : W
+hab₀ : H.Adj a₀ b₀
+this_1 : Nonempty W
+u : W
+d : ℕ := H.degree u
+hu' : H.maxDegree = d
+hu : 0 < d
+hd : d = H.degree u
+m' : ℕ := m - d
+hm' : m' = m - d
+hdm : d ≤ m
+hm'lt : m' < m
+hH' : (induce {u}ᶜ H).edgeSet.ncard = m'
+hcard' : Fintype.card ↑{u}ᶜ = Fintype.card W - 1
+hD2 : H.maxDegree ≥ 2
+hx : ∀ (x : Fin n), (k - 1) * m' + 1 ≤ Cᶜ.degree x → Cᶜ.degree x < Fintype.card W - 1
+this : Nonempty (Fin n)
+x₀ : Fin n
+hx₀ : Cᶜ.maxDegree = Cᶜ.degree x₀
+hb : ∀ (x : Fin n), Cᶜ.degree x ≤ Cᶜ.degree x₀
+hfree' : IsEmpty ((cycleGraph k).Copy C)
+hblue : IsEmpty (H.Copy Cᶜ)
+hfree : ¬cycleGraph k ⊑ C
+a b : Fin n
+p : C.Walk a b
+hp : p.IsPath
+hmax : ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.length
+hred : ∀ (y : Fin n), C.degree y + Cᶜ.degree y = n - 1
+h1 : Cᶜ.degree x₀ ≥ (k - 1) * m' + 1
+h2 : Cᶜ.degree x₀ < Fintype.card W - 1
+h : -1 * ↑(Fintype.card W) + 1 ≤ 0
+h_1 : ¬((edgeSetEmbedding W) H).ncard = 0
+h_2 : ¬((edgeSetEmbedding W) H).ncard = m - H.degree u
+left : p.length = 0
+right : p.Nil
+h_4 : k = n
+⊢ False
+[grind] Goal diagnostics
+  [facts] Asserted facts
+    [prop] 3 ≤ k
+    [prop] ∀ (m_1 : ℕ),
+          m_1 + 1 ≤ m →
+            ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [(a b : W) → Decidable (H.Adj a b)],
+              ((edgeSetEmbedding W) H).ncard = m_1 →
+                ∀ (n : ℕ),
+                  Fintype.card W ≤ n →
+                    (k - 1) * m_1 + 1 ≤ n →
+                      ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ↑(k - 1) = if -1 * ↑k + 1 ≤ 0 then ↑k + -1 else 0
+    [prop] ((edgeSetEmbedding W) H).ncard = m
+    [prop] Fintype.card W ≤ n
+    [prop] (k - 1) * m + 1 ≤ n
+    [prop] 1 ≤ m
+    [prop] H.Adj a₀ b₀
+    [prop] Nonempty W
+    [prop] H.maxDegree = H.degree u
+    [prop] 1 ≤ H.degree u
+    [prop] H.degree u ≤ m
+    [prop] m - H.degree u + 1 ≤ m
+    [prop] ↑(m - H.degree u) = if -1 * ↑m + ↑(H.degree u) ≤ 0 then ↑m + -1 * ↑(H.degree u) else 0
+    [prop] ((edgeSetEmbedding (Subtype (Membership.mem {u}ᶜ)))
+              (SimpleGraph.comap (⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))) H)).ncard =
+          m - H.degree u
+    [prop] Fintype.card (Subtype (Membership.mem {u}ᶜ)) = Fintype.card W - 1
+    [prop] ↑(Fintype.card W - 1) = if -1 * ↑(Fintype.card W) + 1 ≤ 0 then ↑(Fintype.card W) + -1 else 0
+    [prop] 2 ≤ H.maxDegree
+    [prop] ∀ (x : Fin n), (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x → Cᶜ.degree x + 1 ≤ Fintype.card W - 1
+    [prop] Nonempty (Fin n)
+    [prop] Cᶜ.maxDegree = Cᶜ.degree x₀
+    [prop] ∀ (x : Fin n), Cᶜ.degree x ≤ Cᶜ.degree x₀
+    [prop] IsEmpty ((cycleGraph k).Copy C)
+    [prop] IsEmpty (H.Copy Cᶜ)
+    [prop] ¬Nonempty ((cycleGraph k).Copy C)
+    [prop] p.IsPath
+    [prop] ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.length
+    [prop] ∀ (y : Fin n), C.degree y + Cᶜ.degree y = n - 1
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x₀
+    [prop] Cᶜ.degree x₀ + 1 ≤ Fintype.card W - 1
+    [prop] ∀ (W : Type) (H : SimpleGraph W),
+          ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+            ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)) (n : ℕ),
+              Fintype.card W ≤ n →
+                (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n →
+                  ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] m - H.degree u + 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+            Fintype.card W ≤ n →
+              (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = 0 →
+            Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] H.Adj a₀ b₀ → ¬a₀ = b₀
+    [prop] 1 ≤ n
+    [prop] Function.Injective ⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x₀ → Cᶜ.degree x₀ + 1 ≤ Fintype.card W - 1
+    [prop] p.IsPath → p.bypass = p
+    [prop] (p.length = 0) = p.Nil
+    [prop] C.degree x₀ + Cᶜ.degree x₀ = n - 1
+    [prop] ↑(n - 1) = if -1 * ↑n + 1 ≤ 0 then ↑n + -1 else 0
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          Fintype.card W ≤ n →
+            (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] m - H.degree u + 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+            Fintype.card W ≤ n →
+              (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] p.Nil → a = b
+    [prop] -1 * ↑(Fintype.card W) + 1 ≤ 0
+    [prop] ¬((edgeSetEmbedding W) H).ncard = 0
+    [prop] ¬((edgeSetEmbedding W) H).ncard = m - H.degree u
+    [prop] p.length = 0
+    [prop] p.Nil
+    [prop] ↑a = ↑b
+    [prop] ↑b + 1 ≤ n
+    [prop] ↑a + 1 ≤ n
+    [prop] ↑a + 1 ≤ n
+    [prop] ↑b + 1 ≤ n
+    [prop] ↑a + 1 ≤ n
+    [prop] k = n
+  [eqc] True propositions
+    [prop] IsEmpty (H.Copy Cᶜ)
+    [prop] IsEmpty ((cycleGraph k).Copy C)
+    [prop] Nonempty W
+    [prop] Nonempty (Fin n)
+    [prop] k = n
+    [prop] -1 * ↑k + 1 ≤ 0
+    [prop] -1 * ↑m + ↑(H.degree u) ≤ 0
+    [prop] -1 * ↑n + 1 ≤ 0
+    [prop] -1 * ↑(Fintype.card W) + 1 ≤ 0
+    [prop] Fintype.card W ≤ n
+    [prop] 1 ≤ m
+    [prop] 1 ≤ H.degree u
+    [prop] 2 ≤ H.maxDegree
+    [prop] 3 ≤ k
+    [prop] H.degree u ≤ m
+    [prop] ↑a + 1 ≤ n
+    [prop] ↑b + 1 ≤ n
+    [prop] Cᶜ.degree x₀ + 1 ≤ Fintype.card W - 1
+    [prop] (k - 1) * m + 1 ≤ n
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x₀
+    [prop] m - H.degree u + 1 ≤ m
+    [prop] H.Adj a₀ b₀
+    [prop] p.IsPath
+    [prop] ∀ (W : Type) (H : SimpleGraph W),
+          ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+            ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)) (n : ℕ),
+              Fintype.card W ≤ n →
+                (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n →
+                  ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ∀ (m_1 : ℕ),
+          m_1 + 1 ≤ m →
+            ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [(a b : W) → Decidable (H.Adj a b)],
+              ((edgeSetEmbedding W) H).ncard = m_1 →
+                ∀ (n : ℕ),
+                  Fintype.card W ≤ n →
+                    (k - 1) * m_1 + 1 ≤ n →
+                      ∀ (C : SimpleGraph (Fin n)), Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ∀ (y : Fin n), C.degree y + Cᶜ.degree y = n - 1
+    [prop] ∀ (x : Fin n), Cᶜ.degree x ≤ Cᶜ.degree x₀
+    [prop] ∀ (u' v' : Fin n) (p' : C.Walk u' v'), p'.IsPath → p'.length ≤ p.length
+    [prop] ∀ (x : Fin n), (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x → Cᶜ.degree x + 1 ≤ Fintype.card W - 1
+    [prop] ¬a₀ = b₀
+    [prop] (p.length = 0) = p.Nil
+    [prop] p.length = 0
+    [prop] p.bypass = p
+    [prop] Function.Injective ⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))
+    [prop] 1 ≤ n
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ n
+    [prop] p.Nil
+    [prop] ((edgeSetEmbedding W) H).ncard = 0 →
+          Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+          Fintype.card W ≤ n →
+            (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = 0 →
+            Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst : Fintype W) (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] (k - 1) * (m - H.degree u) + 1 ≤ Cᶜ.degree x₀ → Cᶜ.degree x₀ + 1 ≤ Fintype.card W - 1
+    [prop] m - H.degree u + 1 ≤ m →
+          ((edgeSetEmbedding W) H).ncard = m - H.degree u →
+            Fintype.card W ≤ n →
+              (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] H.Adj a₀ b₀ → ¬a₀ = b₀
+    [prop] p.IsPath → p.bypass = p
+    [prop] a = b
+    [prop] (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          Fintype.card W ≤ n →
+            (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m →
+          ∀ (inst_2 : (a b : W) → Decidable (H.Adj a b)),
+            Fintype.card W ≤ n →
+              (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)
+    [prop] p.Nil → a = b
+  [eqc] False propositions
+    [prop] Nonempty ((cycleGraph k).Copy C)
+    [prop] a₀ = b₀
+    [prop] ((edgeSetEmbedding W) H).ncard = 0
+    [prop] ((edgeSetEmbedding W) H).ncard = m - H.degree u
+    [prop] ((edgeSetEmbedding W) H).ncard + 1 ≤ m
+  [eqc] Equivalence classes
+    [eqc] {k, n}
+    [eqc] {m, ((edgeSetEmbedding W) H).ncard}
+    [eqc] {a, b}
+    [eqc] {p, p.bypass}
+    [eqc] {Fin k, Fin n}
+    [eqc] {↑a, ↑b}
+    [eqc] {Fintype.card (Subtype (Membership.mem {u}ᶜ)), Fintype.card W - 1}
+    [eqc] {((edgeSetEmbedding (Subtype (Membership.mem {u}ᶜ)))
+            (SimpleGraph.comap (⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))) H)).ncard,
+        m - H.degree u}
+    [eqc] {0, p.length}
+    [eqc] {Compl.adjDecidable (Fin n) C, fun a b => Compl.adjDecidable (Fin n) C a b}
+    [eqc] {H.degree u, H.maxDegree}
+    [eqc] {Cᶜ.degree x₀, Cᶜ.maxDegree}
+    [eqc] {neighborSet.memDecidable H u, fun a => neighborSet.memDecidable H u a}
+    [eqc] {neighborSet.memDecidable Cᶜ x₀, fun a => neighborSet.memDecidable Cᶜ x₀ a}
+    [eqc] {↑a + 1, ↑b + 1}
+    [eqc] {(k - 1) * m + 1, (k - 1) * ((edgeSetEmbedding W) H).ncard + 1}
+    [eqc] {(k - 1) * m, (k - 1) * ((edgeSetEmbedding W) H).ncard}
+    [eqc] {k - 1, C.degree x₀ + Cᶜ.degree x₀, n - 1}
+    [eqc] {Nonempty (H.Copy Cᶜ),
+        Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        Fintype.card W ≤ n → 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        Fintype.card W ≤ n →
+          (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        (k - 1) * (m - H.degree u) + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        Fintype.card W ≤ n →
+          (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ),
+        (k - 1) * ((edgeSetEmbedding W) H).ncard + 1 ≤ n → Nonempty ((cycleGraph k).Copy C) ∨ Nonempty (H.Copy Cᶜ)}
+    [eqc] {neighborSet.memDecidable C x₀, fun a => neighborSet.memDecidable C x₀ a}
+    [eqc] others
+      [eqc] {↑(k - 1), ↑(n - 1)}
+      [eqc] {↑k, ↑n}
+      [eqc] {↑m, ↑((edgeSetEmbedding W) H).ncard}
+      [eqc] {↑↑a, ↑↑b}
+      [eqc] {↑(H.degree u), ↑H.maxDegree}
+      [eqc] {↑(k - 1),
+          if -1 * ↑k + 1 ≤ 0 then ↑k + -1 else 0,
+          if -1 * ↑n + 1 ≤ 0 then ↑n + -1 else 0,
+          ↑k + -1,
+          ↑n + -1,
+          ↑(C.degree x₀ + Cᶜ.degree x₀),
+          ↑(n - 1)}
+      [eqc] {↑(m - H.degree u),
+          if -1 * ↑m + ↑(H.degree u) ≤ 0 then ↑m + -1 * ↑(H.degree u) else 0,
+          ↑m + -1 * ↑(H.degree u)}
+      [eqc] {↑(Fintype.card W - 1),
+          if -1 * ↑(Fintype.card W) + 1 ≤ 0 then ↑(Fintype.card W) + -1 else 0,
+          ↑(Fintype.card W) + -1}
+      [eqc] {↑(k - 1) * ↑m + -1 * ↑n + 1, ↑(k - 1) * ↑((edgeSetEmbedding W) H).ncard + -1 * ↑n + 1}
+      [eqc] {↑(k - 1) * ↑m + -1 * ↑n, ↑(k - 1) * ↑((edgeSetEmbedding W) H).ncard + -1 * ↑n}
+      [eqc] {-1 * ↑k + 1, -1 * ↑n + 1}
+      [eqc] {↑(k - 1) * ↑m, ↑(k - 1) * ↑((edgeSetEmbedding W) H).ncard}
+      [eqc] {-1 * ↑k, -1 * ↑n}
+  [cases] Case analyses
+    [cases] [1/2]: if -1 * ↑(Fintype.card W) + 1 ≤ 0 then ↑(Fintype.card W) + -1 else 0
+      [cases] source: Initial goal
+    [cases] [2/2]: ((edgeSetEmbedding W) H).ncard = 0
+      [cases] source: E-matching `ih`
+    [cases] [2/2]: ((edgeSetEmbedding W) H).ncard = m - H.degree u
+      [cases] source: E-matching `ih`
+    [cases] [1/2]: (p.length = 0) = p.Nil
+      [cases] source: E-matching `Walk.length_eq_zero_iff`
+    [cases] [1/2]: k = n
+      [cases] source: Model-based theory combination at argument #0 of
+            Fin n
+          and
+            Fin k
+  [ematch] E-matching patterns
+    [thm] ih: [@LE.le `[ℕ] `[instLENat] (#10 + 1) `[m],
+         @DFunLike.coe (@RelEmbedding (SimpleGraph #8) (Set _) _ _) (SimpleGraph _) _ _ (edgeSetEmbedding _) #6,
+         @LE.le `[ℕ] `[instLENat] (Fintype.card _ #7) #3,
+         @Copy (Fin _) `[Fin k] `[cycleGraph k] #0]
+    [thm] ih: [@Copy (Fin #3) `[Fin k] `[cycleGraph k] #0,
+         @Copy (Fin _) #8 #6 (@compl (SimpleGraph (Fin _)) _ #0),
+         @LE.le `[ℕ] `[instLENat] ((@HMul.hMul `[ℕ] `[ℕ] `[ℕ] `[instHMul] `[k - 1] #10) + 1) #3]
+    [thm] Sym2.rel_iff': [Sym2.Rel #2 #1 #0]
+    [thm] natCast_apply_eq_smul: [@DFunLike.coe #7 #6 _ #5 (@NatCast.natCast _ #4 #1) #0]
+    [thm] natCast_apply_eq_const: [@DFunLike.coe #8 #7 _ #5 (@NatCast.natCast _ #4 #1) #0]
+    [thm] sub_apply: [@DFunLike.coe #9 #8 _ #6 (@HSub.hSub _ _ _ _ #2 #1) #0]
+    [thm] mul_apply_eq_comp: [@DFunLike.coe #7 #6 _ #5 (@HMul.hMul _ _ _ _ #2 #1) #0]
+    [thm] add_apply: [@DFunLike.coe #9 #8 _ #6 (@HAdd.hAdd _ _ _ _ #2 #1) #0]
+    [thm] mul_apply: [@DFunLike.coe #9 #8 _ #6 (@HMul.hMul _ _ _ _ #2 #1) #0]
+    [thm] map_sub: [@DFunLike.coe #7 #9 _ #6 #2 (@HSub.hSub _ _ _ _ #1 #0)]
+    [thm] map_add: [@DFunLike.coe #7 #9 _ #4 #2 (@HAdd.hAdd _ _ _ _ #1 #0)]
+    [thm] map_mul: [@DFunLike.coe #7 #9 _ #4 #2 (@HMul.hMul _ _ _ _ #1 #0)]
+    [thm] Set.subset_def: [@LE.le (Set #2) _ #1 #0]
+    [thm] Adj.ne: [@Adj #4 #3 #2 #1]
+    [thm] Fin.pos': [Nonempty (Fin #1)]
+    [thm] Inclusion.IntervalDyadicReal.mem_iff_mem_map: [@Membership.mem `[ℝ] `[Inclusion.Interval
+           Dyadic] `[Inclusion.instMembershipOfToSet] #0 #1]
+    [thm] Multiset.mem_add: [@Membership.mem #3 _ _ (@HAdd.hAdd _ _ _ _ #1 #0) #2]
+    [thm] Set.mem_compl_iff: [@Membership.mem #2 (Set _) _ (@compl (Set _) _ #1) #0]
+    [thm] Bool.compl_singleton: [@compl `[Set
+           Bool] `[Set.instCompl] (@singleton `[Bool] `[Set Bool] `[Set.instSingletonSet] #0)]
+    [thm] Set.mem_singleton_iff: [@Membership.mem #2 (Set _) _ (@singleton _ (Set _) _ #0) #1]
+    [thm] Set.singleton_subset_iff: [@LE.le (Set #2) _ (@singleton _ (Set _) _ #1) #0]
+    [thm] Function.Embedding.injective: [@DFunLike.coe (Function.Embedding #2 #1) _ _ _ #0]
+    [thm] hx: [@LE.le `[ℕ] `[instLENat] `[(k - 1) * (m - H.degree u) + 1] (@degree `[Fin n] `[Cᶜ] #1 _)]
+    [thm] hx: [@degree `[Fin n] `[Cᶜ] #1 _]
+    [thm] hx: [@LE.le `[ℕ] `[instLENat] (@HAdd.hAdd `[ℕ] `[ℕ] `[ℕ] `[instHAdd] (@degree `[Fin
+             n] `[Cᶜ] #1 _) `[1]) `[Fintype.card W - 1]]
+    [thm] hx: [@LE.le `[ℕ] `[instLENat] ((@degree `[Fin n] `[Cᶜ] #1 _) + 1) `[Fintype.card W - 1]]
+    [thm] hb: [@LE.le `[ℕ] `[instLENat] (@degree `[Fin n] `[Cᶜ] #0 _) `[Cᶜ.degree x₀]]
+    [thm] hb: [@degree `[Fin n] `[Cᶜ] #0 _]
+    [thm] Fin.isEmpty_iff: [IsEmpty (Fin #0)]
+    [thm] Walk.IsPath.bypass_eq_self: [@Walk.IsPath #6 #5 #4 #3 #1]
+    [thm] hmax: [@Walk.IsPath `[Fin n] `[C] #3 #2 #1]
+    [thm] Walk.length_eq_zero_iff: [@Walk.length #4 #3 #2 #1 #0]
+    [thm] hmax: [@LE.le `[ℕ] `[instLENat] (@Walk.length `[Fin n] `[C] #3 #2 #1) `[p.length]]
+    [thm] hmax: [@Walk.length `[Fin n] `[C] #3 #2 #1]
+    [thm] hred: [@degree `[Fin n] `[C] #0 _]
+    [thm] hred: [@degree `[Fin n] `[Cᶜ] #0 _]
+    [thm] local_0: [Nonempty (@Copy (Fin #3) #8 #7 (@compl (SimpleGraph (Fin _)) _ #0))]
+    [thm] local_0: [@Copy (Fin #3) #8 #7 (@compl (SimpleGraph (Fin _)) _ #0)]
+    [thm] local_0: [@LE.le `[ℕ] `[instLENat] ((@Set.ncard _ (@DFunLike.coe (@RelEmbedding (SimpleGraph #8) (Set _) _ _) (SimpleGraph _) _ _ (edgeSetEmbedding _) #7)) + 1) `[m],
+         @LE.le `[ℕ] `[instLENat] (Fintype.card _ #5) #3,
+         @Copy (Fin _) `[Fin k] `[cycleGraph k] #0]
+    [thm] local_0: [@Copy (Fin #3) `[Fin k] `[cycleGraph k] #0, @Copy (Fin _) #8 #7 (@compl (SimpleGraph (Fin _)) _ #0)]
+    [thm] Walk.Nil.eq: [@Walk.Nil #5 #4 #3 #2 #1]
+    [thm] Fin.val_sub: [@Fin.val #2 (@HSub.hSub (Fin _) (Fin _) (Fin _) _ #1 #0)]
+    [thm] Fin.isLt: [@Fin.val #1 #0]
+  [cutsat] Assignment satisfying linear constraints
+    [assign] k := 3
+    [assign] m := 2
+    [assign] n := 3
+    [assign] d := 9
+    [assign] m' := 10
+    [assign] a := 0
+    [assign] b := 0
+    [assign] Fintype.card W := 3
+    [assign] Fintype.card (Subtype (Membership.mem {u}ᶜ)) := 2
+    [assign] ((edgeSetEmbedding W) H).ncard := 2
+    [assign] ((edgeSetEmbedding (Subtype (Membership.mem {u}ᶜ)))
+            (SimpleGraph.comap (⇑(Function.Embedding.subtype (Membership.mem {u}ᶜ))) H)).ncard := 0
+    [assign] H.degree u := 2
+    [assign] Cᶜ.degree x₀ := 1
+    [assign] H.maxDegree := 2
+    [assign] Cᶜ.maxDegree := 1
+    [assign] p.length := 0
+    [assign] C.degree x₀ := 1
+  [ring] Rings
+    [ring] Ring `ℤ`
+      [basis] Basis
+        [_] ↑k + -1 * ↑(k - 1) + -1 = 0
+        [_] ↑(Fintype.card W) + -1 * ↑(Fintype.card W - 1) + -1 = 0
+        [_] ↑n + -1 * ↑(k - 1) + -1 = 0
+        [_] ↑m + -1 * ↑(H.degree u) + -1 * ↑(m - H.degree u) = 0
+        [_] ↑(H.degree u) + -1 * ↑H.maxDegree = 0
+        [_] ↑(m - H.degree u) + ↑H.maxDegree + -1 * ↑((edgeSetEmbedding W) H).ncard = 0
+        [_] ↑↑b + -1 * ↑↑a = 0
+    [ring] Ring `Lean.Grind.Ring.OfSemiring.Q ℕ`
+      [basis] Basis
+        [_] ↑(C.degree x₀) + ↑(Cᶜ.degree x₀) + -1 * ↑(n - 1) = 0
+        [_] ↑(n - 1) + -1 * ↑(k - 1) = 0
+[grind] Diagnostics
+  [ematch] E-matching Diagnostics
+    [thm] Theorem Instance Count
+      [thm] ih ↦ 5
+      [thm] local_0 ↦ 2
+      [thm] hb ↦ 1
+      [thm] hmax ↦ 1
+      [thm] hred ↦ 1
+      [thm] hx ↦ 1
+      [thm] Fin.isLt ↦ 1
+      [thm] Fin.pos' ↦ 1
+      [thm] Function.Embedding.injective ↦ 1
+      [thm] Adj.ne ↦ 1
+      [thm] Walk.length_eq_zero_iff ↦ 1
+      [thm] Walk.IsPath.bypass_eq_self ↦ 1
+      [thm] Walk.Nil.eq ↦ 1
+Rooms/Target_B5_C36_full_forced.lean:953:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:955:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

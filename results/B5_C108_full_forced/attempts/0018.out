@@ -1,0 +1,117 @@
+Rooms/Target_B5_C108_full_forced.lean:1467:21: warning: `SimpleGraph.Walk.isPath_iff_eq_nil` has been deprecated: Use `SimpleGraph.Walk.isPath_iff_nil` instead
+
+Note: The updated constant has a different type:
+  ∀ {V : Type u} {G : SimpleGraph V} {u : V} {p : G.Walk u u}, p.IsPath ↔ p.Nil
+instead of
+  ∀ {V : Type u} {G : SimpleGraph V} {u : V} {p : G.Walk u u}, p.IsPath ↔ p = Walk.nil
+Rooms/Target_B5_C108_full_forced.lean:1665:50: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Fintype.card ?m.271
+in the target expression
+  (Finset.image (fun w => f w) Finset.univ).card = Fintype.card W - Fintype.card ↑{u}
+
+k m : ℕ
+W : Type
+inst✝³ : Fintype W
+inst✝² : DecidableEq W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+u : W
+hu : H.degree u = 1
+ih : ∀ (C' : SimpleGraph (Fin ((k - 1) * (m - 1) + 1))), cycleGraph k ⊑ C' ∨ induce {u}ᶜ H ⊑ C'ᶜ
+n : ℕ
+C : SimpleGraph (Fin n)
+inst✝ : DecidableRel C.Adj
+hn : (k - 1) * (m - 1) + 1 ≤ n
+hblue : ∀ (y : Fin n), Fintype.card W - 1 ≤ Cᶜ.degree y
+f : (induce {u}ᶜ H).Copy Cᶜ
+v : W
+huv : H.Adj u v
+hvu : v ≠ u
+hvmem : v ∈ {u}ᶜ
+v' : ↑{u}ᶜ := ⟨v, hvmem⟩
+hv' : v' = ⟨v, hvmem⟩
+hinj : Function.Injective fun w => f w
+this : (Finset.image (fun w => f w) Finset.univ).card = Fintype.card W - Fintype.card ↑{u}
+⊢ (Finset.image (fun w => f w) Finset.univ).card = Fintype.card W - 1
+Rooms/Target_B5_C108_full_forced.lean:1783:40: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 1
+  i ≥ 0
+  h ≥ 0
+  g ≥ 0
+  f ≥ 0
+  f - g ≤ 0
+  f - g + h ≥ 0
+  f - i ≤ 0
+  e ≥ 0
+  d ≥ 0
+  d - e + j ≥ 0
+  d ≤ 0
+  d + j ≥ 3
+  d + f - g + j ≤ 0
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(H'.degree v)
+ e := ↑(Fintype.card W')
+ f := ↑(C'.degree x)
+ g := ↑(k - 1) * ↑m'
+ h := ↑(k - 1) * ↑(m' - H'.degree v)
+ i := ↑(k - 2) * ↑(Fintype.card W' - 1)
+ j := ↑(m' - H'.degree v)
+Rooms/Target_B5_C108_full_forced.lean:1787:2: error: linarith failed to find a contradiction
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝⁵ : Fintype W
+H : SimpleGraph W
+inst✝⁴ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝³ : DecidableRel C.Adj
+hx✝ : ∃ x, m ≤ Cᶜ.degree x
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h2' : ∀ (v : W'), 2 ≤ H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hconn : H'.Preconnected
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall : ∀ (v : W'), C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+hred : ∀ (z : Fin ((k - 1) * m' + 1)), C'.degree z ≤ (k - 2) * (Fintype.card W' - 1)
+hW' : Nonempty W'
+v : W'
+hv : ∀ (w : W'), H'.degree w ≤ H'.degree v
+hvlt : H'.degree v < m'
+hcard : 2 * Fintype.card W' ≤ 2 * m'
+hsum : C'.degree x + C'ᶜ.degree x = (k - 1) * m'
+h1 : C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+h2 : C'.degree x ≤ (k - 2) * (Fintype.card W' - 1)
+hmv : (induce {v}ᶜ H').edgeSet.ncard = m' - H'.degree v
+ih' : ∀ (C'' : SimpleGraph (Fin ((k - 1) * (m' - H'.degree v) + 1))), cycleGraph k ⊑ C'' ∨ induce {v}ᶜ H' ⊑ C''ᶜ
+a✝ : C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+⊢ False
+failed

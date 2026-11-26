@@ -1,0 +1,135 @@
+Rooms/Target_B5_C36_full_forced.lean:945:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:968:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Finset.image ⇑f₂.toHom ?m.552).card
+in the target expression
+  n - (Finset.image (fun w => f₂ w) Finset.univ).card = n - Fintype.card ↑S
+
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+ih :
+  ∀ m_1 < m,
+    ∀ (W : Type) [inst : Fintype W] (H : SimpleGraph W) [DecidableRel H.Adj],
+      H.edgeSet.ncard = m_1 →
+        ∀ (n : ℕ), Fintype.card W ≤ n → (k - 1) * m_1 + 1 ≤ n → ∀ (C : SimpleGraph (Fin n)), cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+W : Type
+inst✝¹ : Fintype W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+hm : H.edgeSet.ncard = m
+n : ℕ
+hWn : Fintype.card W ≤ n
+hn : (k - 1) * m + 1 ≤ n
+C : SimpleGraph (Fin n)
+hpos : m > 0
+a₀ b₀ : W
+hab₀ : H.Adj a₀ b₀
+this : Nonempty W
+S : Set W
+hS : ∀ (a b : W), H.Adj a b → (a ∈ S ↔ b ∈ S)
+hSsupp : ∀ w ∈ S, ∃ z, H.Adj w z
+hm₂ : 0 < (induce S H).edgeSet.ncard
+hm₁ : 0 < (induce Sᶜ H).edgeSet.ncard
+hsum : (induce S H).edgeSet.ncard + (induce Sᶜ H).edgeSet.ncard = m
+hS2 : Fintype.card ↑S ≤ 2 * (induce S H).edgeSet.ncard
+hSW : Fintype.card ↑S ≤ Fintype.card W
+hprod : (k - 1) * (induce S H).edgeSet.ncard + (k - 1) * (induce Sᶜ H).edgeSet.ncard = (k - 1) * m
+h2S : 2 * (induce S H).edgeSet.ncard ≤ (k - 1) * (induce S H).edgeSet.ncard
+f₂ : (induce S H).Copy Cᶜ
+T : Finset (Fin n)
+hT : T = Finset.univ \ Finset.image (fun w => f₂ w) Finset.univ
+⊢ n - (Finset.image (fun w => f₂ w) Finset.univ).card = n - Fintype.card ↑S
+Rooms/Target_B5_C36_full_forced.lean:1013:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1085:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  s ≥ 0
+  r ≥ 0
+  r - s ≥ 0
+  q ≥ 0
+  o ≥ 1
+  l ≥ 0
+  j ≥ 0
+  j - 2*l + o ≥ 0
+  j - l ≥ 1
+  j - o ≥ 1
+  j + s ≥ -1
+  j + o - 2*q ≥ 0
+  i ≥ 0
+  i - 2*o ≥ 2
+  h ≥ 0
+  h + i ≥ 0
+  h + i - j - s ≤ 0
+  g ≥ 0
+  g - h ≤ 0
+  f ≥ 0
+  f - j - s ≤ 0
+  e ≥ 0
+  c ≥ 2
+  c ≥ 1
+  c + e ≥ 1
+  c + e - g ≤ 0
+where
+ c := ↑(H.degree u)
+ e := ↑(induce {u}ᶜ H).edgeSet.ncard
+ f := ↑(Fintype.card W - 1)
+ g := ↑(Cᶜ.degree x₀)
+ h := ↑(k - 1) * ↑m'
+ i := ↑(k - 1) * ↑d
+ j := ↑p.length
+ l := ↑(C.degree a)
+ o := ↑(k - 2)
+ q := ↑(C.degree b)
+ r := ↑(Cᶜ.degree a)
+ s := ↑(n - (p.length + 1))
+Rooms/Target_B5_C36_full_forced.lean:1088:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  l ≥ 0
+  j ≥ 0
+  j - l ≥ 1
+  i ≥ 0
+  i - j ≥ 1
+  h ≥ 0
+  g ≥ 2
+  g ≥ 1
+  g + h ≥ 1
+  g + h - j ≤ 0
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  e - i ≥ 1
+  c ≥ 3
+where
+ c := ↑k
+ e := ↑n
+ f := ↑(k - 1) * ↑m
+ g := ↑(H.degree u)
+ h := ↑(induce {u}ᶜ H).edgeSet.ncard
+ i := ↑(Fintype.card W - 1)
+ j := ↑(Cᶜ.degree x₀)
+ l := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C36_full_forced.lean:1094:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:1096:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

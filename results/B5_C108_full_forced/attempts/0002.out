@@ -1,0 +1,56 @@
+Rooms/Target_B5_C108_full_forced.lean:511:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:514:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:549:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c ≥ 0
+  c + e ≥ 3
+  b ≥ 0
+  b - c - e ≥ 0
+  b - d ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑(Cᶜ.degree x)
+ c := ↑(m - H.degree v)
+ d := ↑(k - 1) * ↑(m - H.degree v)
+ e := ↑(H.degree v)
+Rooms/Target_B5_C108_full_forced.lean:555:88: error: Type mismatch
+  hv w
+has type
+  H.degree w ≤ H.degree v
+but is expected to have type
+  2 ≤ H.degree w
+Rooms/Target_B5_C108_full_forced.lean:562:26: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  d ≥ 0
+  d - g ≥ 1
+  c ≥ 0
+  c ≥ 0
+  c + j ≥ 3
+  b ≥ 0
+  b - c - j ≥ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑(Cᶜ.degree x)
+ c := ↑(m - H.degree v)
+ d := ↑(Cᶜ.neighborFinset x).card
+ g := ↑(k - 1) * ↑(m - H.degree v)
+ h := ↑↑x
+ i := ↑(k - 1) * ↑m
+ j := ↑(H.degree v)
+Rooms/Target_B5_C108_full_forced.lean:564:19: error(lean.unknownIdentifier): Unknown identifier `hw`

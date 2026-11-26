@@ -1,0 +1,166 @@
+Rooms/Target_B5_C12_full_forced.lean:488:61: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Rooms/Target_B5_C12_full_forced.lean:734:32: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C12_full_forced.lean:807:10: warning: `Set.mem_diff` has been deprecated: Use `Set.mem_sdiff` instead
+
+Hint: Replace the deprecated name:
+  Set.mem_s̲diff
+Rooms/Target_B5_C12_full_forced.lean:879:6: error: unsolved goals
+case pos.inl
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+x : Fin ((k - 1) * m + 1)
+hxdeg : m ≤ Cᶜ.degree x
+hne : H.edgeSet.ncard ≠ 0
+a b : W
+he : s(a, b) ∈ H.edgeSet
+hab : H.Adj a b
+h3 : (k - 1) * 3 ≤ (k - 1) * m
+p q r s : W
+hpq : H.Adj p q
+hrs : H.Adj r s
+hpr : p ≠ r
+hps : p ≠ s
+hqr : q ≠ r
+hqs : q ≠ s
+u v : W
+huv : H.Adj u v
+hl : ∀ (w : W), H.Adj u w → w = v
+hm4 : 3 < m
+C' : SimpleGraph (Fin ((k - 1) * (m - 1) + 1))
+⊢ cycleGraph k ⊑ C' ∨ induce {u}ᶜ H ⊑ C'ᶜ
+Rooms/Target_B5_C12_full_forced.lean:890:40: error(lean.invalidField): Invalid field `mpr`: The environment does not contain `Function.mpr`, so it is not possible to project the field `mpr` from an expression
+  degree_pos_iff_exists_adj
+of type
+  ∀ (G : SimpleGraph ?m.392) (v : ?m.392) [inst : Fintype ↑(G.neighborSet v)], 0 < G.degree v ↔ ∃ w, G.Adj v w
+Rooms/Target_B5_C12_full_forced.lean:895:8: error: unsolved goals
+case neg
+k : ℕ
+hk : 3 ≤ k
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+hne : H.edgeSet.ncard ≠ 0
+a b : W
+he : s(a, b) ∈ H.edgeSet
+hab : H.Adj a b
+p q r s : W
+hpq : H.Adj p q
+hrs : H.Adj r s
+hpr : p ≠ r
+hps : p ≠ s
+hqr : q ≠ r
+hqs : q ≠ s
+u v : W
+huv : H.Adj u v
+hl : ∀ (w : W), H.Adj u w → w = v
+hm3 : 3 ≤ 3
+hm : H.edgeSet.ncard = 3
+C : SimpleGraph (Fin ((k - 1) * 3 + 1))
+inst✝ : DecidableRel C.Adj
+x : Fin ((k - 1) * 3 + 1)
+hxdeg : 3 ≤ Cᶜ.degree x
+h3 : (k - 1) * 3 ≤ (k - 1) * 3
+hm3' : 3 ≥ 3
+hv : ∀ (w : W), w ≠ u → ¬H.Adj v w
+C' : SimpleGraph (Fin ((k - 1) * (3 - 1) + 1))
+⊢ cycleGraph k ⊑ C' ∨ induce {u}ᶜ H ⊑ C'ᶜ
+Rooms/Target_B5_C12_full_forced.lean:900:4: error: unsolved goals
+case neg
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝² : Fintype W
+H : SimpleGraph W
+inst✝¹ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝ : DecidableRel C.Adj
+x : Fin ((k - 1) * m + 1)
+hxdeg : m ≤ Cᶜ.degree x
+hne : H.edgeSet.ncard ≠ 0
+a b : W
+he : s(a, b) ∈ H.edgeSet
+hab : H.Adj a b
+h3 : (k - 1) * 3 ≤ (k - 1) * m
+p q r s : W
+hpq : H.Adj p q
+hrs : H.Adj r s
+hpr : p ≠ r
+hps : p ≠ s
+hqr : q ≠ r
+hqs : q ≠ s
+hleaf : ∀ (u v : W), H.Adj u v → ∃ w, H.Adj u w ∧ w ≠ v
+⊢ cycleGraph k ⊑ C ∨ H ⊑ Cᶜ
+Rooms/Target_B5_C12_full_forced.lean:910:16: warning: This simp argument is unused:
+  hab.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hbc.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq, hqr, hpr, hpq.symm, hqr.symm, hpr.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:910:24: warning: This simp argument is unused:
+  hbc.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq, hqr, hpr, hpq.symm, hqr.symm, hpr.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:910:32: warning: This simp argument is unused:
+  hac.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hbc.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq, hqr, hpr, hpq.symm, hqr.symm, hpr.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:918:16: warning: This simp argument is unused:
+  hab.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hbc.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq.ne, hqr.ne, hpr.ne, hpq.ne.symm, hqr.ne.symm,
+    hpr.ne.symm] at hyz ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:918:24: warning: This simp argument is unused:
+  hbc.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hac.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq.ne, hqr.ne, hpr.ne, hpq.ne.symm, hqr.ne.symm,
+    hpr.ne.symm] at hyz ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B5_C12_full_forced.lean:918:32: warning: This simp argument is unused:
+  hac.ne
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hab.ne, hbc.ne, hab.ne.symm, hbc.ne.symm, hac.ne.symm, hpq.ne, hqr.ne, hpr.ne, hpq.ne.symm, hqr.ne.symm,
+    hpr.ne.symm] at hyz ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,40 @@
+Rooms/Target_B5_C12_full_forced.lean:458:30: warning: `SimpleGraph.Walk.nil_iff_length_eq` has been deprecated: Use `SimpleGraph.Walk.length_eq_zero_iff` instead
+
+Note: The updated constant has a different type:
+  ∀ {V : Type u} {G : SimpleGraph V} {u v : V} {p : G.Walk u v}, p.length = 0 ↔ p.Nil
+instead of
+  ∀ {V : Type u} {G : SimpleGraph V} {v w : V} {p : G.Walk v w}, p.Nil ↔ p.length = 0
+Rooms/Target_B5_C12_full_forced.lean:501:71: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 0
+  g ≥ 0
+  g - h ≤ 0
+  f ≥ 0
+  f - g ≥ 1
+  f - h ≤ 0
+  e ≥ 2
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+where
+ c := ↑H.edgeSet.ncard
+ d := ↑(Cᶜ.degree x)
+ e := ↑(k - 2)
+ f := ↑↑b
+ g := ↑↑a
+ h := ↑(k - 1) * ↑m
+Rooms/Target_B5_C12_full_forced.lean:503:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ 1
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree x)
+ d := ↑(Fintype.card W)
+ e := ↑(C.degree x)

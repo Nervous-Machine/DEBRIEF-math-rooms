@@ -1,0 +1,40 @@
+Rooms/Target_B5_C36_full_forced.lean:541:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  i ≥ 0
+  h ≥ 0
+  h - j ≤ 0
+  g ≥ 0
+  f ≥ 0
+  e ≥ 1
+  e ≥ 1
+  e + f ≥ 1
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ 1
+  b - g ≥ 1
+  b - h ≤ 0
+  a ≥ 3
+  a - i ≥ 1
+where
+ a := ↑k
+ b := ↑n
+ c := ↑(k - 1) * ↑m
+ e := ↑(H.degree u)
+ f := ↑(induce {u}ᶜ H).edgeSet.ncard
+ g := ↑(Fintype.card W - 1)
+ h := ↑(max ((k - 1) * m') (Fintype.card W - 2) + 1) * ↑T.card
+ i := ↑T.card
+ j := ↑(max ((k - 1) * m') (Fintype.card W - 2) + 1) * ↑(k - 1)
+Rooms/Target_B5_C36_full_forced.lean:547:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:549:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

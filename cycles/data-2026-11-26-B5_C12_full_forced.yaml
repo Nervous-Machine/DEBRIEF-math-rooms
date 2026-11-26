@@ -1,0 +1,54 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B5_C12_full_forced
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Does the paper's remaining case of Erdős 569 close under twelve forced attempts from the statement alone,
+    and what structure is built around it?
+  rule: twelve genuine attempts at core_ge_three_nonstar required before FINAL unless it closes; genuineness (no sorry
+    anywhere) enforced by rooms/check.sh with rooms/forced_check.py; rooms/score.py and rooms/forced_score.py compute
+    every number; the first accepted FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P6, P8]
+  commit: prereg_build_5.yaml
+  results:
+  - results/B5_C12_full_forced/score.json
+  - results/B5_C12_full_forced/forced.json
+  - results/B5_C12_full_forced/final.lean
+  - results/B5_C12_full_forced/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    cap: 12
+    check_calls: 13
+    refused_calls: 0
+    error_calls: 12
+    genuine_attempts: 12
+    attempts_with_a_new_declaration: 12 of 12
+    identical_resubmissions: 0
+    first_FINAL: sorry (core_ge_three_nonstar only)
+    lemma_closed: false
+    fit_total: 0
+    first_combinators_in_forced_region: 0
+    new_declarations_proved: 20 (19 theorems, 1 definition), none false, none removed
+    forced_body_lines_by_attempt: 25, 28, 35, 43, 59, 59, 68, 68, 89, 93, 106, 115
+    errors_by_attempt: 2, 2, 3, 9, 3, 1, 7, 2, 4, 3, 3, 3
+    open_residuals_marked_in_the_body: 'from attempt 5 the unproved sub-cases are marked with the no-op tactic `skip` and a `-- residual:` comment, so they surface as "unsolved goals" errors rather than sorry; 1, 1, 2, 2, 3, 3, 3, 3 such marks in attempts 5 to 12 (diagnostic, not registered)'
+    established_inside_the_body: the triangle case H = K₃ closed; the leaf case reduced to the same lemma for H − u
+      with m − 1 edges (supplied for stars and for m = 3); open residuals are the recursive instance for m ≥ 4, the
+      two-vertex component case, and the leafless case
+    tokens: 235797
+    minutes: 35
+    parent_arm: B3_569_B_full_noplan_hold, 17 calls, 191,580 tokens, 28 minutes, the case never attempted
+  misses: []
+spoken: 'Twelve forced attempts from the statement alone did not close the paper''s remaining case, and built a
+  reduction around it: twenty helper lemmas proved, the triangle case closed, and the leaf case reduced to the same
+  statement one edge smaller, which the lemma as drawn cannot call on itself. From the fifth attempt the searcher
+  marked each open sub-case in the body with a no-op tactic and a comment naming it, so the holes surfaced as
+  errors rather than sorry; the tool''s no-sorry rule had not anticipated that, and the marks are counted here.
+  Nothing was changed to close it.'
+finding_ids: []
+gap_ids:
+- EG6

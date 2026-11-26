@@ -1,0 +1,93 @@
+Rooms/Target_B5_C36_full_forced.lean:877:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:910:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:976:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  s ≥ 0
+  r ≥ 0
+  r - s ≥ 0
+  q ≥ 0
+  o ≥ 1
+  l ≥ 0
+  j ≥ 0
+  j - 2*l + o ≥ 0
+  j - l ≥ 1
+  j - o ≥ 1
+  j + s ≥ -1
+  j + o - 2*q ≥ 0
+  i ≥ 0
+  i - 2*o ≥ 2
+  h ≥ 0
+  h + i ≥ 0
+  h + i - j - s ≤ 0
+  g ≥ 0
+  g - h ≤ 0
+  f ≥ 0
+  f - j - s ≤ 0
+  e ≥ 0
+  c ≥ 2
+  c ≥ 1
+  c + e ≥ 1
+where
+ c := ↑(H.degree u)
+ e := ↑(induce {u}ᶜ H).edgeSet.ncard
+ f := ↑(Fintype.card W - 1)
+ g := ↑(Cᶜ.degree x₀)
+ h := ↑(k - 1) * ↑m'
+ i := ↑(k - 1) * ↑d
+ j := ↑p.length
+ l := ↑(C.degree a)
+ o := ↑(k - 2)
+ q := ↑(C.degree b)
+ r := ↑(Cᶜ.degree a)
+ s := ↑(n - (p.length + 1))
+Rooms/Target_B5_C36_full_forced.lean:979:8: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  l ≥ 0
+  j ≥ 0
+  j - l ≥ 1
+  i ≥ 0
+  i - j ≥ 1
+  h ≥ 0
+  g ≥ 2
+  g ≥ 1
+  g + h ≥ 1
+  f ≥ 0
+  e ≥ 0
+  e - f ≥ 1
+  e - i ≥ 1
+  c ≥ 3
+where
+ c := ↑k
+ e := ↑n
+ f := ↑(k - 1) * ↑m
+ g := ↑(H.degree u)
+ h := ↑(induce {u}ᶜ H).edgeSet.ncard
+ i := ↑(Fintype.card W - 1)
+ j := ↑(Cᶜ.degree x₀)
+ l := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C36_full_forced.lean:985:60: warning: Variable name `hm3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C36_full_forced.lean:987:5: warning: Variable name `hns` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hns
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

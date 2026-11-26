@@ -1,0 +1,91 @@
+Rooms/Target_B5_C108_full_forced.lean:2991:44: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B5_C108_full_forced.lean:3129:30: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  l ≥ 0
+  k ≥ 0
+  k - l ≥ 1
+  j ≥ 0
+  i ≥ 0
+  h ≥ 2
+  h - j ≥ 0
+  2*h - i ≥ 0
+  g ≥ 2
+  f ≥ 0
+  e ≥ 0
+  d ≥ 3
+  d - f ≤ 0
+  d - h ≥ 1
+  2*d - k ≥ 0
+  2*d - l ≥ 0
+  c ≥ 3
+  c - e ≤ 0
+where
+ c := ↑H.edgeSet.ncard
+ d := ↑m'
+ e := ↑(Cᶜ.degree hx✝.choose)
+ f := ↑(C'ᶜ.degree x)
+ g := ↑Yz.card
+ h := ↑(H'.degree u)
+ i := ↑T.card
+ j := ↑Z.card
+ k := ↑↑x
+ l := ↑↑z
+Rooms/Target_B5_C108_full_forced.lean:3153:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  g - h ≥ 1
+  g - i ≤ 0
+  f ≥ 3
+  e ≥ 0
+  e - 2*f ≥ -1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑t
+ g := ↑↑x
+ h := ↑↑z
+ i := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:3166:25: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  g - h ≥ 1
+  g - i ≤ 0
+  f ≥ 3
+  e ≥ 0
+  e - f ≥ 1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑(k - 2)
+ g := ↑↑x
+ h := ↑↑z
+ i := ↑(k - 1) * ↑m'

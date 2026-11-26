@@ -1,0 +1,117 @@
+Rooms/Target_B5_C108_full_forced.lean:2477:25: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 0
+  g ≥ 0
+  g - h ≤ 0
+  f ≥ 0
+  f - g ≥ 1
+  f - h ≤ 0
+  e ≥ 0
+  e ≥ 2
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑↑x
+ g := ↑↑z
+ h := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2481:24: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  g - h ≥ 1
+  g - i ≤ 0
+  f ≥ 3
+  e ≥ 0
+  e - f ≥ 1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑(k - 2)
+ g := ↑↑x
+ h := ↑↑z
+ i := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2488:15: error(lean.unknownIdentifier): Unknown constant `Finset.filter_card_add_filter_neg_card_eq_card`
+Rooms/Target_B5_C108_full_forced.lean:2486:70: error: unsolved goals
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝⁵ : Fintype W
+H : SimpleGraph W
+inst✝⁴ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝³ : DecidableRel C.Adj
+hx✝ : ∃ x, m ≤ Cᶜ.degree x
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h2' : ∀ (v : W'), 2 ≤ H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hconn : H'.Preconnected
+hmax : ∀ (v : W'), (k - 1) * H'.degree v ≤ (k - 2) * (Fintype.card W' - 1)
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall : ∀ (v : W'), C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+hred : ∀ (z : Fin ((k - 1) * m' + 1)), C'.degree z ≤ (k - 2) * (Fintype.card W' - 1)
+hnoext :
+  ∀ (u : W') (f : (induce {u}ᶜ H').Copy C'ᶜ) (y : Fin ((k - 1) * m' + 1)),
+    (∀ (w : ↑{u}ᶜ), f w ≠ y) → ∃ w, H'.Adj u ↑w ∧ ¬C'ᶜ.Adj y (f w)
+hnoedge : ∀ (u v : W') (f : (H'.deleteEdges {s(u, v)}).Copy C'ᶜ), C'.Adj (f u) (f v)
+hredC : ¬cycleGraph k ⊑ C'
+hk4 : k ≠ 4
+hK2 : ∀ (x' : Fin ((k - 1) * m' + 1)), ∃ z, z ≠ x' ∧ k - 2 < {y ∈ C'.neighborFinset x' | C'.Adj y z}.card
+hcol : ¬C'.Colorable (k - 1)
+z : Fin ((k - 1) * m' + 1)
+hzx : z ≠ x
+Yz : Finset (Fin ((k - 1) * m' + 1)) := {y ∈ C'.neighborFinset x | C'.Adj y z}
+hz : k - 2 < Yz.card
+hYz : Yz = {y ∈ C'.neighborFinset x | C'.Adj y z}
+hYzx : ∀ y ∈ Yz, C'.Adj x y
+hYzz : ∀ y ∈ Yz, C'.Adj z y
+hk5 : 5 ≤ k
+hinner : ∀ y ∈ Yz, k - 4 ≤ (C'.neighborFinset y ∩ Yz).card
+y₁ : Fin ((k - 1) * m' + 1)
+hy₁ : y₁ ∈ Yz
+a b : Fin ((k - 1) * m' + 1)
+p : C'.Walk a b
+hp : p.IsPath
+hlen : p.length = k - 4
+hsupp : ∀ v ∈ p.support, v ∈ Yz
+⊢ 0 < {y ∈ Yz | y ∉ p.support}.card

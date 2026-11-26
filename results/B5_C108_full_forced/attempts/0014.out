@@ -1,0 +1,62 @@
+Rooms/Target_B5_C108_full_forced.lean:1288:34: error(lean.unknownIdentifier): Unknown constant `Set.Nat.card_coe_set_eq`
+Rooms/Target_B5_C108_full_forced.lean:1319:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B5_C108_full_forced.lean:1320:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B5_C108_full_forced.lean:1320:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  if z = w then ?m.180 else ?m.181
+in the target expression
+  z = if w = z then w else z
+
+case pos.inr
+W : Type u_1
+inst✝² : Fintype W
+inst✝¹ : DecidableEq W
+H : SimpleGraph W
+inst✝ : DecidableRel H.Adj
+w z : W
+hz : H.Adj w z
+⊢ z = if w = z then w else z
+Rooms/Target_B5_C108_full_forced.lean:1388:58: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  l ≥ 0
+  j ≥ 0
+  j - l ≥ 0
+  i ≥ 2
+  g ≥ 2
+  e ≥ 2
+  d ≥ 0
+  d - i ≥ 1
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑(C'ᶜ.degree x)
+ e := ↑(H'.degree u)
+ g := ↑(H'.degree v)
+ i := ↑(m' - 1)
+ j := ↑(k - 1) * ↑m'
+ l := ↑(k - 1) * ↑(m' - 1)
+Rooms/Target_B5_C108_full_forced.lean:1390:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 3
+  d - e ≤ 0
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree hx✝.choose)
+ d := ↑m'
+ e := ↑(C'ᶜ.degree x)

@@ -1,0 +1,71 @@
+Rooms/Target_B5_C108_full_forced.lean:2758:18: error(lean.unknownIdentifier): Unknown identifier `k`
+Rooms/Target_B5_C108_full_forced.lean:2762:17: error(lean.unknownIdentifier): Unknown identifier `k`
+Rooms/Target_B5_C108_full_forced.lean:2762:32: error(lean.unknownIdentifier): Unknown identifier `k`
+Rooms/Target_B5_C108_full_forced.lean:2762:63: error(lean.unknownIdentifier): Unknown identifier `k`
+Rooms/Target_B5_C108_full_forced.lean:2766:13: error(lean.unknownIdentifier): Unknown identifier `k`
+Rooms/Target_B5_C108_full_forced.lean:2769:60: error(lean.unknownIdentifier): Unknown identifier `k`
+Rooms/Target_B5_C108_full_forced.lean:2798:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  g - h ≥ 1
+  g - i ≤ 0
+  f ≥ 3
+  e ≥ 0
+  e - 2*f ≥ -1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑t
+ g := ↑↑x
+ h := ↑↑z
+ i := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2832:28: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  r ≥ 0
+  q ≥ 0
+  q - r ≤ 0
+  o ≥ 0
+  o - q ≥ 1
+  o - r ≤ 0
+  n ≥ 0
+  l ≥ 0
+  j ≥ 1
+  j - l ≥ 0
+  i ≥ 2
+  i - n ≥ 0
+  h ≥ 3
+  g ≥ 0
+  g - h ≥ 1
+  f ≥ 0
+  e ≥ 3
+  e - f ≤ 0
+  e - i ≥ 1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+where
+ c := ↑H.edgeSet.ncard
+ d := ↑(Cᶜ.degree hx✝.choose)
+ e := ↑m'
+ f := ↑(C'ᶜ.degree x)
+ g := ↑Yz.card
+ h := ↑(k - 2)
+ i := ↑(H'.degree u)
+ j := ↑(k - 1) * ↑(H'.degree u)
+ l := ↑p.support.toFinset.card
+ n := ↑Z.card
+ o := ↑↑x
+ q := ↑↑z
+ r := ↑(k - 1) * ↑m'

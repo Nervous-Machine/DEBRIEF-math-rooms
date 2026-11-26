@@ -1,0 +1,60 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-26-B5_C36_full_forced
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Does the paper's remaining case of Erdős 569 close under thirty-six forced attempts from the statement
+    alone, and what structure is built around it?
+  rule: thirty-six genuine attempts at core_ge_three_nonstar required before FINAL unless it closes; genuineness (no
+    sorry anywhere) enforced by rooms/check.sh with rooms/forced_check.py at cap 36; rooms/score.py and
+    rooms/forced_score.py compute every number; the first accepted FINAL is the scored result
+  predictions: [P2, P3, P4, P5, P6, P8]
+  commit: prereg_build_5.yaml
+  results:
+  - results/B5_C36_full_forced/score.json
+  - results/B5_C36_full_forced/forced.json
+  - results/B5_C36_full_forced/final.lean
+  - results/B5_C36_full_forced/calls.tsv
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    cap: 36
+    check_calls: 37
+    refused_calls: 0
+    error_calls: 36
+    genuine_attempts: 36
+    attempts_with_a_new_declaration: 36 of 36
+    identical_resubmissions: 0
+    first_FINAL: sorry (core_ge_three_nonstar only)
+    lemma_closed: false
+    fit_total: 0
+    first_combinators_in_forced_region: 0
+    new_declarations_proved: 19 (against 20 in the 12-cap arm; by count the 36-cap arm built less, by content far more)
+    file_lines: 1207 from 471 (the 12-cap arm 932)
+    errors_by_attempt: 7, 1, 1, 2, 2, 4, 2, 2, 5, 3, 2, 2, 12, 3, 2, 2, 2, 4, 3, 3, 2, 6, 4, 1, 4, 1, 2, 1, 1, 2, 1, 2, 1, 1, 3, 1
+    errors_median_first_third_vs_last_third: 2.0 against 1.0 (attempts converged on the one open goal)
+    no_op_placeholders: 0 (open sub-cases carried as failing omega or exact? calls, then as one explicit hypothesis)
+    established_in_the_file: 'the whole strong induction on m proved as core_all_of_gap, on the standard three axioms,
+      modulo one explicit hypothesis hgap: for connected H without isolated vertices and maximum degree D ≥ 2, any
+      colouring of at least (k−1)m+1 vertices in which every blue degree is at most (k−1)(m−D) has a red C_k or a
+      blue H. Isolated vertices, disconnected H (closed-split gluing), matchings (core_matching), stars, a vertex of
+      large blue degree, and the small-W case are all discharged. The forced lemma applies core_all_of_gap and the
+      one error is the omega that cannot discharge hgap.'
+    tokens: 355152
+    minutes: 61
+    parent_arm: B3_569_B_full_noplan_hold, 17 calls, 191,580 tokens, 28 minutes, the case never attempted
+  misses:
+  - P3 at this step (19 new declarations against the 12-cap arm's 20)
+  - P8 (errors fell from a median of 2 to 1 as the search narrowed to one goal)
+spoken: 'Thirty-six forced attempts from the statement alone did not close the paper''s remaining case, and reduced
+  it to one hypothesis: the searcher proved the entire induction on the number of edges, with the matching case, the
+  disconnected case, the stars and the large-blue-degree case all discharged, and left exactly the dense core, a
+  colouring in which every blue degree is small, as an explicit hypothesis of a proved lemma. It wrote that red-only
+  arguments cannot close that case because a bipartite red graph satisfies every hypothesis, and that a joint
+  red-and-blue argument, the paper''s content, is what is missing. Nothing was changed to close it.'
+finding_ids: []
+gap_ids:
+- EG6

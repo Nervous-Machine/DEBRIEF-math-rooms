@@ -411,6 +411,467 @@ theorem core_two_nonstar (k : ℕ) (hk : 3 ≤ k) (W : Type) [Fintype W] (H : Si
         · omega
         · exact Finset.mem_erase.mpr ⟨hqr.ne.symm, Finset.mem_univ _⟩
 
+/-! ### Tools for the open case -/
+
+/-- Any graph on `W` is contained in a graph having a clique on at least `#W` vertices. -/
+theorem isContained_of_isClique_card_le {W V : Type*} [Fintype W] [Fintype V] (G : SimpleGraph W)
+    (C : SimpleGraph V) (s : Finset V) (hs : C.IsClique (s : Set V))
+    (hk : Fintype.card W ≤ s.card) : G.IsContained C := by
+  classical
+  have htop : C.induce (s : Set V) = ⊤ := induce_eq_top.mpr hs
+  have h1 : G.IsContained (⊤ : SimpleGraph (s : Set V)) :=
+    isContained_top_iff.mpr (Function.Embedding.nonempty_of_card_le (by simp [hk]))
+  rw [← htop] at h1
+  exact h1.trans ⟨(Embedding.comap (Function.Embedding.subtype _) C).toCopy⟩
+
+/-- A copy of `H - u` inside the neighbourhood of `x` extends, by `x`, to a copy of `H`. -/
+theorem isContained_of_induce_neighborSet {W V : Type*} [DecidableEq W] (H : SimpleGraph W) (u : W)
+    (G : SimpleGraph V) (x : V)
+    (h : (H.induce ({u}ᶜ : Set W)).IsContained (G.induce (G.neighborSet x))) : H.IsContained G := by
+  obtain ⟨g⟩ := h
+  have hmem : ∀ w, G.Adj x (g w).1 := fun w => (mem_neighborSet G x _).mp (g w).2
+  refine isContained_of_extend H u G ⟨⟨fun w => (g w).1, ?_⟩, ?_⟩ x ?_ ?_
+  · intro a b hab
+    exact g.toHom.map_adj hab
+  · intro a b hab
+    exact g.injective (Subtype.ext hab)
+  · intro w hw
+    exact (hmem w).ne hw.symm
+  · intro w _
+    exact hmem w
+
+/-- A graph with a nonzero number of edges has a vertex. -/
+theorem nonempty_of_ncard_edgeSet_ne_zero {W : Type*} (H : SimpleGraph W) {m : ℕ}
+    (hm : H.edgeSet.ncard = m) (hm0 : m ≠ 0) : Nonempty W := by
+  obtain ⟨e, -⟩ := Set.nonempty_of_ncard_ne_zero (hm ▸ hm0)
+  induction e using Sym2.ind with
+  | _ a b => exact ⟨a⟩
+
+/-- A red path `p` on `k - 1` vertices avoiding `x`, whose ends are red-adjacent to `x`, closes through
+`x` to a red `C_k`. -/
+theorem cycleGraph_isContained_of_path {V : Type*} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k)
+    {a b x : V} (p : C.Walk a b) (hp : p.IsPath) (hlen : p.length = k - 2) (hxp : x ∉ p.support)
+    (hxa : C.Adj x a) (hbx : C.Adj b x) : (cycleGraph k).IsContained C := by
+  have hab : a ≠ b := by
+    intro h
+    subst h
+    have h0 : p.length = 0 := Walk.length_eq_zero_iff.mpr (Walk.isPath_iff_nil.mp hp)
+    omega
+  rw [cycleGraph_isContained_iff (by omega)]
+  refine ⟨x, Walk.cons hxa (p.concat hbx), ?_, ?_⟩
+  · rw [Walk.cons_isCycle_iff]
+    refine ⟨hp.concat hxp hbx, ?_⟩
+    rw [Walk.edges_concat, List.concat_eq_append, List.mem_append, List.mem_singleton]
+    rintro (h | h)
+    · exact hxp (p.fst_mem_support_of_mem_edges h)
+    · rw [Sym2.eq_iff] at h
+      rcases h with ⟨_, hax⟩ | ⟨_, hab'⟩
+      · exact hxp (hax ▸ p.start_mem_support)
+      · exact hab hab'
+  · rw [Walk.length_cons, Walk.length_concat]
+    omega
+
+/-- Red and blue degrees of a vertex of the colouring on `(k - 1) * m + 1` vertices sum to `(k - 1) * m`. -/
+theorem degree_add_compl_degree {n : ℕ} (C : SimpleGraph (Fin (n + 1))) [DecidableRel C.Adj]
+    (x : Fin (n + 1)) : C.degree x + Cᶜ.degree x = n := by
+  classical
+  have h1 := degree_compl (G := C) (v := x)
+  have h2 := C.degree_lt_card_verts x
+  rw [Fintype.card_fin] at h1 h2
+  omega
+
+/-- A finset with at least `n` elements receives an embedding of `Fin n`. -/
+theorem exists_embedding_of_le_card {V : Type*} (s : Finset V) (n : ℕ) (hn : n ≤ s.card) :
+    ∃ e : Fin n ↪ V, ∀ i, e i ∈ s := by
+  have hcard : Fintype.card (Fin n) ≤ Fintype.card (s : Set V) := by simpa using hn
+  obtain ⟨f⟩ := Function.Embedding.nonempty_of_card_le hcard
+  exact ⟨f.trans (Function.Embedding.subtype _), fun i => by simpa using (f i).2⟩
+
+/-- A copy of `H - u` in the colouring pulled back along `e`, all of whose vertices are blue to `x`,
+extends by `x` to a blue copy of `H`. -/
+theorem isContained_compl_of_comap_neighbor {W V V' : Type*} [DecidableEq W] (H : SimpleGraph W)
+    (u : W) (C : SimpleGraph V) (x : V) (e : V' ↪ V) (he : ∀ i, Cᶜ.Adj x (e i))
+    (h : (H.induce ({u}ᶜ : Set W)).IsContained (C.comap e)ᶜ) : H.IsContained Cᶜ := by
+  obtain ⟨g⟩ := h
+  refine isContained_of_extend H u Cᶜ ⟨⟨fun w => e (g w), ?_⟩, ?_⟩ x ?_ ?_
+  · intro a b hab
+    have h1 := g.toHom.map_adj hab
+    rw [compl_adj, comap_adj] at h1
+    rw [compl_adj]
+    exact ⟨fun h' => h1.1 (e.injective h'), h1.2⟩
+  · intro a b hab
+    exact g.injective (e.injective hab)
+  · intro w hw
+    exact (he (g w)).ne hw.symm
+  · intro w _
+    exact he (g w)
+
+/-- A graph with an edge `ab` that is not a star either has two disjoint edges, or is a triangle `a b c`:
+there is `c` with `bc`, `ac` edges and every edge inside `{a, b, c}`. -/
+theorem exists_disjoint_edges_or_triangle {W : Type*} (H : SimpleGraph W)
+    (hns : ¬ ∃ v₀, ∀ a b, H.Adj a b → a = v₀ ∨ b = v₀) {a b : W} (hab : H.Adj a b) :
+    (∃ p q r s, H.Adj p q ∧ H.Adj r s ∧ p ≠ r ∧ p ≠ s ∧ q ≠ r ∧ q ≠ s) ∨
+    (∃ c, H.Adj b c ∧ H.Adj a c ∧
+      ∀ p q, H.Adj p q → (p = a ∨ p = b ∨ p = c) ∧ (q = a ∨ q = b ∨ q = c)) := by
+  by_cases hD : ∃ p q r s, H.Adj p q ∧ H.Adj r s ∧ p ≠ r ∧ p ≠ s ∧ q ≠ r ∧ q ≠ s
+  · exact Or.inl hD
+  right
+  have hmeet : ∀ p q r s, H.Adj p q → H.Adj r s → p = r ∨ p = s ∨ q = r ∨ q = s := by
+    intro p q r s hpq hrs
+    by_contra h
+    push Not at h
+    exact hD ⟨p, q, r, s, hpq, hrs, h.1, h.2.1, h.2.2.1, h.2.2.2⟩
+  have hA : ∀ v, ∃ p q, H.Adj p q ∧ p ≠ v ∧ q ≠ v := by
+    intro v
+    by_contra h
+    push Not at h
+    exact hns ⟨v, fun p q hpq => by
+      by_contra h'
+      push Not at h'
+      exact h'.2 (h p q hpq h'.1)⟩
+  have key : ∀ c, H.Adj b c → c ≠ a → H.Adj a c ∧
+      ∀ p q, H.Adj p q → (p = a ∨ p = b ∨ p = c) ∧ (q = a ∨ q = b ∨ q = c) := by
+    intro c hbc hca
+    obtain ⟨r, s, hrs, hrb, hsb⟩ := hA b
+    have h1 : r = a ∨ s = a := by
+      rcases hmeet r s a b hrs hab with h | h | h | h
+      · exact Or.inl h
+      · exact absurd h hrb
+      · exact Or.inr h
+      · exact absurd h hsb
+    have h2 : r = c ∨ s = c := by
+      rcases hmeet r s b c hrs hbc with h | h | h | h
+      · exact absurd h hrb
+      · exact Or.inl h
+      · exact absurd h hsb
+      · exact Or.inr h
+    have hac : H.Adj a c := by
+      rcases h1 with h1 | h1 <;> rcases h2 with h2 | h2
+      · exact absurd (h1.symm.trans h2) hca.symm
+      · rw [h1, h2] at hrs; exact hrs
+      · rw [h1, h2] at hrs; exact hrs.symm
+      · exact absurd (h1.symm.trans h2) hca.symm
+    have hab' : a ≠ b := hab.ne
+    have hbc' : b ≠ c := hbc.ne
+    have bad : ∀ z, (z = a ∨ z = b) → (z = b ∨ z = c) → (z = a ∨ z = c) → False := by
+      intro z z1 z2 z3
+      rcases z1 with rfl | rfl
+      · rcases z2 with h | h
+        · exact hab' h
+        · exact hca h.symm
+      · rcases z3 with h | h
+        · exact hab' h.symm
+        · exact hbc' h
+    refine ⟨hac, fun p q hpq => ?_⟩
+    have e1 := hmeet p q a b hpq hab
+    have e2 := hmeet p q b c hpq hbc
+    have e3 := hmeet p q a c hpq hac
+    constructor
+    · by_contra hz
+      push Not at hz
+      refine bad q ?_ ?_ ?_
+      · rcases e1 with h | h | h | h
+        · exact absurd h hz.1
+        · exact absurd h hz.2.1
+        · exact Or.inl h
+        · exact Or.inr h
+      · rcases e2 with h | h | h | h
+        · exact absurd h hz.2.1
+        · exact absurd h hz.2.2
+        · exact Or.inl h
+        · exact Or.inr h
+      · rcases e3 with h | h | h | h
+        · exact absurd h hz.1
+        · exact absurd h hz.2.2
+        · exact Or.inl h
+        · exact Or.inr h
+    · by_contra hw
+      push Not at hw
+      refine bad p ?_ ?_ ?_
+      · rcases e1 with h | h | h | h
+        · exact Or.inl h
+        · exact Or.inr h
+        · exact absurd h hw.1
+        · exact absurd h hw.2.1
+      · rcases e2 with h | h | h | h
+        · exact Or.inl h
+        · exact Or.inr h
+        · exact absurd h hw.2.1
+        · exact absurd h hw.2.2
+      · rcases e3 with h | h | h | h
+        · exact Or.inl h
+        · exact Or.inr h
+        · exact absurd h hw.1
+        · exact absurd h hw.2.2
+  obtain ⟨p, q, hpq, hpa, hqa⟩ := hA a
+  rcases hmeet a b p q hab hpq with h | h | h | h
+  · exact absurd h.symm hpa
+  · exact absurd h.symm hqa
+  · subst h
+    exact ⟨q, hpq, key q hpq hqa⟩
+  · subst h
+    exact ⟨p, hpq.symm, key p hpq.symm hpa⟩
+
+/-- In a graph where every vertex has at least `δ` neighbours, every vertex starts a path of each
+length `j < δ`. -/
+theorem exists_isPath_length {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph V)
+    [DecidableRel C.Adj] (δ : ℕ) (hδ : ∀ v, δ ≤ C.degree v) (a : V) :
+    ∀ j, j < δ → ∃ b, ∃ p : C.Walk a b, p.IsPath ∧ p.length = j := by
+  intro j
+  induction j with
+  | zero => intro _; exact ⟨a, Walk.nil, Walk.IsPath.nil, rfl⟩
+  | succ j ih =>
+    intro hj
+    obtain ⟨b, p, hp, hlen⟩ := ih (by omega)
+    have hcard : p.support.toFinset.card < (C.neighborFinset b).card := by
+      calc p.support.toFinset.card ≤ p.support.length := List.toFinset_card_le p.support
+        _ = p.length + 1 := p.length_support
+        _ < δ := by omega
+        _ ≤ (C.neighborFinset b).card := by rw [card_neighborFinset_eq_degree]; exact hδ b
+    obtain ⟨c, hc, hcp⟩ := Finset.exists_mem_notMem_of_card_lt_card hcard
+    rw [mem_neighborFinset] at hc
+    rw [List.mem_toFinset] at hcp
+    exact ⟨c, p.concat hc, hp.concat hcp hc, by rw [Walk.length_concat, hlen]⟩
+
+/-- If every vertex has at least `k - 1` neighbours and every two distinct vertices have at least
+`k - 2` common neighbours, a nonempty graph contains a `C_k`. -/
+theorem cycleGraph_isContained_of_common_neighbors {V : Type*} [Fintype V] [DecidableEq V]
+    (C : SimpleGraph V) [DecidableRel C.Adj] (k : ℕ) (hk : 3 ≤ k) (a : V)
+    (hδ : ∀ v, k - 1 ≤ C.degree v)
+    (hcommon : ∀ a b, a ≠ b → k - 2 ≤ (C.neighborFinset a ∩ C.neighborFinset b).card) :
+    (cycleGraph k).IsContained C := by
+  obtain ⟨b, p, hp, hlen⟩ := exists_isPath_length C (k - 1) hδ a (k - 2) (by omega)
+  have hab : a ≠ b := by
+    intro h
+    subst h
+    have h0 : p.length = 0 := Walk.length_eq_zero_iff.mpr (Walk.isPath_iff_nil.mp hp)
+    omega
+  set I := (p.support.toFinset.erase a).erase b with hI
+  have hIcard : I.card + 2 ≤ k - 1 := by
+    have h1 : (p.support.toFinset.erase a).card + 1 = p.support.toFinset.card :=
+      Finset.card_erase_add_one (List.mem_toFinset.mpr p.start_mem_support)
+    have h2 : I.card + 1 = (p.support.toFinset.erase a).card :=
+      Finset.card_erase_add_one
+        (Finset.mem_erase.mpr ⟨hab.symm, List.mem_toFinset.mpr p.end_mem_support⟩)
+    have h3 : p.support.toFinset.card ≤ p.support.length := List.toFinset_card_le p.support
+    rw [p.length_support, hlen] at h3
+    omega
+  have hcard : I.card < (C.neighborFinset a ∩ C.neighborFinset b).card := by
+    have := hcommon a b hab
+    omega
+  obtain ⟨c, hc, hcI⟩ := Finset.exists_mem_notMem_of_card_lt_card hcard
+  rw [Finset.mem_inter, mem_neighborFinset, mem_neighborFinset] at hc
+  have hcp : c ∉ p.support := by
+    intro hmem
+    apply hcI
+    rw [hI, Finset.mem_erase, Finset.mem_erase, List.mem_toFinset]
+    exact ⟨hc.2.ne.symm, hc.1.ne.symm, hmem⟩
+  exact cycleGraph_isContained_of_path C k hk p hp hlen hcp hc.1.symm hc.2
+
+/-- Without a blue triangle, every blue neighbourhood is a red clique. -/
+theorem isClique_compl_neighborFinset_of_no_triangle {V : Type*} [Fintype V] [DecidableEq V]
+    (C : SimpleGraph V) [DecidableRel C.Adj]
+    (hT : ∀ p q r : V, Cᶜ.Adj p q → Cᶜ.Adj q r → ¬ Cᶜ.Adj p r) (x : V) :
+    C.IsClique (Cᶜ.neighborFinset x : Set V) := by
+  intro a ha b hb hab
+  rw [Finset.mem_coe, mem_neighborFinset] at ha hb
+  by_contra hred
+  exact hT a x b ha.symm hb ((compl_adj C a b).mpr ⟨hab, hred⟩)
+
+/-- Two vertices of minimum degree `δ` share at least `2δ - #V` neighbours. -/
+theorem le_card_inter_neighborFinset {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph V)
+    [DecidableRel C.Adj] (δ : ℕ) (hδ : ∀ v, δ ≤ C.degree v) (a b : V) :
+    2 * δ - Fintype.card V ≤ (C.neighborFinset a ∩ C.neighborFinset b).card := by
+  have h := Finset.card_union_add_card_inter (C.neighborFinset a) (C.neighborFinset b)
+  have h1 : (C.neighborFinset a ∪ C.neighborFinset b).card ≤ Fintype.card V :=
+    Finset.card_le_univ _
+  have ha := hδ a
+  have hb := hδ b
+  rw [← card_neighborFinset_eq_degree] at ha hb
+  omega
+
+/-- If every set of `k - 1` vertices has a common neighbour outside it, there is a clique on `k`
+vertices (grow a clique one vertex at a time, padding it to `k - 1` vertices). -/
+theorem exists_isClique_of_forall_common_neighbor {V : Type*} [Fintype V] [DecidableEq V]
+    (C : SimpleGraph V) (k : ℕ) (hV : k - 1 ≤ Fintype.card V)
+    (h : ∀ R : Finset V, R.card = k - 1 → ∃ w, w ∉ R ∧ ∀ r ∈ R, C.Adj w r) :
+    ∃ Q : Finset V, C.IsClique (Q : Set V) ∧ Q.card = k := by
+  have key : ∀ j, j ≤ k → ∃ Q : Finset V, C.IsClique (Q : Set V) ∧ Q.card = j := by
+    intro j
+    induction j with
+    | zero => intro _; exact ⟨∅, by simp, rfl⟩
+    | succ j ih =>
+      intro hj
+      obtain ⟨Q, hQ, hQcard⟩ := ih (by omega)
+      obtain ⟨R, hQR, hRcard⟩ :=
+        Finset.exists_superset_card_eq (s := Q) (n := k - 1) (by omega) hV
+      obtain ⟨w, hwR, hw⟩ := h R hRcard
+      refine ⟨insert w Q, ?_, ?_⟩
+      · rw [Finset.coe_insert]
+        exact hQ.insert fun b hb _ => hw b (hQR hb)
+      · rw [Finset.card_insert_of_notMem (fun hwQ => hwR (hQR hwQ)), hQcard]
+  exact key k le_rfl
+
+/-- A copy of `G` in `(C.comap e)ᶜ` composes with `e` to a copy of `G` in `Cᶜ`. -/
+def copyComplOfComap {W V V' : Type*} (G : SimpleGraph W) (C : SimpleGraph V) (e : V' ↪ V)
+    (g : Copy G (C.comap e)ᶜ) : Copy G Cᶜ :=
+  ⟨⟨fun w => e (g w), by
+    intro a b hab
+    have h1 := g.toHom.map_adj hab
+    rw [compl_adj, comap_adj] at h1
+    rw [compl_adj]
+    exact ⟨fun h' => h1.1 (e.injective h'), h1.2⟩⟩, fun a b hab => g.injective (e.injective hab)⟩
+
+theorem copyComplOfComap_apply {W V V' : Type*} (G : SimpleGraph W) (C : SimpleGraph V) (e : V' ↪ V)
+    (g : Copy G (C.comap e)ᶜ) (w : W) : copyComplOfComap G C e g w = e (g w) := rfl
+
+/-- The inductive step at a leaf. Let `u` be a leaf of `H` with neighbour `v`, and suppose every
+colouring of `(k - 1) * (m - 1) + 1` vertices has a red `C_k` or a blue `H - u`. Then every colouring
+of `(k - 1) * m + 1` vertices has a red `C_k` or a blue `H`: for each set `R` of `k - 1` vertices, a
+blue `H - u` avoiding `R` either extends by a vertex of `R` blue to the image of `v`, or the image of
+`v` is a common red neighbour of `R`; if the latter happens for every `R`,
+`exists_isClique_of_forall_common_neighbor` gives a red `K_k`. -/
+theorem core_step_leaf (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (hm1 : 1 ≤ m) (W : Type) [Fintype W]
+    [DecidableEq W] (H : SimpleGraph W) (u v : W) (huv : H.Adj u v) (hleaf : ∀ w, H.Adj u w → w = v)
+    (C : SimpleGraph (Fin ((k - 1) * m + 1))) [DecidableRel C.Adj]
+    (ih : ∀ C' : SimpleGraph (Fin ((k - 1) * (m - 1) + 1)),
+      (cycleGraph k).IsContained C' ∨ (H.induce ({u}ᶜ : Set W)).IsContained C'ᶜ) :
+    (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by
+  classical
+  have hv : v ∈ ({u}ᶜ : Set W) := by
+    simp only [Set.mem_compl_iff, Set.mem_singleton_iff]
+    exact huv.ne.symm
+  have hcard : (k - 1) * m + 1 - (k - 1) = (k - 1) * (m - 1) + 1 := by
+    have : (k - 1) * m = (k - 1) * (m - 1) + (k - 1) := by
+      rw [← Nat.mul_succ, Nat.succ_eq_add_one, Nat.sub_add_cancel hm1]
+    omega
+  have hR : ∀ R : Finset (Fin ((k - 1) * m + 1)), R.card = k - 1 →
+      (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ ∨ ∃ w, w ∉ R ∧ ∀ r ∈ R, C.Adj w r := by
+    intro R hRcard
+    have hS : (k - 1) * (m - 1) + 1 ≤ Rᶜ.card := by
+      rw [Finset.card_compl, Fintype.card_fin, hRcard, hcard]
+    obtain ⟨e, he⟩ := exists_embedding_of_le_card Rᶜ _ hS
+    have he' : ∀ i, e i ∉ R := fun i => Finset.mem_compl.mp (he i)
+    rcases ih (C.comap e) with hred | hblue
+    · exact Or.inl (hred.trans ⟨(Embedding.comap e C).toCopy⟩)
+    · obtain ⟨g⟩ := hblue
+      have hyR : e (g ⟨v, hv⟩) ∉ R := he' _
+      by_cases hz : ∃ z ∈ R, Cᶜ.Adj z (e (g ⟨v, hv⟩))
+      · obtain ⟨z, hzR, hzy⟩ := hz
+        refine Or.inr (Or.inl (isContained_of_extend H u Cᶜ (copyComplOfComap _ C e g) z ?_ ?_))
+        · intro w hw
+          rw [copyComplOfComap_apply] at hw
+          exact he' (g w) (by rw [hw]; exact hzR)
+        · intro w hw
+          have hwv : w = ⟨v, hv⟩ := Subtype.ext (hleaf w.1 hw)
+          rw [copyComplOfComap_apply, hwv]
+          exact hzy
+      · push Not at hz
+        refine Or.inr (Or.inr ⟨e (g ⟨v, hv⟩), hyR, fun r hr => ?_⟩)
+        have h1 := hz r hr
+        rw [compl_adj] at h1
+        push Not at h1
+        exact (h1 (fun hry => hyR (hry ▸ hr))).symm
+  by_cases hall : ∀ R : Finset (Fin ((k - 1) * m + 1)), R.card = k - 1 →
+      ∃ w, w ∉ R ∧ ∀ r ∈ R, C.Adj w r
+  · have hV : k - 1 ≤ Fintype.card (Fin ((k - 1) * m + 1)) := by
+      rw [Fintype.card_fin]
+      have := Nat.mul_le_mul_left (k - 1) hm1
+      omega
+    obtain ⟨Q, hQ, hQcard⟩ := exists_isClique_of_forall_common_neighbor C k hV hall
+    exact Or.inl (cycleGraph_isContained_of_isClique C Q hQ k hQcard.ge)
+  · push Not at hall
+    obtain ⟨R, hRcard, hno⟩ := hall
+    rcases hR R hRcard with h | h | ⟨w, hwR, hw⟩
+    · exact Or.inl h
+    · exact Or.inr h
+    · obtain ⟨r, hr, hnr⟩ := hno w hwR
+      exact absurd (hw r hr) hnr
+
+/-- Deleting a leaf `u` (with neighbour `v`) removes exactly one edge. -/
+theorem ncard_edgeSet_induce_compl_leaf {W : Type*} [Fintype W] (H : SimpleGraph W) (u v : W)
+    (huv : H.Adj u v) (hleaf : ∀ w, H.Adj u w → w = v) :
+    (H.induce ({u}ᶜ : Set W)).edgeSet.ncard + 1 = H.edgeSet.ncard := by
+  classical
+  have himg : Sym2.map (Subtype.val : ({u}ᶜ : Set W) → W) '' (H.induce ({u}ᶜ : Set W)).edgeSet =
+      H.edgeSet \ {s(u, v)} := by
+    ext e
+    induction e using Sym2.ind with
+    | _ a b =>
+    constructor
+    · rintro ⟨e', he', hφ⟩
+      induction e' using Sym2.ind with
+      | _ a' b' =>
+      rw [Sym2.map_mk] at hφ
+      have hadj : H.Adj a'.1 b'.1 := (mem_edgeSet _).mp he'
+      rw [Set.mem_sdiff, Set.mem_singleton_iff, ← hφ, mem_edgeSet]
+      refine ⟨hadj, fun h => ?_⟩
+      rw [Sym2.eq_iff] at h
+      rcases h with ⟨h1, _⟩ | ⟨_, h2⟩
+      · exact a'.2 h1
+      · exact b'.2 h2
+    · rintro ⟨he, hne⟩
+      rw [mem_edgeSet] at he
+      rw [Set.mem_singleton_iff] at hne
+      have ha : a ∈ ({u}ᶜ : Set W) := by
+        rw [Set.mem_compl_iff, Set.mem_singleton_iff]
+        intro ha
+        subst ha
+        exact hne (by rw [hleaf b he])
+      have hb : b ∈ ({u}ᶜ : Set W) := by
+        rw [Set.mem_compl_iff, Set.mem_singleton_iff]
+        intro hb
+        subst hb
+        exact hne (by rw [hleaf a he.symm, Sym2.eq_swap])
+      exact ⟨s(⟨a, ha⟩, ⟨b, hb⟩), (mem_edgeSet _).mpr he, rfl⟩
+  have hinj : Function.Injective (Sym2.map (Subtype.val : ({u}ᶜ : Set W) → W)) :=
+    Sym2.map.injective Subtype.val_injective
+  rw [← Set.ncard_image_of_injective (H.induce ({u}ᶜ : Set W)).edgeSet hinj, himg]
+  exact Set.ncard_sdiff_singleton_add_one ((mem_edgeSet H).mpr huv)
+
+/-- Deleting a leaf `u` whose neighbour `v` has another neighbour leaves no isolated vertex. -/
+theorem exists_adj_induce_compl_leaf {W : Type*} [Fintype W] (H : SimpleGraph W) [DecidableRel H.Adj]
+    (h0 : ∀ w, 0 < H.degree w) (u v : W) (hleaf : ∀ w, H.Adj u w → w = v)
+    (hv : ∃ w, w ≠ u ∧ H.Adj v w) (w : ({u}ᶜ : Set W)) :
+    ∃ z, (H.induce ({u}ᶜ : Set W)).Adj w z := by
+  obtain ⟨z, hz⟩ := (H.degree_pos_iff_exists_adj w.1).mp (h0 w.1)
+  by_cases hzu : z = u
+  · subst hzu
+    have hwv : w.1 = v := hleaf w.1 hz.symm
+    obtain ⟨z', hz'u, hz'⟩ := hv
+    refine ⟨⟨z', hz'u⟩, ?_⟩
+    show H.Adj w.1 z'
+    rw [hwv]
+    exact hz'
+  · exact ⟨⟨z, hzu⟩, hz⟩
+
+/-- A graph in which every vertex has degree at least `2` has at least as many edges as vertices
+(handshake). -/
+theorem card_le_ncard_edgeSet_of_two_le_degree {W : Type*} [Fintype W] (H : SimpleGraph W)
+    [DecidableRel H.Adj] (h2 : ∀ v, 2 ≤ H.degree v) : Fintype.card W ≤ H.edgeSet.ncard := by
+  classical
+  have h := H.sum_degrees_eq_twice_card_edges
+  have hsum : ∑ v, 2 ≤ ∑ v, H.degree v := Finset.sum_le_sum fun v _ => h2 v
+  rw [Finset.sum_const, Finset.card_univ, smul_eq_mul] at hsum
+  have hcard : H.edgeSet.ncard = H.edgeFinset.card := by
+    rw [← coe_edgeFinset, Set.ncard_coe_finset]
+  omega
+
+/-- Two distinct neighbours give degree at least `2`. -/
+theorem two_le_degree_of_exists {W : Type*} [Fintype W] [DecidableEq W] (H : SimpleGraph W)
+    [DecidableRel H.Adj] (u v w : W) (hv : H.Adj u v) (hw : H.Adj u w) (hvw : w ≠ v) :
+    2 ≤ H.degree u := by
+  rw [← card_neighborFinset_eq_degree]
+  have hsub : ({v, w} : Finset W) ⊆ H.neighborFinset u := by
+    intro z hz
+    rw [Finset.mem_insert, Finset.mem_singleton] at hz
+    rw [mem_neighborFinset]
+    rcases hz with rfl | rfl
+    · exact hv
+    · exact hw
+  calc 2 = ({v, w} : Finset W).card := (Finset.card_pair hvw.symm).symm
+    _ ≤ _ := Finset.card_le_card hsub
+
 /-- The combinatorial core of Cambie–Freschi, Theorem 3, for `H` with at least three edges and not a star:
 every 2-coloring of the complete graph on `(k - 1) * m + 1` vertices has a red `C_k` or a blue `H`.
 This is the content of the paper; left open. By `cycleGraph_isContained_of_compl_degree_lt` one may

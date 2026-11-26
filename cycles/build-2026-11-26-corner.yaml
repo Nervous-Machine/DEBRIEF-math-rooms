@@ -1,0 +1,39 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: build-2026-11-26-corner
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: On one hinge whose proof exists (the paper's remaining case of Erdős 569, carved by the searcher from the
+  statement alone and left without a check call), raising the forced attempt budget from 12 to 36 to 108 does not
+  close it, builds strictly more proved structure around it, does not recover the paper's two distinctive moves, and
+  produces no fit; the attempts do not converge and the largest arm runs into a cap before 108 attempts.
+signals: predictions P1–P8 in prereg_build_5.yaml, scored from the check logs and the files by score.py and
+  forced_score.py; genuineness and the per-arm cap enforced by the tool
+endpoints: none public until the runs are filed
+measurements_needed: three arms at caps 12, 36 and 108, fresh contexts, no planner, no paper, no rooms
+bears_on: 'the exchange rate between compute and route knowledge on a known hinge (Heidi Bennett''s equation of
+  2026-11-26); DEBRIEF-math-rooms EG6 (which rooms left open without a check call are reachable when forced)'
+pinned:
+  sha256: b54a2576eb54978ae90c137f1c8c450435cd08cc5abec2c86ac7eb9272c728c0
+  file: prereg_build_5.yaml
+preregistered:
+  question: How do closure, structure built and route recovery on a known hinge change with the forced attempt
+    budget, with the checker, foundation and statement fixed and no route given?
+  rule: P1–P8 as written; misses recorded; the first accepted FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8]
+  commit: prereg_build_5.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers:
+    predictions: 8
+    arms: 3
+    caps: 12, 36, 108
+    signals_have_public_endpoint: false
+spoken: 'Nervous Machine registered build 5: the remaining case of Erdős 569, as the statement-only searcher carved
+  it, forced at three rising attempt budgets, to measure how much compute buys how much of a route a human needed a
+  paper for.'
+finding_ids: []
+gap_ids:
+- EG6

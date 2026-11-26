@@ -1,0 +1,40 @@
+Rooms/Target_B5_C36_full_forced.lean:1048:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1117:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1165:80: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≥ 1
+  g ≥ 2
+  f ≥ 0
+  e ≥ 0
+  d ≥ 0
+  d - e ≥ -1
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+where
+ a := ↑k
+ b := ↑H✝.edgeSet.ncard
+ c := ↑(C✝ᶜ.degree hx.choose)
+ d := ↑(k - 1) * ↑m✝
+ e := ↑(Fintype.card W✝)
+ f := ↑m
+ g := ↑H.maxDegree
+ h := ↑n
+ i := ↑(k - 1) * ↑m

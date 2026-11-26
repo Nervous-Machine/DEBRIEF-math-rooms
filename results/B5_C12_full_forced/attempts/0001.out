@@ -1,0 +1,19 @@
+Rooms/Target_B5_C12_full_forced.lean:474:53: error: Application type mismatch: The argument
+  hred
+has type
+  ¬C.Adj a b
+but is expected to have type
+  induce {u}ᶜ H ⊑ induce (Cᶜ.neighborSet x) Cᶜ
+in the application
+  h hred
+Rooms/Target_B5_C12_full_forced.lean:476:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 3
+  b - c ≤ 0
+  a ≥ 3
+  a - c ≥ 1
+where
+ a := ↑k
+ b := ↑H.edgeSet.ncard
+ c := ↑(Cᶜ.degree x)

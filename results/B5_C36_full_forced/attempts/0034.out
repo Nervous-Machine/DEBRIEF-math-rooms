@@ -1,0 +1,48 @@
+Rooms/Target_B5_C36_full_forced.lean:1048:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1117:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B5_C36_full_forced.lean:1165:80: warning: aesop: failed to prove the goal after exhaustive search.
+Rooms/Target_B5_C36_full_forced.lean:1165:77: error: unsolved goals
+k : ℕ
+hk : 3 ≤ k
+W_1 : Type
+inst : Fintype W_1
+H_1 : SimpleGraph W_1
+inst_1 : DecidableRel H_1.Adj
+h0_1 : ∀ (v : W_1), 0 < H_1.degree v
+W : Type
+x : Fintype W
+H : SimpleGraph W
+x_1 : DecidableRel H.Adj
+n : ℕ
+C : SimpleGraph (Fin n)
+x_2 : DecidableRel C.Adj
+C_1 : SimpleGraph (Fin ((k - 1) * H_1.edgeSet.ncard + 1))
+inst_2 : DecidableRel C_1.Adj
+hns : ∀ (x : W_1), ∃ x_3 x_4, H_1.Adj x_3 x_4 ∧ ¬x_3 = x ∧ ¬x_4 = x
+h0 : ∀ (v : W), 0 < H.degree v
+hsplit :
+  ∀ (S : Set W),
+    (∀ (a b : W), H.Adj a b → (a ∈ S ↔ b ∈ S)) →
+      (∀ w ∈ S, ∃ z, H.Adj w z) → 0 < (induce S H).edgeSet.ncard → (induce Sᶜ H).edgeSet.ncard = 0
+hD : 2 ≤ H.maxDegree
+hm3 : 3 ≤ H_1.edgeSet.ncard
+hW : Fintype.card W_1 ≤ (k - 1) * H_1.edgeSet.ncard + 1
+hn : (k - 1) * H.edgeSet.ncard < n
+hdeg : ∀ (x_3 : Fin n), Cᶜ.degree x_3 ≤ (k - 1) * (H.edgeSet.ncard - H.maxDegree)
+w : Fin ((k - 1) * H_1.edgeSet.ncard + 1)
+h : H_1.edgeSet.ncard ≤ C_1ᶜ.degree w
+⊢ cycleGraph k ⊑ C ∨ H ⊑ Cᶜ

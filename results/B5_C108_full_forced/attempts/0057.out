@@ -1,0 +1,228 @@
+Rooms/Target_B5_C108_full_forced.lean:2769:70: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  j ≥ 0
+  i ≥ 0
+  i - j ≤ 0
+  h ≥ 0
+  h - i ≥ 1
+  h - j ≤ 0
+  g ≥ 0
+  g ≥ 0
+  f ≥ 2
+  e ≥ 0
+  e ≥ 2
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  c - f ≥ 1
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑(H'.degree u)
+ g := ↑(C'.degree x)
+ h := ↑↑x
+ i := ↑↑z
+ j := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2773:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  n ≥ 0
+  l ≥ 0
+  l - n ≤ 0
+  j ≥ 0
+  j - l ≥ 1
+  j - n ≤ 0
+  i ≥ 0
+  h ≥ 0
+  g ≥ 0
+  g - h ≥ 1
+  f ≥ 2
+  f - i ≥ 0
+  e ≥ 0
+  e ≥ 2
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  c - f ≥ 1
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑(H'.degree u)
+ g := ↑(C'.degree x)
+ h := ↑((k - 1) * H'.degree u - 1)
+ i := ↑Z.card
+ j := ↑↑x
+ l := ↑↑z✝
+ n := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2779:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => cycleGraph _a ⊑ C'
+Error: Application type mismatch: The argument
+  C'
+has type
+  SimpleGraph (Fin ((k - 1) * m' + 1))
+but is expected to have type
+  SimpleGraph (Fin ((_a - 1) * m' + 1))
+in the application
+  cycleGraph _a ⊑ C'
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+case inl
+k : ℕ
+hk : 3 ≤ k
+m : ℕ
+hm3 : 3 ≤ m
+W : Type
+inst✝⁵ : Fintype W
+H : SimpleGraph W
+inst✝⁴ : DecidableRel H.Adj
+h0 : ∀ (v : W), 0 < H.degree v
+hm : H.edgeSet.ncard = m
+hns : ¬∃ v₀, ∀ (a b : W), H.Adj a b → a = v₀ ∨ b = v₀
+C : SimpleGraph (Fin ((k - 1) * m + 1))
+inst✝³ : DecidableRel C.Adj
+hx✝ : ∃ x, m ≤ Cᶜ.degree x
+m' : ℕ
+W' : Type
+inst✝² : Fintype W'
+H' : SimpleGraph W'
+inst✝¹ : DecidableRel H'.Adj
+h2' : ∀ (v : W'), 2 ≤ H'.degree v
+hm' : H'.edgeSet.ncard = m'
+hm3' : 3 ≤ m'
+hstar : ¬∃ v₀, ∀ (a b : W'), H'.Adj a b → a = v₀ ∨ b = v₀
+hconn : H'.Preconnected
+hmax : ∀ (v : W'), (k - 1) * H'.degree v ≤ (k - 2) * (Fintype.card W' - 1)
+ih :
+  ∀ m'' < m',
+    ∀ (W'' : Type) [inst : Fintype W''] (H'' : SimpleGraph W'') [inst_1 : DecidableRel H''.Adj],
+      (∀ (v : W''), 0 < H''.degree v) →
+        H''.edgeSet.ncard = m'' →
+          1 ≤ m'' → ∀ (C'' : SimpleGraph (Fin ((k - 1) * m'' + 1))), cycleGraph k ⊑ C'' ∨ H'' ⊑ C''ᶜ
+C' : SimpleGraph (Fin ((k - 1) * m' + 1))
+inst✝ : DecidableRel C'.Adj
+x : Fin ((k - 1) * m' + 1)
+hxmax : ∀ (y : Fin ((k - 1) * m' + 1)), C'ᶜ.degree y ≤ C'ᶜ.degree x
+hx : m' ≤ C'ᶜ.degree x
+hall : ∀ (v : W'), C'ᶜ.degree x < (k - 1) * (m' - H'.degree v) + 1
+hred : ∀ (z : Fin ((k - 1) * m' + 1)), C'.degree z ≤ (k - 2) * (Fintype.card W' - 1)
+hnoext :
+  ∀ (u : W') (f : (induce {u}ᶜ H').Copy C'ᶜ) (y : Fin ((k - 1) * m' + 1)),
+    (∀ (w : ↑{u}ᶜ), f w ≠ y) → ∃ w, H'.Adj u ↑w ∧ ¬C'ᶜ.Adj y (f w)
+hnoedge : ∀ (u v : W') (f : (H'.deleteEdges {s(u, v)}).Copy C'ᶜ), C'.Adj (f u) (f v)
+hredC : ¬cycleGraph k ⊑ C'
+hk4 : k ≠ 4
+hK2 : ∀ (x' : Fin ((k - 1) * m' + 1)), ∃ z, z ≠ x' ∧ k - 2 < {y ∈ C'.neighborFinset x' | C'.Adj y z}.card
+hcol : ¬C'.Colorable (k - 1)
+hub : ∀ (u : W'), (k - 1) * m' + 1 ≤ Fintype.card W' - 1 + H'.degree u * ((k - 2) * (Fintype.card W' - 1))
+z✝ : Fin ((k - 1) * m' + 1)
+hzx : z✝ ≠ x
+Yz : Finset (Fin ((k - 1) * m' + 1)) := ⋯
+hz : k - 2 < Yz.card
+hYz : Yz = {y ∈ C'.neighborFinset x | C'.Adj y z✝}
+hYzx : ∀ y ∈ Yz, C'.Adj x y
+hYzz : ∀ y ∈ Yz, C'.Adj z✝ y
+hk3 : k < 5
+hk3' : k = 3
+hW' : Nonempty W'
+u : W'
+hu : ∀ (w : W'), H'.degree w ≤ H'.degree u
+hu2 : 2 ≤ H'.degree u
+hult : H'.degree u < m'
+hxred : (k - 1) * H'.degree u ≤ C'.degree x
+L : Finset (Fin ((k - 1) * m' + 1))
+hLsub : L ⊆ C'.neighborFinset x
+hLcard : L.card = (k - 1) * H'.degree u - 1
+hxL : x ∉ L
+Z : Finset (Fin ((k - 1) * m' + 1))
+hZcard : Z.card ≤ H'.degree u
+hZT : Disjoint Z (insert x L)
+hZdom : ∀ y ∈ insert x L, ∃ z ∈ Z, C'.Adj y z
+z : Fin ((k - 1) * m' + 1)
+hzZ : z ∈ Z
+hxz : C'.Adj x z
+ℓ : Fin ((k - 1) * m' + 1)
+hℓ : ℓ ∈ L
+hℓz : C'.Adj ℓ z
+hzL : z ∉ insert x L
+hzℓ : z ≠ ℓ
+hxℓ : C'.Adj x ℓ
+⊢ cycleGraph k ⊑ C'
+Rooms/Target_B5_C108_full_forced.lean:2798:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  i ≥ 0
+  h ≥ 0
+  h - i ≤ 0
+  g ≥ 0
+  g - h ≥ 1
+  g - i ≤ 0
+  f ≥ 3
+  e ≥ 0
+  e - 2*f ≥ -1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+  b ≥ 0
+  a ≥ 3
+  a - b ≤ 0
+where
+ a := ↑H.edgeSet.ncard
+ b := ↑(Cᶜ.degree hx✝.choose)
+ c := ↑m'
+ d := ↑(C'ᶜ.degree x)
+ e := ↑Yz.card
+ f := ↑t
+ g := ↑↑x
+ h := ↑↑z
+ i := ↑(k - 1) * ↑m'
+Rooms/Target_B5_C108_full_forced.lean:2832:28: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  r ≥ 0
+  q ≥ 0
+  q - r ≤ 0
+  o ≥ 0
+  o - q ≥ 1
+  o - r ≤ 0
+  n ≥ 0
+  l ≥ 0
+  j ≥ 1
+  j - l ≥ 0
+  i ≥ 2
+  i - n ≥ 0
+  h ≥ 3
+  g ≥ 0
+  g - h ≥ 1
+  f ≥ 0
+  e ≥ 3
+  e - f ≤ 0
+  e - i ≥ 1
+  d ≥ 0
+  c ≥ 3
+  c - d ≤ 0
+where
+ c := ↑H.edgeSet.ncard
+ d := ↑(Cᶜ.degree hx✝.choose)
+ e := ↑m'
+ f := ↑(C'ᶜ.degree x)
+ g := ↑Yz.card
+ h := ↑(k - 2)
+ i := ↑(H'.degree u)
+ j := ↑(k - 1) * ↑(H'.degree u)
+ l := ↑p.support.toFinset.card
+ n := ↑Z.card
+ o := ↑↑x
+ q := ↑↑z
+ r := ↑(k - 1) * ↑m'
