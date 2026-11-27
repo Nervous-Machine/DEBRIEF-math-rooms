@@ -1,0 +1,32 @@
+CVOT write, build 9b (prereg_build_9_graph.yaml, cvot_write section). Tool: nm-cvot MCP, save_nodes and save_edges.
+Pod DEBRIEF-math-rooms, scope local, domain mathematics/lean-rooms, visibility pod, schema_version nm-graph-v1,
+prior_yaml_hash a1864a6432a31caf (sha256 prefix of atlas/hinges.yaml), created_at 2026-11-27T19:28:35Z.
+Documents written are exactly results/cvot_written_nodes_build9.json and results/cvot_written_edges_build9.json.
+
+nodes, 9 calls of save_nodes, each accepted whole on the first call:
+  batch 1   40  "Saved 40 conformed nodes to the go-forward 'nodes' collection (pod-scoped; requested collection_name 'nodes' ignored per SCHEMA.md shape rule)."
+  batch 2   40  same response
+  batch 3   40  same response
+  batch 4   40  same response
+  batch 5   40  same response
+  batch 6   40  same response
+  batch 7   40  same response
+  batch 8   40  same response
+  batch 9   38  "Saved 38 conformed nodes to the go-forward 'nodes' collection (...)"
+  total    358  (planner rooms 182, discovered rooms 176)
+
+edges, 7 calls of save_edges, each accepted whole on the first call ("Saved N conformed edges to the go-forward 'edges' collection", every edge_id echoed):
+  batch 1   60
+  batch 2   60
+  batch 3   60
+  batch 4   60
+  batch 5   60
+  batch 6   60
+  batch 7   52
+  total    412  (depends 208, built_for 154, serves 50); Z_0 1.0 on 208, 0.5 on 204; no dangling endpoint
+
+readback: search_nodes on node_id rooms/start_569B_nodes/core_ge_three_nonstar returned the document as written
+(outcome open, provenance block intact).
+
+The write was split across two sessions of the registrar: node batches 1-7 by Claude Fable 5.1, node batches 8-9 and
+all edge batches by Claude Opus 5.5 continuing the same registered write from the same files.

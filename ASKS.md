@@ -131,3 +131,13 @@ Status: immovable.
 - **the extractor over fourteen arms with a reference structure** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P6 in prereg_build_9_discovered.yaml. Resolution by: none registered.
+
+## 11. In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing… (ledger id HG10)
+
+In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing node touches at once; and the graph writes into CVOT under the schema's pod and provenance rules.
+
+Status: immovable.
+
+- **rooms/atlas_graph.py over atlas/hinges.yaml and atlas/discovered.yaml; the CVOT write** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P5 in prereg_build_9_graph.yaml. Resolution by: none registered.

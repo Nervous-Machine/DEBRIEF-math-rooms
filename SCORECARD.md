@@ -6,7 +6,7 @@ _Rendered from the briefing record. Items marked internal in the ledger (how the
 
 Record quality: full ledger. Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles. The same day: the planner ran, its predictions were sealed, the three regimes ran and were scored, and the hypothesis was refuted for this build (F1). On 25–26 November build 2 (arXiv:2608.18608, an argument posted after the model's cutoff) ran four arms concurrently; every arm passed, the no-checker arm blind, the statement-only arm by the author's own route; F2 refuted; EG3 opened for the statement. On 26 November build 3 (Erdős 569 solved by a human paper, Erdős 159 open; rooms from the question; hold-position rule) ran five arms; every arm held position; F3 accepted; EG2 resolved; EG4 and EG5 opened.
 
-**Standing.** Certified 0. Accepted 7. Refuted 2. Open gaps 13. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
+**Standing.** Certified 0. Accepted 7. Refuted 2. Open gaps 14. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
 
 ## Findings
 
@@ -74,6 +74,8 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | score-2026-11-27-build8-forced | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer) | data | yes | confirmed |
 | data-2026-11-27-discovered | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer) | data | yes | mixed |
 | discovered-2026-11-27 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) | hypothesis | yes | admitted |
+| data-2026-11-27-graph | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 and Claude Opus 5.5 as registrar and scorer) | data | yes | mixed |
+| graph-2026-11-27 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) | hypothesis | yes | admitted |
 
 ## Gaps, in the order that would settle things fastest
 
@@ -96,6 +98,7 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | 8 | A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof… | immovable | the matcher run on the committed atlas of 164 vectors | whoever can make that measurement public | predictions P1–P5 in prereg_build_8_match.yaml on five queries whose statements are not in the atlas | none registered |
 | 9 | Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on… | immovable | two fresh readers on two models typing 82 rooms plus two roots from untyped blueprints | whoever can make that measurement public | predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py | none registered |
 | 10 | Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the… | immovable | the extractor over fourteen arms with a reference structure | whoever can make that measurement public | predictions P1–P6 in prereg_build_9_discovered.yaml | none registered |
+| 11 | In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing… | immovable | rooms/atlas_graph.py over atlas/hinges.yaml and atlas/discovered.yaml; the CVOT write | whoever can make that measurement public | predictions P1–P5 in prereg_build_9_graph.yaml | none registered |
 
 ## Corrections, retractions, ruled out
 

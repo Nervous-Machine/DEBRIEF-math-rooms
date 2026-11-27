@@ -3045,6 +3045,119 @@
    "gap_ids": [
     "HG9"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T20:12:16Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-graph.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-graph",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 and Claude Opus 5.5 as registrar and scorer)",
+   "preregistered": {
+    "question": "Are the hinges that never closed the bridges without access, and does the rooms graph write into CVOT?",
+    "rule": "rooms/atlas_graph.py at theta 0.45 over the 182 planner vectors and 176 discovered rooms; the CVOT write as registered; amendment A1 (compacted documents, sixteen calls, the hypothesis-side reading of the zeros)",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_9_graph.yaml",
+    "results": [
+     "results/atlas_graph_build9.txt",
+     "results/atlas_graph_build9.json",
+     "results/cvot_write_build9.txt",
+     "results/cvot_written_nodes_build9.json",
+     "results/cvot_written_edges_build9.json"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "nodes": "358 (planner 182, discovered 176)",
+     "neighbourhood_edges_at_0_45": 1990,
+     "components": 80,
+     "core_ge_three_nonstar": "access 0.500, shores same, 123 discovered rooms adjacent",
+     "core_near_extremal": "access 0.000, shores DIFF, 0 neighbours, 5 adjacent",
+     "closed_when_forced": "lemma7 0.480 same; floor_succ_le_power 0.367 same; turan_weak, c4_free_indep_power, card_le_power_of_c4_free, erdos_159 0.000 DIFF with 0 neighbours",
+     "zeros": "every hinge at access 0 has an empty hypothesis side under the shape matcher, because its hypotheses sit inside the quantified conclusion or in instance binders",
+     "cvot_written": "358 nodes and 412 edges (depends 208, built_for 154, serves 50) under pod DEBRIEF-math-rooms, visibility pod; 16 calls, each accepted whole on the first attempt",
+     "held": "P5",
+     "half_held": "P3 (at least five adjacent to each unclosed hinge held; zero at the slips missed, turan_weak 8)",
+     "missed": "P1, P2, P4"
+    },
+    "misses": [
+     "P1",
+     "P2",
+     "P3 (second clause)",
+     "P4"
+    ]
+   },
+   "spoken": "The bridge-without-access measure did not see the bridges. The two hinges that never closed do not stand apart from the ones that closed when forced. Every zero it reported comes from how a statement is written: when the hypotheses sit inside the conclusion, the shape matcher finds nothing to compare on that side. The rooms graph itself went into the shared causal store whole, three hundred and fifty-eight rooms and four hundred and twelve edges, with the rooms searchers built against open hinges carried as edges at half seed weight for the kernel to earn or lose.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG8"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T20:12:16Z",
+   "provenance": {
+    "source": "contributed cycle file graph-2026-11-27.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "graph-2026-11-27",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "hypothesis": "In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing node touches at once; and the graph writes into CVOT under the schema's pod and provenance rules.",
+   "signals": "predictions P1–P5 in prereg_build_9_graph.yaml",
+   "endpoints": "none public until filed",
+   "measurements_needed": "rooms/atlas_graph.py over atlas/hinges.yaml and atlas/discovered.yaml; the CVOT write",
+   "bears_on": "Heidi Bennett's reading of 2026-11-27: rooms as neighbourhoods, edges as conditionals, a route that builds bridges across neighbourhoods, and a bridge that may have no direct access",
+   "pinned": {
+    "sha256": "8469cc10e772011b1cde6ed14df1deb8156ac222b3c8ab663d4c92bb1fec7d05",
+    "file": "prereg_build_9_graph.yaml"
+   },
+   "preregistered": {
+    "question": "Are the hinges that never closed the bridges without access, and does the rooms graph write into CVOT?",
+    "rule": "P1–P5 as written; misses recorded",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_9_graph.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 5,
+     "nodes": 358,
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered a measure of whether a hinge is a bridge without access, with a prediction that the two hinges that never closed are those bridges, and registered the first write of the rooms graph into the shared causal store.",
+   "finding_ids": [],
+   "gap_ids": [
+    "HG10"
+   ]
   }
  ],
  "findings": [
@@ -4115,7 +4228,15 @@
    "status": "proposed",
    "opened_cycle": "data-2026-11-27-match",
    "priority": 3,
-   "history": [],
+   "history": [
+    {
+     "cycle": "data-2026-11-27-graph",
+     "dated": "2026-11-27",
+     "hypothesis": "shape neighbourhoods over the whole atlas show the hinges that never closed as bridges without access",
+     "before_data": true,
+     "result": "no: every hinge at access 0 has an empty hypothesis side because its hypotheses sit inside the quantified conclusion, and among the rest access does not separate open from closed; the gap's measurement now also needs a hypothesis side read from inside quantified statements"
+    }
+   ],
    "closes_with": [
     {
      "what": "a semantic feature for the matcher (the Mathlib constants and defined predicates a statement uses, weighted by their rarity across the atlas), registered with a new threshold and tested on the same five queries plus statements from a fifth proof",
@@ -4270,6 +4391,53 @@
     "spoken": "The measurement named by the submitter, made public at an endpoint."
    },
    "expected_signal": "predictions P1–P6 in prereg_build_9_discovered.yaml",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T20:12:16Z",
+   "provenance": {
+    "source": "hypothesis cycle graph-2026-11-27"
+   },
+   "audience": "briefing",
+   "gap_id": "HG10",
+   "title": "In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing…",
+   "status": "immovable",
+   "opened_cycle": "graph-2026-11-27",
+   "priority": 11,
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+    "github": null,
+    "cycle": "graph-2026-11-27",
+    "sha256": "8469cc10e772011b1cde6ed14df1deb8156ac222b3c8ab663d4c92bb1fec7d05",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "graph-2026-11-27",
+     "hypothesis": "In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar); pinned sha256 8469cc10e772…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "rooms/atlas_graph.py over atlas/hinges.yaml and atlas/discovered.yaml; the CVOT write",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing node touches at once; and the graph writes into CVOT under the schema's pod and provenance rules.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P5 in prereg_build_9_graph.yaml",
    "resolution_by": "none registered"
   }
  ],

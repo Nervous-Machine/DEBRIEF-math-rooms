@@ -32,3 +32,39 @@ One room was drawn twice: the sparse-case lemma of build 3's full-feedback arm a
 ## Files
 
 [prereg_build_9_discovered.yaml](../prereg_build_9_discovered.yaml) · [prereg_longitudinal.yaml](../prereg_longitudinal.yaml) · [atlas/discovered.yaml](../atlas/discovered.yaml) · `results/<ARM>/discovered.yaml` for the fourteen arms · [results/discovered_score_build9.txt](../results/discovered_score_build9.txt) · [rooms/discovered.py](../rooms/discovered.py).
+
+# Build 9b: the atlas as a graph, and the rooms graph in CVOT
+
+**Question written down first.** Heidi Bennett (2026-11-27): rooms point to neighbourhoods, nodes are the local samples, edges are the conditionals; the route drives through neighbourhoods and builds bridges across them, and a bridge might not have direct access. The computable version: a hinge whose hypothesis side and conclusion side have no single existing room close to both. Prediction staked: the two hinges that never closed are exactly those bridges. Registration: [prereg_build_9_graph.yaml](../prereg_build_9_graph.yaml), five predictions, one amendment.
+
+**The graph.** [atlas_graph.py](../rooms/atlas_graph.py) puts the 182 planner rooms and 176 discovered rooms in one graph, with dependency edges from the blueprints and the discovered rooms, and neighbourhood edges where two statement shapes match at 0.45 or above.
+
+| | |
+|---|---|
+| rooms | 358 (182 planner, 176 discovered) |
+| dependency edges | 422 |
+| neighbourhood edges at 0.45 | 1990 |
+| components | 80 |
+
+| hinge | outcome | access | shores | neighbours | discovered rooms adjacent |
+|---|---|---|---|---|---|
+| 569 core (`core_ge_three_nonstar`) | open | 0.500 | same | 30 | 123 |
+| 159 core (`core_near_extremal`) | open | 0.000 | split | 0 | 5 |
+| Lemma 7 | closed when forced | 0.480 | same | 27 | 4 |
+| `floor_succ_le_power` (a slip) | closed when forced | 0.367 | same | 10 | 0 |
+| `turan_weak` (a slip) | closed when forced | 0.000 | split | 0 | 8 |
+| `c4_free_indep_power` | closed when forced | 0.000 | split | 0 | 14 |
+
+**Predictions.** Held: P5 (the graph went into CVOT whole). Half held: P3 (both unclosed hinges have at least five discovered rooms beside them; the slip `turan_weak` has eight, not zero). Missed: P1 and P2 (access and shores do not separate the hinges that never closed from those that closed when forced), P4 (one neighbourhood component spans all four proofs).
+
+## What it means
+
+**The measure did not see the bridges, and the reason is in the statements.** Every hinge that reads access 0 has nothing on its hypothesis side: its hypotheses are written inside the conclusion, as in "there exist constants such that for every graph", or only as implicit binders. The shape matcher splits a statement at its colon, so it compares nothing on that side, and the hinge looks isolated whether it closed or not. Among hinges with a readable hypothesis side, access does not separate open from closed either. Testing Heidi's picture needs a matcher that reads hypotheses out of quantified conclusions and knows which constants a statement is about. That joins the open matcher gap ([EG8](../ASKS.md)).
+
+**The dependency side carries a signal, but not a clean one.** The 569 core has 123 rooms built against it, far above any hinge that flipped. The 159 core has 5, inside the flips' range.
+
+**The rooms graph is in the shared store.** 358 nodes and 412 edges are in CVOT under pod `DEBRIEF-math-rooms`, visible to the pod. Each node carries its statement's opening, its outcome and its type. Each edge is a dependency, a "serves" mention or a "built for" attempt. A dependency into a room that closed is seeded at 1.0. Everything else is seeded at 0.5, including every room a searcher built against an open hinge, so the kernel can earn or lose that weight as more arms arrive. The ten edges from the blind arms that point at the file's final check, which is not a room, were left out.
+
+## Files
+
+[prereg_build_9_graph.yaml](../prereg_build_9_graph.yaml) · [rooms/atlas_graph.py](../rooms/atlas_graph.py) · [results/atlas_graph_build9.txt](../results/atlas_graph_build9.txt) · [results/atlas_graph_build9.json](../results/atlas_graph_build9.json) · [results/cvot_write_build9.txt](../results/cvot_write_build9.txt) · [results/cvot_written_nodes_build9.json](../results/cvot_written_nodes_build9.json) · [results/cvot_written_edges_build9.json](../results/cvot_written_edges_build9.json).

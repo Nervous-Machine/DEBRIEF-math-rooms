@@ -1,0 +1,31 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: graph-2026-11-27
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never
+  closed are the ones whose two shores no existing node touches at once; and the graph writes into CVOT under the
+  schema's pod and provenance rules.
+signals: predictions P1–P5 in prereg_build_9_graph.yaml
+endpoints: none public until filed
+measurements_needed: rooms/atlas_graph.py over atlas/hinges.yaml and atlas/discovered.yaml; the CVOT write
+bears_on: 'Heidi Bennett''s reading of 2026-11-27: rooms as neighbourhoods, edges as conditionals, a route that builds
+  bridges across neighbourhoods, and a bridge that may have no direct access'
+pinned:
+  sha256: 8469cc10e772011b1cde6ed14df1deb8156ac222b3c8ab663d4c92bb1fec7d05
+  file: prereg_build_9_graph.yaml
+preregistered:
+  question: Are the hinges that never closed the bridges without access, and does the rooms graph write into CVOT?
+  rule: P1–P5 as written; misses recorded
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_9_graph.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers: {predictions: 5, nodes: 358, signals_have_public_endpoint: false}
+spoken: 'Nervous Machine registered a measure of whether a hinge is a bridge without access, with a prediction that the
+  two hinges that never closed are those bridges, and registered the first write of the rooms graph into the shared
+  causal store.'
+finding_ids: []
+gap_ids: []

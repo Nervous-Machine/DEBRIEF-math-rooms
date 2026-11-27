@@ -1,0 +1,45 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-graph
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 and Claude Opus 5.5 as registrar and scorer)
+preregistered:
+  question: Are the hinges that never closed the bridges without access, and does the rooms graph write into CVOT?
+  rule: 'rooms/atlas_graph.py at theta 0.45 over the 182 planner vectors and 176 discovered rooms; the CVOT write as
+    registered; amendment A1 (compacted documents, sixteen calls, the hypothesis-side reading of the zeros)'
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_9_graph.yaml
+  results:
+  - results/atlas_graph_build9.txt
+  - results/atlas_graph_build9.json
+  - results/cvot_write_build9.txt
+  - results/cvot_written_nodes_build9.json
+  - results/cvot_written_edges_build9.json
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    nodes: 358 (planner 182, discovered 176)
+    neighbourhood_edges_at_0_45: 1990
+    components: 80
+    core_ge_three_nonstar: 'access 0.500, shores same, 123 discovered rooms adjacent'
+    core_near_extremal: 'access 0.000, shores DIFF, 0 neighbours, 5 adjacent'
+    closed_when_forced: 'lemma7 0.480 same; floor_succ_le_power 0.367 same; turan_weak, c4_free_indep_power, card_le_power_of_c4_free, erdos_159 0.000 DIFF with 0 neighbours'
+    zeros: every hinge at access 0 has an empty hypothesis side under the shape matcher, because its hypotheses sit inside the quantified conclusion or in instance binders
+    cvot_written: '358 nodes and 412 edges (depends 208, built_for 154, serves 50) under pod DEBRIEF-math-rooms, visibility pod; 16 calls, each accepted whole on the first attempt'
+    held: P5
+    half_held: P3 (at least five adjacent to each unclosed hinge held; zero at the slips missed, turan_weak 8)
+    missed: P1, P2, P4
+  misses:
+  - P1
+  - P2
+  - P3 (second clause)
+  - P4
+spoken: 'The bridge-without-access measure did not see the bridges. The two hinges that never closed do not stand
+  apart from the ones that closed when forced. Every zero it reported comes from how a statement is written: when the
+  hypotheses sit inside the conclusion, the shape matcher finds nothing to compare on that side. The rooms graph itself
+  went into the shared causal store whole, three hundred and fifty-eight rooms and four hundred and twelve edges, with
+  the rooms searchers built against open hinges carried as edges at half seed weight for the kernel to earn or lose.'
+finding_ids: []
+gap_ids:
+- EG8

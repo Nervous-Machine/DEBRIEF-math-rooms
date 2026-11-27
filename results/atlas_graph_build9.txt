@@ -1,0 +1,17 @@
+nodes 358 (planner 182, discovered 176); dependency edges 422; neighbourhood edges 1990 at theta 0.45; components 80
+hinge                                                outcome  access  shores  deg  disc
+start_569B_nodes.yaml:core_ge_three_nonstar          open     0.500   same    30   123 
+blueprint_569_nodes.yaml:lemma7                      open     0.480   same    27   4   
+blueprint_569_nodes.yaml:goddard_kleitman_sidorenko  open     0.500   same    35   0   
+blueprint_159_nodes.yaml:core_near_extremal          open     0.000   DIFF    0    5   
+blueprint_159_nodes.yaml:turan_weak                  proved   0.000   DIFF    0    8   
+blueprint_159_nodes.yaml:c4_free_indep_power         proved   0.000   DIFF    0    14  
+blueprint_159_nodes.yaml:floor_succ_le_power         proved   0.367   same    10   0   
+blueprint_159_nodes.yaml:card_le_power_of_c4_free    proved   0.000   DIFF    0    2   
+blueprint_159_nodes.yaml:erdos_159                   proved   0.000   DIFF    0    0   
+blueprint_1061_nodes.yaml:lattice_coords             open     0.281   same    11   0   
+blueprint_1061_nodes.yaml:local_denominator          open     0.450   same    10   0   
+blueprint_1061_nodes.yaml:plane_prime_count          open     0.223   DIFF    13   0   
+blueprint_1061_nodes.yaml:lattice_reduction          open     0.225   same    1    0   
+blueprint_1133_nodes.yaml:signs_prescribed_tolerance proved   0.311   DIFF    10   0   
+blueprint_1133_nodes.yaml:finite_degree_error_tradeoff proved   0.293   DIFF    10   0   

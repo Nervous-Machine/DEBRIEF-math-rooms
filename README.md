@@ -101,7 +101,14 @@ Without a blueprint the searcher drew the same route in seven lemmas and compile
 
 **Build 9, the rooms nobody drew (27 Nov 2026).** An index of every room a searcher created that no planner had drawn, across fourteen arms: 176 rooms, all sound at the end of their files. Seven sit at hinges that flipped because an idea was found; none at hinges that flipped because they were slips; 128 at the two hinges that never closed, growing with the budget spent there. One room was drawn twice by two searchers six builds apart for the same hinge. Four of six predictions held; the registered way of attributing a room to its hinge missed the main case and the attempt log fixed it. A standing registration now fixes eight arms and eight predictions for the first newer searcher model, so the claim that the variables change and the equation remains can be scored. Full account: [trace/ROOMS-9.md](trace/ROOMS-9.md).
 
-Next: the semantic feature for the matcher (EG8); the case-split boundary in the types and a human re-typing (EG7); a reader for the five guides; the longitudinal rerun when a newer searcher model is available.
+**Build 9b, the atlas as a graph (27 Nov 2026).** All 358 rooms in one graph, with a test of whether the hinges that never closed are bridges no existing room reaches from both sides. They are not distinguishable that way yet. The measure reads zero wherever a statement writes its hypotheses inside its conclusion, for closed and open rooms alike. The graph itself went into the shared causal store whole: 358 nodes and 412 edges, with the rooms built against open hinges seeded at half weight. Full account: [trace/ROOMS-9.md](trace/ROOMS-9.md#build-9b-the-atlas-as-a-graph-and-the-rooms-graph-in-cvot).
+
+| item | result | predictions |
+|---|---|---|
+| bridge-without-access measure | does not separate open from closed hinges | 1 held, 1 half, 3 missed |
+| CVOT write | 358 nodes, 412 edges, every call accepted | held |
+
+Next: a matcher that reads hypotheses out of quantified statements and uses a semantic feature (EG8); the case-split boundary in the types and a human re-typing (EG7); a reader for the five guides; the longitudinal rerun when a newer searcher model is available.
 
 ## Why this theorem
 

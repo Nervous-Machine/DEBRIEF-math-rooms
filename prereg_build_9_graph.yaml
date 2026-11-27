@@ -61,3 +61,45 @@ instruments:
   atlas_hinges: {path: atlas/hinges.yaml, sha256: "a1864a6432a31caf5fcbbceda2e1e497f40d14315d6c734e452acec115df159a", vectors: 182}
   atlas_discovered: {path: atlas/discovered.yaml, sha256: "0c8faf5598525ae0039d296a6ecf717b947c974a7212e50168e6a244e9e69456", rooms: 176}
   output: "results/atlas_graph_build9.json; the CVOT write log in results/cvot_write_build9.txt"
+
+# ---- Amendment A1 ---- appended after the measure ran and the CVOT write finished; the registered text above is unedited.
+amendments_appended:
+  - id: A1
+    written: "2026-11-27, after atlas_graph.py ran on the registered hinges and after the CVOT write"
+    write_shape: >
+      The registered cvot_write named created_by 'DEBRIEF-math-rooms build 9b registrar' and the statement as the
+      description. To fit the tool calls, the documents were compacted before writing: created_by 'rooms-9b-registrar',
+      kernel_version 'seed', description cut to the first 160 characters of the statement, and no causal_vectors or
+      updated_at fields. The full statements stay in atlas/hinges.yaml and atlas/discovered.yaml. The write went in 16
+      calls (9 of nodes, 7 of edges) rather than one; every call was accepted whole on its first attempt. The last 2
+      node calls and all 7 edge calls were made by Claude Opus 5.5, continuing this registration after the session
+      model changed. Log: results/cvot_write_build9.txt.
+    results: >
+      358 nodes, 422 dependency edges in the graph (412 written: the 10 built_for edges from the blind arms point at
+      FINAL, which is not a room, and were not written), 1990 neighbourhood edges at theta 0.45, 80 components. core_ge_three_nonstar: access 0.500,
+      shores same, 30 neighbours, 123 discovered rooms adjacent. core_near_extremal: access 0.000, shores DIFF, 0
+      neighbours, 5 adjacent. Closed when forced: lemma7 0.480 same; floor_succ_le_power 0.367 same; turan_weak,
+      c4_free_indep_power, card_le_power_of_c4_free and erdos_159 0.000 DIFF with 0 neighbours. One component holds
+      nodes from all four targets.
+    why_the_zeros: >
+      Every hinge that reads access 0 has an empty hypothesis side under rooms/match.py: its statement states its
+      hypotheses inside the quantified conclusion (core_near_extremal begins with an existential over the constants),
+      or carries them only as implicit and instance binders (turan_weak). With nothing on the hypothesis side, the
+      minimum in access(h) is 0 and the hinge has no neighbour at 0.45. The zero is a property of how the statement is
+      written, not of the mathematics, and it falls on proved and open rooms alike. Among the hinges with a non-empty
+      hypothesis side, access does not separate open from closed (open core 0.500, closed lemma7 0.480, closed floor
+      room 0.367).
+    scorecard: >
+      Held: P5 (every call accepted whole on the first attempt; the batching and compaction above). Half held: P3
+      (at least five discovered rooms adjacent to each unclosed hinge, 123 and 5; zero at the two slips missed:
+      turan_weak 8, floor_succ_le_power 0). Missed: P1 (both unclosed hinges below every forced closure: no, the 569
+      core reads 0.500, above lemma7 and the floor room), P2 (shores differ for both unclosed hinges: no, the 569 core
+      shows same; same for at least four of six forced closures: two of six), P4 (at least four components and no
+      component across all four targets: 80 components, but one component spans all four targets).
+    reading: >
+      The falsifier as registered applies: shape neighbourhoods do not see the bridge. The access measure needs a
+      hypothesis side read from inside quantified conclusions and the semantic feature of EG8 before it can test the
+      question. The dependency side carries a signal but not a clean one: the 569 core has 123 discovered rooms built
+      against it, far above any flip (0 to 14), while the 159 core has 5, inside the flips' range
+      (c4_free_indep_power 14, turan_weak 8). Those rooms are now in CVOT as built_for edges at Z_0 0.5, where the
+      kernel can weigh them against outcomes as more arms arrive.

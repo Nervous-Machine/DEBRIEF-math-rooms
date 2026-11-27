@@ -1,0 +1,5514 @@
+{
+ "theta": 0.45,
+ "nodes": 358,
+ "dependency_edges": 422,
+ "rows": [
+  {
+   "hinge": "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "outcome": "open",
+   "access": 0.5,
+   "access_node": "start_569B_nodes.yaml:core_two_nonstar",
+   "nearest_hypothesis_side": "start_569B_nodes.yaml:core_two_nonstar",
+   "nearest_conclusion_side": "start_569B_nodes.yaml:core_one",
+   "shores_same_component": true,
+   "degree_in_neighbourhood_graph": 30,
+   "discovered_adjacent": 123
+  },
+  {
+   "hinge": "blueprint_569_nodes.yaml:lemma7",
+   "outcome": "open",
+   "access": 0.48,
+   "access_node": "B4_569_F_full_forced:lemma7_cycle_v",
+   "nearest_hypothesis_side": "B4_569_F_full_forced:lemma7_cycle_v",
+   "nearest_conclusion_side": "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "shores_same_component": true,
+   "degree_in_neighbourhood_graph": 27,
+   "discovered_adjacent": 4
+  },
+  {
+   "hinge": "blueprint_569_nodes.yaml:goddard_kleitman_sidorenko",
+   "outcome": "open",
+   "access": 0.5,
+   "access_node": "blueprint_569_nodes.yaml:ramsey_one_edge",
+   "nearest_hypothesis_side": "blueprint_569_nodes.yaml:ramsey_one_edge",
+   "nearest_conclusion_side": "blueprint_569_nodes.yaml:ramsey_one_edge",
+   "shores_same_component": true,
+   "degree_in_neighbourhood_graph": 35,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_159_nodes.yaml:core_near_extremal",
+   "outcome": "open",
+   "access": 0.0,
+   "access_node": null,
+   "nearest_hypothesis_side": null,
+   "nearest_conclusion_side": "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 0,
+   "discovered_adjacent": 5
+  },
+  {
+   "hinge": "blueprint_159_nodes.yaml:turan_weak",
+   "outcome": "proved",
+   "access": 0.0,
+   "access_node": null,
+   "nearest_hypothesis_side": null,
+   "nearest_conclusion_side": "B3_159_H_full_hold:sparse_case",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 0,
+   "discovered_adjacent": 8
+  },
+  {
+   "hinge": "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "outcome": "proved",
+   "access": 0.0,
+   "access_node": null,
+   "nearest_hypothesis_side": null,
+   "nearest_conclusion_side": "blueprint_159_nodes.yaml:core_near_extremal",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 0,
+   "discovered_adjacent": 14
+  },
+  {
+   "hinge": "blueprint_159_nodes.yaml:floor_succ_le_power",
+   "outcome": "proved",
+   "access": 0.367,
+   "access_node": "blueprint_159_nodes.yaml:dense_branch_arith",
+   "nearest_hypothesis_side": "blueprint_1133_nodes.yaml:theorem21_arithmetic",
+   "nearest_conclusion_side": "blueprint_159_nodes.yaml:dense_branch_arith",
+   "shores_same_component": true,
+   "degree_in_neighbourhood_graph": 10,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "outcome": "proved",
+   "access": 0.0,
+   "access_node": null,
+   "nearest_hypothesis_side": null,
+   "nearest_conclusion_side": "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 0,
+   "discovered_adjacent": 2
+  },
+  {
+   "hinge": "blueprint_159_nodes.yaml:erdos_159",
+   "outcome": "proved",
+   "access": 0.0,
+   "access_node": null,
+   "nearest_hypothesis_side": null,
+   "nearest_conclusion_side": "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 0,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_1061_nodes.yaml:lattice_coords",
+   "outcome": "open",
+   "access": 0.281,
+   "access_node": "blueprint_1061_nodes.yaml:singular_series_lower",
+   "nearest_hypothesis_side": "blueprint_1061_nodes.yaml:integral_lift",
+   "nearest_conclusion_side": "blueprint_1061_nodes.yaml:bienvenu_prop21_uniform",
+   "shores_same_component": true,
+   "degree_in_neighbourhood_graph": 11,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_1061_nodes.yaml:local_denominator",
+   "outcome": "open",
+   "access": 0.45,
+   "access_node": "blueprint_1061_nodes.yaml:local_away",
+   "nearest_hypothesis_side": "blueprint_1061_nodes.yaml:local_away",
+   "nearest_conclusion_side": "blueprint_1061_nodes.yaml:local_away",
+   "shores_same_component": true,
+   "degree_in_neighbourhood_graph": 10,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_1061_nodes.yaml:plane_prime_count",
+   "outcome": "open",
+   "access": 0.223,
+   "access_node": "blueprint_1061_nodes.yaml:integral_lift",
+   "nearest_hypothesis_side": "blueprint_1061_nodes.yaml:singular_series_lower",
+   "nearest_conclusion_side": "blueprint_1061_nodes.yaml:S_lower_bound",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 13,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_1061_nodes.yaml:lattice_reduction",
+   "outcome": "open",
+   "access": 0.225,
+   "access_node": "B6_1133_A_full_probe:bucket_grouping_aux",
+   "nearest_hypothesis_side": "B6_1133_A_full_probe:bucket_grouping_aux",
+   "nearest_conclusion_side": "B5_C108_full_forced:exists_isPath_of_forall_degree_ge",
+   "shores_same_component": true,
+   "degree_in_neighbourhood_graph": 1,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "outcome": "proved",
+   "access": 0.311,
+   "access_node": "blueprint_1133_nodes.yaml:complex_data_from_real",
+   "nearest_hypothesis_side": "blueprint_1133_nodes.yaml:complex_data_from_real",
+   "nearest_conclusion_side": "blueprint_1133_nodes.yaml:local_sign_obstruction",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 10,
+   "discovered_adjacent": 0
+  },
+  {
+   "hinge": "blueprint_1133_nodes.yaml:finite_degree_error_tradeoff",
+   "outcome": "proved",
+   "access": 0.293,
+   "access_node": "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "nearest_hypothesis_side": "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "nearest_conclusion_side": "blueprint_1133_nodes.yaml:quantitative_robust_obstruction",
+   "shores_same_component": false,
+   "degree_in_neighbourhood_graph": 10,
+   "discovered_adjacent": 0
+  }
+ ],
+ "node_list": [
+  {
+   "key": "blueprint_1061_nodes.yaml:bienvenu_prop21_uniform",
+   "name": "bienvenu_prop21_uniform",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "literature_import",
+   "join_type_v2": "literature_import",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N01"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:bienvenu_lemma12_singular_series",
+   "name": "bienvenu_lemma12_singular_series",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "literature_import",
+   "join_type_v2": "literature_import",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N02"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:sigma_values_triple",
+   "name": "sigma_values_triple",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N03"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:sigma_mul_two_primes",
+   "name": "sigma_mul_two_primes",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N04"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:shifted_product_identity",
+   "name": "shifted_product_identity",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N05"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "name": "friendly_triple_activation",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N06"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:core_from_sextuple",
+   "name": "core_from_sextuple",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N07"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:core_fiber_le_eight",
+   "name": "core_fiber_le_eight",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N08"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:multiplier_solution",
+   "name": "multiplier_solution",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N09"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:multiplier_disjoint",
+   "name": "multiplier_disjoint",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N10"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:coprime_density",
+   "name": "coprime_density",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N11"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:S_ge_card",
+   "name": "S_ge_card",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N12"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:ruling_plane_identity",
+   "name": "ruling_plane_identity",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N13"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:determinant_table",
+   "name": "determinant_table",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N14"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:finite_complexity_real",
+   "name": "finite_complexity_real",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N15"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:archimedean_bounds",
+   "name": "archimedean_bounds",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N16"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:zero_form_criteria",
+   "name": "zero_form_criteria",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N17"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:integral_lift",
+   "name": "integral_lift",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N18"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:onPlane_equations",
+   "name": "onPlane_equations",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N19"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:good_coprime",
+   "name": "good_coprime",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N20"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:local_witness",
+   "name": "local_witness",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N21"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:projected_index",
+   "name": "projected_index",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "two_structure_coupling",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N22"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:lattice_coords",
+   "name": "lattice_coords",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N23"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:region_bounds_int",
+   "name": "region_bounds_int",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N24"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:sqfree_progression_count",
+   "name": "sqfree_progression_count",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N25"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:H_sum_bound",
+   "name": "H_sum_bound",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N26"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:good_denominators",
+   "name": "good_denominators",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N27"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:residue_blocks",
+   "name": "residue_blocks",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N28"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:local_density",
+   "name": "local_density",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "case_split",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N29"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:large_prime_tail",
+   "name": "large_prime_tail",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N30"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:parameter_sieve",
+   "name": "parameter_sieve",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "assembly",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N31"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:planes_meet_once",
+   "name": "planes_meet_once",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N32"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:union_card_bound",
+   "name": "union_card_bound",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N33"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:lattice_reduction",
+   "name": "lattice_reduction",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N34"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:nonzero_forms_count",
+   "name": "nonzero_forms_count",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N35"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:local_W",
+   "name": "local_W",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N36"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:local_away",
+   "name": "local_away",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "two_structure_coupling",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N37"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:local_denominator",
+   "name": "local_denominator",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "two_structure_coupling",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N38"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:fc_lattice",
+   "name": "fc_lattice",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N39"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:beta_local",
+   "name": "beta_local",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N40"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:ap_product",
+   "name": "ap_product",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N41"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:singular_series_lower",
+   "name": "singular_series_lower",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "assembly",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N42"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:collision_line",
+   "name": "collision_line",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N43"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:prime_weight_to_count",
+   "name": "prime_weight_to_count",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N44"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:plane_prime_count",
+   "name": "plane_prime_count",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "two_structure_coupling",
+   "join_type_v2": "two_structure_coupling",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N45"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:threshold_lemma",
+   "name": "threshold_lemma",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "assembly",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N46"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:two_height_core",
+   "name": "two_height_core",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "assembly",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N47"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:S_lower_bound",
+   "name": "S_lower_bound",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "quantitative_improvement",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "N48"
+  },
+  {
+   "key": "blueprint_1061_nodes.yaml:li_1061",
+   "name": "li_1061",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1061_nodes.yaml",
+   "id": "ROOT"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:olevskii_ulanovskii_prop_4_2",
+   "name": "olevskii_ulanovskii_prop_4_2",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "literature_import",
+   "join_type_v2": "literature_import",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N01"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:bernstein_vertical_growth",
+   "name": "bernstein_vertical_growth",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "literature_import",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N02"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:bernstein_real_sample_set_isClosed",
+   "name": "bernstein_real_sample_set_isClosed",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": "literature_import",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N03"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:exp_type_linear_comb",
+   "name": "exp_type_linear_comb",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N04"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:bernstein_affine_rescale",
+   "name": "bernstein_affine_rescale",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N05"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:complex_data_from_real",
+   "name": "complex_data_from_real",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N06"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:lemma32_rescale_params",
+   "name": "lemma32_rescale_params",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N07"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:lemma32_log_bound",
+   "name": "lemma32_log_bound",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N08"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:lemma32_choose_k",
+   "name": "lemma32_choose_k",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "quantitative_improvement",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N09"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:lemma32_distinct_core",
+   "name": "lemma32_distinct_core",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N10"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:coincident_nodes_obstruction",
+   "name": "coincident_nodes_obstruction",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N11"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:effective_finite_obstruction",
+   "name": "effective_finite_obstruction",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N12"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:real_symmetrization",
+   "name": "real_symmetrization",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N13"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:bernstein_real_sample_set_convex",
+   "name": "bernstein_real_sample_set_convex",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N14"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:finite_dim_point_separation",
+   "name": "finite_dim_point_separation",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N15"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:sign_from_separation",
+   "name": "sign_from_separation",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N16"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "name": "signs_prescribed_tolerance",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "two_structure_coupling",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N17"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:local_sign_obstruction",
+   "name": "local_sign_obstruction",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N18"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:norm_cos_le_exp_abs_im",
+   "name": "norm_cos_le_exp_abs_im",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N19"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:poly_cos_exp_type",
+   "name": "poly_cos_exp_type",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "two_structure_coupling",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N20"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:poly_cos_real_values",
+   "name": "poly_cos_real_values",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N21"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:arccos_node",
+   "name": "arccos_node",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N22"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:polynomial_to_bernstein",
+   "name": "polynomial_to_bernstein",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N23"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:finset_split_into_blocks",
+   "name": "finset_split_into_blocks",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N24"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:bucket_grouping",
+   "name": "bucket_grouping",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N25"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:bucket_interval",
+   "name": "bucket_interval",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N26"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:angular_groups",
+   "name": "angular_groups",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N27"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:disjoint_groups_card_le",
+   "name": "disjoint_groups_card_le",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "extremal_averaging",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N28"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:finite_degree_error_tradeoff",
+   "name": "finite_degree_error_tradeoff",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N29"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:theorem21_arithmetic",
+   "name": "theorem21_arithmetic",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": "estimate",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N30"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:theorem21_constants",
+   "name": "theorem21_constants",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "algebraic_identity",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N31"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:quantitative_robust_obstruction",
+   "name": "quantitative_robust_obstruction",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N32"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:match_error_complement",
+   "name": "match_error_complement",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "case_split",
+   "join_type_v2": "computation",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N33"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:qualitative_robust_obstruction",
+   "name": "qualitative_robust_obstruction",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": null,
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "N34"
+  },
+  {
+   "key": "blueprint_1133_nodes.yaml:erdos_1133",
+   "name": "erdos_1133",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": "assembly",
+   "join_type_v2": "assembly",
+   "blueprint": "blueprint_1133_nodes.yaml",
+   "id": "ROOT"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:cycleGraph_no_isolated",
+   "name": "cycleGraph_no_isolated",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N01"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:cycleGraph_edgeSet_ncard",
+   "name": "cycleGraph_edgeSet_ncard",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N02"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:isContained_top_of_card_le",
+   "name": "isContained_top_of_card_le",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N03"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:isContained_of_induce",
+   "name": "isContained_of_induce",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N04"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:isContained_compl_of_compl_induce",
+   "name": "isContained_compl_of_compl_induce",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N05"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:degree_sum_ncard",
+   "name": "degree_sum_ncard",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N06"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:card_le_two_mul_ncard",
+   "name": "card_le_two_mul_ncard",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N07"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:connected_card_le_ncard_add_one",
+   "name": "connected_card_le_ncard_add_one",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N08"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:ramsey_zero_edges",
+   "name": "ramsey_zero_edges",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N09"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:one_edge_isContained_of_adj",
+   "name": "one_edge_isContained_of_adj",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N10"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:ramsey_one_edge",
+   "name": "ramsey_one_edge",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N11"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "name": "cycle_of_closed_seq",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N12"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:cycle_of_path_in_nbhd",
+   "name": "cycle_of_path_in_nbhd",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N13"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:goddard_kleitman_sidorenko",
+   "name": "goddard_kleitman_sidorenko",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N14"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:step_triangle",
+   "name": "step_triangle",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N15"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:haggkvist",
+   "name": "haggkvist",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N16"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:haggkvist_parts",
+   "name": "haggkvist_parts",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N17"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:multipartite_parts",
+   "name": "multipartite_parts",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N18"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:embed_colored_into_parts",
+   "name": "embed_colored_into_parts",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N19"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:lemma5_path_coloring",
+   "name": "lemma5_path_coloring",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N20"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:cor6_path_ramsey",
+   "name": "cor6_path_ramsey",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N21"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:jayawardene_C4",
+   "name": "jayawardene_C4",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N22"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:jayawardene_C5",
+   "name": "jayawardene_C5",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N23"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:jayawardene_C6",
+   "name": "jayawardene_C6",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N24"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:ramsey_C5_K3",
+   "name": "ramsey_C5_K3",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N25"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:ramsey_C6_K3",
+   "name": "ramsey_C6_K3",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N26"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:ramsey_C6_K4",
+   "name": "ramsey_C6_K4",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N27"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:ramsey_C6_K5",
+   "name": "ramsey_C6_K5",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N28"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "name": "lemma4_small_cycles",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N29"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:claim8",
+   "name": "claim8",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N30"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:claim9",
+   "name": "claim9",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N31"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:lemma7",
+   "name": "lemma7",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N32"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:lemma7_bridge",
+   "name": "lemma7_bridge",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N33"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:exists_critical_vertex_set",
+   "name": "exists_critical_vertex_set",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N34"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:prop10",
+   "name": "prop10",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N35"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:exists_chromatic",
+   "name": "exists_chromatic",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N36"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:choose_ineq",
+   "name": "choose_ineq",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N37"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:sum_induced_edges_powersetCard",
+   "name": "sum_induced_edges_powersetCard",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N38"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:exists_sparse_half",
+   "name": "exists_sparse_half",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N39"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:ramsey_with_isolated",
+   "name": "ramsey_with_isolated",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N40"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:glue_components",
+   "name": "glue_components",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N41"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:split_of_not_connected",
+   "name": "split_of_not_connected",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N42"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:edge_split_of_closed",
+   "name": "edge_split_of_closed",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N43"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:induce_no_isolated_of_closed",
+   "name": "induce_no_isolated_of_closed",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N44"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:step_disconnected",
+   "name": "step_disconnected",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N45"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:extend_by_vertex",
+   "name": "extend_by_vertex",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N46"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:delete_vertex_edges",
+   "name": "delete_vertex_edges",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N47"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:delete_min_vertex_no_isolated",
+   "name": "delete_min_vertex_no_isolated",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N48"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:red_star_pigeonhole",
+   "name": "red_star_pigeonhole",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N49"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:exists_red_star",
+   "name": "exists_red_star",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N50"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:step_min_degree_one",
+   "name": "step_min_degree_one",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N51"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:S_size_bound",
+   "name": "S_size_bound",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N52"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:blue_clique_in_S",
+   "name": "blue_clique_in_S",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N53"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:gamma_bound",
+   "name": "gamma_bound",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N54"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:glue_clique_sparse",
+   "name": "glue_clique_sparse",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N55"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:final_arith",
+   "name": "final_arith",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N56"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:step_large_deg_two",
+   "name": "step_large_deg_two",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N57"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:step_connected_large",
+   "name": "step_connected_large",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N58"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:main_property",
+   "name": "main_property",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "N59"
+  },
+  {
+   "key": "blueprint_569_nodes.yaml:cambie_freschi",
+   "name": "cambie_freschi",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_569_nodes.yaml",
+   "id": "ROOT"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:graphRamsey_le_of_forall",
+   "name": "graphRamsey_le_of_forall",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N01"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:complete_isContained_compl_iff",
+   "name": "complete_isContained_compl_iff",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N02"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "name": "c4_free_common_nbrs",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N03"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:c4_free_nbhd_local_degree",
+   "name": "c4_free_nbhd_local_degree",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N04"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:greedy_indep_local",
+   "name": "greedy_indep_local",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N05"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:degree_lt_of_c4_free_indepSetFree",
+   "name": "degree_lt_of_c4_free_indepSetFree",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N06"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "name": "card_le_quadratic_of_c4_free",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N07"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:graphRamsey_le_of_c4_free_bound",
+   "name": "graphRamsey_le_of_c4_free_bound",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N08"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:graphRamsey_c4_le_quadratic",
+   "name": "graphRamsey_c4_le_quadratic",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N09"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:turan_weak",
+   "name": "turan_weak",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N10"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:exists_dense_core",
+   "name": "exists_dense_core",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N11"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:moore_bound_c4_free",
+   "name": "moore_bound_c4_free",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N12"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:core_near_extremal",
+   "name": "core_near_extremal",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N13"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:sparse_branch_arith",
+   "name": "sparse_branch_arith",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N14"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:dense_branch_arith",
+   "name": "dense_branch_arith",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N15"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "name": "c4_free_indep_power",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N16"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:rpow_inversion",
+   "name": "rpow_inversion",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N17"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "name": "card_le_power_of_c4_free",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N18"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:floor_succ_le_power",
+   "name": "floor_succ_le_power",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "N19"
+  },
+  {
+   "key": "blueprint_159_nodes.yaml:erdos_159",
+   "name": "erdos_159",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "blueprint_159_nodes.yaml",
+   "id": "ROOT"
+  },
+  {
+   "key": "start_569B_nodes.yaml:graphRamsey",
+   "name": "graphRamsey",
+   "kind": "planner",
+   "outcome": "absent",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "graphRamsey"
+  },
+  {
+   "key": "start_569B_nodes.yaml:graphRamsey_le_of_forall",
+   "name": "graphRamsey_le_of_forall",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "graphRamsey_le_of_forall"
+  },
+  {
+   "key": "start_569B_nodes.yaml:isEmpty_of_ncard_edgeSet_eq_zero",
+   "name": "isEmpty_of_ncard_edgeSet_eq_zero",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "isEmpty_of_ncard_edgeSet_eq_zero"
+  },
+  {
+   "key": "start_569B_nodes.yaml:cycleGraph_isContained_top",
+   "name": "cycleGraph_isContained_top",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "cycleGraph_isContained_top"
+  },
+  {
+   "key": "start_569B_nodes.yaml:isContained_of_ncard_edgeSet_eq_one",
+   "name": "isContained_of_ncard_edgeSet_eq_one",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "isContained_of_ncard_edgeSet_eq_one"
+  },
+  {
+   "key": "start_569B_nodes.yaml:core_one",
+   "name": "core_one",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "core_one"
+  },
+  {
+   "key": "start_569B_nodes.yaml:isContained_compl_of_comap",
+   "name": "isContained_compl_of_comap",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "isContained_compl_of_comap"
+  },
+  {
+   "key": "start_569B_nodes.yaml:isContained_of_extend",
+   "name": "isContained_of_extend",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "isContained_of_extend"
+  },
+  {
+   "key": "start_569B_nodes.yaml:cycleGraph_isContained_of_isClique",
+   "name": "cycleGraph_isContained_of_isClique",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "cycleGraph_isContained_of_isClique"
+  },
+  {
+   "key": "start_569B_nodes.yaml:exists_isClique_of_compl_degree_le",
+   "name": "exists_isClique_of_compl_degree_le",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "exists_isClique_of_compl_degree_le"
+  },
+  {
+   "key": "start_569B_nodes.yaml:star_isContained_of_le_degree",
+   "name": "star_isContained_of_le_degree",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "star_isContained_of_le_degree"
+  },
+  {
+   "key": "start_569B_nodes.yaml:core_star",
+   "name": "core_star",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "core_star"
+  },
+  {
+   "key": "start_569B_nodes.yaml:cycleGraph_isContained_of_compl_degree_lt",
+   "name": "cycleGraph_isContained_of_compl_degree_lt",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "cycleGraph_isContained_of_compl_degree_lt"
+  },
+  {
+   "key": "start_569B_nodes.yaml:isContained_of_ncard_edgeSet_eq_two",
+   "name": "isContained_of_ncard_edgeSet_eq_two",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "isContained_of_ncard_edgeSet_eq_two"
+  },
+  {
+   "key": "start_569B_nodes.yaml:core_two_nonstar",
+   "name": "core_two_nonstar",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "core_two_nonstar"
+  },
+  {
+   "key": "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "name": "core_ge_three_nonstar",
+   "kind": "planner",
+   "outcome": "open",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "core_ge_three_nonstar"
+  },
+  {
+   "key": "start_569B_nodes.yaml:core",
+   "name": "core",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "core"
+  },
+  {
+   "key": "start_569B_nodes.yaml:cambie_freschi",
+   "name": "cambie_freschi",
+   "kind": "planner",
+   "outcome": "proved",
+   "join_type": null,
+   "join_type_v2": null,
+   "blueprint": "start_569B_nodes.yaml",
+   "id": "cambie_freschi"
+  },
+  {
+   "key": "B3_569_A_full_hold:glue_components_aux",
+   "name": "glue_components_aux",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_569_A_full_hold",
+   "blueprint": "blueprint_569_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:cycleGraph_four_adj_cases",
+   "name": "cycleGraph_four_adj_cases",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:c4Copy",
+   "name": "c4Copy",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:card_lt_of_indepSetFree",
+   "name": "card_lt_of_indepSetFree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:indepSetFree_pos",
+   "name": "indepSetFree_pos",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:filter_univ_adj_eq",
+   "name": "filter_univ_adj_eq",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:card_filter_adj_le_degree",
+   "name": "card_filter_adj_le_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:sum_filter_adj_erase_le",
+   "name": "sum_filter_adj_erase_le",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:dense_core_aux",
+   "name": "dense_core_aux",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:sparse_case",
+   "name": "sparse_case",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_full_hold:dense_case",
+   "name": "dense_case",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_full_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_hold:c4_of_common_nbrs",
+   "name": "c4_of_common_nbrs",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_hold:greedy_indep_local_aux",
+   "name": "greedy_indep_local_aux",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_hold:card_lt_of_isIndepSet_of_indepSetFree",
+   "name": "card_lt_of_isIndepSet_of_indepSetFree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_hold:two_mul_le_of_markov",
+   "name": "two_mul_le_of_markov",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_hold:filter_card_le_erase_add",
+   "name": "filter_card_le_erase_add",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_hold:phi_le_phi_erase_add",
+   "name": "phi_le_phi_erase_add",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_hold:exists_dense_core_aux",
+   "name": "exists_dense_core_aux",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_hold",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_plain:card_filter_univ_adj",
+   "name": "card_filter_univ_adj",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_plain",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B3_159_H_none_plain:turan_arith",
+   "name": "turan_arith",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B3_159_H_none_plain",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B4_569_F_full_forced:lemma7_cycle_v",
+   "name": "lemma7_cycle_v",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B4_569_F_full_forced",
+   "blueprint": "blueprint_569_nodes.yaml"
+  },
+  {
+   "key": "B4_569_F_full_forced:lemma7_cycle_two",
+   "name": "lemma7_cycle_two",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B4_569_F_full_forced",
+   "blueprint": "blueprint_569_nodes.yaml"
+  },
+  {
+   "key": "B4_159_F_full_forced:nbhd_half_indep",
+   "name": "nbhd_half_indep",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B4_159_F_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B4_159_F_full_forced:empty_case_N13",
+   "name": "empty_case_N13",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B4_159_F_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B4_159_F_full_forced:exists_indep_sqrt",
+   "name": "exists_indep_sqrt",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B4_159_F_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B4_159_F_full_forced:exists_indep_moore",
+   "name": "exists_indep_moore",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B4_159_F_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B4_159_F_full_forced:two_nbhd_union",
+   "name": "two_nbhd_union",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B4_159_F_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:isContained_of_isClique_card_le",
+   "name": "isContained_of_isClique_card_le",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:isContained_of_induce_neighborSet",
+   "name": "isContained_of_induce_neighborSet",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:nonempty_of_ncard_edgeSet_ne_zero",
+   "name": "nonempty_of_ncard_edgeSet_ne_zero",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:cycleGraph_isContained_of_path",
+   "name": "cycleGraph_isContained_of_path",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:degree_add_compl_degree",
+   "name": "degree_add_compl_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:exists_embedding_of_le_card",
+   "name": "exists_embedding_of_le_card",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:isContained_compl_of_comap_neighbor",
+   "name": "isContained_compl_of_comap_neighbor",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:exists_disjoint_edges_or_triangle",
+   "name": "exists_disjoint_edges_or_triangle",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:exists_isPath_length",
+   "name": "exists_isPath_length",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:cycleGraph_isContained_of_common_neighbors",
+   "name": "cycleGraph_isContained_of_common_neighbors",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:isClique_compl_neighborFinset_of_no_triangle",
+   "name": "isClique_compl_neighborFinset_of_no_triangle",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:le_card_inter_neighborFinset",
+   "name": "le_card_inter_neighborFinset",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:exists_isClique_of_forall_common_neighbor",
+   "name": "exists_isClique_of_forall_common_neighbor",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:copyComplOfComap",
+   "name": "copyComplOfComap",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:copyComplOfComap_apply",
+   "name": "copyComplOfComap_apply",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:core_step_leaf",
+   "name": "core_step_leaf",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:ncard_edgeSet_induce_compl_leaf",
+   "name": "ncard_edgeSet_induce_compl_leaf",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:exists_adj_induce_compl_leaf",
+   "name": "exists_adj_induce_compl_leaf",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:card_le_ncard_edgeSet_of_two_le_degree",
+   "name": "card_le_ncard_edgeSet_of_two_le_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C12_full_forced:two_le_degree_of_exists",
+   "name": "two_le_degree_of_exists",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C12_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:card_le_two_mul_ncard_edgeSet",
+   "name": "card_le_two_mul_ncard_edgeSet",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:ncard_edgeSet_induce_compl_singleton",
+   "name": "ncard_edgeSet_induce_compl_singleton",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:card_compl_singleton'",
+   "name": "card_compl_singleton'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:degree_le_ncard_edgeSet",
+   "name": "degree_le_ncard_edgeSet",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:isContained_compl_of_extend_nbhd",
+   "name": "isContained_compl_of_extend_nbhd",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:cycleGraph_isContained_of_comap",
+   "name": "cycleGraph_isContained_of_comap",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:cycleGraph_isContained_of_isPath_adj_getVert",
+   "name": "cycleGraph_isContained_of_isPath_adj_getVert",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:degree_add_one_le_length_of_longest_path",
+   "name": "degree_add_one_le_length_of_longest_path",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:cycleGraph_isContained_of_two_chords",
+   "name": "cycleGraph_isContained_of_two_chords",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:two_mul_degree_le_of_longest_path",
+   "name": "two_mul_degree_le_of_longest_path",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:cycleGraph_isContained_of_compl_degree_lt'",
+   "name": "cycleGraph_isContained_of_compl_degree_lt'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:isContained_of_extend_edge",
+   "name": "isContained_of_extend_edge",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:core_matching",
+   "name": "core_matching",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:compl_adj_of_longest_path_of_notMem",
+   "name": "compl_adj_of_longest_path_of_notMem",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:isContained_of_closed_split",
+   "name": "isContained_of_closed_split",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:ncard_edgeSet_induce_add_ncard_edgeSet_induce_compl",
+   "name": "ncard_edgeSet_induce_add_ncard_edgeSet_induce_compl",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:isContained_of_induce_support",
+   "name": "isContained_of_induce_support",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:card_le_ncard_edgeSet_add_one_of_no_split",
+   "name": "card_le_ncard_edgeSet_add_one_of_no_split",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C36_full_forced:core_all_of_gap",
+   "name": "core_all_of_gap",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C36_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_mono",
+   "name": "core_mono",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_comap",
+   "name": "core_comap",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_embedding_into_finset",
+   "name": "exists_embedding_into_finset",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:ncard_edgeSet_induce_compl_singleton",
+   "name": "ncard_edgeSet_induce_compl_singleton",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_min_degree",
+   "name": "exists_min_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_max_degree",
+   "name": "exists_max_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:degree_induce_compl_singleton",
+   "name": "degree_induce_compl_singleton",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:degree_pos_induce_compl_singleton",
+   "name": "degree_pos_induce_compl_singleton",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:nonempty_of_ncard_edgeSet_pos",
+   "name": "nonempty_of_ncard_edgeSet_pos",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:degree_lt_ncard_of_not_star",
+   "name": "degree_lt_ncard_of_not_star",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_large_degree",
+   "name": "step_large_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:isContained_of_extend_edge",
+   "name": "isContained_of_extend_edge",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:ncard_edgeSet_induce_compl_pair",
+   "name": "ncard_edgeSet_induce_compl_pair",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:degree_pos_induce_compl_pair",
+   "name": "degree_pos_induce_compl_pair",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:card_compl_pair",
+   "name": "card_compl_pair",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_isolated_edge",
+   "name": "step_isolated_edge",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:leafFree",
+   "name": "leafFree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:mem_leafFree",
+   "name": "mem_leafFree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:not_leaf_of_adj",
+   "name": "not_leaf_of_adj",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:support_deleteIncidenceSet_subset_leafFree",
+   "name": "support_deleteIncidenceSet_subset_leafFree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:ncard_edgeSet_induce_leafFree",
+   "name": "ncard_edgeSet_induce_leafFree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:degree_pos_induce_leafFree",
+   "name": "degree_pos_induce_leafFree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:isContained_of_extend_leaves",
+   "name": "isContained_of_extend_leaves",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_leaves",
+   "name": "step_leaves",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue",
+   "name": "core_of_residue",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:isContained_of_isClique_card_le",
+   "name": "isContained_of_isClique_card_le",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:isContained_of_union",
+   "name": "isContained_of_union",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:ncard_edgeSet_induce_add_compl",
+   "name": "ncard_edgeSet_induce_add_compl",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:degree_pos_induce_closed",
+   "name": "degree_pos_induce_closed",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:card_le_two_mul_ncard_edgeSet",
+   "name": "card_le_two_mul_ncard_edgeSet",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:one_le_ncard_edgeSet_induce_closed",
+   "name": "one_le_ncard_edgeSet_induce_closed",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_disconnected",
+   "name": "step_disconnected",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_connected",
+   "name": "core_of_residue_connected",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:ncard_edgeSet_deleteEdges_singleton",
+   "name": "ncard_edgeSet_deleteEdges_singleton",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:degree_le_degree_deleteEdges_singleton_add_one",
+   "name": "degree_le_degree_deleteEdges_singleton_add_one",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:isContained_of_deleteEdges_adj",
+   "name": "isContained_of_deleteEdges_adj",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:eq_of_adj_of_degree_eq_one",
+   "name": "eq_of_adj_of_degree_eq_one",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_adj_two_le_degree",
+   "name": "exists_adj_two_le_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_isPath_of_forall_degree_ge",
+   "name": "exists_isPath_of_forall_degree_ge",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_isContained_of_isPath_apex",
+   "name": "cycleGraph_isContained_of_isPath_apex",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_isClique_of_forall_exists_low",
+   "name": "exists_isClique_of_forall_exists_low",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_red_degree",
+   "name": "core_of_red_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_connected'",
+   "name": "core_of_residue_connected'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:two_le_degree_of_adj_of_degree_one",
+   "name": "two_le_degree_of_adj_of_degree_one",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_leaf",
+   "name": "step_leaf",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_connected''",
+   "name": "core_of_residue_connected''",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_disconnected'",
+   "name": "step_disconnected'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_degree_eq_one_of_isTree",
+   "name": "exists_degree_eq_one_of_isTree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_forest",
+   "name": "core_forest",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cambie_freschi_of_isAcyclic",
+   "name": "cambie_freschi_of_isAcyclic",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_not_adj_of_not_isContained",
+   "name": "exists_not_adj_of_not_isContained",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:not_adj_of_not_isContained",
+   "name": "not_adj_of_not_isContained",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_final",
+   "name": "core_of_residue_final",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_many_red_of_cover",
+   "name": "exists_many_red_of_cover",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:residue_four",
+   "name": "residue_four",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_four",
+   "name": "core_four",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cambie_freschi_four",
+   "name": "cambie_freschi_four",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_common_red_of_residue",
+   "name": "exists_common_red_of_residue",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_final'",
+   "name": "core_of_residue_final'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_five_of_common_red_edge",
+   "name": "cycleGraph_five_of_common_red_edge",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:isContained_of_red_colorable",
+   "name": "isContained_of_red_colorable",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_six_of_three_apexes",
+   "name": "cycleGraph_six_of_three_apexes",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_final''",
+   "name": "core_of_residue_final''",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_of_common_red_path",
+   "name": "cycleGraph_of_common_red_path",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_union_bound",
+   "name": "step_union_bound",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_final'''",
+   "name": "core_of_residue_final'''",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_alternating_path",
+   "name": "exists_alternating_path",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_isContained_of_biclique",
+   "name": "cycleGraph_isContained_of_biclique",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:domination_of_residue",
+   "name": "domination_of_residue",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_four_of_common_red",
+   "name": "cycleGraph_four_of_common_red",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_matching_of_min_degree",
+   "name": "exists_matching_of_min_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:step_leaf_strong",
+   "name": "step_leaf_strong",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:layers_of_residue",
+   "name": "layers_of_residue",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_walk_of_seq",
+   "name": "exists_walk_of_seq",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_isContained_of_seq",
+   "name": "cycleGraph_isContained_of_seq",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:inducedOfDeleteEdge",
+   "name": "inducedOfDeleteEdge",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:inducedOfDeleteEdge_apply",
+   "name": "inducedOfDeleteEdge_apply",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:edge_domination_of_residue",
+   "name": "edge_domination_of_residue",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_of_isPath_two_apexes",
+   "name": "cycleGraph_of_isPath_two_apexes",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:four_le_card_of_residue",
+   "name": "four_le_card_of_residue",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:card_le_ncard_edgeSet_of_two_le_degree",
+   "name": "card_le_ncard_edgeSet_of_two_le_degree",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:four_le_ncard_of_residue",
+   "name": "four_le_ncard_of_residue",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:residue_three_sparse",
+   "name": "residue_three_sparse",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_odd_closed_walk_of_not_colorable",
+   "name": "exists_odd_closed_walk_of_not_colorable",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_isContained_of_isCycle",
+   "name": "cycleGraph_isContained_of_isCycle",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_of_two_paths_two_apexes",
+   "name": "cycleGraph_of_two_paths_two_apexes",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_pure",
+   "name": "core_of_residue_pure",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_pure'",
+   "name": "core_of_residue_pure'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_common_red_of_pure",
+   "name": "exists_common_red_of_pure",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:cycleGraph_four_of_pure",
+   "name": "cycleGraph_four_of_pure",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:exists_long_red_path_of_pure",
+   "name": "exists_long_red_path_of_pure",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:core_of_residue_pure''",
+   "name": "core_of_residue_pure''",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:layers_of_dom",
+   "name": "layers_of_dom",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B5_C108_full_forced:residue_four_pure",
+   "name": "residue_four_pure",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B5_C108_full_forced",
+   "blueprint": "start_569B_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:sigma_mul_coprime",
+   "name": "sigma_mul_coprime",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:sigma_prime_pow'",
+   "name": "sigma_prime_pow'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:sigma_prime'",
+   "name": "sigma_prime'",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:prime_gt_not_dvd_54000",
+   "name": "prime_gt_not_dvd_54000",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:prime_gt_not_dvd_111600",
+   "name": "prime_gt_not_dvd_111600",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:prime_gt_not_dvd_1828800",
+   "name": "prime_gt_not_dvd_1828800",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:pair_from_order",
+   "name": "pair_from_order",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:legendre_count",
+   "name": "legendre_count",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1061_A_full_probe:zero_set_card_le",
+   "name": "zero_set_card_le",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1061_A_full_probe",
+   "blueprint": "blueprint_1061_nodes.yaml"
+  },
+  {
+   "key": "B6_1133_A_full_probe:bucket_grouping_aux",
+   "name": "bucket_grouping_aux",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B6_1133_A_full_probe",
+   "blueprint": "blueprint_1133_nodes.yaml"
+  },
+  {
+   "key": "B7_159_none_plain_opus:c4_of_four",
+   "name": "c4_of_four",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B7_159_none_plain_opus",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B8_blindhold_full_forced:c4_free_indep_sparse",
+   "name": "c4_free_indep_sparse",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B8_blindhold_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B8_blindhold_full_forced:c4_free_indep_dense",
+   "name": "c4_free_indep_dense",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B8_blindhold_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B8_blindplain_full_forced:two_le_rpow_of_sixteen_le",
+   "name": "two_le_rpow_of_sixteen_le",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B8_blindplain_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B8_blindplain_full_forced:dense_degree_bound",
+   "name": "dense_degree_bound",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B8_blindplain_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  },
+  {
+   "key": "B8_blindplain_full_forced:core_size_bound",
+   "name": "core_size_bound",
+   "kind": "discovered",
+   "outcome": "proved",
+   "arm": "B8_blindplain_full_forced",
+   "blueprint": "blueprint_159_nodes.yaml"
+  }
+ ],
+ "edges": [
+  [
+   "B3_159_H_full_hold:c4Copy",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:c4Copy",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:card_filter_adj_le_degree",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:card_filter_adj_le_degree",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:card_lt_of_indepSetFree",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:card_lt_of_indepSetFree",
+   "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:card_lt_of_indepSetFree",
+   "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:card_lt_of_indepSetFree",
+   "blueprint_159_nodes.yaml:degree_lt_of_c4_free_indepSetFree",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:cycleGraph_four_adj_cases",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:cycleGraph_four_adj_cases",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:dense_case",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:dense_case",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:dense_core_aux",
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:dense_core_aux",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:filter_univ_adj_eq",
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:filter_univ_adj_eq",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:filter_univ_adj_eq",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:indepSetFree_pos",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:indepSetFree_pos",
+   "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:sparse_case",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "built_for"
+  ],
+  [
+   "B3_159_H_full_hold:sparse_case",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:sum_filter_adj_erase_le",
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "serves"
+  ],
+  [
+   "B3_159_H_full_hold:sum_filter_adj_erase_le",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:c4_of_common_nbrs",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:c4_of_common_nbrs",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:c4_of_common_nbrs",
+   "blueprint_159_nodes.yaml:moore_bound_c4_free",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:card_lt_of_isIndepSet_of_indepSetFree",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:card_lt_of_isIndepSet_of_indepSetFree",
+   "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:card_lt_of_isIndepSet_of_indepSetFree",
+   "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:card_lt_of_isIndepSet_of_indepSetFree",
+   "blueprint_159_nodes.yaml:degree_lt_of_c4_free_indepSetFree",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:exists_dense_core_aux",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:exists_dense_core_aux",
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:filter_card_le_erase_add",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:filter_card_le_erase_add",
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:greedy_indep_local_aux",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:greedy_indep_local_aux",
+   "blueprint_159_nodes.yaml:greedy_indep_local",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:phi_le_phi_erase_add",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:phi_le_phi_erase_add",
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_hold:two_mul_le_of_markov",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_hold:two_mul_le_of_markov",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_plain:card_filter_univ_adj",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_plain:card_filter_univ_adj",
+   "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_plain:card_filter_univ_adj",
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "serves"
+  ],
+  [
+   "B3_159_H_none_plain:turan_arith",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B3_159_H_none_plain:turan_arith",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "serves"
+  ],
+  [
+   "B3_569_A_full_hold:glue_components_aux",
+   "blueprint_569_nodes.yaml:glue_components",
+   "serves"
+  ],
+  [
+   "B3_569_A_full_hold:glue_components_aux",
+   "blueprint_569_nodes.yaml:ramsey_with_isolated",
+   "built_for"
+  ],
+  [
+   "B3_569_A_full_hold:glue_components_aux",
+   "blueprint_569_nodes.yaml:ramsey_with_isolated",
+   "serves"
+  ],
+  [
+   "B4_159_F_full_forced:empty_case_N13",
+   "blueprint_159_nodes.yaml:core_near_extremal",
+   "built_for"
+  ],
+  [
+   "B4_159_F_full_forced:exists_indep_moore",
+   "blueprint_159_nodes.yaml:core_near_extremal",
+   "built_for"
+  ],
+  [
+   "B4_159_F_full_forced:exists_indep_sqrt",
+   "blueprint_159_nodes.yaml:core_near_extremal",
+   "built_for"
+  ],
+  [
+   "B4_159_F_full_forced:nbhd_half_indep",
+   "blueprint_159_nodes.yaml:core_near_extremal",
+   "built_for"
+  ],
+  [
+   "B4_159_F_full_forced:two_nbhd_union",
+   "blueprint_159_nodes.yaml:core_near_extremal",
+   "built_for"
+  ],
+  [
+   "B4_569_F_full_forced:lemma7_cycle_two",
+   "blueprint_569_nodes.yaml:lemma7",
+   "built_for"
+  ],
+  [
+   "B4_569_F_full_forced:lemma7_cycle_two",
+   "blueprint_569_nodes.yaml:lemma7",
+   "serves"
+  ],
+  [
+   "B4_569_F_full_forced:lemma7_cycle_v",
+   "blueprint_569_nodes.yaml:lemma7",
+   "built_for"
+  ],
+  [
+   "B4_569_F_full_forced:lemma7_cycle_v",
+   "blueprint_569_nodes.yaml:lemma7",
+   "serves"
+  ],
+  [
+   "B5_C108_full_forced:cambie_freschi_four",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cambie_freschi_of_isAcyclic",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:card_compl_pair",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:card_le_ncard_edgeSet_of_two_le_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:card_le_two_mul_ncard_edgeSet",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_comap",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_forest",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_four",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_mono",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_of_red_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_of_residue",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_of_residue_connected",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_of_residue_final",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:core_of_residue_pure",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_five_of_common_red_edge",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_four_of_common_red",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_four_of_pure",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_isContained_of_biclique",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_isContained_of_isCycle",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_isContained_of_isPath_apex",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_isContained_of_seq",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_of_common_red_path",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_of_isPath_two_apexes",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_of_two_paths_two_apexes",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:cycleGraph_six_of_three_apexes",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:degree_induce_compl_singleton",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:degree_le_degree_deleteEdges_singleton_add_one",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:degree_lt_ncard_of_not_star",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:degree_pos_induce_closed",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:degree_pos_induce_compl_pair",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:degree_pos_induce_compl_singleton",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:degree_pos_induce_leafFree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:domination_of_residue",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:edge_domination_of_residue",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:eq_of_adj_of_degree_eq_one",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_adj_two_le_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_alternating_path",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_common_red_of_pure",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_common_red_of_residue",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_degree_eq_one_of_isTree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_embedding_into_finset",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_isClique_of_forall_exists_low",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_isPath_of_forall_degree_ge",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_long_red_path_of_pure",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_many_red_of_cover",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_matching_of_min_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_max_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_min_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_not_adj_of_not_isContained",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_odd_closed_walk_of_not_colorable",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:exists_walk_of_seq",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:four_le_card_of_residue",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:four_le_ncard_of_residue",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:inducedOfDeleteEdge",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:inducedOfDeleteEdge_apply",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:isContained_of_deleteEdges_adj",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:isContained_of_extend_edge",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:isContained_of_extend_leaves",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:isContained_of_isClique_card_le",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:isContained_of_red_colorable",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:isContained_of_union",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:layers_of_dom",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:layers_of_residue",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:leafFree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:mem_leafFree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:ncard_edgeSet_deleteEdges_singleton",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:ncard_edgeSet_induce_add_compl",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:ncard_edgeSet_induce_compl_pair",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:ncard_edgeSet_induce_compl_singleton",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:ncard_edgeSet_induce_leafFree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:nonempty_of_ncard_edgeSet_pos",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:not_adj_of_not_isContained",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:not_leaf_of_adj",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:one_le_ncard_edgeSet_induce_closed",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:residue_four",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:residue_four_pure",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:residue_three_sparse",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:step_disconnected",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:step_isolated_edge",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:step_large_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:step_leaf",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:step_leaf_strong",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:step_leaves",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:step_union_bound",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:support_deleteIncidenceSet_subset_leafFree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C108_full_forced:two_le_degree_of_adj_of_degree_one",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:card_le_ncard_edgeSet_of_two_le_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:copyComplOfComap",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:copyComplOfComap_apply",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:core_step_leaf",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:cycleGraph_isContained_of_common_neighbors",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:cycleGraph_isContained_of_path",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:degree_add_compl_degree",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:exists_adj_induce_compl_leaf",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:exists_disjoint_edges_or_triangle",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:exists_embedding_of_le_card",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:exists_isClique_of_forall_common_neighbor",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:exists_isPath_length",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:isClique_compl_neighborFinset_of_no_triangle",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:isContained_compl_of_comap_neighbor",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:isContained_of_induce_neighborSet",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:isContained_of_isClique_card_le",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:le_card_inter_neighborFinset",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:ncard_edgeSet_induce_compl_leaf",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:nonempty_of_ncard_edgeSet_ne_zero",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C12_full_forced:two_le_degree_of_exists",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:card_le_ncard_edgeSet_add_one_of_no_split",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:card_le_two_mul_ncard_edgeSet",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:compl_adj_of_longest_path_of_notMem",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:core_all_of_gap",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:core_matching",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:cycleGraph_isContained_of_comap",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:cycleGraph_isContained_of_isPath_adj_getVert",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:cycleGraph_isContained_of_two_chords",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:degree_add_one_le_length_of_longest_path",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:degree_le_ncard_edgeSet",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:isContained_compl_of_extend_nbhd",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:isContained_of_closed_split",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:isContained_of_extend_edge",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:isContained_of_induce_support",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:ncard_edgeSet_induce_add_ncard_edgeSet_induce_compl",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:ncard_edgeSet_induce_compl_singleton",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B5_C36_full_forced:two_mul_degree_le_of_longest_path",
+   "start_569B_nodes.yaml:core_ge_three_nonstar",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:legendre_count",
+   "blueprint_1061_nodes.yaml:coprime_density",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:legendre_count",
+   "blueprint_1061_nodes.yaml:coprime_density",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:pair_from_order",
+   "blueprint_1061_nodes.yaml:core_fiber_le_eight",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:pair_from_order",
+   "blueprint_1061_nodes.yaml:core_fiber_le_eight",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:prime_gt_not_dvd_111600",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:prime_gt_not_dvd_111600",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:prime_gt_not_dvd_1828800",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:prime_gt_not_dvd_1828800",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:prime_gt_not_dvd_54000",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:prime_gt_not_dvd_54000",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_mul_coprime",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_mul_coprime",
+   "blueprint_1061_nodes.yaml:multiplier_solution",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_mul_coprime",
+   "blueprint_1061_nodes.yaml:sigma_mul_two_primes",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_mul_coprime",
+   "blueprint_1061_nodes.yaml:sigma_values_triple",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_prime'",
+   "blueprint_1061_nodes.yaml:sigma_mul_two_primes",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_prime'",
+   "blueprint_1061_nodes.yaml:sigma_values_triple",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_prime_pow'",
+   "blueprint_1061_nodes.yaml:sigma_mul_two_primes",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:sigma_prime_pow'",
+   "blueprint_1061_nodes.yaml:sigma_values_triple",
+   "serves"
+  ],
+  [
+   "B6_1061_A_full_probe:zero_set_card_le",
+   "blueprint_1061_nodes.yaml:good_denominators",
+   "built_for"
+  ],
+  [
+   "B6_1061_A_full_probe:zero_set_card_le",
+   "blueprint_1061_nodes.yaml:nonzero_forms_count",
+   "serves"
+  ],
+  [
+   "B6_1133_A_full_probe:bucket_grouping_aux",
+   "blueprint_1133_nodes.yaml:bucket_grouping",
+   "built_for"
+  ],
+  [
+   "B6_1133_A_full_probe:bucket_grouping_aux",
+   "blueprint_1133_nodes.yaml:bucket_grouping",
+   "serves"
+  ],
+  [
+   "B7_159_none_plain_opus:c4_of_four",
+   "blueprint_159_nodes.yaml:FINAL",
+   "built_for"
+  ],
+  [
+   "B7_159_none_plain_opus:c4_of_four",
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "serves"
+  ],
+  [
+   "B8_blindhold_full_forced:c4_free_indep_dense",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "built_for"
+  ],
+  [
+   "B8_blindhold_full_forced:c4_free_indep_dense",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "serves"
+  ],
+  [
+   "B8_blindhold_full_forced:c4_free_indep_sparse",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "built_for"
+  ],
+  [
+   "B8_blindhold_full_forced:c4_free_indep_sparse",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "serves"
+  ],
+  [
+   "B8_blindplain_full_forced:core_size_bound",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "built_for"
+  ],
+  [
+   "B8_blindplain_full_forced:core_size_bound",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "serves"
+  ],
+  [
+   "B8_blindplain_full_forced:dense_degree_bound",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "built_for"
+  ],
+  [
+   "B8_blindplain_full_forced:dense_degree_bound",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "serves"
+  ],
+  [
+   "B8_blindplain_full_forced:two_le_rpow_of_sixteen_le",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "built_for"
+  ],
+  [
+   "B8_blindplain_full_forced:two_le_rpow_of_sixteen_le",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "serves"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:H_sum_bound",
+   "blueprint_1061_nodes.yaml:good_denominators",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:S_ge_card",
+   "blueprint_1061_nodes.yaml:S_lower_bound",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:S_lower_bound",
+   "blueprint_1061_nodes.yaml:li_1061",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:ap_product",
+   "blueprint_1061_nodes.yaml:singular_series_lower",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:archimedean_bounds",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:archimedean_bounds",
+   "blueprint_1061_nodes.yaml:region_bounds_int",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:beta_local",
+   "blueprint_1061_nodes.yaml:singular_series_lower",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:bienvenu_lemma12_singular_series",
+   "blueprint_1061_nodes.yaml:singular_series_lower",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:bienvenu_prop21_uniform",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:collision_line",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:coprime_density",
+   "blueprint_1061_nodes.yaml:S_lower_bound",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:core_fiber_le_eight",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:core_from_sextuple",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:determinant_table",
+   "blueprint_1061_nodes.yaml:fc_lattice",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:determinant_table",
+   "blueprint_1061_nodes.yaml:finite_complexity_real",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:fc_lattice",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:fc_lattice",
+   "blueprint_1061_nodes.yaml:singular_series_lower",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:finite_complexity_real",
+   "blueprint_1061_nodes.yaml:fc_lattice",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "blueprint_1061_nodes.yaml:core_from_sextuple",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:good_coprime",
+   "blueprint_1061_nodes.yaml:beta_local",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:good_coprime",
+   "blueprint_1061_nodes.yaml:local_away",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:good_coprime",
+   "blueprint_1061_nodes.yaml:local_denominator",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:good_coprime",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:good_coprime",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:good_denominators",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:integral_lift",
+   "blueprint_1061_nodes.yaml:fc_lattice",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:integral_lift",
+   "blueprint_1061_nodes.yaml:lattice_coords",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:integral_lift",
+   "blueprint_1061_nodes.yaml:local_away",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:integral_lift",
+   "blueprint_1061_nodes.yaml:local_denominator",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:integral_lift",
+   "blueprint_1061_nodes.yaml:onPlane_equations",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:integral_lift",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:integral_lift",
+   "blueprint_1061_nodes.yaml:region_bounds_int",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:large_prime_tail",
+   "blueprint_1061_nodes.yaml:parameter_sieve",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:lattice_coords",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:lattice_reduction",
+   "blueprint_1061_nodes.yaml:local_denominator",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:local_W",
+   "blueprint_1061_nodes.yaml:beta_local",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:local_away",
+   "blueprint_1061_nodes.yaml:beta_local",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:local_denominator",
+   "blueprint_1061_nodes.yaml:beta_local",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:local_density",
+   "blueprint_1061_nodes.yaml:parameter_sieve",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:local_witness",
+   "blueprint_1061_nodes.yaml:local_W",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:local_witness",
+   "blueprint_1061_nodes.yaml:projected_index",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:multiplier_disjoint",
+   "blueprint_1061_nodes.yaml:S_lower_bound",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:multiplier_solution",
+   "blueprint_1061_nodes.yaml:S_lower_bound",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:nonzero_forms_count",
+   "blueprint_1061_nodes.yaml:beta_local",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:onPlane_equations",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:parameter_sieve",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:planes_meet_once",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:prime_weight_to_count",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:projected_index",
+   "blueprint_1061_nodes.yaml:lattice_coords",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:projected_index",
+   "blueprint_1061_nodes.yaml:local_denominator",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:region_bounds_int",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:region_bounds_int",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:residue_blocks",
+   "blueprint_1061_nodes.yaml:parameter_sieve",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:ruling_plane_identity",
+   "blueprint_1061_nodes.yaml:onPlane_equations",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:shifted_product_identity",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:sigma_mul_two_primes",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:sigma_values_triple",
+   "blueprint_1061_nodes.yaml:friendly_triple_activation",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:singular_series_lower",
+   "blueprint_1061_nodes.yaml:plane_prime_count",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:sqfree_progression_count",
+   "blueprint_1061_nodes.yaml:good_denominators",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:threshold_lemma",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "blueprint_1061_nodes.yaml:S_lower_bound",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:union_card_bound",
+   "blueprint_1061_nodes.yaml:two_height_core",
+   "depends"
+  ],
+  [
+   "blueprint_1061_nodes.yaml:zero_form_criteria",
+   "blueprint_1061_nodes.yaml:local_away",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:angular_groups",
+   "blueprint_1133_nodes.yaml:finite_degree_error_tradeoff",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:arccos_node",
+   "blueprint_1133_nodes.yaml:angular_groups",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:arccos_node",
+   "blueprint_1133_nodes.yaml:polynomial_to_bernstein",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:bernstein_affine_rescale",
+   "blueprint_1133_nodes.yaml:lemma32_distinct_core",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:bernstein_real_sample_set_convex",
+   "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:bernstein_real_sample_set_isClosed",
+   "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:bernstein_vertical_growth",
+   "blueprint_1133_nodes.yaml:bernstein_real_sample_set_isClosed",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:bucket_grouping",
+   "blueprint_1133_nodes.yaml:angular_groups",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:bucket_interval",
+   "blueprint_1133_nodes.yaml:angular_groups",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:coincident_nodes_obstruction",
+   "blueprint_1133_nodes.yaml:effective_finite_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:complex_data_from_real",
+   "blueprint_1133_nodes.yaml:lemma32_distinct_core",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:disjoint_groups_card_le",
+   "blueprint_1133_nodes.yaml:finite_degree_error_tradeoff",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:effective_finite_obstruction",
+   "blueprint_1133_nodes.yaml:local_sign_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:exp_type_linear_comb",
+   "blueprint_1133_nodes.yaml:bernstein_real_sample_set_convex",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:exp_type_linear_comb",
+   "blueprint_1133_nodes.yaml:complex_data_from_real",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:exp_type_linear_comb",
+   "blueprint_1133_nodes.yaml:real_symmetrization",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:exp_type_linear_comb",
+   "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:finite_degree_error_tradeoff",
+   "blueprint_1133_nodes.yaml:quantitative_robust_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:finite_dim_point_separation",
+   "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:finset_split_into_blocks",
+   "blueprint_1133_nodes.yaml:bucket_grouping",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:lemma32_choose_k",
+   "blueprint_1133_nodes.yaml:effective_finite_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:lemma32_distinct_core",
+   "blueprint_1133_nodes.yaml:effective_finite_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:lemma32_log_bound",
+   "blueprint_1133_nodes.yaml:lemma32_distinct_core",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:lemma32_rescale_params",
+   "blueprint_1133_nodes.yaml:lemma32_distinct_core",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:local_sign_obstruction",
+   "blueprint_1133_nodes.yaml:quantitative_robust_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:match_error_complement",
+   "blueprint_1133_nodes.yaml:erdos_1133",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:norm_cos_le_exp_abs_im",
+   "blueprint_1133_nodes.yaml:poly_cos_exp_type",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:olevskii_ulanovskii_prop_4_2",
+   "blueprint_1133_nodes.yaml:lemma32_distinct_core",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:poly_cos_exp_type",
+   "blueprint_1133_nodes.yaml:polynomial_to_bernstein",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:poly_cos_real_values",
+   "blueprint_1133_nodes.yaml:polynomial_to_bernstein",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:polynomial_to_bernstein",
+   "blueprint_1133_nodes.yaml:finite_degree_error_tradeoff",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:qualitative_robust_obstruction",
+   "blueprint_1133_nodes.yaml:erdos_1133",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:quantitative_robust_obstruction",
+   "blueprint_1133_nodes.yaml:qualitative_robust_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:real_symmetrization",
+   "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:sign_from_separation",
+   "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:signs_prescribed_tolerance",
+   "blueprint_1133_nodes.yaml:local_sign_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:theorem21_arithmetic",
+   "blueprint_1133_nodes.yaml:quantitative_robust_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_1133_nodes.yaml:theorem21_constants",
+   "blueprint_1133_nodes.yaml:quantitative_robust_obstruction",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "blueprint_159_nodes.yaml:c4_free_nbhd_local_degree",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:c4_free_common_nbrs",
+   "blueprint_159_nodes.yaml:moore_bound_c4_free",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:c4_free_nbhd_local_degree",
+   "blueprint_159_nodes.yaml:degree_lt_of_c4_free_indepSetFree",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "blueprint_159_nodes.yaml:erdos_159",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "blueprint_159_nodes.yaml:graphRamsey_c4_le_quadratic",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:complete_isContained_compl_iff",
+   "blueprint_159_nodes.yaml:graphRamsey_le_of_c4_free_bound",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:core_near_extremal",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:degree_lt_of_c4_free_indepSetFree",
+   "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:dense_branch_arith",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:exists_dense_core",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:floor_succ_le_power",
+   "blueprint_159_nodes.yaml:erdos_159",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:graphRamsey_le_of_c4_free_bound",
+   "blueprint_159_nodes.yaml:erdos_159",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:graphRamsey_le_of_c4_free_bound",
+   "blueprint_159_nodes.yaml:graphRamsey_c4_le_quadratic",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:graphRamsey_le_of_forall",
+   "blueprint_159_nodes.yaml:graphRamsey_le_of_c4_free_bound",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:greedy_indep_local",
+   "blueprint_159_nodes.yaml:card_le_quadratic_of_c4_free",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:greedy_indep_local",
+   "blueprint_159_nodes.yaml:degree_lt_of_c4_free_indepSetFree",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:greedy_indep_local",
+   "blueprint_159_nodes.yaml:turan_weak",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:moore_bound_c4_free",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:rpow_inversion",
+   "blueprint_159_nodes.yaml:card_le_power_of_c4_free",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:sparse_branch_arith",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "depends"
+  ],
+  [
+   "blueprint_159_nodes.yaml:turan_weak",
+   "blueprint_159_nodes.yaml:c4_free_indep_power",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:S_size_bound",
+   "blueprint_569_nodes.yaml:step_connected_large",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:blue_clique_in_S",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:card_le_two_mul_ncard",
+   "blueprint_569_nodes.yaml:step_disconnected",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:choose_ineq",
+   "blueprint_569_nodes.yaml:exists_sparse_half",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:claim8",
+   "blueprint_569_nodes.yaml:claim9",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:claim8",
+   "blueprint_569_nodes.yaml:lemma7",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:claim9",
+   "blueprint_569_nodes.yaml:lemma7",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:connected_card_le_ncard_add_one",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:connected_card_le_ncard_add_one",
+   "blueprint_569_nodes.yaml:main_property",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:connected_card_le_ncard_add_one",
+   "blueprint_569_nodes.yaml:step_min_degree_one",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cor6_path_ramsey",
+   "blueprint_569_nodes.yaml:blue_clique_in_S",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cor6_path_ramsey",
+   "blueprint_569_nodes.yaml:step_min_degree_one",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycleGraph_edgeSet_ncard",
+   "blueprint_569_nodes.yaml:step_triangle",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycleGraph_no_isolated",
+   "blueprint_569_nodes.yaml:step_triangle",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:claim8",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:claim9",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:cycle_of_path_in_nbhd",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:lemma7",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:ramsey_C5_K3",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:ramsey_C6_K3",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:ramsey_C6_K4",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_closed_seq",
+   "blueprint_569_nodes.yaml:ramsey_C6_K5",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_path_in_nbhd",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:cycle_of_path_in_nbhd",
+   "blueprint_569_nodes.yaml:step_min_degree_one",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:degree_sum_ncard",
+   "blueprint_569_nodes.yaml:card_le_two_mul_ncard",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:degree_sum_ncard",
+   "blueprint_569_nodes.yaml:prop10",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:degree_sum_ncard",
+   "blueprint_569_nodes.yaml:step_connected_large",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:degree_sum_ncard",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:delete_min_vertex_no_isolated",
+   "blueprint_569_nodes.yaml:exists_red_star",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:delete_vertex_edges",
+   "blueprint_569_nodes.yaml:exists_red_star",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:edge_split_of_closed",
+   "blueprint_569_nodes.yaml:step_disconnected",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:embed_colored_into_parts",
+   "blueprint_569_nodes.yaml:lemma5_path_coloring",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:exists_chromatic",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:exists_critical_vertex_set",
+   "blueprint_569_nodes.yaml:prop10",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:exists_red_star",
+   "blueprint_569_nodes.yaml:step_connected_large",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:exists_sparse_half",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:extend_by_vertex",
+   "blueprint_569_nodes.yaml:exists_red_star",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:final_arith",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:gamma_bound",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:glue_clique_sparse",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:glue_components",
+   "blueprint_569_nodes.yaml:step_disconnected",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:goddard_kleitman_sidorenko",
+   "blueprint_569_nodes.yaml:main_property",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:goddard_kleitman_sidorenko",
+   "blueprint_569_nodes.yaml:step_triangle",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:haggkvist",
+   "blueprint_569_nodes.yaml:haggkvist_parts",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:haggkvist_parts",
+   "blueprint_569_nodes.yaml:multipartite_parts",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:induce_no_isolated_of_closed",
+   "blueprint_569_nodes.yaml:step_disconnected",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_compl_of_compl_induce",
+   "blueprint_569_nodes.yaml:gamma_bound",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_compl_of_compl_induce",
+   "blueprint_569_nodes.yaml:ramsey_with_isolated",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_compl_of_compl_induce",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_compl_of_compl_induce",
+   "blueprint_569_nodes.yaml:step_min_degree_one",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_of_induce",
+   "blueprint_569_nodes.yaml:haggkvist_parts",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_of_induce",
+   "blueprint_569_nodes.yaml:ramsey_with_isolated",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_of_induce",
+   "blueprint_569_nodes.yaml:step_disconnected",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_of_induce",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_top_of_card_le",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_top_of_card_le",
+   "blueprint_569_nodes.yaml:ramsey_one_edge",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:isContained_top_of_card_le",
+   "blueprint_569_nodes.yaml:step_triangle",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:jayawardene_C4",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:jayawardene_C5",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:jayawardene_C6",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "blueprint_569_nodes.yaml:main_property",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:lemma5_path_coloring",
+   "blueprint_569_nodes.yaml:cor6_path_ramsey",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:lemma5_path_coloring",
+   "blueprint_569_nodes.yaml:gamma_bound",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:lemma7",
+   "blueprint_569_nodes.yaml:lemma7_bridge",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:lemma7_bridge",
+   "blueprint_569_nodes.yaml:gamma_bound",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:main_property",
+   "blueprint_569_nodes.yaml:cambie_freschi",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:multipartite_parts",
+   "blueprint_569_nodes.yaml:lemma5_path_coloring",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:one_edge_isContained_of_adj",
+   "blueprint_569_nodes.yaml:ramsey_one_edge",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:prop10",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:ramsey_C5_K3",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:ramsey_C6_K3",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:ramsey_C6_K4",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:ramsey_C6_K5",
+   "blueprint_569_nodes.yaml:lemma4_small_cycles",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:ramsey_one_edge",
+   "blueprint_569_nodes.yaml:main_property",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:ramsey_with_isolated",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:ramsey_zero_edges",
+   "blueprint_569_nodes.yaml:main_property",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:red_star_pigeonhole",
+   "blueprint_569_nodes.yaml:exists_red_star",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:split_of_not_connected",
+   "blueprint_569_nodes.yaml:step_disconnected",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:step_connected_large",
+   "blueprint_569_nodes.yaml:main_property",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:step_disconnected",
+   "blueprint_569_nodes.yaml:main_property",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "blueprint_569_nodes.yaml:step_connected_large",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:step_min_degree_one",
+   "blueprint_569_nodes.yaml:step_connected_large",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:step_triangle",
+   "blueprint_569_nodes.yaml:step_large_deg_two",
+   "depends"
+  ],
+  [
+   "blueprint_569_nodes.yaml:sum_induced_edges_powersetCard",
+   "blueprint_569_nodes.yaml:exists_sparse_half",
+   "depends"
+  ]
+ ]
+}
