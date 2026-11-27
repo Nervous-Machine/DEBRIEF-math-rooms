@@ -1,0 +1,142 @@
+root: null
+nodes:
+- id: graphRamsey
+  name: graphRamsey
+  statement: "noncomputable def graphRamsey {α β : Type*} [Fintype α] [Fintype β]\n    (G : SimpleGraph α) (H : SimpleGraph\
+    \ β) : ℕ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: graphRamsey_le_of_forall
+  name: graphRamsey_le_of_forall
+  statement: "theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β]\n    (G : SimpleGraph α) (H : SimpleGraph\
+    \ β) (n : ℕ)\n    (h : ∀ C : SimpleGraph (Fin n), G.IsContained C ∨ H.IsContained Cᶜ) :\n    graphRamsey G H ≤ n := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: isEmpty_of_ncard_edgeSet_eq_zero
+  name: isEmpty_of_ncard_edgeSet_eq_zero
+  statement: "theorem isEmpty_of_ncard_edgeSet_eq_zero {W : Type} [Fintype W] (H : SimpleGraph W)\n    [DecidableRel H.Adj]\
+    \ (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 0) : IsEmpty W := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: cycleGraph_isContained_top
+  name: cycleGraph_isContained_top
+  statement: "theorem cycleGraph_isContained_top {k n : ℕ} (hkn : k ≤ n) :\n    (cycleGraph k).IsContained (⊤ : SimpleGraph\
+    \ (Fin n)) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: isContained_of_ncard_edgeSet_eq_one
+  name: isContained_of_ncard_edgeSet_eq_one
+  statement: "theorem isContained_of_ncard_edgeSet_eq_one {W V : Type*} [Fintype W] (H : SimpleGraph W)\n    [DecidableRel\
+    \ H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 1)\n    (G : SimpleGraph V) (a b : V) (hab : G.Adj a b) :\
+    \ H.IsContained G := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: core_one
+  name: core_one
+  statement: "theorem core_one (k n : ℕ) (hkn : k ≤ n) (W : Type) [Fintype W] (H : SimpleGraph W)\n    [DecidableRel H.Adj]\
+    \ (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 1)\n    (C : SimpleGraph (Fin n)) : (cycleGraph k).IsContained C\
+    \ ∨ H.IsContained Cᶜ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: isContained_compl_of_comap
+  name: isContained_compl_of_comap
+  statement: "theorem isContained_compl_of_comap {V V' W : Type*} (H : SimpleGraph W) (C : SimpleGraph V')\n    (e : V ↪ V')\
+    \ (h : H.IsContained (C.comap e)ᶜ) : H.IsContained Cᶜ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: isContained_of_extend
+  name: isContained_of_extend
+  statement: "theorem isContained_of_extend {W V : Type*} [DecidableEq W] (H : SimpleGraph W) (u : W)\n    (G : SimpleGraph\
+    \ V) (f : Copy (H.induce ({u}ᶜ : Set W)) G) (x : V) (hx : ∀ w, f w ≠ x)\n    (hadj : ∀ w : ({u}ᶜ : Set W), H.Adj u w →\
+    \ G.Adj x (f w)) : H.IsContained G := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: cycleGraph_isContained_of_isClique
+  name: cycleGraph_isContained_of_isClique
+  statement: "theorem cycleGraph_isContained_of_isClique {V : Type*} [Fintype V] (C : SimpleGraph V) (s : Finset V)\n    (hs\
+    \ : C.IsClique (s : Set V)) (k : ℕ) (hk : k ≤ s.card) : (cycleGraph k).IsContained C := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: exists_isClique_of_compl_degree_le
+  name: exists_isClique_of_compl_degree_le
+  statement: "theorem exists_isClique_of_compl_degree_le {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph V)\n   \
+    \ [DecidableRel C.Adj] (Δ : ℕ) (hΔ : ∀ v, Cᶜ.degree v ≤ Δ) (n : ℕ) :\n    ∀ s : Finset V, s.card ≤ n → ∃ t ⊆ s, C.IsClique\
+    \ (t : Set V) ∧ s.card ≤ (Δ + 1) * t.card := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: star_isContained_of_le_degree
+  name: star_isContained_of_le_degree
+  statement: "theorem star_isContained_of_le_degree {W V : Type*} [Fintype W] [DecidableEq W] [Fintype V]\n    [DecidableEq\
+    \ V] (H : SimpleGraph W) (v₀ : W) (hstar : ∀ a b, H.Adj a b → a = v₀ ∨ b = v₀)\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj] (x : V)\n    (hx : (Finset.univ.erase v₀).card ≤ G.degree x) : H.IsContained G := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: core_star
+  name: core_star
+  statement: "theorem core_star (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W)\n    [DecidableRel\
+    \ H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m)\n    (v₀ : W) (hstar : ∀ a b, H.Adj a b → a = v₀ ∨ b =\
+    \ v₀)\n    (C : SimpleGraph (Fin ((k - 1) * m + 1))) :\n    (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: cycleGraph_isContained_of_compl_degree_lt
+  name: cycleGraph_isContained_of_compl_degree_lt
+  statement: "theorem cycleGraph_isContained_of_compl_degree_lt (k m : ℕ) (hm1 : 1 ≤ m)\n    (C : SimpleGraph (Fin ((k - 1)\
+    \ * m + 1))) [DecidableRel C.Adj] (hdeg : ∀ x, Cᶜ.degree x < m) :\n    (cycleGraph k).IsContained C := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: isContained_of_ncard_edgeSet_eq_two
+  name: isContained_of_ncard_edgeSet_eq_two
+  statement: "theorem isContained_of_ncard_edgeSet_eq_two {W V : Type*} [Fintype W] (H : SimpleGraph W)\n    [DecidableRel\
+    \ H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 2)\n    (hns : ¬ ∃ v₀, ∀ a b, H.Adj a b → a = v₀ ∨ b = v₀)\n\
+    \    (G : SimpleGraph V) (p q r t : V) (hpq : G.Adj p q) (hrt : G.Adj r t)\n    (hpr : p ≠ r) (hpt : p ≠ t) (hqr : q ≠\
+    \ r) (hqt : q ≠ t) : H.IsContained G := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: core_two_nonstar
+  name: core_two_nonstar
+  statement: "theorem core_two_nonstar (k : ℕ) (hk : 3 ≤ k) (W : Type) [Fintype W] (H : SimpleGraph W)\n    [DecidableRel\
+    \ H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 2)\n    (hns : ¬ ∃ v₀, ∀ a b, H.Adj a b → a = v₀ ∨ b = v₀)\n\
+    \    (C : SimpleGraph (Fin ((k - 1) * 2 + 1))) :\n    (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: core_ge_three_nonstar
+  name: core_ge_three_nonstar
+  statement: "theorem core_ge_three_nonstar (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (hm3 : 3 ≤ m) (W : Type) [Fintype W]\n    (H : SimpleGraph\
+    \ W) [DecidableRel H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m)\n    (hns : ¬ ∃ v₀, ∀ a b, H.Adj a b →\
+    \ a = v₀ ∨ b = v₀)\n    (C : SimpleGraph (Fin ((k - 1) * m + 1))) [DecidableRel C.Adj] (hx : ∃ x, m ≤ Cᶜ.degree x) :\n\
+    \    (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: core
+  name: core
+  statement: "theorem core (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (hm1 : 1 ≤ m) (W : Type) [Fintype W] (H : SimpleGraph W)\n    [DecidableRel\
+    \ H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m)\n    (C : SimpleGraph (Fin ((k - 1) * m + 1))) :\n    (cycleGraph\
+    \ k).IsContained C ∨ H.IsContained Cᶜ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: cambie_freschi
+  name: cambie_freschi
+  statement: "theorem cambie_freschi (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W)\n    [DecidableRel\
+    \ H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) :\n    SimpleGraph.graphRamsey (SimpleGraph.cycleGraph\
+    \ k) H ≤ (k - 1) * m + 1 := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+notes: declarations of results/B3_569_B_full_noplan_hold/final.lean as nodes, for statement-change detection

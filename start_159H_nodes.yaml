@@ -1,0 +1,245 @@
+root: null
+nodes:
+- id: graphRamsey
+  name: graphRamsey
+  statement: "noncomputable def graphRamsey {α β : Type*} [Fintype α] [Fintype β]\n    (G : SimpleGraph α) (H : SimpleGraph\
+    \ β) : ℕ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: cycleGraph_four_adj_cases
+  name: cycleGraph_four_adj_cases
+  statement: "theorem cycleGraph_four_adj_cases (i j : Fin 4) (h : (SimpleGraph.cycleGraph 4).Adj i j) :\n    (i = 0 ∧ j =\
+    \ 1) ∨ (i = 1 ∧ j = 0) ∨ (i = 1 ∧ j = 2) ∨ (i = 2 ∧ j = 1) ∨\n    (i = 2 ∧ j = 3) ∨ (i = 3 ∧ j = 2) ∨ (i = 3 ∧ j = 0)\
+    \ ∨ (i = 0 ∧ j = 3) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: c4Copy
+  name: c4Copy
+  statement: "def c4Copy {V : Type*} (G : SimpleGraph V) {u a v b : V}\n    (hua : G.Adj u a) (hva : G.Adj v a) (hub : G.Adj\
+    \ u b) (hvb : G.Adj v b)\n    (huv : u ≠ v) (hab : a ≠ b) : SimpleGraph.Copy (SimpleGraph.cycleGraph 4) G where\n  toHom\
+    \ := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: card_lt_of_indepSetFree
+  name: card_lt_of_indepSetFree
+  statement: "theorem card_lt_of_indepSetFree {V : Type*} (G : SimpleGraph V) {n : ℕ} (hα : G.IndepSetFree n)\n    {t : Finset\
+    \ V} (ht : G.IsIndepSet (t : Set V)) : t.card < n := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: indepSetFree_pos
+  name: indepSetFree_pos
+  statement: "theorem indepSetFree_pos {V : Type*} (G : SimpleGraph V) {n : ℕ} (hα : G.IndepSetFree n) :\n    0 < n := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: graphRamsey_le_of_forall
+  name: graphRamsey_le_of_forall
+  statement: "theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β]\n    (G : SimpleGraph α) (H : SimpleGraph\
+    \ β) (N : ℕ)\n    (h : ∀ C : SimpleGraph (Fin N), G.IsContained C ∨ H.IsContained Cᶜ) :\n    SimpleGraph.graphRamsey G\
+    \ H ≤ N := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: complete_isContained_compl_iff
+  name: complete_isContained_compl_iff
+  statement: "theorem complete_isContained_compl_iff {V : Type*} (C : SimpleGraph V) (n : ℕ) :\n    (SimpleGraph.completeGraph\
+    \ (Fin n)).IsContained Cᶜ ↔ ¬ C.IndepSetFree n := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: c4_free_common_nbrs
+  name: c4_free_common_nbrs
+  statement: "theorem c4_free_common_nbrs {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel G.Adj]\n\
+    \    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {u v : V} (huv : u ≠ v) :\n    (G.neighborFinset u ∩ G.neighborFinset\
+    \ v).card ≤ 1 := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: c4_free_nbhd_local_degree
+  name: c4_free_nbhd_local_degree
+  statement: "theorem c4_free_nbhd_local_degree {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (v w : V) (hw : G.Adj v w) :\n    ((G.neighborFinset v).filter\
+    \ (G.Adj w)).card ≤ 1 := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: greedy_indep_local
+  name: greedy_indep_local
+  statement: "theorem greedy_indep_local {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel G.Adj]\
+    \ (s : Finset V) (D : ℕ)\n    (hD : ∀ v ∈ s, (s.filter (G.Adj v)).card ≤ D) :\n    ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧\
+    \ s.card ≤ (D + 1) * t.card := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: degree_lt_of_c4_free_indepSetFree
+  name: degree_lt_of_c4_free_indepSetFree
+  statement: "theorem degree_lt_of_c4_free_indepSetFree {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {n : ℕ} (hα : G.IndepSetFree n) (v : V) :\n    G.degree\
+    \ v < 2 * n := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: card_le_quadratic_of_c4_free
+  name: card_le_quadratic_of_c4_free
+  statement: "theorem card_le_quadratic_of_c4_free {N n : ℕ} (G : SimpleGraph (Fin N)) [DecidableRel G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph\
+    \ 4).IsContained G) (hα : G.IndepSetFree n) :\n    N ≤ 2 * n * n := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: graphRamsey_le_of_c4_free_bound
+  name: graphRamsey_le_of_c4_free_bound
+  statement: "theorem graphRamsey_le_of_c4_free_bound (n N : ℕ)\n    (h : ∀ G : SimpleGraph (Fin N), ¬ (SimpleGraph.cycleGraph\
+    \ 4).IsContained G → ¬ G.IndepSetFree n) :\n    SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph\
+    \ (Fin n)) ≤ N := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: graphRamsey_c4_le_quadratic
+  name: graphRamsey_c4_le_quadratic
+  statement: "theorem graphRamsey_c4_le_quadratic (n : ℕ) :\n    SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph\
+    \ (Fin n)) ≤ 2 * n * n + 1 := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: filter_univ_adj_eq
+  name: filter_univ_adj_eq
+  statement: "theorem filter_univ_adj_eq {V : Type*} [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj]\n    (v : V) : Finset.univ.filter\
+    \ (G.Adj v) = G.neighborFinset v := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: card_filter_adj_le_degree
+  name: card_filter_adj_le_degree
+  statement: "theorem card_filter_adj_le_degree {V : Type*} [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj]\n    (s :\
+    \ Finset V) (v : V) : (s.filter (G.Adj v)).card ≤ G.degree v := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: turan_weak
+  name: turan_weak
+  statement: "theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] :\n    ∃\
+    \ t : Finset V, G.IsIndepSet (t : Set V) ∧\n      Fintype.card V ^ 2 ≤ 2 * (4 * G.edgeFinset.card + Fintype.card V) *\
+    \ t.card := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: sum_filter_adj_erase_le
+  name: sum_filter_adj_erase_le
+  statement: "theorem sum_filter_adj_erase_le {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V)\n    [DecidableRel\
+    \ G.Adj] (s : Finset V) {v : V} (hv : v ∈ s) :\n    ∑ u ∈ s, (s.filter (G.Adj u)).card\n      ≤ ∑ u ∈ s.erase v, ((s.erase\
+    \ v).filter (G.Adj u)).card + 2 * (s.filter (G.Adj v)).card := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: dense_core_aux
+  name: dense_core_aux
+  statement: "theorem dense_core_aux {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V)\n    [DecidableRel G.Adj]\
+    \ (d : ℕ) (s : Finset V) (hs : s.Nonempty)\n    (hσ : 2 * d * s.card ≤ ∑ v ∈ s, (s.filter (G.Adj v)).card) :\n    ∃ s'\
+    \ : Finset V, s' ⊆ s ∧ s'.Nonempty ∧ ∀ v ∈ s', d ≤ (s'.filter (G.Adj v)).card := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: exists_dense_core
+  name: exists_dense_core
+  statement: "theorem exists_dense_core {V : Type*} [Fintype V] [DecidableEq V] [Nonempty V]\n    (G : SimpleGraph V) [DecidableRel\
+    \ G.Adj] (d : ℕ)\n    (hd : d * Fintype.card V ≤ G.edgeFinset.card) :\n    ∃ s : Finset V, s.Nonempty ∧ ∀ v ∈ s, d ≤ (s.filter\
+    \ (G.Adj v)).card := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: moore_bound_c4_free
+  name: moore_bound_c4_free
+  statement: "theorem moore_bound_c4_free {V : Type*} [Fintype V] [DecidableEq V]\n    (G : SimpleGraph V) [DecidableRel G.Adj]\n\
+    \    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) (d : ℕ) (hs : s.Nonempty)\n    (hmin : ∀ v ∈ s,\
+    \ d ≤ (s.filter (G.Adj v)).card) :\n    d * d ≤ 2 * s.card := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: core_near_extremal
+  name: core_near_extremal
+  statement: "theorem core_near_extremal :\n    ∃ δ η : ℝ, 0 < δ ∧ δ ≤ 1 / 8 ∧ 4 * δ ≤ η ∧ ∀ κ : ℝ, 0 < κ → ∃ K : ℝ, 0 < K\
+    \ ∧\n      ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (s : Finset V),\n       \
+    \ ¬ (SimpleGraph.cycleGraph 4).IsContained G →\n        (∀ v ∈ s, κ * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj\
+    \ v)).card : ℝ)) →\n        ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card : ℝ) :=\
+    \ by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: sparse_branch_arith
+  name: sparse_branch_arith
+  statement: "theorem sparse_branch_arith (δ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 2) (N E t : ℝ) (hN : 1 ≤ N)\n    (hE0 : 0 ≤\
+    \ E) (hE : E ≤ N ^ ((3 : ℝ) / 2 - δ)) (ht : N ^ 2 ≤ 2 * (4 * E + N) * t) :\n    N ^ ((1 : ℝ) / 2 + δ) ≤ 10 * t := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: dense_branch_arith
+  name: dense_branch_arith
+  statement: "theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK : 0 < K)\n    (N\
+    \ M : ℝ) (hN : 1 ≤ N) (hM : 0 ≤ M) (hNM : N ^ (1 - 2 * δ) ≤ 8 * M) :\n    K * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) * N ^ ((1\
+    \ : ℝ) / 2 + η / 2) ≤ K * M ^ ((1 : ℝ) / 2 + η) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: sparse_case
+  name: sparse_case
+  statement: "theorem sparse_case (δ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 2) (N : ℕ) (hN : 1 ≤ N)\n    (G : SimpleGraph (Fin N))\
+    \ [DecidableRel G.Adj]\n    (hE : (G.edgeFinset.card : ℝ) ≤ (N : ℝ) ^ ((3 : ℝ) / 2 - δ)) :\n    ∃ t : Finset (Fin N),\
+    \ G.IsIndepSet (t : Set (Fin N)) ∧\n      (1 / 10 : ℝ) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (t.card : ℝ) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: dense_case
+  name: dense_case
+  statement: "theorem dense_case (δ η K₁ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK₁ : 0 < K₁)\n    (h13 : ∀\
+    \ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]\n        (s : Finset V),\n        ¬\
+    \ (SimpleGraph.cycleGraph 4).IsContained G →\n        (∀ v ∈ s, (1 / 2 : ℝ) * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter\
+    \ (G.Adj v)).card : ℝ)) →\n        ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K₁ * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card\
+    \ : ℝ))\n    (N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel G.Adj]\n    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained\
+    \ G)\n    (hN2 : (2 : ℝ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 - δ))\n    (hE : (N : ℝ) ^ ((3 : ℝ) / 2 - δ) < (G.edgeFinset.card :\
+    \ ℝ)) :\n    ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧\n      K₁ * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) * (N :\
+    \ ℝ) ^ ((1 : ℝ) / 2 + η / 2) ≤ (t.card : ℝ) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: c4_free_indep_power
+  name: c4_free_indep_power
+  statement: "theorem c4_free_indep_power :\n    ∃ ε K : ℝ, 0 < ε ∧ 0 < K ∧ ∀ (N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel\
+    \ G.Adj],\n      ¬ (SimpleGraph.cycleGraph 4).IsContained G →\n      ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin\
+    \ N)) ∧ K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (t.card : ℝ) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: rpow_inversion
+  name: rpow_inversion
+  statement: "theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ N) (hx : 0 ≤ x)\n    (h : K * N ^ ((1\
+    \ : ℝ) / 2 + ε) ≤ x) :\n    N ≤ K ^ (-(2 / (1 + 2 * ε))) * x ^ (2 - 4 * ε / (1 + 2 * ε)) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: card_le_power_of_c4_free
+  name: card_le_power_of_c4_free
+  statement: "theorem card_le_power_of_c4_free :\n    ∃ c C : ℝ, 0 < c ∧ c ≤ 2 ∧ 0 ≤ C ∧ ∀ (n N : ℕ) (G : SimpleGraph (Fin\
+    \ N)) [DecidableRel G.Adj], 1 ≤ n →\n      ¬ (SimpleGraph.cycleGraph 4).IsContained G → G.IndepSetFree n → (N : ℝ) ≤ C\
+    \ * (n : ℝ) ^ (2 - c) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: floor_succ_le_power
+  name: floor_succ_le_power
+  statement: "theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ) (hn : 1 ≤ n)\n    (hx : x ≤ C * (n\
+    \ : ℝ) ^ (2 - c)) :\n    ((⌊x⌋₊ + 1 : ℕ) : ℝ) ≤ (C + 1) * (n : ℝ) ^ (2 - c) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+- id: erdos_159
+  name: erdos_159
+  statement: "theorem erdos_159 :\n    ∃ (c : ℝ) (_ : 0 < c) (C : ℝ),\n      ∀ (n : ℕ), 1 ≤ n →\n        (SimpleGraph.graphRamsey\
+    \ (SimpleGraph.cycleGraph 4)\n          (SimpleGraph.completeGraph (Fin n)) : ℝ) ≤ C * (n : ℝ) ^ (2 - c) := by"
+  depends_on: []
+  kind: leaf
+  join_type: null
+notes: declarations of results/B3_159_H_full_hold/final.lean as nodes, for statement-change detection
