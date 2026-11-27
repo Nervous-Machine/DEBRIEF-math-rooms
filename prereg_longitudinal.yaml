@@ -1,0 +1,49 @@
+# Standing pre-registration, "longitudinal-rerun": the same arms under each new searcher model. Written 2026-11-27T19:04Z,
+# BEFORE any new model is available in the harness. This body is never edited; each rerun appends an amendment and
+# files its own cycles. The point: Heidi Bennett's claim (2026-11-27) that as capability grows the variables change
+# and the equation remains. That is testable only if the arms and the predictions are fixed now.
+#
+# The equation as registered (trace/ROOMS-8.md and the conversation of 2026-11-27): a model draws a structure from its
+# distribution D; at each hinge, search under a budget with an evaluator returns closed or a named residual; a
+# residual closes by more depth when reach was misjudged, by a human route when the hinge is outside D, or stays when
+# it is outside both; without the evaluator the same search returns a fit. As D moves, hinges flip; the register holds
+# the residual set so the movement can be measured.
+
+mission: rooms-2026-11
+cycle: "longitudinal-rerun"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)"
+dated: "2026-11-27"
+trigger: "a searcher model newer than Claude Fable 5.1 or Claude Opus 5.5 becomes available in the harness; each such model is one rerun, filed as its own set of data cycles under this registration"
+
+arms_to_rerun:                 # same start files, same briefs, same caps, same Mathlib pin ccbef15e, fresh contexts
+  - {arm: B4_569_F_full_forced, what: "Lemma 7, forced; flipped at attempt 1 by Fable 5.1"}
+  - {arm: B5_C12_full_forced, what: "the paper's core of 569 at cap 12; did not flip at 108"}
+  - {arm: B4_159_F_full_forced, what: "the open core of 159, forced; did not flip"}
+  - {arm: B3_569_B_full_noplan_hold, what: "569 from the statement alone, hold rule"}
+  - {arm: B6_1061_A_full_probe, what: "Li's rooms under the probe rule; 32 of 46 non-literature rooms closed"}
+  - {arm: B6_1061_B_full_noplan, what: "1061 from the statement alone"}
+  - {arm: B7_569_full_incentive, what: "the 569 core under the brief that credits only completion"}
+  - {arm: B3_159_H_none_plain, what: "159 blind under the plain brief (hedging signature)"}
+
+classification_of_each_flip:   # read by the registrar from the final file and notes, labelled as a reading
+  route_entered_D: "the statement-only arm reproduces the paper's distinctive move with no paper"
+  foundation_grew: "a literature-import room closes by citing a lemma absent at the pin (cannot happen under the fixed pin; recorded if the pin is ever moved)"
+  generator_widened: "an estimate or coupling room closes with helper structure that is not the paper's and was not in the blueprint"
+
+predictions:                   # for the first rerun with a newer searcher model
+  - {id: L1, says: "the residual set shrinks: at least one room that did not close for Fable 5.1 closes, and no room that closed stays open"}
+  - {id: L2, says: "estimate-type rooms (v2 consensus) flip before coupling-type rooms: the fraction of newly closed rooms typed estimate exceeds the fraction typed two_structure_coupling"}
+  - {id: L3, says: "the searcher's reach estimate stays miscalibrated: at least one room it declares out of reach in a hold arm closes when forced in the same rerun"}
+  - {id: L4, says: "fit_total stays 0 in every arm with a checker, including the incentive arm"}
+  - {id: L5, says: "the open core of 159 does not close"}
+  - {id: L6, says: "under the fixed Mathlib pin no literature-import room closes"}
+  - {id: L7, says: "the blind plain arm still carries first-combinator hedges (at least one)"}
+  - {id: L8, says: "the 569 paper's core (B5_C12) does not close at cap 12 with the next model either; if it does, the flip is classified by signature and the signature is recorded before the atlas is updated"}
+
+falsifiers: >
+  L1 failing (nothing new closes) means the model did not move D on these hinges; L4 failing is the fit appearing with
+  capability, which changes the reading of every earlier build; L2 failing means the type does not predict which hinges
+  flip first and the prior built on it is wrong.
+
+instruments: "those of builds 3 to 9 at the commits of their registrations; the discovered-rooms extractor records the rooms each flip creates"

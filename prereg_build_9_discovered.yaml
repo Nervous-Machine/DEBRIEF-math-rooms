@@ -1,0 +1,61 @@
+# Pre-registration, cycle "discovered-2026-11-27": build 9a, the discovered-rooms extractor over every arm with a
+# reference structure. Written 2026-11-27T19:04Z, BEFORE the full run. Amendments are appended below a marker line;
+# this body is never edited and ends before any amendments key.
+#
+# Occasion. Heidi Bennett (2026-11-27): how does training flip a hinge, and does a flip leave residuals that point to
+# missing rooms? The atlas records the planner's rooms and their outcomes; it does not record the rooms a searcher
+# created to make a hinge flip, or built around a hinge that did not. Those helpers are the trail a flip leaves and
+# the shape of a residual that did not close. This cycle indexes them.
+#
+# Definition. A discovered room is a declaration in an arm's scored final file that is not in the arm's reference
+# structure and not a Challenge-header definition. The reference is the planner's blueprint for arms that began from
+# the Challenge, and the start file for arms that began from an earlier arm's file (so that only the rooms new to that
+# arm count). Each discovered room records which reference rooms it serves, read transitively from name mentions in
+# file order, whether it was sorry-free at FINAL, and its statement.
+#
+# Disclosure. One development run on B4_569_F_full_forced with the blueprint as reference returned 3 discovered rooms
+# (two serving lemma7, one inherited helper from the parent arm serving glue_components); that run is not data and the
+# arm is re-run below with the start file as reference.
+
+mission: rooms-2026-11
+cycle: "discovered-2026-11-27"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)"
+dated: "2026-11-27"
+question: >
+  Where do searchers create rooms the planner did not draw: at the hinges that flipped, at the hinges that did not, or
+  both; do they survive to FINAL; and do the same discovered rooms recur across arms of the same target?
+
+arms_and_references:
+  - {arm: B3_569_A_full_hold, reference: blueprint_569_nodes.yaml}
+  - {arm: B3_159_H_full_hold, reference: blueprint_159_nodes.yaml}
+  - {arm: B3_159_H_none_hold, reference: blueprint_159_nodes.yaml}
+  - {arm: B3_159_H_none_plain, reference: blueprint_159_nodes.yaml}
+  - {arm: B4_569_F_full_forced, reference: start results/B3_569_A_full_hold/final.lean}
+  - {arm: B4_159_F_full_forced, reference: start results/B3_159_H_full_hold/final.lean}
+  - {arm: B5_C12_full_forced, reference: start results/B3_569_B_full_noplan_hold/final.lean}
+  - {arm: B5_C36_full_forced, reference: start results/B3_569_B_full_noplan_hold/final.lean}
+  - {arm: B5_C108_full_forced, reference: start results/B3_569_B_full_noplan_hold/final.lean}
+  - {arm: B6_1061_A_full_probe, reference: blueprint_1061_nodes.yaml}
+  - {arm: B6_1133_A_full_probe, reference: blueprint_1133_nodes.yaml}
+  - {arm: B7_159_none_plain_opus, reference: blueprint_159_nodes.yaml}
+  - {arm: B8_blindhold_full_forced, reference: start results/B3_159_H_none_hold/final.lean}
+  - {arm: B8_blindplain_full_forced, reference: start results/B3_159_H_none_plain/work/Erdos159.lean}
+excluded_arms: "arms with no reference structure (the statement-only arms B3_569_B, B6_1061_B, B6_1133_B, where every lemma is the searcher's own route) and the incentive arms (files byte-identical to their starts)"
+
+predictions:
+  - {id: P1, says: "of the seven forced rooms that closed in builds 4 and 8, at least four have at least one discovered room serving them (flips leave rooms); the two slips (turan_weak, floor_succ_le_power) have none"}
+  - {id: P2, says: "discovered rooms concentrate where the hinge did not close: the build 5 arms' discovered rooms serving core_ge_three_nonstar outnumber all discovered rooms serving closed forced rooms in builds 4 and 8 combined"}
+  - {id: P3, says: "at least 85 percent of discovered rooms across all arms are sorry-free at FINAL"}
+  - {id: P4, says: "at least one pair of discovered rooms from different arms of the same target scores at least 0.9 under rooms/match.py (the same room rediscovered)"}
+  - {id: P5, says: "in the two build 6 probe arms, discovered rooms number fewer than one quarter of the blueprint's rooms (the typed blueprints were fine-grained enough)"}
+  - {id: P6, says: "the mis-drawn room N34 of 1061 has no discovered room serving it"}
+
+falsifiers: >
+  P2 failing means searchers scaffold flipped hinges as much as blocked ones and the count does not point at the
+  residual; P4 failing means discovered rooms are arm-specific and the atlas cannot learn from them across runs.
+
+instruments:
+  extractor: {path: rooms/discovered.py, sha256: "d4c90cf4362f893d8d627d93059e9c9a7a75b77073147478bf013c366e8401b1", new: true}
+  matcher: {path: rooms/match.py, sha256: "1fbbfeabc910ac9327d8a6f671cea0f0a2159d8f6131a01b0e4068001d883306", use: "P4, on the discovered rooms' statements"}
+  output: "results/<ARM>/discovered.yaml per arm; atlas/discovered.yaml merged"
