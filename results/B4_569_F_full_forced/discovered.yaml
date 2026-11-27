@@ -1,0 +1,35 @@
+arm: B4_569_F_full_forced
+reference: start:results/B3_569_A_full_hold/final.lean
+discovered:
+- arm: B4_569_F_full_forced
+  reference: start:results/B3_569_A_full_hold/final.lean
+  name: lemma7_cycle_v
+  kind: theorem
+  statement: 'theorem lemma7_cycle_v {V : Type} (C : SimpleGraph V) (k : ℕ) (v : V) (w u : ℕ → V) (hw : Set.InjOn
+    w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i,
+    i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) (a b p q
+    : ℕ) (hab : a < b) (hbk : b ≤ k) (hpq : p < q) (hqa : q < a) (hlen : k = (b - a) + (q - p) + 6) (hub : u b =
+    u p) (hab'' : u a ≠ u b) (hbq : u b ≠ u q) (haq : u a ≠ u q) : (SimpleGraph.cycleGraph k).IsContained C'
+  own_lines: 98
+  sorry_free_at_final: true
+  serves:
+  - lemma7
+  built_for: lemma7
+  serves_outcome:
+    lemma7: proved
+- arm: B4_569_F_full_forced
+  reference: start:results/B3_569_A_full_hold/final.lean
+  name: lemma7_cycle_two
+  kind: theorem
+  statement: 'theorem lemma7_cycle_two {V : Type} (C : SimpleGraph V) (k : ℕ) (w u : ℕ → V) (hw : Set.InjOn w (Set.Iic
+    k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (huw : ∀ i, i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i
+    ≤ k → j ≤ k → u i ≠ w j) (a b p q : ℕ) (hab : a < b) (hbp : b < p) (hpq : p < q) (hqk : q ≤ k) (hlen : k = (b
+    - a) + (q - p) + 4) (hub : u b = u p) (huq : u q = u a) (hab'' : u a ≠ u b) : (SimpleGraph.cycleGraph k).IsContained
+    C'
+  own_lines: 67
+  sorry_free_at_final: true
+  serves:
+  - lemma7
+  built_for: lemma7
+  serves_outcome:
+    lemma7: proved

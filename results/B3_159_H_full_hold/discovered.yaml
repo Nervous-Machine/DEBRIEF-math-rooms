@@ -1,0 +1,147 @@
+arm: B3_159_H_full_hold
+reference: blueprint:blueprint_159_nodes.yaml
+discovered:
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: cycleGraph_four_adj_cases
+  kind: theorem
+  statement: 'theorem cycleGraph_four_adj_cases (i j : Fin 4) (h : (SimpleGraph.cycleGraph 4).Adj i j) : (i = 0
+    ∧ j = 1) ∨ (i = 1 ∧ j = 0) ∨ (i = 1 ∧ j = 2) ∨ (i = 2 ∧ j = 1) ∨ (i = 2 ∧ j = 3) ∨ (i = 3 ∧ j = 2) ∨ (i = 3
+    ∧ j = 0) ∨ (i = 0 ∧ j = 3)'
+  own_lines: 7
+  sorry_free_at_final: true
+  serves:
+  - c4_free_common_nbrs
+  built_for: c4_free_common_nbrs
+  serves_outcome:
+    c4_free_common_nbrs: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: c4Copy
+  kind: def
+  statement: 'def c4Copy {V : Type*} (G : SimpleGraph V) {u a v b : V} (hua : G.Adj u a) (hva : G.Adj v a) (hub
+    : G.Adj u b) (hvb : G.Adj v b) (huv : u ≠ v) (hab : a ≠ b) : SimpleGraph.Copy (SimpleGraph.cycleGraph 4) G where
+    toHom'
+  own_lines: 30
+  sorry_free_at_final: true
+  serves:
+  - c4_free_common_nbrs
+  built_for: c4_free_common_nbrs
+  serves_outcome:
+    c4_free_common_nbrs: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: card_lt_of_indepSetFree
+  kind: theorem
+  statement: 'theorem card_lt_of_indepSetFree {V : Type*} (G : SimpleGraph V) {n : ℕ} (hα : G.IndepSetFree n) {t
+    : Finset V} (ht : G.IsIndepSet (t : Set V)) : t.card < n'
+  own_lines: 8
+  sorry_free_at_final: true
+  serves:
+  - card_le_power_of_c4_free
+  - card_le_quadratic_of_c4_free
+  - degree_lt_of_c4_free_indepSetFree
+  built_for: c4_free_common_nbrs
+  serves_outcome:
+    card_le_power_of_c4_free: proved
+    card_le_quadratic_of_c4_free: proved
+    degree_lt_of_c4_free_indepSetFree: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: indepSetFree_pos
+  kind: theorem
+  statement: 'theorem indepSetFree_pos {V : Type*} (G : SimpleGraph V) {n : ℕ} (hα : G.IndepSetFree n) : 0 < n'
+  own_lines: 13
+  sorry_free_at_final: true
+  serves:
+  - card_le_quadratic_of_c4_free
+  built_for: c4_free_common_nbrs
+  serves_outcome:
+    card_le_quadratic_of_c4_free: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: filter_univ_adj_eq
+  kind: theorem
+  statement: 'theorem filter_univ_adj_eq {V : Type*} [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj] (v : V)
+    : Finset.univ.filter (G.Adj v) = G.neighborFinset v'
+  own_lines: 6
+  sorry_free_at_final: true
+  serves:
+  - exists_dense_core
+  - turan_weak
+  built_for: turan_weak
+  serves_outcome:
+    exists_dense_core: proved
+    turan_weak: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: card_filter_adj_le_degree
+  kind: theorem
+  statement: 'theorem card_filter_adj_le_degree {V : Type*} [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj]
+    (s : Finset V) (v : V) : (s.filter (G.Adj v)).card ≤ G.degree v'
+  own_lines: 6
+  sorry_free_at_final: true
+  serves:
+  - turan_weak
+  built_for: turan_weak
+  serves_outcome:
+    turan_weak: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: sum_filter_adj_erase_le
+  kind: theorem
+  statement: 'theorem sum_filter_adj_erase_le {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (s : Finset V) {v : V} (hv : v ∈ s) : ∑ u ∈ s, (s.filter (G.Adj u)).card ≤ ∑ u ∈ s.erase v, ((s.erase
+    v).filter (G.Adj u)).card + 2 * (s.filter (G.Adj v)).card'
+  own_lines: 38
+  sorry_free_at_final: true
+  serves:
+  - exists_dense_core
+  built_for: turan_weak
+  serves_outcome:
+    exists_dense_core: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: dense_core_aux
+  kind: theorem
+  statement: 'theorem dense_core_aux {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
+    (d : ℕ) (s : Finset V) (hs : s.Nonempty) (hσ : 2 * d * s.card ≤ ∑ v ∈ s, (s.filter (G.Adj v)).card) : ∃ s''
+    : Finset V, s'' ⊆ s ∧ s''.Nonempty ∧ ∀ v ∈ s'', d ≤ (s''.filter (G.Adj v)).card'
+  own_lines: 28
+  sorry_free_at_final: true
+  serves:
+  - exists_dense_core
+  built_for: turan_weak
+  serves_outcome:
+    exists_dense_core: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: sparse_case
+  kind: theorem
+  statement: 'theorem sparse_case (δ : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 2) (N : ℕ) (hN : 1 ≤ N) (G : SimpleGraph
+    (Fin N)) [DecidableRel G.Adj] (hE : (G.edgeFinset.card : ℝ) ≤ (N : ℝ) ^ ((3 : ℝ) / 2 - δ)) : ∃ t : Finset (Fin
+    N), G.IsIndepSet (t : Set (Fin N)) ∧ (1 / 10 : ℝ) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (t.card : ℝ)'
+  own_lines: 18
+  sorry_free_at_final: true
+  serves:
+  - c4_free_indep_power
+  built_for: c4_free_indep_power
+  serves_outcome:
+    c4_free_indep_power: proved
+- arm: B3_159_H_full_hold
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: dense_case
+  kind: theorem
+  statement: 'theorem dense_case (δ η K₁ : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK₁ : 0 < K₁) (h13
+    : ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (s : Finset V), ¬ (SimpleGraph.cycleGraph
+    4).IsContained G → (∀ v ∈ s, (1 / 2 : ℝ) * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj v)).card : ℝ))
+    → ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K₁ * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card : ℝ)) (N : ℕ) (G : SimpleGraph
+    (Fin N)) [DecidableRel G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (hN2 : (2 : ℝ) ≤ (N : ℝ) ^ ((1
+    : ℝ) / 2 - δ)) (hE : (N : ℝ) ^ ((3 '
+  own_lines: 65
+  sorry_free_at_final: true
+  serves:
+  - c4_free_indep_power
+  built_for: c4_free_indep_power
+  serves_outcome:
+    c4_free_indep_power: proved

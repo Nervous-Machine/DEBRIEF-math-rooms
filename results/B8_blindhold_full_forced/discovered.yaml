@@ -1,0 +1,34 @@
+arm: B8_blindhold_full_forced
+reference: start:results/B3_159_H_none_hold/final.lean
+discovered:
+- arm: B8_blindhold_full_forced
+  reference: start:results/B3_159_H_none_hold/final.lean
+  name: c4_free_indep_sparse
+  kind: theorem
+  statement: 'theorem c4_free_indep_sparse (δ : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 2) (N : ℕ) (hN : 1 ≤ N) (G : SimpleGraph
+    (Fin N)) [DecidableRel G.Adj] (hE : (G.edgeFinset.card : ℝ) ≤ (N : ℝ) ^ ((3 : ℝ) / 2 - δ)) : ∃ t : Finset (Fin
+    N), G.IsIndepSet (t : Set (Fin N)) ∧ (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ 10 * (t.card : ℝ)'
+  own_lines: 17
+  sorry_free_at_final: true
+  serves:
+  - c4_free_indep_power
+  built_for: c4_free_indep_power
+  serves_outcome:
+    c4_free_indep_power: proved
+- arm: B8_blindhold_full_forced
+  reference: start:results/B3_159_H_none_hold/final.lean
+  name: c4_free_indep_dense
+  kind: theorem
+  statement: 'theorem c4_free_indep_dense (δ η K : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK : 0 <
+    K) (h13 : ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (s : Finset V),
+    ¬ (SimpleGraph.cycleGraph 4).IsContained G → (∀ v ∈ s, (1 / 2 : ℝ) * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter
+    (G.Adj v)).card : ℝ)) → ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card :
+    ℝ)) (N : ℕ) (hN : 1 ≤ N) (G : SimpleGraph (Fin N)) [DecidableRel G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained
+    G) (hE : (N : ℝ) ^ ((3 : ℝ) / 2 - δ) < (G.edgeFinse'
+  own_lines: 72
+  sorry_free_at_final: true
+  serves:
+  - c4_free_indep_power
+  built_for: c4_free_indep_power
+  serves_outcome:
+    c4_free_indep_power: proved

@@ -1,0 +1,40 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-discovered
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)
+preregistered:
+  question: Where do discovered rooms appear, do they survive, do they recur?
+  rule: rooms/discovered.py over fourteen arms into atlas/discovered.yaml; both the registered measure (serves, by
+    mention at FINAL) and the added measure (built_for, by attempt tag) reported; amendment A1
+  predictions: [P1, P2, P3, P4, P5, P6]
+  commit: prereg_build_9_discovered.yaml
+  results:
+  - atlas/discovered.yaml
+  - results/discovered_score_build9.txt
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    discovered_rooms: 176
+    sorry_free_at_final: 176 (1.00)
+    built_for_hinges_that_did_not_close: 128 (123 for the 569 core across caps 12, 36, 108; 5 for the 159 core)
+    serving_hinges_that_closed: 7 (lemma7 2; c4_free_indep_power 2 and 3; the slips, the floor room and the root 0)
+    build6_probe_arms: 9 of 48 rooms, 1 of 34
+    N34_false_as_drawn: 0
+    recurrence_pairs_at_0_9: 1 (sparse_case in build 3's full arm against c4_free_indep_sparse in build 8's blind-hold forced arm, 1.10)
+    held: P3, P4, P5, P6
+    held_in_substance_missed_by_the_registered_measure: P2 (0 against 7 by mention; 123 against 7 by attempt tag)
+    missed: P1 (3 of 7 closed forced rooms have a discovered room; 4 predicted)
+  misses:
+  - P1
+  - P2 by the registered measure
+spoken: 'Every room a searcher invented survived to the end of its file, all one hundred and seventy-six. Seven of them
+  sit at hinges that flipped, and only the flips that needed an idea left any. One hundred and twenty-eight sit at the
+  two hinges that never closed, and they grow with the budget spent there: twenty, seventeen, eighty-six. The one room
+  drawn twice, by two searchers six builds apart for the same hinge, is the first entry the atlas can learn from. The
+  registered way of attributing a room missed the main case, because a hinge that stays open points at nothing; the
+  attempt log does.'
+finding_ids:
+- F9
+gap_ids: []

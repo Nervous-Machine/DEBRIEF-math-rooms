@@ -59,3 +59,36 @@ instruments:
   extractor: {path: rooms/discovered.py, sha256: "d4c90cf4362f893d8d627d93059e9c9a7a75b77073147478bf013c366e8401b1", new: true}
   matcher: {path: rooms/match.py, sha256: "1fbbfeabc910ac9327d8a6f671cea0f0a2159d8f6131a01b0e4068001d883306", use: "P4, on the discovered rooms' statements"}
   output: "results/<ARM>/discovered.yaml per arm; atlas/discovered.yaml merged"
+
+# ---- Amendment A1 ---- appended after the full run; the registered text above is unedited.
+amendments:
+  - id: A1
+    written: "2026-11-27T19:08Z, after the extractor ran over the fourteen arms"
+    instrument_change: >
+      The registered extractor attributed a discovered room to the reference rooms whose bodies mention it at FINAL.
+      The first full run showed that this misses the main case: helpers built for a hinge that stayed open are
+      mentioned by nothing at FINAL, because the hinge's body is `sorry` again, so 138 of the build 4 and 5 rooms came
+      out unattached. A second field, built_for, was added before scoring: the node tag of the earliest logged attempt
+      whose file contains the declaration, mapped to the room's name through the blueprint or forced.conf. The
+      extractor's sha256 after the change is 976fc4223e3de1e1…; the registered sha256 covers the version without it.
+      Both measures are reported.
+    results: >
+      176 discovered rooms over fourteen arms, 176 sorry-free at FINAL. Built for a hinge that did not close: 123 in
+      the three build 5 arms (20, 17, 86 of 20, 19, 94) and 5 in the 159 forced arm, all for core_near_extremal or
+      core_ge_three_nonstar. Serving a hinge that closed: lemma7 2, c4_free_indep_power 2 and 3; the two slips
+      (turan_weak, floor_succ_le_power), card_le_power_of_c4_free and the root needed none. Build 6 probe arms: 9 of
+      48 and 1 of 34. N34 (false as drawn): none. Cross-arm recurrence: one pair at or above 0.9, sparse_case
+      (build 3 full arm) against c4_free_indep_sparse (build 8 blind-hold forced arm), score 1.10; the same room
+      drawn twice by two fresh contexts six builds apart.
+    scorecard: >
+      Held: P3 (1.00), P4 (one pair), P5 (0.19, 0.03), P6 (0). Held in substance and missed by the registered measure:
+      P2 (by mention 0 against 7; by built_for 123 against 7, the direction predicted, by a factor of seventeen). Missed:
+      P1 (three of seven closed forced rooms have a discovered room, against at least four predicted; the slips had
+      none, as predicted; the three rooms that closed without helpers were the two slips plus bookkeeping rooms whose
+      proofs fit in their own bodies).
+    reading: >
+      Flips that need an idea leave rooms (Lemma 7: two; the sparse/dense reduction: two or three); flips that were slips
+      leave none. Hinges that do not close accumulate rooms in proportion to the budget spent on them, and those rooms
+      are the residual's shape, named. The one recurrence found is exactly the kind the atlas should learn from: a room
+      two searchers drew independently for the same hinge.
+

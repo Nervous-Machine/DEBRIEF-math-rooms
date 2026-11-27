@@ -6,7 +6,7 @@ _Rendered from the briefing record. Items marked internal in the ledger (how the
 
 Record quality: full ledger. Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles. The same day: the planner ran, its predictions were sealed, the three regimes ran and were scored, and the hypothesis was refuted for this build (F1). On 25–26 November build 2 (arXiv:2608.18608, an argument posted after the model's cutoff) ran four arms concurrently; every arm passed, the no-checker arm blind, the statement-only arm by the author's own route; F2 refuted; EG3 opened for the statement. On 26 November build 3 (Erdős 569 solved by a human paper, Erdős 159 open; rooms from the question; hold-position rule) ran five arms; every arm held position; F3 accepted; EG2 resolved; EG4 and EG5 opened.
 
-**Standing.** Certified 0. Accepted 6. Refuted 2. Open gaps 12. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
+**Standing.** Certified 0. Accepted 7. Refuted 2. Open gaps 13. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
 
 ## Findings
 
@@ -20,6 +20,7 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | F6 | learned | **accepted** | seven of ten predictions written before the runs held, including the one about reach by type; the misses are one target whose route was fully in reach, one blueprint where two readers agreed on two rooms in three rather than four in five, and two hard types sitting at exactly one half on eight rooms | build-2026-11-26-typed, data-2026-11-27-B6_1061_A_full_probe, data-2026-11-27-B6_1061_B_full_noplan, data-2026-11-27-B6_1133_A_full_probe, data-2026-11-27-B6_1133_B_full_noplan, score-2026-11-27-build6 |
 | F7 | learned | **accepted** | four of six predictions written before the runs held; the registered falsifier, a fit or a false claim under the incentive, did not fire; one run per arm; two models | build-2026-11-27-incentive, data-2026-11-27-B7_569_full_incentive, data-2026-11-27-B7_159_full_incentive, data-2026-11-27-B7_159_none_plain_opus, score-2026-11-27-build7 |
 | F8 | learned | **accepted** | five of five build 8b predictions held, after four of eight in build 4 where the same falsifier fired; eight forced rooms over three builds, one searcher model | build-2026-11-26-forced, score-2026-11-26-build4, data-2026-11-27-B8_blindhold_full_forced, data-2026-11-27-B8_blindplain_full_forced, score-2026-11-27-build8-forced |
+| F9 | learned | **accepted** | four of six predictions held, a fifth by the measure added before scoring and disclosed; one searcher model, fourteen arms | discovered-2026-11-27, data-2026-11-27-discovered |
 
 ## Cycles, in order
 
@@ -71,6 +72,8 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | match-2026-11-27 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) | hypothesis | yes | admitted |
 | retype-2026-11-27 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) | hypothesis | yes | admitted |
 | score-2026-11-27-build8-forced | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer) | data | yes | confirmed |
+| data-2026-11-27-discovered | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer) | data | yes | mixed |
+| discovered-2026-11-27 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) | hypothesis | yes | admitted |
 
 ## Gaps, in the order that would settle things fastest
 
@@ -92,6 +95,7 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | 7 | Under a brief that credits only a complete proof and nothing else, this searcher shows a fit on the human-proved core of Erdős 569 (a changed statement, an… | immovable | three arms, no planner; start files are build 3's final files unchanged | whoever can make that measurement public | predictions P1–P6 in prereg_build_7.yaml, scored by score.py against the start-file nodes and by the registrar's reading of each arm's notes for a declared… | none registered |
 | 8 | A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof… | immovable | the matcher run on the committed atlas of 164 vectors | whoever can make that measurement public | predictions P1–P5 in prereg_build_8_match.yaml on five queries whose statements are not in the atlas | none registered |
 | 9 | Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on… | immovable | two fresh readers on two models typing 82 rooms plus two roots from untyped blueprints | whoever can make that measurement public | predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py | none registered |
+| 10 | Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the… | immovable | the extractor over fourteen arms with a reference structure | whoever can make that measurement public | predictions P1–P6 in prereg_build_9_discovered.yaml | none registered |
 
 ## Corrections, retractions, ruled out
 

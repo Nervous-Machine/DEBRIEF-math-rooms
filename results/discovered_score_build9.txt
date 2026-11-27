@@ -1,0 +1,11 @@
+total discovered 176; sorry-free 176 = 1.00  (P3 >= 0.85)
+P1 (serves, built_for) per closed forced room: {'B4_569_F_full_forced:lemma7': (2, 2), 'B8_blindhold_full_forced:turan_weak': (0, 0), 'B8_blindhold_full_forced:c4_free_indep_power': (2, 2), 'B8_blindhold_full_forced:floor_succ_le_power': (0, 0), 'B8_blindplain_full_forced:c4_free_indep_power': (3, 3), 'B8_blindplain_full_forced:card_le_power_of_c4_free': (0, 0), 'B8_blindplain_full_forced:erdos_159': (0, 0)}
+   rooms with >=1 serving: 3 (>= 4 predicted); slips: (0, 0) (0, 0)
+P2 build5 rooms serving the core: 0 (by mention) / 123 (built for); closed forced total: 7 / 7
+   B5_C12_full_forced: 20 discovered; built_for core 20
+   B5_C36_full_forced: 19 discovered; built_for core 17
+   B5_C108_full_forced: 94 discovered; built_for core 86
+   B4_159 built_for core_near_extremal: 5
+P5 build6 discovered/blueprint: {'B6_1061_A_full_probe': '9/48=0.19', 'B6_1133_A_full_probe': '1/34=0.03'} (< 0.25)
+P6 N34 lattice_reduction: serves 0 built_for 0 (0)
+P4 cross-arm pairs >= 0.9 (same target): 1; best 1.10: B3_159_H_full_hold:sparse_case ~ B8_blindhold_full_forced:c4_free_indep_sparse

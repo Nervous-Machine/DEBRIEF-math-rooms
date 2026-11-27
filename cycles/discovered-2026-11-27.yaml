@@ -1,0 +1,29 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: discovered-2026-11-27
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the
+  hinges that do not; the rooms survive to FINAL; and the same discovered room recurs across arms of the same target.
+signals: predictions P1–P6 in prereg_build_9_discovered.yaml
+endpoints: none public until filed
+measurements_needed: the extractor over fourteen arms with a reference structure
+bears_on: 'Heidi Bennett''s questions of 2026-11-27: how a hinge flips and whether a flip leaves residuals that point
+  to missing rooms; the atlas as a record of discovered structure'
+pinned:
+  sha256: 5b7548efb6bcb43ff3f64e9999a4912409e2067c81d92909a53388df21703fef
+  file: prereg_build_9_discovered.yaml
+preregistered:
+  question: Where do discovered rooms appear, do they survive, do they recur?
+  rule: P1–P6 as written; the development run disclosed; misses recorded
+  predictions: [P1, P2, P3, P4, P5, P6]
+  commit: prereg_build_9_discovered.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers: {predictions: 6, arms: 14, signals_have_public_endpoint: false}
+spoken: 'Nervous Machine registered an index of the rooms searchers created that no planner drew, across fourteen arms,
+  with predictions about where they appear and whether they recur.'
+finding_ids: []
+gap_ids: []

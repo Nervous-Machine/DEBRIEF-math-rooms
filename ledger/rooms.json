@@ -2936,6 +2936,115 @@
    "gap_ids": [
     "EG6"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T19:08:32Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-discovered.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-discovered",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)",
+   "preregistered": {
+    "question": "Where do discovered rooms appear, do they survive, do they recur?",
+    "rule": "rooms/discovered.py over fourteen arms into atlas/discovered.yaml; both the registered measure (serves, by mention at FINAL) and the added measure (built_for, by attempt tag) reported; amendment A1",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6"
+    ],
+    "commit": "prereg_build_9_discovered.yaml",
+    "results": [
+     "atlas/discovered.yaml",
+     "results/discovered_score_build9.txt"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "discovered_rooms": 176,
+     "sorry_free_at_final": "176 (1.00)",
+     "built_for_hinges_that_did_not_close": "128 (123 for the 569 core across caps 12, 36, 108; 5 for the 159 core)",
+     "serving_hinges_that_closed": "7 (lemma7 2; c4_free_indep_power 2 and 3; the slips, the floor room and the root 0)",
+     "build6_probe_arms": "9 of 48 rooms, 1 of 34",
+     "N34_false_as_drawn": 0,
+     "recurrence_pairs_at_0_9": "1 (sparse_case in build 3's full arm against c4_free_indep_sparse in build 8's blind-hold forced arm, 1.10)",
+     "held": "P3, P4, P5, P6",
+     "held_in_substance_missed_by_the_registered_measure": "P2 (0 against 7 by mention; 123 against 7 by attempt tag)",
+     "missed": "P1 (3 of 7 closed forced rooms have a discovered room; 4 predicted)"
+    },
+    "misses": [
+     "P1",
+     "P2 by the registered measure"
+    ]
+   },
+   "spoken": "Every room a searcher invented survived to the end of its file, all one hundred and seventy-six. Seven of them sit at hinges that flipped, and only the flips that needed an idea left any. One hundred and twenty-eight sit at the two hinges that never closed, and they grow with the budget spent there: twenty, seventeen, eighty-six. The one room drawn twice, by two searchers six builds apart for the same hinge, is the first entry the atlas can learn from. The registered way of attributing a room missed the main case, because a hinge that stays open points at nothing; the attempt log does.",
+   "finding_ids": [
+    "F9"
+   ],
+   "gap_ids": []
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T19:08:32Z",
+   "provenance": {
+    "source": "contributed cycle file discovered-2026-11-27.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "discovered-2026-11-27",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "hypothesis": "Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the same discovered room recurs across arms of the same target.",
+   "signals": "predictions P1–P6 in prereg_build_9_discovered.yaml",
+   "endpoints": "none public until filed",
+   "measurements_needed": "the extractor over fourteen arms with a reference structure",
+   "bears_on": "Heidi Bennett's questions of 2026-11-27: how a hinge flips and whether a flip leaves residuals that point to missing rooms; the atlas as a record of discovered structure",
+   "pinned": {
+    "sha256": "5b7548efb6bcb43ff3f64e9999a4912409e2067c81d92909a53388df21703fef",
+    "file": "prereg_build_9_discovered.yaml"
+   },
+   "preregistered": {
+    "question": "Where do discovered rooms appear, do they survive, do they recur?",
+    "rule": "P1–P6 as written; the development run disclosed; misses recorded",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6"
+    ],
+    "commit": "prereg_build_9_discovered.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 6,
+     "arms": 14,
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered an index of the rooms searchers created that no planner drew, across fourteen arms, with predictions about where they appear and whether they recur.",
+   "finding_ids": [],
+   "gap_ids": [
+    "HG9"
+   ]
   }
  ],
  "findings": [
@@ -3317,6 +3426,49 @@
     "status": "accepted",
     "basis": "five of five build 8b predictions held, after four of eight in build 4 where the same falsifier fired; eight forced rooms over three builds, one searcher model",
     "note": "The rooms forced in build 8 were known to be in reach (proved under full feedback in build 3), so this measures the forced rule on blind slips and reductions, not reach at the frontier; Lemma 7 in build 4 is the frontier case. EG6 is resolved on these eight."
+   },
+   "certainty": {
+    "earned": true,
+    "how": "deterministic: files, logs and scorers committed"
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-27T19:08:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "prereg_build_9_discovered.yaml (sha256 5b7548ef…, committed before the full run) and atlas/discovered.yaml"
+   },
+   "audience": "briefing",
+   "finding_id": "F9",
+   "kind": "learned",
+   "spoken": "A hinge that flips because it needed an idea leaves rooms behind, two or three of them; a hinge that flips because it was a slip leaves none; and a hinge that does not flip accumulates rooms in proportion to the budget spent on it, twenty, seventeen and eighty-six at the one core that held, every one of them sound and every one of them the shape of the residual. Across fourteen arms one hundred and seventy-six such rooms were drawn and all survived to the end; one was drawn twice, by two searchers six builds apart for the same hinge. The residual of a search is not only the statement it stops at but the structure built around it, and that structure is now indexed.",
+   "evidence": {
+    "numbers": {
+     "discovered_rooms": 176,
+     "sorry_free": "176 of 176",
+     "at_hinges_that_did_not_close": 128,
+     "at_hinges_that_closed": 7,
+     "at_slips": 0,
+     "build6_probe_arms": "9 of 48, 1 of 34",
+     "recurrence": "1 pair at 1.10 (sparse_case, build 3; c4_free_indep_sparse, build 8)",
+     "predictions_held": "P3, P4, P5, P6",
+     "predictions_missed": "P1; P2 by the registered measure (held by attempt tag)"
+    },
+    "cycles": [
+     "discovered-2026-11-27",
+     "data-2026-11-27-discovered"
+    ],
+    "confirmed_by": [
+     "the extractor on committed final files, attempt logs and score files; the matcher on the discovered statements"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "four of six predictions held, a fifth by the measure added before scoring and disclosed; one searcher model, fourteen arms",
+    "note": "The attribution by mention at FINAL was the registered measure and it misses the main case; the attempt-tag measure was added after seeing that and is labelled as such. Discovered rooms are indexed by statement; whether they are mathematically useful beyond their arm is unread."
    },
    "certainty": {
     "earned": true,
@@ -4071,6 +4223,53 @@
     "spoken": "The measurement named by the submitter, made public at an endpoint."
    },
    "expected_signal": "predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T19:08:32Z",
+   "provenance": {
+    "source": "hypothesis cycle discovered-2026-11-27"
+   },
+   "audience": "briefing",
+   "gap_id": "HG9",
+   "title": "Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the…",
+   "status": "immovable",
+   "opened_cycle": "discovered-2026-11-27",
+   "priority": 10,
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+    "github": null,
+    "cycle": "discovered-2026-11-27",
+    "sha256": "5b7548efb6bcb43ff3f64e9999a4912409e2067c81d92909a53388df21703fef",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "discovered-2026-11-27",
+     "hypothesis": "Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar); pinned sha256 5b7548efb6bc…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "the extractor over fourteen arms with a reference structure",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the same discovered room recurs across arms of the same target.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P6 in prereg_build_9_discovered.yaml",
    "resolution_by": "none registered"
   }
  ],

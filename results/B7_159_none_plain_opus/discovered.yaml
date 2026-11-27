@@ -1,0 +1,17 @@
+arm: B7_159_none_plain_opus
+reference: blueprint:blueprint_159_nodes.yaml
+discovered:
+- arm: B7_159_none_plain_opus
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: c4_of_four
+  kind: theorem
+  statement: 'theorem c4_of_four {V : Type*} (G : SimpleGraph V) (x0 x1 x2 x3 : V) (h01 : G.Adj x0 x1) (h12 : G.Adj
+    x1 x2) (h23 : G.Adj x2 x3) (h30 : G.Adj x3 x0) (n02 : x0 ≠ x2) (n13 : x1 ≠ x3) : (SimpleGraph.cycleGraph 4).IsContained
+    G'
+  own_lines: 54
+  sorry_free_at_final: true
+  serves:
+  - c4_free_common_nbrs
+  built_for: FINAL
+  serves_outcome:
+    c4_free_common_nbrs: proved

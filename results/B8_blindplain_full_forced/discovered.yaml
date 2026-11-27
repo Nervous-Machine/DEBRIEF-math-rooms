@@ -1,0 +1,42 @@
+arm: B8_blindplain_full_forced
+reference: start:results/B3_159_H_none_plain/work/Erdos159.lean
+discovered:
+- arm: B8_blindplain_full_forced
+  reference: start:results/B3_159_H_none_plain/work/Erdos159.lean
+  name: two_le_rpow_of_sixteen_le
+  kind: theorem
+  statement: 'theorem two_le_rpow_of_sixteen_le (δ : ℝ) (hδ'' : δ ≤ 1 / 8) (N : ℝ) (hN : 16 ≤ N) : (2 : ℝ) ≤ N ^
+    ((1 : ℝ) / 2 - δ)'
+  own_lines: 10
+  sorry_free_at_final: true
+  serves:
+  - c4_free_indep_power
+  built_for: c4_free_indep_power
+  serves_outcome:
+    c4_free_indep_power: proved
+- arm: B8_blindplain_full_forced
+  reference: start:results/B3_159_H_none_plain/work/Erdos159.lean
+  name: dense_degree_bound
+  kind: theorem
+  statement: 'theorem dense_degree_bound (δ : ℝ) (hδ'' : δ ≤ 1 / 8) (N E d : ℝ) (hN : 16 ≤ N) (hE : N ^ ((3 : ℝ)
+    / 2 - δ) < E) (hd : E < N * (d + 1)) : (1 / 2 : ℝ) * N ^ ((1 : ℝ) / 2 - δ) ≤ d'
+  own_lines: 11
+  sorry_free_at_final: true
+  serves:
+  - c4_free_indep_power
+  built_for: c4_free_indep_power
+  serves_outcome:
+    c4_free_indep_power: proved
+- arm: B8_blindplain_full_forced
+  reference: start:results/B3_159_H_none_plain/work/Erdos159.lean
+  name: core_size_bound
+  kind: theorem
+  statement: 'theorem core_size_bound (δ N d M : ℝ) (hN : 0 < N) (hd : (1 / 2 : ℝ) * N ^ ((1 : ℝ) / 2 - δ) ≤ d)
+    (hM : d * d ≤ 2 * M) : N ^ (1 - 2 * δ) ≤ 8 * M'
+  own_lines: 12
+  sorry_free_at_final: true
+  serves:
+  - c4_free_indep_power
+  built_for: c4_free_indep_power
+  serves_outcome:
+    c4_free_indep_power: proved

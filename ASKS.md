@@ -121,3 +121,13 @@ Status: immovable.
 - **two fresh readers on two models typing 82 rooms plus two roots from untyped blueprints** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py. Resolution by: none registered.
+
+## 10. Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the… (ledger id HG9)
+
+Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the same discovered room recurs across arms of the same target.
+
+Status: immovable.
+
+- **the extractor over fourteen arms with a reference structure** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P6 in prereg_build_9_discovered.yaml. Resolution by: none registered.

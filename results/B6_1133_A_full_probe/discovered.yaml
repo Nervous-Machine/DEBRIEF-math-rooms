@@ -1,0 +1,18 @@
+arm: B6_1133_A_full_probe
+reference: blueprint:blueprint_1133_nodes.yaml
+discovered:
+- arm: B6_1133_A_full_probe
+  reference: blueprint:blueprint_1133_nodes.yaml
+  name: bucket_grouping_aux
+  kind: theorem
+  statement: 'theorem bucket_grouping_aux {α β : Type*} [DecidableEq α] [DecidableEq β] (k : ℕ) (hk : 1 ≤ k) (b
+    : α → β) (B : Finset β) : ∀ S : Finset α, (∀ i ∈ S, b i ∈ B) → ∃ q : ℕ, ∃ G : Fin q → Finset α, (∀ l, G l ⊆
+    S) ∧ (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l) (G l'')) ∧ (∀ l, ∃ j, ∀ i ∈ G l, b i = j) ∧
+    S.card ≤ k * q + (k - 1) * B.card'
+  own_lines: 71
+  sorry_free_at_final: true
+  serves:
+  - bucket_grouping
+  built_for: bucket_grouping
+  serves_outcome:
+    bucket_grouping: proved

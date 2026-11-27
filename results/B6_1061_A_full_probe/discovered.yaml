@@ -1,0 +1,123 @@
+arm: B6_1061_A_full_probe
+reference: blueprint:blueprint_1061_nodes.yaml
+discovered:
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: sigma_mul_coprime
+  kind: lemma
+  statement: 'lemma sigma_mul_coprime (a b : ℕ) (h : Nat.Coprime a b) : σ 1 (a * b) = σ 1 a * σ 1 b'
+  own_lines: 2
+  sorry_free_at_final: true
+  serves:
+  - multiplier_solution
+  - sigma_mul_two_primes
+  - sigma_values_triple
+  built_for: friendly_triple_activation
+  serves_outcome:
+    multiplier_solution: proved
+    sigma_mul_two_primes: proved
+    sigma_values_triple: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: sigma_prime_pow'
+  kind: lemma
+  statement: 'lemma sigma_prime_pow'' (p i : ℕ) (hp : p.Prime) : σ 1 (p ^ i) = ∑ k ∈ Finset.range (i + 1), p ^ k'
+  own_lines: 3
+  sorry_free_at_final: true
+  serves:
+  - sigma_mul_two_primes
+  - sigma_values_triple
+  built_for: null
+  serves_outcome:
+    sigma_mul_two_primes: proved
+    sigma_values_triple: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: sigma_prime'
+  kind: lemma
+  statement: 'lemma sigma_prime'' (p : ℕ) (hp : p.Prime) : σ 1 p = p + 1'
+  own_lines: 6
+  sorry_free_at_final: true
+  serves:
+  - sigma_mul_two_primes
+  - sigma_values_triple
+  built_for: null
+  serves_outcome:
+    sigma_mul_two_primes: proved
+    sigma_values_triple: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: prime_gt_not_dvd_54000
+  kind: lemma
+  statement: 'lemma prime_gt_not_dvd_54000 {p : ℕ} (hp : p.Prime) (h : 127 < p) : ¬ p ∣ 54000'
+  own_lines: 8
+  sorry_free_at_final: true
+  serves:
+  - friendly_triple_activation
+  built_for: friendly_triple_activation
+  serves_outcome:
+    friendly_triple_activation: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: prime_gt_not_dvd_111600
+  kind: lemma
+  statement: 'lemma prime_gt_not_dvd_111600 {p : ℕ} (hp : p.Prime) (h : 127 < p) : ¬ p ∣ 111600'
+  own_lines: 10
+  sorry_free_at_final: true
+  serves:
+  - friendly_triple_activation
+  built_for: friendly_triple_activation
+  serves_outcome:
+    friendly_triple_activation: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: prime_gt_not_dvd_1828800
+  kind: lemma
+  statement: 'lemma prime_gt_not_dvd_1828800 {p : ℕ} (hp : p.Prime) (h : 127 < p) : ¬ p ∣ 1828800'
+  own_lines: 12
+  sorry_free_at_final: true
+  serves:
+  - friendly_triple_activation
+  built_for: friendly_triple_activation
+  serves_outcome:
+    friendly_triple_activation: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: pair_from_order
+  kind: lemma
+  statement: 'lemma pair_from_order {a b a'' b'' : ℕ} (ha : a.Prime) (hb'' : b''.Prime) (ha'' : a''.Prime) (hab''
+    : a'' ≠ b'') (h : a * b = a'' * b'') (ho : decide (a < b) = decide (a'' < b'')) : a = a'' ∧ b = b'''
+  own_lines: 19
+  sorry_free_at_final: true
+  serves:
+  - core_fiber_le_eight
+  built_for: core_fiber_le_eight
+  serves_outcome:
+    core_fiber_le_eight: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: legendre_count
+  kind: lemma
+  statement: 'lemma legendre_count (P : Finset ℕ) (hP : ∀ p ∈ P, p.Prime) : ∀ N : ℕ, |(((Finset.Icc 1 N).filter
+    (fun g => ∀ p ∈ P, ¬ p ∣ g)).card : ℝ) - N * ∏ p ∈ P, (1 - 1 / (p : ℝ))| ≤ 2 ^ P.card - 1'
+  own_lines: 91
+  sorry_free_at_final: true
+  serves:
+  - coprime_density
+  built_for: coprime_density
+  serves_outcome:
+    coprime_density: proved
+- arm: B6_1061_A_full_probe
+  reference: blueprint:blueprint_1061_nodes.yaml
+  name: zero_set_card_le
+  kind: lemma
+  statement: 'lemma zero_set_card_le (p : ℕ) (hp : p.Prime) (a : ℤ) (b : Fin 2 → ℤ) (hnz : ¬ ((p : ℤ) ∣ a ∧ ∀ j,
+    (p : ℤ) ∣ b j)) : ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter fun n => (p : ℤ) ∣ a + ∑ j, b j
+    * (n j : ℤ)).card ≤ p'
+  own_lines: 80
+  sorry_free_at_final: true
+  serves:
+  - nonzero_forms_count
+  built_for: good_denominators
+  serves_outcome:
+    nonzero_forms_count: proved

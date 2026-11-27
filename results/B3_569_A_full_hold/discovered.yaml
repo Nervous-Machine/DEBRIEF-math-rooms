@@ -1,0 +1,19 @@
+arm: B3_569_A_full_hold
+reference: blueprint:blueprint_569_nodes.yaml
+discovered:
+- arm: B3_569_A_full_hold
+  reference: blueprint:blueprint_569_nodes.yaml
+  name: glue_components_aux
+  kind: theorem
+  statement: 'theorem glue_components_aux {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W) (hA
+    : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) (C : SimpleGraph V) (f : SimpleGraph.Copy (H.induce A) Cᶜ) (h2 : (H.induce
+    Aᶜ).IsContained (C.induce (Set.range ⇑f)ᶜ)ᶜ) : H.IsContained Cᶜ'
+  own_lines: 32
+  sorry_free_at_final: true
+  serves:
+  - glue_components
+  - ramsey_with_isolated
+  built_for: ramsey_with_isolated
+  serves_outcome:
+    glue_components: proved
+    ramsey_with_isolated: proved

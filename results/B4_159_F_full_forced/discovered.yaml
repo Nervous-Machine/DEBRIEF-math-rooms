@@ -1,0 +1,62 @@
+arm: B4_159_F_full_forced
+reference: start:results/B3_159_H_full_hold/final.lean
+discovered:
+- arm: B4_159_F_full_forced
+  reference: start:results/B3_159_H_full_hold/final.lean
+  name: nbhd_half_indep
+  kind: theorem
+  statement: 'theorem nbhd_half_indep {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) (v : V) : ∃ t ⊆ s.filter (G.Adj v),
+    G.IsIndepSet (t : Set V) ∧ (s.filter (G.Adj v)).card ≤ 2 * t.card'
+  own_lines: 13
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_near_extremal
+  serves_outcome: {}
+- arm: B4_159_F_full_forced
+  reference: start:results/B3_159_H_full_hold/final.lean
+  name: empty_case_N13
+  kind: theorem
+  statement: 'theorem empty_case_N13 {V : Type*} (G : SimpleGraph V) (K p : ℝ) (hp : 0 < p) : ∃ t ⊆ (∅ : Finset
+    V), G.IsIndepSet (t : Set V) ∧ K * ((∅ : Finset V).card : ℝ) ^ p ≤ (t.card : ℝ)'
+  own_lines: 13
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_near_extremal
+  serves_outcome: {}
+- arm: B4_159_F_full_forced
+  reference: start:results/B3_159_H_full_hold/final.lean
+  name: exists_indep_sqrt
+  kind: theorem
+  statement: 'theorem exists_indep_sqrt {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) : ∃ t ⊆ s, G.IsIndepSet (t : Set V)
+    ∧ s.card ≤ (2 * t.card + 1) * t.card'
+  own_lines: 22
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_near_extremal
+  serves_outcome: {}
+- arm: B4_159_F_full_forced
+  reference: start:results/B3_159_H_full_hold/final.lean
+  name: exists_indep_moore
+  kind: theorem
+  statement: 'theorem exists_indep_moore {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (M : ℕ) (s : Finset V) (hs : 2 * s.card ≤ (M + 1) *
+    (M + 1)) : ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ s.card ≤ (M + 2) * t.card'
+  own_lines: 55
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_near_extremal
+  serves_outcome: {}
+- arm: B4_159_F_full_forced
+  reference: start:results/B3_159_H_full_hold/final.lean
+  name: two_nbhd_union
+  kind: theorem
+  statement: 'theorem two_nbhd_union {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) {u v : V} (huv : u ≠ v) : ∃ t ⊆ s, G.IsIndepSet
+    (t : Set V) ∧ (s.filter (G.Adj u)).card + (s.filter (G.Adj v)).card ≤ 3 * t.card + 3'
+  own_lines: 54
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_near_extremal
+  serves_outcome: {}

@@ -1,0 +1,237 @@
+arm: B5_C12_full_forced
+reference: start:results/B3_569_B_full_noplan_hold/final.lean
+discovered:
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: isContained_of_isClique_card_le
+  kind: theorem
+  statement: 'theorem isContained_of_isClique_card_le {W V : Type*} [Fintype W] [Fintype V] (G : SimpleGraph W)
+    (C : SimpleGraph V) (s : Finset V) (hs : C.IsClique (s : Set V)) (hk : Fintype.card W ≤ s.card) : G.IsContained
+    C'
+  own_lines: 11
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: isContained_of_induce_neighborSet
+  kind: theorem
+  statement: 'theorem isContained_of_induce_neighborSet {W V : Type*} [DecidableEq W] (H : SimpleGraph W) (u : W)
+    (G : SimpleGraph V) (x : V) (h : (H.induce ({u}ᶜ : Set W)).IsContained (G.induce (G.neighborSet x))) : H.IsContained
+    G'
+  own_lines: 16
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: nonempty_of_ncard_edgeSet_ne_zero
+  kind: theorem
+  statement: 'theorem nonempty_of_ncard_edgeSet_ne_zero {W : Type*} (H : SimpleGraph W) {m : ℕ} (hm : H.edgeSet.ncard
+    = m) (hm0 : m ≠ 0) : Nonempty W'
+  own_lines: 8
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: cycleGraph_isContained_of_path
+  kind: theorem
+  statement: 'theorem cycleGraph_isContained_of_path {V : Type*} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k) {a b x
+    : V} (p : C.Walk a b) (hp : p.IsPath) (hlen : p.length = k - 2) (hxp : x ∉ p.support) (hxa : C.Adj x a) (hbx
+    : C.Adj b x) : (cycleGraph k).IsContained C'
+  own_lines: 23
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: degree_add_compl_degree
+  kind: theorem
+  statement: 'theorem degree_add_compl_degree {n : ℕ} (C : SimpleGraph (Fin (n + 1))) [DecidableRel C.Adj] (x :
+    Fin (n + 1)) : C.degree x + Cᶜ.degree x = n'
+  own_lines: 9
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: exists_embedding_of_le_card
+  kind: theorem
+  statement: 'theorem exists_embedding_of_le_card {V : Type*} (s : Finset V) (n : ℕ) (hn : n ≤ s.card) : ∃ e : Fin
+    n ↪ V, ∀ i, e i ∈ s'
+  own_lines: 8
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: isContained_compl_of_comap_neighbor
+  kind: theorem
+  statement: 'theorem isContained_compl_of_comap_neighbor {W V V'' : Type*} [DecidableEq W] (H : SimpleGraph W)
+    (u : W) (C : SimpleGraph V) (x : V) (e : V'' ↪ V) (he : ∀ i, Cᶜ.Adj x (e i)) (h : (H.induce ({u}ᶜ : Set W)).IsContained
+    (C.comap e)ᶜ) : H.IsContained Cᶜ'
+  own_lines: 19
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: exists_disjoint_edges_or_triangle
+  kind: theorem
+  statement: 'theorem exists_disjoint_edges_or_triangle {W : Type*} (H : SimpleGraph W) (hns : ¬ ∃ v₀, ∀ a b, H.Adj
+    a b → a = v₀ ∨ b = v₀) {a b : W} (hab : H.Adj a b) : (∃ p q r s, H.Adj p q ∧ H.Adj r s ∧ p ≠ r ∧ p ≠ s ∧ q ≠
+    r ∧ q ≠ s) ∨ (∃ c, H.Adj b c ∧ H.Adj a c ∧ ∀ p q, H.Adj p q → (p = a ∨ p = b ∨ p = c) ∧ (q = a ∨ q = b ∨ q =
+    c))'
+  own_lines: 106
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: exists_isPath_length
+  kind: theorem
+  statement: 'theorem exists_isPath_length {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph V) [DecidableRel
+    C.Adj] (δ : ℕ) (hδ : ∀ v, δ ≤ C.degree v) (a : V) : ∀ j, j < δ → ∃ b, ∃ p : C.Walk a b, p.IsPath ∧ p.length
+    = j'
+  own_lines: 21
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: cycleGraph_isContained_of_common_neighbors
+  kind: theorem
+  statement: 'theorem cycleGraph_isContained_of_common_neighbors {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph
+    V) [DecidableRel C.Adj] (k : ℕ) (hk : 3 ≤ k) (a : V) (hδ : ∀ v, k - 1 ≤ C.degree v) (hcommon : ∀ a b, a ≠ b
+    → k - 2 ≤ (C.neighborFinset a ∩ C.neighborFinset b).card) : (cycleGraph k).IsContained C'
+  own_lines: 34
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: isClique_compl_neighborFinset_of_no_triangle
+  kind: theorem
+  statement: 'theorem isClique_compl_neighborFinset_of_no_triangle {V : Type*} [Fintype V] [DecidableEq V] (C :
+    SimpleGraph V) [DecidableRel C.Adj] (hT : ∀ p q r : V, Cᶜ.Adj p q → Cᶜ.Adj q r → ¬ Cᶜ.Adj p r) (x : V) : C.IsClique
+    (Cᶜ.neighborFinset x : Set V)'
+  own_lines: 10
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: le_card_inter_neighborFinset
+  kind: theorem
+  statement: 'theorem le_card_inter_neighborFinset {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph V) [DecidableRel
+    C.Adj] (δ : ℕ) (hδ : ∀ v, δ ≤ C.degree v) (a b : V) : 2 * δ - Fintype.card V ≤ (C.neighborFinset a ∩ C.neighborFinset
+    b).card'
+  own_lines: 13
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: exists_isClique_of_forall_common_neighbor
+  kind: theorem
+  statement: 'theorem exists_isClique_of_forall_common_neighbor {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph
+    V) (k : ℕ) (hV : k - 1 ≤ Fintype.card V) (h : ∀ R : Finset V, R.card = k - 1 → ∃ w, w ∉ R ∧ ∀ r ∈ R, C.Adj w
+    r) : ∃ Q : Finset V, C.IsClique (Q : Set V) ∧ Q.card = k'
+  own_lines: 21
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: copyComplOfComap
+  kind: def
+  statement: 'def copyComplOfComap {W V V'' : Type*} (G : SimpleGraph W) (C : SimpleGraph V) (e : V'' ↪ V) (g :
+    Copy G (C.comap e)ᶜ) : Copy G Cᶜ'
+  own_lines: 8
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: copyComplOfComap_apply
+  kind: theorem
+  statement: 'theorem copyComplOfComap_apply {W V V'' : Type*} (G : SimpleGraph W) (C : SimpleGraph V) (e : V''
+    ↪ V) (g : Copy G (C.comap e)ᶜ) (w : W) : copyComplOfComap G C e g w = e (g w)'
+  own_lines: 9
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: core_step_leaf
+  kind: theorem
+  statement: 'theorem core_step_leaf (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (hm1 : 1 ≤ m) (W : Type) [Fintype W] [DecidableEq
+    W] (H : SimpleGraph W) (u v : W) (huv : H.Adj u v) (hleaf : ∀ w, H.Adj u w → w = v) (C : SimpleGraph (Fin ((k
+    - 1) * m + 1))) [DecidableRel C.Adj] (ih : ∀ C'' : SimpleGraph (Fin ((k - 1) * (m - 1) + 1)), (cycleGraph k).IsContained
+    C'' ∨ (H.induce ({u}ᶜ : Set W)).IsContained C''ᶜ) : (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ'
+  own_lines: 58
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: ncard_edgeSet_induce_compl_leaf
+  kind: theorem
+  statement: 'theorem ncard_edgeSet_induce_compl_leaf {W : Type*} [Fintype W] (H : SimpleGraph W) (u v : W) (huv
+    : H.Adj u v) (hleaf : ∀ w, H.Adj u w → w = v) : (H.induce ({u}ᶜ : Set W)).edgeSet.ncard + 1 = H.edgeSet.ncard'
+  own_lines: 41
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: exists_adj_induce_compl_leaf
+  kind: theorem
+  statement: 'theorem exists_adj_induce_compl_leaf {W : Type*} [Fintype W] (H : SimpleGraph W) [DecidableRel H.Adj]
+    (h0 : ∀ w, 0 < H.degree w) (u v : W) (hleaf : ∀ w, H.Adj u w → w = v) (hv : ∃ w, w ≠ u ∧ H.Adj v w) (w : ({u}ᶜ
+    : Set W)) : ∃ z, (H.induce ({u}ᶜ : Set W)).Adj w z'
+  own_lines: 17
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: card_le_ncard_edgeSet_of_two_le_degree
+  kind: theorem
+  statement: 'theorem card_le_ncard_edgeSet_of_two_le_degree {W : Type*} [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h2 : ∀ v, 2 ≤ H.degree v) : Fintype.card W ≤ H.edgeSet.ncard'
+  own_lines: 11
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}
+- arm: B5_C12_full_forced
+  reference: start:results/B3_569_B_full_noplan_hold/final.lean
+  name: two_le_degree_of_exists
+  kind: theorem
+  statement: 'theorem two_le_degree_of_exists {W : Type*} [Fintype W] [DecidableEq W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (u v w : W) (hv : H.Adj u v) (hw : H.Adj u w) (hvw : w ≠ v) : 2 ≤ H.degree u'
+  own_lines: 18
+  sorry_free_at_final: true
+  serves: []
+  built_for: core_ge_three_nonstar
+  serves_outcome: {}

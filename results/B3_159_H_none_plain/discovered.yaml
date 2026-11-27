@@ -1,0 +1,31 @@
+arm: B3_159_H_none_plain
+reference: blueprint:blueprint_159_nodes.yaml
+discovered:
+- arm: B3_159_H_none_plain
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: card_filter_univ_adj
+  kind: theorem
+  statement: 'theorem card_filter_univ_adj {V : Type*} [Fintype V] (G : SimpleGraph V) [DecidableRel G.Adj] (v :
+    V) : ((Finset.univ : Finset V).filter (G.Adj v)).card = G.degree v'
+  own_lines: 8
+  sorry_free_at_final: true
+  serves:
+  - card_le_quadratic_of_c4_free
+  - exists_dense_core
+  built_for: FINAL
+  serves_outcome:
+    card_le_quadratic_of_c4_free: proved
+    exists_dense_core: proved
+- arm: B3_159_H_none_plain
+  reference: blueprint:blueprint_159_nodes.yaml
+  name: turan_arith
+  kind: theorem
+  statement: 'theorem turan_arith (m e D s b a : ℕ) (h1 : s + b = m) (h2 : b * (D + 1) ≤ 2 * e) (h3 : m * D ≤ 4
+    * e) (h4 : 4 * e < m * (D + 1)) (h5 : s ≤ (D + 1) * a) : m ^ 2 ≤ 2 * (4 * e + m) * a'
+  own_lines: 21
+  sorry_free_at_final: true
+  serves:
+  - turan_weak
+  built_for: FINAL
+  serves_outcome:
+    turan_weak: proved
