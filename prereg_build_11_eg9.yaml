@@ -1,0 +1,110 @@
+# Pre-registration, cycle "build-2026-11-27-eg9": build 11, the registered test of gap EG9. Written 2026-11-27, BEFORE
+# any planner or searcher of this build has run and before the EG9 scorer has run on 1061 or 348 data. The 348
+# Challenge file compiles with its sorry in the pinned project. Amendments are appended below a marker line; this body is
+# never edited.
+#
+# Occasion. Heidi Bennett (2026-11-27): "Let's do it!", on EG9. Build 10's corrected reader showed, after registration,
+# that the two hinges no searcher closed (the 569 core, the 159 core) have higher access than the rooms of their proofs
+# that closed when forced: the reverse of build 9b's bridge picture. EG9 asks for a registered test of the reversed
+# direction on hinges that did not form the lead, run to the same forced-attempt protocol.
+#
+# Two samples, both out of the lead's sample:
+#   - Erdős 348, a fifth target (Geneson, arXiv:2609.25107v1, 2026-09-20, after the searcher model's cutoff): typed
+#     planner, probe arm, then a forced arm on every non-literature room the probe arm leaves open.
+#   - Erdős 1061, whose probe arm (build 6) left thirteen non-literature rooms open after one attempt each, never
+#     forced: two forced arms split the thirteen.
+#
+# Disclosures. (1) The registrar has seen build 10's post-registration access values for four 1061 rooms (lattice_coords
+# 0.166, local_denominator 0.392, plane_prime_count 0.231, lattice_reduction 0.107) and has the 1061 statements in the
+# atlas; the comparisons below are mechanical and no threshold is chosen. (2) rooms/eg9_access.py was smoke-tested once
+# on the in-sample 159 proof (probe arm B3_159_H_full_hold, forced arms B8_blindhold and B4_159_F): it ran and gave the
+# 159 core 0.322, as build 10 did; no 1061 or 348 class has been computed. (3) Lean proofs of Erdős 348 exist on GitHub
+# (IamMikeHelsel/erdos-348-lean, xccElephant/justin-sun-prize-lean with a verification log dated 2026-10-19,
+# GuillaumeBAUD-coder/open-math-agents, rjwalters/lean-genius, daedalus/alphaproof-nexus), found by code search during
+# target selection; the registrar has opened none of them; they are not inputs; all appear to postdate the searcher
+# model's cutoff; they are recorded for a later rerun cycle on the erdos-348 statement. (4) The registrar read the
+# paper's abstract only. (5) The planner brief mentions extracted text; no text extractor is installed, so the planner
+# gets the PDF alone and reads it directly.
+
+mission: rooms-2026-11
+cycle: "build-2026-11-27-eg9"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer)"
+dated: "2026-11-27"
+question: >
+  On hinges that did not form the lead, is a room that stays open after twelve genuine forced attempts better
+  surrounded by existing rooms (higher access under the corrected reader) than the rooms of the same proof that close
+  when forced?
+
+targets:
+  erdos348:
+    theorem: "Erdos348.erdos_348"
+    statement_in_words: "the pairs 0 ≤ m < n for which a monotone sequence stays complete after any m deletions and becomes incomplete after any n deletions are exactly those with m ≤ 1"
+    lean_statement: {path: rooms/Challenge_348.lean, sha256: "8247dc2f5a8876fe26a2ae50a7b28244f642a4d42b58f316438caea0f90a926a", written_by: "formal-conjectures 348.lean at f606af16 verbatim, with subseqSums' and IsAddCompleteNatSeq' copied verbatim from FormalConjecturesForMathlib/NumberTheory/AdditivelyComplete.lean with their section variables (Apache-2.0)"}
+    paper: {ref: "Geneson, J., Deletion thresholds and exponential examples for complete sequences, arXiv:2609.25107v1, 2026-09-20", pdf_sha256: "9060ebcc3812b9a33bf08cc8dbdf6b5c8714acda2f54ed4ecfca7c152cb8dcc2", given_to: [planner_348], licence: "arXiv non-exclusive distribution; not vendored"}
+  erdos1061:
+    blueprint: {path: blueprint_1061_nodes.yaml, sha256: "ca674c38323023a18d1f51a8f646e1f0f30575498532de9caf8d561e96aa3b2b"}
+    start_file: {path: results/B6_1061_A_full_probe/final.lean, sha256: "491c425e785bcb55946e3e33fe0cb7adff03f416ffbf86af75b71a94107ee969"}
+    forced_rooms_F1: [N21 local_witness, N22 projected_index, N23 lattice_coords, N25 sqfree_progression_count, N29 local_density, N30 large_prime_tail, N31 parameter_sieve]
+    forced_rooms_F2: [N38 local_denominator, N42 singular_series_lower, N45 plane_prime_count, N46 threshold_lemma, N47 two_height_core, N48 S_lower_bound]
+    allowed_open: "the two literature_import rooms (N01, N02), N34 lattice_reduction (shown false as drawn in build 6, excluded from every class), and the other arm's forced rooms"
+
+prior:
+  mathlib: {commit: "ccbef15ebdb41c2addfac682131f83c75904c3c1", lean: "v4.35.0"}
+  excluded: ["any web access", "every earlier build's files and notes except the 1061 start file and blueprint for the 1061 arms", "for every searcher: the paper and the planner's predictions", "every Lean proof of Erdős 348 on GitHub"]
+
+roles:
+  planner_348: {model: claude-opus-5-5, brief: rooms/PLANNER_TYPED_PROMPT.md, inputs: [the 348 paper (PDF), rooms/Challenge_348.lean, mathlib source], output: "blueprint_348 split by the registrar into blueprint_348_nodes.yaml (public) and blueprint_348_predictions.yaml (sha256 committed before any 348 searcher runs, kept in DEBRIEF-math-rooms-sealed/, opened after the 348 arms finish)"}
+  searchers: {model: claude-fable-5-1, context: "fresh, one per arm", tool: "rooms/check.sh only", seal: "by instruction; audited after with rooms/audit.py"}
+
+arms:
+  B11_348_A_full_probe: {inputs: [Challenge_348, blueprint_348_nodes, mathlib], brief: rooms/SEARCHER_PROBE_PROMPT.md, rule: "hold + probe-first, cap 12 per node"}
+  B11_348_F_full_forced: {when: "after B11_348_A, if it leaves any non-literature room open; split into two arms (F1, F2) by node order if more than seven", start: "B11_348_A's final.lean", brief: rooms/SEARCHER_FORCED_MULTI_PROMPT.md, forced: "every non-literature room open in B11_348_A's final", allowed: "literature_import rooms and the other split's rooms", cap: 12}
+  B11_1061_F1_full_forced: {start: results/B6_1061_A_full_probe/final.lean, brief: rooms/SEARCHER_FORCED_MULTI_PROMPT.md, forced: forced_rooms_F1, cap: 12}
+  B11_1061_F2_full_forced: {start: results/B6_1061_A_full_probe/final.lean, brief: rooms/SEARCHER_FORCED_MULTI_PROMPT.md, forced: forced_rooms_F2, cap: 12}
+
+caps: {attempts_per_forced_room: 12, attempts_per_node_probe: 12, tokens_per_arm: 2000000, wall_minutes_per_arm: 240, lean_timeout_seconds: 600}
+
+classes: >
+  Read mechanically by rooms/eg9_access.py from the arms' files. P: closed in the probe arm. F: open after the probe
+  arm and closed in a forced arm (forced.json, closed_at_first_final). U: open after the probe arm, given at least
+  twelve genuine forced attempts, still open. X: forced but open with fewer than twelve genuine attempts: excluded and
+  counted. literature_import rooms and N34 are not classed. A proof is informative when it has at least one U and at
+  least one F.
+
+measure: >
+  access under the corrected reader (rooms/match2_1.py): the best single node's min(sim to the room's hypothesis side,
+  sim to its conclusion side), sim = 0.5 shape + 0.5 IDF-weighted constants, IDF over every node of the graph. The graph
+  is atlas/hinges.yaml and atlas/discovered.yaml after the 348 probe arm's hinge vectors are merged by rooms/hinges.py;
+  no other change to the atlas before scoring, and no discovered rooms from this build's arms are added before scoring.
+
+predictions:
+  - {id: P1, says: "in every informative proof, the median access of U exceeds the median access of F (the EG9 direction)"}
+  - {id: P2, says: "in every informative proof, the smallest access in U exceeds the largest in F (the strong form seen on 569 and 159)"}
+  - {id: P3, says: "in every proof with at least one U, the median access of U exceeds the median access of P"}
+  - {id: P4, says: "at least one of the two proofs is informative"}
+  - {id: P5, says: "fit 0 in every arm: no statement or definition changed, no hypothesis added, no axiom, no native_decide"}
+  - {id: P6, says: "the 348 probe arm closes at least 80% of its non-literature rooms"}
+  - {id: P7, says: "across the two 1061 forced arms, at least 4 and at most 9 of the 13 forced rooms close"}
+
+closes: >
+  EG9 closes as learned if P4 holds, whichever way P1 goes: P1 held confirms the reversed direction out of sample; P1
+  missed means the lead did not replicate, and the record says so. If P4 fails, EG9 stays open with this cycle in its
+  history.
+
+falsifiers: "P1 failing on an informative proof refutes the EG9 lead for that proof; P2 alone failing leaves the direction and drops the strong form"
+
+instruments:
+  eg9_scorer: {path: rooms/eg9_access.py, sha256: "86ad72fa6d3ed3b45ecc94f0b29e8c9971b189539218bc2e40689a8251e5a27e", new: true}
+  reader_v2_1: {path: rooms/match2_1.py, sha256: "3017e9f08816ffb5f83617b0e587127094dd8732bf7f89531fb8546e38e33641"}
+  graph_v2_1: {path: rooms/atlas_graph2_1.py, sha256: "68c9a45a4afeb7a067ccfc3dd9a43172037399606efbd95f31441afe82b1051b"}
+  check_tool: {path: rooms/check.sh, sha256: "f445000376225ef3f5954760dcdee85dfaa49c7db33bd5de00f333c0a2c1c22e"}
+  forced_check: {path: rooms/forced_check.py, sha256: "9d7eb5a344c597f1e125fdf5b94c93cffe7c8aaf802da659286748df206a3b59"}
+  decl_sorry: {path: rooms/decl_sorry.py, sha256: "0feeb7b1e73624d7f941da8b081a9808f0d2b534adc0bc630d0b7073b7c30dd7"}
+  probe_check: {path: rooms/probe_check.py, sha256: "b147728a1dc9393aff26c071407146300cc8670b4b7c1aacd25e56a9c8306c0c"}
+  forced_scorer: {path: rooms/forced_score.py, sha256: "0dd0c5073a4becd9312b4d9599bd4b9c9aa0ddab4ddd735a9b22edbe3cb97187"}
+  hinges: {path: rooms/hinges.py, sha256: "608cef635250fde3e3a853a847220baad5a4ae691ef4868d316e43266dce3e6b"}
+  scorer: {path: rooms/score.py, sha256: "649e6ced4ccf1d23ab8c33d1e6028987f0834f23060cd1d58abc6d3b268e51a8"}
+  audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
+  briefs: {planner: "c4bcc452c349f42c…", probe: "6d9c5443e4d8ea33…", forced_multi: "0a16afa97336ff26…"}
+  atlas_before: {hinges: "a1864a6432a31caf…", discovered: "0c8faf5598525ae0…"}
