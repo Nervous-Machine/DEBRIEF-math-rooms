@@ -1,0 +1,56 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-B6_1133_A_full_probe
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With the paper's rooms typed by the planner and no room allowed to stay open untried, which rooms of Yang's
+    argument does the searcher close, and do the types predict it?
+  rule: hold rule plus the probe-first rule enforced by rooms/check.sh with rooms/probe_check.py; rooms/score.py with
+    the blueprint and, after the seal opened, the planner's predictions; rooms/hinges.py writes one hinge vector per
+    room; the first accepted FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P6, P8, P9, P10]
+  commit: prereg_build_6.yaml
+  results:
+  - results/B6_1133_A_full_probe/score.json
+  - results/B6_1133_A_full_probe/hinges.yaml
+  - results/B6_1133_A_full_probe/final.lean
+  - results/B6_1133_A_full_probe/calls.tsv
+  - blueprint_1133_predictions.yaml
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    check_calls: 9
+    refused_calls: 0
+    error_calls: 4
+    first_FINAL: sorry (the three literature_import rooms only)
+    residual: true
+    fit_total: 0
+    rooms_proved: 31 of 31 non-literature rooms and ROOT; 0 of 3 literature_import rooms
+    statements_changed: 0 (one helper added; two planner hypotheses in N17 unused)
+    reach_by_type_actual: algebraic_identity 13/13, assembly 9/9, case_split 3/3, extremal_averaging 3/3, two_structure_coupling 2/2, quantitative_improvement 1/1, literature_import 0/3
+    reach_by_type_predicted: algebraic_identity 0.72, case_split 0.78, extremal_averaging 0.63, assembly 0.51, quantitative_improvement 0.60, two_structure_coupling 0.43, literature_import 0.06
+    planner_root_reached: 0.005 (correct, because of the imports); ROOT step predicted 0.7
+    planner_hardest_rooms: N17 (coupling, reached 0.4) and N29 (reached 0.35), both proved
+    planner_error_log2_median: joins −2.1, leaves −2.8 (attempts over-predicted four to seven fold)
+    seal: opened after both 1133 arms; sha256 matched
+    tokens: 223948
+    minutes: 28 of 180
+    lines: 1097
+    declarations: 36
+    depth: 8
+    parent_control: B6_1133_B_full_noplan, 12 own lemmas on a different route, one analytic room open, 17 minutes
+  misses:
+  - P4 at this arm (no coupling or improvement room was left open; both couplings and the improvement room were proved)
+  - P9 held here (29 of 34 types agree, 85 percent)
+spoken: 'Given Yang''s argument as thirty-four typed rooms, the searcher proved every room that was not a literature
+  import, including the two the planner typed as couplings and the one it called hardest, and the root from them, in
+  nine calls and twenty-eight minutes. The only open rooms are the three results the paper cites from the literature.
+  The planner predicted it would close about two thirds of the identities and under half of the couplings; it closed
+  all of them. With the route in hand, every join type gave way; without it, the control arm took a different route and
+  stopped at one analytic room.'
+finding_ids: []
+gap_ids:
+- EG6

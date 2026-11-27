@@ -1,0 +1,208 @@
+{
+ "regime": "B6_1133_A_full_probe",
+ "calls": 9,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0009",
+   "sorry"
+  ]
+ ],
+ "per_node": {
+  "N04": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 3
+  },
+  "N08": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 5
+  },
+  "N09": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N25": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 4
+  },
+  "N29": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 5
+  },
+  "N10": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 4
+  },
+  "ROOT": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 10
+  }
+ },
+ "final_status_at_first_FINAL": "sorry",
+ "shape": {
+  "declarations": 36,
+  "unused_by_root": [
+   "bernstein_vertical_growth"
+  ],
+  "unused_count": 1,
+  "root_found": true,
+  "depth": 8,
+  "own_lines_median": 25.0,
+  "own_lines": {
+   "olevskii_ulanovskii_prop_4_2": 12,
+   "bernstein_vertical_growth": 7,
+   "bernstein_real_sample_set_isClosed": 8,
+   "exp_type_linear_comb": 17,
+   "bernstein_affine_rescale": 41,
+   "complex_data_from_real": 30,
+   "lemma32_rescale_params": 21,
+   "lemma32_log_bound": 56,
+   "lemma32_choose_k": 36,
+   "lemma32_distinct_core": 68,
+   "coincident_nodes_obstruction": 14,
+   "effective_finite_obstruction": 29,
+   "real_symmetrization": 44,
+   "bernstein_real_sample_set_convex": 25,
+   "finite_dim_point_separation": 17,
+   "sign_from_separation": 18,
+   "signs_prescribed_tolerance": 79,
+   "local_sign_obstruction": 16,
+   "norm_cos_le_exp_abs_im": 18,
+   "poly_cos_exp_type": 48,
+   "poly_cos_real_values": 19,
+   "arccos_node": 13,
+   "polynomial_to_bernstein": 15,
+   "finset_split_into_blocks": 43,
+   "bucket_grouping_aux": 71,
+   "bucket_grouping": 11,
+   "bucket_interval": 32,
+   "angular_groups": 32,
+   "disjoint_groups_card_le": 13,
+   "finite_degree_error_tradeoff": 77,
+   "theorem21_arithmetic": 25,
+   "theorem21_constants": 33,
+   "quantitative_robust_obstruction": 33,
+   "match_error_complement": 15,
+   "qualitative_robust_obstruction": 18,
+   "erdos_1133": 25
+  },
+  "retry_named": [
+   "bucket_grouping_aux"
+  ],
+  "joins": [
+   "exp_type_linear_comb",
+   "arccos_node"
+  ],
+  "edges": 37
+ },
+ "fit": {
+  "sorry": 3,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "sorry_in_text": [
+   "olevskii_ulanovskii_prop_4_2",
+   "bernstein_vertical_growth",
+   "bernstein_real_sample_set_isClosed"
+  ],
+  "sorry_in": [
+   "olevskii_ulanovskii_prop_4_2",
+   "bernstein_vertical_growth",
+   "bernstein_real_sample_set_isClosed"
+  ],
+  "root_sorry": false,
+  "total": 3,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "ith `set_option linter.unusedVariables false`\nRooms/Axioms.lean:684:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\nRooms/Axioms.lean:1090:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.\nIf you'd rather continue using `push_neg` in your project, you can implement it as follows:\n```\nopen Lean.Parser.Tactic in\nmacro \"push_neg\" cfg:optConfig loc:(location)? : tactic =>\n  `(tactic| push $cfg:optConfig Not $[$loc]?)\n```\n'Erdos1133.erdos_1133' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": false,
+ "residual": true,
+ "rooms_proved": [
+  "exp_type_linear_comb",
+  "bernstein_affine_rescale",
+  "complex_data_from_real",
+  "lemma32_rescale_params",
+  "lemma32_log_bound",
+  "lemma32_choose_k",
+  "lemma32_distinct_core",
+  "coincident_nodes_obstruction",
+  "effective_finite_obstruction",
+  "real_symmetrization",
+  "bernstein_real_sample_set_convex",
+  "finite_dim_point_separation",
+  "sign_from_separation",
+  "signs_prescribed_tolerance",
+  "local_sign_obstruction",
+  "norm_cos_le_exp_abs_im",
+  "poly_cos_exp_type",
+  "poly_cos_real_values",
+  "arccos_node",
+  "polynomial_to_bernstein",
+  "finset_split_into_blocks",
+  "bucket_grouping_aux",
+  "bucket_grouping",
+  "bucket_interval",
+  "angular_groups",
+  "disjoint_groups_card_le",
+  "finite_degree_error_tradeoff",
+  "theorem21_arithmetic",
+  "theorem21_constants",
+  "quantitative_robust_obstruction",
+  "match_error_complement",
+  "qualitative_robust_obstruction",
+  "erdos_1133"
+ ],
+ "attempts_median": 1,
+ "attempts_median_joins": 1.0,
+ "attempts_median_leaves": 1,
+ "tokens_total": 223948,
+ "planner_error": {
+  "log2_by_node": {
+   "N04": -1.0,
+   "N08": -2.807,
+   "N09": -2.585,
+   "N25": -3.17,
+   "N29": -3.459,
+   "N10": -3.17,
+   "ROOT": -1.0
+  },
+  "median_joins": -2.085,
+  "median_leaves": -2.807,
+  "median_abs_joins": 2.085,
+  "median_abs_leaves": 2.807
+ }
+}

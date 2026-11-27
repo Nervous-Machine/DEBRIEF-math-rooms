@@ -1,0 +1,256 @@
+root: erdos_1133
+root_reached: 0.005
+reach_by_type:
+  literature_import: 0.06
+  algebraic_identity: 0.72
+  quantitative_improvement: 0.6
+  assembly: 0.51
+  case_split: 0.78
+  extremal_averaging: 0.63
+  two_structure_coupling: 0.43
+nodes:
+- id: N01
+  name: olevskii_ulanovskii_prop_4_2
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.01
+- id: N02
+  name: bernstein_vertical_growth
+  predicted:
+    attempts: 12
+    tokens: 350000
+    minutes: 55
+    reached: 0.15
+- id: N03
+  name: bernstein_real_sample_set_isClosed
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.02
+- id: N04
+  name: exp_type_linear_comb
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 6
+    reached: 0.85
+- id: N05
+  name: bernstein_affine_rescale
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.75
+- id: N06
+  name: complex_data_from_real
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.75
+- id: N07
+  name: lemma32_rescale_params
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 8
+    reached: 0.85
+- id: N08
+  name: lemma32_log_bound
+  predicted:
+    attempts: 7
+    tokens: 120000
+    minutes: 25
+    reached: 0.55
+- id: N09
+  name: lemma32_choose_k
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 22
+    reached: 0.6
+- id: N10
+  name: lemma32_distinct_core
+  predicted:
+    attempts: 9
+    tokens: 220000
+    minutes: 40
+    reached: 0.4
+- id: N11
+  name: coincident_nodes_obstruction
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 5
+    reached: 0.95
+- id: N12
+  name: effective_finite_obstruction
+  predicted:
+    attempts: 6
+    tokens: 120000
+    minutes: 25
+    reached: 0.55
+- id: N13
+  name: real_symmetrization
+  predicted:
+    attempts: 6
+    tokens: 110000
+    minutes: 22
+    reached: 0.6
+- id: N14
+  name: bernstein_real_sample_set_convex
+  predicted:
+    attempts: 4
+    tokens: 70000
+    minutes: 15
+    reached: 0.75
+- id: N15
+  name: finite_dim_point_separation
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 18
+    reached: 0.6
+- id: N16
+  name: sign_from_separation
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.8
+- id: N17
+  name: signs_prescribed_tolerance
+  predicted:
+    attempts: 9
+    tokens: 220000
+    minutes: 40
+    reached: 0.4
+- id: N18
+  name: local_sign_obstruction
+  predicted:
+    attempts: 3
+    tokens: 45000
+    minutes: 10
+    reached: 0.6
+- id: N19
+  name: norm_cos_le_exp_abs_im
+  predicted:
+    attempts: 4
+    tokens: 55000
+    minutes: 12
+    reached: 0.75
+- id: N20
+  name: poly_cos_exp_type
+  predicted:
+    attempts: 8
+    tokens: 160000
+    minutes: 30
+    reached: 0.45
+- id: N21
+  name: poly_cos_real_values
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.7
+- id: N22
+  name: arccos_node
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 6
+    reached: 0.85
+- id: N23
+  name: polynomial_to_bernstein
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.6
+- id: N24
+  name: finset_split_into_blocks
+  predicted:
+    attempts: 7
+    tokens: 140000
+    minutes: 28
+    reached: 0.55
+- id: N25
+  name: bucket_grouping
+  predicted:
+    attempts: 9
+    tokens: 200000
+    minutes: 38
+    reached: 0.4
+- id: N26
+  name: bucket_interval
+  predicted:
+    attempts: 6
+    tokens: 110000
+    minutes: 22
+    reached: 0.6
+- id: N27
+  name: angular_groups
+  predicted:
+    attempts: 9
+    tokens: 200000
+    minutes: 38
+    reached: 0.4
+- id: N28
+  name: disjoint_groups_card_le
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 10
+    reached: 0.7
+- id: N29
+  name: finite_degree_error_tradeoff
+  predicted:
+    attempts: 11
+    tokens: 280000
+    minutes: 50
+    reached: 0.35
+- id: N30
+  name: theorem21_arithmetic
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.7
+- id: N31
+  name: theorem21_constants
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.65
+- id: N32
+  name: quantitative_robust_obstruction
+  predicted:
+    attempts: 7
+    tokens: 150000
+    minutes: 30
+    reached: 0.45
+- id: N33
+  name: match_error_complement
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 9
+    reached: 0.85
+- id: N34
+  name: qualitative_robust_obstruction
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.6
+- id: ROOT
+  name: erdos_1133
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.7

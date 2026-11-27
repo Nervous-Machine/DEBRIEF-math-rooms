@@ -1,0 +1,67 @@
+Rooms/Target_B6_1133_A_full_probe.lean:18:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:30:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:37:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:79:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:171:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:176:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:181:16: error: No goals to be solved
+Rooms/Target_B6_1133_A_full_probe.lean:184:30: error: Type mismatch
+  w * u
+has type
+  ℝ
+but is expected to have type
+  ℕ
+Rooms/Target_B6_1133_A_full_probe.lean:201:4: error: No goals to be solved
+Rooms/Target_B6_1133_A_full_probe.lean:225:64: error: No goals to be solved
+Rooms/Target_B6_1133_A_full_probe.lean:245:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:284:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:293:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:389:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:403:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:545:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:552:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:591:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:612:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:767:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```

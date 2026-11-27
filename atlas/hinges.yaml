@@ -1,0 +1,728 @@
+hinges:
+- arm: B6_1133_A_full_probe
+  id: N01
+  name: olevskii_ulanovskii_prop_4_2
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 1 ≤ τ
+  - ∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)
+  - 2 * τ ≤ Γ.card
+  - Real.pi < σ
+  consumes: nothing (external theorem)
+  produces: the lower bound a log(σ/(σ-π+bτ^(-1/3))) for the complex interpolation constant K_i(Γ, B_σ), in the
+    form "if all unit complex data have norm-K interpolants then the bound is ≤ K"
+  library_inputs:
+  - Olevskii–Ulanovskii, On irregular sampling and interpolation in Bernstein spaces, Proposition 4.2 (paper's Theorem
+    3.1)
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.01
+  outcome: open
+  attempts: 0
+  statement_sha256: d0f525ec83269070
+- arm: B6_1133_A_full_probe
+  id: N02
+  name: bernstein_vertical_growth
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < σ
+  - Differentiable ℂ f
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K'
+  consumes: nothing (standard estimate cited from [4,5])
+  produces: the vertical growth estimate (3.1), used for the normal-family compactness of sample sets
+  library_inputs:
+  - vertical growth estimate (3.1) for Bernstein spaces, cited to Olevskii–Ulanovskii [4] and Ortega-Cerdà–Seip
+    [5] (Phragmén–Lindelöf)
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 350000
+    minutes: 55
+    reached: 0.15
+  outcome: open
+  attempts: 0
+  statement_sha256: 1759c59cdd94ef8a
+- arm: B6_1133_A_full_probe
+  id: N03
+  name: bernstein_real_sample_set_isClosed
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < σ
+  consumes: the vertical growth bound (3.1) giving local uniform boundedness
+  produces: closedness of the convex sample set K (normal-family theorem as the paper uses it in Lemma 3.3)
+  library_inputs:
+  - normal-family (Montel) theorem with preservation of type, norm and samples under locally uniform limits, as
+    invoked in the proof of Lemma 3.3
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: 1dece4cda380910f
+- arm: B6_1133_A_full_probe
+  id: N04
+  name: exp_type_linear_comb
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  consumes: nothing
+  produces: closure of exponential type σ under complex linear combinations
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 6
+    reached: 0.85
+  outcome: proved
+  attempts: 1
+  statement_sha256: 2ebd40157d270b8b
+- arm: B6_1133_A_full_probe
+  id: N05
+  name: bernstein_affine_rescale
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 ≤ σ
+  - 0 < lam
+  - Differentiable ℂ f
+  consumes: nothing
+  produces: the change of variable g(z) = f(z/λ + c) maps B_σ (norm K) to B_{σ/λ} (norm K)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3a2ab315f394c2c4
+- arm: B6_1133_A_full_probe
+  id: N06
+  name: complex_data_from_real
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - '∀ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) → ∃ f ... norm ≤ H interpolant'
+  consumes: closure of exponential type under f1 + I*f2 (N04)
+  produces: complex unit data interpolable with norm 2H, i.e. K_i ≤ 2H (3.5)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 413dc7bd5e23e858
+- arm: B6_1133_A_full_probe
+  id: N07
+  name: lemma32_rescale_params
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 1 ≤ τ
+  - t ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
+  consumes: nothing
+  produces: rescaled nodes s_i lie in [-τ, τ) and σ_k = π/λ_k ∈ (π, 2π] for k = 2τ
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: a261d98df3059a1e
+- arm: B6_1133_A_full_probe
+  id: N08
+  name: lemma32_log_bound
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < a
+  - 0 < b
+  - 1 ≤ τ
+  consumes: nothing
+  produces: the lower bound (a/3) log k − b0 for the Olevskii–Ulanovskii right-hand side at k = 2τ, σ = σ_k
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 120000
+    minutes: 25
+    reached: 0.55
+  outcome: proved
+  attempts: 1
+  statement_sha256: 69a31b75ff5d67eb
+- arm: B6_1133_A_full_probe
+  id: N09
+  name: lemma32_choose_k
+  kind: leaf
+  join_type: quantitative_improvement
+  conditionals:
+  - 0 < a
+  - 0 ≤ b0
+  - H > 0
+  consumes: nothing
+  produces: an even k = 2τ ≤ exp(A0(1+H)) with (a/3) log k − b0 > 2H, the exponential bound (3.4)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 22
+    reached: 0.6
+  outcome: proved
+  attempts: 1
+  statement_sha256: 427f77a92c2bf1a3
+- arm: B6_1133_A_full_probe
+  id: N10
+  name: lemma32_distinct_core
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ τ
+  - Function.Injective t
+  - ∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
+  consumes: O-U bound (N01), rescaling (N05), complex split (N06), parameter ranges (N07), log estimate (N08)
+  produces: if all real unit data at 2τ distinct nodes in an interval of length 2τ+1 are B_π-interpolable with norm
+    H, then (a/3) log(2τ) − b0 ≤ 2H
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N01)
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 220000
+    minutes: 40
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: cbc09de7cb311f94
+- arm: B6_1133_A_full_probe
+  id: N11
+  name: coincident_nodes_obstruction
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - i ≠ j
+  - t i = t j
+  consumes: nothing
+  produces: data ±1 at two coincident indices that nothing interpolates
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 5
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: 8de55a061bc55772
+- arm: B6_1133_A_full_probe
+  id: N12
+  name: effective_finite_obstruction
+  kind: join
+  join_type: assembly
+  conditionals:
+  - H > 0
+  - ∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)
+  consumes: the choice of k (N09), the distinct-node contradiction (N10), the coincident-node case (N11)
+  produces: Lemma 3.2, an even k ≤ exp(A0(1+H)) with a non-interpolable real unit data vector on every k-tuple in
+    an interval of length k+1
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N10)
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 120000
+    minutes: 25
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: 412202a3a614e33f
+- arm: B6_1133_A_full_probe
+  id: N13
+  name: real_symmetrization
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - Differentiable ℂ f
+  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C'
+  consumes: exponential-type closure (N04)
+  produces: f^R in B_σ^R, norm ≤ C, with Re f^R = Re f on ℝ
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 110000
+    minutes: 22
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: dd33c905d6f79246
+- arm: B6_1133_A_full_probe
+  id: N14
+  name: bernstein_real_sample_set_convex
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: exponential-type closure (N04)
+  produces: convexity of the sample set K
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 70000
+    minutes: 15
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 947b1a2c47853384
+- arm: B6_1133_A_full_probe
+  id: N15
+  name: finite_dim_point_separation
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - Convex ℝ K
+  - IsClosed K
+  - v ∉ K
+  consumes: nothing
+  produces: a coordinate separating vector w for v ∉ K
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 18
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: e8b892faecbd570e
+- arm: B6_1133_A_full_probe
+  id: N16
+  name: sign_from_separation
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∑ i, w i * (u i).re < (1 - ρ) * ∑ i, |w i|
+  consumes: nothing
+  produces: an index where the sign datum sgn(w_i) is missed by more than ρ
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: e918475894392c15
+- arm: B6_1133_A_full_probe
+  id: N17
+  name: signs_prescribed_tolerance
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < C
+  - 0 ≤ ρ
+  - ρ < 1
+  - '∃ v ... ¬ ∃ f ... ‖f (x : ℂ)‖ ≤ C / (1 - ρ) ...'
+  consumes: closed (N03) convex (N14) sample set, symmetrization (N13), scaling (N04), separation (N15), sign extraction
+    (N16)
+  produces: Lemma 3.3, sign data on a k-tuple that every B_π function of norm ≤ C misses by more than ρ somewhere
+  library_inputs:
+  - normal-family theorem (via N03)
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 220000
+    minutes: 40
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 4de4ad267e22b028
+- arm: B6_1133_A_full_probe
+  id: N18
+  name: local_sign_obstruction
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - 0 ≤ ρ
+  - ρ < 1
+  consumes: Lemma 3.2 at H = C/(1−ρ) (N12) and Lemma 3.3 (N17)
+  produces: one k ≤ exp(A0(1+H)) with sign obstructions on every k-tuple in an interval of length k+1
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N12)
+  - normal-family theorem (via N17)
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 45000
+    minutes: 10
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 08e8148cc7c06f0b
+- arm: B6_1133_A_full_probe
+  id: N19
+  name: norm_cos_le_exp_abs_im
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: the bound ‖cos w‖ ≤ e^{|Im w|}
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 55000
+    minutes: 12
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: f98944bf4dbc449e
+- arm: B6_1133_A_full_probe
+  id: N20
+  name: poly_cos_exp_type
+  kind: leaf
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < D
+  - '(P.natDegree : ℝ) ≤ D'
+  consumes: the cosine growth bound (N19)
+  produces: P(cos(πz/D)) is entire of exponential type ≤ π deg P/D ≤ π
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 160000
+    minutes: 30
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6429dd048d7713a0
+- arm: B6_1133_A_full_probe
+  id: N21
+  name: poly_cos_real_values
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
+  consumes: nothing
+  produces: on real t, f(t) = P(cos(πt/D)) is real and bounded by C
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: cf8d83e50f731a06
+- arm: B6_1133_A_full_probe
+  id: N22
+  name: arccos_node
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < D
+  - x ∈ Set.Icc (-1:ℝ) 1
+  consumes: nothing
+  produces: angular nodes t_i = (D/π) arccos x_i ∈ [0, D] with cos(πt_i/D) = x_i
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 6
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: a092782be61b9216
+- arm: B6_1133_A_full_probe
+  id: N23
+  name: polynomial_to_bernstein
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 0 < D
+  - '(P.natDegree : ℝ) ≤ D'
+  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
+  consumes: type bound (N20), real values (N21), angular nodes (N22)
+  produces: the angular substitution f = P∘cos(π·/D) ∈ B_π with norm ≤ C and f(t_i) = P(x_i)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6237fe1b03592997
+- arm: B6_1133_A_full_probe
+  id: N24
+  name: finset_split_into_blocks
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - 1 ≤ k
+  consumes: nothing
+  produces: ⌊|S|/k⌋ disjoint k-blocks inside S, leaving at most k−1 elements
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 140000
+    minutes: 28
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: d5490bf5ec4ffc2e
+- arm: B6_1133_A_full_probe
+  id: N25
+  name: bucket_grouping
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - 1 ≤ k
+  consumes: per-bucket block splitting (N24)
+  produces: the grouping (4.3), q disjoint k-groups each inside one bucket with kq ≥ n − (k−1)N
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 200000
+    minutes: 38
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: c499f4019d9378d2
+- arm: B6_1133_A_full_probe
+  id: N26
+  name: bucket_interval
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < D
+  - 1 ≤ k
+  - t ∈ Set.Icc 0 D
+  consumes: nothing
+  produces: a bucket index j < N = ⌈D/(k+1)⌉ with t in [j(k+1), j(k+1)+k+1]
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 110000
+    minutes: 22
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: a1d160e66b3a1047
+- arm: B6_1133_A_full_probe
+  id: N27
+  name: angular_groups
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ k
+  - 0 < D
+  consumes: angular nodes (N22), bucket grouping (N25), bucket intervals (N26)
+  produces: disjoint k-groups of indices whose angular nodes lie in intervals of length k+1, kq ≥ n − (k−1)(D/(k+1)+1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 200000
+    minutes: 38
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 58ff75bc7f0654c7
+- arm: B6_1133_A_full_probe
+  id: N28
+  name: disjoint_groups_card_le
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∀ l l', l ≠ l' → Disjoint (G l) (G l')
+  - ∀ l, ∃ i ∈ G l, i ∈ E
+  consumes: nothing
+  produces: one error per disjoint group gives at least q errors
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 10
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 53c973709f82b09b
+- arm: B6_1133_A_full_probe
+  id: N29
+  name: finite_degree_error_tradeoff
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ k
+  - 0 < D
+  - hsign (Lemma 3.3 for all k-tuples in intervals of length k+1)
+  consumes: angular substitution (N23), groups (N27), disjoint counting (N28), Lemma 3.3 signs as hypothesis
+  produces: Theorem 4.1 in the form (4.2), E_ρ ≥ n/k − (k−1)D/(k(k+1)) − (k−1)/k
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 280000
+    minutes: 50
+    reached: 0.35
+  outcome: proved
+  attempts: 1
+  statement_sha256: 2599a879080ed0c6
+- arm: B6_1133_A_full_probe
+  id: N30
+  name: theorem21_arithmetic
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 2 ≤ k
+  - 4 * k ^ 2 ≤ n
+  consumes: nothing
+  produces: with ε = 1/(8k²), n ≥ 4k², D = (1+ε)n, the (4.2) bound exceeds εn
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 57d9aa014cdee974
+- arm: B6_1133_A_full_probe
+  id: N31
+  name: theorem21_constants
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < A0
+  - 0 ≤ H
+  - 2 ≤ k
+  - (k:ℝ) ≤ Real.exp (A0 * (1 + H))
+  consumes: nothing
+  produces: ε = 1/(8k²) ≥ e^{−A(1+H)} and n0 = 4k² ≤ e^{A(1+H)}, the bounds (2.3)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: 137b0929f7d35d9f
+- arm: B6_1133_A_full_probe
+  id: N32
+  name: quantitative_robust_obstruction
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - 0 ≤ ρ
+  - ρ < 1
+  - n0 ≤ n
+  consumes: local sign obstruction with k (N18), Theorem 4.1 (N29), arithmetic (N30), constants (N31)
+  produces: Theorem 2.1 for real polynomials, ε = 1/(8k²), n0 = 4k²
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N18)
+  - normal-family theorem (via N18)
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 150000
+    minutes: 30
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: e184487abaecf6db
+- arm: B6_1133_A_full_probe
+  id: N33
+  name: match_error_complement
+  kind: leaf
+  join_type: case_split
+  conditionals: []
+  consumes: nothing
+  produces: at ρ = 0, matched indices and erroneous indices partition [n]
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 9
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 87707eafe4a54065
+- arm: B6_1133_A_full_probe
+  id: N34
+  name: qualitative_robust_obstruction
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - n0 ≤ n
+  consumes: Theorem 2.1 (N32) at ρ = 0
+  produces: the ρ = 0 obstruction with data in Icc (-1) 1 (signs coerced)
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N32)
+  - normal-family theorem (via N32)
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 605c04031285f84f
+- arm: B6_1133_A_full_probe
+  id: ROOT
+  name: erdos_1133
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  consumes: ρ = 0 obstruction (N34) and the match/error partition (N33)
+  produces: the Challenge statement (by contraposition, a bounded P has > εn errors, so < (1−ε)n matches)
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N34)
+  - normal-family theorem (via N34)
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.7
+  outcome: proved
+  attempts: 2
+  statement_sha256: c72faa118f1d9da7

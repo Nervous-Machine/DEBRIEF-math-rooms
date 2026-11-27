@@ -1,0 +1,205 @@
+Rooms/Target_B6_1133_A_full_probe.lean:18:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:30:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:37:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:79:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:171:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:176:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:235:96: error: unsolved goals
+a b0 : ℝ
+ha : 0 < a
+hb0 : 0 ≤ b0
+H : ℝ
+hH : H > 0
+X : ℝ := 3 * (2 * H + b0) / a
+hX : X = 3 * (2 * H + b0) / a
+hX0 : 0 ≤ X
+h1 : ↑⌈Real.exp X⌉₊ < Real.exp X + 1
+h2 : 1 ≤ Real.exp X
+h4 : 4 ≤ Real.exp 2
+⊢ (2 * a + 3 * b0 + 6) * (1 + H) - (2 * a + 3 * (2 * H + b0)) = (2 * a + 3 * b0) * H + 6
+Rooms/Target_B6_1133_A_full_probe.lean:300:39: error: unsolved goals
+a : ℝ
+ha : a > 0
+b : ℝ
+hb : b > 0
+hOU :
+  ∀ (τ : ℕ),
+    1 ≤ τ →
+      ∀ (Γ : Finset ℝ),
+        (∀ s ∈ Γ, s ∈ Ico (-↑τ) ↑τ) →
+          2 * τ ≤ Γ.card →
+            ∀ (σ : ℝ),
+              Real.pi < σ →
+                ∀ (K : ℝ),
+                  (∀ (v : ℝ → ℂ),
+                      (∀ s ∈ Γ, ‖v s‖ ≤ 1) →
+                        ∃ f,
+                          Differentiable ℂ f ∧
+                            (∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧
+                              (∀ (x : ℝ), ‖f ↑x‖ ≤ K) ∧ ∀ s ∈ Γ, f ↑s = v s) →
+                    a * Real.log (σ / (σ - Real.pi + b * ↑τ ^ (-(1 / 3)))) ≤ K
+τ : ℕ
+hτ : 1 ≤ τ
+c : ℝ
+t : Fin (2 * τ) → ℝ
+hinj : Function.Injective t
+ht : ∀ (i : Fin (2 * τ)), t i ∈ Icc c (c + 2 * ↑τ + 1)
+H : ℝ
+hall :
+  ∀ (v : Fin (2 * τ) → ℝ),
+    (∀ (i : Fin (2 * τ)), |v i| ≤ 1) →
+      ∃ f,
+        Differentiable ℂ f ∧
+          (∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧
+            (∀ (x : ℝ), ‖f ↑x‖ ≤ H) ∧ ∀ (i : Fin (2 * τ)), f ↑(t i) = ↑(v i)
+hτr : 1 ≤ ↑τ
+lam : ℝ
+hlam : lam = 2 * ↑τ / (2 * ↑τ + 2)
+hlam0 : 0 < lam
+c' : ℝ
+hc' : c' = c + (2 * ↑τ + 1) / 2
+s : Fin (2 * τ) → ℝ
+hs : s = fun i => lam * (t i - c')
+hs_eq : ∀ (i : Fin (2 * τ)), s i = 2 * ↑τ / (2 * ↑τ + 2) * (t i - c - (2 * ↑τ + 1) / 2)
+hs_inj : Function.Injective s
+Γ : Finset ℝ
+hΓ : Γ = Finset.image s Finset.univ
+hΓcard : Γ.card = 2 * τ
+hΓmem : ∀ x ∈ Γ, x ∈ Ico (-↑τ) ↑τ
+hparams :
+  2 * ↑τ / (2 * ↑τ + 2) * (c - c - (2 * ↑τ + 1) / 2) ∈ Ico (-↑τ) ↑τ ∧
+    Real.pi < Real.pi / (2 * ↑τ / (2 * ↑τ + 2)) ∧ Real.pi / (2 * ↑τ / (2 * ↑τ + 2)) ≤ 2 * Real.pi
+hσπ : Real.pi < Real.pi / lam
+v : ℝ → ℂ
+hv : ∀ x ∈ Γ, ‖v x‖ ≤ 1
+hcomplex :
+  ∀ (w : Fin (2 * τ) → ℂ),
+    (∀ (i : Fin (2 * τ)), ‖w i‖ ≤ 1) →
+      ∃ f,
+        Differentiable ℂ f ∧
+          (∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧
+            (∀ (x : ℝ), ‖f ↑x‖ ≤ 2 * H) ∧ ∀ (i : Fin (2 * τ)), f ↑(t i) = w i
+f : ℂ → ℂ
+hfd : Differentiable ℂ f
+hft : ∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)
+hfb : ∀ (x : ℝ), ‖f ↑x‖ ≤ 2 * H
+hfv : ∀ (i : Fin (2 * τ)), f ↑(t i) = v (s i)
+hgd : Differentiable ℂ fun z => f (z / ↑lam + ↑c')
+hgt : ∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖f (z / ↑lam + ↑c')‖ ≤ M * Real.exp ((Real.pi / lam + δ) * ‖z‖)
+hgb : ∀ (x : ℝ), ‖f (↑x / ↑lam + ↑c')‖ ≤ 2 * H
+i : Fin (2 * τ)
+⊢ t i - c' + c' = t i
+Rooms/Target_B6_1133_A_full_probe.lean:340:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:349:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:445:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:459:46: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1133_A_full_probe.lean:459:59: warning: Variable name `hρ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hρ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1133_A_full_probe.lean:682:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:939:61: error: unsolved goals
+C ρ : ℝ
+k : ℕ
+hk : 1 ≤ k
+hsign :
+  ∀ (c : ℝ) (t : Fin k → ℝ),
+    (∀ (i : Fin k), t i ∈ Icc c (c + ↑k + 1)) →
+      ∃ s,
+        (∀ (i : Fin k), s i = 1 ∨ s i = -1) ∧
+          ∀ (f : ℂ → ℂ),
+            Differentiable ℂ f →
+              (∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →
+                (∀ (x : ℝ), ‖f ↑x‖ ≤ C) → ∃ i, ρ < ‖f ↑(t i) - ↑(s i)‖
+n : ℕ
+D : ℝ
+hD : 0 < D
+x : Fin n → ↑(Icc (-1) 1)
+q : ℕ
+G : Fin q → Finset (Fin n)
+hGc : ∀ (l : Fin q), (G l).card = k
+hGd : ∀ (l l' : Fin q), l ≠ l' → Disjoint (G l) (G l')
+hGm : ∀ (l : Fin q), ∃ c, ∀ i ∈ G l, D / Real.pi * Real.arccos ↑(x i) ∈ Icc c (c + ↑k + 1)
+hbound : ↑n ≤ ↑k * ↑q + (↑k - 1) * (D / (↑k + 1) + 1)
+hcardl : ∀ (l : Fin q), Fintype.card ↥(G l) = k
+e : (l : Fin q) → Fin k ≃ ↥(G l) := fun l => (Fintype.equivFinOfCardEq ⋯).symm
+s : Fin q → Fin k → ℝ
+hs1 : ∀ (l : Fin q) (p : Fin k), s l p = 1 ∨ s l p = -1
+hs2 :
+  ∀ (l : Fin q) (f : ℂ → ℂ),
+    Differentiable ℂ f →
+      (∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →
+        (∀ (x : ℝ), ‖f ↑x‖ ≤ C) → ∃ p, ρ < ‖f ↑(D / Real.pi * Real.arccos ↑(x ↑((e l) p))) - ↑(s l p)‖
+y : Fin n → ℝ := fun i => if h : ∃ l, i ∈ G l then s h.choose ((e h.choose).symm ⟨i, ⋯⟩) else 1
+hy : ∀ (l : Fin q) (p : Fin k), y ↑((e l) p) = s l p
+P : Polynomial ℝ
+hdeg : ↑P.natDegree ≤ D
+hC : ∀ z ∈ Icc (-1) 1, |Polynomial.eval z P| ≤ C
+hfd : Differentiable ℂ fun z => (Polynomial.aeval (Complex.cos (↑Real.pi * z / ↑D))) P
+hft :
+  ∀ δ > 0, ∃ M, ∀ (z : ℂ), ‖(Polynomial.aeval (Complex.cos (↑Real.pi * z / ↑D))) P‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)
+hfb : ∀ (x : ℝ), ‖(Polynomial.aeval (Complex.cos (↑Real.pi * ↑x / ↑D))) P‖ ≤ C
+hfx :
+  ∀ x ∈ Icc (-1) 1,
+    (Polynomial.aeval (Complex.cos (↑Real.pi * ↑(D / Real.pi * Real.arccos x) / ↑D))) P = ↑(Polynomial.eval x P)
+hhit : ∀ (l : Fin q), ∃ i ∈ G l, i ∈ {i | ρ < |Polynomial.eval (↑(x i)) P - y i|}
+hq : q ≤ {i | ρ < |Polynomial.eval (↑(x i)) P - y i|}.card
+hkpos : 0 < ↑k
+hqE : ↑q ≤ ↑{i | ρ < |Polynomial.eval (↑(x i)) P - y i|}.card
+⊢ ↑n * (↑k + 1) - (↑k - 1) * D - (↑k - 1) * (↑k + 1) = ↑n * (↑k + 1) - (↑k - 1) * (D + (↑k + 1))
+Rooms/Target_B6_1133_A_full_probe.lean:1087:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```

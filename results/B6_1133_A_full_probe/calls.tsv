@@ -1,0 +1,9 @@
+0001	2026-11-27T02:27:02Z	N04	error	rc=1	secs=3	bytes=29959
+0002	2026-11-27T02:38:03Z	N08	error	rc=1	secs=5	bytes=41703
+0003	2026-11-27T02:38:46Z	N09	sorry	rc=0	secs=4	bytes=41794
+0004	2026-11-27T02:39:44Z	N25	sorry	rc=0	secs=4	bytes=48647
+0005	2026-11-27T02:41:53Z	N29	error	rc=1	secs=5	bytes=58373
+0006	2026-11-27T02:42:13Z	N10	sorry	rc=0	secs=4	bytes=58383
+0007	2026-11-27T02:43:08Z	ROOT	error	rc=1	secs=5	bytes=58291
+0008	2026-11-27T02:43:29Z	ROOT	sorry	rc=0	secs=5	bytes=58330
+0009	2026-11-27T02:44:16Z	FINAL	sorry	rc=0	secs=5	bytes=58330

@@ -1,0 +1,90 @@
+# Registrar's blind re-typing for build 6 P9, written 2026-11-27 ~02:35Z from the room names, dependencies and statements
+# with the planner's join_type column hidden (see the listing command in the session). Leaks known before typing: the
+# planners' reports named the literature rooms (1061 N01, N02; 1133 N01–N03), the 1061 planner called N23 and N38 the
+# hardest and expected two_structure_coupling to fail first, and the 1133 planner named N17 (coupling) and N29, N25 as
+# hard. Types are the registrar's reading of what each step does; AI = algebraic_identity, EA = extremal_averaging,
+# CS = case_split, LI = literature_import, TC = two_structure_coupling, QI = quantitative_improvement, AS = assembly.
+blueprint_1061:
+  N01: LI
+  N02: LI
+  N03: AI
+  N04: AI
+  N05: AI
+  N06: AI
+  N07: AS
+  N08: CS
+  N09: AI
+  N10: AI
+  N11: EA
+  N12: AS
+  N13: AI
+  N14: AI
+  N15: AI
+  N16: AI
+  N17: AI
+  N18: AI
+  N19: AI
+  N20: AI
+  N21: AI
+  N22: AI
+  N23: TC
+  N24: EA
+  N25: EA
+  N26: EA
+  N27: EA
+  N28: AI
+  N29: EA
+  N30: EA
+  N31: AS
+  N32: AI
+  N33: EA
+  N34: AI
+  N35: EA
+  N36: AI
+  N37: AS
+  N38: TC
+  N39: AS
+  N40: AS
+  N41: EA
+  N42: AS
+  N43: AI
+  N44: EA
+  N45: TC
+  N46: AI
+  N47: AS
+  N48: AS
+blueprint_1133:
+  N01: LI
+  N02: LI
+  N03: LI
+  N04: AI
+  N05: AI
+  N06: AS
+  N07: AI
+  N08: AI
+  N09: EA
+  N10: AS
+  N11: CS
+  N12: AS
+  N13: AI
+  N14: AI
+  N15: AS
+  N16: EA
+  N17: TC
+  N18: AS
+  N19: AI
+  N20: AI
+  N21: AI
+  N22: AI
+  N23: AS
+  N24: CS
+  N25: EA
+  N26: AI
+  N27: AS
+  N28: EA
+  N29: TC
+  N30: AI
+  N31: AI
+  N32: AS
+  N33: AI
+  N34: AS

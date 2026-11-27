@@ -1,0 +1,68 @@
+Rooms/Target_B6_1133_A_full_probe.lean:18:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:30:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:37:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:79:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:128:4: error: `simp` made no progress
+Rooms/Target_B6_1133_A_full_probe.lean:155:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:174:68: error: Application type mismatch: The argument
+  h2
+has type
+  Real.exp X < 2 * ↑⌈Real.exp X⌉₊
+but is expected to have type
+  Real.exp X < 2 * ↑⌈Real.exp (Real.log (Real.exp X))⌉₊
+in the application
+  Real.log_lt_log (Real.exp_pos X) h2
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLT ↦ 2
+Rooms/Target_B6_1133_A_full_probe.lean:175:64: error: No goals to be solved
+Rooms/Target_B6_1133_A_full_probe.lean:195:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:220:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:230:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:242:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:271:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_A_full_probe.lean:285:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:298:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:327:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:367:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:380:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:387:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:394:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:401:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:422:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:454:4: error: linarith failed to find a contradiction
+case ha
+k n : ℕ
+hk : 2 ≤ k
+hn : 4 * k ^ 2 ≤ n
+hk' : 2 ≤ ↑k
+hn' : 4 * ↑k ^ 2 ≤ ↑n
+hkpos : 0 < ↑k
+hk0 : ↑k ≠ 0
+hk1 : ↑k + 1 ≠ 0
+e :
+  ↑n / ↑k - (↑k - 1) / (↑k * (↑k + 1)) * ((1 + 1 / (8 * ↑k ^ 2)) * ↑n) - (↑k - 1) / ↑k - 1 / (8 * ↑k ^ 2) * ↑n =
+    ((15 * ↑k ^ 2 - 2 * ↑k + 1) * ↑n - 8 * ↑k ^ 2 * (↑k ^ 2 - 1)) / (8 * ↑k ^ 3 * (↑k + 1))
+a✝ : (15 * ↑k ^ 2 - 2 * ↑k + 1) * ↑n - 8 * ↑k ^ 2 * (↑k ^ 2 - 1) ≤ 0
+⊢ False
+failed
+Rooms/Target_B6_1133_A_full_probe.lean:492:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_A_full_probe.lean:554:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
