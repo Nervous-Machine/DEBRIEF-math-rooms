@@ -1,0 +1,63 @@
+# Pre-registration, cycle "graph-2026-11-27": build 9b, the atlas as a graph, with the "bridge without access" measure,
+# and the first write of the rooms graph into CVOT. Written 2026-11-27T19:40Z, BEFORE the measure ran on the registered
+# hinges and before any CVOT write. Amendments below a marker; this body is never edited.
+#
+# Occasion. Heidi Bennett (2026-11-27): rooms point to neighbourhoods; nodes are local samples; edges are conditionals;
+# the route drives through neighbourhoods and builds bridges across them, and a bridge might not have direct access. The
+# registrar's reply named a computable version: a hinge whose two shores, the neighbourhood of its hypotheses and the
+# neighbourhood of its conclusion, have no single existing node close to both. This cycle computes it and stakes one
+# prediction: the two hinges that never closed are the ones with no access.
+#
+# Definitions (rooms/atlas_graph.py). Nodes: the 182 planner-room vectors of atlas/hinges.yaml (five blueprints or
+# node sets: 569, 159, 1061, 1133, and the 569 statement-only lineage) and the 176 discovered rooms of
+# atlas/discovered.yaml. Dependency edges: depends_on from the blueprints; serves and built_for from the discovered
+# rooms. Neighbourhood edges: two nodes whose statement shapes score at least theta = 0.45 under rooms/match.py.
+# access(h) = max over other nodes n of min(sim(n, hypothesis side of h), sim(n, conclusion side of h)).
+# shores(h): the components of the neighbourhood graph with h removed that hold h's nearest hypothesis-side node and
+# nearest conclusion-side node; "DIFF" means a bridge without access.
+#
+# Disclosure. No run of atlas_graph.py on the registered hinges has been made. One change was made before registration:
+# the 569 statement-only lineage's rooms were added to the atlas (hinges.py with start_569B_nodes.yaml as the node set)
+# so that core_ge_three_nonstar is a node; the atlas hash below is after that change.
+
+mission: rooms-2026-11
+cycle: "graph-2026-11-27"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)"
+dated: "2026-11-27"
+question: >
+  In the graph of every room on the record, planner-drawn and discovered, with neighbourhoods by statement shape, are
+  the two hinges that never closed the ones whose two shores no existing node touches at once; and does the graph
+  write into CVOT as nodes and edges under the schema's pod and provenance rules?
+
+hinges_scored:
+  unclosed: [start_569B_nodes.yaml:core_ge_three_nonstar, blueprint_159_nodes.yaml:core_near_extremal]
+  closed_when_forced: [blueprint_569_nodes.yaml:lemma7, blueprint_159_nodes.yaml:turan_weak, blueprint_159_nodes.yaml:c4_free_indep_power, blueprint_159_nodes.yaml:floor_succ_le_power, blueprint_159_nodes.yaml:card_le_power_of_c4_free, blueprint_159_nodes.yaml:erdos_159]
+  other: [blueprint_569_nodes.yaml:goddard_kleitman_sidorenko (literature), blueprint_1061_nodes.yaml:lattice_coords, blueprint_1061_nodes.yaml:local_denominator, blueprint_1061_nodes.yaml:plane_prime_count, blueprint_1061_nodes.yaml:lattice_reduction (false as drawn), blueprint_1133_nodes.yaml:signs_prescribed_tolerance, blueprint_1133_nodes.yaml:finite_degree_error_tradeoff]
+
+predictions:
+  - {id: P1, says: "access of each unclosed hinge is below the access of every hinge that closed when forced"}
+  - {id: P2, says: "shores differ (no access) for both unclosed hinges, and are the same component for at least four of the six hinges that closed when forced"}
+  - {id: P3, says: "discovered rooms adjacent to each unclosed hinge number at least five; adjacent to the two slips (turan_weak, floor_succ_le_power) zero"}
+  - {id: P4, says: "the neighbourhood graph at theta 0.45 has at least four components, and no component holds nodes from all four targets (569, 159, 1061, 1133)"}
+  - {id: P5, says: "the CVOT write of the graph (nodes and edges under pod DEBRIEF-math-rooms with the schema's provenance block, visibility pod) is accepted whole on the first attempt"}
+
+falsifiers: >
+  P1 or P2 failing means shape-neighbourhoods do not see the bridge, and the access measure needs the semantic
+  feature of EG8 before it can; P5 failing is a schema mismatch to be recorded and corrected in an amendment.
+
+cvot_write:                   # what goes into the shared store; nothing is written before this registration is committed
+  collection_nodes: nodes
+  collection_edges: edges
+  pod: "DEBRIEF-math-rooms"
+  node_id: "rooms/<blueprint-or-arm>/<name>"
+  node_fields: "name, type (planner_room | discovered_room), description (the statement), outcome, join_type, join_type_v2, blueprint or arm, provenance (pod, visibility pod, created_by 'DEBRIEF-math-rooms build 9b registrar', prior_yaml_hash = sha256 prefix of atlas/hinges.yaml, seeded_at)"
+  edge_fields: "edge_id '{source}__{kind}__{target}', pod, kind (depends | serves | built_for), source_id, target_id, weight 1.0 for a checked dependency (the file compiled with the edge in it), bucket 'checked', Z_0 1.0 for depends and serves edges whose target was proved, 0.5 otherwise, provenance as the nodes, visibility pod"
+  note: "earned certainty is not seeded; Z_0 is the seed the schema allows and the kernel re-earns it"
+
+instruments:
+  atlas_graph: {path: rooms/atlas_graph.py, sha256: "33132ebe815b458da4666fd8b464cd4b6b1b8f7f3880b3a0faaa1b2fd21cd80c", new: true}
+  matcher: {path: rooms/match.py, sha256: "1fbbfeabc910ac9327d8a6f671cea0f0a2159d8f6131a01b0e4068001d883306"}
+  atlas_hinges: {path: atlas/hinges.yaml, sha256: "a1864a6432a31caf5fcbbceda2e1e497f40d14315d6c734e452acec115df159a", vectors: 182}
+  atlas_discovered: {path: atlas/discovered.yaml, sha256: "0c8faf5598525ae0039d296a6ecf717b947c974a7212e50168e6a244e9e69456", rooms: 176}
+  output: "results/atlas_graph_build9.json; the CVOT write log in results/cvot_write_build9.txt"

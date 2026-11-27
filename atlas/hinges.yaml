@@ -4461,3 +4461,322 @@ hinges:
   blueprint: blueprint_159_nodes.yaml
   statement: 'theorem erdos_159 : ∃ (c : ℝ) (_ : 0 < c) (C : ℝ), ∀ (n : ℕ), 1 ≤ n → (SimpleGraph.graphRamsey (SimpleGraph.cycleGraph
     4) (SimpleGraph.completeGraph (Fin n)) : ℝ) ≤ C * (n : ℝ) ^ (2 - c)'
+- arm: B5_C108_full_forced
+  id: graphRamsey
+  name: graphRamsey
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: absent
+  attempts: 0
+  statement_sha256: cf77dc6c5679556b
+  blueprint: start_569B_nodes.yaml
+  statement: 'noncomputable def graphRamsey {α β : Type*} [Fintype α] [Fintype β] (G : SimpleGraph α) (H : SimpleGraph
+    β) : ℕ := by'
+- arm: B5_C108_full_forced
+  id: graphRamsey_le_of_forall
+  name: graphRamsey_le_of_forall
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 15e5e42cb4b1b8df
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β] (G : SimpleGraph α) (H : SimpleGraph
+    β) (n : ℕ) (h : ∀ C : SimpleGraph (Fin n), G.IsContained C ∨ H.IsContained Cᶜ) : graphRamsey G H ≤ n := by'
+- arm: B5_C108_full_forced
+  id: isEmpty_of_ncard_edgeSet_eq_zero
+  name: isEmpty_of_ncard_edgeSet_eq_zero
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: b3b4060ba8579a33
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem isEmpty_of_ncard_edgeSet_eq_zero {W : Type} [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 0) : IsEmpty W := by'
+- arm: B5_C108_full_forced
+  id: cycleGraph_isContained_top
+  name: cycleGraph_isContained_top
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: dd3eb444c8e4a131
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem cycleGraph_isContained_top {k n : ℕ} (hkn : k ≤ n) : (cycleGraph k).IsContained (⊤ : SimpleGraph
+    (Fin n)) := by'
+- arm: B5_C108_full_forced
+  id: isContained_of_ncard_edgeSet_eq_one
+  name: isContained_of_ncard_edgeSet_eq_one
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 8f13b24a889d1fe7
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem isContained_of_ncard_edgeSet_eq_one {W V : Type*} [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 1) (G : SimpleGraph V) (a b : V) (hab : G.Adj a b)
+    : H.IsContained G := by'
+- arm: B5_C108_full_forced
+  id: core_one
+  name: core_one
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3b42f88d591fde25
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem core_one (k n : ℕ) (hkn : k ≤ n) (W : Type) [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 1) (C : SimpleGraph (Fin n)) : (cycleGraph k).IsContained
+    C ∨ H.IsContained Cᶜ := by'
+- arm: B5_C108_full_forced
+  id: isContained_compl_of_comap
+  name: isContained_compl_of_comap
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: b8eab6042de1e6b5
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem isContained_compl_of_comap {V V'' W : Type*} (H : SimpleGraph W) (C : SimpleGraph V'') (e
+    : V ↪ V'') (h : H.IsContained (C.comap e)ᶜ) : H.IsContained Cᶜ := by'
+- arm: B5_C108_full_forced
+  id: isContained_of_extend
+  name: isContained_of_extend
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9fe100e9884465d1
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem isContained_of_extend {W V : Type*} [DecidableEq W] (H : SimpleGraph W) (u : W) (G : SimpleGraph
+    V) (f : Copy (H.induce ({u}ᶜ : Set W)) G) (x : V) (hx : ∀ w, f w ≠ x) (hadj : ∀ w : ({u}ᶜ : Set W), H.Adj u
+    w → G.Adj x (f w)) : H.IsContained G := by'
+- arm: B5_C108_full_forced
+  id: cycleGraph_isContained_of_isClique
+  name: cycleGraph_isContained_of_isClique
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: a381ca61a5ad771e
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem cycleGraph_isContained_of_isClique {V : Type*} [Fintype V] (C : SimpleGraph V) (s : Finset
+    V) (hs : C.IsClique (s : Set V)) (k : ℕ) (hk : k ≤ s.card) : (cycleGraph k).IsContained C := by'
+- arm: B5_C108_full_forced
+  id: exists_isClique_of_compl_degree_le
+  name: exists_isClique_of_compl_degree_le
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 7be94201353b91bf
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem exists_isClique_of_compl_degree_le {V : Type*} [Fintype V] [DecidableEq V] (C : SimpleGraph
+    V) [DecidableRel C.Adj] (Δ : ℕ) (hΔ : ∀ v, Cᶜ.degree v ≤ Δ) (n : ℕ) : ∀ s : Finset V, s.card ≤ n → ∃ t ⊆ s,
+    C.IsClique (t : Set V) ∧ s.card ≤ (Δ + 1) * t.card := by'
+- arm: B5_C108_full_forced
+  id: star_isContained_of_le_degree
+  name: star_isContained_of_le_degree
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: f77f2fbe5a9f5daf
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem star_isContained_of_le_degree {W V : Type*} [Fintype W] [DecidableEq W] [Fintype V] [DecidableEq
+    V] (H : SimpleGraph W) (v₀ : W) (hstar : ∀ a b, H.Adj a b → a = v₀ ∨ b = v₀) (G : SimpleGraph V) [DecidableRel
+    G.Adj] (x : V) (hx : (Finset.univ.erase v₀).card ≤ G.degree x) : H.IsContained G := by'
+- arm: B5_C108_full_forced
+  id: core_star
+  name: core_star
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 461b00d7baf8bf83
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem core_star (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) (v₀ : W) (hstar : ∀ a b, H.Adj a b → a = v₀ ∨ b
+    = v₀) (C : SimpleGraph (Fin ((k - 1) * m + 1))) : (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B5_C108_full_forced
+  id: cycleGraph_isContained_of_compl_degree_lt
+  name: cycleGraph_isContained_of_compl_degree_lt
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 471a80276b1f0c4b
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem cycleGraph_isContained_of_compl_degree_lt (k m : ℕ) (hm1 : 1 ≤ m) (C : SimpleGraph (Fin ((k
+    - 1) * m + 1))) [DecidableRel C.Adj] (hdeg : ∀ x, Cᶜ.degree x < m) : (cycleGraph k).IsContained C := by'
+- arm: B5_C108_full_forced
+  id: isContained_of_ncard_edgeSet_eq_two
+  name: isContained_of_ncard_edgeSet_eq_two
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 84df1913bcd0a5a1
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem isContained_of_ncard_edgeSet_eq_two {W V : Type*} [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 2) (hns : ¬ ∃ v₀, ∀ a b, H.Adj a b → a = v₀ ∨ b =
+    v₀) (G : SimpleGraph V) (p q r t : V) (hpq : G.Adj p q) (hrt : G.Adj r t) (hpr : p ≠ r) (hpt : p ≠ t) (hqr :
+    q ≠ r) (hqt : q ≠ t) : H.IsContained G := by'
+- arm: B5_C108_full_forced
+  id: core_two_nonstar
+  name: core_two_nonstar
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1ab6372a7421933d
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem core_two_nonstar (k : ℕ) (hk : 3 ≤ k) (W : Type) [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = 2) (hns : ¬ ∃ v₀, ∀ a b, H.Adj a b → a = v₀ ∨ b =
+    v₀) (C : SimpleGraph (Fin ((k - 1) * 2 + 1))) : (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B5_C108_full_forced
+  id: core_ge_three_nonstar
+  name: core_ge_three_nonstar
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: open
+  attempts: 216
+  statement_sha256: 2f112cdac7e4bb3f
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem core_ge_three_nonstar (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (hm3 : 3 ≤ m) (W : Type) [Fintype W] (H
+    : SimpleGraph W) [DecidableRel H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) (hns : ¬ ∃ v₀, ∀
+    a b, H.Adj a b → a = v₀ ∨ b = v₀) (C : SimpleGraph (Fin ((k - 1) * m + 1))) [DecidableRel C.Adj] (hx : ∃ x,
+    m ≤ Cᶜ.degree x) : (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B5_C108_full_forced
+  id: core
+  name: core
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9d54d1b9e6351352
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem core (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (hm1 : 1 ≤ m) (W : Type) [Fintype W] (H : SimpleGraph W)
+    [DecidableRel H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) (C : SimpleGraph (Fin ((k - 1) *
+    m + 1))) : (cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B5_C108_full_forced
+  id: cambie_freschi
+  name: cambie_freschi
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: null
+  predicted: null
+  outcome: proved
+  attempts: 0
+  statement_sha256: 89ee00271e0f5f85
+  blueprint: start_569B_nodes.yaml
+  statement: 'theorem cambie_freschi (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph
+    k) H ≤ (k - 1) * m + 1 := by'
