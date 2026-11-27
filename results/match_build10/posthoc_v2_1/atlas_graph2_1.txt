@@ -1,0 +1,17 @@
+nodes 358; neighbourhood edges 458 at theta 0.578; components 163; components spanning all four targets 0; empty hypothesis side 33/358
+hinge                                                outcome  H  access  shores  deg  disc
+start_569B_nodes.yaml:core_ge_three_nonstar          open     y  0.351   same    11   123 
+blueprint_569_nodes.yaml:lemma7                      open     y  0.324   DIFF    5    4   
+blueprint_569_nodes.yaml:goddard_kleitman_sidorenko  open     y  0.445   same    9    0   
+blueprint_159_nodes.yaml:core_near_extremal          open     y  0.322   DIFF    8    5   
+blueprint_159_nodes.yaml:turan_weak                  proved   -  0.000   DIFF    0    8   
+blueprint_159_nodes.yaml:c4_free_indep_power         proved   y  0.301   DIFF    6    14  
+blueprint_159_nodes.yaml:floor_succ_le_power         proved   y  0.183   DIFF    0    0   
+blueprint_159_nodes.yaml:card_le_power_of_c4_free    proved   y  0.150   DIFF    2    2   
+blueprint_159_nodes.yaml:erdos_159                   proved   y  0.179   DIFF    1    0   
+blueprint_1061_nodes.yaml:lattice_coords             open     y  0.166   DIFF    0    0   
+blueprint_1061_nodes.yaml:local_denominator          open     y  0.392   DIFF    3    0   
+blueprint_1061_nodes.yaml:plane_prime_count          open     y  0.231   DIFF    0    0   
+blueprint_1061_nodes.yaml:lattice_reduction          open     y  0.107   DIFF    0    0   
+blueprint_1133_nodes.yaml:signs_prescribed_tolerance proved   y  0.186   DIFF    2    0   
+blueprint_1133_nodes.yaml:finite_degree_error_tradeoff proved   y  0.360   DIFF    1    0   

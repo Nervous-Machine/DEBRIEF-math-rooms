@@ -1,0 +1,85 @@
+
+two_mul_sq_div_four_succ_lt:
+  0.371  blueprint_1133_nodes.yaml    N30   theorem21_arithmetic                     outcome=proved
+  0.367  blueprint_159_nodes.yaml     ROOT  erdos_159                                outcome=proved
+  0.332  blueprint_1133_nodes.yaml    N25   bucket_grouping                          outcome=proved
+
+sq_div_four_eq_pred_sq_div_four_add_half:
+  0.350  blueprint_569_nodes.yaml     N02   cycleGraph_edgeSet_ncard                 outcome=proved
+  0.346  blueprint_159_nodes.yaml     ROOT  erdos_159                                outcome=proved
+  0.344  blueprint_1133_nodes.yaml    N25   bucket_grouping                          outcome=proved
+
+low_degree_arith_aux:
+  0.323  blueprint_159_nodes.yaml     N17   rpow_inversion                           outcome=proved
+  0.321  blueprint_569_nodes.yaml     N52   S_size_bound                             outcome=proved
+  0.317  blueprint_159_nodes.yaml     N14   sparse_branch_arith                      outcome=proved
+
+low_degree_arith:
+  0.479  blueprint_159_nodes.yaml     N17   rpow_inversion                           outcome=proved
+  0.418  blueprint_159_nodes.yaml     N14   sparse_branch_arith                      outcome=proved
+  0.409  blueprint_159_nodes.yaml     N15   dense_branch_arith                       outcome=proved
+
+exists_card_mul_degree_le:
+  0.422  blueprint_159_nodes.yaml     N10   turan_weak                               outcome=proved
+  0.415  blueprint_159_nodes.yaml     N11   exists_dense_core                        outcome=proved
+  0.312  blueprint_569_nodes.yaml     N07   card_le_two_mul_ncard                    outcome=proved
+
+exists_low_degree_vertex:
+  0.466  blueprint_159_nodes.yaml     N11   exists_dense_core                        outcome=proved
+  0.394  blueprint_159_nodes.yaml     N10   turan_weak                               outcome=proved
+  0.348  start_569B_nodes.yaml        exists_isClique_of_compl_degree_le exists_isClique_of_compl_degree_le       outcome=proved
+
+card_edgeFinset_induce_compl_singleton_eq:
+  0.285  blueprint_159_nodes.yaml     N10   turan_weak                               outcome=proved
+  0.265  start_569B_nodes.yaml        exists_isClique_of_compl_degree_le exists_isClique_of_compl_degree_le       outcome=proved
+  0.220  blueprint_159_nodes.yaml     N11   exists_dense_core                        outcome=proved
+
+card_compl_singleton_subtype:
+  0.300  blueprint_159_nodes.yaml     N10   turan_weak                               outcome=proved
+  0.252  blueprint_569_nodes.yaml     N07   card_le_two_mul_ncard                    outcome=proved
+  0.242  blueprint_569_nodes.yaml     N08   connected_card_le_ncard_add_one          outcome=proved
+
+exists_vertex_delete_keeps_dense:
+  0.453  blueprint_159_nodes.yaml     N11   exists_dense_core                        outcome=proved
+  0.371  blueprint_159_nodes.yaml     N10   turan_weak                               outcome=proved
+  0.347  start_569B_nodes.yaml        exists_isClique_of_compl_degree_le exists_isClique_of_compl_degree_le       outcome=proved
+
+induce_isContained:
+  0.460  blueprint_569_nodes.yaml     N04   isContained_of_induce                    outcome=proved
+  0.460  blueprint_569_nodes.yaml     N05   isContained_compl_of_compl_induce        outcome=proved
+  0.438  blueprint_569_nodes.yaml     N44   induce_no_isolated_of_closed             outcome=proved
+
+ncard_edgeSet_eq_card_edgeFinset:
+  0.258  blueprint_569_nodes.yaml     N07   card_le_two_mul_ncard                    outcome=proved
+  0.240  blueprint_569_nodes.yaml     N08   connected_card_le_ncard_add_one          outcome=proved
+  0.220  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+
+exists_fin_copy:
+  0.391  blueprint_159_nodes.yaml     N11   exists_dense_core                        outcome=proved
+  0.373  blueprint_569_nodes.yaml     N07   card_le_two_mul_ncard                    outcome=proved
+  0.331  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               outcome=open
+
+exists_dense_fin_subgraph:
+  0.443  blueprint_159_nodes.yaml     N11   exists_dense_core                        outcome=proved
+  0.368  blueprint_569_nodes.yaml     N07   card_le_two_mul_ncard                    outcome=proved
+  0.353  blueprint_159_nodes.yaml     N10   turan_weak                               outcome=proved
+
+exists_le_ncard_edgeSet_eq:
+  0.423  blueprint_569_nodes.yaml     N36   exists_chromatic                         outcome=proved
+  0.411  blueprint_569_nodes.yaml     N02   cycleGraph_edgeSet_ncard                 outcome=proved
+  0.357  blueprint_569_nodes.yaml     N39   exists_sparse_half                       outcome=proved
+
+dirac_erdos_exists:
+  0.325  blueprint_569_nodes.yaml     N02   cycleGraph_edgeSet_ncard                 outcome=proved
+  0.312  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+  0.308  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              outcome=proved
+
+forcingNumber_le_of_forall:
+  0.294  start_569B_nodes.yaml        graphRamsey_le_of_forall graphRamsey_le_of_forall                 outcome=proved
+  0.288  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+  0.277  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              outcome=proved
+
+erdos_766.variants.dirac_erdos:
+  0.382  blueprint_1133_nodes.yaml    N25   bucket_grouping                          outcome=proved
+  0.346  blueprint_159_nodes.yaml     ROOT  erdos_159                                outcome=proved
+  0.330  blueprint_1133_nodes.yaml    N24   finset_split_into_blocks                 outcome=proved

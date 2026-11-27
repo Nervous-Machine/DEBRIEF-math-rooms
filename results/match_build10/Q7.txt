@@ -1,0 +1,205 @@
+
+coprime_p_q:
+  0.620  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.522  blueprint_1061_nodes.yaml    N10   multiplier_disjoint                      outcome=proved
+  0.301  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+
+lte_corollary:
+  0.324  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.236  blueprint_1061_nodes.yaml    N17   zero_form_criteria                       outcome=proved
+  0.229  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+
+parity_split:
+  0.264  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.233  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+  0.194  blueprint_1061_nodes.yaml    N19   onPlane_equations                        outcome=proved
+
+coprime_sub_add_of_odd:
+  0.590  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.495  blueprint_1061_nodes.yaml    N10   multiplier_disjoint                      outcome=proved
+  0.373  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+
+prime_pow_coprime_split:
+  0.702  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.628  blueprint_1061_nodes.yaml    N10   multiplier_disjoint                      outcome=proved
+  0.308  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+
+caseA_reduce:
+  0.386  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.360  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.348  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+
+caseA_mod_p:
+  0.450  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.316  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+  0.300  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+
+three_pow_odd_mod_seven:
+  0.170  blueprint_569_nodes.yaml     N31   claim9                                   outcome=proved
+  0.150  blueprint_1061_nodes.yaml    N39   fc_lattice                               outcome=proved
+  0.114  blueprint_159_nodes.yaml     N14   sparse_branch_arith                      outcome=proved
+
+caseA_pow_ne:
+  0.293  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.259  blueprint_1061_nodes.yaml    N39   fc_lattice                               outcome=proved
+  0.216  blueprint_569_nodes.yaml     N31   claim9                                   outcome=proved
+
+lemma_2_3:
+  0.301  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.247  blueprint_1061_nodes.yaml    N39   fc_lattice                               outcome=proved
+  0.193  blueprint_569_nodes.yaml     N31   claim9                                   outcome=proved
+
+lemma_2_4:
+  0.293  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.259  blueprint_1061_nodes.yaml    N39   fc_lattice                               outcome=proved
+  0.216  blueprint_569_nodes.yaml     N31   claim9                                   outcome=proved
+
+caseA_no_solution:
+  0.542  blueprint_569_nodes.yaml     N56   final_arith                              outcome=proved
+  0.177  blueprint_1061_nodes.yaml    N20   good_coprime                             outcome=proved
+  0.171  blueprint_1061_nodes.yaml    N21   local_witness                            outcome=open
+
+caseB_split:
+  0.586  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.444  blueprint_1061_nodes.yaml    N10   multiplier_disjoint                      outcome=proved
+  0.356  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+
+pow_gt_two_mul_add_one:
+  0.373  blueprint_159_nodes.yaml     ROOT  erdos_159                                outcome=proved
+  0.343  blueprint_1133_nodes.yaml    N30   theorem21_arithmetic                     outcome=proved
+  0.333  blueprint_1133_nodes.yaml    N25   bucket_grouping                          outcome=proved
+
+prop_2_5:
+  0.326  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.300  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.294  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+
+lemma_2_6:
+  0.393  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.265  blueprint_1061_nodes.yaml    N39   fc_lattice                               outcome=proved
+  0.184  blueprint_1061_nodes.yaml    N20   good_coprime                             outcome=proved
+
+caseB_trivial:
+  0.327  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+  0.302  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.263  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+
+nontrivial_bounds:
+  0.244  blueprint_159_nodes.yaml     N17   rpow_inversion                           outcome=proved
+  0.233  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+  0.233  blueprint_159_nodes.yaml     N14   sparse_branch_arith                      outcome=proved
+
+geom_identity:
+  0.427  blueprint_569_nodes.yaml     N38   sum_induced_edges_powersetCard           outcome=proved
+  0.404  blueprint_1133_nodes.yaml    N25   bucket_grouping                          outcome=proved
+  0.382  blueprint_1133_nodes.yaml    N24   finset_split_into_blocks                 outcome=proved
+
+geom_sum_modEq:
+  0.405  blueprint_569_nodes.yaml     N38   sum_induced_edges_powersetCard           outcome=proved
+  0.380  blueprint_1133_nodes.yaml    N25   bucket_grouping                          outcome=proved
+  0.363  blueprint_1133_nodes.yaml    N24   finset_split_into_blocks                 outcome=proved
+
+lemma_2_7:
+  0.345  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.323  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+  0.311  blueprint_1061_nodes.yaml    N40   beta_local                               outcome=proved
+
+nontrivial_b_pos:
+  0.875  blueprint_569_nodes.yaml     N56   final_arith                              outcome=proved
+  0.225  blueprint_159_nodes.yaml     N17   rpow_inversion                           outcome=proved
+  0.200  blueprint_159_nodes.yaml     N14   sparse_branch_arith                      outcome=proved
+
+s_sub_r_cases_aux:
+  0.476  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.359  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+  0.282  blueprint_1061_nodes.yaml    N20   good_coprime                             outcome=proved
+
+s_sub_r_cases:
+  0.544  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.530  blueprint_1061_nodes.yaml    N10   multiplier_disjoint                      outcome=proved
+  0.330  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+
+s_ne_r_add_one:
+  0.832  blueprint_569_nodes.yaml     N56   final_arith                              outcome=proved
+  0.240  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.200  blueprint_569_nodes.yaml     N15   step_triangle                            outcome=proved
+
+k_param:
+  0.336  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.307  blueprint_569_nodes.yaml     N37   choose_ineq                              outcome=proved
+  0.300  blueprint_569_nodes.yaml     N52   S_size_bound                             outcome=proved
+
+remark_2_8:
+  0.494  blueprint_569_nodes.yaml     N56   final_arith                              outcome=proved
+  0.232  blueprint_1061_nodes.yaml    N40   beta_local                               outcome=proved
+  0.199  blueprint_1061_nodes.yaml    N29   local_density                            outcome=open
+
+amgm_core:
+  0.217  blueprint_159_nodes.yaml     N14   sparse_branch_arith                      outcome=proved
+  0.193  blueprint_159_nodes.yaml     N15   dense_branch_arith                       outcome=proved
+  0.193  blueprint_159_nodes.yaml     N17   rpow_inversion                           outcome=proved
+
+amgm_pair:
+  0.380  blueprint_159_nodes.yaml     N19   floor_succ_le_power                      outcome=proved
+  0.373  blueprint_569_nodes.yaml     N52   S_size_bound                             outcome=proved
+  0.350  blueprint_1133_nodes.yaml    N30   theorem21_arithmetic                     outcome=proved
+
+geom_sum_lower:
+  0.315  blueprint_1061_nodes.yaml    N35   nonzero_forms_count                      outcome=proved
+  0.314  blueprint_1061_nodes.yaml    N40   beta_local                               outcome=proved
+  0.224  blueprint_1061_nodes.yaml    N33   union_card_bound                         outcome=proved
+
+bound6:
+  0.351  blueprint_1061_nodes.yaml    N40   beta_local                               outcome=proved
+  0.341  blueprint_1133_nodes.yaml    N30   theorem21_arithmetic                     outcome=proved
+  0.292  blueprint_1133_nodes.yaml    N16   sign_from_separation                     outcome=proved
+
+aux_eq_int:
+  0.351  blueprint_1061_nodes.yaml    N40   beta_local                               outcome=proved
+  0.292  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.283  blueprint_1061_nodes.yaml    N18   integral_lift                            outcome=proved
+
+trunc_binom:
+  0.567  blueprint_569_nodes.yaml     N37   choose_ineq                              outcome=proved
+  0.183  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.183  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+
+lhs_expansion:
+  0.200  blueprint_1061_nodes.yaml    N18   integral_lift                            outcome=proved
+  0.193  blueprint_1061_nodes.yaml    N19   onPlane_equations                        outcome=proved
+  0.183  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+
+rhs_expansion:
+  0.275  blueprint_1061_nodes.yaml    N17   zero_form_criteria                       outcome=proved
+  0.233  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.221  blueprint_1061_nodes.yaml    N18   integral_lift                            outcome=proved
+
+aux_b_odd:
+  0.243  blueprint_569_nodes.yaml     N52   S_size_bound                             outcome=proved
+  0.237  blueprint_159_nodes.yaml     N19   floor_succ_le_power                      outcome=proved
+  0.229  blueprint_159_nodes.yaml     N14   sparse_branch_arith                      outcome=proved
+
+aux_div:
+  0.373  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.353  blueprint_1061_nodes.yaml    N21   local_witness                            outcome=open
+  0.340  blueprint_1061_nodes.yaml    N36   local_W                                  outcome=proved
+
+two_pow_ge:
+  0.397  blueprint_1133_nodes.yaml    N25   bucket_grouping                          outcome=proved
+  0.373  blueprint_159_nodes.yaml     ROOT  erdos_159                                outcome=proved
+  0.344  blueprint_1133_nodes.yaml    N24   finset_split_into_blocks                 outcome=proved
+
+aux_solution:
+  0.276  blueprint_1061_nodes.yaml    N40   beta_local                               outcome=proved
+  0.270  blueprint_1061_nodes.yaml    N02   bienvenu_lemma12_singular_series         outcome=open
+  0.250  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+
+caseB_nontrivial:
+  0.554  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.545  blueprint_1061_nodes.yaml    N10   multiplier_disjoint                      outcome=proved
+  0.339  blueprint_1061_nodes.yaml    N07   core_from_sextuple                       outcome=proved
+
+consecutive_exponents:
+  0.363  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+  0.345  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.270  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved

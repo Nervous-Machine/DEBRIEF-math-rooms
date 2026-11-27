@@ -3158,6 +3158,135 @@
    "gap_ids": [
     "HG10"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T20:24:50Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-match2.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-match2",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer)",
+   "preregistered": {
+    "question": "Does the semantic matcher separate proofs within an area at a threshold set by rule?",
+    "rule": "rooms/match2.py and rooms/atlas_graph2.py as registered; amendment A1 (one reader defect found on the data, a corrected copy run in full and reported apart, not scored)",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8",
+     "P9",
+     "P10"
+    ],
+    "commit": "prereg_build_10_match.yaml",
+    "results": [
+     "results/match_build10/tau.txt",
+     "results/match_build10/self.txt",
+     "results/match_build10/sides.txt",
+     "results/match_build10/Q1.txt",
+     "results/match_build10/Q2.txt",
+     "results/match_build10/Q3.txt",
+     "results/match_build10/Q4.txt",
+     "results/match_build10/Q6.txt",
+     "results/match_build10/Q7.txt",
+     "results/atlas_graph2_build10.txt",
+     "results/match_build10/posthoc_v2_1/atlas_graph2_1.txt"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "tau": "0.578 (95th percentile of the 182 atlas vectors' best cross-target scores)",
+     "Q1_within_proof": "14 of 16 top-1 from the 569 blueprint",
+     "Q3_diophantine_against_1061": "0.363 (0.62 under the first matcher)",
+     "Q4_erdos_1133_against_other_proofs": 0.292,
+     "Q5_self_consistency": "0.92 (0.87 under the first matcher)",
+     "Q6_erdos_766_unseen_graph_theory": "0 of 17 at or above tau",
+     "Q7_arxiv_2608_unseen_number_theory": "6 of 41 at or above tau (four coprimality lemmas, two bare arithmetic statements)",
+     "Q8_empty_hypothesis_side": "39 of 358 as registered; 33 of 358 after the conjunction defect was corrected",
+     "Q9_access_after_correction": "569 core 0.351 against Lemma 7 0.324; 159 core 0.322 against 159 forced closures 0.000 to 0.301 (not scored)",
+     "held": "P1, P3, P4, P5, P6, P7",
+     "missed": "P2 (second clause), P8, P9, P10"
+    },
+    "misses": [
+     "P2 (second clause)",
+     "P8",
+     "P9",
+     "P10"
+    ]
+   },
+   "spoken": "The second matcher separates two proofs in the same area of mathematics: the Diophantine statement that scored 0.62 against the divisor-function proof now scores 0.36, below a threshold fixed by rule before anything ran. It refuses all seventeen theorems of a graph-theory proof it has never seen and thirty-five of forty-one from an unseen number-theory proof, and it finds the rooms of the same proof more often than before. The reader still cut one kind of nested statement short; corrected, it reads every hinge, and the bridge picture comes out the other way: the hinges that never closed are the best-surrounded rooms in their proofs.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG8"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T20:24:50Z",
+   "provenance": {
+    "source": "contributed cycle file match2-2026-11-27.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "match2-2026-11-27",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+   "hypothesis": "With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the statement matcher keeps its within-proof retrieval, separates two proofs in the same area at a threshold set by rule, and refuses statements from proofs it has never seen.",
+   "signals": "predictions P1–P10 in prereg_build_10_match.yaml",
+   "endpoints": "none public until filed",
+   "measurements_needed": "rooms/match2.py on the five build 8c queries and two proofs not in the atlas; rooms/atlas_graph2.py",
+   "bears_on": "the matcher gap EG8; build 9b's bridge-without-access question",
+   "pinned": {
+    "sha256": "f6ca2e09da2cf52606f1447832c96f16a94f8e21a71b3a4edba564fef82c0f27",
+    "file": "prereg_build_10_match.yaml"
+   },
+   "preregistered": {
+    "question": "Does the semantic matcher separate proofs within an area at a threshold set by rule?",
+    "rule": "P1–P10 as written; the closing rule for EG8 as written; misses recorded",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8",
+     "P9",
+     "P10"
+    ],
+    "commit": "prereg_build_10_match.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 10,
+     "queries": 9,
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered a second statement matcher, one that reads hypotheses out of quantified statements and weighs the constants a statement uses by their rarity, with a threshold fixed by rule and ten predictions.",
+   "finding_ids": [],
+   "gap_ids": [
+    "HG11"
+   ]
   }
  ],
  "findings": [
@@ -4225,7 +4354,7 @@
    "audience": "briefing",
    "gap_id": "EG8",
    "title": "The statement matcher over the hinge atlas separates proofs across areas and rooms within a proof, but not two proofs in the same area: a Diophantine statement matched divisor-function rooms at 0.62 against a registered ceiling of 0.45",
-   "status": "proposed",
+   "status": "resolved_learned",
    "opened_cycle": "data-2026-11-27-match",
    "priority": 3,
    "history": [
@@ -4235,6 +4364,13 @@
      "hypothesis": "shape neighbourhoods over the whole atlas show the hinges that never closed as bridges without access",
      "before_data": true,
      "result": "no: every hinge at access 0 has an empty hypothesis side because its hypotheses sit inside the quantified conclusion, and among the rest access does not separate open from closed; the gap's measurement now also needs a hypothesis side read from inside quantified statements"
+    },
+    {
+     "cycle": "data-2026-11-27-match2",
+     "dated": "2026-11-27",
+     "hypothesis": "a matcher with hypotheses read from inside quantified statements and rarity-weighted constants separates two proofs in one area at a threshold set by rule",
+     "before_data": true,
+     "result": "yes: the Diophantine statement fell from 0.62 to 0.36 against a threshold of 0.578 fixed by rule; 0 of 17 theorems of an unseen graph-theory proof and 6 of 41 of an unseen number-theory proof reach it; within-proof retrieval 14 of 16 and self-consistency 0.92; the registered closing rule is met"
     }
    ],
    "closes_with": [
@@ -4250,7 +4386,7 @@
     "spoken": "Add the semantic feature and re-derive the threshold."
    },
    "expected_signal": "a registered matcher cycle with the threshold predicted first",
-   "resolution_by": "none registered"
+   "resolution_by": "data-2026-11-27-match2"
   },
   {
    "schema_version": "nm-debrief-v1",
@@ -4438,6 +4574,84 @@
     "spoken": "The measurement named by the submitter, made public at an endpoint."
    },
    "expected_signal": "predictions P1–P5 in prereg_build_9_graph.yaml",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T20:24:50Z",
+   "provenance": {
+    "source": "hypothesis cycle match2-2026-11-27"
+   },
+   "audience": "briefing",
+   "gap_id": "HG11",
+   "title": "With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the statement matcher keeps its within-proof retrieval,…",
+   "status": "immovable",
+   "opened_cycle": "match2-2026-11-27",
+   "priority": 12,
+   "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+    "github": null,
+    "cycle": "match2-2026-11-27",
+    "sha256": "f6ca2e09da2cf52606f1447832c96f16a94f8e21a71b3a4edba564fef82c0f27",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "match2-2026-11-27",
+     "hypothesis": "With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the statement matcher keeps its within-proof retrieval,…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar); pinned sha256 f6ca2e09da2c…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "rooms/match2.py on the five build 8c queries and two proofs not in the atlas; rooms/atlas_graph2.py",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the statement matcher keeps its within-proof retrieval, separates two proofs in the same area at a threshold set by rule, and refuses statements from proofs it has never seen.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P10 in prereg_build_10_match.yaml",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Opus 5.5 as the operating agent",
+   "created_at": "2026-11-27T21:00:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "gap_id": "EG9",
+   "title": "Once every hinge's hypotheses are read, the two hinges that never closed are the best-surrounded rooms in their proofs, not the most isolated: access 0.351 against Lemma 7's 0.324 for 569, 0.322 against at most 0.301 for 159, seen after registration on two hinges",
+   "status": "proposed",
+   "opened_cycle": "data-2026-11-27-match2",
+   "priority": 3,
+   "history": [],
+   "closes_with": [
+    {
+     "what": "a registered test of the reversed prediction (an unclosed hinge has higher access than the forced closures of its own proof) with the corrected reader, on the hinges of a fifth target run to the same forced-attempt protocol",
+     "kind": "measurement",
+     "external": false,
+     "who_could_act": "Nervous Machine, or anyone with the atlas"
+    }
+   ],
+   "spoken": "The picture of a hard step as a bridge no existing room reaches did not hold. Read properly, the two steps no searcher could take are the ones with the most similar rooms around them. That was seen after the test was written, on two steps, and needs its own test.",
+   "ask": {
+    "spoken": "Register the reversed prediction and test it on a target the atlas has not seen."
+   },
+   "expected_signal": "a registered access cycle with the direction predicted first",
    "resolution_by": "none registered"
   }
  ],

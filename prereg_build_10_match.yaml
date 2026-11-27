@@ -72,3 +72,42 @@ instruments:
   atlas_hinges: {path: atlas/hinges.yaml, sha256: "a1864a6432a31caf5fcbbceda2e1e497f40d14315d6c734e452acec115df159a", vectors: 182}
   atlas_discovered: {path: atlas/discovered.yaml, sha256: "0c8faf5598525ae0039d296a6ecf717b947c974a7212e50168e6a244e9e69456", rooms: 176}
   outputs: "results/match_build10/ (tau.txt, sides.txt, Q1.txt … Q7.txt, self.txt), results/atlas_graph2_build10.txt and .json"
+
+# ---- Amendment A1 ---- appended after the registered run; the registered text above is unedited.
+amendments_appended:
+  - id: A1
+    written: "2026-11-27, after every registered query ran (results/match_build10/) and the v2 graph ran (results/atlas_graph2_build10.*)"
+    timing: "the header's 20:25Z was the registrar's estimate when writing; the sidecar's 2026-11-27T20:21:35Z is the registration time"
+    results: >
+      tau = 0.578 (95th percentile of 182 best cross-target scores). Q1: top-1 from the 569 blueprint for 14 of 16
+      own lemmas (the two others matched 159 rooms of the same shape). Q2: top-1 ramsey_with_isolated 0.410, all top 5
+      from 569; neither lemma7 nor the root. Q3: top-1 friendly_triple_activation 0.363 (0.62 under v1). Q4: top-1
+      0.292. Q5: 167 of 182 = 0.92 (0.87 under v1). Q6: 0 of 17 Erdős 766 theorems at or above tau; the two Dirac–Erdős
+      statements 0.325 and 0.382. Q7: 6 of 41 at or above tau: four coprimality lemmas against 1061's
+      multiplier_solution (0.59 to 0.70), and two linear-arithmetic statements ending in False against 569's
+      final_arith (0.83, 0.88), where the constants feature has almost nothing to weigh. Q8: 39 of 358 nodes with an
+      empty hypothesis side (18 of the 182 atlas vectors, 32 under v1); core_near_extremal and c4_free_indep_power
+      still empty, card_le_power_of_c4_free and erdos_159 read. Q9 at theta 0.578: 444 neighbourhood edges, 168
+      components, none spanning all four targets; 569 core access 0.351 (shores same), 159 core 0.000 (empty side),
+      lemma7 0.324, turan_weak 0.000, c4_free_indep_power 0.000, floor_succ_le_power 0.183, card_le_power_of_c4_free
+      0.150, erdos_159 0.179.
+    scorecard: >
+      Held: P1 (14 of 16), P3 (0.363 against 0.578), P4 (0.292), P5 (0.92), P6 (0 of 17; both Dirac–Erdős statements
+      below), P7 (6 of 41). Missed: P2 on its second clause, as in build 8c; P8 (39 of 358 = 10.9%, and two of the four
+      named hinges still empty); P9 and P10 (as the registrar expected). The closing rule is met: EG8 closes as learned.
+    defect_found: >
+      P8's miss has one cause, found by reading the two hinges that stayed empty. When an existential's conjuncts
+      contain a nested "∀ … → ∃ t, A ∧ B", the reader split every top-level ∧, cutting the nested quantifier from its
+      body. The same defect had been fixed for arrows during development and was not carried over to conjunctions.
+    post_registration_correction: >
+      rooms/match2_1.py and rooms/atlas_graph2_1.py (sha256 3017e9f08816ffb5… and 68c9a45a4afeb7a0…) stop the conjunction split at a
+      nested quantifier. Rerun in full in results/match_build10/posthoc_v2_1/, not scored against P1–P10: tau 0.578,
+      Q1–Q7 unchanged in every count above, empty hypothesis side 33 of 358 (9.2%; 12 of 182 atlas vectors, all
+      genuinely hypothesis-free: identities, numeric facts, unconditional bounds), all four named hinges read. Access
+      at 0.578: 569 core 0.351 against lemma7 0.324; 159 core 0.322 against the 159 forced closures 0.000 to 0.301.
+    reading: >
+      The semantic feature does what EG8 asked: two proofs in one area now separate at a threshold set by rule, and two
+      proofs the atlas has never seen are refused, while within-proof retrieval improved. The build 9b question comes
+      out the other way round once the reader works: in both proofs, the hinge that never closed is the best-surrounded
+      hinge, not the most isolated. That is a post-registration observation on two hinges and goes to a new gap for a
+      registered test.

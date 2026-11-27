@@ -108,7 +108,15 @@ Without a blueprint the searcher drew the same route in seven lemmas and compile
 | bridge-without-access measure | does not separate open from closed hinges | 1 held, 1 half, 3 missed |
 | CVOT write | 358 nodes, 412 edges, every call accepted | held |
 
-Next: a matcher that reads hypotheses out of quantified statements and uses a semantic feature (EG8); the case-split boundary in the types and a human re-typing (EG7); a reader for the five guides; the longitudinal rerun when a newer searcher model is available.
+**Build 10, a matcher that knows what a statement is about (27 Nov 2026).** The statement matcher now reads hypotheses written inside a statement's conclusion and weighs the constants a statement uses by their rarity. Its threshold is set by rule before anything ran. Two proofs in the same area of mathematics now separate. An unseen graph-theory proof is refused in all seventeen of its theorems, and an unseen number-theory proof in thirty-five of forty-one. Six of ten predictions held and the matcher gap closed. With the reader corrected, the two hinges no searcher could take turn out to be the best-surrounded rooms in their proofs, the reverse of the bridge picture; that is a lead with its own test still to run. Full account: [trace/ROOMS-10.md](trace/ROOMS-10.md).
+
+| query | first matcher | new matcher |
+|---|---|---|
+| Diophantine statement against the divisor-function proof | 0.62 | 0.36 (threshold 0.578) |
+| unseen proofs reaching the threshold | not tested | 0 of 17 and 6 of 41 |
+| best other match from the same proof | 0.87 | 0.92 |
+
+Next: a registered test of the reversed access picture on a fifth target (EG9); the case-split boundary in the types and a human re-typing (EG7); a reader for the five guides; the longitudinal rerun when a newer searcher model is available.
 
 ## Why this theorem
 

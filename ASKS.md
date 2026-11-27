@@ -52,15 +52,15 @@ Status: immovable.
 
 Signal expected: predictions P1–P10 in prereg_build_3.yaml, scored from the check logs, the final files and the sealed planner predictions. Resolution by: none registered.
 
-## 3. The statement matcher over the hinge atlas separates proofs across areas and rooms within a proof, but not two proofs in the same area: a Diophantine statement matched divisor-function rooms at 0.62 against a registered ceiling of 0.45 (ledger id EG8)
+## 3. Once every hinge's hypotheses are read, the two hinges that never closed are the best-surrounded rooms in their proofs, not the most isolated: access 0.351 against Lemma 7's 0.324 for 569, 0.322 against at most 0.301 for 159, seen after registration on two hinges (ledger id EG9)
 
-Shape finds the right rooms inside a proof and refuses a proof from another field. It cannot tell two number-theory proofs apart. The matcher needs to know which constants a statement is about, not only what shape it has.
+The picture of a hard step as a bridge no existing room reaches did not hold. Read properly, the two steps no searcher could take are the ones with the most similar rooms around them. That was seen after the test was written, on two steps, and needs its own test.
 
 Status: proposed.
 
-- **a semantic feature for the matcher (the Mathlib constants and defined predicates a statement uses, weighted by their rarity across the atlas), registered with a new threshold and tested on the same five queries plus statements from a fifth proof** — contribution kind: data; who could act: Nervous Machine, or anyone with the atlas.
+- **a registered test of the reversed prediction (an unclosed hinge has higher access than the forced closures of its own proof) with the corrected reader, on the hinges of a fifth target run to the same forced-attempt protocol** — contribution kind: data; who could act: Nervous Machine, or anyone with the atlas.
 
-Signal expected: a registered matcher cycle with the threshold predicted first. Resolution by: none registered.
+Signal expected: a registered access cycle with the direction predicted first. Resolution by: none registered.
 
 ## 4. When the searcher is made to spend twelve genuine attempts on the room it left open without a single check, neither room closes (the human-proved Lemma 7 of… (ledger id HG3)
 
@@ -141,3 +141,13 @@ Status: immovable.
 - **rooms/atlas_graph.py over atlas/hinges.yaml and atlas/discovered.yaml; the CVOT write** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P5 in prereg_build_9_graph.yaml. Resolution by: none registered.
+
+## 12. With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the statement matcher keeps its within-proof retrieval,… (ledger id HG11)
+
+With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the statement matcher keeps its within-proof retrieval, separates two proofs in the same area at a threshold set by rule, and refuses statements from proofs it has never seen.
+
+Status: immovable.
+
+- **rooms/match2.py on the five build 8c queries and two proofs not in the atlas; rooms/atlas_graph2.py** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P10 in prereg_build_10_match.yaml. Resolution by: none registered.

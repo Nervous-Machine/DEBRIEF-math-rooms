@@ -1,0 +1,7 @@
+
+query:
+  0.292  blueprint_569_nodes.yaml     N19   embed_colored_into_parts                 outcome=proved
+  0.175  blueprint_1061_nodes.yaml    N40   beta_local                               outcome=proved
+  0.168  blueprint_1061_nodes.yaml    N02   bienvenu_lemma12_singular_series         outcome=open
+  0.168  blueprint_1061_nodes.yaml    N08   core_fiber_le_eight                      outcome=proved
+  0.144  blueprint_1061_nodes.yaml    N19   onPlane_equations                        outcome=proved

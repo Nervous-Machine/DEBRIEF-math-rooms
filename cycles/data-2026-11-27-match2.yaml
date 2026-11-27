@@ -1,0 +1,52 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-match2
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer)
+preregistered:
+  question: Does the semantic matcher separate proofs within an area at a threshold set by rule?
+  rule: 'rooms/match2.py and rooms/atlas_graph2.py as registered; amendment A1 (one reader defect found on the data, a
+    corrected copy run in full and reported apart, not scored)'
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10]
+  commit: prereg_build_10_match.yaml
+  results:
+  - results/match_build10/tau.txt
+  - results/match_build10/self.txt
+  - results/match_build10/sides.txt
+  - results/match_build10/Q1.txt
+  - results/match_build10/Q2.txt
+  - results/match_build10/Q3.txt
+  - results/match_build10/Q4.txt
+  - results/match_build10/Q6.txt
+  - results/match_build10/Q7.txt
+  - results/atlas_graph2_build10.txt
+  - results/match_build10/posthoc_v2_1/atlas_graph2_1.txt
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    tau: 0.578 (95th percentile of the 182 atlas vectors' best cross-target scores)
+    Q1_within_proof: 14 of 16 top-1 from the 569 blueprint
+    Q3_diophantine_against_1061: '0.363 (0.62 under the first matcher)'
+    Q4_erdos_1133_against_other_proofs: 0.292
+    Q5_self_consistency: 0.92 (0.87 under the first matcher)
+    Q6_erdos_766_unseen_graph_theory: 0 of 17 at or above tau
+    Q7_arxiv_2608_unseen_number_theory: 6 of 41 at or above tau (four coprimality lemmas, two bare arithmetic statements)
+    Q8_empty_hypothesis_side: '39 of 358 as registered; 33 of 358 after the conjunction defect was corrected'
+    Q9_access_after_correction: '569 core 0.351 against Lemma 7 0.324; 159 core 0.322 against 159 forced closures 0.000 to 0.301 (not scored)'
+    held: P1, P3, P4, P5, P6, P7
+    missed: P2 (second clause), P8, P9, P10
+  misses:
+  - P2 (second clause)
+  - P8
+  - P9
+  - P10
+spoken: 'The second matcher separates two proofs in the same area of mathematics: the Diophantine statement that
+  scored 0.62 against the divisor-function proof now scores 0.36, below a threshold fixed by rule before anything ran.
+  It refuses all seventeen theorems of a graph-theory proof it has never seen and thirty-five of forty-one from an
+  unseen number-theory proof, and it finds the rooms of the same proof more often than before. The reader still cut
+  one kind of nested statement short; corrected, it reads every hinge, and the bridge picture comes out the other way:
+  the hinges that never closed are the best-surrounded rooms in their proofs.'
+finding_ids: []
+gap_ids:
+- EG8

@@ -1,0 +1,7 @@
+
+query:
+  0.363  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               outcome=proved
+  0.345  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     outcome=proved
+  0.270  blueprint_1061_nodes.yaml    N09   multiplier_solution                      outcome=proved
+  0.250  blueprint_1061_nodes.yaml    N20   good_coprime                             outcome=proved
+  0.240  blueprint_1061_nodes.yaml    N37   local_away                               outcome=proved

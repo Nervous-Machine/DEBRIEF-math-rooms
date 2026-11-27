@@ -1,0 +1,85 @@
+
+graphRamsey_le_of_forall:
+  0.767  blueprint_159_nodes.yaml     N01   graphRamsey_le_of_forall                 outcome=proved
+  0.287  blueprint_159_nodes.yaml     N07   card_le_quadratic_of_c4_free             outcome=proved
+  0.280  blueprint_159_nodes.yaml     N08   graphRamsey_le_of_c4_free_bound          outcome=proved
+
+isEmpty_of_ncard_edgeSet_eq_zero:
+  0.523  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           outcome=proved
+  0.436  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+  0.419  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              outcome=proved
+
+cycleGraph_isContained_top:
+  0.566  blueprint_569_nodes.yaml     N01   cycleGraph_no_isolated                   outcome=proved
+  0.550  blueprint_569_nodes.yaml     N25   ramsey_C5_K3                             outcome=open
+  0.550  blueprint_569_nodes.yaml     N26   ramsey_C6_K3                             outcome=open
+
+isContained_of_ncard_edgeSet_eq_one:
+  0.716  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+  0.703  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              outcome=proved
+  0.517  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           outcome=proved
+
+core_one:
+  0.603  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           outcome=proved
+  0.505  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               outcome=open
+  0.496  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          outcome=proved
+
+isContained_compl_of_comap:
+  0.524  blueprint_569_nodes.yaml     N04   isContained_of_induce                    outcome=proved
+  0.524  blueprint_569_nodes.yaml     N05   isContained_compl_of_compl_induce        outcome=proved
+  0.388  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+
+isContained_of_extend:
+  0.640  blueprint_569_nodes.yaml     N46   extend_by_vertex                         outcome=proved
+  0.570  blueprint_569_nodes.yaml     N41   glue_components                          outcome=proved
+  0.520  blueprint_569_nodes.yaml     N04   isContained_of_induce                    outcome=proved
+
+cycleGraph_isContained_of_isClique:
+  0.390  blueprint_569_nodes.yaml     N25   ramsey_C5_K3                             outcome=open
+  0.390  blueprint_569_nodes.yaml     N26   ramsey_C6_K3                             outcome=open
+  0.390  blueprint_569_nodes.yaml     N27   ramsey_C6_K4                             outcome=open
+
+exists_isClique_of_compl_degree_le:
+  0.578  blueprint_159_nodes.yaml     N05   greedy_indep_local                       outcome=proved
+  0.405  blueprint_159_nodes.yaml     N12   moore_bound_c4_free                      outcome=proved
+  0.339  blueprint_159_nodes.yaml     N11   exists_dense_core                        outcome=proved
+
+star_isContained_of_le_degree:
+  0.525  blueprint_569_nodes.yaml     N19   embed_colored_into_parts                 outcome=proved
+  0.442  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+  0.434  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              outcome=proved
+
+core_star:
+  0.513  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           outcome=proved
+  0.509  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               outcome=open
+  0.500  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          outcome=proved
+
+cycleGraph_isContained_of_compl_degree_lt:
+  0.373  blueprint_569_nodes.yaml     N01   cycleGraph_no_isolated                   outcome=proved
+  0.371  blueprint_159_nodes.yaml     N18   card_le_power_of_c4_free                 outcome=proved
+  0.355  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           outcome=proved
+
+isContained_of_ncard_edgeSet_eq_two:
+  0.721  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        outcome=proved
+  0.712  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              outcome=proved
+  0.422  blueprint_569_nodes.yaml     N19   embed_colored_into_parts                 outcome=proved
+
+core_two_nonstar:
+  0.520  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               outcome=open
+  0.512  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          outcome=proved
+  0.512  blueprint_569_nodes.yaml     N59   main_property                            outcome=proved
+
+core_ge_three_nonstar:
+  0.512  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               outcome=open
+  0.504  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          outcome=proved
+  0.504  blueprint_569_nodes.yaml     N59   main_property                            outcome=proved
+
+core:
+  0.603  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           outcome=proved
+  0.505  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               outcome=open
+  0.496  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          outcome=proved
+
+cambie_freschi:
+  1.050  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           outcome=proved
+  0.423  blueprint_159_nodes.yaml     ROOT  erdos_159                                outcome=proved
+  0.376  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               outcome=open

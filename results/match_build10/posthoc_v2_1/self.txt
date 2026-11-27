@@ -1,0 +1,1 @@
+self-consistency: best other match is from the same target for 167/182 = 0.92

@@ -1,0 +1,29 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: match2-2026-11-27
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)
+hypothesis: With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the
+  statement matcher keeps its within-proof retrieval, separates two proofs in the same area at a threshold set by rule,
+  and refuses statements from proofs it has never seen.
+signals: predictions P1–P10 in prereg_build_10_match.yaml
+endpoints: none public until filed
+measurements_needed: rooms/match2.py on the five build 8c queries and two proofs not in the atlas; rooms/atlas_graph2.py
+bears_on: the matcher gap EG8; build 9b's bridge-without-access question
+pinned:
+  sha256: f6ca2e09da2cf52606f1447832c96f16a94f8e21a71b3a4edba564fef82c0f27
+  file: prereg_build_10_match.yaml
+preregistered:
+  question: Does the semantic matcher separate proofs within an area at a threshold set by rule?
+  rule: P1–P10 as written; the closing rule for EG8 as written; misses recorded
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10]
+  commit: prereg_build_10_match.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers: {predictions: 10, queries: 9, signals_have_public_endpoint: false}
+spoken: 'Nervous Machine registered a second statement matcher, one that reads hypotheses out of quantified statements
+  and weighs the constants a statement uses by their rarity, with a threshold fixed by rule and ten predictions.'
+finding_ids: []
+gap_ids: []
