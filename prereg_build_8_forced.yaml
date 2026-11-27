@@ -1,0 +1,68 @@
+# Pre-registration, cycle "forced-2026-11-27-none": build 8b, the never-attempted rooms of build 3's two no-checker arms
+# under the forced rule. Written 2026-11-27T17:40Z, BEFORE either searcher has run. Amendments are appended below a
+# marker line after the runs; this registered text is never edited and ends before any amendments key.
+#
+# Occasion. EG6 asked which rooms left open without a check call are reachable when forced. Build 4 answered for one
+# (Lemma 7: yes, at once) and build 5 for one (the paper's core: no, at 108). Two more sets exist: the rooms that
+# build 3's two blind arms on Erdős 159 left open at their first FINAL, apart from the open core. In the hold arm
+# three rooms (N10 turan_weak, N16 c4_free_indep_power, N19 floor_succ_le_power) were left open by blind slips or
+# not attempted; the same searcher's unscored repair after FINAL closed them, which is recorded but is not data. In
+# the plain arm three (N16 c4_free_indep_power, N18 card_le_power_of_c4_free, ROOT erdos_159) were left as sorry.
+# All six were proved in the full-feedback arm of build 3, so they are known to be in reach with a checker. The
+# question is whether a fresh searcher, made to try each one under the full signal, closes them from these files.
+#
+# Design. Two arms, fresh contexts, this searcher. Start files: the hold arm's scored final (its first FINAL, which
+# carries `first | proof | sorry` fallbacks around every proof) and the plain arm's repaired work file (compiles, four
+# sorries). The forced rule now takes several rooms: a call tagged with forced room X is genuine when no sorry sits
+# outside the allowed rooms and the other forced rooms; FINAL is refused while any forced room is open with fewer than
+# twelve genuine attempts. The open core N13 is allowed to stay open in both arms. The hold file's sorry fallbacks
+# count as sorry for the rule, so the searcher must strip them before its first genuine call; this is stated in the
+# brief and is itself a measurement (do hedges survive when they cost something).
+#
+# Caveats before the data. (1) These rooms are in reach by construction (proved under full feedback in build 3); the
+# test is of the forced rule on blind slips, not of reach at the frontier. (2) One run per arm. (3) The registrar read
+# every earlier arm and may not search.
+
+mission: rooms-2026-11
+cycle: "forced-2026-11-27-none"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)"
+dated: "2026-11-27"
+question: >
+  Do the rooms that the blind arms left open without an attempt close when a fresh searcher is made to try each under
+  the full signal, how many attempts does each take, and do the blind arm's sorry fallbacks survive a rule under which
+  they count?
+
+arms:
+  B8_159none_hold_forced:  {model: claude-fable-5-1, start_file: {path: results/B3_159_H_none_hold/final.lean, sha256: "358ac7d106265672cac8be045eb5f0c287626700f84f76a21fb09a3151953240", note: "scored first FINAL of B3_159_H_none_hold; every proof wrapped first | proof | sorry; open: N10, N13, N16, N19"}, forced: "N10 turan_weak, N16 c4_free_indep_power, N19 floor_succ_le_power", allowed_open: [core_near_extremal], brief: rooms/SEARCHER_FORCED_MULTI_PROMPT.md}
+  B8_159none_plain_forced: {model: claude-fable-5-1, start_file: {path: results/B3_159_H_none_plain/work/Erdos159.lean, sha256: "afaae23205f78623745cd6291f96e7306f0ef7f6a081753319b741fe2bdc24ea", note: "the plain arm's repaired work file (compiles with four sorries: N13, N16, N18, ROOT)"}, forced: "N16 c4_free_indep_power, N18 card_le_power_of_c4_free, ROOT erdos_159", allowed_open: [core_near_extremal], brief: rooms/SEARCHER_FORCED_MULTI_PROMPT.md}
+
+prior:
+  mathlib: {commit: "ccbef15ebdb41c2addfac682131f83c75904c3c1", lean: "v4.35.0"}
+  excluded: ["any web access", "every other arm's files and notes", "the planner's predictions"]
+
+caps: {attempts_per_node: 12, tokens_per_arm: 2000000, wall_minutes_per_arm: 180, lean_timeout_seconds: 600}
+
+measurements: >
+  rooms/score.py per arm with --blueprint blueprint_159_nodes.yaml; rooms/forced_score.py per arm (summary fields refer
+  to the first forced room; per-call rows cover all); per forced room: closed at first accepted FINAL (Lean's warnings),
+  genuine attempts, errors; `first |` count in the final file against the start file; fit indicators.
+
+predictions:
+  - {id: P1, says: "all six forced rooms close (three per arm) at the first accepted FINAL"}
+  - {id: P2, says: "no forced room needs more than 4 genuine attempts"}
+  - {id: P3, says: "the hold arm's final file has no `first | … | sorry` fallback left (the start has one around every proof)"}
+  - {id: P4, says: "fit_total 0 in both arms"}
+  - {id: P5, says: "each arm finishes in under 60 minutes"}
+
+falsifiers: >
+  P1 failing on a room proved in build 3's full arm means the forced rule or the start file, not reach, blocked it,
+  and the room's log says which.
+
+instruments:
+  check_tool: {path: rooms/check.sh, sha256: "f445000376225ef3f5954760dcdee85dfaa49c7db33bd5de00f333c0a2c1c22e", change: "forced regimes accept several rooms (nodes=, names=); genuineness per call excludes the other forced rooms; FINAL checks each forced room with rooms/decl_sorry.py"}
+  decl_sorry: {path: rooms/decl_sorry.py, sha256: "0feeb7b1e73624d7f941da8b081a9808f0d2b534adc0bc630d0b7073b7c30dd7", new: true}
+  forced_check: {path: rooms/forced_check.py, sha256: "9d7eb5a344c597f1e125fdf5b94c93cffe7c8aaf802da659286748df206a3b59"}
+  forced_scorer: {path: rooms/forced_score.py, sha256: "65f41d641c1c6fa9acdfb0094661d6109a0670883c64d7be01d4a507a1b3942a"}
+  brief: {path: rooms/SEARCHER_FORCED_MULTI_PROMPT.md, sha256: "0a16afa97336ff26523c20f473a4cc870f94d39728a763078722b443685112ac", new: true}
+  smoke_test: "the multi-room rule exercised once on a scratch regime with the hold file at cap 2: a call on the wrapper-laden file refused naming the wrapped declarations; a call with the wrappers' sorry removed refused naming the one other open room not in the forced set; a FINAL on a file whose forced rooms carried no sorry token was accepted (and errored, as the rule reads sorry, not errors); log moved out of results/"

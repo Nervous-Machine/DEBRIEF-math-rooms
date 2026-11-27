@@ -33,15 +33,24 @@ fi
 case "$REGIME" in *forced*)
   FCONF="$HERE/results/$REGIME/forced.conf"
   [ -f "$FCONF" ] || { echo "tool error: forced.conf missing"; exit 4; }
-  FNODE=$(sed -n 's/^node=//p' "$FCONF"); FALLOW=$(sed -n 's/^allowed=//p' "$FCONF")
-  if [ "$NODE" = "$FNODE" ]; then
-    BAD=$(python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$HERE/$FALLOW") || refuse "not a genuine attempt at $FNODE: sorry in $BAD"
+  FNODES=$(sed -n 's/^nodes=//p' "$FCONF"); [ -z "$FNODES" ] && FNODES=$(sed -n 's/^node=//p' "$FCONF")
+  FNAMES=$(sed -n 's/^names=//p' "$FCONF"); [ -z "$FNAMES" ] && FNAMES=$(sed -n 's/^name=//p' "$FCONF")
+  FALLOW=$(sed -n 's/^allowed=//p' "$FCONF")
+  # build 8: several forced rooms (nodes=N1,N2 / names=a,b). A call tagged with forced room X is genuine when the file has no
+  # sorry outside the allowed rooms and the OTHER forced rooms; FINAL is refused while any forced room is still open with
+  # fewer than CAP genuine attempts.
+  TMPALLOW="$HERE/results/$REGIME/.allowed_call.txt"; cat "$HERE/$FALLOW" > "$TMPALLOW" 2>/dev/null || : > "$TMPALLOW"
+  i=0; for fn in $(echo "$FNODES" | tr ',' ' '); do i=$((i+1)); nm=$(echo "$FNAMES" | tr ',' '\n' | sed -n "${i}p"); [ "$fn" != "$NODE" ] && echo "$nm" >> "$TMPALLOW"; done
+  if echo ",$FNODES," | grep -q ",$NODE,"; then
+    BAD=$(python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$TMPALLOW") || refuse "not a genuine attempt at $NODE: sorry in $BAD"
   fi
   if [ "$NODE" = FINAL ]; then
-    DONE=$(awk -F'\t' -v n="$FNODE" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
-    if [ "$DONE" -lt "$CAP" ] && ! python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$HERE/$FALLOW" >/dev/null; then
-      refuse "FINAL refused: $FNODE has $DONE of $CAP genuine attempts and the file still has sorry outside the allowed rooms"
-    fi
+    i=0; for fn in $(echo "$FNODES" | tr ',' ' '); do i=$((i+1)); nm=$(echo "$FNAMES" | tr ',' '\n' | sed -n "${i}p")
+      DONE=$(awk -F'\t' -v n="$fn" '$3==n && $4!="refused"' "$HERE/results/$REGIME/calls.tsv" 2>/dev/null | wc -l | tr -d ' ')
+      if [ "$DONE" -lt "$CAP" ] && ! python3 -I "$HERE/rooms/decl_sorry.py" "$FILE" "$nm"; then
+        refuse "FINAL refused: $fn ($nm) has $DONE of $CAP genuine attempts and is still open"
+      fi
+    done
   fi ;;
 esac
 # *probe* regimes (build 6): results/<REGIME>/probe.conf names the blueprint (nodes=). FINAL is refused while any room other
