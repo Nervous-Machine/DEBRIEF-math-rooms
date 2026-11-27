@@ -1,0 +1,45 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-B6_1061_B_full_noplan
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: From Li's statement alone, with no paper and no rooms, how much of Erdős 1061 does the searcher build, and
+    where does it stop?
+  rule: hold rule; rooms/check.sh logs every call; rooms/score.py computes every number with --blueprint none; the
+    first FINAL is the scored result
+  predictions: [P1, P6, P7]
+  commit: prereg_build_6.yaml
+  results:
+  - results/B6_1061_B_full_noplan/score.json
+  - results/B6_1061_B_full_noplan/final.lean
+  - results/B6_1061_B_full_noplan/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 6
+    error_calls: 2
+    first_FINAL: sorry
+    residual: true
+    fit_total: 0
+    lemmas_proved: 15 of 16 own lemmas (18 declarations with S and a definition)
+    left_open: prim_sum_eventually_lower, the superpolylogarithmic lower bound on primitive solutions; the root is proved from it
+    proved_on_the_way: a linear lower bound x/18 − 1 ≤ S x from the family (6k+1, 2(6k+1)); the lifting lemma (u,v) → (um,vm) for m coprime to uv(u+v); injectivity of lifts of primitive solutions
+    distinctive_move_of_the_paper_present: no (no coefficient triple, no quadric, no ruling planes, no sieve; the searcher's own numerics guessed that primitive solutions are sporadic)
+    tokens: 92174
+    minutes: 10 of 180 (stopped early by the searcher's own judgement)
+    lines: 280
+    declarations: 18
+    depth: 5
+  misses: []
+spoken: 'From the statement alone the searcher built the easy half in ten minutes: the divisor function is
+  multiplicative, one solution lifts to infinitely many, a linear lower bound on the count, and the root reduced to one
+  named lemma, that primitive solutions outgrow every power of the logarithm. It wrote that this is where the content
+  of the theorem lives, that it had no route to it without the paper, and that its own numerics suggest the primitive
+  solutions are sporadic rather than a family. Nothing was changed. It stopped at ten of its hundred and eighty
+  minutes, which under the probe rule of the rooms arm it could not have done.'
+finding_ids: []
+gap_ids:
+- EG6

@@ -1,0 +1,1353 @@
+root: li_1061
+nodes:
+- id: N01
+  name: bienvenu_prop21_uniform
+  statement: "theorem bienvenu_prop21_uniform (d t : ℕ) (A0 B0 L0 cV ε : ℝ) (hcV : 0 < cV) (hε : 0 < ε) :\n    ∃ N0 : ℝ, ∀\
+    \ (N : ℝ) (c : Fin t → ℤ) (L : Fin t → Fin d → ℤ) (K : Set (Fin d → ℝ))\n      (β : ℕ → ℝ) (F : Finset (Fin d → ℤ)),\n\
+    \      N0 ≤ N →\n      (∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]) →\n      (∀\
+    \ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ t / (p : ℝ) ^ d *\n        ((Fintype.piFinset fun _ : Fin d => Finset.range p).filter\n\
+    \          (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) →\n      (∀ p : ℕ, p.Prime → 0 < β p) →\n \
+    \     ((∑ i, |(c i : ℝ)|) / N + ∑ i, ∑ j, |(L i j : ℝ)|) / Real.log N ^ B0 ≤ L0 →\n      Convex ℝ K →\n      (∀ v ∈ K,\
+    \ ∀ j, |v j| ≤ N) →\n      cV * N ^ d * Real.log N ^ (-A0) ≤ (MeasureTheory.volume K).toReal →\n      (∀ v ∈ K, ∀ i, N\
+    \ ^ ((9 : ℝ) / 10) ≤ (c i : ℝ) + ∑ j, (L i j : ℝ) * v j) →\n      (∀ n : Fin d → ℤ, n ∈ F ↔ (fun j => (n j : ℝ)) ∈ K)\
+    \ →\n      |(∑ n ∈ F, ∏ i, (if 0 < c i + (∑ j, L i j * n j) ∧ (c i + ∑ j, L i j * n j).natAbs.Prime\n            then\
+    \ Real.log ((c i + ∑ j, L i j * n j : ℤ) : ℝ) else 0)) /\n          ((MeasureTheory.volume K).toReal * ∏' p : Nat.Primes,\
+    \ β p) - 1| ≤ ε := by\n"
+  depends_on: []
+  mathlib_roots: []
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < cV
+  - 0 < ε
+  - N0 ≤ N
+  - '∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]'
+  - '∀ p : ℕ, p.Prime → 0 < β p'
+  - '((∑ i, |(c i : ℝ)|) / N + ∑ i, ∑ j, |(L i j : ℝ)|) / Real.log N ^ B0 ≤ L0'
+  - Convex ℝ K
+  - ∀ v ∈ K, ∀ j, |v j| ≤ N
+  - cV * N ^ d * Real.log N ^ (-A0) ≤ (MeasureTheory.volume K).toReal
+  - '∀ v ∈ K, ∀ i, N ^ ((9 : ℝ) / 10) ≤ (c i : ℝ) + ∑ j, (L i j : ℝ) * v j'
+  consumes: nothing (black box)
+  produces: uniform relative asymptotic for prime-weighted counts of an admissible affine system on a convex body (paper Prop.
+    7.1)
+  library_inputs:
+  - Bienvenu, A higher-dimensional Siegel–Walfisz theorem, Acta Arith. 179 (2017), Proposition 2.1 (via Green–Tao linear equations
+    in primes, Green–Tao Möbius–nilsequences, Green–Tao–Ziegler inverse theorem)
+  believed: unsure
+- id: N02
+  name: bienvenu_lemma12_singular_series
+  statement: "theorem bienvenu_lemma12_singular_series (d t : ℕ) (c : Fin t → ℤ) (L : Fin t → Fin d → ℤ) (β : ℕ → ℝ)\n   \
+    \ (hfc : ∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)])\n    (hβ : ∀ p : ℕ, β p = ((p\
+    \ : ℝ) / (p - 1)) ^ t / (p : ℝ) ^ d *\n        ((Fintype.piFinset fun _ : Fin d => Finset.range p).filter\n          (fun\
+    \ n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card)\n    (hpos : ∀ p : ℕ, p.Prime → 0 < β p) :\n    Multipliable\
+    \ (fun p : Nat.Primes => β p) ∧ 0 < ∏' p : Nat.Primes, β p := by\n"
+  depends_on: []
+  mathlib_roots: []
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - '∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]'
+  - '∀ p : ℕ, p.Prime → 0 < β p'
+  consumes: nothing (black box)
+  produces: convergence and positivity of the singular series of an admissible system
+  library_inputs:
+  - Bienvenu, A higher-dimensional Siegel–Walfisz theorem, Acta Arith. 179 (2017), Definition 1.1 and Lemma 1.2
+  believed: provable
+- id: N03
+  name: sigma_values_triple
+  statement: "theorem sigma_values_triple :\n    σ 1 54000 = 193440 ∧ σ 1 111600 = 399776 ∧ σ 1 1828800 = 6551168 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - ArithmeticFunction.sigma_one_apply
+  - ArithmeticFunction.isMultiplicative_sigma
+  - ArithmeticFunction.IsMultiplicative.map_mul_of_coprime
+  - ArithmeticFunction.sigma_one_apply_prime_pow
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: the three divisor sums of the friendly coefficient triple (2.1)
+  library_inputs: []
+  believed: provable
+- id: N04
+  name: sigma_mul_two_primes
+  statement: "theorem sigma_mul_two_primes (K p r : ℕ) (hK : 0 < K) (hp : p.Prime) (hr : r.Prime) (hpr : p ≠ r)\n    (hpK\
+    \ : ¬ p ∣ K) (hrK : ¬ r ∣ K) :\n    σ 1 (K * (p * r)) = σ 1 K * ((p + 1) * (r + 1)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - ArithmeticFunction.isMultiplicative_sigma
+  - ArithmeticFunction.IsMultiplicative.map_mul_of_coprime
+  - ArithmeticFunction.sigma_one_apply_prime_pow
+  - Nat.Prime.coprime_iff_not_dvd
+  - Nat.coprime_primes
+  - Nat.Coprime.mul_right
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < K
+  - p.Prime
+  - r.Prime
+  - p ≠ r
+  - ¬ p ∣ K
+  - ¬ r ∣ K
+  consumes: nothing
+  produces: multiplicativity of σ over K·p·r
+  library_inputs: []
+  believed: provable
+- id: N05
+  name: shifted_product_identity
+  statement: "theorem shifted_product_identity (p1 p2 p3 p4 p5 p6 : ℤ)\n    (h22 : 15 * p1 * p2 + 31 * p3 * p4 = 508 * p5\
+    \ * p6)\n    (h23 : 15 * (p1 + p2) + 31 * (p3 + p4) - 508 * (p5 + p6) = 462) :\n    15 * (p1 + 1) * (p2 + 1) + 31 * (p3\
+    \ + 1) * (p4 + 1) = 508 * (p5 + 1) * (p6 + 1) := by\n"
+  depends_on: []
+  mathlib_roots: []
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 15 * p1 * p2 + 31 * p3 * p4 = 508 * p5 * p6
+  - 15 * (p1 + p2) + 31 * (p3 + p4) - 508 * (p5 + p6) = 462
+  consumes: nothing
+  produces: identity (2.4) for shifted products
+  library_inputs: []
+  believed: provable
+- id: N06
+  name: friendly_triple_activation
+  statement: "theorem friendly_triple_activation (p : Fin 6 → ℕ) (hp : ∀ i, (p i).Prime ∧ 127 < p i)\n    (hinj : Function.Injective\
+    \ p)\n    (h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5))\n    (h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p\
+    \ 3) = 508 * (p 4 + p 5) + 462) :\n    54000 * (p 0 * p 1) + 111600 * (p 2 * p 3) = 1828800 * (p 4 * p 5) ∧\n    σ 1 (54000\
+    \ * (p 0 * p 1)) + σ 1 (111600 * (p 2 * p 3)) = σ 1 (1828800 * (p 4 * p 5)) := by\n"
+  depends_on:
+  - N03
+  - N04
+  - N05
+  mathlib_roots:
+  - ArithmeticFunction.isMultiplicative_sigma
+  - Nat.Prime.coprime_iff_not_dvd
+  - Nat.Prime.dvd_mul
+  - Nat.Prime.eq_one_or_self_of_dvd
+  kind: join
+  join_type: assembly
+  conditionals:
+  - ∀ i, (p i).Prime ∧ 127 < p i
+  - Function.Injective p
+  - 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+  - 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+  consumes: σ values of K, M, N; σ(K·p·r) = σ(K)(p+1)(r+1); shifted product identity
+  produces: σ(a) + σ(b) = σ(a + b) for a = 54000 p1 p2, b = 111600 p3 p4 (Section 2)
+  library_inputs: []
+  believed: provable
+- id: N07
+  name: core_from_sextuple
+  statement: "theorem core_from_sextuple (p : Fin 6 → ℕ) (hp : ∀ i, (p i).Prime ∧ 127 < p i)\n    (hinj : Function.Injective\
+    \ p)\n    (h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5))\n    (h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p\
+    \ 3) = 508 * (p 4 + p 5) + 462) :\n    Nat.Coprime (15 * (p 0 * p 1)) (31 * (p 2 * p 3)) ∧\n    σ 1 (3600 * (15 * (p 0\
+    \ * p 1))) + σ 1 (3600 * (31 * (p 2 * p 3))) =\n      σ 1 (3600 * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))) ∧\n    (3600\
+    \ * (15 * (p 0 * p 1)) * (31 * (p 2 * p 3)) * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))).primeFactors.card ≤ 11 := by\n"
+  depends_on:
+  - N06
+  mathlib_roots:
+  - Nat.Coprime.mul
+  - Nat.Coprime.mul_right
+  - Nat.coprime_primes
+  - Nat.primeFactors_mul
+  - Nat.Prime.primeFactors
+  - Finset.card_union_le
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - ∀ i, (p i).Prime ∧ 127 < p i
+  - Function.Injective p
+  - 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+  - 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+  consumes: the activated divisor-sum identity
+  produces: one coprime core (u, v) activated by 3600, with at most 11 prime factors in 3600uvh
+  library_inputs: []
+  believed: provable
+- id: N08
+  name: core_fiber_le_eight
+  statement: "theorem core_fiber_le_eight (Sx : Finset (Fin 6 → ℕ))\n    (hS : ∀ p ∈ Sx, (∀ i, (p i).Prime ∧ 127 < p i) ∧\
+    \ Function.Injective p ∧\n      15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)) :\n    Sx.card ≤ 8 * (Sx.image\
+    \ fun p => (15 * (p 0 * p 1), 31 * (p 2 * p 3))).card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_le_mul_card_image
+  - Nat.Prime.eq_one_or_self_of_dvd
+  - Nat.Prime.dvd_mul
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - ∀ p ∈ Sx, (∀ i, (p i).Prime ∧ 127 < p i) ∧ Function.Injective p ∧ 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p
+    5)
+  consumes: nothing
+  produces: each ordered core comes from at most 8 ordered prime sextuples
+  library_inputs: []
+  believed: provable
+- id: N09
+  name: multiplier_solution
+  statement: "theorem multiplier_solution (u v g : ℕ) (hg : Nat.Coprime g (3600 * u * v * (u + v)))\n    (h : σ 1 (3600 *\
+    \ u) + σ 1 (3600 * v) = σ 1 (3600 * (u + v))) :\n    σ 1 (3600 * g * u) + σ 1 (3600 * g * v) = σ 1 (3600 * g * u + 3600\
+    \ * g * v) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - ArithmeticFunction.isMultiplicative_sigma
+  - ArithmeticFunction.IsMultiplicative.map_mul_of_coprime
+  - Nat.Coprime.coprime_dvd_right
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - Nat.Coprime g (3600 * u * v * (u + v))
+  - σ 1 (3600 * u) + σ 1 (3600 * v) = σ 1 (3600 * (u + v))
+  consumes: nothing
+  produces: every coprime multiplier g gives a further ordered solution
+  library_inputs: []
+  believed: provable
+- id: N10
+  name: multiplier_disjoint
+  statement: "theorem multiplier_disjoint (u v u' v' g g' : ℕ) (hu : 0 < u) (hv : 0 < v) (hu' : 0 < u') (hv' : 0 < v')\n \
+    \   (hcop : Nat.Coprime u v) (hcop' : Nat.Coprime u' v') (hg : 0 < g) (hg' : 0 < g')\n    (h1 : 3600 * g * u = 3600 *\
+    \ g' * u') (h2 : 3600 * g * v = 3600 * g' * v') :\n    g = g' ∧ u = u' ∧ v = v' := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.gcd_mul_left
+  - Nat.Coprime.gcd_eq_one
+  - Nat.eq_of_mul_eq_mul_left
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < u
+  - 0 < v
+  - 0 < u'
+  - 0 < v'
+  - Nat.Coprime u v
+  - Nat.Coprime u' v'
+  - 0 < g
+  - 0 < g'
+  consumes: nothing
+  produces: multiplier families of distinct cores are disjoint
+  library_inputs: []
+  believed: provable
+- id: N11
+  name: coprime_density
+  statement: "theorem coprime_density : ∃ c6 X0 : ℝ, 0 < c6 ∧ ∀ (n : ℕ) (X : ℝ), n ≠ 0 → n.primeFactors.card ≤ 11 →\n    X0\
+    \ ≤ X → c6 * X ≤ ((Finset.Icc 1 ⌊X⌋₊).filter (fun g => Nat.Coprime g n)).card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - ArithmeticFunction.moebius
+  - ArithmeticFunction.coe_moebius_mul_coe_zeta
+  - Nat.Ioc_filter_dvd_card_eq_div
+  - Nat.totient_mul_prod_primeFactors
+  - Finset.card_filter_le
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - n ≠ 0
+  - n.primeFactors.card ≤ 11
+  - X0 ≤ X
+  consumes: nothing
+  produces: uniform positive density of multipliers coprime to rad(3600uvh) (9.2)
+  library_inputs: []
+  believed: provable
+- id: N12
+  name: S_ge_card
+  statement: "theorem S_ge_card (x : ℝ) (F : Finset (ℕ × ℕ))\n    (hF : ∀ ab ∈ F, 1 ≤ ab.1 ∧ 1 ≤ ab.2 ∧ (ab.1 : ℝ) + ab.2\
+    \ ≤ x ∧ σ 1 ab.1 + σ 1 ab.2 = σ 1 (ab.1 + ab.2)) :\n    (F.card : ℝ) ≤ S x := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_le_card
+  - Finset.mem_filter
+  - Finset.mem_product
+  - Nat.le_floor
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - '∀ ab ∈ F, 1 ≤ ab.1 ∧ 1 ≤ ab.2 ∧ (ab.1 : ℝ) + ab.2 ≤ x ∧ σ 1 ab.1 + σ 1 ab.2 = σ 1 (ab.1 + ab.2)'
+  consumes: nothing
+  produces: any finite family of ordered solutions under x lower-bounds S x
+  library_inputs: []
+  believed: provable
+- id: N13
+  name: ruling_plane_identity
+  statement: "theorem ruling_plane_identity (α β γ r s x1 x2 x3 x4 x5 x6 : ℝ)\n    (hx1 : x1 = -1 + (1 / 15 - β) * r - γ *\
+    \ s)\n    (hx2 : x2 = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α - 462 * β * γ - γ) * s)\n    (hx3 : x3 = -1 - β * r +\
+    \ (1 / 31 - γ) * s)\n    (hx4 : x4 = -1 - 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s)\n    (hx5 : x5\
+    \ = -1 - β * r - γ * s)\n    (hx6 : x6 = (15 * (x1 + x2) + 31 * (x3 + x4) - 508 * x5 - 462) / 508) :\n    15 * x1 * x2\
+    \ + 31 * x3 * x4 = 508 * x5 * x6 ∧\n    15 * (x1 + x2) + 31 * (x3 + x4) - 508 * (x5 + x6) = 462 ∧\n    508 * x6 = -(6930\
+    \ * β + 14322 * γ + 46) +\n      (-31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β + 1) * r +\n      (15 * α - 6930 *\
+    \ β * γ - 14322 * γ ^ 2 + 416 * γ + 1) * s := by\n"
+  depends_on: []
+  mathlib_roots: []
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: equations (2.2) and (2.3) hold identically on every ruling plane; expanded sixth form (A.3)
+  library_inputs: []
+  believed: provable
+- id: N14
+  name: determinant_table
+  statement: "theorem determinant_table (α β γ a1 b1 a2 b2 a3 b3 a4 b4 a5 b5 a6 b6 : ℝ)\n    (ha1 : a1 = 1 / 15 - β) (hb1\
+    \ : b1 = -γ)\n    (ha2 : a2 = -462 * β ^ 2 - β) (hb2 : b2 = α - 462 * β * γ - γ)\n    (ha3 : a3 = -β) (hb3 : b3 = 1 /\
+    \ 31 - γ)\n    (ha4 : a4 = -α - 462 * β * γ - β) (hb4 : b4 = -462 * γ ^ 2 - γ)\n    (ha5 : a5 = -β) (hb5 : b5 = -γ)\n\
+    \    (ha6 : a6 = (15 * (a1 + a2) + 31 * (a3 + a4) - 508 * a5) / 508)\n    (hb6 : b6 = (15 * (b1 + b2) + 31 * (b3 + b4)\
+    \ - 508 * b5) / 508) :\n    a1 * b2 - b1 * a2 = -(15 * α * β - α + 462 * β * γ + γ) / 15 ∧\n    a1 * b3 - b1 * a3 = -(15\
+    \ * β + 31 * γ - 1) / 465 ∧\n    a1 * b4 - b1 * a4 = -γ * (15 * α + 462 * γ + 1) / 15 ∧\n    a1 * b5 - b1 * a5 = -γ /\
+    \ 15 ∧\n    a1 * b6 - b1 * a6 = -(15 * α + 462 * γ + 1) * (15 * β + 31 * γ - 1) / 7620 ∧\n    a2 * b3 - b2 * a3 = β *\
+    \ (31 * α - 462 * β - 1) / 31 ∧\n    a2 * b4 - b2 * a4 = α * (α + β - γ) ∧\n    a2 * b5 - b2 * a5 = α * β ∧\n    a2 *\
+    \ b6 - b2 * a6 = (α + β - γ) * (31 * α - 462 * β - 1) / 508 ∧\n    a3 * b4 - b3 * a4 = -(31 * α * γ - α - 462 * β * γ\
+    \ - β) / 31 ∧\n    a3 * b5 - b3 * a5 = β / 31 ∧\n    a3 * b6 - b3 * a6 = -(31 * α - 462 * β - 1) * (15 * β + 31 * γ -\
+    \ 1) / 15748 ∧\n    a4 * b5 - b4 * a5 = α * γ ∧\n    a4 * b6 - b4 * a6 = -(α + β - γ) * (15 * α + 462 * γ + 1) / 508 ∧\n\
+    \    a5 * b6 - b5 * a6 = -(15 * α * β + 31 * α * γ + β - γ) / 508 := by\n"
+  depends_on: []
+  mathlib_roots: []
+  kind: join
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: the fifteen determinant factorizations of Appendix A.2
+  library_inputs: []
+  believed: provable
+- id: N15
+  name: finite_complexity_real
+  statement: "theorem finite_complexity_real (Z α β γ a1 b1 a2 b2 a3 b3 a4 b4 a5 b5 a6 b6 : ℝ)\n    (hZ : 100 ≤ Z) (hα1 :\
+    \ Z ^ 2 ≤ α) (hα2 : α ≤ 2 * Z ^ 2) (hβ1 : Z ≤ β) (hβ2 : β ≤ 2 * Z)\n    (hγ1 : Z ≤ γ) (hγ2 : γ ≤ 2 * Z)\n    (ha1 : a1\
+    \ = 1 / 15 - β) (hb1 : b1 = -γ)\n    (ha2 : a2 = -462 * β ^ 2 - β) (hb2 : b2 = α - 462 * β * γ - γ)\n    (ha3 : a3 = -β)\
+    \ (hb3 : b3 = 1 / 31 - γ)\n    (ha4 : a4 = -α - 462 * β * γ - β) (hb4 : b4 = -462 * γ ^ 2 - γ)\n    (ha5 : a5 = -β) (hb5\
+    \ : b5 = -γ)\n    (ha6 : a6 = (15 * (a1 + a2) + 31 * (a3 + a4) - 508 * a5) / 508)\n    (hb6 : b6 = (15 * (b1 + b2) + 31\
+    \ * (b3 + b4) - 508 * b5) / 508) :\n    a1 * b2 - b1 * a2 ≠ 0 ∧\n    a1 * b3 - b1 * a3 ≠ 0 ∧\n    a1 * b4 - b1 * a4 ≠\
+    \ 0 ∧\n    a1 * b5 - b1 * a5 ≠ 0 ∧\n    a1 * b6 - b1 * a6 ≠ 0 ∧\n    a2 * b3 - b2 * a3 ≠ 0 ∧\n    a2 * b4 - b2 * a4 ≠\
+    \ 0 ∧\n    a2 * b5 - b2 * a5 ≠ 0 ∧\n    a2 * b6 - b2 * a6 ≠ 0 ∧\n    a3 * b4 - b3 * a4 ≠ 0 ∧\n    a3 * b5 - b3 * a5 ≠\
+    \ 0 ∧\n    a3 * b6 - b3 * a6 ≠ 0 ∧\n    a4 * b5 - b4 * a5 ≠ 0 ∧\n    a4 * b6 - b4 * a6 ≠ 0 ∧\n    a5 * b6 - b5 * a6 ≠\
+    \ 0 := by\n"
+  depends_on:
+  - N14
+  mathlib_roots:
+  - mul_pos
+  - div_ne_zero
+  - mul_ne_zero
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - 100 ≤ Z
+  - Z ^ 2 ≤ α
+  - α ≤ 2 * Z ^ 2
+  - Z ≤ β
+  - β ≤ 2 * Z
+  - Z ≤ γ
+  - γ ≤ 2 * Z
+  consumes: the determinant table
+  produces: pairwise nonproportional linear parts in the (r, s) coordinates (Lemma 3.2)
+  library_inputs: []
+  believed: provable
+- id: N16
+  name: archimedean_bounds
+  statement: "theorem archimedean_bounds : ∃ c C : ℝ, 0 < c ∧ c < C ∧\n    ∀ (Z T α β γ r s x1 x2 x3 x4 x5 x6 : ℝ),\n    \
+    \  100 ≤ Z → 10 ≤ T → Z ^ 2 ≤ α → α ≤ 2 * Z ^ 2 → Z ≤ β → β ≤ 2 * Z → Z ≤ γ → γ ≤ 2 * Z →\n      -2 * T ≤ r → r ≤ -T →\
+    \ |s| ≤ 1 / 100000 * |r| →\n      x1 = -1 + (1 / 15 - β) * r - γ * s →\n      x2 = -1 - 462 * β + (-462 * β ^ 2 - β) *\
+    \ r + (α - 462 * β * γ - γ) * s →\n      x3 = -1 - β * r + (1 / 31 - γ) * s →\n      x4 = -1 - 462 * γ + (-α - 462 * β\
+    \ * γ - β) * r + (-462 * γ ^ 2 - γ) * s →\n      x5 = -1 - β * r - γ * s →\n      x6 = (15 * (x1 + x2) + 31 * (x3 + x4)\
+    \ - 508 * x5 - 462) / 508 →\n      (c * Z * T ≤ x1 ∧ x1 ≤ C * Z * T ∧ c * Z * T ≤ x3 ∧ x3 ≤ C * Z * T ∧\n       c * Z\
+    \ * T ≤ x5 ∧ x5 ≤ C * Z * T ∧\n       c * Z ^ 2 * T ≤ x2 ∧ x2 ≤ C * Z ^ 2 * T ∧ c * Z ^ 2 * T ≤ x4 ∧ x4 ≤ C * Z ^ 2 *\
+    \ T ∧\n       c * Z ^ 2 * T ≤ x6 ∧ x6 ≤ C * Z ^ 2 * T) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - abs_le
+  - abs_mul
+  - mul_le_mul
+  - div_le_div_iff₀
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - 100 ≤ Z
+  - 10 ≤ T
+  - Z ^ 2 ≤ α
+  - α ≤ 2 * Z ^ 2
+  - Z ≤ β
+  - β ≤ 2 * Z
+  - Z ≤ γ
+  - γ ≤ 2 * Z
+  - -2 * T ≤ r
+  - r ≤ -T
+  - '|s| ≤ 1 / 100000 * |r|'
+  consumes: nothing
+  produces: two-height archimedean bounds on the positive region (Lemma 3.1)
+  library_inputs: []
+  believed: provable
+- id: N17
+  name: zero_form_criteria
+  statement: "theorem zero_form_criteria {F : Type*} [Field F] (h2 : (2 : F) ≠ 0) (h3 : (3 : F) ≠ 0)\n    (h7 : (7 : F) ≠\
+    \ 0) (h11 : (11 : F) ≠ 0) (α β γ : F) :\n    ((-1 - 462 * β = 0 ∧ -462 * β ^ 2 - β = 0 ∧ α - 462 * β * γ - γ = 0) ↔ (α\
+    \ = 0 ∧ 462 * β + 1 = 0)) ∧\n    ((-1 - 462 * γ = 0 ∧ -α - 462 * β * γ - β = 0 ∧ -462 * γ ^ 2 - γ = 0) ↔ (α = 0 ∧ 462\
+    \ * γ + 1 = 0)) ∧\n    ((6930 * β + 14322 * γ + 46 = 0 ∧\n      -31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β + 1 =\
+    \ 0 ∧\n      15 * α - 6930 * β * γ - 14322 * γ ^ 2 + 416 * γ + 1 = 0) ↔\n     (31 * α - 462 * β - 1 = 0 ∧ 15 * α + 462\
+    \ * γ + 1 = 0)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - mul_eq_zero
+  - mul_left_cancel₀
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - '(2 : F) ≠ 0'
+  - '(3 : F) ≠ 0'
+  - '(7 : F) ≠ 0'
+  - '(11 : F) ≠ 0'
+  consumes: nothing
+  produces: zero-form criteria for x2, x4, x6 over any field where 462 is a unit (Lemma 6.1, A.4–A.7)
+  library_inputs: []
+  believed: provable
+- id: N18
+  name: integral_lift
+  statement: "theorem integral_lift (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl\
+    \ q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A * (x\
+    \ 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508 * x\
+    \ 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (q A B C : ℤ) (x : Fin 6 → ℤ) (hq : q ≠ 0) (hx : OnPl\
+    \ q A B C x) :\n    ∀ α β γ r s : ℝ, α = A / q → β = B / q → γ = C / q →\n      r = 15 * ((x 0 : ℝ) - x 4) → s = 31 *\
+    \ ((x 2 : ℝ) - x 4) →\n      (x 0 : ℝ) = -1 + (1 / 15 - β) * r - γ * s ∧\n      (x 1 : ℝ) = -1 - 462 * β + (-462 * β ^\
+    \ 2 - β) * r + (α - 462 * β * γ - γ) * s ∧\n      (x 2 : ℝ) = -1 - β * r + (1 / 31 - γ) * s ∧\n      (x 3 : ℝ) = -1 -\
+    \ 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s ∧\n      (x 4 : ℝ) = -1 - β * r - γ * s ∧\n      (x 5\
+    \ : ℝ) = (15 * ((x 0 : ℝ) + x 1) + 31 * ((x 2 : ℝ) + x 3) - 508 * (x 4 : ℝ) - 462) / 508 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Int.cast_mul
+  - Int.cast_add
+  - mul_div_cancel_left₀
+  - Int.cast_ne_zero
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - q ≠ 0
+  - OnPl q A B C x
+  consumes: nothing
+  produces: every integral point of the plane system lies on the rational ruling plane (Lemma 4.1)
+  library_inputs: []
+  believed: provable
+- id: N19
+  name: onPlane_equations
+  statement: "theorem onPlane_equations (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),\
+    \ OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A\
+    \ * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508\
+    \ * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (q A B C : ℤ) (x : Fin 6 → ℤ) (hq : q ≠ 0) (hx\
+    \ : OnPl q A B C x) :\n    15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5 ∧\n    15 * (x 0 + x 1) + 31 * (x 2 + x 3)\
+    \ - 508 * (x 4 + x 5) = 462 := by\n"
+  depends_on:
+  - N18
+  - N13
+  mathlib_roots:
+  - Int.cast_inj
+  - mul_left_cancel₀
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - q ≠ 0
+  - OnPl q A B C x
+  consumes: integral lift onto the ruling plane; the identities on the plane
+  produces: every plane point solves (2.2) and (2.3) over ℤ
+  library_inputs: []
+  believed: provable
+- id: N20
+  name: good_coprime
+  statement: "theorem good_coprime (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood : ∀ Z q A B C, Good Z q A B C ↔\n      ((4619990760\
+    \ : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧\n \
+    \      (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧\n       (∀ p : ℕ, p.Prime\
+    \ → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧\n       (∀\
+    \ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ)\
+    \ ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q)))))\n    (Z : ℝ) (q :\
+    \ ℕ) (A B C : ℤ) (hG : Good Z q A B C) :\n    IsCoprime A (q : ℤ) ∧ IsCoprime B (q : ℤ) ∧ IsCoprime C (q : ℤ) ∧ IsCoprime\
+    \ (A * B * C) (q : ℤ) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Int.isCoprime_iff_gcd_eq_one
+  - Int.exists_prime_and_dvd
+  - IsCoprime.mul_left
+  - Nat.isCoprime_iff_coprime
+  - Prime.dvd_mul
+  kind: join
+  join_type: case_split
+  conditionals:
+  - Good Z q A B C
+  consumes: nothing
+  produces: coprimality (4.6) and (A, q) = (B, q) = (C, q) = 1 from the denominator-prime conditions
+  library_inputs: []
+  believed: provable
+- id: N21
+  name: local_witness
+  statement: "theorem local_witness (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl\
+    \ q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A * (x\
+    \ 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508 * x\
+    \ 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760\
+    \ = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C)\n    (hCq : IsCoprime C (q\
+    \ : ℤ)) :\n    ∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ ∀ p : ℕ, p.Prime → p ∣ 4619990760 → ∀ i, ¬ (p : ℤ) ∣ x i := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Int.emod_emod_of_dvd
+  - Int.ModEq
+  - IsCoprime.mul_left
+  - Int.isCoprime_iff_gcd_eq_one
+  - ZMod.intCast_zmod_eq_zero_iff_dvd
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime C (q : ℤ)'
+  consumes: nothing
+  produces: a plane point with all six coordinates units modulo every p | W (Lemma 4.3)
+  library_inputs: []
+  believed: provable
+- id: N22
+  name: projected_index
+  statement: "theorem projected_index (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),\
+    \ OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A\
+    \ * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508\
+    \ * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760\
+    \ = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C)\n    (hcop : IsCoprime (A *\
+    \ B * C) (q : ℤ)) :\n    ∃ (z : ℤ × ℤ) (Γ : AddSubgroup (ℤ × ℤ)) (δ : ℕ), δ ∣ 508 ∧ Γ.index = q ^ 2 * δ ∧\n      ∀ y :\
+    \ ℤ × ℤ, (∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ x 0 - x 4 = y.1 ∧ x 2 - x 4 = y.2) ↔ y - z ∈ Γ := by\n"
+  depends_on:
+  - N21
+  mathlib_roots:
+  - AddSubgroup.index
+  - AddSubgroup.relIndex_mul_index
+  - AddSubgroup.index_eq_card
+  - AddMonoidHom.ker
+  - QuotientAddGroup.quotientKerEquivOfSurjective
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime (A * B * C) (q : ℤ)'
+  consumes: the nonempty witness point
+  produces: the projected integral points form a translate of a lattice of index q²δ, δ ∣ 508 (Lemma 4.2)
+  library_inputs: []
+  believed: provable
+- id: N23
+  name: lattice_coords
+  statement: "theorem lattice_coords (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),\
+    \ OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A\
+    \ * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508\
+    \ * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) :\n    ∃ C0 C1 C2 : ℝ, 0 < C1 ∧ ∀ (q : ℕ) (A B C : ℤ)\
+    \ (Z T : ℝ),\n      1 ≤ q → q % 4619990760 = 1 → (4619990760 : ℤ) ∣ A → (4619990760 : ℤ) ∣ B → (4619990760 : ℤ) ∣ C →\n\
+    \      IsCoprime (A * B * C) (q : ℤ) → 100 ≤ Z →\n      (q : ℝ) * Z ^ 2 ≤ A → (A : ℝ) < 2 * q * Z ^ 2 → (q : ℝ) * Z ≤\
+    \ B → (B : ℝ) < 2 * q * Z →\n      (q : ℝ) * Z ≤ C → (C : ℝ) < 2 * q * Z → C0 * (q : ℝ) ^ 2 ≤ T →\n      ∃ (c : Fin 6\
+    \ → ℤ) (L : Fin 6 → Fin 2 → ℤ) (δ : ℕ), δ ∣ 508 ∧\n        (∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j *\
+    \ n j)) ∧\n        (∀ x, OnPl q A B C x → ∃! n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) ∧\n        |15 * (L 0\
+    \ 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ ∧\n   \
+    \     (∀ i, |(c i : ℝ)| ≤ C2 * Z ^ 2 * (q : ℝ) ^ 2 ∧ ∀ j, |(L i j : ℝ)| ≤ C2 * Z ^ 2 * (q : ℝ) ^ 2) ∧\n        ∀ K : Set\
+    \ (Fin 2 → ℝ),\n          (∀ v, v ∈ K ↔\n            (-2 * T ≤ 15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ)\
+    \ + ∑ j, (L 4 j : ℝ) * v j)) ∧ 15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j)) ≤ -T\
+    \ ∧\n             |31 * (((c 2 : ℝ) + ∑ j, (L 2 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))| ≤ 1 / 100000 *\
+    \ |15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))|)) →\n          Convex ℝ K ∧\n \
+    \         MeasureTheory.volume K = ENNReal.ofReal (3 / 100000 * T ^ 2 / (465 * (q : ℝ) ^ 2 * δ)) ∧\n          ∀ v ∈ K,\
+    \ ∀ j, |v j| ≤ C1 * T := by\n"
+  depends_on:
+  - N22
+  - N18
+  mathlib_roots:
+  - MeasureTheory.Measure.addHaar_preimage_linearMap
+  - LinearMap.det_toLin
+  - Matrix.det_fin_two
+  - Convex.inter
+  - convex_halfSpace_le
+  - AddSubgroup.index
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime (A * B * C) (q : ℤ)'
+  - 100 ≤ Z
+  - '(q : ℝ) * Z ^ 2 ≤ A'
+  - '(A : ℝ) < 2 * q * Z ^ 2'
+  - '(q : ℝ) * Z ≤ B'
+  - '(B : ℝ) < 2 * q * Z'
+  - '(q : ℝ) * Z ≤ C'
+  - '(C : ℝ) < 2 * q * Z'
+  - 'C0 * (q : ℝ) ^ 2 ≤ T'
+  consumes: the projected lattice of index q²δ; the integral lift formulas
+  produces: a Gauss-reduced integer parametrization Ψ = (c, L) of the plane with bounded coefficients, det 465q²δ, and the
+    convex pullback K of R_T with exact volume (Lemma 4.4)
+  library_inputs: []
+  believed: provable
+- id: N24
+  name: region_bounds_int
+  statement: "theorem region_bounds_int (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),\
+    \ OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A\
+    \ * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508\
+    \ * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (InReg : ℝ → (Fin 6 → ℤ) → Prop)\n    (hInReg :\
+    \ ∀ T (x : Fin 6 → ℤ), InReg T x ↔\n      (-2 * T ≤ 15 * ((x 0 : ℝ) - x 4) ∧ 15 * ((x 0 : ℝ) - x 4) ≤ -T ∧\n       |31\
+    \ * ((x 2 : ℝ) - x 4)| ≤ 1 / 100000 * |15 * ((x 0 : ℝ) - x 4)|)) :\n    ∃ cl Cu ch Ch : ℝ, 0 < cl ∧ 0 < ch ∧ ch < Ch ∧\
+    \ ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ) (x : Fin 6 → ℤ),\n      1 ≤ q → 100 ≤ Z → 10 ≤ T →\n      (q : ℝ) * Z ^ 2 ≤ A → (A :\
+    \ ℝ) ≤ 2 * q * Z ^ 2 → (q : ℝ) * Z ≤ B → (B : ℝ) ≤ 2 * q * Z →\n      (q : ℝ) * Z ≤ C → (C : ℝ) ≤ 2 * q * Z → OnPl q A\
+    \ B C x → InReg T x →\n      (cl * Z * T ≤ x 0 ∧ cl * Z * T ≤ x 2 ∧ cl * Z * T ≤ x 4 ∧\n       cl * Z ^ 2 * T ≤ x 1 ∧\
+    \ cl * Z ^ 2 * T ≤ x 3 ∧ cl * Z ^ 2 * T ≤ x 5 ∧\n       (∀ i, (x i : ℝ) ≤ Cu * Z ^ 2 * T) ∧\n       ch * Z ^ 3 * T ^ 2\
+    \ ≤ 508 * (x 4 : ℝ) * x 5 ∧ 508 * (x 4 : ℝ) * x 5 ≤ Ch * Z ^ 3 * T ^ 2) := by\n"
+  depends_on:
+  - N18
+  - N16
+  mathlib_roots:
+  - abs_le
+  - mul_le_mul
+  - Int.cast_le
+  - div_le_div_of_nonneg_left
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - 100 ≤ Z
+  - 10 ≤ T
+  - '(q : ℝ) * Z ^ 2 ≤ A'
+  - '(A : ℝ) ≤ 2 * q * Z ^ 2'
+  - '(q : ℝ) * Z ≤ B'
+  - '(B : ℝ) ≤ 2 * q * Z'
+  - '(q : ℝ) * Z ≤ C'
+  - '(C : ℝ) ≤ 2 * q * Z'
+  - OnPl q A B C x
+  - InReg T x
+  consumes: integral lift and the real archimedean bounds
+  produces: size bounds for integer plane points in the region, incl. ch Z³T² ≤ 508 x5 x6 ≤ Ch Z³T² (8.1)
+  library_inputs: []
+  believed: provable
+- id: N25
+  name: sqfree_progression_count
+  statement: "theorem sqfree_progression_count : ∃ csf Q1 : ℝ, 0 < csf ∧ ∀ Q : ℝ, Q1 ≤ Q →\n    ∃ F : Finset ℕ, (∀ q ∈ F,\
+    \ Q ≤ q ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q) ∧ csf * Q ≤ F.card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - ArithmeticFunction.moebius
+  - ArithmeticFunction.coe_moebius_mul_coe_zeta
+  - Nat.squarefree_iff_factorization_le_one
+  - Nat.Primes.summable_rpow
+  - Nat.card_multiples
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - Q1 ≤ Q
+  consumes: nothing
+  produces: ≫ Q squarefree q ≡ 1 (mod W) in [Q, 2Q] (5.2)
+  library_inputs: []
+  believed: provable
+- id: N26
+  name: H_sum_bound
+  statement: "theorem H_sum_bound : ∃ CH Q1 : ℝ, ∀ Q : ℝ, Q1 ≤ Q →\n    ∑ q ∈ (Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊).filter (fun q =>\
+    \ q % 4619990760 = 1),\n      ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ CH * Q := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.sum_comm
+  - Finset.sum_le_sum
+  - Nat.Ioc_filter_dvd_card_eq_div
+  - Nat.Primes.summable_rpow
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - Q1 ≤ Q
+  consumes: nothing
+  produces: the average of H(q) = Σ_{p|q} 1/p over the progression is O(1)
+  library_inputs: []
+  believed: provable
+- id: N27
+  name: good_denominators
+  statement: "theorem good_denominators : ∃ M0 cW Q0 : ℝ, 0 < cW ∧ ∀ Q : ℝ, Q0 ≤ Q →\n    ∃ F : Finset ℕ, (∀ q ∈ F, Q ≤ q\
+    \ ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧\n      ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0) ∧ cW * Q ≤ F.card\
+    \ := by\n"
+  depends_on:
+  - N25
+  - N26
+  mathlib_roots:
+  - Finset.card_filter_le
+  - Finset.sum_le_sum_of_subset_of_nonneg
+  - Finset.card_le_card
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - Q0 ≤ Q
+  consumes: squarefree progression count; average of H
+  produces: positive-density retained denominators via Markov (Lemma 5.1)
+  library_inputs: []
+  believed: provable
+- id: N28
+  name: residue_blocks
+  statement: "theorem residue_blocks (m : ℕ) [NeZero m] (Ω : Finset (ZMod m × ZMod m × ZMod m))\n    (a1 a2 a3 : ℤ) (L1 L2\
+    \ L3 : ℕ) :\n    Ω.card * ((L1 / m - 1) * (L2 / m - 1) * (L3 / m - 1)) ≤\n      ((Finset.Ico a1 (a1 + L1) ×ˢ (Finset.Ico\
+    \ a2 (a2 + L2) ×ˢ Finset.Ico a3 (a3 + L3))).filter\n        (fun x => ((x.1 : ZMod m), (x.2.1 : ZMod m), (x.2.2 : ZMod\
+    \ m)) ∈ Ω)).card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Int.card_Ico
+  - ZMod.intCast_cast
+  - Finset.card_le_card_of_injOn
+  - ZMod.intCast_zmod_eq_zero_iff_dvd
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - NeZero m
+  consumes: nothing
+  produces: complete-residue-block lower bound for box counts (Lemma 5.2)
+  library_inputs: []
+  believed: provable
+- id: N29
+  name: local_density
+  statement: "theorem local_density (M0 : ℝ) : ∃ ϑ : ℝ, 0 < ϑ ∧ ∀ (q P m : ℕ), Squarefree q → q % 4619990760 = 1 →\n    ∑\
+    \ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0 →\n    m = q * ∏ p ∈ (Finset.range (P + 1)).filter (fun p => p.Prime ∧ ¬ p ∣ 4619990760\
+    \ * q), p →\n    ∃ Ω : Finset (ZMod m × ZMod m × ZMod m), ϑ * (m : ℝ) ^ 3 ≤ Ω.card ∧\n      ∀ a b c : ℤ, ((a : ZMod m),\
+    \ (b : ZMod m), (c : ZMod m)) ∈ Ω →\n        (∀ p : ℕ, p.Prime → p ∣ q →\n          ¬ (p : ℤ) ∣ (4619990760 * a) * (4619990760\
+    \ * b) * (4619990760 * c) *\n            (462 * (4619990760 * c) + 15 * (4619990760 * a)) * (31 * (4619990760 * a) - 462\
+    \ * (4619990760 * b)) *\n            (15 * (4619990760 * b) + 31 * (4619990760 * c))) ∧\n        (∀ p : ℕ, p.Prime → p\
+    \ ≤ P → ¬ p ∣ 4619990760 * q →\n          ¬ (((p : ℤ) ∣ 4619990760 * a ∧ (p : ℤ) ∣ 462 * (4619990760 * b) + q) ∨\n   \
+    \          ((p : ℤ) ∣ 4619990760 * a ∧ (p : ℤ) ∣ 462 * (4619990760 * c) + q) ∨\n             ((p : ℤ) ∣ 31 * (4619990760\
+    \ * a) - 462 * (4619990760 * b) - q ∧\n              (p : ℤ) ∣ 15 * (4619990760 * a) + 462 * (4619990760 * c) + q))) :=\
+    \ by\n"
+  depends_on: []
+  mathlib_roots:
+  - ZMod.chineseRemainder
+  - Real.add_one_le_exp
+  - Nat.Primes.summable_rpow
+  - Finset.prod_le_prod
+  - ZMod.intCast_zmod_eq_zero_iff_dvd
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - Squarefree q
+  - q % 4619990760 = 1
+  - '∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0'
+  consumes: nothing
+  produces: a residue set mod qM_P of density ≥ ϑ(M0) surviving all small-prime conditions (5.11)–(5.12)
+  library_inputs: []
+  believed: provable
+- id: N30
+  name: large_prime_tail
+  statement: "theorem large_prime_tail : ∃ Ct : ℝ, ∀ (q P : ℕ) (Z : ℝ), 2 ≤ q → 100 ≤ Z → 1 ≤ P →\n    ∀ F : Finset (ℤ × ℤ\
+    \ × ℤ), (∀ t ∈ F, (q : ℝ) * Z ^ 2 ≤ t.1 ∧ (t.1 : ℝ) < 2 * q * Z ^ 2 ∧\n        (q : ℝ) * Z ≤ t.2.1 ∧ (t.2.1 : ℝ) < 2 *\
+    \ q * Z ∧ (q : ℝ) * Z ≤ t.2.2 ∧ (t.2.2 : ℝ) < 2 * q * Z ∧\n        ∃ p : ℕ, p.Prime ∧ P < p ∧ ¬ p ∣ 4619990760 * q ∧\n\
+    \          (((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.1 + q) ∨ ((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.2 + q) ∨\n           ((p\
+    \ : ℤ) ∣ 31 * t.1 - 462 * t.2.1 - q ∧ (p : ℤ) ∣ 15 * t.1 + 462 * t.2.2 + q))) →\n      (F.card : ℝ) ≤ Ct * ((q : ℝ) ^\
+    \ 3 * Z ^ 4 / P + (q : ℝ) ^ 2 * Z ^ 3 * Real.log (q * Z) + (q : ℝ) ^ 2 * Z ^ 4) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.Primes.summable_rpow
+  - Finset.card_biUnion_le
+  - Int.card_Ico
+  - Real.log_le_sub_one_of_pos
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - 2 ≤ q
+  - 100 ≤ Z
+  - 1 ≤ P
+  consumes: nothing
+  produces: the number of box triples hitting a bad system at some prime p > P is O(q³Z⁴/P + q²Z³ log qZ + q²Z⁴) (5.15)
+  library_inputs: []
+  believed: provable
+- id: N31
+  name: parameter_sieve
+  statement: "theorem parameter_sieve (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood : ∀ Z q A B C, Good Z q A B C ↔\n    \
+    \  ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q\
+    \ * Z ^ 2 ∧\n       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧\n       (∀\
+    \ p : ℕ, p.Prime → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 *\
+    \ C)) ∧\n       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p :\
+    \ ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q)))))\
+    \ (M0 : ℝ) :\n    ∃ Z0 q0 c2 : ℝ, 100 ≤ Z0 ∧ 0 < c2 ∧ ∀ (q : ℕ) (Z : ℝ),\n      Squarefree q → q % 4619990760 = 1 → ∑\
+    \ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0 → q0 ≤ q → Z0 ≤ Z →\n      ∃ F : Finset (ℤ × ℤ × ℤ), (∀ t ∈ F, Good Z q t.1 t.2.1\
+    \ t.2.2) ∧ c2 * (q : ℝ) ^ 3 * Z ^ 4 ≤ F.card := by\n"
+  depends_on:
+  - N28
+  - N29
+  - N30
+  mathlib_roots:
+  - Finset.card_sdiff
+  - Finset.card_le_card
+  - Finset.filter_subset
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Squarefree q
+  - q % 4619990760 = 1
+  - '∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0'
+  - q0 ≤ q
+  - Z0 ≤ Z
+  consumes: complete blocks, small-prime density, large-prime tail
+  produces: ≫ q³Z⁴ retained parameter triples over each retained q (Prop. 5.3)
+  library_inputs: []
+  believed: provable
+- id: N32
+  name: planes_meet_once
+  statement: "theorem planes_meet_once (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),\
+    \ OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A\
+    \ * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508\
+    \ * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (q q' A B C A' B' C' : ℤ) (x x' : Fin 6 → ℤ) (hq\
+    \ : 0 < q) (hq' : 0 < q')\n    (hA : IsCoprime A q) (hB : IsCoprime B q) (hC : IsCoprime C q)\n    (hA' : IsCoprime A'\
+    \ q') (hB' : IsCoprime B' q') (hC' : IsCoprime C' q')\n    (hne : (q, A, B, C) ≠ (q', A', B', C'))\n    (h1 : OnPl q A\
+    \ B C x) (h2 : OnPl q A B C x') (h3 : OnPl q' A' B' C' x) (h4 : OnPl q' A' B' C' x') :\n    x = x' := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Int.isCoprime_iff_gcd_eq_one
+  - Rat.num_div_eq_of_coprime
+  - Rat.den_div_eq_of_coprime
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < q
+  - 0 < q'
+  - IsCoprime A q
+  - IsCoprime B q
+  - IsCoprime C q
+  - IsCoprime A' q'
+  - IsCoprime B' q'
+  - IsCoprime C' q'
+  - (q, A, B, C) ≠ (q', A', B', C')
+  consumes: nothing
+  produces: distinct retained planes share at most one point (Lemma 5.5 and intersection accounting)
+  library_inputs: []
+  believed: provable
+- id: N33
+  name: union_card_bound
+  statement: "theorem union_card_bound {ι α : Type*} [DecidableEq α] (s : Finset ι) (f : ι → Finset α)\n    (h : ∀ i ∈ s,\
+    \ ∀ j ∈ s, i ≠ j → (f i ∩ f j).card ≤ 1) :\n    ∑ i ∈ s, (f i).card ≤ (s.biUnion f).card + s.card.choose 2 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_biUnion
+  - Finset.sum_le_sum
+  - Nat.choose_two_right
+  - Finset.card_union_add_card_inter
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∀ i ∈ s, ∀ j ∈ s, i ≠ j → (f i ∩ f j).card ≤ 1
+  consumes: nothing
+  produces: incidences minus pair count lower-bound distinct points (7.9), (8.8)
+  library_inputs: []
+  believed: provable
+- id: N34
+  name: lattice_reduction
+  statement: "theorem lattice_reduction {ι : Type*} [Fintype ι] (p : ℕ) (L L' : AddSubgroup (ι → ℤ)) (hle : L' ≤ L)\n    (hp\
+    \ : ¬ p ∣ L'.relIndex L) :\n    (∀ x ∈ L, ∃ y ∈ L', ∃ z ∈ L, x = y + p • z) ∧\n    (∀ y ∈ L', (∃ z ∈ L, y = p • z) → ∃\
+    \ z' ∈ L', y = p • z') := by\n"
+  depends_on: []
+  mathlib_roots:
+  - AddSubgroup.relIndex
+  - AddSubgroup.nsmul_index_mem
+  - AddSubgroup.relIndex_mul_index
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - L' ≤ L
+  - ¬ p ∣ L'.relIndex L
+  consumes: nothing
+  produces: a sublattice of index prime to p has the same reduction mod p (Lemma 6.2)
+  library_inputs: []
+  believed: provable
+- id: N35
+  name: nonzero_forms_count
+  statement: "theorem nonzero_forms_count (p : ℕ) (hp : p.Prime) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)\n    (hnz : ∀ i,\
+    \ ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j)) :\n    p ^ 2 - 6 * p ≤ ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter\n\
+    \      (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_filter_le
+  - Finset.card_union_le
+  - ZMod.intCast_zmod_eq_zero_iff_dvd
+  - Fintype.card_piFinset
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - p.Prime
+  - '∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j)'
+  consumes: nothing
+  produces: at least p² − 6p simultaneous unit points when no form vanishes identically mod p
+  library_inputs: []
+  believed: provable
+- id: N36
+  name: local_W
+  statement: "theorem local_W (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q\
+    \ A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A * (x 0\
+    \ - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508 * x 5\
+    \ = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760\
+    \ = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C)\n    (hCq : IsCoprime C (q\
+    \ : ℤ)) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)\n    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j\
+    \ * n j))\n    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) :\n    ∀ p : ℕ, p.Prime\
+    \ → p ∣ 4619990760 →\n      ∃ n : Fin 2 → ℕ, (∀ j, n j < p) ∧ ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ) := by\n"
+  depends_on:
+  - N21
+  mathlib_roots:
+  - Int.emod_emod_of_dvd
+  - Int.emod_nonneg
+  - Int.toNat_of_nonneg
+  - Int.emod_lt_of_pos
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime C (q : ℤ)'
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  consumes: the local witness point
+  produces: 'β_p > 0 data at p | W: one simultaneous unit point (6.6)'
+  library_inputs: []
+  believed: provable
+- id: N37
+  name: local_away
+  statement: "theorem local_away (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl\
+    \ q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A * (x\
+    \ 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508 * x\
+    \ 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood : ∀ Z\
+    \ q A B C, Good Z q A B C ↔\n      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n       (q :\
+    \ ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧\n       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z ≤ C ∧\
+    \ (C : ℝ) < 2 * q * Z ∧\n       (∀ p : ℕ, p.Prime → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31\
+    \ * A - 462 * B) * (15 * B + 31 * C)) ∧\n       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ) ∣ A ∧\
+    \ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p :\
+    \ ℤ) ∣ 15 * A + 462 * C + q)))))\n    (q : ℕ) (A B C : ℤ) (Z : ℝ)\n    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ :\
+    \ 100 ≤ Z) (hG : Good Z q A B C)\n    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)\n    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B\
+    \ C (fun i => c i + ∑ j, L i j * n j))\n    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L\
+    \ i j * n j)\n    (hdet : ∃ δ : ℕ, δ ∣ 508 ∧\n      |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4\
+    \ 1) * (31 * (L 2 0 - L 4 0))|\n        = 465 * (q : ℤ) ^ 2 * δ) :\n    ∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ∀ i,\
+    \ ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by\n"
+  depends_on:
+  - N18
+  - N17
+  - N20
+  mathlib_roots:
+  - ZMod.intCast_zmod_eq_zero_iff_dvd
+  - Matrix.det_fin_two
+  - ZMod.unitOfCoprime
+  - Int.cast_mul
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  - '∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| =
+    465 * (q : ℤ) ^ 2 * δ'
+  consumes: integral lift, zero-form criteria, coprimality
+  produces: no coordinate form vanishes identically mod p for p ∤ Wq (Section 6.1)
+  library_inputs: []
+  believed: provable
+- id: N38
+  name: local_denominator
+  statement: "theorem local_denominator (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),\
+    \ OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A\
+    \ * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508\
+    \ * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood :\
+    \ ∀ Z q A B C, Good Z q A B C ↔\n      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n       (q\
+    \ : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧\n       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z ≤ C\
+    \ ∧ (C : ℝ) < 2 * q * Z ∧\n       (∀ p : ℕ, p.Prime → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31\
+    \ * A - 462 * B) * (15 * B + 31 * C)) ∧\n       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ) ∣ A ∧\
+    \ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p :\
+    \ ℤ) ∣ 15 * A + 462 * C + q)))))\n    (q : ℕ) (A B C : ℤ) (Z : ℝ)\n    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ :\
+    \ 100 ≤ Z) (hG : Good Z q A B C)\n    (hsq : Squarefree q)\n    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)\n    (hpar : ∀\
+    \ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))\n    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ,\
+    \ x = fun i => c i + ∑ j, L i j * n j) :\n    ∀ p : ℕ, p.Prime → p ∣ q → ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j)\
+    \ := by\n"
+  depends_on:
+  - N22
+  - N34
+  - N18
+  - N20
+  mathlib_roots:
+  - ZMod.intCast_zmod_eq_zero_iff_dvd
+  - AddSubgroup.relIndex
+  - Nat.Squarefree.ext_iff
+  - ZMod.unitOfCoprime
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - Squarefree q
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  consumes: projected index, lattice reduction, lift, coprimality
+  produces: no coordinate form vanishes identically on the special fibre at p | q (Lemma 6.3, Cor. 6.4)
+  library_inputs: []
+  believed: provable
+- id: N39
+  name: fc_lattice
+  statement: "theorem fc_lattice (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl\
+    \ q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A * (x\
+    \ 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508 * x\
+    \ 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood : ∀ Z\
+    \ q A B C, Good Z q A B C ↔\n      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n       (q :\
+    \ ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧\n       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z ≤ C ∧\
+    \ (C : ℝ) < 2 * q * Z ∧\n       (∀ p : ℕ, p.Prime → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31\
+    \ * A - 462 * B) * (15 * B + 31 * C)) ∧\n       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ) ∣ A ∧\
+    \ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p :\
+    \ ℤ) ∣ 15 * A + 462 * C + q)))))\n    (q : ℕ) (A B C : ℤ) (Z : ℝ)\n    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ :\
+    \ 100 ≤ Z) (hG : Good Z q A B C)\n    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)\n    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B\
+    \ C (fun i => c i + ∑ j, L i j * n j))\n    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L\
+    \ i j * n j)\n    (hdet : ∃ δ : ℕ, δ ∣ 508 ∧\n      |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4\
+    \ 1) * (31 * (L 2 0 - L 4 0))|\n        = 465 * (q : ℤ) ^ 2 * δ) :\n    ∀ i j : Fin 6, i ≠ j → L i 0 * L j 1 - L i 1 *\
+    \ L j 0 ≠ 0 := by\n"
+  depends_on:
+  - N18
+  - N14
+  - N15
+  mathlib_roots:
+  - Matrix.det_fin_two
+  - Matrix.det_mul
+  - Int.cast_injective
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  - '∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| =
+    465 * (q : ℤ) ^ 2 * δ'
+  consumes: integral lift, determinant table, real finite complexity
+  produces: finite complexity survives the lattice reparametrization
+  library_inputs: []
+  believed: provable
+- id: N40
+  name: beta_local
+  statement: "theorem beta_local (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl\
+    \ q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A * (x\
+    \ 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508 * x\
+    \ 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood : ∀ Z\
+    \ q A B C, Good Z q A B C ↔\n      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n       (q :\
+    \ ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧\n       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z ≤ C ∧\
+    \ (C : ℝ) < 2 * q * Z ∧\n       (∀ p : ℕ, p.Prime → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31\
+    \ * A - 462 * B) * (15 * B + 31 * C)) ∧\n       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ) ∣ A ∧\
+    \ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p :\
+    \ ℤ) ∣ 15 * A + 462 * C + q)))))\n    (q : ℕ) (A B C : ℤ) (Z : ℝ)\n    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ :\
+    \ 100 ≤ Z) (hG : Good Z q A B C)\n    (hsq : Squarefree q)\n    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)\n    (hpar : ∀\
+    \ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))\n    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ,\
+    \ x = fun i => c i + ∑ j, L i j * n j)\n    (hdet : ∃ δ : ℕ, δ ∣ 508 ∧\n      |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L\
+    \ 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))|\n        = 465 * (q : ℤ) ^ 2 * δ)\n    (β : ℕ → ℝ)\n    (hβ :\
+    \ ∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 *\n      ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter\n\
+    \        (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) :\n    ∀ p : ℕ, p.Prime →\n      (p ∣ 4619990760\
+    \ → 1 / (p : ℝ) ^ 2 * ((p : ℝ) / (p - 1)) ^ 6 ≤ β p) ∧\n      (¬ p ∣ 4619990760 → (1 - 6 / (p : ℝ)) * ((p : ℝ) / (p -\
+    \ 1)) ^ 6 ≤ β p) := by\n"
+  depends_on:
+  - N35
+  - N36
+  - N37
+  - N38
+  - N20
+  mathlib_roots:
+  - Finset.card_pos
+  - div_le_div_of_nonneg_left
+  - Nat.cast_sub
+  - Nat.Prime.two_le
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - Squarefree q
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  - '∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| =
+    465 * (q : ℤ) ^ 2 * δ'
+  consumes: unit-point count, the three local cases
+  produces: local factor lower bounds (6.6) and (6.7) at every prime
+  library_inputs: []
+  believed: provable
+- id: N41
+  name: ap_product
+  statement: "theorem ap_product :\n    Multipliable (fun p : Nat.Primes => (if ((p : ℕ) ∣ 4619990760) then 1 / ((p : ℕ) :\
+    \ ℝ) ^ 2 * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6 else (1 - 6 / ((p : ℕ) : ℝ)) * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) -\
+    \ 1)) ^ 6)) ∧\n    0 < ∏' p : Nat.Primes, (if ((p : ℕ) ∣ 4619990760) then 1 / ((p : ℕ) : ℝ) ^ 2 * (((p : ℕ) : ℝ) / (((p\
+    \ : ℕ) : ℝ) - 1)) ^ 6 else (1 - 6 / ((p : ℕ) : ℝ)) * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.multipliable_of_summable_log
+  - Real.summable_log_one_add_of_summable
+  - Nat.Primes.summable_rpow
+  - Real.rexp_tsum_eq_tprod
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals: []
+  consumes: nothing
+  produces: the comparison product c* of (6.8) converges to a positive limit
+  library_inputs: []
+  believed: provable
+- id: N42
+  name: singular_series_lower
+  statement: "theorem singular_series_lower (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6\
+    \ → ℤ), OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15\
+    \ * A * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n     \
+    \  508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood\
+    \ : ∀ Z q A B C, Good Z q A B C ↔\n      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n     \
+    \  (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧\n       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z\
+    \ ≤ C ∧ (C : ℝ) < 2 * q * Z ∧\n       (∀ p : ℕ, p.Prime → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A)\
+    \ * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧\n       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ)\
+    \ ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧\
+    \ (p : ℤ) ∣ 15 * A + 462 * C + q))))) :\n    ∃ cstar : ℝ, 0 < cstar ∧ ∀ (q : ℕ) (A B C : ℤ) (Z : ℝ), 1 ≤ q → q % 4619990760\
+    \ = 1 → 100 ≤ Z →\n      Good Z q A B C → Squarefree q →\n      ∀ (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (β : ℕ → ℝ),\n\
+    \        (∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)) →\n        (∀ x, OnPl q A B C x → ∃ n : Fin\
+    \ 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) →\n        (∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L\
+    \ 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ) →\n        (∀ p : ℕ, β p = ((p : ℝ)\
+    \ / (p - 1)) ^ 6 / (p : ℝ) ^ 2 *\n          ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter\n            (fun\
+    \ n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) →\n        (∀ p : ℕ, p.Prime → 0 < β p) ∧ Multipliable (fun\
+    \ p : Nat.Primes => β p) ∧\n          cstar ≤ ∏' p : Nat.Primes, β p := by\n"
+  depends_on:
+  - N02
+  - N39
+  - N40
+  - N41
+  mathlib_roots:
+  - Real.rexp_tsum_eq_tprod
+  - Real.hasProd_of_hasSum_log
+  - Real.log_le_log
+  - Summable.tsum_le_tsum
+  - LinearIndependent.pair_iff
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - Squarefree q
+  consumes: Bienvenu Lemma 1.2, finite complexity in lattice coordinates, local bounds, positive comparison product
+  produces: admissibility and the uniform singular-series bound ∏ β_p ≥ c* (6.9)
+  library_inputs:
+  - Bienvenu 2017, Lemma 1.2
+  believed: provable
+- id: N43
+  name: collision_line
+  statement: "theorem collision_line (a b e : ℤ) (M : ℕ) (hab : a ≠ 0 ∨ b ≠ 0) :\n    ((Finset.Icc (-(M : ℤ)) M ×ˢ Finset.Icc\
+    \ (-(M : ℤ)) M).filter\n      (fun n => a * n.1 + b * n.2 = e)).card ≤ 2 * M + 1 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Int.card_Icc
+  - Finset.card_le_card_of_injOn
+  - Finset.card_image_of_injOn
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - a ≠ 0 ∨ b ≠ 0
+  consumes: nothing
+  produces: a collision line meets the box in O(T) lattice points
+  library_inputs: []
+  believed: provable
+- id: N44
+  name: prime_weight_to_count
+  statement: "theorem prime_weight_to_count {d t : ℕ} (F : Finset (Fin d → ℤ)) (f : (Fin d → ℤ) → Fin t → ℤ) (V : ℝ)\n   \
+    \ (hV : 1 ≤ V) (hf : ∀ n ∈ F, ∀ i, (f n i : ℝ) ≤ V) :\n    ∑ n ∈ F, ∏ i, (if 0 < f n i ∧ (f n i).natAbs.Prime then Real.log\
+    \ (f n i : ℝ) else 0) ≤\n      Real.log V ^ t * ((F.filter (fun n => ∀ i, 0 < f n i ∧ (f n i).natAbs.Prime)).card : ℝ)\
+    \ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.sum_le_sum
+  - Finset.prod_le_pow_card
+  - Real.log_le_log
+  - Real.log_nonneg
+  - Finset.sum_filter
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - 1 ≤ V
+  - '∀ n ∈ F, ∀ i, (f n i : ℝ) ≤ V'
+  consumes: nothing
+  produces: the Λ'-weighted count is at most (log V)^t times the prime-point count
+  library_inputs: []
+  believed: provable
+- id: N45
+  name: plane_prime_count
+  statement: "theorem plane_prime_count (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)\n    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),\
+    \ OnPl q A B C x ↔\n      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧\n       q * (x 3 - x 4) = -15 * A\
+    \ * (x 0 - x 4) + 462 * C * x 4 ∧\n       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧\n       508\
+    \ * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))\n    (InReg : ℝ → (Fin 6 → ℤ) → Prop)\n    (hInReg :\
+    \ ∀ T (x : Fin 6 → ℤ), InReg T x ↔\n      (-2 * T ≤ 15 * ((x 0 : ℝ) - x 4) ∧ 15 * ((x 0 : ℝ) - x 4) ≤ -T ∧\n       |31\
+    \ * ((x 2 : ℝ) - x 4)| ≤ 1 / 100000 * |15 * ((x 0 : ℝ) - x 4)|))\n    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)\n    (hGood :\
+    \ ∀ Z q A B C, Good Z q A B C ↔\n      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧\n       (q\
+    \ : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧\n       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧\n       (q : ℝ) * Z ≤ C\
+    \ ∧ (C : ℝ) < 2 * q * Z ∧\n       (∀ p : ℕ, p.Prime → p ∣ q →\n         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31\
+    \ * A - 462 * B) * (15 * B + 31 * C)) ∧\n       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →\n         ¬ (((p : ℤ) ∣ A ∧\
+    \ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨\n           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p :\
+    \ ℤ) ∣ 15 * A + 462 * C + q))))) :\n    ∀ τ : ℝ, 0 < τ → ∃ T0 c3 : ℝ, 0 < c3 ∧ ∀ (T Z : ℝ) (q : ℕ) (A B C : ℤ),\n    \
+    \  T0 ≤ T → 100 ≤ Z → 1 ≤ q → Squarefree q → q % 4619990760 = 1 →\n      (q : ℝ) ≤ Real.log T ^ τ → Z ≤ Real.log T ^ τ\
+    \ → Good Z q A B C →\n      ∃ F : Finset (Fin 6 → ℤ),\n        (∀ x ∈ F, OnPl q A B C x ∧ InReg T x ∧ Function.Injective\
+    \ x ∧ ∀ i, 0 < x i ∧ (x i).natAbs.Prime) ∧\n        c3 * T ^ 2 / ((q : ℝ) ^ 2 * Real.log T ^ 6) ≤ F.card := by\n"
+  depends_on:
+  - N01
+  - N23
+  - N16
+  - N18
+  - N24
+  - N39
+  - N42
+  - N43
+  - N44
+  - N20
+  mathlib_roots:
+  - LinearIndependent.pair_iff
+  - MeasureTheory.volume
+  - Finset.card_le_card
+  - Real.log_le_log
+  - isLittleO_log_rpow_atTop
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < τ
+  - T0 ≤ T
+  - 100 ≤ Z
+  - 1 ≤ q
+  - Squarefree q
+  - q % 4619990760 = 1
+  - '(q : ℝ) ≤ Real.log T ^ τ'
+  - Z ≤ Real.log T ^ τ
+  - Good Z q A B C
+  consumes: Bienvenu's uniform theorem; lattice coordinates; region bounds; finite complexity; singular-series bound; collision
+    and weight bounds
+  produces: ≫ T²/(q²(log T)⁶) pairwise-distinct prime sextuples on each retained plane (Prop. 7.2)
+  library_inputs:
+  - Bienvenu 2017, Proposition 2.1 (through bienvenu_prop21_uniform)
+  believed: provable
+- id: N46
+  name: threshold_lemma
+  statement: "theorem threshold_lemma (κ : ℝ) (hκ : 0 < κ) (Ch T0 C0 ε : ℝ) (hCh : 0 < Ch) (hε : 0 < ε) :\n    ∃ Y0 : ℝ, ∀\
+    \ Y Q Z : ℝ, Y0 ≤ Y → 1 ≤ Q → Q ≤ Real.log Y ^ κ → 1 ≤ Z → Z ≤ Real.log Y ^ κ →\n      Real.log Y / 3 ≤ Real.log (Real.sqrt\
+    \ (Y / (Ch * Z ^ 3))) ∧\n      Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ≤ Real.log Y ∧\n      T0 ≤ Real.sqrt (Y / (Ch *\
+    \ Z ^ 3)) ∧\n      T0 ≤ Z * Real.sqrt (Y / (Ch * Z ^ 3)) ∧\n      2 * Q ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ (κ\
+    \ + 1) ∧\n      Z ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ (κ + 1) ∧\n      C0 * (2 * Q) ^ 2 ≤ Real.sqrt (Y / (Ch *\
+    \ Z ^ 3)) ∧\n      (2 * Q) ^ 2 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ∧\n  \
+    \    Q ^ 6 * Z ^ 4 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ^ 2 := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.log_sqrt
+  - Real.log_div
+  - Real.log_rpow
+  - isLittleO_log_rpow_atTop
+  - Real.isLittleO_pow_log_id_atTop
+  - Real.sqrt_le_sqrt
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - 0 < κ
+  - 0 < Ch
+  - 0 < ε
+  - Y0 ≤ Y
+  - 1 ≤ Q
+  - Q ≤ Real.log Y ^ κ
+  - 1 ≤ Z
+  - Z ≤ Real.log Y ^ κ
+  consumes: nothing
+  produces: uniform polylogarithmic thresholds at T = (Y/(Ch Z³))^{1/2} (Lemma 8.1)
+  library_inputs: []
+  believed: provable
+- id: N47
+  name: two_height_core
+  statement: "theorem two_height_core : ∃ c0 : ℝ, 0 < c0 ∧ c0 < 1 ∧ ∀ κ : ℝ, 0 < κ →\n    ∃ cκ Yκ Qκ Zκ : ℝ, 0 < cκ ∧ ∀ Y\
+    \ Q Z : ℝ, Yκ ≤ Y → Qκ ≤ Q → Q ≤ Real.log Y ^ κ → Zκ ≤ Z →\n      Z ≤ Real.log Y ^ κ →\n      ∃ F : Finset (ℕ × ℕ),\n\
+    \        (∀ uv ∈ F, 0 < uv.1 ∧ 0 < uv.2 ∧ Nat.Coprime uv.1 uv.2 ∧\n          c0 * Y ≤ ((uv.1 + uv.2 : ℕ) : ℝ) ∧ ((uv.1\
+    \ + uv.2 : ℕ) : ℝ) ≤ Y ∧\n          σ 1 (3600 * uv.1) + σ 1 (3600 * uv.2) = σ 1 (3600 * (uv.1 + uv.2)) ∧\n          (3600\
+    \ * uv.1 * uv.2 * (uv.1 + uv.2)).primeFactors.card ≤ 11) ∧\n        cκ * Y * Q ^ 2 * Z / Real.log Y ^ 6 ≤ F.card := by\n"
+  depends_on:
+  - N27
+  - N31
+  - N45
+  - N32
+  - N33
+  - N24
+  - N19
+  - N07
+  - N08
+  - N46
+  - N20
+  mathlib_roots:
+  - Finset.card_biUnion
+  - Finset.card_le_mul_card_image
+  - Finset.sum_le_sum
+  - Finset.card_image_of_injOn
+  - Int.toNat_of_nonneg
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 0 < κ
+  - Yκ ≤ Y
+  - Qκ ≤ Q
+  - Q ≤ Real.log Y ^ κ
+  - Zκ ≤ Z
+  - Z ≤ Real.log Y ^ κ
+  consumes: retained denominators, retained triples, per-plane prime counts, overlap accounting, region bounds, plane equations,
+    core extraction, 8-to-1 fibres, thresholds
+  produces: ≫ Y Q² Z /(log Y)⁶ coprime cores activated by 3600 with perimeter in [c0 Y, Y] (Theorem 1.3)
+  library_inputs: []
+  believed: provable
+- id: N48
+  name: S_lower_bound
+  statement: "theorem S_lower_bound : ∀ κ : ℝ, 0 < κ → ∃ c X1 : ℝ, 0 < c ∧ ∀ x : ℝ, X1 ≤ x →\n    c * x * Real.log x ^ (3\
+    \ * κ - 5) ≤ S x := by\n"
+  depends_on:
+  - N47
+  - N09
+  - N10
+  - N11
+  - N12
+  mathlib_roots:
+  - Finset.card_sigma
+  - Finset.card_image_of_injOn
+  - Real.log_le_log
+  - Real.rpow_natCast
+  - Real.rpow_add
+  kind: join
+  join_type: quantitative_improvement
+  conditionals:
+  - 0 < κ
+  - X1 ≤ x
+  consumes: core theorem, multiplier solutions, disjointness, coprime density, S lower bound from families
+  produces: S(x) ≫_κ x (log x)^{3κ−5} by geometric shells and multiplier amplification (9.3)
+  library_inputs: []
+  believed: provable
+- id: ROOT
+  name: li_1061
+  statement: "theorem li_1061 : ∀ R : ℝ, 0 < R →\n    Tendsto (fun x : ℝ ↦ S x / (x * Real.log x ^ R)) atTop atTop := by\n"
+  depends_on:
+  - N48
+  mathlib_roots:
+  - Real.tendsto_log_atTop
+  - tendsto_rpow_atTop
+  - Filter.tendsto_atTop_mono'
+  - Filter.Tendsto.comp
+  - Real.rpow_sub
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 0 < R
+  consumes: S(x) ≥ c x (log x)^(3κ−5) for large x, at κ = (R + 6)/3
+  produces: S(x)/(x (log x)^R) → ∞ (Theorem 1.1)
+  library_inputs: []
+  believed: provable
+notes: 'Route (Li): the triple 3600(15, 31, 508) has one abundancy, so six distinct primes > 127 on two equations (2.2)-(2.3)
+  give a solution (N03-N07). The equations are a split quadric; a rational ruling by skew matrices gives planes, written as
+  integer equations OnPl q A B C x (N13-N19). Each plane gets a lattice parametrisation (N21-N23), local admissibility at
+  every prime (N34-N40) and a singular-series floor (N41-N42), then Bienvenu''s theorem gives prime points (N45). Denominators
+  and parameter triples are counted by a sieve (N25-N31), overlaps are discarded (N32-N33), cores extracted (N47), and coprime
+  multipliers summed over shells (N48).
+
+  Hardest provable room: lattice_coords (N23), which needs a Gauss-reduced basis, an exact pullback volume, a box containment
+  and an integer bijection together. local_denominator (N38) comes next.
+
+  First type to fail: two_structure_coupling. root_reached is 0 because N01 (Bienvenu Prop. 2.1, via Green-Tao-Ziegler) cannot
+  be proved inside the caps and sits under the root. The ROOT entry predicts only the final step, from N48.
+
+  Not in Mathlib: the Green-Tao linear-forms theory, singular series, Gauss reduction of 2-D lattices, and Mertens-type prime
+  sums (crude bounds suffice).
+
+  '

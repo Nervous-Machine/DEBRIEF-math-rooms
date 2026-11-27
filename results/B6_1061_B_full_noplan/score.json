@@ -1,0 +1,132 @@
+{
+ "regime": "B6_1061_B_full_noplan",
+ "calls": 6,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0006",
+   "sorry"
+  ]
+ ],
+ "per_node": {
+  "family_mem": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 7
+  },
+  "sum_prim_le_S": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 8
+  },
+  "eventually_lower": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 4
+  }
+ },
+ "final_status_at_first_FINAL": "sorry",
+ "shape": {
+  "declarations": 18,
+  "unused_by_root": [
+   "sigma_two",
+   "sigma_three",
+   "solution_one_two",
+   "solution_m_two_m",
+   "coprime_six_succ",
+   "family_mem",
+   "floor_le_S",
+   "linear_lower",
+   "floor_le_S_of_solution"
+  ],
+  "unused_count": 9,
+  "root_found": true,
+  "depth": 5,
+  "own_lines_median": 7.0,
+  "own_lines": {
+   "S": 14,
+   "sigma_mul_of_coprime": 2,
+   "sigma_two": 3,
+   "sigma_three": 5,
+   "solution_one_two": 5,
+   "solution_lift": 11,
+   "solution_m_two_m": 5,
+   "coprime_six_succ": 5,
+   "family_mem": 23,
+   "floor_le_S": 17,
+   "linear_lower": 7,
+   "floor_le_S_of_solution": 69,
+   "prim": 7,
+   "sum_prim_le_S": 51,
+   "root_of_eventually_lower": 15,
+   "prim_sum_eventually_lower": 6,
+   "eventually_lower": 7,
+   "li_1061": 5
+  },
+  "retry_named": [],
+  "joins": [
+   "S",
+   "solution_lift",
+   "prim"
+  ],
+  "edges": 24
+ },
+ "fit": {
+  "sorry": 1,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "sorry_in_text": [
+   "prim_sum_eventually_lower"
+  ],
+  "sorry_in": [
+   "prim_sum_eventually_lower"
+  ],
+  "root_sorry": false,
+  "total": 1,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "Rooms/Axioms.lean:263:6: warning: declaration uses `sorry`\n'Erdos1061.li_1061' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": false,
+ "residual": true,
+ "rooms_proved": [
+  "sigma_mul_of_coprime",
+  "sigma_two",
+  "sigma_three",
+  "solution_one_two",
+  "solution_lift",
+  "solution_m_two_m",
+  "coprime_six_succ",
+  "family_mem",
+  "floor_le_S",
+  "linear_lower",
+  "floor_le_S_of_solution",
+  "sum_prim_le_S",
+  "root_of_eventually_lower",
+  "eventually_lower",
+  "li_1061"
+ ],
+ "attempts_median": 2,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": null,
+ "tokens_total": 92174
+}

@@ -1,0 +1,44 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-B6_1133_B_full_noplan
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: From the formal-conjectures statement alone, with no paper and no rooms, how much of Erdős 1133 does the
+    searcher build, and where does it stop?
+  rule: hold rule; rooms/check.sh logs every call; rooms/score.py computes every number with --blueprint none; the
+    first FINAL is the scored result
+  predictions: [P1, P6, P7]
+  commit: prereg_build_6.yaml
+  results:
+  - results/B6_1133_B_full_noplan/score.json
+  - results/B6_1133_B_full_noplan/final.lean
+  - results/B6_1133_B_full_noplan/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 6
+    error_calls: 2
+    first_FINAL: sorry
+    residual: true
+    fit_total: 0
+    lemmas_proved: 12 of 13 own lemmas (22 declarations with definitions)
+    left_open: exists_volume_coverSetOn_le, an exponentially small volume bound for sup-norm-bounded interpolation on arbitrary nodes; the root is proved from it
+    route: the trivial case C < 1 closed; the problem reduced to a Hamming-covering statement about the value vectors of bounded polynomials; a measure pigeonhole and a union bound over agreement sets; the combinatorial count of agreement sets closed by an entropy weighting; one analytic room left
+    distinctive_move_of_the_paper_present: no (no Bernstein space, no trigonometric obstruction, no Olevskii–Ulanovskii; the searcher chose a volume route and named the analytic room as the content)
+    tokens: 126921
+    minutes: 17 of 180 (stopped early by the searcher's own judgement)
+    lines: 284
+    declarations: 22
+    depth: 6
+  misses: []
+spoken: 'From the statement alone the searcher drew its own route in seventeen minutes: the trivial case, a reduction
+  to a covering problem about the value vectors of bounded polynomials, a measure pigeonhole, a union bound, and an
+  entropy count of the agreement sets, all proved. It left one analytic room, an exponentially small volume for the
+  interpolation set, wrote that this is the whole content of the problem and that Mathlib has nothing close, and
+  stopped. The route is not the paper''s. Nothing was changed.'
+finding_ids: []
+gap_ids:
+- EG6

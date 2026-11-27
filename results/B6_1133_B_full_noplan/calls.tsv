@@ -1,0 +1,6 @@
+0001	2026-11-27T02:11:47Z	statement_of_lt_one	error	rc=1	secs=3	bytes=7363
+0002	2026-11-27T02:12:10Z	erdos_1133	sorry	rc=0	secs=3	bytes=7377
+0003	2026-11-27T02:16:37Z	measureSmall_of_one_le	sorry	rc=0	secs=3	bytes=11952
+0004	2026-11-27T02:21:09Z	exists_card_bigSets_mul_lt	error	rc=1	secs=3	bytes=15457
+0005	2026-11-27T02:21:23Z	exists_card_bigSets_mul_lt	sorry	rc=0	secs=3	bytes=15482
+0006	2026-11-27T02:23:04Z	FINAL	sorry	rc=0	secs=3	bytes=15482

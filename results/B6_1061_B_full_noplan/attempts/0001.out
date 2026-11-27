@@ -1,0 +1,2 @@
+Rooms/Target_B6_1061_B_full_noplan.lean:79:59: error: failed to prove positivity/nonnegativity/nonzeroness
+Rooms/Target_B6_1061_B_full_noplan.lean:131:6: warning: declaration uses `sorry`

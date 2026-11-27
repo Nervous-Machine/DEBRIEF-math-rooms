@@ -1,0 +1,28 @@
+Rooms/Target_B6_1133_B_full_noplan.lean:173:8: warning: declaration uses `sorry`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Rooms/Target_B6_1133_B_full_noplan.lean:240:42: error: unsolved goals
+ρ : ℝ
+hρ0 : 0 ≤ ρ
+hρ1 : ρ < 1
+ε₁ : ℝ
+hε₁ : 0 < ε₁
+hlim : Tendsto (fun ε => ρ * ((1 + ε) * ε ^ (-ε))) (nhdsWithin 0 (Ioi 0)) (nhds ρ)
+h1 : ∀ᶠ (ε : ℝ) in nhdsWithin 0 (Ioi 0), ρ * ((1 + ε) * ε ^ (-ε)) < 1
+h2 : ∀ᶠ (ε : ℝ) in nhdsWithin 0 (Ioi 0), ε < ε₁
+h3 : ∀ᶠ (ε : ℝ) in nhdsWithin 0 (Ioi 0), ε < 1
+h4 : ∀ᶠ (ε : ℝ) in nhdsWithin 0 (Ioi 0), ε ∈ Ioi 0
+ε : ℝ
+hε1 : ρ * ((1 + ε) * ε ^ (-ε)) < 1
+hε2 : ε < ε₁
+hε3 : ε < 1
+hε4 : ε ∈ Ioi 0
+hε0 : 0 < ε
+n : ℕ
+hn : 1 ≤ n
+hb0 : 0 ≤ ρ * ((1 + ε) * ε ^ (-ε))
+⊢ ρ ^ n * (ε * ε ^ (-ε) + ε ^ (-ε)) ^ n = (ε * ε ^ (-ε) * ρ + ε ^ (-ε) * ρ) ^ n

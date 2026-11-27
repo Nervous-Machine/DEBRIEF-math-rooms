@@ -1,0 +1,65 @@
+Rooms/Target_B6_1061_B_full_noplan.lean:160:27: error: linarith failed to find a contradiction
+u v : ℕ
+hu : 0 < u
+hv : 0 < v
+huv : (σ 1) u + (σ 1) v = (σ 1) (u + v)
+x : ℝ
+n : ℕ := u * v * (u + v)
+hn : n = u * v * (u + v)
+D : ℝ := 2 * (↑u * ↑v * (↑u + ↑v)) * (↑u + ↑v)
+hD : D = 2 * (↑u * ↑v * (↑u + ↑v)) * (↑u + ↑v)
+hn1 : 1 ≤ n
+hs : 0 < u + v
+hD' : D = 2 * ↑n * ↑(u + v)
+hDpos : 0 < D
+hinj : Set.InjOn (fun k => (u * (n * k + 1), v * (n * k + 1))) ↑(Finset.range ⌊x / D⌋₊)
+k : ℕ
+hk✝ : k ∈ Finset.range ⌊x / D⌋₊
+hp :
+  (u * (n * k + 1), v * (n * k + 1)) ∈
+    Finset.image (fun k => (u * (n * k + 1), v * (n * k + 1))) (Finset.range ⌊x / D⌋₊)
+hk : k < ⌊x / D⌋₊
+hfp : 0 < ⌊x / D⌋₊
+hge : 1 ≤ x / D
+h1 : ↑k + 1 ≤ ↑⌊x / D⌋₊
+h2 : ↑⌊x / D⌋₊ ≤ x / D
+hk' : (↑k + 1) * D ≤ x
+hn1' : 1 ≤ ↑n
+hs' : 0 < ↑(u + v)
+hk0 : 0 ≤ ↑k
+hab : ↑(u + v) * (↑n * ↑k + 1) ≤ x
+a✝ : x < 0
+⊢ False
+failed
+Rooms/Target_B6_1061_B_full_noplan.lean:165:39: error: Application type mismatch: The argument
+  this
+has type
+  ↑u ≤ ↑(u + v)
+but is expected to have type
+  ↑u ≤ ↑u + ↑v
+in the application
+  mul_le_mul_of_nonneg_right this
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLE ↦ 4
+Rooms/Target_B6_1061_B_full_noplan.lean:170:39: error: Application type mismatch: The argument
+  this
+has type
+  ↑v ≤ ↑(u + v)
+but is expected to have type
+  ↑v ≤ ↑u + ↑v
+in the application
+  mul_le_mul_of_nonneg_right this
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLE ↦ 4
+Rooms/Target_B6_1061_B_full_noplan.lean:220:6: error: Type mismatch: After simplification, term
+  hle
+ has type
+  (↑u + ↑v) * ↑m ≤ x
+but is expected to have type
+  ↑u * ↑m + ↑v * ↑m ≤ x
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLE ↦ 2
+Rooms/Target_B6_1061_B_full_noplan.lean:257:6: warning: declaration uses `sorry`

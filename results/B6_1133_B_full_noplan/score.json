@@ -1,0 +1,138 @@
+{
+ "regime": "B6_1133_B_full_noplan",
+ "calls": 6,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0006",
+   "sorry"
+  ]
+ ],
+ "per_node": {
+  "statement_of_lt_one": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 3
+  },
+  "erdos_1133": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 3
+  },
+  "measureSmall_of_one_le": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 3
+  },
+  "exists_card_bigSets_mul_lt": {
+   "attempts": 2,
+   "ok": 0,
+   "error": 2,
+   "timeout": 0,
+   "secs": 6
+  }
+ },
+ "final_status_at_first_FINAL": "sorry",
+ "shape": {
+  "declarations": 22,
+  "unused_by_root": [
+   "statement_mono"
+  ],
+  "unused_count": 1,
+  "root_found": true,
+  "depth": 6,
+  "own_lines_median": 9.5,
+  "own_lines": {
+   "Statement": 11,
+   "statement_mono": 11,
+   "statement_of_lt_one": 13,
+   "interpImage": 5,
+   "agree": 5,
+   "NotCovered": 6,
+   "statement_of_notCovered": 15,
+   "cube": 4,
+   "coverSet": 6,
+   "MeasureSmall": 6,
+   "notCovered_of_measureSmall": 18,
+   "coverSetOn": 6,
+   "bigSets": 4,
+   "coverSet_inter_cube_subset": 9,
+   "volume_coverSet_le": 7,
+   "volume_cube": 10,
+   "exists_volume_coverSetOn_le": 9,
+   "card_bigSets_le": 27,
+   "tendsto_base": 12,
+   "exists_card_bigSets_mul_lt": 24,
+   "measureSmall_of_one_le": 25,
+   "erdos_1133": 15
+  },
+  "retry_named": [],
+  "joins": [
+   "Statement",
+   "interpImage",
+   "agree",
+   "NotCovered",
+   "cube",
+   "coverSet",
+   "MeasureSmall",
+   "coverSetOn",
+   "bigSets"
+  ],
+  "edges": 46
+ },
+ "fit": {
+  "sorry": 1,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "sorry_in_text": [
+   "exists_volume_coverSetOn_le"
+  ],
+  "sorry_in": [
+   "exists_volume_coverSetOn_le"
+  ],
+  "root_sorry": false,
+  "total": 1,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "Rooms/Axioms.lean:173:8: warning: declaration uses `sorry`\n'Erdos1133.erdos_1133' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": false,
+ "residual": true,
+ "rooms_proved": [
+  "statement_mono",
+  "statement_of_lt_one",
+  "statement_of_notCovered",
+  "notCovered_of_measureSmall",
+  "coverSet_inter_cube_subset",
+  "volume_coverSet_le",
+  "volume_cube",
+  "card_bigSets_le",
+  "tendsto_base",
+  "exists_card_bigSets_mul_lt",
+  "measureSmall_of_one_le",
+  "erdos_1133"
+ ],
+ "attempts_median": 1.0,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": null,
+ "tokens_total": 126921
+}

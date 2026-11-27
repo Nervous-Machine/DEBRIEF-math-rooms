@@ -1,0 +1,18 @@
+Rooms/Target_B6_1133_B_full_noplan.lean:72:4: error(lean.dependsOnNoncomputable): failed to compile definition, consider marking it as 'noncomputable' because it depends on 'Real.decidableEq', which is 'noncomputable'
+Rooms/Target_B6_1133_B_full_noplan.lean:91:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_B_full_noplan.lean:128:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1133_B_full_noplan.lean:133:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1133_B_full_noplan.lean:149:9: error(lean.unknownIdentifier): Unknown identifier `lt_or_le`
+Rooms/Target_B6_1133_B_full_noplan.lean:149:27: error: Tactic `rcases` failed: `x✝ : ?m.102` is not an inductive datatype

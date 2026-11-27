@@ -1,0 +1,45 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: build-2026-11-26-typed
+dated: '2026-11-26'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: With every room typed by what its step does (case split, extremal or averaging, algebraic identity,
+  literature import, two-structure coupling, quantitative improvement, assembly), its conditionals written as Lean
+  hypothesis terms and its library inputs named, and with no room allowed to stay open untried, the types predict which
+  rooms the searcher closes (identities, splits and assembly over couplings and improvements), the human paper's rooms
+  again buy most of the structure over the statement alone, every literature import stays open, no fit appears, and the
+  record ends with one hinge vector per room carrying an outcome.
+signals: predictions P1–P10 in prereg_build_6.yaml, scored by score.py, hinges.py and the registrar's blind re-typing
+endpoints: none public until the runs are filed
+measurements_needed: two planners (Opus 5.5, with the papers) and four searcher arms (Fable 5.1), two with rooms under
+  the probe-first rule and two from the statement alone
+bears_on: 'the FORMALIZE class of the math gap register (Erdős 1061 and 1133 have no formal deduction on the record);
+  Heidi Bennett''s question of 2026-11-26 whether joins can be typed and hinges carried as vectors matched to statements;
+  DEBRIEF-math-rooms EG6'
+pinned:
+  sha256: 32df6b2b3f9a00018367afeb04b0ae0b5af70382e9336c8099476fcd3409536c
+  file: prereg_build_6.yaml
+preregistered:
+  question: Do join types predict reach; does the paper's route buy structure over the statement; and does the record
+    end with a hinge vector per room?
+  rule: P1–P10 as written; misses recorded; planners' per-node predictions sealed by hash before any searcher of that
+    target runs; the first accepted FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10]
+  commit: prereg_build_6.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers:
+    predictions: 10
+    arms: 4
+    planners: 2
+    targets: 2
+    signals_have_public_endpoint: false
+spoken: 'Nervous Machine registered build 6: two human proofs with no Lean deduction on the record, Li''s resolution of
+  Erdős 1061 and Yang''s proof of Erdős 1133, with every room typed by what its step does, its conditionals written as
+  Lean hypotheses, no room allowed to stay open untried, and one hinge vector per room written to an atlas with its
+  outcome.'
+finding_ids: []
+gap_ids:
+- EG6

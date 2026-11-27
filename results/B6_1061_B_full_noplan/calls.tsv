@@ -1,0 +1,6 @@
+0001	2026-11-27T02:09:17Z	family_mem	error	rc=1	secs=3	bytes=7012
+0002	2026-11-27T02:09:38Z	family_mem	sorry	rc=0	secs=4	bytes=7075
+0003	2026-11-27T02:13:19Z	sum_prim_le_S	error	rc=1	secs=4	bytes=13853
+0004	2026-11-27T02:14:15Z	sum_prim_le_S	sorry	rc=0	secs=4	bytes=13927
+0005	2026-11-27T02:15:12Z	eventually_lower	sorry	rc=0	secs=4	bytes=14594
+0006	2026-11-27T02:16:05Z	FINAL	sorry	rc=0	secs=5	bytes=14594
