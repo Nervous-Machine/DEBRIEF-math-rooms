@@ -1,0 +1,172 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:185:10: error(lean.unknownIdentifier): Unknown constant `Nat.Coprime.mul`
+Rooms/Target_B6_1061_A_full_probe.lean:186:4: error: No goals to be solved
+Rooms/Target_B6_1061_A_full_probe.lean:236:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:256:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:256:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:256:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:256:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:275:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:369:33: error: (deterministic) timeout at `«Mathlib.Tactic.Linarith.SimplexAlgorithm.Gauss.getTableauImp»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B6_1061_A_full_probe.lean:340:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B6_1061_A_full_probe.lean:442:36: error(lean.unknownIdentifier): Unknown identifier `pow_le_pow_left`
+Rooms/Target_B6_1061_A_full_probe.lean:443:31: error(lean.unknownIdentifier): Unknown identifier `pow_le_pow_left`
+Rooms/Target_B6_1061_A_full_probe.lean:444:36: error(lean.unknownIdentifier): Unknown identifier `pow_le_pow_left`
+Rooms/Target_B6_1061_A_full_probe.lean:445:31: error(lean.unknownIdentifier): Unknown identifier `pow_le_pow_left`
+Rooms/Target_B6_1061_A_full_probe.lean:447:52: error: Application type mismatch: The argument
+  hβ2
+has type
+  β ^ 2 ≤ (2 * Z) ^ 2
+but is expected to have type
+  β ≤ 2 * Z
+in the application
+  mul_le_mul hβ2
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLE ↦ 4
+Rooms/Target_B6_1061_A_full_probe.lean:404:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B6_1061_A_full_probe.lean:467:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:467:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:468:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:468:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:520:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑A
+in the target expression
+  ↑q * (↑(x 4) + 1) = -(15 * ↑B * (↑(x 0) - ↑(x 4)) + 31 * ↑C * (↑(x 2) - ↑(x 4)))
+
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+q A B C : ℤ
+x : Fin 6 → ℤ
+hq : q ≠ 0
+α β γ r s : ℝ
+hα : α = ↑A / ↑q
+hβ : β = ↑B / ↑q
+hγ : γ = ↑C / ↑q
+hr : r = 15 * (↑(x 0) - ↑(x 4))
+hs : s = 31 * (↑(x 2) - ↑(x 4))
+e1 : q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4
+e2 : q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4
+e3 : q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4))
+e4 : 508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+hq' : ↑q ≠ 0
+e1' : ↑q * (↑(x 1) - ↑(x 4)) = 31 * (α * ↑q) * (↑(x 2) - ↑(x 4)) + 462 * ↑B * ↑(x 4)
+e2' : ↑q * (↑(x 3) - ↑(x 4)) = -15 * (α * ↑q) * (↑(x 0) - ↑(x 4)) + 462 * ↑C * ↑(x 4)
+e3' : ↑q * (↑(x 4) + 1) = -(15 * ↑B * (↑(x 0) - ↑(x 4)) + 31 * ↑C * (↑(x 2) - ↑(x 4)))
+e4' : 508 * ↑(x 5) = 15 * (↑(x 0) + ↑(x 1)) + 31 * (↑(x 2) + ↑(x 3)) - 508 * ↑(x 4) - 462
+hA : ↑A = α * ↑q
+hB : ↑B = β * ↑q
+hC : ↑C = γ * ↑q
+⊢ ↑(x 0) = -1 + (1 / 15 - β) * r - γ * s ∧
+    ↑(x 1) = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α - 462 * β * γ - γ) * s ∧
+      ↑(x 2) = -1 - β * r + (1 / 31 - γ) * s ∧
+        ↑(x 3) = -1 - 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s ∧
+          ↑(x 4) = -1 - β * r - γ * s ∧
+            ↑(x 5) = (15 * (↑(x 0) + ↑(x 1)) + 31 * (↑(x 2) + ↑(x 3)) - 508 * ↑(x 4) - 462) / 508
+Rooms/Target_B6_1061_A_full_probe.lean:577:69: error: Application type mismatch: The argument
+  Int.gcd_dvd_left
+has type
+  ∀ (a b : ℤ), ↑(a.gcd b) ∣ a
+but is expected to have type
+  ↑(X.gcd ↑q) ∣ X
+in the application
+  Dvd.dvd.trans (Int.natCast_dvd_natCast.mpr hpd) Int.gcd_dvd_left
+Rooms/Target_B6_1061_A_full_probe.lean:578:75: error: Application type mismatch: The argument
+  Int.gcd_dvd_right
+has type
+  ∀ (a b : ℤ), ↑(a.gcd b) ∣ b
+but is expected to have type
+  ↑(X.gcd ↑q) ∣ ↑q
+in the application
+  Dvd.dvd.trans (Int.natCast_dvd_natCast.mpr hpd) Int.gcd_dvd_right
+Rooms/Target_B6_1061_A_full_probe.lean:586:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:598:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:611:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:637:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:658:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:663:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:669:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:675:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:683:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:700:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:710:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:727:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:768:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:775:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:782:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:797:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:826:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:853:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:882:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:918:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:924:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1032:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1062:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1076:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1088:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1096:8: warning: declaration uses `sorry`

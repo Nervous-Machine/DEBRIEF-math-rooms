@@ -1,0 +1,176 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:332:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:533:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:533:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:534:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:534:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:654:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:666:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:679:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:750:50: error: failed to prove positivity/nonnegativity/nonzeroness
+Rooms/Target_B6_1061_A_full_probe.lean:753:78: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B6_1061_A_full_probe.lean:705:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B6_1061_A_full_probe.lean:762:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:767:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:793:43: error: Type mismatch
+  q.primeFactors
+has type
+  Finset ℕ
+but is expected to have type
+  Finset ℝ
+Rooms/Target_B6_1061_A_full_probe.lean:794:45: error: Type mismatch
+  q.primeFactors
+has type
+  Finset ℕ
+but is expected to have type
+  Finset ℝ
+Rooms/Target_B6_1061_A_full_probe.lean:795:21: error(lean.unknownIdentifier): Unknown constant `Finset.filter_card_add_filter_neg_card_eq_card`
+Rooms/Target_B6_1061_A_full_probe.lean:807:36: error: Application type mismatch: The argument
+  hq.right
+has type
+  ¬∑ p ∈ ?m.315, 1 / p ≤ M0
+but is expected to have type
+  ¬∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0
+in the application
+  not_le.mp hq.right
+Rooms/Target_B6_1061_A_full_probe.lean:820:36: error: Type mismatch
+  q.primeFactors
+has type
+  Finset ℕ
+but is expected to have type
+  Finset ℝ
+Rooms/Target_B6_1061_A_full_probe.lean:821:6: error: mod_cast has type
+  F0.card = {x ∈ F0 | ∑ x ∈ ?refine_2.refine_1, 1 / x ≤ M0}.card + Bad.card
+but is expected to have type
+  F0.card = {x ∈ F0 | ∑ x ∈ ?refine_2.refine_2.refine_1, 1 / x ≤ M0}.card + Bad.card
+Rooms/Target_B6_1061_A_full_probe.lean:822:4: error: linarith failed to find a contradiction
+case refine_2.refine_2.refine_1
+csf Q1 : ℝ
+hcsf : 0 < csf
+hF : ∀ (Q : ℝ), Q1 ≤ Q → ∃ F, (∀ q ∈ F, Q ≤ ↑q ∧ ↑q ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q) ∧ csf * Q ≤ ↑F.card
+CH Q2 : ℝ
+hH : ∀ (Q : ℝ), Q2 ≤ Q → ∑ q ∈ Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊ with q % 4619990760 = 1, ∑ p ∈ q.primeFactors, 1 / ↑p ≤ CH * Q
+hmax : 0 < max CH 1
+M0 : ℝ := 2 * max CH 1 / csf
+hM0 : M0 = 2 * max CH 1 / csf
+hM0pos : 0 < M0
+Q : ℝ
+hQ : max Q1 (max Q2 1) ≤ Q
+hQ1 : Q1 ≤ Q
+hQ2 : Q2 ≤ Q
+hQ3 : 1 ≤ Q
+F0 : Finset ℕ
+hF0 : ∀ q ∈ F0, Q ≤ ↑q ∧ ↑q ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q
+hcard : csf * Q ≤ ↑F0.card
+hsum : ∑ q ∈ Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊ with q % 4619990760 = 1, ∑ p ∈ q.primeFactors, 1 / ↑p ≤ CH * Q
+Bad : Finset ℕ := {q ∈ F0 | ¬∑ p ∈ sorry q, 1 / p ≤ M0}
+hBad : Bad = {q ∈ F0 | ¬∑ p ∈ sorry q, 1 / p ≤ M0}
+hsplit : {q ∈ F0 | ∑ p ∈ ?refine_2.refine_1, 1 / p ≤ M0}.card + Bad.card = F0.card
+hBadsub : Bad ⊆ {q ∈ Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊ | q % 4619990760 = 1}
+h1 : M0 * ↑Bad.card ≤ ∑ q ∈ Bad, ∑ p ∈ q.primeFactors, 1 / ↑p
+h2 :
+  ∑ q ∈ Bad, ∑ p ∈ q.primeFactors, 1 / ↑p ≤
+    ∑ q ∈ Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊ with q % 4619990760 = 1, ∑ p ∈ q.primeFactors, 1 / ↑p
+hCH : CH * Q ≤ max CH 1 * Q
+h4 : 2 * max CH 1 * ↑Bad.card ≤ max CH 1 * Q * csf
+h5 : 2 * max CH 1 * ↑Bad.card ≤ 2 * max CH 1 * (csf * Q / 2)
+hBadle : ↑Bad.card ≤ csf * Q / 2
+q : ℕ
+⊢ False
+failed
+Rooms/Target_B6_1061_A_full_probe.lean:825:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:833:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:850:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:860:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:877:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:918:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:925:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:951:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  b ≥ 1
+  b - d ≥ 1
+  b - e ≤ 0
+  a ≥ 0
+where
+ a := ↑q / 4619990760
+ b := ↑p
+ d := n₀ j % ↑p
+ e := ↑((fun j => (n₀ j % ↑p).toNat) j)
+Rooms/Target_B6_1061_A_full_probe.lean:967:4: error: Type mismatch: After simplification, term
+  Int.dvd_sub hdiv hXY
+ has type
+  ↑p ∣
+    c i + (L i 0 * (n₀ 0 % ↑p) + L i 1 * (n₀ 1 % ↑p)) -
+      (L i 0 * (n₀ 0 % ↑p) + L i 1 * (n₀ 1 % ↑p) - (L i 0 * n₀ 0 + L i 1 * n₀ 1))
+but is expected to have type
+  ↑p ∣ c i + (L i 0 * n₀ 0 + L i 1 * n₀ 1)
+Rooms/Target_B6_1061_A_full_probe.lean:970:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:999:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1026:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1134:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1140:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1248:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1278:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1292:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1304:8: warning: declaration uses `sorry`

@@ -42,6 +42,16 @@ Status: proposed.
 
 Signal expected: data cycles under a registration with the closure predicted first. Resolution by: none registered.
 
+## 2. The join types are reproducible at the ends of the scale and not in the middle: a second reader agreed with the planner on 85 percent of one blueprint and 67 percent of the other, disagreeing on identity against split, bound against averaging, and glue against identity (ledger id EG7)
+
+The types predicted reach, but two readers only agree on them two times in three on the larger proof. A rate built on a type that readers cannot reproduce is not a rate.
+
+Status: proposed.
+
+- **a revised type set with written boundary rules for the middle three, applied blind by two readers to the 82 existing rooms and to the next build's rooms, reaching at least 80 percent agreement on each blueprint** — contribution kind: data; who could act: Nervous Machine, or any two readers with the blueprints.
+
+Signal expected: a registered re-typing with the agreement predicted first. Resolution by: none registered.
+
 ## 3. With rooms drawn from the question and no proof in reach, the searcher holds position under the hold rule (residual, nothing changed) in every arm, including… (ledger id HG2)
 
 With rooms drawn from the question and no proof in reach, the searcher holds position under the hold rule (residual, nothing changed) in every arm, including without a checker; on the solved problem the paper's rooms let it recover more of the structure than the statement alone; and on the open problem the plain brief without a kernel still yields a residual rather than a fit.
@@ -81,3 +91,13 @@ Status: immovable.
 - **three arms at caps 12, 36 and 108, fresh contexts, no planner, no paper, no rooms** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P8 in prereg_build_5.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness and the per-arm cap enforced by…. Resolution by: none registered.
+
+## 6. With every room typed by what its step does (case split, extremal or averaging, algebraic identity, literature import, two-structure coupling, quantitative… (ledger id HG5)
+
+With every room typed by what its step does (case split, extremal or averaging, algebraic identity, literature import, two-structure coupling, quantitative improvement, assembly), its conditionals written as Lean hypothesis terms and its library inputs named, and with no room allowed to stay open untried, the types predict which rooms the searcher closes (identities, splits and assembly over couplings and improvements), the human paper's rooms again buy most of the structure over the statement alone, every literature import stays open, no fit appears, and the record ends with one hinge vector per room carrying an outcome.
+
+Status: immovable.
+
+- **two planners (Opus 5.5, with the papers) and four searcher arms (Fable 5.1), two with rooms under the probe-first rule and two from the statement alone** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P10 in prereg_build_6.yaml, scored by score.py, hinges.py and the registrar's blind re-typing. Resolution by: none registered.

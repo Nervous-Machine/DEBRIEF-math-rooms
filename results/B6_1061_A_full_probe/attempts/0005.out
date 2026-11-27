@@ -1,0 +1,362 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:193:8: error: Tactic `apply` failed: could not unify the conclusion of `Nat.Coprime.mul_right
+  (Nat.Coprime.symm (cop_small 0 31 ?m.450 ?m.451))`
+  (p 0).Coprime (31 * ?m.445)
+with the goal
+  (p 0 * p 1).Coprime 31
+
+Note: The full type of `Nat.Coprime.mul_right (Nat.Coprime.symm (cop_small 0 31 ?m.450 ?m.451))` is
+  (p 0).Coprime ?m.445 → (p 0).Coprime (31 * ?m.445)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Nat.gcd ↦ 4
+
+case H2.H1
+p : Fin 6 → ℕ
+hp : ∀ (i : Fin 6), Nat.Prime (p i) ∧ 127 < p i
+hinj : Function.Injective p
+h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+hp' : ∀ (i : Fin 6), Nat.Prime (p i)
+hbig : ∀ (i : Fin 6), 127 < p i
+hne : ∀ (i j : Fin 6), i ≠ j → p i ≠ p j
+cop_small : ∀ (i : Fin 6) (m : ℕ), 0 < m → m < 128 → m.Coprime (p i)
+⊢ (p 0 * p 1).Coprime 31
+Rooms/Target_B6_1061_A_full_probe.lean:196:8: error: Tactic `apply` failed: could not unify the conclusion of `Nat.Coprime.mul_right
+  (Nat.Coprime.symm (cop_small 1 31 ?m.462 ?m.463))`
+  (p 1).Coprime (31 * ?m.457)
+with the goal
+  (p 0 * p 1).Coprime (p 2 * p 3)
+
+Note: The full type of `Nat.Coprime.mul_right (Nat.Coprime.symm (cop_small 1 31 ?m.462 ?m.463))` is
+  (p 1).Coprime ?m.457 → (p 1).Coprime (31 * ?m.457)
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Nat.gcd ↦ 4
+
+case H2.H2
+p : Fin 6 → ℕ
+hp : ∀ (i : Fin 6), Nat.Prime (p i) ∧ 127 < p i
+hinj : Function.Injective p
+h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+hp' : ∀ (i : Fin 6), Nat.Prime (p i)
+hbig : ∀ (i : Fin 6), 127 < p i
+hne : ∀ (i j : Fin 6), i ≠ j → p i ≠ p j
+cop_small : ∀ (i : Fin 6) (m : ℕ), 0 < m → m < 128 → m.Coprime (p i)
+⊢ (p 0 * p 1).Coprime (p 2 * p 3)
+Rooms/Target_B6_1061_A_full_probe.lean:314:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:314:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:314:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:314:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:333:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:530:62: error: linarith failed to find a contradiction
+case refine_1
+Z T α β γ s : ℝ
+hZ : 100 ≤ Z
+hT : 10 ≤ T
+hα1 : Z ^ 2 ≤ α
+hα2 : α ≤ 2 * Z ^ 2
+hβ1 : Z ≤ β
+hβ2 : β ≤ 2 * Z
+hγ1 : Z ≤ γ
+hγ2 : γ ≤ 2 * Z
+u : ℝ
+hr1 : -2 * T ≤ -u
+hr2 : -u ≤ -T
+hs : |s| ≤ 1 / 100000 * u
+hu1 : T ≤ u
+hu2 : u ≤ 2 * T
+hu0 : 0 < u
+hs1 : -(1 / 100000 * u) ≤ s
+hs2 : s ≤ 1 / 100000 * u
+hZ0 : 0 < Z
+hT0 : 0 < T
+hα0 : 0 ≤ α
+hβ0 : 0 ≤ β
+hγ0 : 0 ≤ γ
+hZT : 1000 ≤ Z * T
+hZZT : 10 * Z ≤ Z * T
+hZ2T : 100 * (Z * T) ≤ Z ^ 2 * T
+hβu1 : Z * T ≤ β * u
+hβu2 : β * u ≤ 2 * Z * (2 * T)
+hγu1 : Z * T ≤ γ * u
+hγu2 : γ * u ≤ 2 * Z * (2 * T)
+hαu1 : Z ^ 2 * T ≤ α * u
+hαu2 : α * u ≤ 2 * Z ^ 2 * (2 * T)
+hβsq : β ^ 2 ≤ (2 * Z) ^ 2
+hβsq' : Z ^ 2 ≤ β ^ 2
+hγsq : γ ^ 2 ≤ (2 * Z) ^ 2
+hγsq' : Z ^ 2 ≤ γ ^ 2
+hβγ1 : Z * Z ≤ β * γ
+hβγ2 : β * γ ≤ 2 * Z * (2 * Z)
+hβ2u1 : Z ^ 2 * T ≤ β ^ 2 * u
+hβ2u2 : β ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hγ2u1 : Z ^ 2 * T ≤ γ ^ 2 * u
+hγ2u2 : γ ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hβγu1 : Z * Z * T ≤ β * γ * u
+hβγu2 : β * γ * u ≤ 2 * Z * (2 * Z) * (2 * T)
+hγs1 : γ * -(1 / 100000 * u) ≤ γ * s
+hγs2 : γ * s ≤ γ * (1 / 100000 * u)
+hαs1 : α * -(1 / 100000 * u) ≤ α * s
+hαs2 : α * s ≤ α * (1 / 100000 * u)
+hβγs1 : β * γ * -(1 / 100000 * u) ≤ β * γ * s
+hβγs2 : β * γ * s ≤ β * γ * (1 / 100000 * u)
+hγ2s1 : γ ^ 2 * -(1 / 100000 * u) ≤ γ ^ 2 * s
+hγ2s2 : γ ^ 2 * s ≤ γ ^ 2 * (1 / 100000 * u)
+a✝ : -1 + (1 / 15 - β) * -u - γ * s < 1 / 2 * Z * T
+⊢ False
+failed
+Rooms/Target_B6_1061_A_full_probe.lean:530:62: error: linarith failed to find a contradiction
+case refine_3
+Z T α β γ s : ℝ
+hZ : 100 ≤ Z
+hT : 10 ≤ T
+hα1 : Z ^ 2 ≤ α
+hα2 : α ≤ 2 * Z ^ 2
+hβ1 : Z ≤ β
+hβ2 : β ≤ 2 * Z
+hγ1 : Z ≤ γ
+hγ2 : γ ≤ 2 * Z
+u : ℝ
+hr1 : -2 * T ≤ -u
+hr2 : -u ≤ -T
+hs : |s| ≤ 1 / 100000 * u
+hu1 : T ≤ u
+hu2 : u ≤ 2 * T
+hu0 : 0 < u
+hs1 : -(1 / 100000 * u) ≤ s
+hs2 : s ≤ 1 / 100000 * u
+hZ0 : 0 < Z
+hT0 : 0 < T
+hα0 : 0 ≤ α
+hβ0 : 0 ≤ β
+hγ0 : 0 ≤ γ
+hZT : 1000 ≤ Z * T
+hZZT : 10 * Z ≤ Z * T
+hZ2T : 100 * (Z * T) ≤ Z ^ 2 * T
+hβu1 : Z * T ≤ β * u
+hβu2 : β * u ≤ 2 * Z * (2 * T)
+hγu1 : Z * T ≤ γ * u
+hγu2 : γ * u ≤ 2 * Z * (2 * T)
+hαu1 : Z ^ 2 * T ≤ α * u
+hαu2 : α * u ≤ 2 * Z ^ 2 * (2 * T)
+hβsq : β ^ 2 ≤ (2 * Z) ^ 2
+hβsq' : Z ^ 2 ≤ β ^ 2
+hγsq : γ ^ 2 ≤ (2 * Z) ^ 2
+hγsq' : Z ^ 2 ≤ γ ^ 2
+hβγ1 : Z * Z ≤ β * γ
+hβγ2 : β * γ ≤ 2 * Z * (2 * Z)
+hβ2u1 : Z ^ 2 * T ≤ β ^ 2 * u
+hβ2u2 : β ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hγ2u1 : Z ^ 2 * T ≤ γ ^ 2 * u
+hγ2u2 : γ ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hβγu1 : Z * Z * T ≤ β * γ * u
+hβγu2 : β * γ * u ≤ 2 * Z * (2 * Z) * (2 * T)
+hγs1 : γ * -(1 / 100000 * u) ≤ γ * s
+hγs2 : γ * s ≤ γ * (1 / 100000 * u)
+hαs1 : α * -(1 / 100000 * u) ≤ α * s
+hαs2 : α * s ≤ α * (1 / 100000 * u)
+hβγs1 : β * γ * -(1 / 100000 * u) ≤ β * γ * s
+hβγs2 : β * γ * s ≤ β * γ * (1 / 100000 * u)
+hγ2s1 : γ ^ 2 * -(1 / 100000 * u) ≤ γ ^ 2 * s
+hγ2s2 : γ ^ 2 * s ≤ γ ^ 2 * (1 / 100000 * u)
+a✝ : -1 - β * -u + (1 / 31 - γ) * s < 1 / 2 * Z * T
+⊢ False
+failed
+Rooms/Target_B6_1061_A_full_probe.lean:530:62: error: linarith failed to find a contradiction
+case refine_4
+Z T α β γ s : ℝ
+hZ : 100 ≤ Z
+hT : 10 ≤ T
+hα1 : Z ^ 2 ≤ α
+hα2 : α ≤ 2 * Z ^ 2
+hβ1 : Z ≤ β
+hβ2 : β ≤ 2 * Z
+hγ1 : Z ≤ γ
+hγ2 : γ ≤ 2 * Z
+u : ℝ
+hr1 : -2 * T ≤ -u
+hr2 : -u ≤ -T
+hs : |s| ≤ 1 / 100000 * u
+hu1 : T ≤ u
+hu2 : u ≤ 2 * T
+hu0 : 0 < u
+hs1 : -(1 / 100000 * u) ≤ s
+hs2 : s ≤ 1 / 100000 * u
+hZ0 : 0 < Z
+hT0 : 0 < T
+hα0 : 0 ≤ α
+hβ0 : 0 ≤ β
+hγ0 : 0 ≤ γ
+hZT : 1000 ≤ Z * T
+hZZT : 10 * Z ≤ Z * T
+hZ2T : 100 * (Z * T) ≤ Z ^ 2 * T
+hβu1 : Z * T ≤ β * u
+hβu2 : β * u ≤ 2 * Z * (2 * T)
+hγu1 : Z * T ≤ γ * u
+hγu2 : γ * u ≤ 2 * Z * (2 * T)
+hαu1 : Z ^ 2 * T ≤ α * u
+hαu2 : α * u ≤ 2 * Z ^ 2 * (2 * T)
+hβsq : β ^ 2 ≤ (2 * Z) ^ 2
+hβsq' : Z ^ 2 ≤ β ^ 2
+hγsq : γ ^ 2 ≤ (2 * Z) ^ 2
+hγsq' : Z ^ 2 ≤ γ ^ 2
+hβγ1 : Z * Z ≤ β * γ
+hβγ2 : β * γ ≤ 2 * Z * (2 * Z)
+hβ2u1 : Z ^ 2 * T ≤ β ^ 2 * u
+hβ2u2 : β ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hγ2u1 : Z ^ 2 * T ≤ γ ^ 2 * u
+hγ2u2 : γ ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hβγu1 : Z * Z * T ≤ β * γ * u
+hβγu2 : β * γ * u ≤ 2 * Z * (2 * Z) * (2 * T)
+hγs1 : γ * -(1 / 100000 * u) ≤ γ * s
+hγs2 : γ * s ≤ γ * (1 / 100000 * u)
+hαs1 : α * -(1 / 100000 * u) ≤ α * s
+hαs2 : α * s ≤ α * (1 / 100000 * u)
+hβγs1 : β * γ * -(1 / 100000 * u) ≤ β * γ * s
+hβγs2 : β * γ * s ≤ β * γ * (1 / 100000 * u)
+hγ2s1 : γ ^ 2 * -(1 / 100000 * u) ≤ γ ^ 2 * s
+hγ2s2 : γ ^ 2 * s ≤ γ ^ 2 * (1 / 100000 * u)
+a✝ : 4000 * Z * T < -1 - β * -u + (1 / 31 - γ) * s
+⊢ False
+failed
+Rooms/Target_B6_1061_A_full_probe.lean:530:62: error: linarith failed to find a contradiction
+case refine_11
+Z T α β γ s : ℝ
+hZ : 100 ≤ Z
+hT : 10 ≤ T
+hα1 : Z ^ 2 ≤ α
+hα2 : α ≤ 2 * Z ^ 2
+hβ1 : Z ≤ β
+hβ2 : β ≤ 2 * Z
+hγ1 : Z ≤ γ
+hγ2 : γ ≤ 2 * Z
+u : ℝ
+hr1 : -2 * T ≤ -u
+hr2 : -u ≤ -T
+hs : |s| ≤ 1 / 100000 * u
+hu1 : T ≤ u
+hu2 : u ≤ 2 * T
+hu0 : 0 < u
+hs1 : -(1 / 100000 * u) ≤ s
+hs2 : s ≤ 1 / 100000 * u
+hZ0 : 0 < Z
+hT0 : 0 < T
+hα0 : 0 ≤ α
+hβ0 : 0 ≤ β
+hγ0 : 0 ≤ γ
+hZT : 1000 ≤ Z * T
+hZZT : 10 * Z ≤ Z * T
+hZ2T : 100 * (Z * T) ≤ Z ^ 2 * T
+hβu1 : Z * T ≤ β * u
+hβu2 : β * u ≤ 2 * Z * (2 * T)
+hγu1 : Z * T ≤ γ * u
+hγu2 : γ * u ≤ 2 * Z * (2 * T)
+hαu1 : Z ^ 2 * T ≤ α * u
+hαu2 : α * u ≤ 2 * Z ^ 2 * (2 * T)
+hβsq : β ^ 2 ≤ (2 * Z) ^ 2
+hβsq' : Z ^ 2 ≤ β ^ 2
+hγsq : γ ^ 2 ≤ (2 * Z) ^ 2
+hγsq' : Z ^ 2 ≤ γ ^ 2
+hβγ1 : Z * Z ≤ β * γ
+hβγ2 : β * γ ≤ 2 * Z * (2 * Z)
+hβ2u1 : Z ^ 2 * T ≤ β ^ 2 * u
+hβ2u2 : β ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hγ2u1 : Z ^ 2 * T ≤ γ ^ 2 * u
+hγ2u2 : γ ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T)
+hβγu1 : Z * Z * T ≤ β * γ * u
+hβγu2 : β * γ * u ≤ 2 * Z * (2 * Z) * (2 * T)
+hγs1 : γ * -(1 / 100000 * u) ≤ γ * s
+hγs2 : γ * s ≤ γ * (1 / 100000 * u)
+hαs1 : α * -(1 / 100000 * u) ≤ α * s
+hαs2 : α * s ≤ α * (1 / 100000 * u)
+hβγs1 : β * γ * -(1 / 100000 * u) ≤ β * γ * s
+hβγs2 : β * γ * s ≤ β * γ * (1 / 100000 * u)
+hγ2s1 : γ ^ 2 * -(1 / 100000 * u) ≤ γ ^ 2 * s
+hγ2s2 : γ ^ 2 * s ≤ γ ^ 2 * (1 / 100000 * u)
+a✝ :
+  (15 * (-1 + (1 / 15 - β) * -u - γ * s + (-1 - 462 * β + (-462 * β ^ 2 - β) * -u + (α - 462 * β * γ - γ) * s)) +
+            31 *
+              (-1 - β * -u + (1 / 31 - γ) * s + (-1 - 462 * γ + (-α - 462 * β * γ - β) * -u + (-462 * γ ^ 2 - γ) * s)) -
+          508 * (-1 - β * -u - γ * s) -
+        462) /
+      508 <
+    1 / 2 * Z ^ 2 * T
+⊢ False
+failed
+Rooms/Target_B6_1061_A_full_probe.lean:533:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:533:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:534:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:534:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:654:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:666:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:679:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:705:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:726:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:731:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:737:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:743:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:751:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:768:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:778:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:795:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:836:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:843:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:850:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:865:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:894:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:921:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1029:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1035:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1143:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1173:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1187:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1199:8: warning: declaration uses `sorry`

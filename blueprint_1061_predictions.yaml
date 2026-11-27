@@ -1,0 +1,354 @@
+root: li_1061
+root_reached: 0.0
+reach_by_type:
+  case_split: 0.46
+  extremal_averaging: 0.26
+  algebraic_identity: 0.68
+  literature_import: 0.01
+  two_structure_coupling: 0.07
+  quantitative_improvement: 0.08
+  assembly: 0.34
+nodes:
+- id: N01
+  name: bienvenu_prop21_uniform
+  predicted:
+    attempts: 12
+    tokens: 600000
+    minutes: 25
+    reached: 0.0
+- id: N02
+  name: bienvenu_lemma12_singular_series
+  predicted:
+    attempts: 12
+    tokens: 300000
+    minutes: 20
+    reached: 0.03
+- id: N03
+  name: sigma_values_triple
+  predicted:
+    attempts: 4
+    tokens: 40000
+    minutes: 8
+    reached: 0.75
+- id: N04
+  name: sigma_mul_two_primes
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.8
+- id: N05
+  name: shifted_product_identity
+  predicted:
+    attempts: 1
+    tokens: 8000
+    minutes: 2
+    reached: 0.97
+- id: N06
+  name: friendly_triple_activation
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 12
+    reached: 0.6
+- id: N07
+  name: core_from_sextuple
+  predicted:
+    attempts: 6
+    tokens: 90000
+    minutes: 15
+    reached: 0.45
+- id: N08
+  name: core_fiber_le_eight
+  predicted:
+    attempts: 8
+    tokens: 120000
+    minutes: 20
+    reached: 0.3
+- id: N09
+  name: multiplier_solution
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 7
+    reached: 0.75
+- id: N10
+  name: multiplier_disjoint
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+    reached: 0.85
+- id: N11
+  name: coprime_density
+  predicted:
+    attempts: 10
+    tokens: 220000
+    minutes: 35
+    reached: 0.25
+- id: N12
+  name: S_ge_card
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.75
+- id: N13
+  name: ruling_plane_identity
+  predicted:
+    attempts: 2
+    tokens: 15000
+    minutes: 3
+    reached: 0.95
+- id: N14
+  name: determinant_table
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 4
+    reached: 0.9
+- id: N15
+  name: finite_complexity_real
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 10
+    reached: 0.7
+- id: N16
+  name: archimedean_bounds
+  predicted:
+    attempts: 8
+    tokens: 150000
+    minutes: 25
+    reached: 0.45
+- id: N17
+  name: zero_form_criteria
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 12
+    reached: 0.6
+- id: N18
+  name: integral_lift
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 8
+    reached: 0.8
+- id: N19
+  name: onPlane_equations
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.85
+- id: N20
+  name: good_coprime
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 9
+    reached: 0.7
+- id: N21
+  name: local_witness
+  predicted:
+    attempts: 8
+    tokens: 140000
+    minutes: 25
+    reached: 0.35
+- id: N22
+  name: projected_index
+  predicted:
+    attempts: 12
+    tokens: 300000
+    minutes: 45
+    reached: 0.07
+- id: N23
+  name: lattice_coords
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.03
+- id: N24
+  name: region_bounds_int
+  predicted:
+    attempts: 6
+    tokens: 90000
+    minutes: 15
+    reached: 0.4
+- id: N25
+  name: sqfree_progression_count
+  predicted:
+    attempts: 12
+    tokens: 280000
+    minutes: 45
+    reached: 0.1
+- id: N26
+  name: H_sum_bound
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.2
+- id: N27
+  name: good_denominators
+  predicted:
+    attempts: 7
+    tokens: 130000
+    minutes: 25
+    reached: 0.4
+- id: N28
+  name: residue_blocks
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.25
+- id: N29
+  name: local_density
+  predicted:
+    attempts: 12
+    tokens: 320000
+    minutes: 50
+    reached: 0.06
+- id: N30
+  name: large_prime_tail
+  predicted:
+    attempts: 12
+    tokens: 320000
+    minutes: 50
+    reached: 0.06
+- id: N31
+  name: parameter_sieve
+  predicted:
+    attempts: 12
+    tokens: 300000
+    minutes: 45
+    reached: 0.12
+- id: N32
+  name: planes_meet_once
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.25
+- id: N33
+  name: union_card_bound
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 18
+    reached: 0.5
+- id: N34
+  name: lattice_reduction
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 18
+    reached: 0.45
+- id: N35
+  name: nonzero_forms_count
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.3
+- id: N36
+  name: local_W
+  predicted:
+    attempts: 6
+    tokens: 90000
+    minutes: 15
+    reached: 0.4
+- id: N37
+  name: local_away
+  predicted:
+    attempts: 12
+    tokens: 280000
+    minutes: 45
+    reached: 0.12
+- id: N38
+  name: local_denominator
+  predicted:
+    attempts: 12
+    tokens: 320000
+    minutes: 50
+    reached: 0.04
+- id: N39
+  name: fc_lattice
+  predicted:
+    attempts: 10
+    tokens: 220000
+    minutes: 35
+    reached: 0.2
+- id: N40
+  name: beta_local
+  predicted:
+    attempts: 8
+    tokens: 150000
+    minutes: 25
+    reached: 0.3
+- id: N41
+  name: ap_product
+  predicted:
+    attempts: 12
+    tokens: 260000
+    minutes: 40
+    reached: 0.15
+- id: N42
+  name: singular_series_lower
+  predicted:
+    attempts: 10
+    tokens: 220000
+    minutes: 35
+    reached: 0.2
+- id: N43
+  name: collision_line
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 12
+    reached: 0.55
+- id: N44
+  name: prime_weight_to_count
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 18
+    reached: 0.45
+- id: N45
+  name: plane_prime_count
+  predicted:
+    attempts: 12
+    tokens: 450000
+    minutes: 60
+    reached: 0.03
+- id: N46
+  name: threshold_lemma
+  predicted:
+    attempts: 12
+    tokens: 260000
+    minutes: 40
+    reached: 0.2
+- id: N47
+  name: two_height_core
+  predicted:
+    attempts: 12
+    tokens: 450000
+    minutes: 60
+    reached: 0.05
+- id: N48
+  name: S_lower_bound
+  predicted:
+    attempts: 12
+    tokens: 380000
+    minutes: 55
+    reached: 0.08
+- id: ROOT
+  name: li_1061
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.6

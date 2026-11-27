@@ -1,0 +1,897 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:332:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:552:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:552:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:553:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:553:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:673:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:693:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:712:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:806:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:816:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:910:10: warning: This simp argument is unused:
+  ZMod.natCast_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_zmod_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:910:29: warning: This simp argument is unused:
+  ZMod.natCast_zmod_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:943:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:967:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:983:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1007:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1058:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1206:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1269:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Rooms/Target_B6_1061_A_full_probe.lean:1333:4: error: unsolved goals
+case refine_1
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+q : ℕ
+A B C : ℤ
+Z : ℝ
+hq1 : 1 ≤ q
+hqW : q % 4619990760 = 1
+hZ : 100 ≤ Z
+hG : Good Z q A B C
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+hpar : ∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j
+hsurj : ∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃ n, x = fun i => c i + ∑ j, L i j * n j
+p : ℕ
+hp : Nat.Prime p
+hpWq : ¬p ∣ 4619990760 * q
+i : Fin 6
+hci : ↑p ∣ c i
+hLi : ∀ (j : Fin 2), ↑p ∣ L i j
+hWA : 4619990760 ∣ A
+hWB : 4619990760 ∣ B
+hWC : 4619990760 ∣ C
+hgood :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      ¬p ∣ 4619990760 * q →
+        ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+            ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+hbad :
+  ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨ ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+δ : ℕ
+hδ : δ ∣ 508
+hdet' :
+  |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * ↑q ^ 2 * ↑δ
+this : Fact (Nat.Prime p)
+hpW : ¬p ∣ 4619990760
+hpq : ¬p ∣ q
+hpZ : Prime ↑p
+hnum : ∀ (k : ℕ), k ∣ 4619990760 → ↑k ≠ 0
+hq0 : ↑q ≠ 0
+h15 : 15 ≠ 0
+h31 : 31 ≠ 0
+hDp : ¬↑p ∣ 15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))
+hd : (↑(L 0 0) - ↑(L 4 0)) * (↑(L 2 1) - ↑(L 4 1)) - (↑(L 0 1) - ↑(L 4 1)) * (↑(L 2 0) - ↑(L 4 0)) ≠ 0
+X : (Fin 2 → ZMod p) → Fin 6 → ZMod p := fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+hXdef : X = fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+hE :
+  ∀ (m : Fin 2 → ZMod p),
+    ↑q * (X m 1 - X m 4) = 31 * ↑A * (X m 2 - X m 4) + 462 * ↑B * X m 4 ∧
+      ↑q * (X m 3 - X m 4) = -15 * ↑A * (X m 0 - X m 4) + 462 * ↑C * X m 4 ∧
+        ↑q * (X m 4 + 1) = -(15 * ↑B * (X m 0 - X m 4) + 31 * ↑C * (X m 2 - X m 4)) ∧
+          508 * X m 5 = 15 * (X m 0 + X m 1) + 31 * (X m 2 + X m 3) - 508 * X m 4 - 462
+hzero : ∀ (m : Fin 2 → ZMod p), X m i = 0
+t0 t1 : ZMod p
+⊢ ↑(c 0) -
+                                          ↑(c 0) * ↑(L 0 0) * ↑(L 2 1) *
+                                            (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                                    ↑(L 4 1) * ↑(L 2 0) -
+                                                  ↑(L 0 1) * ↑(L 2 0) +
+                                                ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                                        ↑(c 0) * ↑(L 0 0) * ↑(L 4 1) *
+                                          (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                                  ↑(L 4 1) * ↑(L 2 0) -
+                                                ↑(L 0 1) * ↑(L 2 0) +
+                                              ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                                      ↑(c 0) * ↑(L 2 1) * ↑(L 4 0) *
+                                        (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                                ↑(L 4 1) * ↑(L 2 0) -
+                                              ↑(L 0 1) * ↑(L 2 0) +
+                                            ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                                    ↑(c 0) * ↑(L 4 1) * ↑(L 2 0) *
+                                      (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                              ↑(L 4 1) * ↑(L 2 0) -
+                                            ↑(L 0 1) * ↑(L 2 0) +
+                                          ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                                  ↑(c 0) * ↑(L 0 1) * ↑(L 2 0) *
+                                    (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                            ↑(L 4 1) * ↑(L 2 0) -
+                                          ↑(L 0 1) * ↑(L 2 0) +
+                                        ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                                ↑(c 0) * ↑(L 0 1) * ↑(L 4 0) *
+                                  (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                          ↑(L 4 1) * ↑(L 2 0) -
+                                        ↑(L 0 1) * ↑(L 2 0) +
+                                      ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                              ↑(L 0 0) * ↑(L 2 1) * t0 *
+                                (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                                      ↑(L 0 1) * ↑(L 2 0) +
+                                    ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                            ↑(L 0 0) * ↑(L 2 1) * ↑(c 4) *
+                              (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                                    ↑(L 0 1) * ↑(L 2 0) +
+                                  ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                          ↑(L 0 0) * ↑(L 4 1) * t0 *
+                            (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                                  ↑(L 0 1) * ↑(L 2 0) +
+                                ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                        ↑(L 0 0) * ↑(L 4 1) * ↑(c 4) *
+                          (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                                ↑(L 0 1) * ↑(L 2 0) +
+                              ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                      ↑(L 2 1) * t0 * ↑(L 4 0) *
+                        (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                              ↑(L 0 1) * ↑(L 2 0) +
+                            ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                    ↑(L 2 1) * ↑(c 4) * ↑(L 4 0) *
+                      (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                            ↑(L 0 1) * ↑(L 2 0) +
+                          ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                  ↑(L 4 1) * t0 * ↑(L 2 0) *
+                    (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                          ↑(L 0 1) * ↑(L 2 0) +
+                        ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                ↑(L 4 1) * ↑(c 4) * ↑(L 2 0) *
+                  (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                        ↑(L 0 1) * ↑(L 2 0) +
+                      ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+              t0 * ↑(L 0 1) * ↑(L 2 0) *
+                (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                      ↑(L 0 1) * ↑(L 2 0) +
+                    ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+            t0 * ↑(L 0 1) * ↑(L 4 0) *
+              (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) -
+                    ↑(L 0 1) * ↑(L 2 0) +
+                  ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+          ↑(c 4) -
+        ↑(c 4) * ↑(L 0 1) * ↑(L 2 0) *
+          (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) - ↑(L 0 1) * ↑(L 2 0) +
+              ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+      ↑(c 4) * ↑(L 0 1) * ↑(L 4 0) *
+        (↑(L 0 0) * ↑(L 2 1) - ↑(L 0 0) * ↑(L 4 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 4 1) * ↑(L 2 0) - ↑(L 0 1) * ↑(L 2 0) +
+            ↑(L 0 1) * ↑(L 4 0))⁻¹ =
+    t0
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Rooms/Target_B6_1061_A_full_probe.lean:1336:4: error: unsolved goals
+case refine_2
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+q : ℕ
+A B C : ℤ
+Z : ℝ
+hq1 : 1 ≤ q
+hqW : q % 4619990760 = 1
+hZ : 100 ≤ Z
+hG : Good Z q A B C
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+hpar : ∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j
+hsurj : ∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃ n, x = fun i => c i + ∑ j, L i j * n j
+p : ℕ
+hp : Nat.Prime p
+hpWq : ¬p ∣ 4619990760 * q
+i : Fin 6
+hci : ↑p ∣ c i
+hLi : ∀ (j : Fin 2), ↑p ∣ L i j
+hWA : 4619990760 ∣ A
+hWB : 4619990760 ∣ B
+hWC : 4619990760 ∣ C
+hgood :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      ¬p ∣ 4619990760 * q →
+        ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+            ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+hbad :
+  ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨ ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+δ : ℕ
+hδ : δ ∣ 508
+hdet' :
+  |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * ↑q ^ 2 * ↑δ
+this : Fact (Nat.Prime p)
+hpW : ¬p ∣ 4619990760
+hpq : ¬p ∣ q
+hpZ : Prime ↑p
+hnum : ∀ (k : ℕ), k ∣ 4619990760 → ↑k ≠ 0
+hq0 : ↑q ≠ 0
+h15 : 15 ≠ 0
+h31 : 31 ≠ 0
+hDp : ¬↑p ∣ 15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))
+hd : (↑(L 0 0) - ↑(L 4 0)) * (↑(L 2 1) - ↑(L 4 1)) - (↑(L 0 1) - ↑(L 4 1)) * (↑(L 2 0) - ↑(L 4 0)) ≠ 0
+X : (Fin 2 → ZMod p) → Fin 6 → ZMod p := fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+hXdef : X = fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+hE :
+  ∀ (m : Fin 2 → ZMod p),
+    ↑q * (X m 1 - X m 4) = 31 * ↑A * (X m 2 - X m 4) + 462 * ↑B * X m 4 ∧
+      ↑q * (X m 3 - X m 4) = -15 * ↑A * (X m 0 - X m 4) + 462 * ↑C * X m 4 ∧
+        ↑q * (X m 4 + 1) = -(15 * ↑B * (X m 0 - X m 4) + 31 * ↑C * (X m 2 - X m 4)) ∧
+          508 * X m 5 = 15 * (X m 0 + X m 1) + 31 * (X m 2 + X m 3) - 508 * X m 4 - 462
+hzero : ∀ (m : Fin 2 → ZMod p), X m i = 0
+t0 t1 : ZMod p
+⊢ ↑(c 2) -
+                                          ↑(c 2) * ↑(L 2 0) * ↑(L 4 1) *
+                                            (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                                    ↑(L 2 1) * ↑(L 0 0) -
+                                                  ↑(L 4 1) * ↑(L 0 0) +
+                                                ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                                        ↑(c 2) * ↑(L 2 0) * ↑(L 0 1) *
+                                          (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                                  ↑(L 2 1) * ↑(L 0 0) -
+                                                ↑(L 4 1) * ↑(L 0 0) +
+                                              ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                                      ↑(c 2) * ↑(L 2 1) * ↑(L 4 0) *
+                                        (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                                ↑(L 2 1) * ↑(L 0 0) -
+                                              ↑(L 4 1) * ↑(L 0 0) +
+                                            ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                                    ↑(c 2) * ↑(L 2 1) * ↑(L 0 0) *
+                                      (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                              ↑(L 2 1) * ↑(L 0 0) -
+                                            ↑(L 4 1) * ↑(L 0 0) +
+                                          ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                                  ↑(c 2) * ↑(L 4 1) * ↑(L 0 0) *
+                                    (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                            ↑(L 2 1) * ↑(L 0 0) -
+                                          ↑(L 4 1) * ↑(L 0 0) +
+                                        ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                                ↑(c 2) * ↑(L 0 1) * ↑(L 4 0) *
+                                  (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) +
+                                          ↑(L 2 1) * ↑(L 0 0) -
+                                        ↑(L 4 1) * ↑(L 0 0) +
+                                      ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                              ↑(L 2 0) * ↑(L 4 1) * ↑(c 4) *
+                                (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                                      ↑(L 4 1) * ↑(L 0 0) +
+                                    ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                            ↑(L 2 0) * ↑(L 4 1) * t1 *
+                              (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                                    ↑(L 4 1) * ↑(L 0 0) +
+                                  ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                          ↑(L 2 0) * ↑(c 4) * ↑(L 0 1) *
+                            (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                                  ↑(L 4 1) * ↑(L 0 0) +
+                                ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                        ↑(L 2 0) * ↑(L 0 1) * t1 *
+                          (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                                ↑(L 4 1) * ↑(L 0 0) +
+                              ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                      ↑(L 2 1) * ↑(c 4) * ↑(L 4 0) *
+                        (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                              ↑(L 4 1) * ↑(L 0 0) +
+                            ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                    ↑(L 2 1) * ↑(c 4) * ↑(L 0 0) *
+                      (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                            ↑(L 4 1) * ↑(L 0 0) +
+                          ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+                  ↑(L 2 1) * t1 * ↑(L 4 0) *
+                    (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                          ↑(L 4 1) * ↑(L 0 0) +
+                        ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+                ↑(L 2 1) * t1 * ↑(L 0 0) *
+                  (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                        ↑(L 4 1) * ↑(L 0 0) +
+                      ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+              ↑(L 4 1) * ↑(c 4) * ↑(L 0 0) *
+                (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                      ↑(L 4 1) * ↑(L 0 0) +
+                    ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+            ↑(L 4 1) * t1 * ↑(L 0 0) *
+              (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) -
+                    ↑(L 4 1) * ↑(L 0 0) +
+                  ↑(L 0 1) * ↑(L 4 0))⁻¹ -
+          ↑(c 4) +
+        ↑(c 4) * ↑(L 0 1) * ↑(L 4 0) *
+          (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) - ↑(L 4 1) * ↑(L 0 0) +
+              ↑(L 0 1) * ↑(L 4 0))⁻¹ +
+      ↑(L 0 1) * t1 * ↑(L 4 0) *
+        (↑(L 2 0) * ↑(L 4 1) - ↑(L 2 0) * ↑(L 0 1) - ↑(L 2 1) * ↑(L 4 0) + ↑(L 2 1) * ↑(L 0 0) - ↑(L 4 1) * ↑(L 0 0) +
+            ↑(L 0 1) * ↑(L 4 0))⁻¹ =
+    t1
+Rooms/Target_B6_1061_A_full_probe.lean:1365:18: error: ring failed, ring expressions not equal
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+q : ℕ
+A B C : ℤ
+Z : ℝ
+hq1 : 1 ≤ q
+hqW : q % 4619990760 = 1
+hZ : 100 ≤ Z
+hG : Good Z q A B C
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+hpar : ∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j
+hsurj : ∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃ n, x = fun i => c i + ∑ j, L i j * n j
+p : ℕ
+hp : Nat.Prime p
+hpWq : ¬p ∣ 4619990760 * q
+hWA : 4619990760 ∣ A
+hWB : 4619990760 ∣ B
+hWC : 4619990760 ∣ C
+hgood :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      ¬p ∣ 4619990760 * q →
+        ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+            ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+hbad :
+  ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨ ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+δ : ℕ
+hδ : δ ∣ 508
+hdet' :
+  |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * ↑q ^ 2 * ↑δ
+this : Fact (Nat.Prime p)
+hpW : ¬p ∣ 4619990760
+hpq : ¬p ∣ q
+hpZ : Prime ↑p
+hnum : ∀ (k : ℕ), k ∣ 4619990760 → ↑k ≠ 0
+hq0 : ↑q ≠ 0
+h15 : 15 ≠ 0
+h31 : 31 ≠ 0
+hDp : ¬↑p ∣ 15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))
+hd : (↑(L 0 0) - ↑(L 4 0)) * (↑(L 2 1) - ↑(L 4 1)) - (↑(L 0 1) - ↑(L 4 1)) * (↑(L 2 0) - ↑(L 4 0)) ≠ 0
+X : (Fin 2 → ZMod p) → Fin 6 → ZMod p := ⋯
+hXdef : X = fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+m0 : Fin 2 → ZMod p
+hu0 : X m0 0 - X m0 4 = 0
+hv0 : X m0 2 - X m0 4 = 0
+m1 : Fin 2 → ZMod p
+hu1 : X m1 0 - X m1 4 = 1
+hv1 : X m1 2 - X m1 4 = 0
+m2 : Fin 2 → ZMod p
+hu2 : X m2 0 - X m2 4 = 0
+hv2 : X m2 2 - X m2 4 = 1
+e1 : ↑q * (X m0 1 - X m0 4) = 31 * ↑A * (X m0 2 - X m0 4) + 462 * ↑B * X m0 4
+e2 : ↑q * (X m0 3 - X m0 4) = -15 * ↑A * (X m0 0 - X m0 4) + 462 * ↑C * X m0 4
+e3 : ↑q * (X m0 4 + 1) = -(15 * ↑B * (X m0 0 - X m0 4) + 31 * ↑C * (X m0 2 - X m0 4))
+e4 : 508 * X m0 5 = 15 * (X m0 0 + X m0 1) + 31 * (X m0 2 + X m0 3) - 508 * X m0 4 - 462
+f1 : ↑q * (X m1 1 - X m1 4) = 31 * ↑A * (X m1 2 - X m1 4) + 462 * ↑B * X m1 4
+f2 : ↑q * (X m1 3 - X m1 4) = -15 * ↑A * (X m1 0 - X m1 4) + 462 * ↑C * X m1 4
+f3 : ↑q * (X m1 4 + 1) = -(15 * ↑B * (X m1 0 - X m1 4) + 31 * ↑C * (X m1 2 - X m1 4))
+f4 : 508 * X m1 5 = 15 * (X m1 0 + X m1 1) + 31 * (X m1 2 + X m1 3) - 508 * X m1 4 - 462
+g1 : ↑q * (X m2 1 - X m2 4) = 31 * ↑A * (X m2 2 - X m2 4) + 462 * ↑B * X m2 4
+g2 : ↑q * (X m2 3 - X m2 4) = -15 * ↑A * (X m2 0 - X m2 4) + 462 * ↑C * X m2 4
+g3 : ↑q * (X m2 4 + 1) = -(15 * ↑B * (X m2 0 - X m2 4) + 31 * ↑C * (X m2 2 - X m2 4))
+g4 : 508 * X m2 5 = 15 * (X m2 0 + X m2 1) + 31 * (X m2 2 + X m2 3) - 508 * X m2 4 - 462
+hx4 : X m0 4 = -1
+hx0 : X m0 0 = -1
+hx2 : X m0 2 = -1
+hy0 : X m1 0 = X m1 4 + 1
+hy2 : X m1 2 = X m1 4
+hw0 : X m2 0 = X m2 4
+hw2 : X m2 2 = X m2 4 + 1
+hci : ↑p ∣ c ((fun i => i) ⟨0, ⋯⟩)
+hLi : ∀ (j : Fin 2), ↑p ∣ L ((fun i => i) ⟨0, ⋯⟩) j
+z0 : X m0 0 = 0
+z1 : X m1 ((fun i => i) ⟨0, ⋯⟩) = 0
+z2 : X m2 ((fun i => i) ⟨0, ⋯⟩) = 0
+⊢ 1 + ↑q = 0
+Rooms/Target_B6_1061_A_full_probe.lean:1370:17: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  X m2 0 - X m2 4
+in the target expression
+  ↑q * (0 - X m2 4) = 31 * ↑A * 1 + 462 * ↑B * X m2 4
+
+case «1»
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+q : ℕ
+A B C : ℤ
+Z : ℝ
+hq1 : 1 ≤ q
+hqW : q % 4619990760 = 1
+hZ : 100 ≤ Z
+hG : Good Z q A B C
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+hpar : ∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j
+hsurj : ∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃ n, x = fun i => c i + ∑ j, L i j * n j
+p : ℕ
+hp : Nat.Prime p
+hpWq : ¬p ∣ 4619990760 * q
+hWA : 4619990760 ∣ A
+hWB : 4619990760 ∣ B
+hWC : 4619990760 ∣ C
+hgood :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      ¬p ∣ 4619990760 * q →
+        ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+            ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+hbad :
+  ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨ ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+δ : ℕ
+hδ : δ ∣ 508
+hdet' :
+  |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * ↑q ^ 2 * ↑δ
+this : Fact (Nat.Prime p)
+hpW : ¬p ∣ 4619990760
+hpq : ¬p ∣ q
+hpZ : Prime ↑p
+hnum : ∀ (k : ℕ), k ∣ 4619990760 → ↑k ≠ 0
+hq0 : ↑q ≠ 0
+h15 : 15 ≠ 0
+h31 : 31 ≠ 0
+hDp : ¬↑p ∣ 15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))
+hd : (↑(L 0 0) - ↑(L 4 0)) * (↑(L 2 1) - ↑(L 4 1)) - (↑(L 0 1) - ↑(L 4 1)) * (↑(L 2 0) - ↑(L 4 0)) ≠ 0
+X : (Fin 2 → ZMod p) → Fin 6 → ZMod p := fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+hXdef : X = fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+m0 : Fin 2 → ZMod p
+hu0 : X m0 0 - X m0 4 = 0
+hv0 : X m0 2 - X m0 4 = 0
+m1 : Fin 2 → ZMod p
+hu1 : X m1 0 - X m1 4 = 1
+hv1 : X m1 2 - X m1 4 = 0
+m2 : Fin 2 → ZMod p
+hu2 : X m2 0 - X m2 4 = 0
+hv2 : X m2 2 - X m2 4 = 1
+e1 : ↑q * (0 - -1) = 31 * ↑A * 0 + 462 * ↑B * -1
+e2 : ↑q * (X m0 3 - X m0 4) = -15 * ↑A * (X m0 0 - X m0 4) + 462 * ↑C * X m0 4
+e3 : ↑q * (X m0 4 + 1) = -(15 * ↑B * (X m0 0 - X m0 4) + 31 * ↑C * (X m0 2 - X m0 4))
+e4 : 508 * X m0 5 = 15 * (X m0 0 + X m0 1) + 31 * (X m0 2 + X m0 3) - 508 * X m0 4 - 462
+f1 : ↑q * (X m1 1 - X m1 4) = 31 * ↑A * (X m1 2 - X m1 4) + 462 * ↑B * X m1 4
+f2 : ↑q * (X m1 3 - X m1 4) = -15 * ↑A * (X m1 0 - X m1 4) + 462 * ↑C * X m1 4
+f3 : ↑q * (X m1 4 + 1) = -(15 * ↑B * (X m1 0 - X m1 4) + 31 * ↑C * (X m1 2 - X m1 4))
+f4 : 508 * X m1 5 = 15 * (X m1 0 + X m1 1) + 31 * (X m1 2 + X m1 3) - 508 * X m1 4 - 462
+g1 : ↑q * (0 - X m2 4) = 31 * ↑A * 1 + 462 * ↑B * X m2 4
+g2 : ↑q * (X m2 3 - X m2 4) = -15 * ↑A * (X m2 0 - X m2 4) + 462 * ↑C * X m2 4
+g3 : ↑q * (X m2 4 + 1) = -(15 * ↑B * (X m2 0 - X m2 4) + 31 * ↑C * (X m2 2 - X m2 4))
+g4 : 508 * X m2 5 = 15 * (X m2 0 + X m2 1) + 31 * (X m2 2 + X m2 3) - 508 * X m2 4 - 462
+hx4 : X m0 4 = -1
+hx0 : X m0 0 = -1
+hx2 : X m0 2 = -1
+hy0 : X m1 0 = X m1 4 + 1
+hy2 : X m1 2 = X m1 4
+hw0 : X m2 0 = X m2 4
+hw2 : X m2 2 = X m2 4 + 1
+hci : ↑p ∣ c ((fun i => i) ⟨1, ⋯⟩)
+hLi : ∀ (j : Fin 2), ↑p ∣ L ((fun i => i) ⟨1, ⋯⟩) j
+z0 : X m0 1 = 0
+z1 : X m1 ((fun i => i) ⟨1, ⋯⟩) = 0
+z2 : X m2 1 = 0
+hB : 462 * ↑B + ↑q = 0
+⊢ False
+Rooms/Target_B6_1061_A_full_probe.lean:1377:18: error: ring failed, ring expressions not equal
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+q : ℕ
+A B C : ℤ
+Z : ℝ
+hq1 : 1 ≤ q
+hqW : q % 4619990760 = 1
+hZ : 100 ≤ Z
+hG : Good Z q A B C
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+hpar : ∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j
+hsurj : ∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃ n, x = fun i => c i + ∑ j, L i j * n j
+p : ℕ
+hp : Nat.Prime p
+hpWq : ¬p ∣ 4619990760 * q
+hWA : 4619990760 ∣ A
+hWB : 4619990760 ∣ B
+hWC : 4619990760 ∣ C
+hgood :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      ¬p ∣ 4619990760 * q →
+        ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+            ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+hbad :
+  ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨ ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+δ : ℕ
+hδ : δ ∣ 508
+hdet' :
+  |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * ↑q ^ 2 * ↑δ
+this : Fact (Nat.Prime p)
+hpW : ¬p ∣ 4619990760
+hpq : ¬p ∣ q
+hpZ : Prime ↑p
+hnum : ∀ (k : ℕ), k ∣ 4619990760 → ↑k ≠ 0
+hq0 : ↑q ≠ 0
+h15 : 15 ≠ 0
+h31 : 31 ≠ 0
+hDp : ¬↑p ∣ 15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))
+hd : (↑(L 0 0) - ↑(L 4 0)) * (↑(L 2 1) - ↑(L 4 1)) - (↑(L 0 1) - ↑(L 4 1)) * (↑(L 2 0) - ↑(L 4 0)) ≠ 0
+X : (Fin 2 → ZMod p) → Fin 6 → ZMod p := ⋯
+hXdef : X = fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+m0 : Fin 2 → ZMod p
+hu0 : X m0 0 - X m0 4 = 0
+hv0 : X m0 2 - X m0 4 = 0
+m1 : Fin 2 → ZMod p
+hu1 : X m1 0 - X m1 4 = 1
+hv1 : X m1 2 - X m1 4 = 0
+m2 : Fin 2 → ZMod p
+hu2 : X m2 0 - X m2 4 = 0
+hv2 : X m2 2 - X m2 4 = 1
+e1 : ↑q * (X m0 1 - X m0 4) = 31 * ↑A * (X m0 2 - X m0 4) + 462 * ↑B * X m0 4
+e2 : ↑q * (X m0 3 - X m0 4) = -15 * ↑A * (X m0 0 - X m0 4) + 462 * ↑C * X m0 4
+e3 : ↑q * (X m0 4 + 1) = -(15 * ↑B * (X m0 0 - X m0 4) + 31 * ↑C * (X m0 2 - X m0 4))
+e4 : 508 * X m0 5 = 15 * (X m0 0 + X m0 1) + 31 * (X m0 2 + X m0 3) - 508 * X m0 4 - 462
+f1 : ↑q * (X m1 1 - X m1 4) = 31 * ↑A * (X m1 2 - X m1 4) + 462 * ↑B * X m1 4
+f2 : ↑q * (X m1 3 - X m1 4) = -15 * ↑A * (X m1 0 - X m1 4) + 462 * ↑C * X m1 4
+f3 : ↑q * (X m1 4 + 1) = -(15 * ↑B * (X m1 0 - X m1 4) + 31 * ↑C * (X m1 2 - X m1 4))
+f4 : 508 * X m1 5 = 15 * (X m1 0 + X m1 1) + 31 * (X m1 2 + X m1 3) - 508 * X m1 4 - 462
+g1 : ↑q * (X m2 1 - X m2 4) = 31 * ↑A * (X m2 2 - X m2 4) + 462 * ↑B * X m2 4
+g2 : ↑q * (X m2 3 - X m2 4) = -15 * ↑A * (X m2 0 - X m2 4) + 462 * ↑C * X m2 4
+g3 : ↑q * (X m2 4 + 1) = -(15 * ↑B * (X m2 0 - X m2 4) + 31 * ↑C * (X m2 2 - X m2 4))
+g4 : 508 * X m2 5 = 15 * (X m2 0 + X m2 1) + 31 * (X m2 2 + X m2 3) - 508 * X m2 4 - 462
+hx4 : X m0 4 = -1
+hx0 : X m0 0 = -1
+hx2 : X m0 2 = -1
+hy0 : X m1 0 = X m1 4 + 1
+hy2 : X m1 2 = X m1 4
+hw0 : X m2 0 = X m2 4
+hw2 : X m2 2 = X m2 4 + 1
+hci : ↑p ∣ c ((fun i => i) ⟨2, ⋯⟩)
+hLi : ∀ (j : Fin 2), ↑p ∣ L ((fun i => i) ⟨2, ⋯⟩) j
+z0 : X m0 2 = 0
+z1 : X m1 ((fun i => i) ⟨2, ⋯⟩) = 0
+z2 : X m2 ((fun i => i) ⟨2, ⋯⟩) = 0
+⊢ 1 + ↑q = 0
+Rooms/Target_B6_1061_A_full_probe.lean:1393:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  X m0 0
+in the target expression
+  ↑q * (X m0 1 - X m0 4) = 31 * ↑A * (X m0 2 - X m0 4) + 462 * ↑B * X m0 4
+
+case «5»
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+q : ℕ
+A B C : ℤ
+Z : ℝ
+hq1 : 1 ≤ q
+hqW : q % 4619990760 = 1
+hZ : 100 ≤ Z
+hG : Good Z q A B C
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+hpar : ∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j
+hsurj : ∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃ n, x = fun i => c i + ∑ j, L i j * n j
+p : ℕ
+hp : Nat.Prime p
+hpWq : ¬p ∣ 4619990760 * q
+hWA : 4619990760 ∣ A
+hWB : 4619990760 ∣ B
+hWC : 4619990760 ∣ C
+hgood :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      ¬p ∣ 4619990760 * q →
+        ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+            ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+hbad :
+  ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨ ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+δ : ℕ
+hδ : δ ∣ 508
+hdet' :
+  |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * ↑q ^ 2 * ↑δ
+this : Fact (Nat.Prime p)
+hpW : ¬p ∣ 4619990760
+hpq : ¬p ∣ q
+hpZ : Prime ↑p
+hnum : ∀ (k : ℕ), k ∣ 4619990760 → ↑k ≠ 0
+hq0 : ↑q ≠ 0
+h15 : 15 ≠ 0
+h31 : 31 ≠ 0
+hDp : ¬↑p ∣ 15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))
+hd : (↑(L 0 0) - ↑(L 4 0)) * (↑(L 2 1) - ↑(L 4 1)) - (↑(L 0 1) - ↑(L 4 1)) * (↑(L 2 0) - ↑(L 4 0)) ≠ 0
+X : (Fin 2 → ZMod p) → Fin 6 → ZMod p := fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+hXdef : X = fun m i => ↑(c i) + ∑ j, ↑(L i j) * m j
+m0 : Fin 2 → ZMod p
+hu0 : X m0 0 - X m0 4 = 0
+hv0 : X m0 2 - X m0 4 = 0
+m1 : Fin 2 → ZMod p
+hu1 : X m1 0 - X m1 4 = 1
+hv1 : X m1 2 - X m1 4 = 0
+m2 : Fin 2 → ZMod p
+hu2 : X m2 0 - X m2 4 = 0
+hv2 : X m2 2 - X m2 4 = 1
+e1 : ↑q * (X m0 1 - X m0 4) = 31 * ↑A * (X m0 2 - X m0 4) + 462 * ↑B * X m0 4
+e2 : ↑q * (X m0 3 - X m0 4) = -15 * ↑A * (X m0 0 - X m0 4) + 462 * ↑C * X m0 4
+e3 : ↑q * (X m0 4 + 1) = -(15 * ↑B * (X m0 0 - X m0 4) + 31 * ↑C * (X m0 2 - X m0 4))
+e4 : 508 * X m0 5 = 15 * (X m0 0 + X m0 1) + 31 * (X m0 2 + X m0 3) - 508 * X m0 4 - 462
+f1 : ↑q * (X m1 1 - X m1 4) = 31 * ↑A * (X m1 2 - X m1 4) + 462 * ↑B * X m1 4
+f2 : ↑q * (X m1 3 - X m1 4) = -15 * ↑A * (X m1 0 - X m1 4) + 462 * ↑C * X m1 4
+f3 : ↑q * (X m1 4 + 1) = -(15 * ↑B * (X m1 0 - X m1 4) + 31 * ↑C * (X m1 2 - X m1 4))
+f4 : 508 * X m1 5 = 15 * (X m1 0 + X m1 1) + 31 * (X m1 2 + X m1 3) - 508 * X m1 4 - 462
+g1 : ↑q * (X m2 1 - X m2 4) = 31 * ↑A * (X m2 2 - X m2 4) + 462 * ↑B * X m2 4
+g2 : ↑q * (X m2 3 - X m2 4) = -15 * ↑A * (X m2 0 - X m2 4) + 462 * ↑C * X m2 4
+g3 : ↑q * (X m2 4 + 1) = -(15 * ↑B * (X m2 0 - X m2 4) + 31 * ↑C * (X m2 2 - X m2 4))
+g4 : 508 * X m2 5 = 15 * (X m2 0 + X m2 1) + 31 * (X m2 2 + X m2 3) - 508 * X m2 4 - 462
+hx4 : X m0 4 = -1
+hx0 : X m0 0 = -1
+hx2 : X m0 2 = -1
+hy0 : X m1 0 = X m1 4 + 1
+hy2 : X m1 2 = X m1 4
+hw0 : X m2 0 = X m2 4
+hw2 : X m2 2 = X m2 4 + 1
+hci : ↑p ∣ c ((fun i => i) ⟨5, ⋯⟩)
+hLi : ∀ (j : Fin 2), ↑p ∣ L ((fun i => i) ⟨5, ⋯⟩) j
+z0 : X m0 5 = 0
+z1 : X m1 5 = 0
+z2 : X m2 5 = 0
+⊢ False
+Rooms/Target_B6_1061_A_full_probe.lean:1309:19: warning: This simp argument is unused:
+  ZMod.intCast_zmod_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hXdef]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1333:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1336:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1414:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1448:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1569:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1610:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1753:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1795:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1820:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1842:8: warning: declaration uses `sorry`

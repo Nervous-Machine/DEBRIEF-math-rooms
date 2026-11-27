@@ -726,3 +726,1106 @@ hinges:
   outcome: proved
   attempts: 2
   statement_sha256: c72faa118f1d9da7
+- arm: B6_1061_A_full_probe
+  id: N01
+  name: bienvenu_prop21_uniform
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < cV
+  - 0 < ε
+  - N0 ≤ N
+  - '∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]'
+  - '∀ p : ℕ, p.Prime → 0 < β p'
+  - '((∑ i, |(c i : ℝ)|) / N + ∑ i, ∑ j, |(L i j : ℝ)|) / Real.log N ^ B0 ≤ L0'
+  - Convex ℝ K
+  - ∀ v ∈ K, ∀ j, |v j| ≤ N
+  - cV * N ^ d * Real.log N ^ (-A0) ≤ (MeasureTheory.volume K).toReal
+  - '∀ v ∈ K, ∀ i, N ^ ((9 : ℝ) / 10) ≤ (c i : ℝ) + ∑ j, (L i j : ℝ) * v j'
+  consumes: nothing (black box)
+  produces: uniform relative asymptotic for prime-weighted counts of an admissible affine system on a convex body
+    (paper Prop. 7.1)
+  library_inputs:
+  - Bienvenu, A higher-dimensional Siegel–Walfisz theorem, Acta Arith. 179 (2017), Proposition 2.1 (via Green–Tao
+    linear equations in primes, Green–Tao Möbius–nilsequences, Green–Tao–Ziegler inverse theorem)
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 600000
+    minutes: 25
+    reached: 0.0
+  outcome: open
+  attempts: 0
+  statement_sha256: b892e6dd232ff214
+- arm: B6_1061_A_full_probe
+  id: N02
+  name: bienvenu_lemma12_singular_series
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - '∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]'
+  - '∀ p : ℕ, p.Prime → 0 < β p'
+  consumes: nothing (black box)
+  produces: convergence and positivity of the singular series of an admissible system
+  library_inputs:
+  - Bienvenu, A higher-dimensional Siegel–Walfisz theorem, Acta Arith. 179 (2017), Definition 1.1 and Lemma 1.2
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 300000
+    minutes: 20
+    reached: 0.03
+  outcome: open
+  attempts: 0
+  statement_sha256: 509c6bccab0a17b6
+- arm: B6_1061_A_full_probe
+  id: N03
+  name: sigma_values_triple
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: the three divisor sums of the friendly coefficient triple (2.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 40000
+    minutes: 8
+    reached: 0.75
+  outcome: proved
+  attempts: 1
+  statement_sha256: 47290a3af570a597
+- arm: B6_1061_A_full_probe
+  id: N04
+  name: sigma_mul_two_primes
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < K
+  - p.Prime
+  - r.Prime
+  - p ≠ r
+  - ¬ p ∣ K
+  - ¬ r ∣ K
+  consumes: nothing
+  produces: multiplicativity of σ over K·p·r
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 849098bbca2e5b00
+- arm: B6_1061_A_full_probe
+  id: N05
+  name: shifted_product_identity
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 15 * p1 * p2 + 31 * p3 * p4 = 508 * p5 * p6
+  - 15 * (p1 + p2) + 31 * (p3 + p4) - 508 * (p5 + p6) = 462
+  consumes: nothing
+  produces: identity (2.4) for shifted products
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 8000
+    minutes: 2
+    reached: 0.97
+  outcome: proved
+  attempts: 0
+  statement_sha256: 7494a56d2b6cd866
+- arm: B6_1061_A_full_probe
+  id: N06
+  name: friendly_triple_activation
+  kind: join
+  join_type: assembly
+  conditionals:
+  - ∀ i, (p i).Prime ∧ 127 < p i
+  - Function.Injective p
+  - 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+  - 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+  consumes: σ values of K, M, N; σ(K·p·r) = σ(K)(p+1)(r+1); shifted product identity
+  produces: σ(a) + σ(b) = σ(a + b) for a = 54000 p1 p2, b = 111600 p3 p4 (Section 2)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 12
+    reached: 0.6
+  outcome: proved
+  attempts: 1
+  statement_sha256: e2c7b732804d7c4c
+- arm: B6_1061_A_full_probe
+  id: N07
+  name: core_from_sextuple
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - ∀ i, (p i).Prime ∧ 127 < p i
+  - Function.Injective p
+  - 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+  - 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+  consumes: the activated divisor-sum identity
+  produces: one coprime core (u, v) activated by 3600, with at most 11 prime factors in 3600uvh
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 90000
+    minutes: 15
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: d9c245feccf646f2
+- arm: B6_1061_A_full_probe
+  id: N08
+  name: core_fiber_le_eight
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - ∀ p ∈ Sx, (∀ i, (p i).Prime ∧ 127 < p i) ∧ Function.Injective p ∧ 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508
+    * (p 4 * p 5)
+  consumes: nothing
+  produces: each ordered core comes from at most 8 ordered prime sextuples
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 120000
+    minutes: 20
+    reached: 0.3
+  outcome: proved
+  attempts: 1
+  statement_sha256: ef7b36f58703fd6f
+- arm: B6_1061_A_full_probe
+  id: N09
+  name: multiplier_solution
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - Nat.Coprime g (3600 * u * v * (u + v))
+  - σ 1 (3600 * u) + σ 1 (3600 * v) = σ 1 (3600 * (u + v))
+  consumes: nothing
+  produces: every coprime multiplier g gives a further ordered solution
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 7
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: bc91731ca5379e79
+- arm: B6_1061_A_full_probe
+  id: N10
+  name: multiplier_disjoint
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < u
+  - 0 < v
+  - 0 < u'
+  - 0 < v'
+  - Nat.Coprime u v
+  - Nat.Coprime u' v'
+  - 0 < g
+  - 0 < g'
+  consumes: nothing
+  produces: multiplier families of distinct cores are disjoint
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 065ae952ddf96fc0
+- arm: B6_1061_A_full_probe
+  id: N11
+  name: coprime_density
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - n ≠ 0
+  - n.primeFactors.card ≤ 11
+  - X0 ≤ X
+  consumes: nothing
+  produces: uniform positive density of multipliers coprime to rad(3600uvh) (9.2)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 220000
+    minutes: 35
+    reached: 0.25
+  outcome: proved
+  attempts: 4
+  statement_sha256: d91a9ec58ac496c9
+- arm: B6_1061_A_full_probe
+  id: N12
+  name: S_ge_card
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - '∀ ab ∈ F, 1 ≤ ab.1 ∧ 1 ≤ ab.2 ∧ (ab.1 : ℝ) + ab.2 ≤ x ∧ σ 1 ab.1 + σ 1 ab.2 = σ 1 (ab.1 + ab.2)'
+  consumes: nothing
+  produces: any finite family of ordered solutions under x lower-bounds S x
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: b9d10bd3fe8cd782
+- arm: B6_1061_A_full_probe
+  id: N13
+  name: ruling_plane_identity
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: equations (2.2) and (2.3) hold identically on every ruling plane; expanded sixth form (A.3)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 15000
+    minutes: 3
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: 34971ccd4f3501a0
+- arm: B6_1061_A_full_probe
+  id: N14
+  name: determinant_table
+  kind: join
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: the fifteen determinant factorizations of Appendix A.2
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 4
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: bd84acc2f84004b8
+- arm: B6_1061_A_full_probe
+  id: N15
+  name: finite_complexity_real
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - 100 ≤ Z
+  - Z ^ 2 ≤ α
+  - α ≤ 2 * Z ^ 2
+  - Z ≤ β
+  - β ≤ 2 * Z
+  - Z ≤ γ
+  - γ ≤ 2 * Z
+  consumes: the determinant table
+  produces: pairwise nonproportional linear parts in the (r, s) coordinates (Lemma 3.2)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 10
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6ebf1cfb2216ff5e
+- arm: B6_1061_A_full_probe
+  id: N16
+  name: archimedean_bounds
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - 100 ≤ Z
+  - 10 ≤ T
+  - Z ^ 2 ≤ α
+  - α ≤ 2 * Z ^ 2
+  - Z ≤ β
+  - β ≤ 2 * Z
+  - Z ≤ γ
+  - γ ≤ 2 * Z
+  - -2 * T ≤ r
+  - r ≤ -T
+  - '|s| ≤ 1 / 100000 * |r|'
+  consumes: nothing
+  produces: two-height archimedean bounds on the positive region (Lemma 3.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 150000
+    minutes: 25
+    reached: 0.45
+  outcome: proved
+  attempts: 2
+  statement_sha256: ec952681a97780aa
+- arm: B6_1061_A_full_probe
+  id: N17
+  name: zero_form_criteria
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - '(2 : F) ≠ 0'
+  - '(3 : F) ≠ 0'
+  - '(7 : F) ≠ 0'
+  - '(11 : F) ≠ 0'
+  consumes: nothing
+  produces: zero-form criteria for x2, x4, x6 over any field where 462 is a unit (Lemma 6.1, A.4–A.7)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 12
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 5dd06d5386c63381
+- arm: B6_1061_A_full_probe
+  id: N18
+  name: integral_lift
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - q ≠ 0
+  - OnPl q A B C x
+  consumes: nothing
+  produces: every integral point of the plane system lies on the rational ruling plane (Lemma 4.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 8
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: b834a0667e331f05
+- arm: B6_1061_A_full_probe
+  id: N19
+  name: onPlane_equations
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - q ≠ 0
+  - OnPl q A B C x
+  consumes: integral lift onto the ruling plane; the identities on the plane
+  produces: every plane point solves (2.2) and (2.3) over ℤ
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: baa86f366626569d
+- arm: B6_1061_A_full_probe
+  id: N20
+  name: good_coprime
+  kind: join
+  join_type: case_split
+  conditionals:
+  - Good Z q A B C
+  consumes: nothing
+  produces: coprimality (4.6) and (A, q) = (B, q) = (C, q) = 1 from the denominator-prime conditions
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 9
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3f2470bcab4b1c6e
+- arm: B6_1061_A_full_probe
+  id: N21
+  name: local_witness
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime C (q : ℤ)'
+  consumes: nothing
+  produces: a plane point with all six coordinates units modulo every p | W (Lemma 4.3)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 140000
+    minutes: 25
+    reached: 0.35
+  outcome: open
+  attempts: 1
+  statement_sha256: d11a688761da4f03
+- arm: B6_1061_A_full_probe
+  id: N22
+  name: projected_index
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime (A * B * C) (q : ℤ)'
+  consumes: the nonempty witness point
+  produces: the projected integral points form a translate of a lattice of index q²δ, δ ∣ 508 (Lemma 4.2)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 300000
+    minutes: 45
+    reached: 0.07
+  outcome: open
+  attempts: 1
+  statement_sha256: c8c6069ea9340ce7
+- arm: B6_1061_A_full_probe
+  id: N23
+  name: lattice_coords
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime (A * B * C) (q : ℤ)'
+  - 100 ≤ Z
+  - '(q : ℝ) * Z ^ 2 ≤ A'
+  - '(A : ℝ) < 2 * q * Z ^ 2'
+  - '(q : ℝ) * Z ≤ B'
+  - '(B : ℝ) < 2 * q * Z'
+  - '(q : ℝ) * Z ≤ C'
+  - '(C : ℝ) < 2 * q * Z'
+  - 'C0 * (q : ℝ) ^ 2 ≤ T'
+  consumes: the projected lattice of index q²δ; the integral lift formulas
+  produces: a Gauss-reduced integer parametrization Ψ = (c, L) of the plane with bounded coefficients, det 465q²δ,
+    and the convex pullback K of R_T with exact volume (Lemma 4.4)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.03
+  outcome: open
+  attempts: 1
+  statement_sha256: 01d07a40a5b0dcee
+- arm: B6_1061_A_full_probe
+  id: N24
+  name: region_bounds_int
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - 100 ≤ Z
+  - 10 ≤ T
+  - '(q : ℝ) * Z ^ 2 ≤ A'
+  - '(A : ℝ) ≤ 2 * q * Z ^ 2'
+  - '(q : ℝ) * Z ≤ B'
+  - '(B : ℝ) ≤ 2 * q * Z'
+  - '(q : ℝ) * Z ≤ C'
+  - '(C : ℝ) ≤ 2 * q * Z'
+  - OnPl q A B C x
+  - InReg T x
+  consumes: integral lift and the real archimedean bounds
+  produces: size bounds for integer plane points in the region, incl. ch Z³T² ≤ 508 x5 x6 ≤ Ch Z³T² (8.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 90000
+    minutes: 15
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: 37bae3336dca3c4f
+- arm: B6_1061_A_full_probe
+  id: N25
+  name: sqfree_progression_count
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - Q1 ≤ Q
+  consumes: nothing
+  produces: ≫ Q squarefree q ≡ 1 (mod W) in [Q, 2Q] (5.2)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 280000
+    minutes: 45
+    reached: 0.1
+  outcome: open
+  attempts: 1
+  statement_sha256: 501a2bfff188e665
+- arm: B6_1061_A_full_probe
+  id: N26
+  name: H_sum_bound
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - Q1 ≤ Q
+  consumes: nothing
+  produces: the average of H(q) = Σ_{p|q} 1/p over the progression is O(1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.2
+  outcome: proved
+  attempts: 2
+  statement_sha256: 467439b1446d5d9a
+- arm: B6_1061_A_full_probe
+  id: N27
+  name: good_denominators
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - Q0 ≤ Q
+  consumes: squarefree progression count; average of H
+  produces: positive-density retained denominators via Markov (Lemma 5.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 130000
+    minutes: 25
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: 263f8ee14f57b381
+- arm: B6_1061_A_full_probe
+  id: N28
+  name: residue_blocks
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - NeZero m
+  consumes: nothing
+  produces: complete-residue-block lower bound for box counts (Lemma 5.2)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.25
+  outcome: proved
+  attempts: 2
+  statement_sha256: fbe6023255417b03
+- arm: B6_1061_A_full_probe
+  id: N29
+  name: local_density
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - Squarefree q
+  - q % 4619990760 = 1
+  - '∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0'
+  consumes: nothing
+  produces: a residue set mod qM_P of density ≥ ϑ(M0) surviving all small-prime conditions (5.11)–(5.12)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 320000
+    minutes: 50
+    reached: 0.06
+  outcome: open
+  attempts: 1
+  statement_sha256: 2ad40a8adbb38414
+- arm: B6_1061_A_full_probe
+  id: N30
+  name: large_prime_tail
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - 2 ≤ q
+  - 100 ≤ Z
+  - 1 ≤ P
+  consumes: nothing
+  produces: the number of box triples hitting a bad system at some prime p > P is O(q³Z⁴/P + q²Z³ log qZ + q²Z⁴)
+    (5.15)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 320000
+    minutes: 50
+    reached: 0.06
+  outcome: open
+  attempts: 1
+  statement_sha256: 4de3a63c4eb1756f
+- arm: B6_1061_A_full_probe
+  id: N31
+  name: parameter_sieve
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Squarefree q
+  - q % 4619990760 = 1
+  - '∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0'
+  - q0 ≤ q
+  - Z0 ≤ Z
+  consumes: complete blocks, small-prime density, large-prime tail
+  produces: ≫ q³Z⁴ retained parameter triples over each retained q (Prop. 5.3)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 300000
+    minutes: 45
+    reached: 0.12
+  outcome: open
+  attempts: 1
+  statement_sha256: 56186c9a350d4ec9
+- arm: B6_1061_A_full_probe
+  id: N32
+  name: planes_meet_once
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < q
+  - 0 < q'
+  - IsCoprime A q
+  - IsCoprime B q
+  - IsCoprime C q
+  - IsCoprime A' q'
+  - IsCoprime B' q'
+  - IsCoprime C' q'
+  - (q, A, B, C) ≠ (q', A', B', C')
+  consumes: nothing
+  produces: distinct retained planes share at most one point (Lemma 5.5 and intersection accounting)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.25
+  outcome: proved
+  attempts: 5
+  statement_sha256: c1892a39b81efcfc
+- arm: B6_1061_A_full_probe
+  id: N33
+  name: union_card_bound
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∀ i ∈ s, ∀ j ∈ s, i ≠ j → (f i ∩ f j).card ≤ 1
+  consumes: nothing
+  produces: incidences minus pair count lower-bound distinct points (7.9), (8.8)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 18
+    reached: 0.5
+  outcome: proved
+  attempts: 0
+  statement_sha256: 0bf6966370c1af9f
+- arm: B6_1061_A_full_probe
+  id: N34
+  name: lattice_reduction
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - L' ≤ L
+  - ¬ p ∣ L'.relIndex L
+  consumes: nothing
+  produces: a sublattice of index prime to p has the same reduction mod p (Lemma 6.2)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 18
+    reached: 0.45
+  outcome: open
+  attempts: 1
+  statement_sha256: 59b491e61e748820
+- arm: B6_1061_A_full_probe
+  id: N35
+  name: nonzero_forms_count
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - p.Prime
+  - '∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j)'
+  consumes: nothing
+  produces: at least p² − 6p simultaneous unit points when no form vanishes identically mod p
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.3
+  outcome: proved
+  attempts: 1
+  statement_sha256: a33c8403079692bc
+- arm: B6_1061_A_full_probe
+  id: N36
+  name: local_W
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - '(4619990760 : ℤ) ∣ A'
+  - '(4619990760 : ℤ) ∣ B'
+  - '(4619990760 : ℤ) ∣ C'
+  - 'IsCoprime C (q : ℤ)'
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  consumes: the local witness point
+  produces: 'β_p > 0 data at p | W: one simultaneous unit point (6.6)'
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 90000
+    minutes: 15
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 04bd0cb399466c80
+- arm: B6_1061_A_full_probe
+  id: N37
+  name: local_away
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  - '∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L
+    4 0))| = 465 * (q : ℤ) ^ 2 * δ'
+  consumes: integral lift, zero-form criteria, coprimality
+  produces: no coordinate form vanishes identically mod p for p ∤ Wq (Section 6.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 280000
+    minutes: 45
+    reached: 0.12
+  outcome: proved
+  attempts: 3
+  statement_sha256: 575d3d449602136e
+- arm: B6_1061_A_full_probe
+  id: N38
+  name: local_denominator
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - Squarefree q
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  consumes: projected index, lattice reduction, lift, coprimality
+  produces: no coordinate form vanishes identically on the special fibre at p | q (Lemma 6.3, Cor. 6.4)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 320000
+    minutes: 50
+    reached: 0.04
+  outcome: open
+  attempts: 1
+  statement_sha256: be8912f2b214ee6f
+- arm: B6_1061_A_full_probe
+  id: N39
+  name: fc_lattice
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  - '∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L
+    4 0))| = 465 * (q : ℤ) ^ 2 * δ'
+  consumes: integral lift, determinant table, real finite complexity
+  produces: finite complexity survives the lattice reparametrization
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 220000
+    minutes: 35
+    reached: 0.2
+  outcome: proved
+  attempts: 2
+  statement_sha256: f38ae5c20c4e723f
+- arm: B6_1061_A_full_probe
+  id: N40
+  name: beta_local
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - Squarefree q
+  - '∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)'
+  - '∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j'
+  - '∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L
+    4 0))| = 465 * (q : ℤ) ^ 2 * δ'
+  consumes: unit-point count, the three local cases
+  produces: local factor lower bounds (6.6) and (6.7) at every prime
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 150000
+    minutes: 25
+    reached: 0.3
+  outcome: proved
+  attempts: 0
+  statement_sha256: 845a8f9995caa645
+- arm: B6_1061_A_full_probe
+  id: N41
+  name: ap_product
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals: []
+  consumes: nothing
+  produces: the comparison product c* of (6.8) converges to a positive limit
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 260000
+    minutes: 40
+    reached: 0.15
+  outcome: proved
+  attempts: 4
+  statement_sha256: 3a2f4c6be2671d73
+- arm: B6_1061_A_full_probe
+  id: N42
+  name: singular_series_lower
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ q
+  - q % 4619990760 = 1
+  - 100 ≤ Z
+  - Good Z q A B C
+  - Squarefree q
+  consumes: Bienvenu Lemma 1.2, finite complexity in lattice coordinates, local bounds, positive comparison product
+  produces: admissibility and the uniform singular-series bound ∏ β_p ≥ c* (6.9)
+  library_inputs:
+  - Bienvenu 2017, Lemma 1.2
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 220000
+    minutes: 35
+    reached: 0.2
+  outcome: open
+  attempts: 1
+  statement_sha256: 23c521f34a4318be
+- arm: B6_1061_A_full_probe
+  id: N43
+  name: collision_line
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - a ≠ 0 ∨ b ≠ 0
+  consumes: nothing
+  produces: a collision line meets the box in O(T) lattice points
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 12
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: 14ca65a5ecd731bb
+- arm: B6_1061_A_full_probe
+  id: N44
+  name: prime_weight_to_count
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - 1 ≤ V
+  - '∀ n ∈ F, ∀ i, (f n i : ℝ) ≤ V'
+  consumes: nothing
+  produces: the Λ'-weighted count is at most (log V)^t times the prime-point count
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 18
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: d3eef5168cbe597a
+- arm: B6_1061_A_full_probe
+  id: N45
+  name: plane_prime_count
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < τ
+  - T0 ≤ T
+  - 100 ≤ Z
+  - 1 ≤ q
+  - Squarefree q
+  - q % 4619990760 = 1
+  - '(q : ℝ) ≤ Real.log T ^ τ'
+  - Z ≤ Real.log T ^ τ
+  - Good Z q A B C
+  consumes: Bienvenu's uniform theorem; lattice coordinates; region bounds; finite complexity; singular-series bound;
+    collision and weight bounds
+  produces: ≫ T²/(q²(log T)⁶) pairwise-distinct prime sextuples on each retained plane (Prop. 7.2)
+  library_inputs:
+  - Bienvenu 2017, Proposition 2.1 (through bienvenu_prop21_uniform)
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 450000
+    minutes: 60
+    reached: 0.03
+  outcome: open
+  attempts: 1
+  statement_sha256: 71b45deb2457f757
+- arm: B6_1061_A_full_probe
+  id: N46
+  name: threshold_lemma
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - 0 < κ
+  - 0 < Ch
+  - 0 < ε
+  - Y0 ≤ Y
+  - 1 ≤ Q
+  - Q ≤ Real.log Y ^ κ
+  - 1 ≤ Z
+  - Z ≤ Real.log Y ^ κ
+  consumes: nothing
+  produces: uniform polylogarithmic thresholds at T = (Y/(Ch Z³))^{1/2} (Lemma 8.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 260000
+    minutes: 40
+    reached: 0.2
+  outcome: open
+  attempts: 1
+  statement_sha256: ca9560f34e341450
+- arm: B6_1061_A_full_probe
+  id: N47
+  name: two_height_core
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 0 < κ
+  - Yκ ≤ Y
+  - Qκ ≤ Q
+  - Q ≤ Real.log Y ^ κ
+  - Zκ ≤ Z
+  - Z ≤ Real.log Y ^ κ
+  consumes: retained denominators, retained triples, per-plane prime counts, overlap accounting, region bounds,
+    plane equations, core extraction, 8-to-1 fibres, thresholds
+  produces: ≫ Y Q² Z /(log Y)⁶ coprime cores activated by 3600 with perimeter in [c0 Y, Y] (Theorem 1.3)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 450000
+    minutes: 60
+    reached: 0.05
+  outcome: open
+  attempts: 1
+  statement_sha256: bc2a9a38067e1f5a
+- arm: B6_1061_A_full_probe
+  id: N48
+  name: S_lower_bound
+  kind: join
+  join_type: quantitative_improvement
+  conditionals:
+  - 0 < κ
+  - X1 ≤ x
+  consumes: core theorem, multiplier solutions, disjointness, coprime density, S lower bound from families
+  produces: S(x) ≫_κ x (log x)^{3κ−5} by geometric shells and multiplier amplification (9.3)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 380000
+    minutes: 55
+    reached: 0.08
+  outcome: open
+  attempts: 1
+  statement_sha256: ac05c9aa0a1e87f6
+- arm: B6_1061_A_full_probe
+  id: ROOT
+  name: li_1061
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 0 < R
+  consumes: S(x) ≥ c x (log x)^(3κ−5) for large x, at κ = (R + 6)/3
+  produces: S(x)/(x (log x)^R) → ∞ (Theorem 1.1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: d054eb98e9d47195

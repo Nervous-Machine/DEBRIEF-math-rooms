@@ -1,0 +1,1329 @@
+/-
+Erdős Problem 1061: the statement of Eric Li's claim (arXiv:2606.25849v1, Theorem 1.1: for every fixed R > 0,
+S(x) / (x (log x)^R) → ∞), written by the registrar on 2026-11-26 over the counting function `S` copied verbatim from
+google-deepmind/formal-conjectures, FormalConjectures/ErdosProblems/1061.lean at commit 9097e2f9 (Apache-2.0;
+Copyright 2026 The Formal Conjectures Authors), with the FormalConjecturesUtil import replaced by Mathlib.
+Ordered pairs are counted, as in the paper. The searcher may not alter the definition or the statement.
+References: erdosproblems.com/1061; Guy, Unsolved Problems in Number Theory, B15.
+-/
+module
+
+public import Mathlib
+
+@[expose] public section
+
+open Filter Asymptotics
+open scoped ArithmeticFunction.sigma
+
+namespace Erdos1061
+
+/-- Let `S x` count the number of **ordered** pairs of positive integers `(a, b)` with `a + b ≤ x`
+such that `σ(a) + σ(b) = σ(a + b)`, where `σ` is the sum of divisors function. -/
+noncomputable abbrev S (x : ℝ) : ℝ :=
+  ((Finset.Icc 1 ⌊x⌋₊ ×ˢ Finset.Icc 1 ⌊x⌋₊).filter fun (a, b) ↦
+      a + b ≤ x ∧ σ 1 a + σ 1 b = σ 1 (a + b)).card
+
+-- ===== Blueprint rooms (in blueprint order) =====
+
+-- N01 bienvenu_prop21_uniform [literature_import]
+theorem bienvenu_prop21_uniform (d t : ℕ) (A0 B0 L0 cV ε : ℝ) (hcV : 0 < cV) (hε : 0 < ε) :
+    ∃ N0 : ℝ, ∀ (N : ℝ) (c : Fin t → ℤ) (L : Fin t → Fin d → ℤ) (K : Set (Fin d → ℝ))
+      (β : ℕ → ℝ) (F : Finset (Fin d → ℤ)),
+      N0 ≤ N →
+      (∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]) →
+      (∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ t / (p : ℝ) ^ d *
+        ((Fintype.piFinset fun _ : Fin d => Finset.range p).filter
+          (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) →
+      (∀ p : ℕ, p.Prime → 0 < β p) →
+      ((∑ i, |(c i : ℝ)|) / N + ∑ i, ∑ j, |(L i j : ℝ)|) / Real.log N ^ B0 ≤ L0 →
+      Convex ℝ K →
+      (∀ v ∈ K, ∀ j, |v j| ≤ N) →
+      cV * N ^ d * Real.log N ^ (-A0) ≤ (MeasureTheory.volume K).toReal →
+      (∀ v ∈ K, ∀ i, N ^ ((9 : ℝ) / 10) ≤ (c i : ℝ) + ∑ j, (L i j : ℝ) * v j) →
+      (∀ n : Fin d → ℤ, n ∈ F ↔ (fun j => (n j : ℝ)) ∈ K) →
+      |(∑ n ∈ F, ∏ i, (if 0 < c i + (∑ j, L i j * n j) ∧ (c i + ∑ j, L i j * n j).natAbs.Prime
+            then Real.log ((c i + ∑ j, L i j * n j : ℤ) : ℝ) else 0)) /
+          ((MeasureTheory.volume K).toReal * ∏' p : Nat.Primes, β p) - 1| ≤ ε := by
+  sorry
+
+-- N02 bienvenu_lemma12_singular_series [literature_import]
+theorem bienvenu_lemma12_singular_series (d t : ℕ) (c : Fin t → ℤ) (L : Fin t → Fin d → ℤ) (β : ℕ → ℝ)
+    (hfc : ∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)])
+    (hβ : ∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ t / (p : ℝ) ^ d *
+        ((Fintype.piFinset fun _ : Fin d => Finset.range p).filter
+          (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card)
+    (hpos : ∀ p : ℕ, p.Prime → 0 < β p) :
+    Multipliable (fun p : Nat.Primes => β p) ∧ 0 < ∏' p : Nat.Primes, β p := by
+  sorry
+
+lemma sigma_mul_coprime (a b : ℕ) (h : Nat.Coprime a b) : σ 1 (a * b) = σ 1 a * σ 1 b :=
+  ArithmeticFunction.isMultiplicative_sigma.map_mul_of_coprime h
+
+lemma sigma_prime_pow' (p i : ℕ) (hp : p.Prime) :
+    σ 1 (p ^ i) = ∑ k ∈ Finset.range (i + 1), p ^ k :=
+  ArithmeticFunction.sigma_one_apply_prime_pow hp
+
+lemma sigma_prime' (p : ℕ) (hp : p.Prime) : σ 1 p = p + 1 := by
+  have := sigma_prime_pow' p 1 hp
+  simp [Finset.sum_range_succ] at this
+  rw [this]; ring
+
+-- N03 sigma_values_triple [algebraic_identity]
+theorem sigma_values_triple :
+    σ 1 54000 = 193440 ∧ σ 1 111600 = 399776 ∧ σ 1 1828800 = 6551168 := by
+  refine ⟨?_, ?_, ?_⟩
+  · rw [show (54000 : ℕ) = 2 ^ 4 * 3 ^ 3 * 5 ^ 3 by norm_num,
+      sigma_mul_coprime _ _ (by norm_num), sigma_mul_coprime _ _ (by norm_num),
+      sigma_prime_pow' _ _ Nat.prime_two, sigma_prime_pow' _ _ Nat.prime_three,
+      sigma_prime_pow' _ _ Nat.prime_five]
+    simp [Finset.sum_range_succ]
+  · rw [show (111600 : ℕ) = 2 ^ 4 * 3 ^ 2 * 5 ^ 2 * 31 by norm_num,
+      sigma_mul_coprime _ _ (by norm_num), sigma_mul_coprime _ _ (by norm_num),
+      sigma_mul_coprime _ _ (by norm_num),
+      sigma_prime_pow' _ _ Nat.prime_two, sigma_prime_pow' _ _ Nat.prime_three,
+      sigma_prime_pow' _ _ Nat.prime_five, sigma_prime' _ (by norm_num)]
+    simp [Finset.sum_range_succ]
+  · rw [show (1828800 : ℕ) = 2 ^ 6 * 3 ^ 2 * 5 ^ 2 * 127 by norm_num,
+      sigma_mul_coprime _ _ (by norm_num), sigma_mul_coprime _ _ (by norm_num),
+      sigma_mul_coprime _ _ (by norm_num),
+      sigma_prime_pow' _ _ Nat.prime_two, sigma_prime_pow' _ _ Nat.prime_three,
+      sigma_prime_pow' _ _ Nat.prime_five, sigma_prime' _ (by norm_num)]
+    simp [Finset.sum_range_succ]
+
+-- N04 sigma_mul_two_primes [algebraic_identity]
+theorem sigma_mul_two_primes (K p r : ℕ) (hK : 0 < K) (hp : p.Prime) (hr : r.Prime) (hpr : p ≠ r)
+    (hpK : ¬ p ∣ K) (hrK : ¬ r ∣ K) :
+    σ 1 (K * (p * r)) = σ 1 K * ((p + 1) * (r + 1)) := by
+  have hKp : Nat.Coprime K p := ((Nat.Prime.coprime_iff_not_dvd hp).mpr hpK).symm
+  have hKr : Nat.Coprime K r := ((Nat.Prime.coprime_iff_not_dvd hr).mpr hrK).symm
+  have hpr' : Nat.Coprime p r := (Nat.coprime_primes hp hr).mpr hpr
+  rw [sigma_mul_coprime _ _ (Nat.Coprime.mul_right hKp hKr), sigma_mul_coprime _ _ hpr',
+    sigma_prime' _ hp, sigma_prime' _ hr]
+
+-- N05 shifted_product_identity [algebraic_identity]
+theorem shifted_product_identity (p1 p2 p3 p4 p5 p6 : ℤ)
+    (h22 : 15 * p1 * p2 + 31 * p3 * p4 = 508 * p5 * p6)
+    (h23 : 15 * (p1 + p2) + 31 * (p3 + p4) - 508 * (p5 + p6) = 462) :
+    15 * (p1 + 1) * (p2 + 1) + 31 * (p3 + 1) * (p4 + 1) = 508 * (p5 + 1) * (p6 + 1) := by
+  linear_combination h22 + h23
+
+lemma prime_gt_not_dvd_54000 {p : ℕ} (hp : p.Prime) (h : 127 < p) : ¬ p ∣ 54000 := by
+  intro hd
+  rw [show (54000 : ℕ) = 2 ^ 4 * 3 ^ 3 * 5 ^ 3 by norm_num] at hd
+  rcases (Nat.Prime.dvd_mul hp).mp hd with h1 | h1
+  · rcases (Nat.Prime.dvd_mul hp).mp h1 with h2 | h2
+    · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h2); omega
+    · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h2); omega
+  · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h1); omega
+
+lemma prime_gt_not_dvd_111600 {p : ℕ} (hp : p.Prime) (h : 127 < p) : ¬ p ∣ 111600 := by
+  intro hd
+  rw [show (111600 : ℕ) = 2 ^ 4 * 3 ^ 2 * 5 ^ 2 * 31 by norm_num] at hd
+  rcases (Nat.Prime.dvd_mul hp).mp hd with h1 | h1
+  · rcases (Nat.Prime.dvd_mul hp).mp h1 with h2 | h2
+    · rcases (Nat.Prime.dvd_mul hp).mp h2 with h3 | h3
+      · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h3); omega
+      · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h3); omega
+    · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h2); omega
+  · have := Nat.le_of_dvd (by norm_num) h1; omega
+
+lemma prime_gt_not_dvd_1828800 {p : ℕ} (hp : p.Prime) (h : 127 < p) : ¬ p ∣ 1828800 := by
+  intro hd
+  rw [show (1828800 : ℕ) = 2 ^ 6 * 3 ^ 2 * 5 ^ 2 * 127 by norm_num] at hd
+  rcases (Nat.Prime.dvd_mul hp).mp hd with h1 | h1
+  · rcases (Nat.Prime.dvd_mul hp).mp h1 with h2 | h2
+    · rcases (Nat.Prime.dvd_mul hp).mp h2 with h3 | h3
+      · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h3); omega
+      · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h3); omega
+    · have := Nat.le_of_dvd (by norm_num) (hp.dvd_of_dvd_pow h2); omega
+  · have := Nat.le_of_dvd (by norm_num) h1; omega
+
+-- N06 friendly_triple_activation [assembly]
+theorem friendly_triple_activation (p : Fin 6 → ℕ) (hp : ∀ i, (p i).Prime ∧ 127 < p i)
+    (hinj : Function.Injective p)
+    (h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5))
+    (h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462) :
+    54000 * (p 0 * p 1) + 111600 * (p 2 * p 3) = 1828800 * (p 4 * p 5) ∧
+    σ 1 (54000 * (p 0 * p 1)) + σ 1 (111600 * (p 2 * p 3)) = σ 1 (1828800 * (p 4 * p 5)) := by
+  have h01 : p 0 ≠ p 1 := fun h => by have := hinj h; exact absurd this (by decide)
+  have h23' : p 2 ≠ p 3 := fun h => by have := hinj h; exact absurd this (by decide)
+  have h45 : p 4 ≠ p 5 := fun h => by have := hinj h; exact absurd this (by decide)
+  obtain ⟨s1, s2, s3⟩ := sigma_values_triple
+  constructor
+  · zify at h22 ⊢
+    linear_combination 3600 * h22
+  · rw [sigma_mul_two_primes 54000 (p 0) (p 1) (by norm_num) (hp 0).1 (hp 1).1 h01
+        (prime_gt_not_dvd_54000 (hp 0).1 (hp 0).2) (prime_gt_not_dvd_54000 (hp 1).1 (hp 1).2),
+      sigma_mul_two_primes 111600 (p 2) (p 3) (by norm_num) (hp 2).1 (hp 3).1 h23'
+        (prime_gt_not_dvd_111600 (hp 2).1 (hp 2).2) (prime_gt_not_dvd_111600 (hp 3).1 (hp 3).2),
+      sigma_mul_two_primes 1828800 (p 4) (p 5) (by norm_num) (hp 4).1 (hp 5).1 h45
+        (prime_gt_not_dvd_1828800 (hp 4).1 (hp 4).2) (prime_gt_not_dvd_1828800 (hp 5).1 (hp 5).2),
+      s1, s2, s3]
+    have h22z : (15 : ℤ) * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5) := by exact_mod_cast h22
+    have h23z : (15 : ℤ) * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462 := by exact_mod_cast h23
+    have key := shifted_product_identity (p 0) (p 1) (p 2) (p 3) (p 4) (p 5)
+      (by linear_combination h22z) (by linear_combination h23z)
+    zify
+    linear_combination 12896 * key
+
+-- N07 core_from_sextuple [case_split]
+theorem core_from_sextuple (p : Fin 6 → ℕ) (hp : ∀ i, (p i).Prime ∧ 127 < p i)
+    (hinj : Function.Injective p)
+    (h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5))
+    (h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462) :
+    Nat.Coprime (15 * (p 0 * p 1)) (31 * (p 2 * p 3)) ∧
+    σ 1 (3600 * (15 * (p 0 * p 1))) + σ 1 (3600 * (31 * (p 2 * p 3))) =
+      σ 1 (3600 * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))) ∧
+    (3600 * (15 * (p 0 * p 1)) * (31 * (p 2 * p 3)) * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))).primeFactors.card ≤ 11 := by
+  have hp' : ∀ i, (p i).Prime := fun i => (hp i).1
+  have hbig : ∀ i, 127 < p i := fun i => (hp i).2
+  have hne : ∀ i j, i ≠ j → p i ≠ p j := fun i j hij h => hij (hinj h)
+  have cop_small : ∀ i (m : ℕ), 0 < m → m < 128 → Nat.Coprime m (p i) := fun i m hm0 hm =>
+    ((Nat.Prime.coprime_iff_not_dvd (hp' i)).mpr
+      (fun hd => by have := Nat.le_of_dvd hm0 hd; have := hbig i; omega)).symm
+  have hcop : Nat.Coprime (15 * (p 0 * p 1)) (31 * (p 2 * p 3)) := by
+    have c15 : Nat.Coprime 15 (31 * (p 2 * p 3)) :=
+      Nat.Coprime.mul_right (by norm_num)
+        (Nat.Coprime.mul_right (cop_small 2 15 (by norm_num) (by norm_num))
+          (cop_small 3 15 (by norm_num) (by norm_num)))
+    have c0 : Nat.Coprime (p 0) (31 * (p 2 * p 3)) :=
+      Nat.Coprime.mul_right (cop_small 0 31 (by norm_num) (by norm_num)).symm
+        (Nat.Coprime.mul_right ((Nat.coprime_primes (hp' 0) (hp' 2)).mpr (hne 0 2 (by decide)))
+          ((Nat.coprime_primes (hp' 0) (hp' 3)).mpr (hne 0 3 (by decide))))
+    have c1 : Nat.Coprime (p 1) (31 * (p 2 * p 3)) :=
+      Nat.Coprime.mul_right (cop_small 1 31 (by norm_num) (by norm_num)).symm
+        (Nat.Coprime.mul_right ((Nat.coprime_primes (hp' 1) (hp' 2)).mpr (hne 1 2 (by decide)))
+          ((Nat.coprime_primes (hp' 1) (hp' 3)).mpr (hne 1 3 (by decide))))
+    exact Nat.Coprime.symm (Nat.Coprime.mul_right c15.symm (Nat.Coprime.mul_right c0.symm c1.symm))
+  obtain ⟨e1, e2⟩ := friendly_triple_activation p hp hinj h22 h23
+  refine ⟨hcop, ?_, ?_⟩
+  · rw [show 3600 * (15 * (p 0 * p 1)) = 54000 * (p 0 * p 1) by ring,
+      show 3600 * (31 * (p 2 * p 3)) = 111600 * (p 2 * p 3) by ring, h22,
+      show 3600 * (508 * (p 4 * p 5)) = 1828800 * (p 4 * p 5) by ring]
+    exact e2
+  · have hN : 3600 * (15 * (p 0 * p 1)) * (31 * (p 2 * p 3)) * (15 * (p 0 * p 1) + 31 * (p 2 * p 3)) =
+        2 ^ 6 * 3 ^ 3 * 5 ^ 3 * 31 * 127 * (p 0 * p 1 * p 2 * p 3 * p 4 * p 5) := by rw [h22]; ring
+    rw [hN]
+    have hsub : (2 ^ 6 * 3 ^ 3 * 5 ^ 3 * 31 * 127 * (p 0 * p 1 * p 2 * p 3 * p 4 * p 5)).primeFactors ⊆
+        ({2, 3, 5, 31, 127} : Finset ℕ) ∪ Finset.univ.image p := by
+      intro q hq
+      rw [Nat.mem_primeFactors] at hq
+      obtain ⟨hqp, hqd, -⟩ := hq
+      have hpi : ∀ i, q ∣ p i → q = p i := fun i h => (Nat.prime_dvd_prime_iff_eq hqp (hp' i)).mp h
+      have hpow : ∀ (a n : ℕ), a.Prime → q ∣ a ^ n → q = a := fun a n ha h =>
+        (Nat.prime_dvd_prime_iff_eq hqp ha).mp (hqp.dvd_of_dvd_pow h)
+      simp only [Finset.mem_union, Finset.mem_insert, Finset.mem_singleton, Finset.mem_image,
+        Finset.mem_univ, true_and]
+      simp only [Nat.Prime.dvd_mul hqp] at hqd
+      rcases hqd with ((((h | h) | h) | h) | h) | (((((h | h) | h) | h) | h) | h)
+      · exact Or.inl (Or.inl (hpow 2 6 Nat.prime_two h))
+      · exact Or.inl (Or.inr (Or.inl (hpow 3 3 Nat.prime_three h)))
+      · exact Or.inl (Or.inr (Or.inr (Or.inl (hpow 5 3 Nat.prime_five h))))
+      · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inl ((Nat.prime_dvd_prime_iff_eq hqp (by norm_num)).mp h)))))
+      · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inr ((Nat.prime_dvd_prime_iff_eq hqp (by norm_num)).mp h)))))
+      · exact Or.inr ⟨0, (hpi 0 h).symm⟩
+      · exact Or.inr ⟨1, (hpi 1 h).symm⟩
+      · exact Or.inr ⟨2, (hpi 2 h).symm⟩
+      · exact Or.inr ⟨3, (hpi 3 h).symm⟩
+      · exact Or.inr ⟨4, (hpi 4 h).symm⟩
+      · exact Or.inr ⟨5, (hpi 5 h).symm⟩
+    calc _ ≤ (({2, 3, 5, 31, 127} : Finset ℕ) ∪ Finset.univ.image p).card := Finset.card_le_card hsub
+      _ ≤ ({2, 3, 5, 31, 127} : Finset ℕ).card + (Finset.univ.image p).card := Finset.card_union_le _ _
+      _ ≤ 5 + 6 := by
+          gcongr
+          · rfl
+          · exact Finset.card_image_le.trans (by simp)
+
+lemma pair_from_order {a b a' b' : ℕ} (ha : a.Prime) (hb' : b'.Prime) (ha' : a'.Prime)
+    (hab' : a' ≠ b') (h : a * b = a' * b') (ho : decide (a < b) = decide (a' < b')) :
+    a = a' ∧ b = b' := by
+  have hda : a ∣ a' * b' := ⟨b, h.symm⟩
+  rcases (Nat.Prime.dvd_mul ha).mp hda with h1 | h1
+  · have e := (Nat.prime_dvd_prime_iff_eq ha ha').mp h1
+    subst e
+    exact ⟨rfl, Nat.eq_of_mul_eq_mul_left ha.pos h⟩
+  · have e : a = b' := (Nat.prime_dvd_prime_iff_eq ha hb').mp h1
+    have e2 : b = a' := by
+      apply Nat.eq_of_mul_eq_mul_left ha.pos
+      rw [h, e, mul_comm]
+    exfalso
+    rw [e, e2] at ho
+    rcases Nat.lt_or_gt_of_ne hab' with hlt | hgt
+    · simp [hlt, not_lt.mpr hlt.le] at ho
+    · simp [hgt, not_lt.mpr hgt.le] at ho
+
+-- N08 core_fiber_le_eight [case_split]
+theorem core_fiber_le_eight (Sx : Finset (Fin 6 → ℕ))
+    (hS : ∀ p ∈ Sx, (∀ i, (p i).Prime ∧ 127 < p i) ∧ Function.Injective p ∧
+      15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)) :
+    Sx.card ≤ 8 * (Sx.image fun p => (15 * (p 0 * p 1), 31 * (p 2 * p 3))).card := by
+  classical
+  apply Finset.card_le_mul_card_image
+  intro b _
+  have key : ∀ p ∈ Sx, ∀ p' ∈ Sx,
+      (15 * (p 0 * p 1), 31 * (p 2 * p 3)) = (15 * (p' 0 * p' 1), 31 * (p' 2 * p' 3)) →
+      (decide (p 0 < p 1), decide (p 2 < p 3), decide (p 4 < p 5)) =
+        (decide (p' 0 < p' 1), decide (p' 2 < p' 3), decide (p' 4 < p' 5)) → p = p' := by
+    intro p hp p' hp' hcore hord
+    obtain ⟨hpr, hinj, h22⟩ := hS p hp
+    obtain ⟨hpr', hinj', h22'⟩ := hS p' hp'
+    simp only [Prod.mk.injEq] at hcore hord
+    obtain ⟨hc1, hc2⟩ := hcore
+    obtain ⟨ho1, ho2, ho3⟩ := hord
+    have hc3 : 508 * (p 4 * p 5) = 508 * (p' 4 * p' 5) := by omega
+    have e01 := pair_from_order (hpr 0).1 (hpr' 1).1 (hpr' 0).1 (hinj'.ne (by decide))
+      (Nat.eq_of_mul_eq_mul_left (by norm_num) hc1) ho1
+    have e23 := pair_from_order (hpr 2).1 (hpr' 3).1 (hpr' 2).1 (hinj'.ne (by decide))
+      (Nat.eq_of_mul_eq_mul_left (by norm_num) hc2) ho2
+    have e45 := pair_from_order (hpr 4).1 (hpr' 5).1 (hpr' 4).1 (hinj'.ne (by decide))
+      (Nat.eq_of_mul_eq_mul_left (by norm_num) hc3) ho3
+    funext i
+    fin_cases i
+    · exact e01.1
+    · exact e01.2
+    · exact e23.1
+    · exact e23.2
+    · exact e45.1
+    · exact e45.2
+  calc (Sx.filter (fun p => (15 * (p 0 * p 1), 31 * (p 2 * p 3)) = b)).card
+      ≤ (Finset.univ : Finset (Bool × Bool × Bool)).card := by
+        apply Finset.card_le_card_of_injOn
+          (fun p => (decide (p 0 < p 1), decide (p 2 < p 3), decide (p 4 < p 5)))
+        · intro p _
+          simp
+        · intro p hp p' hp' h
+          simp only [Finset.coe_filter, Set.mem_ofPred_eq] at hp hp'
+          exact key p hp.1 p' hp'.1 (hp.2.trans hp'.2.symm) h
+    _ = 8 := by simp
+
+-- N09 multiplier_solution [algebraic_identity]
+theorem multiplier_solution (u v g : ℕ) (hg : Nat.Coprime g (3600 * u * v * (u + v)))
+    (h : σ 1 (3600 * u) + σ 1 (3600 * v) = σ 1 (3600 * (u + v))) :
+    σ 1 (3600 * g * u) + σ 1 (3600 * g * v) = σ 1 (3600 * g * u + 3600 * g * v) := by
+  have hgu : Nat.Coprime g (3600 * u) := hg.coprime_dvd_right ⟨v * (u + v), by ring⟩
+  have hgv : Nat.Coprime g (3600 * v) := hg.coprime_dvd_right ⟨u * (u + v), by ring⟩
+  have hguv : Nat.Coprime g (3600 * (u + v)) := hg.coprime_dvd_right ⟨u * v, by ring⟩
+  have e1 : 3600 * g * u = g * (3600 * u) := by ring
+  have e2 : 3600 * g * v = g * (3600 * v) := by ring
+  have e3 : 3600 * g * u + 3600 * g * v = g * (3600 * (u + v)) := by ring
+  rw [e3, e1, e2, sigma_mul_coprime _ _ hgu, sigma_mul_coprime _ _ hgv, sigma_mul_coprime _ _ hguv,
+    ← mul_add, h]
+
+-- N10 multiplier_disjoint [algebraic_identity]
+theorem multiplier_disjoint (u v u' v' g g' : ℕ) (hu : 0 < u) (hv : 0 < v) (hu' : 0 < u') (hv' : 0 < v')
+    (hcop : Nat.Coprime u v) (hcop' : Nat.Coprime u' v') (hg : 0 < g) (hg' : 0 < g')
+    (h1 : 3600 * g * u = 3600 * g' * u') (h2 : 3600 * g * v = 3600 * g' * v') :
+    g = g' ∧ u = u' ∧ v = v' := by
+  have h1' : g * u = g' * u' := by
+    rw [mul_assoc, mul_assoc] at h1
+    exact Nat.eq_of_mul_eq_mul_left (by norm_num) h1
+  have h2' : g * v = g' * v' := by
+    rw [mul_assoc, mul_assoc] at h2
+    exact Nat.eq_of_mul_eq_mul_left (by norm_num) h2
+  have hA : Nat.gcd (g * u) (g * v) = g := by
+    rw [Nat.gcd_mul_left, Nat.Coprime.gcd_eq_one hcop, mul_one]
+  have hB : Nat.gcd (g' * u') (g' * v') = g' := by
+    rw [Nat.gcd_mul_left, Nat.Coprime.gcd_eq_one hcop', mul_one]
+  have hgg : g = g' := by rw [← hA, ← hB, h1', h2']
+  subst hgg
+  exact ⟨rfl, Nat.eq_of_mul_eq_mul_left hg h1', Nat.eq_of_mul_eq_mul_left hg h2'⟩
+
+-- N11 coprime_density [extremal_averaging]
+theorem coprime_density : ∃ c6 X0 : ℝ, 0 < c6 ∧ ∀ (n : ℕ) (X : ℝ), n ≠ 0 → n.primeFactors.card ≤ 11 →
+    X0 ≤ X → c6 * X ≤ ((Finset.Icc 1 ⌊X⌋₊).filter (fun g => Nat.Coprime g n)).card := by
+  sorry
+
+-- N12 S_ge_card [assembly]
+theorem S_ge_card (x : ℝ) (F : Finset (ℕ × ℕ))
+    (hF : ∀ ab ∈ F, 1 ≤ ab.1 ∧ 1 ≤ ab.2 ∧ (ab.1 : ℝ) + ab.2 ≤ x ∧ σ 1 ab.1 + σ 1 ab.2 = σ 1 (ab.1 + ab.2)) :
+    (F.card : ℝ) ≤ S x := by
+  have hsub : F ⊆ (Finset.Icc 1 ⌊x⌋₊ ×ˢ Finset.Icc 1 ⌊x⌋₊).filter fun (a, b) ↦
+      a + b ≤ x ∧ σ 1 a + σ 1 b = σ 1 (a + b) := by
+    intro ab hab
+    obtain ⟨a, b⟩ := ab
+    obtain ⟨h1, h2, h3, h4⟩ := hF (a, b) hab
+    simp only at h1 h2 h3 h4
+    have ha : (1 : ℝ) ≤ a := by exact_mod_cast h1
+    have hb : (1 : ℝ) ≤ b := by exact_mod_cast h2
+    simp only [Finset.mem_filter, Finset.mem_product, Finset.mem_Icc]
+    exact ⟨⟨⟨h1, Nat.le_floor (by linarith)⟩, ⟨h2, Nat.le_floor (by linarith)⟩⟩, h3, h4⟩
+  exact_mod_cast Finset.card_le_card hsub
+
+-- N13 ruling_plane_identity [algebraic_identity]
+theorem ruling_plane_identity (α β γ r s x1 x2 x3 x4 x5 x6 : ℝ)
+    (hx1 : x1 = -1 + (1 / 15 - β) * r - γ * s)
+    (hx2 : x2 = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α - 462 * β * γ - γ) * s)
+    (hx3 : x3 = -1 - β * r + (1 / 31 - γ) * s)
+    (hx4 : x4 = -1 - 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s)
+    (hx5 : x5 = -1 - β * r - γ * s)
+    (hx6 : x6 = (15 * (x1 + x2) + 31 * (x3 + x4) - 508 * x5 - 462) / 508) :
+    15 * x1 * x2 + 31 * x3 * x4 = 508 * x5 * x6 ∧
+    15 * (x1 + x2) + 31 * (x3 + x4) - 508 * (x5 + x6) = 462 ∧
+    508 * x6 = -(6930 * β + 14322 * γ + 46) +
+      (-31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β + 1) * r +
+      (15 * α - 6930 * β * γ - 14322 * γ ^ 2 + 416 * γ + 1) * s := by
+  subst hx1 hx2 hx3 hx4 hx5 hx6
+  refine ⟨by ring, by ring, by ring⟩
+
+-- N14 determinant_table [algebraic_identity]
+theorem determinant_table (α β γ a1 b1 a2 b2 a3 b3 a4 b4 a5 b5 a6 b6 : ℝ)
+    (ha1 : a1 = 1 / 15 - β) (hb1 : b1 = -γ)
+    (ha2 : a2 = -462 * β ^ 2 - β) (hb2 : b2 = α - 462 * β * γ - γ)
+    (ha3 : a3 = -β) (hb3 : b3 = 1 / 31 - γ)
+    (ha4 : a4 = -α - 462 * β * γ - β) (hb4 : b4 = -462 * γ ^ 2 - γ)
+    (ha5 : a5 = -β) (hb5 : b5 = -γ)
+    (ha6 : a6 = (15 * (a1 + a2) + 31 * (a3 + a4) - 508 * a5) / 508)
+    (hb6 : b6 = (15 * (b1 + b2) + 31 * (b3 + b4) - 508 * b5) / 508) :
+    a1 * b2 - b1 * a2 = -(15 * α * β - α + 462 * β * γ + γ) / 15 ∧
+    a1 * b3 - b1 * a3 = -(15 * β + 31 * γ - 1) / 465 ∧
+    a1 * b4 - b1 * a4 = -γ * (15 * α + 462 * γ + 1) / 15 ∧
+    a1 * b5 - b1 * a5 = -γ / 15 ∧
+    a1 * b6 - b1 * a6 = -(15 * α + 462 * γ + 1) * (15 * β + 31 * γ - 1) / 7620 ∧
+    a2 * b3 - b2 * a3 = β * (31 * α - 462 * β - 1) / 31 ∧
+    a2 * b4 - b2 * a4 = α * (α + β - γ) ∧
+    a2 * b5 - b2 * a5 = α * β ∧
+    a2 * b6 - b2 * a6 = (α + β - γ) * (31 * α - 462 * β - 1) / 508 ∧
+    a3 * b4 - b3 * a4 = -(31 * α * γ - α - 462 * β * γ - β) / 31 ∧
+    a3 * b5 - b3 * a5 = β / 31 ∧
+    a3 * b6 - b3 * a6 = -(31 * α - 462 * β - 1) * (15 * β + 31 * γ - 1) / 15748 ∧
+    a4 * b5 - b4 * a5 = α * γ ∧
+    a4 * b6 - b4 * a6 = -(α + β - γ) * (15 * α + 462 * γ + 1) / 508 ∧
+    a5 * b6 - b5 * a6 = -(15 * α * β + 31 * α * γ + β - γ) / 508 := by
+  subst ha1 hb1 ha2 hb2 ha3 hb3 ha4 hb4 ha5 hb5 ha6 hb6
+  refine ⟨by ring, by ring, by ring, by ring, by ring, by ring, by ring, by ring, by ring, by ring,
+    by ring, by ring, by ring, by ring, by ring⟩
+
+-- N15 finite_complexity_real [case_split]
+theorem finite_complexity_real (Z α β γ a1 b1 a2 b2 a3 b3 a4 b4 a5 b5 a6 b6 : ℝ)
+    (hZ : 100 ≤ Z) (hα1 : Z ^ 2 ≤ α) (hα2 : α ≤ 2 * Z ^ 2) (hβ1 : Z ≤ β) (hβ2 : β ≤ 2 * Z)
+    (hγ1 : Z ≤ γ) (hγ2 : γ ≤ 2 * Z)
+    (ha1 : a1 = 1 / 15 - β) (hb1 : b1 = -γ)
+    (ha2 : a2 = -462 * β ^ 2 - β) (hb2 : b2 = α - 462 * β * γ - γ)
+    (ha3 : a3 = -β) (hb3 : b3 = 1 / 31 - γ)
+    (ha4 : a4 = -α - 462 * β * γ - β) (hb4 : b4 = -462 * γ ^ 2 - γ)
+    (ha5 : a5 = -β) (hb5 : b5 = -γ)
+    (ha6 : a6 = (15 * (a1 + a2) + 31 * (a3 + a4) - 508 * a5) / 508)
+    (hb6 : b6 = (15 * (b1 + b2) + 31 * (b3 + b4) - 508 * b5) / 508) :
+    a1 * b2 - b1 * a2 ≠ 0 ∧
+    a1 * b3 - b1 * a3 ≠ 0 ∧
+    a1 * b4 - b1 * a4 ≠ 0 ∧
+    a1 * b5 - b1 * a5 ≠ 0 ∧
+    a1 * b6 - b1 * a6 ≠ 0 ∧
+    a2 * b3 - b2 * a3 ≠ 0 ∧
+    a2 * b4 - b2 * a4 ≠ 0 ∧
+    a2 * b5 - b2 * a5 ≠ 0 ∧
+    a2 * b6 - b2 * a6 ≠ 0 ∧
+    a3 * b4 - b3 * a4 ≠ 0 ∧
+    a3 * b5 - b3 * a5 ≠ 0 ∧
+    a3 * b6 - b3 * a6 ≠ 0 ∧
+    a4 * b5 - b4 * a5 ≠ 0 ∧
+    a4 * b6 - b4 * a6 ≠ 0 ∧
+    a5 * b6 - b5 * a6 ≠ 0 := by
+  obtain ⟨t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15⟩ :=
+    determinant_table α β γ a1 b1 a2 b2 a3 b3 a4 b4 a5 b5 a6 b6 ha1 hb1 ha2 hb2 ha3 hb3 ha4 hb4
+      ha5 hb5 ha6 hb6
+  rw [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15]
+  clear t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 t14 t15 ha1 hb1 ha2 hb2 ha3 hb3 ha4 hb4 ha5 hb5
+    ha6 hb6
+  have hZ0 : 0 < Z := by linarith
+  have hZZ : 100 * Z ≤ Z * Z := mul_le_mul_of_nonneg_right hZ hZ0.le
+  have hZ2 : 100 * Z ≤ Z ^ 2 := by rw [sq]; exact hZZ
+  have hα0 : 0 < α := by linarith
+  have hβ0 : 0 < β := by linarith
+  have hγ0 : 0 < γ := by linarith
+  have hαZ : 100 * Z ≤ α := by linarith
+  have hZ3 : Z ^ 2 * 100 ≤ Z ^ 2 * Z := mul_le_mul_of_nonneg_left hZ (by positivity)
+  have hαγ : Z ^ 2 * Z ≤ α * γ := mul_le_mul hα1 hγ1 hZ0.le hα0.le
+  have hβγ : β * γ ≤ 2 * Z * (2 * Z) := mul_le_mul hβ2 hγ2 hγ0.le (by linarith)
+  have hαβ : Z ^ 2 * Z ≤ α * β := mul_le_mul hα1 hβ1 hZ0.le hα0.le
+  have hZZ2 : Z * Z = Z ^ 2 := by ring
+  have P1 : 0 < 15 * α * β - α + 462 * β * γ + γ := by
+    have h1 := mul_pos hα0 (show 0 < 15 * β - 1 by linarith)
+    have h2 := mul_pos hγ0 (show 0 < 462 * β + 1 by linarith)
+    nlinarith
+  have P2 : 0 < 15 * β + 31 * γ - 1 := by linarith
+  have P3 : 0 < 15 * α + 462 * γ + 1 := by linarith
+  have P4 : 0 < 31 * α - 462 * β - 1 := by linarith
+  have P5 : 0 < α + β - γ := by linarith
+  have P6 : 0 < 31 * α * γ - α - 462 * β * γ - β := by nlinarith
+  have P7 : 0 < 15 * α * β + 31 * α * γ + β - γ := by nlinarith
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact div_ne_zero (neg_ne_zero.mpr P1.ne') (by norm_num)
+  · exact div_ne_zero (neg_ne_zero.mpr P2.ne') (by norm_num)
+  · exact div_ne_zero (mul_ne_zero (neg_ne_zero.mpr hγ0.ne') P3.ne') (by norm_num)
+  · exact div_ne_zero (neg_ne_zero.mpr hγ0.ne') (by norm_num)
+  · exact div_ne_zero (mul_ne_zero (neg_ne_zero.mpr P3.ne') P2.ne') (by norm_num)
+  · exact div_ne_zero (mul_ne_zero hβ0.ne' P4.ne') (by norm_num)
+  · exact mul_ne_zero hα0.ne' P5.ne'
+  · exact mul_ne_zero hα0.ne' hβ0.ne'
+  · exact div_ne_zero (mul_ne_zero P5.ne' P4.ne') (by norm_num)
+  · exact div_ne_zero (neg_ne_zero.mpr P6.ne') (by norm_num)
+  · exact div_ne_zero hβ0.ne' (by norm_num)
+  · exact div_ne_zero (mul_ne_zero (neg_ne_zero.mpr P4.ne') P2.ne') (by norm_num)
+  · exact mul_ne_zero hα0.ne' hγ0.ne'
+  · exact div_ne_zero (mul_ne_zero (neg_ne_zero.mpr P5.ne') P3.ne') (by norm_num)
+  · exact div_ne_zero (neg_ne_zero.mpr P7.ne') (by norm_num)
+
+-- N16 archimedean_bounds [extremal_averaging]
+set_option maxHeartbeats 400000 in
+theorem archimedean_bounds : ∃ c C : ℝ, 0 < c ∧ c < C ∧
+    ∀ (Z T α β γ r s x1 x2 x3 x4 x5 x6 : ℝ),
+      100 ≤ Z → 10 ≤ T → Z ^ 2 ≤ α → α ≤ 2 * Z ^ 2 → Z ≤ β → β ≤ 2 * Z → Z ≤ γ → γ ≤ 2 * Z →
+      -2 * T ≤ r → r ≤ -T → |s| ≤ 1 / 100000 * |r| →
+      x1 = -1 + (1 / 15 - β) * r - γ * s →
+      x2 = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α - 462 * β * γ - γ) * s →
+      x3 = -1 - β * r + (1 / 31 - γ) * s →
+      x4 = -1 - 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s →
+      x5 = -1 - β * r - γ * s →
+      x6 = (15 * (x1 + x2) + 31 * (x3 + x4) - 508 * x5 - 462) / 508 →
+      (c * Z * T ≤ x1 ∧ x1 ≤ C * Z * T ∧ c * Z * T ≤ x3 ∧ x3 ≤ C * Z * T ∧
+       c * Z * T ≤ x5 ∧ x5 ≤ C * Z * T ∧
+       c * Z ^ 2 * T ≤ x2 ∧ x2 ≤ C * Z ^ 2 * T ∧ c * Z ^ 2 * T ≤ x4 ∧ x4 ≤ C * Z ^ 2 * T ∧
+       c * Z ^ 2 * T ≤ x6 ∧ x6 ≤ C * Z ^ 2 * T) := by
+  refine ⟨1 / 2, 4000, by norm_num, by norm_num, ?_⟩
+  intro Z T α β γ r s x1 x2 x3 x4 x5 x6 hZ hT hα1 hα2 hβ1 hβ2 hγ1 hγ2 hr1 hr2 hs hx1 hx2 hx3 hx4 hx5 hx6
+  obtain ⟨u, rfl⟩ : ∃ u, r = -u := ⟨-r, by ring⟩
+  have hu1 : T ≤ u := by linarith
+  have hu2 : u ≤ 2 * T := by linarith
+  have hu0 : 0 < u := by linarith
+  rw [abs_neg, abs_of_pos hu0] at hs
+  obtain ⟨hs1, hs2⟩ := abs_le.mp hs
+  have hZ0 : 0 < Z := by linarith
+  have hT0 : 0 < T := by linarith
+  have hα0 : 0 ≤ α := by nlinarith
+  have hβ0 : 0 ≤ β := by linarith
+  have hγ0 : 0 ≤ γ := by linarith
+  have hZT : 1000 ≤ Z * T := by nlinarith
+  have hZZT : 10 * Z ≤ Z * T := by nlinarith
+  have hTZT : 100 * T ≤ Z * T := mul_le_mul_of_nonneg_right hZ hT0.le
+  have hZ2T : 100 * (Z * T) ≤ Z ^ 2 * T := by nlinarith
+  -- degree-2 products with u
+  have hβu1 : Z * T ≤ β * u := mul_le_mul hβ1 hu1 hT0.le hβ0
+  have hβu2 : β * u ≤ 2 * Z * (2 * T) := mul_le_mul hβ2 hu2 hu0.le (by linarith)
+  have hγu1 : Z * T ≤ γ * u := mul_le_mul hγ1 hu1 hT0.le hγ0
+  have hγu2 : γ * u ≤ 2 * Z * (2 * T) := mul_le_mul hγ2 hu2 hu0.le (by linarith)
+  have hαu1 : Z ^ 2 * T ≤ α * u := mul_le_mul hα1 hu1 hT0.le hα0
+  have hαu2 : α * u ≤ 2 * Z ^ 2 * (2 * T) := mul_le_mul hα2 hu2 hu0.le (by linarith)
+  -- degree-3 products with u
+  have hβsq : β ^ 2 ≤ (2 * Z) ^ 2 := pow_le_pow_left₀ hβ0 hβ2 2
+  have hβsq' : Z ^ 2 ≤ β ^ 2 := pow_le_pow_left₀ hZ0.le hβ1 2
+  have hγsq : γ ^ 2 ≤ (2 * Z) ^ 2 := pow_le_pow_left₀ hγ0 hγ2 2
+  have hγsq' : Z ^ 2 ≤ γ ^ 2 := pow_le_pow_left₀ hZ0.le hγ1 2
+  have hβγ1 : Z * Z ≤ β * γ := mul_le_mul hβ1 hγ1 hZ0.le hβ0
+  have hβγ2 : β * γ ≤ 2 * Z * (2 * Z) := mul_le_mul hβ2 hγ2 hγ0 (by linarith)
+  have hβ2u1 : Z ^ 2 * T ≤ β ^ 2 * u := mul_le_mul hβsq' hu1 hT0.le (by positivity)
+  have hβ2u2 : β ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T) := mul_le_mul hβsq hu2 hu0.le (by positivity)
+  have hγ2u1 : Z ^ 2 * T ≤ γ ^ 2 * u := mul_le_mul hγsq' hu1 hT0.le (by positivity)
+  have hγ2u2 : γ ^ 2 * u ≤ (2 * Z) ^ 2 * (2 * T) := mul_le_mul hγsq hu2 hu0.le (by positivity)
+  have hβγu1 : Z * Z * T ≤ β * γ * u := mul_le_mul hβγ1 hu1 hT0.le (by positivity)
+  have hβγu2 : β * γ * u ≤ 2 * Z * (2 * Z) * (2 * T) := mul_le_mul hβγ2 hu2 hu0.le (by positivity)
+  -- products with s
+  have hγs1 : γ * (-(1 / 100000 * u)) ≤ γ * s := mul_le_mul_of_nonneg_left hs1 hγ0
+  have hγs2 : γ * s ≤ γ * (1 / 100000 * u) := mul_le_mul_of_nonneg_left hs2 hγ0
+  have hαs1 : α * (-(1 / 100000 * u)) ≤ α * s := mul_le_mul_of_nonneg_left hs1 hα0
+  have hαs2 : α * s ≤ α * (1 / 100000 * u) := mul_le_mul_of_nonneg_left hs2 hα0
+  have hβγs1 : β * γ * (-(1 / 100000 * u)) ≤ β * γ * s := mul_le_mul_of_nonneg_left hs1 (by positivity)
+  have hβγs2 : β * γ * s ≤ β * γ * (1 / 100000 * u) := mul_le_mul_of_nonneg_left hs2 (by positivity)
+  have hγ2s1 : γ ^ 2 * (-(1 / 100000 * u)) ≤ γ ^ 2 * s := mul_le_mul_of_nonneg_left hs1 (by positivity)
+  have hγ2s2 : γ ^ 2 * s ≤ γ ^ 2 * (1 / 100000 * u) := mul_le_mul_of_nonneg_left hs2 (by positivity)
+  subst hx1 hx2 hx3 hx4 hx5 hx6
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> linarith
+
+-- N17 zero_form_criteria [algebraic_identity]
+theorem zero_form_criteria {F : Type*} [Field F] (h2 : (2 : F) ≠ 0) (h3 : (3 : F) ≠ 0)
+    (h7 : (7 : F) ≠ 0) (h11 : (11 : F) ≠ 0) (α β γ : F) :
+    ((-1 - 462 * β = 0 ∧ -462 * β ^ 2 - β = 0 ∧ α - 462 * β * γ - γ = 0) ↔ (α = 0 ∧ 462 * β + 1 = 0)) ∧
+    ((-1 - 462 * γ = 0 ∧ -α - 462 * β * γ - β = 0 ∧ -462 * γ ^ 2 - γ = 0) ↔ (α = 0 ∧ 462 * γ + 1 = 0)) ∧
+    ((6930 * β + 14322 * γ + 46 = 0 ∧
+      -31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β + 1 = 0 ∧
+      15 * α - 6930 * β * γ - 14322 * γ ^ 2 + 416 * γ + 1 = 0) ↔
+     (31 * α - 462 * β - 1 = 0 ∧ 15 * α + 462 * γ + 1 = 0)) := by
+  refine ⟨⟨fun h => ?_, fun h => ?_⟩, ⟨fun h => ?_, fun h => ?_⟩, ⟨fun h => ?_, fun h => ?_⟩⟩
+  · obtain ⟨h1, h2, h3⟩ := h
+    exact ⟨by linear_combination h3 - γ * h1, by linear_combination -h1⟩
+  · obtain ⟨h1, h2⟩ := h
+    exact ⟨by linear_combination -h2, by linear_combination -β * h2, by linear_combination h1 - γ * h2⟩
+  · obtain ⟨h1, h2, h3⟩ := h
+    exact ⟨by linear_combination -h2 + β * h1, by linear_combination -h1⟩
+  · obtain ⟨h1, h2⟩ := h
+    exact ⟨by linear_combination -h2, by linear_combination -h1 - β * h2, by linear_combination -γ * h2⟩
+  · obtain ⟨h1, h2, h3⟩ := h
+    exact ⟨by linear_combination -h2 - β * h1, by linear_combination h3 + γ * h1⟩
+  · obtain ⟨hu, hv⟩ := h
+    exact ⟨by linear_combination -15 * hu + 31 * hv,
+      by linear_combination (-1 + 15 * β) * hu - 31 * β * hv,
+      by linear_combination 15 * γ * hu + (1 - 31 * γ) * hv⟩
+
+-- N18 integral_lift [algebraic_identity]
+theorem integral_lift (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (q A B C : ℤ) (x : Fin 6 → ℤ) (hq : q ≠ 0) (hx : OnPl q A B C x) :
+    ∀ α β γ r s : ℝ, α = A / q → β = B / q → γ = C / q →
+      r = 15 * ((x 0 : ℝ) - x 4) → s = 31 * ((x 2 : ℝ) - x 4) →
+      (x 0 : ℝ) = -1 + (1 / 15 - β) * r - γ * s ∧
+      (x 1 : ℝ) = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α - 462 * β * γ - γ) * s ∧
+      (x 2 : ℝ) = -1 - β * r + (1 / 31 - γ) * s ∧
+      (x 3 : ℝ) = -1 - 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s ∧
+      (x 4 : ℝ) = -1 - β * r - γ * s ∧
+      (x 5 : ℝ) = (15 * ((x 0 : ℝ) + x 1) + 31 * ((x 2 : ℝ) + x 3) - 508 * (x 4 : ℝ) - 462) / 508 := by
+  intro α β γ r s hα hβ hγ hr hs
+  rw [hOnPl] at hx
+  obtain ⟨e1, e2, e3, e4⟩ := hx
+  have hq' : (q : ℝ) ≠ 0 := by exact_mod_cast hq
+  have e1' : (q : ℝ) * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 := by exact_mod_cast e1
+  have e2' : (q : ℝ) * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 := by exact_mod_cast e2
+  have e3' : (q : ℝ) * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) := by
+    exact_mod_cast e3
+  have e4' : (508 : ℝ) * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462 := by
+    exact_mod_cast e4
+  have hA : (A : ℝ) = α * q := by rw [hα]; field_simp
+  have hB : (B : ℝ) = β * q := by rw [hβ]; field_simp
+  have hC : (C : ℝ) = γ * q := by rw [hγ]; field_simp
+  rw [hA] at e1' e2'
+  rw [hB] at e1' e3'
+  rw [hC] at e2' e3'
+  have f1 : (x 1 : ℝ) - x 4 = 31 * α * (x 2 - x 4) + 462 * β * x 4 :=
+    mul_left_cancel₀ hq' (by linear_combination e1')
+  have f2 : (x 3 : ℝ) - x 4 = -15 * α * (x 0 - x 4) + 462 * γ * x 4 :=
+    mul_left_cancel₀ hq' (by linear_combination e2')
+  have f3 : (x 4 : ℝ) + 1 = -(15 * β * (x 0 - x 4) + 31 * γ * (x 2 - x 4)) :=
+    mul_left_cancel₀ hq' (by linear_combination e3')
+  subst hr hs
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · linear_combination f3
+  · linear_combination f1 + (1 + 462 * β) * f3
+  · linear_combination f3
+  · linear_combination f2 + (1 + 462 * γ) * f3
+  · linear_combination f3
+  · linear_combination e4' / 508
+
+-- N19 onPlane_equations [algebraic_identity]
+theorem onPlane_equations (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (q A B C : ℤ) (x : Fin 6 → ℤ) (hq : q ≠ 0) (hx : OnPl q A B C x) :
+    15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5 ∧
+    15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * (x 4 + x 5) = 462 := by
+  have lift := integral_lift OnPl hOnPl q A B C x hq hx (A / q) (B / q) (C / q)
+    (15 * ((x 0 : ℝ) - x 4)) (31 * ((x 2 : ℝ) - x 4)) rfl rfl rfl rfl rfl
+  obtain ⟨h0, h1, h2, h3, h4, h5⟩ := lift
+  obtain ⟨k1, k2, -⟩ := ruling_plane_identity (A / q) (B / q) (C / q) (15 * ((x 0 : ℝ) - x 4))
+    (31 * ((x 2 : ℝ) - x 4)) (x 0) (x 1) (x 2) (x 3) (x 4) (x 5) h0 h1 h2 h3 h4 h5
+  constructor
+  · exact_mod_cast k1
+  · exact_mod_cast k2
+
+-- N20 good_coprime [case_split]
+theorem good_coprime (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q)))))
+    (Z : ℝ) (q : ℕ) (A B C : ℤ) (hG : Good Z q A B C) :
+    IsCoprime A (q : ℤ) ∧ IsCoprime B (q : ℤ) ∧ IsCoprime C (q : ℤ) ∧ IsCoprime (A * B * C) (q : ℤ) := by
+  rw [hGood] at hG
+  obtain ⟨-, -, -, -, -, -, -, -, -, hdiv, -⟩ := hG
+  have gen : ∀ X : ℤ, X ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C) →
+      IsCoprime X (q : ℤ) := by
+    intro X hX
+    rw [Int.isCoprime_iff_gcd_eq_one]
+    by_contra hne
+    obtain ⟨p, hp, hpd⟩ := Nat.exists_prime_and_dvd hne
+    have h1 : (p : ℤ) ∣ X := (Int.natCast_dvd_natCast.mpr hpd).trans (Int.gcd_dvd_left X q)
+    have h2 : (p : ℤ) ∣ (q : ℤ) := (Int.natCast_dvd_natCast.mpr hpd).trans (Int.gcd_dvd_right X q)
+    exact hdiv p hp (Int.natCast_dvd_natCast.mp h2) (h1.trans hX)
+  have hA := gen A ⟨B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C), by ring⟩
+  have hB := gen B ⟨A * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C), by ring⟩
+  have hC := gen C ⟨A * B * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C), by ring⟩
+  exact ⟨hA, hB, hC, IsCoprime.mul_left (IsCoprime.mul_left hA hB) hC⟩
+
+-- N21 local_witness [algebraic_identity]
+theorem local_witness (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C)
+    (hCq : IsCoprime C (q : ℤ)) :
+    ∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ ∀ p : ℕ, p.Prime → p ∣ 4619990760 → ∀ i, ¬ (p : ℤ) ∣ x i := by
+  sorry
+
+-- N22 projected_index [two_structure_coupling]
+theorem projected_index (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C)
+    (hcop : IsCoprime (A * B * C) (q : ℤ)) :
+    ∃ (z : ℤ × ℤ) (Γ : AddSubgroup (ℤ × ℤ)) (δ : ℕ), δ ∣ 508 ∧ Γ.index = q ^ 2 * δ ∧
+      ∀ y : ℤ × ℤ, (∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ x 0 - x 4 = y.1 ∧ x 2 - x 4 = y.2) ↔ y - z ∈ Γ := by
+  sorry
+
+-- N23 lattice_coords [extremal_averaging]
+theorem lattice_coords (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) :
+    ∃ C0 C1 C2 : ℝ, 0 < C1 ∧ ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ),
+      1 ≤ q → q % 4619990760 = 1 → (4619990760 : ℤ) ∣ A → (4619990760 : ℤ) ∣ B → (4619990760 : ℤ) ∣ C →
+      IsCoprime (A * B * C) (q : ℤ) → 100 ≤ Z →
+      (q : ℝ) * Z ^ 2 ≤ A → (A : ℝ) < 2 * q * Z ^ 2 → (q : ℝ) * Z ≤ B → (B : ℝ) < 2 * q * Z →
+      (q : ℝ) * Z ≤ C → (C : ℝ) < 2 * q * Z → C0 * (q : ℝ) ^ 2 ≤ T →
+      ∃ (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (δ : ℕ), δ ∣ 508 ∧
+        (∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)) ∧
+        (∀ x, OnPl q A B C x → ∃! n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) ∧
+        |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ ∧
+        (∀ i, |(c i : ℝ)| ≤ C2 * Z ^ 2 * (q : ℝ) ^ 2 ∧ ∀ j, |(L i j : ℝ)| ≤ C2 * Z ^ 2 * (q : ℝ) ^ 2) ∧
+        ∀ K : Set (Fin 2 → ℝ),
+          (∀ v, v ∈ K ↔
+            (-2 * T ≤ 15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j)) ∧ 15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j)) ≤ -T ∧
+             |31 * (((c 2 : ℝ) + ∑ j, (L 2 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))| ≤ 1 / 100000 * |15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))|)) →
+          Convex ℝ K ∧
+          MeasureTheory.volume K = ENNReal.ofReal (3 / 100000 * T ^ 2 / (465 * (q : ℝ) ^ 2 * δ)) ∧
+          ∀ v ∈ K, ∀ j, |v j| ≤ C1 * T := by
+  sorry
+
+-- N24 region_bounds_int [assembly]
+theorem region_bounds_int (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (InReg : ℝ → (Fin 6 → ℤ) → Prop)
+    (hInReg : ∀ T (x : Fin 6 → ℤ), InReg T x ↔
+      (-2 * T ≤ 15 * ((x 0 : ℝ) - x 4) ∧ 15 * ((x 0 : ℝ) - x 4) ≤ -T ∧
+       |31 * ((x 2 : ℝ) - x 4)| ≤ 1 / 100000 * |15 * ((x 0 : ℝ) - x 4)|)) :
+    ∃ cl Cu ch Ch : ℝ, 0 < cl ∧ 0 < ch ∧ ch < Ch ∧ ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ) (x : Fin 6 → ℤ),
+      1 ≤ q → 100 ≤ Z → 10 ≤ T →
+      (q : ℝ) * Z ^ 2 ≤ A → (A : ℝ) ≤ 2 * q * Z ^ 2 → (q : ℝ) * Z ≤ B → (B : ℝ) ≤ 2 * q * Z →
+      (q : ℝ) * Z ≤ C → (C : ℝ) ≤ 2 * q * Z → OnPl q A B C x → InReg T x →
+      (cl * Z * T ≤ x 0 ∧ cl * Z * T ≤ x 2 ∧ cl * Z * T ≤ x 4 ∧
+       cl * Z ^ 2 * T ≤ x 1 ∧ cl * Z ^ 2 * T ≤ x 3 ∧ cl * Z ^ 2 * T ≤ x 5 ∧
+       (∀ i, (x i : ℝ) ≤ Cu * Z ^ 2 * T) ∧
+       ch * Z ^ 3 * T ^ 2 ≤ 508 * (x 4 : ℝ) * x 5 ∧ 508 * (x 4 : ℝ) * x 5 ≤ Ch * Z ^ 3 * T ^ 2) := by
+  obtain ⟨c₀, C₀, hc₀, hcC, hbnd⟩ := archimedean_bounds
+  refine ⟨c₀, C₀, 508 * c₀ ^ 2, 508 * C₀ ^ 2, hc₀, by positivity, by nlinarith, ?_⟩
+  intro q A B C Z T x hq hZ hT hA1 hA2 hB1 hB2 hC1 hC2 hx hreg
+  have hq0 : (0 : ℝ) < q := by exact_mod_cast hq
+  have hq' : (q : ℤ) ≠ 0 := by positivity
+  have hq0' : (0 : ℝ) < ((q : ℤ) : ℝ) := by exact_mod_cast hq
+  obtain ⟨h0, h1, h2, h3, h4, h5⟩ := integral_lift OnPl hOnPl q A B C x hq' hx
+    (A / ((q : ℤ) : ℝ)) (B / ((q : ℤ) : ℝ)) (C / ((q : ℤ) : ℝ))
+    (15 * ((x 0 : ℝ) - x 4)) (31 * ((x 2 : ℝ) - x 4)) rfl rfl rfl rfl rfl
+  rw [hInReg] at hreg
+  obtain ⟨hr1, hr2, hs⟩ := hreg
+  have hqq : ((q : ℤ) : ℝ) = (q : ℝ) := Int.cast_natCast q
+  have hα1 : Z ^ 2 ≤ (A : ℝ) / ((q : ℤ) : ℝ) := by rw [le_div_iff₀ hq0', hqq]; linarith
+  have hα2 : (A : ℝ) / ((q : ℤ) : ℝ) ≤ 2 * Z ^ 2 := by rw [div_le_iff₀ hq0', hqq]; linarith
+  have hβ1 : Z ≤ (B : ℝ) / ((q : ℤ) : ℝ) := by rw [le_div_iff₀ hq0', hqq]; linarith
+  have hβ2 : (B : ℝ) / ((q : ℤ) : ℝ) ≤ 2 * Z := by rw [div_le_iff₀ hq0', hqq]; linarith
+  have hγ1 : Z ≤ (C : ℝ) / ((q : ℤ) : ℝ) := by rw [le_div_iff₀ hq0', hqq]; linarith
+  have hγ2 : (C : ℝ) / ((q : ℤ) : ℝ) ≤ 2 * Z := by rw [div_le_iff₀ hq0', hqq]; linarith
+  obtain ⟨b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12⟩ :=
+    hbnd Z T _ _ _ _ _ (x 0) (x 1) (x 2) (x 3) (x 4) (x 5) hZ hT hα1 hα2 hβ1 hβ2 hγ1 hγ2 hr1 hr2 hs
+      h0 h1 h2 h3 h4 h5
+  have hZ0 : 0 < Z := by linarith
+  have hT0 : 0 < T := by linarith
+  have hZT : Z * T ≤ Z ^ 2 * T := by nlinarith
+  have hx4pos : 0 ≤ c₀ * Z * T := by positivity
+  have hx5pos : 0 ≤ c₀ * Z ^ 2 * T := by positivity
+  have hlo := mul_le_mul b5 b11 hx5pos (by linarith)
+  have hhi := mul_le_mul b6 b12 (by linarith) (by positivity)
+  refine ⟨b1, b3, b5, b7, b9, b11, ?_, ?_, ?_⟩
+  · intro i
+    fin_cases i <;> simp only [Fin.zero_eta, Fin.mk_one, Fin.reduceFinMk] <;> nlinarith
+  · calc 508 * c₀ ^ 2 * Z ^ 3 * T ^ 2 = 508 * (c₀ * Z * T * (c₀ * Z ^ 2 * T)) := by ring
+      _ ≤ 508 * ((x 4 : ℝ) * x 5) := by gcongr
+      _ = 508 * (x 4 : ℝ) * x 5 := by ring
+  · calc 508 * (x 4 : ℝ) * x 5 = 508 * ((x 4 : ℝ) * x 5) := by ring
+      _ ≤ 508 * (C₀ * Z * T * (C₀ * Z ^ 2 * T)) := by gcongr
+      _ = 508 * C₀ ^ 2 * Z ^ 3 * T ^ 2 := by ring
+
+-- N25 sqfree_progression_count [extremal_averaging]
+theorem sqfree_progression_count : ∃ csf Q1 : ℝ, 0 < csf ∧ ∀ Q : ℝ, Q1 ≤ Q →
+    ∃ F : Finset ℕ, (∀ q ∈ F, Q ≤ q ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q) ∧ csf * Q ≤ F.card := by
+  sorry
+
+-- N26 H_sum_bound [extremal_averaging]
+theorem H_sum_bound : ∃ CH Q1 : ℝ, ∀ Q : ℝ, Q1 ≤ Q →
+    ∑ q ∈ (Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊).filter (fun q => q % 4619990760 = 1),
+      ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ CH * Q := by
+  sorry
+
+-- N27 good_denominators [extremal_averaging]
+theorem good_denominators : ∃ M0 cW Q0 : ℝ, 0 < cW ∧ ∀ Q : ℝ, Q0 ≤ Q →
+    ∃ F : Finset ℕ, (∀ q ∈ F, Q ≤ q ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧
+      ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0) ∧ cW * Q ≤ F.card := by
+  obtain ⟨csf, Q1, hcsf, hF⟩ := sqfree_progression_count
+  obtain ⟨CH, Q2, hH⟩ := H_sum_bound
+  have hmax : 0 < max CH 1 := by positivity
+  set M0 := 2 * max CH 1 / csf with hM0
+  have hM0pos : 0 < M0 := by positivity
+  refine ⟨M0, csf / 2, max Q1 (max Q2 1), by positivity, ?_⟩
+  intro Q hQ
+  have hQ1 : Q1 ≤ Q := le_trans (le_max_left _ _) hQ
+  have hQ2 : Q2 ≤ Q := le_trans (le_max_of_le_right (le_max_left _ _)) hQ
+  have hQ3 : 1 ≤ Q := le_trans (le_max_of_le_right (le_max_right _ _)) hQ
+  obtain ⟨F0, hF0, hcard⟩ := hF Q hQ1
+  have hsum := hH Q hQ2
+  refine ⟨F0.filter (fun q => ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0), ?_, ?_⟩
+  · intro q hq
+    rw [Finset.mem_filter] at hq
+    obtain ⟨h1, h2, h3, h4⟩ := hF0 q hq.1
+    exact ⟨h1, h2, h3, h4, hq.2⟩
+  · set Bad := F0.filter (fun q => ¬ ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0) with hBad
+    have hsplit : (F0.filter (fun q => ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0)).card + Bad.card
+        = F0.card := Finset.filter_card_add_filter_neg_card_eq_card _
+    have hBadsub : Bad ⊆ (Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊).filter (fun q => q % 4619990760 = 1) := by
+      intro q hq
+      rw [Finset.mem_filter] at hq ⊢
+      obtain ⟨h1, h2, h3, -⟩ := hF0 q hq.1
+      exact ⟨Finset.mem_Icc.mpr ⟨Nat.ceil_le.mpr h1, Nat.le_floor h2⟩, h3⟩
+    have h1 : M0 * Bad.card ≤ ∑ q ∈ Bad, ∑ p ∈ q.primeFactors, (1 : ℝ) / p := by
+      calc M0 * Bad.card = ∑ q ∈ Bad, M0 := by rw [Finset.sum_const, nsmul_eq_mul, mul_comm]
+        _ ≤ ∑ q ∈ Bad, ∑ p ∈ q.primeFactors, (1 : ℝ) / p := by
+          apply Finset.sum_le_sum
+          intro q hq
+          rw [Finset.mem_filter] at hq
+          exact le_of_lt (not_le.mp hq.2)
+    have h2 : ∑ q ∈ Bad, ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤
+        ∑ q ∈ (Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊).filter (fun q => q % 4619990760 = 1),
+          ∑ p ∈ q.primeFactors, (1 : ℝ) / p := by
+      apply Finset.sum_le_sum_of_subset_of_nonneg hBadsub
+      intro q _ _
+      positivity
+    have hCH : CH * Q ≤ max CH 1 * Q := mul_le_mul_of_nonneg_right (le_max_left _ _) (by linarith)
+    have h4 : 2 * max CH 1 / csf * Bad.card ≤ max CH 1 * Q := by rw [← hM0]; linarith
+    rw [div_mul_eq_mul_div, div_le_iff₀ hcsf] at h4
+    have h5 : 2 * max CH 1 * (Bad.card : ℝ) ≤ 2 * max CH 1 * (csf * Q / 2) := by linarith
+    have hBadle : (Bad.card : ℝ) ≤ csf * Q / 2 := le_of_mul_le_mul_left h5 (by positivity)
+    have hsplit' : (F0.card : ℝ) =
+        ((F0.filter (fun q => ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0)).card : ℝ) + Bad.card := by
+      exact_mod_cast hsplit.symm
+    linarith
+
+-- N28 residue_blocks [extremal_averaging]
+theorem residue_blocks (m : ℕ) [NeZero m] (Ω : Finset (ZMod m × ZMod m × ZMod m))
+    (a1 a2 a3 : ℤ) (L1 L2 L3 : ℕ) :
+    Ω.card * ((L1 / m - 1) * (L2 / m - 1) * (L3 / m - 1)) ≤
+      ((Finset.Ico a1 (a1 + L1) ×ˢ (Finset.Ico a2 (a2 + L2) ×ˢ Finset.Ico a3 (a3 + L3))).filter
+        (fun x => ((x.1 : ZMod m), (x.2.1 : ZMod m), (x.2.2 : ZMod m)) ∈ Ω)).card := by
+  sorry
+
+-- N29 local_density [case_split]
+theorem local_density (M0 : ℝ) : ∃ ϑ : ℝ, 0 < ϑ ∧ ∀ (q P m : ℕ), Squarefree q → q % 4619990760 = 1 →
+    ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0 →
+    m = q * ∏ p ∈ (Finset.range (P + 1)).filter (fun p => p.Prime ∧ ¬ p ∣ 4619990760 * q), p →
+    ∃ Ω : Finset (ZMod m × ZMod m × ZMod m), ϑ * (m : ℝ) ^ 3 ≤ Ω.card ∧
+      ∀ a b c : ℤ, ((a : ZMod m), (b : ZMod m), (c : ZMod m)) ∈ Ω →
+        (∀ p : ℕ, p.Prime → p ∣ q →
+          ¬ (p : ℤ) ∣ (4619990760 * a) * (4619990760 * b) * (4619990760 * c) *
+            (462 * (4619990760 * c) + 15 * (4619990760 * a)) * (31 * (4619990760 * a) - 462 * (4619990760 * b)) *
+            (15 * (4619990760 * b) + 31 * (4619990760 * c))) ∧
+        (∀ p : ℕ, p.Prime → p ≤ P → ¬ p ∣ 4619990760 * q →
+          ¬ (((p : ℤ) ∣ 4619990760 * a ∧ (p : ℤ) ∣ 462 * (4619990760 * b) + q) ∨
+             ((p : ℤ) ∣ 4619990760 * a ∧ (p : ℤ) ∣ 462 * (4619990760 * c) + q) ∨
+             ((p : ℤ) ∣ 31 * (4619990760 * a) - 462 * (4619990760 * b) - q ∧
+              (p : ℤ) ∣ 15 * (4619990760 * a) + 462 * (4619990760 * c) + q))) := by
+  sorry
+
+-- N30 large_prime_tail [extremal_averaging]
+theorem large_prime_tail : ∃ Ct : ℝ, ∀ (q P : ℕ) (Z : ℝ), 2 ≤ q → 100 ≤ Z → 1 ≤ P →
+    ∀ F : Finset (ℤ × ℤ × ℤ), (∀ t ∈ F, (q : ℝ) * Z ^ 2 ≤ t.1 ∧ (t.1 : ℝ) < 2 * q * Z ^ 2 ∧
+        (q : ℝ) * Z ≤ t.2.1 ∧ (t.2.1 : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ t.2.2 ∧ (t.2.2 : ℝ) < 2 * q * Z ∧
+        ∃ p : ℕ, p.Prime ∧ P < p ∧ ¬ p ∣ 4619990760 * q ∧
+          (((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.1 + q) ∨ ((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.2 + q) ∨
+           ((p : ℤ) ∣ 31 * t.1 - 462 * t.2.1 - q ∧ (p : ℤ) ∣ 15 * t.1 + 462 * t.2.2 + q))) →
+      (F.card : ℝ) ≤ Ct * ((q : ℝ) ^ 3 * Z ^ 4 / P + (q : ℝ) ^ 2 * Z ^ 3 * Real.log (q * Z) + (q : ℝ) ^ 2 * Z ^ 4) := by
+  sorry
+
+-- N31 parameter_sieve [assembly]
+theorem parameter_sieve (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (M0 : ℝ) :
+    ∃ Z0 q0 c2 : ℝ, 100 ≤ Z0 ∧ 0 < c2 ∧ ∀ (q : ℕ) (Z : ℝ),
+      Squarefree q → q % 4619990760 = 1 → ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0 → q0 ≤ q → Z0 ≤ Z →
+      ∃ F : Finset (ℤ × ℤ × ℤ), (∀ t ∈ F, Good Z q t.1 t.2.1 t.2.2) ∧ c2 * (q : ℝ) ^ 3 * Z ^ 4 ≤ F.card := by
+  sorry
+
+-- N32 planes_meet_once [algebraic_identity]
+theorem planes_meet_once (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (q q' A B C A' B' C' : ℤ) (x x' : Fin 6 → ℤ) (hq : 0 < q) (hq' : 0 < q')
+    (hA : IsCoprime A q) (hB : IsCoprime B q) (hC : IsCoprime C q)
+    (hA' : IsCoprime A' q') (hB' : IsCoprime B' q') (hC' : IsCoprime C' q')
+    (hne : (q, A, B, C) ≠ (q', A', B', C'))
+    (h1 : OnPl q A B C x) (h2 : OnPl q A B C x') (h3 : OnPl q' A' B' C' x) (h4 : OnPl q' A' B' C' x') :
+    x = x' := by
+  sorry
+
+-- N33 union_card_bound [extremal_averaging]
+theorem union_card_bound {ι α : Type*} [DecidableEq α] (s : Finset ι) (f : ι → Finset α)
+    (h : ∀ i ∈ s, ∀ j ∈ s, i ≠ j → (f i ∩ f j).card ≤ 1) :
+    ∑ i ∈ s, (f i).card ≤ (s.biUnion f).card + s.card.choose 2 := by
+  classical
+  induction s using Finset.induction_on with
+  | empty => simp
+  | insert a s ha ih =>
+    rw [Finset.sum_insert ha, Finset.biUnion_insert, Finset.card_insert_of_notMem ha]
+    have ih' := ih (fun i hi j hj hij => h i (Finset.mem_insert_of_mem hi) j (Finset.mem_insert_of_mem hj) hij)
+    -- card (f a ∩ biUnion) ≤ s.card
+    have hinter : (f a ∩ s.biUnion f).card ≤ s.card := by
+      rw [Finset.inter_biUnion]
+      calc (s.biUnion fun j => f a ∩ f j).card ≤ ∑ j ∈ s, (f a ∩ f j).card := Finset.card_biUnion_le
+        _ ≤ ∑ j ∈ s, 1 := by
+            apply Finset.sum_le_sum
+            intro j hj
+            have hne : a ≠ j := fun h' => ha (h' ▸ hj)
+            exact h a (Finset.mem_insert_self a s) j (Finset.mem_insert_of_mem hj) hne
+        _ = s.card := by simp
+    have hunion := Finset.card_union_add_card_inter (f a) (s.biUnion f)
+    have hch : (s.card + 1).choose 2 = s.card + s.card.choose 2 := by
+      rw [Nat.choose_succ_succ, Nat.choose_one_right]
+    rw [hch]
+    omega
+
+-- N34 lattice_reduction [algebraic_identity]
+theorem lattice_reduction {ι : Type*} [Fintype ι] (p : ℕ) (L L' : AddSubgroup (ι → ℤ)) (hle : L' ≤ L)
+    (hp : ¬ p ∣ L'.relIndex L) :
+    (∀ x ∈ L, ∃ y ∈ L', ∃ z ∈ L, x = y + p • z) ∧
+    (∀ y ∈ L', (∃ z ∈ L, y = p • z) → ∃ z' ∈ L', y = p • z') := by
+  sorry
+
+-- N35 nonzero_forms_count [extremal_averaging]
+theorem nonzero_forms_count (p : ℕ) (hp : p.Prime) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)
+    (hnz : ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j)) :
+    p ^ 2 - 6 * p ≤ ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter
+      (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card := by
+  sorry
+
+-- N36 local_W [assembly]
+theorem local_W (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C)
+    (hCq : IsCoprime C (q : ℤ)) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)
+    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
+    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) :
+    ∀ p : ℕ, p.Prime → p ∣ 4619990760 →
+      ∃ n : Fin 2 → ℕ, (∀ j, n j < p) ∧ ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ) := by
+  intro p hp hpW
+  obtain ⟨x, hx, hunit⟩ := local_witness OnPl hOnPl q A B C hq1 hqW hA hB hC hCq
+  obtain ⟨n₀, hn₀⟩ := hsurj x hx
+  have hp0 : (0 : ℤ) < p := by exact_mod_cast hp.pos
+  refine ⟨fun j => (n₀ j % (p : ℤ)).toNat, fun j => ?_, fun i hdiv => ?_⟩
+  · have h1 := Int.emod_lt_of_pos (n₀ j) hp0
+    have h2 := Int.emod_nonneg (n₀ j) hp0.ne'
+    omega
+  · apply hunit p hp hpW i
+    have hcast : ∀ j, (((n₀ j % (p : ℤ)).toNat : ℕ) : ℤ) = n₀ j % p := fun j =>
+      Int.toNat_of_nonneg (Int.emod_nonneg _ hp0.ne')
+    simp only [hcast] at hdiv
+    have hXY : (p : ℤ) ∣ (c i + ∑ j, L i j * (n₀ j % p)) - (c i + ∑ j, L i j * n₀ j) := by
+      have : (c i + ∑ j, L i j * (n₀ j % p)) - (c i + ∑ j, L i j * n₀ j) =
+          ∑ j, L i j * (n₀ j % p - n₀ j) := by
+        simp only [mul_sub, Finset.sum_sub_distrib]; ring
+      rw [this]
+      apply Finset.dvd_sum
+      intro j _
+      apply Dvd.dvd.mul_left
+      rw [Int.emod_def]
+      exact ⟨-(n₀ j / p), by ring⟩
+    rw [hn₀]
+    simpa using Int.dvd_sub hdiv hXY
+
+-- N37 local_away [two_structure_coupling]
+theorem local_away (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q)))))
+    (q : ℕ) (A B C : ℤ) (Z : ℝ)
+    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C)
+    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)
+    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
+    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j)
+    (hdet : ∃ δ : ℕ, δ ∣ 508 ∧
+      |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))|
+        = 465 * (q : ℤ) ^ 2 * δ) :
+    ∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by
+  sorry
+
+-- N38 local_denominator [two_structure_coupling]
+theorem local_denominator (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q)))))
+    (q : ℕ) (A B C : ℤ) (Z : ℝ)
+    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C)
+    (hsq : Squarefree q)
+    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)
+    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
+    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) :
+    ∀ p : ℕ, p.Prime → p ∣ q → ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by
+  sorry
+
+-- N39 fc_lattice [algebraic_identity]
+theorem fc_lattice (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q)))))
+    (q : ℕ) (A B C : ℤ) (Z : ℝ)
+    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C)
+    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)
+    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
+    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j)
+    (hdet : ∃ δ : ℕ, δ ∣ 508 ∧
+      |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))|
+        = 465 * (q : ℤ) ^ 2 * δ) :
+    ∀ i j : Fin 6, i ≠ j → L i 0 * L j 1 - L i 1 * L j 0 ≠ 0 := by
+  sorry
+
+-- N40 beta_local [assembly]
+theorem beta_local (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q)))))
+    (q : ℕ) (A B C : ℤ) (Z : ℝ)
+    (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C)
+    (hsq : Squarefree q)
+    (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ)
+    (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
+    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j)
+    (hdet : ∃ δ : ℕ, δ ∣ 508 ∧
+      |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))|
+        = 465 * (q : ℤ) ^ 2 * δ)
+    (β : ℕ → ℝ)
+    (hβ : ∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 *
+      ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter
+        (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) :
+    ∀ p : ℕ, p.Prime →
+      (p ∣ 4619990760 → 1 / (p : ℝ) ^ 2 * ((p : ℝ) / (p - 1)) ^ 6 ≤ β p) ∧
+      (¬ p ∣ 4619990760 → (1 - 6 / (p : ℝ)) * ((p : ℝ) / (p - 1)) ^ 6 ≤ β p) := by
+  intro p hp
+  have hp0 : (0 : ℝ) < p := by exact_mod_cast hp.pos
+  have hp1 : (1 : ℝ) < p := by exact_mod_cast hp.one_lt
+  have hfac : 0 < ((p : ℝ) / (p - 1)) ^ 6 := pow_pos (div_pos hp0 (by linarith)) 6
+  have hcoef : 0 ≤ ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 := by positivity
+  rw [hβ p]
+  set N := ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter
+    (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card with hN
+  have hN0 : (0 : ℝ) ≤ N := by positivity
+  obtain ⟨hWA, hWB, hWC, -⟩ := (hGood Z q A B C).mp hG
+  obtain ⟨-, -, hCq, -⟩ := good_coprime Good hGood Z q A B C hG
+  constructor
+  · intro hpW
+    obtain ⟨n, hn, hunit⟩ := local_W OnPl hOnPl q A B C hq1 hqW hWA hWB hWC hCq c L hpar hsurj p hp hpW
+    have hmem : n ∈ (Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter
+        (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ)) :=
+      Finset.mem_filter.mpr ⟨Fintype.mem_piFinset.mpr (fun j => Finset.mem_range.mpr (hn j)), hunit⟩
+    have hN1 : 1 ≤ N := Finset.card_pos.mpr ⟨n, hmem⟩
+    have hN1' : (1 : ℝ) ≤ N := by exact_mod_cast hN1
+    calc 1 / (p : ℝ) ^ 2 * ((p : ℝ) / (p - 1)) ^ 6 = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 * 1 := by ring
+      _ ≤ ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 * N := by gcongr
+  · intro hpW
+    have hnz : ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by
+      by_cases hpq : p ∣ q
+      · exact local_denominator OnPl hOnPl Good hGood q A B C Z hq1 hqW hZ hG hsq c L hpar hsurj p hp hpq
+      · have hpWq : ¬ p ∣ 4619990760 * q := fun h => by
+          rcases (Nat.Prime.dvd_mul hp).mp h with h | h
+          · exact hpW h
+          · exact hpq h
+        exact local_away OnPl hOnPl Good hGood q A B C Z hq1 hqW hZ hG c L hpar hsurj hdet p hp hpWq
+    have hcount := nonzero_forms_count p hp c L hnz
+    have hcount' : (p : ℝ) ^ 2 - 6 * p ≤ N := by
+      by_cases h6 : 6 * p ≤ p ^ 2
+      · have : ((p ^ 2 - 6 * p : ℕ) : ℝ) ≤ N := by exact_mod_cast hcount
+        rw [Nat.cast_sub h6] at this
+        push_cast at this
+        linarith
+      · push Not at h6
+        have : (p : ℝ) ^ 2 < 6 * p := by exact_mod_cast h6
+        linarith
+    calc (1 - 6 / (p : ℝ)) * ((p : ℝ) / (p - 1)) ^ 6
+        = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 * ((p : ℝ) ^ 2 - 6 * p) := by
+          field_simp
+      _ ≤ ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 * N := by gcongr
+
+-- N41 ap_product [extremal_averaging]
+theorem ap_product :
+    Multipliable (fun p : Nat.Primes => (if ((p : ℕ) ∣ 4619990760) then 1 / ((p : ℕ) : ℝ) ^ 2 * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6 else (1 - 6 / ((p : ℕ) : ℝ)) * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6)) ∧
+    0 < ∏' p : Nat.Primes, (if ((p : ℕ) ∣ 4619990760) then 1 / ((p : ℕ) : ℝ) ^ 2 * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6 else (1 - 6 / ((p : ℕ) : ℝ)) * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6) := by
+  sorry
+
+-- N42 singular_series_lower [assembly]
+theorem singular_series_lower (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) :
+    ∃ cstar : ℝ, 0 < cstar ∧ ∀ (q : ℕ) (A B C : ℤ) (Z : ℝ), 1 ≤ q → q % 4619990760 = 1 → 100 ≤ Z →
+      Good Z q A B C → Squarefree q →
+      ∀ (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (β : ℕ → ℝ),
+        (∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)) →
+        (∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) →
+        (∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ) →
+        (∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 *
+          ((Fintype.piFinset fun _ : Fin 2 => Finset.range p).filter
+            (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) →
+        (∀ p : ℕ, p.Prime → 0 < β p) ∧ Multipliable (fun p : Nat.Primes => β p) ∧
+          cstar ≤ ∏' p : Nat.Primes, β p := by
+  sorry
+
+-- N43 collision_line [case_split]
+theorem collision_line (a b e : ℤ) (M : ℕ) (hab : a ≠ 0 ∨ b ≠ 0) :
+    ((Finset.Icc (-(M : ℤ)) M ×ˢ Finset.Icc (-(M : ℤ)) M).filter
+      (fun n => a * n.1 + b * n.2 = e)).card ≤ 2 * M + 1 := by
+  rcases hab with ha | hb
+  · -- n.1 is determined by n.2
+    calc _ ≤ (Finset.Icc (-(M : ℤ)) M).card := by
+          apply Finset.card_le_card_of_injOn (fun n => n.2)
+          · intro n hn
+            simp only [Finset.coe_filter, Finset.mem_product, Set.mem_ofPred_eq] at hn
+            simpa using hn.1.2
+          · intro n hn m hm hnm
+            simp only [Finset.coe_filter, Finset.mem_product, Set.mem_ofPred_eq] at hn hm
+            have h1 : a * n.1 = a * m.1 := by
+              simp only at hnm
+              linear_combination hn.2 - hm.2 - b * hnm
+            exact Prod.ext (mul_left_cancel₀ ha h1) hnm
+      _ = 2 * M + 1 := by rw [Int.card_Icc]; omega
+  · calc _ ≤ (Finset.Icc (-(M : ℤ)) M).card := by
+          apply Finset.card_le_card_of_injOn (fun n => n.1)
+          · intro n hn
+            simp only [Finset.coe_filter, Finset.mem_product, Set.mem_ofPred_eq] at hn
+            simpa using hn.1.1
+          · intro n hn m hm hnm
+            simp only [Finset.coe_filter, Finset.mem_product, Set.mem_ofPred_eq] at hn hm
+            have h1 : b * n.2 = b * m.2 := by
+              simp only at hnm
+              linear_combination hn.2 - hm.2 - a * hnm
+            exact Prod.ext hnm (mul_left_cancel₀ hb h1)
+      _ = 2 * M + 1 := by rw [Int.card_Icc]; omega
+
+-- N44 prime_weight_to_count [extremal_averaging]
+theorem prime_weight_to_count {d t : ℕ} (F : Finset (Fin d → ℤ)) (f : (Fin d → ℤ) → Fin t → ℤ) (V : ℝ)
+    (hV : 1 ≤ V) (hf : ∀ n ∈ F, ∀ i, (f n i : ℝ) ≤ V) :
+    ∑ n ∈ F, ∏ i, (if 0 < f n i ∧ (f n i).natAbs.Prime then Real.log (f n i : ℝ) else 0) ≤
+      Real.log V ^ t * ((F.filter (fun n => ∀ i, 0 < f n i ∧ (f n i).natAbs.Prime)).card : ℝ) := by
+  classical
+  set P : (Fin d → ℤ) → Prop := fun n => ∀ i, 0 < f n i ∧ (f n i).natAbs.Prime with hP
+  rw [← Finset.sum_filter_add_sum_filter_not F P]
+  have hzero : ∑ n ∈ F.filter (fun n => ¬ P n),
+      ∏ i, (if 0 < f n i ∧ (f n i).natAbs.Prime then Real.log (f n i : ℝ) else 0) = 0 := by
+    apply Finset.sum_eq_zero
+    intro n hn
+    rw [Finset.mem_filter] at hn
+    have : ∃ i, ¬ (0 < f n i ∧ (f n i).natAbs.Prime) := by
+      by_contra hcon
+      push Not at hcon
+      exact hn.2 hcon
+    obtain ⟨i, hi⟩ := this
+    exact Finset.prod_eq_zero (Finset.mem_univ i) (by rw [ite_eq_right_iff]; intro h; exact absurd h hi)
+  rw [hzero, add_zero]
+  have hV0 : 0 ≤ Real.log V := Real.log_nonneg hV
+  calc ∑ n ∈ F.filter P, ∏ i, (if 0 < f n i ∧ (f n i).natAbs.Prime then Real.log (f n i : ℝ) else 0)
+      ≤ ∑ n ∈ F.filter P, Real.log V ^ t := by
+        apply Finset.sum_le_sum
+        intro n hn
+        rw [Finset.mem_filter] at hn
+        calc ∏ i, (if 0 < f n i ∧ (f n i).natAbs.Prime then Real.log (f n i : ℝ) else 0)
+            ≤ ∏ _i : Fin t, Real.log V := by
+              apply Finset.prod_le_prod₀
+              · intro i _
+                split_ifs with h
+                · apply Real.log_nonneg
+                  have : (1 : ℤ) ≤ f n i := h.1
+                  exact_mod_cast this
+                · exact le_rfl
+              · intro i _
+                split_ifs with h
+                · apply Real.log_le_log
+                  · have : (0 : ℤ) < f n i := h.1
+                    exact_mod_cast this
+                  · exact hf n hn.1 i
+                · exact hV0
+          _ = Real.log V ^ t := by simp
+    _ = Real.log V ^ t * ((F.filter P).card : ℝ) := by
+        rw [Finset.sum_const, nsmul_eq_mul, mul_comm]
+
+-- N45 plane_prime_count [two_structure_coupling]
+theorem plane_prime_count (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop)
+    (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl q A B C x ↔
+      (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+       q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+       q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+       508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462))
+    (InReg : ℝ → (Fin 6 → ℤ) → Prop)
+    (hInReg : ∀ T (x : Fin 6 → ℤ), InReg T x ↔
+      (-2 * T ≤ 15 * ((x 0 : ℝ) - x 4) ∧ 15 * ((x 0 : ℝ) - x 4) ≤ -T ∧
+       |31 * ((x 2 : ℝ) - x 4)| ≤ 1 / 100000 * |15 * ((x 0 : ℝ) - x 4)|))
+    (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop)
+    (hGood : ∀ Z q A B C, Good Z q A B C ↔
+      ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧
+       (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧
+       (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧
+       (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧
+       (∀ p : ℕ, p.Prime → p ∣ q →
+         ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+       (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q →
+         ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨
+           ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) :
+    ∀ τ : ℝ, 0 < τ → ∃ T0 c3 : ℝ, 0 < c3 ∧ ∀ (T Z : ℝ) (q : ℕ) (A B C : ℤ),
+      T0 ≤ T → 100 ≤ Z → 1 ≤ q → Squarefree q → q % 4619990760 = 1 →
+      (q : ℝ) ≤ Real.log T ^ τ → Z ≤ Real.log T ^ τ → Good Z q A B C →
+      ∃ F : Finset (Fin 6 → ℤ),
+        (∀ x ∈ F, OnPl q A B C x ∧ InReg T x ∧ Function.Injective x ∧ ∀ i, 0 < x i ∧ (x i).natAbs.Prime) ∧
+        c3 * T ^ 2 / ((q : ℝ) ^ 2 * Real.log T ^ 6) ≤ F.card := by
+  sorry
+
+-- N46 threshold_lemma [assembly]
+theorem threshold_lemma (κ : ℝ) (hκ : 0 < κ) (Ch T0 C0 ε : ℝ) (hCh : 0 < Ch) (hε : 0 < ε) :
+    ∃ Y0 : ℝ, ∀ Y Q Z : ℝ, Y0 ≤ Y → 1 ≤ Q → Q ≤ Real.log Y ^ κ → 1 ≤ Z → Z ≤ Real.log Y ^ κ →
+      Real.log Y / 3 ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ∧
+      Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ≤ Real.log Y ∧
+      T0 ≤ Real.sqrt (Y / (Ch * Z ^ 3)) ∧
+      T0 ≤ Z * Real.sqrt (Y / (Ch * Z ^ 3)) ∧
+      2 * Q ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ (κ + 1) ∧
+      Z ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ (κ + 1) ∧
+      C0 * (2 * Q) ^ 2 ≤ Real.sqrt (Y / (Ch * Z ^ 3)) ∧
+      (2 * Q) ^ 2 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ∧
+      Q ^ 6 * Z ^ 4 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ^ 2 := by
+  sorry
+
+-- N47 two_height_core [assembly]
+theorem two_height_core : ∃ c0 : ℝ, 0 < c0 ∧ c0 < 1 ∧ ∀ κ : ℝ, 0 < κ →
+    ∃ cκ Yκ Qκ Zκ : ℝ, 0 < cκ ∧ ∀ Y Q Z : ℝ, Yκ ≤ Y → Qκ ≤ Q → Q ≤ Real.log Y ^ κ → Zκ ≤ Z →
+      Z ≤ Real.log Y ^ κ →
+      ∃ F : Finset (ℕ × ℕ),
+        (∀ uv ∈ F, 0 < uv.1 ∧ 0 < uv.2 ∧ Nat.Coprime uv.1 uv.2 ∧
+          c0 * Y ≤ ((uv.1 + uv.2 : ℕ) : ℝ) ∧ ((uv.1 + uv.2 : ℕ) : ℝ) ≤ Y ∧
+          σ 1 (3600 * uv.1) + σ 1 (3600 * uv.2) = σ 1 (3600 * (uv.1 + uv.2)) ∧
+          (3600 * uv.1 * uv.2 * (uv.1 + uv.2)).primeFactors.card ≤ 11) ∧
+        cκ * Y * Q ^ 2 * Z / Real.log Y ^ 6 ≤ F.card := by
+  sorry
+
+-- N48 S_lower_bound [quantitative_improvement]
+theorem S_lower_bound : ∀ κ : ℝ, 0 < κ → ∃ c X1 : ℝ, 0 < c ∧ ∀ x : ℝ, X1 ≤ x →
+    c * x * Real.log x ^ (3 * κ - 5) ≤ S x := by
+  sorry
+
+-- ===== Target =====
+
+/-- Li's Theorem 1.1: for every fixed `R > 0`, `S x / (x (log x)^R)` tends to infinity. In particular `S` is not
+asymptotic to `c * x` for any finite `c > 0`. -/
+theorem li_1061 : ∀ R : ℝ, 0 < R →
+    Tendsto (fun x : ℝ ↦ S x / (x * Real.log x ^ R)) atTop atTop := by
+  intro R hR
+  obtain ⟨c, X1, hc, hS⟩ := S_lower_bound ((R + 6) / 3) (by linarith)
+  have h3 : 3 * ((R + 6) / 3) - 5 = R + 1 := by ring
+  rw [h3] at hS
+  have key : ∀ᶠ x in atTop, c * Real.log x ≤ S x / (x * Real.log x ^ R) := by
+    filter_upwards [eventually_ge_atTop X1, eventually_gt_atTop 1] with x hx1 hx2
+    have hx0 : 0 < x := by linarith
+    have hlog : 0 < Real.log x := Real.log_pos hx2
+    have hpos : 0 < x * Real.log x ^ R := by positivity
+    rw [le_div_iff₀ hpos]
+    calc c * Real.log x * (x * Real.log x ^ R) = c * x * Real.log x ^ (R + 1) := by
+          rw [Real.rpow_add hlog, Real.rpow_one]; ring
+      _ ≤ S x := hS x hx1
+  exact tendsto_atTop_mono' atTop key (Real.tendsto_log_atTop.const_mul_atTop hc)
+
+end Erdos1061

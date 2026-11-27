@@ -1,0 +1,181 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:163:10: error: mod_cast has type
+  15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+but is expected to have type
+  15 * p 0 * p 1 + 31 * p 2 * p 3 = 508 * p 4 * p 5
+Rooms/Target_B6_1061_A_full_probe.lean:163:64: error: Type mismatch
+  h23
+has type
+  15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+but is expected to have type
+  ↑(15 * (p 0 + p 1) + 31 * (p 2 + p 3)) = ?m.471
+Rooms/Target_B6_1061_A_full_probe.lean:163:64: warning: this constant has no effect on the linear combination; it can be dropped from the term
+Rooms/Target_B6_1061_A_full_probe.lean:163:45: error: ring failed, ring expressions not equal
+p : Fin 6 → ℕ
+hp : ∀ (i : Fin 6), Nat.Prime (p i) ∧ 127 < p i
+hinj : Function.Injective p
+h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)
+h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3) = 508 * (p 4 + p 5) + 462
+h01 : p 0 ≠ p 1
+h23' : p 2 ≠ p 3
+h45 : p 4 ≠ p 5
+s1 : (σ 1) 54000 = 193440
+s2 : (σ 1) 111600 = 399776
+s3 : (σ 1) 1828800 = 6551168
+⊢ -462 + ↑(p 0) * 15 + ↑(p 1) * 15 + ↑(p 2) * 31 + ↑(p 3) * 31 - ↑(p 4) * 508 - ↑(p 5) * 508 = 0
+Rooms/Target_B6_1061_A_full_probe.lean:168:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:179:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:195:14: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  3600 * g * u + 3600 * g * v
+in the target expression
+  (σ 1) (g * (3600 * u)) + (σ 1) (g * (3600 * v)) = (σ 1) (g * (3600 * u) + g * (3600 * v))
+
+u v g : ℕ
+hg : g.Coprime (3600 * u * v * (u + v))
+h : (σ 1) (3600 * u) + (σ 1) (3600 * v) = (σ 1) (3600 * (u + v))
+hgu : g.Coprime (3600 * u)
+hgv : g.Coprime (3600 * v)
+hguv : g.Coprime (3600 * (u + v))
+e1 : 3600 * g * u = g * (3600 * u)
+e2 : 3600 * g * v = g * (3600 * v)
+e3 : 3600 * g * u + 3600 * g * v = g * (3600 * (u + v))
+⊢ (σ 1) (g * (3600 * u)) + (σ 1) (g * (3600 * v)) = (σ 1) (g * (3600 * u) + g * (3600 * v))
+Rooms/Target_B6_1061_A_full_probe.lean:199:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:199:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:199:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:199:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:218:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:283:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:311:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:328:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:328:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:329:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:329:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:353:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:371:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:383:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:399:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:411:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:424:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:450:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:471:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:476:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:482:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:488:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:496:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:513:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:523:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:540:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:562:53: error(lean.unknownIdentifier): Unknown constant `Finset.card_insert_of_not_mem`
+Rooms/Target_B6_1061_A_full_probe.lean:581:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:588:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:595:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:610:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:639:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:666:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:695:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:731:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:737:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:776:62: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+Rooms/Target_B6_1061_A_full_probe.lean:779:62: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+Rooms/Target_B6_1061_A_full_probe.lean:783:14: error: ring failed, ring expressions not equal
+a b e : ℤ
+M : ℕ
+ha : a ≠ 0
+n m : ℤ × ℤ
+hnm : n.2 = m.2
+hn : (n.1 ∈ Finset.Icc (-↑M) ↑M ∧ n.2 ∈ Finset.Icc (-↑M) ↑M) ∧ a * n.1 + b * n.2 = e
+hm : (m.1 ∈ Finset.Icc (-↑M) ↑M ∧ m.2 ∈ Finset.Icc (-↑M) ↑M) ∧ a * m.1 + b * m.2 = e
+this✝ : a * n.1 + b * n.2 = e
+this : a * m.1 + b * m.2 = e
+⊢ b * m.2 * 2 - b * n.2 * 2 = 0
+Rooms/Target_B6_1061_A_full_probe.lean:789:62: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+Rooms/Target_B6_1061_A_full_probe.lean:792:62: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+Rooms/Target_B6_1061_A_full_probe.lean:795:14: error: ring failed, ring expressions not equal
+a b e : ℤ
+M : ℕ
+hb : b ≠ 0
+n m : ℤ × ℤ
+hnm : n.1 = m.1
+hn : (n.1 ∈ Finset.Icc (-↑M) ↑M ∧ n.2 ∈ Finset.Icc (-↑M) ↑M) ∧ a * n.1 + b * n.2 = e
+hm : (m.1 ∈ Finset.Icc (-↑M) ↑M ∧ m.2 ∈ Finset.Icc (-↑M) ↑M) ∧ a * m.1 + b * m.2 = e
+⊢ a * m.1 * 2 - a * n.1 * 2 = 0
+Rooms/Target_B6_1061_A_full_probe.lean:814:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B6_1061_A_full_probe.lean:817:51: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B6_1061_A_full_probe.lean:827:14: error: failed to synthesize
+  MulLeftMono ℝ
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B6_1061_A_full_probe.lean:846:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:876:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:890:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:902:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:910:8: warning: declaration uses `sorry`

@@ -1,0 +1,137 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:332:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:533:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:533:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:534:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:534:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:654:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:666:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:679:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:754:54: error: Application type mismatch: The argument
+  hCZT
+has type
+  0 ≤ C₀ * Z ^ 2 * T
+but is expected to have type
+  0 ≤ C₀ * Z * T
+in the application
+  mul_le_mul b6 b12 (le_trans hx5pos b11) hCZT
+
+Note: The following definitions were not unfolded because their definition is not exposed:
+  Real.instLE ↦ 4
+Rooms/Target_B6_1061_A_full_probe.lean:766:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:771:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:799:21: error: Function expected at
+  Finset.card_filter_add_card_filter_not ?m.359
+but this term has type
+  (Finset.filter ?m.359 ?m.358).card + {a ∈ ?m.358 | ¬?m.359 a}.card = Finset.card ?m.358
+
+Note: Expected a function because this term is being applied to the argument
+  _
+Rooms/Target_B6_1061_A_full_probe.lean:829:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:837:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:854:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:864:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:881:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:932:4: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Membership.mem (ι → ℤ) (AddSubgroup (ι → ℤ)) SetLike.instMembership L' (↑(L'.addSubgroupOf L).index * x)
+but is expected to have type
+  @Membership.mem (ι → ℤ) (AddSubgroup (ι → ℤ)) SetLike.instMembership L' (↑m * x)
+Rooms/Target_B6_1061_A_full_probe.lean:973:58: error(lean.unknownIdentifier): Unknown identifier `zero_set_card_le`
+Rooms/Target_B6_1061_A_full_probe.lean:975:17: error: Function expected at
+  Finset.card_filter_add_card_filter_not fun n => ∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ?m.391
+but this term has type
+  {n ∈ ?m.380 | ∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ?m.391}.card +
+      {a ∈ ?m.380 | ¬∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ?m.391}.card =
+    Finset.card ?m.380
+
+Note: Expected a function because this term is being applied to the argument
+  U
+Rooms/Target_B6_1061_A_full_probe.lean:976:51: error: Function expected at
+  n
+but this term has type
+  ?m.379
+
+Note: Expected a function because this term is being applied to the argument
+  j
+Rooms/Target_B6_1061_A_full_probe.lean:956:72: error: unsolved goals
+p : ℕ
+hp : Nat.Prime p
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+hnz : ∀ (i : Fin 6), ¬(↑p ∣ c i ∧ ∀ (j : Fin 2), ↑p ∣ L i j)
+U : Finset (Fin 2 → ℕ) := Fintype.piFinset fun x => Finset.range p
+hU : U = Fintype.piFinset fun x => Finset.range p
+hUcard : U.card = p ^ 2
+hcompl :
+  {n ∈ U | ¬∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ↑(n j)} ⊆
+    Finset.univ.biUnion fun i => {n ∈ U | ↑p ∣ c i + ∑ j, L i j * ↑(n j)}
+hbad : {n ∈ U | ¬∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ↑(n j)}.card ≤ 6 * p
+⊢ p ^ 2 - 6 * p ≤ {n ∈ U | ∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ↑(n j)}.card
+Rooms/Target_B6_1061_A_full_probe.lean:988:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1021:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1050:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1077:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1185:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1191:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1299:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1329:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1343:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1355:8: warning: declaration uses `sorry`

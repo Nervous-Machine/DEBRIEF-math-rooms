@@ -114,3 +114,60 @@ instruments:
   scorer: {path: rooms/score.py, sha256: "649e6ced4ccf1d23ab8c33d1e6028987f0834f23060cd1d58abc6d3b268e51a8"}
   audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
   smoke_tests: "probe rule exercised once on a scratch regime with a two-room synthetic blueprint (FINAL refused naming the untried room; accepted after one tagged call); hinges.py exercised on build 3's 159 arm (20 vectors, untyped) and the output moved out of results/; neither is data"
+
+# ---- Amendment A1 ---- appended after the runs; the registered text above is unedited.
+amendments:
+  - id: A1
+    written: "2026-11-27T03:46Z, after both planners, all four arms, both seals opened and the scoring"
+    planners: >
+      planner_1061 (Opus 5.5, Li's paper): 48 rooms plus ROOT, 20 joins; types algebraic_identity 14, extremal_averaging
+      12, assembly 9, case_split 6, two_structure_coupling 4, literature_import 2 (Bienvenu Proposition 2.1 in the
+      paper's uniform form; Bienvenu Lemma 1.2), quantitative_improvement 1; root_reached 0.0; per-node minutes summed to
+      about 1,276 against the 180-minute cap, which the planner flagged. planner_1133 (Opus 5.5, Yang's manuscript): 34
+      rooms plus ROOT, 10 joins; algebraic_identity 13, assembly 9, literature_import 3 (Olevskii–Ulanovskii Prop. 4.2;
+      the vertical growth estimate; the normal-family closedness), case_split 3, extremal_averaging 3,
+      two_structure_coupling 2, quantitative_improvement 1; root_reached 0.005. Both transcripts audited: no web, no
+      git, no other build's files; the 1061 planner once listed the names in the scratchpad's fresh/ folder (ls ..) and
+      opened nothing. Leaks to the registrar before the arms: counts by type, root_reached, reach_by_type, the
+      literature rooms' identities, and the rooms each planner called hardest (1061 N23, N38; 1133 N17, N29, N25).
+    seals: "blueprint_1061_predictions.yaml sha256 3689ee50…, blueprint_1133_predictions.yaml sha256 c87d4136…, both held by Heidi Bennett, both opened after their target's two arms finished, both hashes matched"
+    what_happened: >
+      B6_1061_B (02:06:18Z–02:16:10Z, 92,174 tokens): 6 calls, 2 errors, FINAL sorry; 15 own lemmas; one open
+      (primitive solutions outgrow every power of log); stopped at 10 minutes. B6_1133_B (02:06:17Z–02:23:15Z, 126,921
+      tokens): 6 calls, 2 errors, FINAL sorry; 12 own lemmas on a volume-and-covering route; one analytic room open;
+      stopped at 17 minutes. B6_1133_A (02:16:18Z–02:44:21Z, 223,948 tokens): 9 calls, 0 refused, 4 errors, FINAL
+      sorry; 31 of 31 non-literature rooms and the root proved; the three literature rooms open; one helper added; no
+      statement changed. B6_1061_A (02:26:02Z–03:41:55Z, 463,559 tokens): 45 calls, 0 refused, 16 errors, FINAL sorry;
+      32 of 46 non-literature rooms proved; every non-literature room attempted (the probe rule bound nothing because
+      the searcher complied before FINAL); 14 open and named; N34 shown false as drawn (p.Prime omitted) with two
+      counterexamples and left open; three rooms under the permitted maxHeartbeats ceiling; stopped at 76 minutes.
+    scorecard: >
+      Held: P1 (every root a residual), P2 (identities, splits and assembly 47/54 against couplings and improvements
+      4/8, pooled over the A arms), P3 (no literature room proved; two and three drawn), P5 (no refused FINAL; every
+      open non-literature room attempted), P6 (fit 0 in all four arms), P7 (15 against 32 and 12 against 31 lemmas to
+      rooms; neither B file has its paper's distinctive move, by the registrar's reading: no coefficient triple,
+      quadric or sieve in 1061 B, no Bernstein or trigonometric obstruction in 1133 B), P8 (0.0 and 0.005). Missed: P4
+      on 1133 (both couplings and the quantitative room closed; on 1061 three of four couplings and the quantitative
+      room stayed open), P9 on 1061 (registrar's blind re-typing agreed on 32 of 48, 67 percent; on 1133 29 of 34, 85
+      percent, held), P10 by the letter (84 vectors, but two types sit at exactly 0.5 pooled: coupling 3/6 and
+      improvement 1/2).
+    retyping_note: >
+      results/registrar_retyping_build6.yaml. The 21 disagreements fall on three boundaries: a computation against a
+      finite split (identity/case_split), a bound against an averaging step (identity or assembly/extremal_averaging),
+      and glue against the identity it glues (assembly/identity). Literature imports agreed completely; couplings agreed
+      on 5 of 8, with the registrar reading the lattice-coordinates room as a coupling and the planner as averaging. The
+      two readers never disagreed about which rooms were citations and rarely about which were hard.
+    not_registered_but_observed: >
+      The planner's reach_by_type ordering was largely right on 1061 and its magnitudes low everywhere; on 1133 every
+      type it put between 0.43 and 0.78 closed completely. The planners again over-predicted attempts (log2 medians −3.3
+      and −2.1 at joins), as in builds 1 and 2. The two control arms stopped at 10 and 17 minutes on their own
+      estimate, each at one named room; the rooms arms ran 76 and 28 minutes under the probe rule. The 1133 target has
+      a public Lean proof by a third party since 2026-09-28 (rerun and certified on DEBRIEF-math-erdos1133 during this
+      build); neither model here could have seen it, and no arm's file resembles it.
+    hypothesis_status: >
+      held in substance: the types predict reach where reach is partial (1061) and are moot where the route is in reach
+      (1133); the paper's rooms bought most of the structure over the statement alone on both targets; every literature
+      import stayed open; no fit; 84 hinge vectors with outcomes. The typing's middle three types are not yet
+      reproducible across readers at the registered threshold on the larger blueprint (EG7).
+    instruments: "unchanged since registration"
+

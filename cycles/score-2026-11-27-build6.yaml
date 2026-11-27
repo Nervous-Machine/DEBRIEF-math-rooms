@@ -1,0 +1,56 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: score-2026-11-27-build6
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Which of P1 to P10 held, and what does the first table of reach by join type look like?
+  rule: scored from the check logs, the files, Lean's warnings, the opened seals and the registrar's blind re-typing;
+    misses recorded; amendment A1
+  predictions: [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10]
+  commit: prereg_build_6.yaml
+  results:
+  - results/B6_1061_A_full_probe/score.json
+  - results/B6_1061_B_full_noplan/score.json
+  - results/B6_1133_A_full_probe/score.json
+  - results/B6_1133_B_full_noplan/score.json
+  - atlas/hinges.yaml
+  - results/registrar_retyping_build6.yaml
+  - blueprint_1061_predictions.yaml
+  - blueprint_1133_predictions.yaml
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    held: P1, P2, P3, P5, P6, P7, P8
+    missed: P4 on 1133 (both couplings and the improvement room closed), P9 on 1061 (67 percent agreement against 80; 1133 held at 85), P10 by the letter (two types, coupling and improvement, sit at exactly 0.5 pooled, on six and two rooms)
+    pooled_reach_by_type: algebraic_identity 25/27 (0.93), case_split 8/9 (0.89), extremal_averaging 12/15 (0.80), assembly 14/18 (0.78), two_structure_coupling 3/6 (0.50), quantitative_improvement 1/2 (0.50), literature_import 0/5 (0.00)
+    P2_groups: identities, splits and assembly 47/54 (0.87) against couplings and improvements 4/8 (0.50)
+    rooms_proved_A_vs_lemmas_B: 1061 32 rooms against 15 lemmas; 1133 31 rooms against 12 lemmas
+    distinctive_moves_in_B: none in either
+    planner_root_reached: 0.0 and 0.005
+    planner_reach_by_type_direction: ordering largely right on 1061 (identities first, couplings and the quantitative step last), magnitudes under-predicted everywhere; on 1133 every type predicted between 0.43 and 0.78 closed at 1.0
+    planner_attempt_error_log2_median: −3.3 and −2.1 at joins
+    hinge_vectors_in_atlas: 84 with outcomes and predictions
+    retyping_disagreements: 21 of 82 rooms, almost all on the boundaries identity/split, bound/averaging, glue/identity; agreement on literature imports complete, on couplings 5 of 8
+    fit_total_all_arms: 0, 0, 0, 0
+    probe_rule_refusals: 0 (every open room had its attempt)
+    room_believed_false: 1061 N34 (planner omitted p.Prime), left open with counterexamples
+    tokens: 463559, 92174, 223948, 126921
+    minutes: 76, 10, 28, 17
+  misses:
+  - P4 (1133)
+  - P9 (1061)
+  - P10 letter
+spoken: 'Seven of ten predictions held. The join types separated on the hinge that was out of reach and did not on the
+  one that was in reach: identities, splits and assembly closed at near nine in ten, couplings and the quantitative step
+  at one in two, citations at zero. The paper''s rooms were again worth most of the proof over the statement alone. A
+  second reader agreed with the planner''s types on five rooms in six, with every disagreement on the blurry middle of
+  the scale. Eighty-four hinge vectors now carry an outcome. Nothing was changed in any arm, including one room the
+  searcher showed false as drawn.'
+finding_ids:
+- F6
+gap_ids:
+- EG6
+- EG7

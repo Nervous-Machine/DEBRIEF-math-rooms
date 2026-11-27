@@ -1,0 +1,107 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:332:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:552:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:552:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:553:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:553:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:673:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:693:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:712:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:806:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:816:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:910:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(?a % ↑?b)
+in the target expression
+  ↑a + (↑ω.val - ↑a) + ↑m * ↑k = ω
+
+m : ℕ
+inst✝ : NeZero m
+Ω : Finset (ZMod m × ZMod m × ZMod m)
+a1 a2 a3 : ℤ
+L1 L2 L3 : ℕ
+hm : 0 < ↑m
+lift : ℤ → ZMod m → ℕ → ℤ := fun a ω k => a + (↑ω.val - a) % ↑m + ↑m * ↑k
+lift_mem : ∀ (a : ℤ) (ω : ZMod m) (L k : ℕ), k < L / m - 1 → lift a ω k ∈ Finset.Ico a (a + ↑L)
+a : ℤ
+ω : ZMod m
+k : ℕ
+⊢ ↑a + (↑ω.val - ↑a) + ↑m * ↑k = ω
+Rooms/Target_B6_1061_A_full_probe.lean:916:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:940:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:956:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:980:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1031:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1179:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1247:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B6_1061_A_full_probe.lean:1212:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1251:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1285:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1406:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1447:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1590:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1632:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1657:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1679:8: warning: declaration uses `sorry`

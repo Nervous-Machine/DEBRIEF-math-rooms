@@ -63,7 +63,26 @@ Without a blueprint the searcher drew the same route in seven lemmas and compile
 | 36 | 36 | no | 19 | 1,207 | 355,152 | 61 | 0 |
 | 108 | 108 | no | 94 | 3,483 | 637,423 | 131 | 0 |
 
-Next: the open-problem arm with another searcher model and under an incentive to declare success; the unattempted rooms of the no-checker arms under the forced rule; readers for the two registrar-written statements and for the two sub-family theorems.
+**Build 6, typed joins on two unformalized human proofs (27 Nov 2026): the type predicts reach where reach is partial.** Li's resolution of Erdős 1061 and Yang's proof of Erdős 1133, both with no Lean on the record, drawn into 82 rooms each carrying a join type, its conditionals as Lean hypotheses and its library inputs, with no room allowed to stay open untried. On Li's proof the types separated: identities and case splits closed at nine in ten, couplings at one in four, citations at zero. On Yang's proof every room that was not a citation closed, couplings included, and the root from them. Both statement-only arms stopped at one named room in under twenty minutes. A second reader agreed with the planner's types on 85 percent of one blueprint and 67 percent of the other, disagreeing only on the middle of the scale. Eighty-four hinge vectors now sit in an atlas with outcomes. Seven of ten predictions held. Full account: [trace/ROOMS-6.md](trace/ROOMS-6.md).
+
+| arm | prior | calls | first FINAL | proved | left open | fit | minutes |
+|---|---|---|---|---|---|---|---|
+| 1061, rooms from the paper | 48 typed rooms | 45 | sorry | 32 of 46 rooms | 14 named rooms, 2 citations | 0 | 76 |
+| 1061, statement only | none | 6 | sorry | 15 lemmas | one room, the content | 0 | 10 |
+| 1133, rooms from the paper | 34 typed rooms | 9 | sorry | 31 of 31 rooms, root | 3 citations | 0 | 28 |
+| 1133, statement only | none | 6 | sorry | 12 lemmas | one room, the content | 0 | 17 |
+
+| join type, pooled | rooms | proved |
+|---|---|---|
+| algebraic identity | 27 | 25 |
+| case split | 9 | 8 |
+| extremal or averaging | 15 | 12 |
+| assembly | 18 | 14 |
+| two-structure coupling | 6 | 3 |
+| quantitative improvement | 2 | 1 |
+| literature import | 5 | 0 |
+
+Next: sharpen or merge the middle types and re-type the 82 rooms blind (EG7); the open-problem arm with another searcher model and under an incentive to declare success; the unattempted rooms of the no-checker arms under the forced rule; readers for the registrar-written statements and the two sub-family theorems.
 
 ## Why this theorem
 

@@ -1,0 +1,330 @@
+Rooms/Target_B6_1061_A_full_probe.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:409:6: warning: `mul_le_one₀` has been deprecated: No replacement, use constituent lemmas from proof.
+Rooms/Target_B6_1061_A_full_probe.lean:667:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:667:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:668:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:668:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:788:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:808:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:827:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:921:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1101:10: warning: This simp argument is unused:
+  ZMod.natCast_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_zmod_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1101:29: warning: This simp argument is unused:
+  ZMod.natCast_zmod_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1134:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1158:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1174:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1397:10: error: ring failed, ring expressions not equal
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+q q' A B C A' B' C' : ℤ
+x x' : Fin 6 → ℤ
+hq : 0 < q
+hq' : 0 < q'
+hA : IsCoprime A q
+hB : IsCoprime B q
+hC : IsCoprime C q
+hA' : IsCoprime A' q'
+hB' : IsCoprime B' q'
+hC' : IsCoprime C' q'
+hne : (q, A, B, C) ≠ (q', A', B', C')
+e1 : q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4
+e2 : q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4
+e3 : q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4))
+e4 : 508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+e1' : q * (x' 1 - x' 4) = 31 * A * (x' 2 - x' 4) + 462 * B * x' 4
+e2' : q * (x' 3 - x' 4) = -15 * A * (x' 0 - x' 4) + 462 * C * x' 4
+e3' : q * (x' 4 + 1) = -(15 * B * (x' 0 - x' 4) + 31 * C * (x' 2 - x' 4))
+e4' : 508 * x' 5 = 15 * (x' 0 + x' 1) + 31 * (x' 2 + x' 3) - 508 * x' 4 - 462
+f1 : q' * (x 1 - x 4) = 31 * A' * (x 2 - x 4) + 462 * B' * x 4
+f2 : q' * (x 3 - x 4) = -15 * A' * (x 0 - x 4) + 462 * C' * x 4
+f3 : q' * (x 4 + 1) = -(15 * B' * (x 0 - x 4) + 31 * C' * (x 2 - x 4))
+f4 : 508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+f1' : q' * (x' 1 - x' 4) = 31 * A' * (x' 2 - x' 4) + 462 * B' * x' 4
+f2' : q' * (x' 3 - x' 4) = -15 * A' * (x' 0 - x' 4) + 462 * C' * x' 4
+f3' : q' * (x' 4 + 1) = -(15 * B' * (x' 0 - x' 4) + 31 * C' * (x' 2 - x' 4))
+f4' : 508 * x' 5 = 15 * (x' 0 + x' 1) + 31 * (x' 2 + x' 3) - 508 * x' 4 - 462
+hqR : 0 < ↑q
+hq'R : 0 < ↑q'
+ca1 : ↑q * (↑(x 1) - ↑(x 4)) = 31 * ↑A * (↑(x 2) - ↑(x 4)) + 462 * ↑B * ↑(x 4)
+ca2 : ↑q * (↑(x 3) - ↑(x 4)) = -15 * ↑A * (↑(x 0) - ↑(x 4)) + 462 * ↑C * ↑(x 4)
+ca3 : ↑q * (↑(x 4) + 1) = -(15 * ↑B * (↑(x 0) - ↑(x 4)) + 31 * ↑C * (↑(x 2) - ↑(x 4)))
+Ea1 : ↑(x 1) - ↑(x 4) = 31 * (↑A / ↑q) * (↑(x 2) - ↑(x 4)) + 462 * (↑B / ↑q) * ↑(x 4)
+Ea2 : ↑(x 3) - ↑(x 4) = -15 * (↑A / ↑q) * (↑(x 0) - ↑(x 4)) + 462 * (↑C / ↑q) * ↑(x 4)
+Ea3 : ↑(x 4) + 1 = -(15 * (↑B / ↑q) * (↑(x 0) - ↑(x 4)) + 31 * (↑C / ↑q) * (↑(x 2) - ↑(x 4)))
+cb1 : ↑q * (↑(x' 1) - ↑(x' 4)) = 31 * ↑A * (↑(x' 2) - ↑(x' 4)) + 462 * ↑B * ↑(x' 4)
+cb2 : ↑q * (↑(x' 3) - ↑(x' 4)) = -15 * ↑A * (↑(x' 0) - ↑(x' 4)) + 462 * ↑C * ↑(x' 4)
+cb3 : ↑q * (↑(x' 4) + 1) = -(15 * ↑B * (↑(x' 0) - ↑(x' 4)) + 31 * ↑C * (↑(x' 2) - ↑(x' 4)))
+Eb1 : ↑(x' 1) - ↑(x' 4) = 31 * (↑A / ↑q) * (↑(x' 2) - ↑(x' 4)) + 462 * (↑B / ↑q) * ↑(x' 4)
+Eb2 : ↑(x' 3) - ↑(x' 4) = -15 * (↑A / ↑q) * (↑(x' 0) - ↑(x' 4)) + 462 * (↑C / ↑q) * ↑(x' 4)
+Eb3 : ↑(x' 4) + 1 = -(15 * (↑B / ↑q) * (↑(x' 0) - ↑(x' 4)) + 31 * (↑C / ↑q) * (↑(x' 2) - ↑(x' 4)))
+cc1 : ↑q' * (↑(x 1) - ↑(x 4)) = 31 * ↑A' * (↑(x 2) - ↑(x 4)) + 462 * ↑B' * ↑(x 4)
+cc2 : ↑q' * (↑(x 3) - ↑(x 4)) = -15 * ↑A' * (↑(x 0) - ↑(x 4)) + 462 * ↑C' * ↑(x 4)
+cc3 : ↑q' * (↑(x 4) + 1) = -(15 * ↑B' * (↑(x 0) - ↑(x 4)) + 31 * ↑C' * (↑(x 2) - ↑(x 4)))
+Ec1 : ↑(x 1) - ↑(x 4) = 31 * (↑A' / ↑q') * (↑(x 2) - ↑(x 4)) + 462 * (↑B' / ↑q') * ↑(x 4)
+Ec2 : ↑(x 3) - ↑(x 4) = -15 * (↑A' / ↑q') * (↑(x 0) - ↑(x 4)) + 462 * (↑C' / ↑q') * ↑(x 4)
+Ec3 : ↑(x 4) + 1 = -(15 * (↑B' / ↑q') * (↑(x 0) - ↑(x 4)) + 31 * (↑C' / ↑q') * (↑(x 2) - ↑(x 4)))
+cd1 : ↑q' * (↑(x' 1) - ↑(x' 4)) = 31 * ↑A' * (↑(x' 2) - ↑(x' 4)) + 462 * ↑B' * ↑(x' 4)
+cd2 : ↑q' * (↑(x' 3) - ↑(x' 4)) = -15 * ↑A' * (↑(x' 0) - ↑(x' 4)) + 462 * ↑C' * ↑(x' 4)
+cd3 : ↑q' * (↑(x' 4) + 1) = -(15 * ↑B' * (↑(x' 0) - ↑(x' 4)) + 31 * ↑C' * (↑(x' 2) - ↑(x' 4)))
+Ed1 : ↑(x' 1) - ↑(x' 4) = 31 * (↑A' / ↑q') * (↑(x' 2) - ↑(x' 4)) + 462 * (↑B' / ↑q') * ↑(x' 4)
+Ed2 : ↑(x' 3) - ↑(x' 4) = -15 * (↑A' / ↑q') * (↑(x' 0) - ↑(x' 4)) + 462 * (↑C' / ↑q') * ↑(x' 4)
+Ed3 : ↑(x' 4) + 1 = -(15 * (↑B' / ↑q') * (↑(x' 0) - ↑(x' 4)) + 31 * (↑C' / ↑q') * (↑(x' 2) - ↑(x' 4)))
+Δα : ℝ
+hΔα : Δα = ↑A / ↑q - ↑A' / ↑q'
+Δβ : ℝ
+hΔβ : Δβ = ↑B / ↑q - ↑B' / ↑q'
+Δγ : ℝ
+hΔγ : Δγ = ↑C / ↑q - ↑C' / ↑q'
+D1 : 31 * Δα * (↑(x 2) - ↑(x 4)) + 462 * Δβ * ↑(x 4) = 0
+D2 : -15 * Δα * (↑(x 0) - ↑(x 4)) + 462 * Δγ * ↑(x 4) = 0
+D3 : 15 * Δβ * (↑(x 0) - ↑(x 4)) + 31 * Δγ * (↑(x 2) - ↑(x 4)) = 0
+D1' : 31 * Δα * (↑(x' 2) - ↑(x' 4)) + 462 * Δβ * ↑(x' 4) = 0
+D2' : -15 * Δα * (↑(x' 0) - ↑(x' 4)) + 462 * Δγ * ↑(x' 4) = 0
+D3' : 15 * Δβ * (↑(x' 0) - ↑(x' 4)) + 31 * Δγ * (↑(x' 2) - ↑(x' 4)) = 0
+hΔ : ¬(Δα = 0 ∧ Δβ = 0 ∧ Δγ = 0)
+hα : Δα = 0
+hβ : Δβ = 0
+hγ : Δγ ≠ 0
+hw0 : ↑(x 4) = 0
+hw0' : ↑(x' 4) = 0
+hv0 : ↑(x 2) - ↑(x 4) = 0
+hv0' : ↑(x' 2) - ↑(x' 4) = 0
+⊢ 2 + ↑B * (↑q)⁻¹ * ↑(x 0) * 30 - ↑B * (↑q)⁻¹ * ↑(x 4) * 30 - (↑q)⁻¹ * ↑(x 4) * ↑C * 62 + (↑q)⁻¹ * ↑C * ↑(x 2) * 62 +
+      ↑(x 4) * 2 =
+    0
+Rooms/Target_B6_1061_A_full_probe.lean:1399:10: error: ring failed, ring expressions not equal
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+q q' A B C A' B' C' : ℤ
+x x' : Fin 6 → ℤ
+hq : 0 < q
+hq' : 0 < q'
+hA : IsCoprime A q
+hB : IsCoprime B q
+hC : IsCoprime C q
+hA' : IsCoprime A' q'
+hB' : IsCoprime B' q'
+hC' : IsCoprime C' q'
+hne : (q, A, B, C) ≠ (q', A', B', C')
+e1 : q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4
+e2 : q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4
+e3 : q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4))
+e4 : 508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+e1' : q * (x' 1 - x' 4) = 31 * A * (x' 2 - x' 4) + 462 * B * x' 4
+e2' : q * (x' 3 - x' 4) = -15 * A * (x' 0 - x' 4) + 462 * C * x' 4
+e3' : q * (x' 4 + 1) = -(15 * B * (x' 0 - x' 4) + 31 * C * (x' 2 - x' 4))
+e4' : 508 * x' 5 = 15 * (x' 0 + x' 1) + 31 * (x' 2 + x' 3) - 508 * x' 4 - 462
+f1 : q' * (x 1 - x 4) = 31 * A' * (x 2 - x 4) + 462 * B' * x 4
+f2 : q' * (x 3 - x 4) = -15 * A' * (x 0 - x 4) + 462 * C' * x 4
+f3 : q' * (x 4 + 1) = -(15 * B' * (x 0 - x 4) + 31 * C' * (x 2 - x 4))
+f4 : 508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+f1' : q' * (x' 1 - x' 4) = 31 * A' * (x' 2 - x' 4) + 462 * B' * x' 4
+f2' : q' * (x' 3 - x' 4) = -15 * A' * (x' 0 - x' 4) + 462 * C' * x' 4
+f3' : q' * (x' 4 + 1) = -(15 * B' * (x' 0 - x' 4) + 31 * C' * (x' 2 - x' 4))
+f4' : 508 * x' 5 = 15 * (x' 0 + x' 1) + 31 * (x' 2 + x' 3) - 508 * x' 4 - 462
+hqR : 0 < ↑q
+hq'R : 0 < ↑q'
+ca1 : ↑q * (↑(x 1) - ↑(x 4)) = 31 * ↑A * (↑(x 2) - ↑(x 4)) + 462 * ↑B * ↑(x 4)
+ca2 : ↑q * (↑(x 3) - ↑(x 4)) = -15 * ↑A * (↑(x 0) - ↑(x 4)) + 462 * ↑C * ↑(x 4)
+ca3 : ↑q * (↑(x 4) + 1) = -(15 * ↑B * (↑(x 0) - ↑(x 4)) + 31 * ↑C * (↑(x 2) - ↑(x 4)))
+Ea1 : ↑(x 1) - ↑(x 4) = 31 * (↑A / ↑q) * (↑(x 2) - ↑(x 4)) + 462 * (↑B / ↑q) * ↑(x 4)
+Ea2 : ↑(x 3) - ↑(x 4) = -15 * (↑A / ↑q) * (↑(x 0) - ↑(x 4)) + 462 * (↑C / ↑q) * ↑(x 4)
+Ea3 : ↑(x 4) + 1 = -(15 * (↑B / ↑q) * (↑(x 0) - ↑(x 4)) + 31 * (↑C / ↑q) * (↑(x 2) - ↑(x 4)))
+cb1 : ↑q * (↑(x' 1) - ↑(x' 4)) = 31 * ↑A * (↑(x' 2) - ↑(x' 4)) + 462 * ↑B * ↑(x' 4)
+cb2 : ↑q * (↑(x' 3) - ↑(x' 4)) = -15 * ↑A * (↑(x' 0) - ↑(x' 4)) + 462 * ↑C * ↑(x' 4)
+cb3 : ↑q * (↑(x' 4) + 1) = -(15 * ↑B * (↑(x' 0) - ↑(x' 4)) + 31 * ↑C * (↑(x' 2) - ↑(x' 4)))
+Eb1 : ↑(x' 1) - ↑(x' 4) = 31 * (↑A / ↑q) * (↑(x' 2) - ↑(x' 4)) + 462 * (↑B / ↑q) * ↑(x' 4)
+Eb2 : ↑(x' 3) - ↑(x' 4) = -15 * (↑A / ↑q) * (↑(x' 0) - ↑(x' 4)) + 462 * (↑C / ↑q) * ↑(x' 4)
+Eb3 : ↑(x' 4) + 1 = -(15 * (↑B / ↑q) * (↑(x' 0) - ↑(x' 4)) + 31 * (↑C / ↑q) * (↑(x' 2) - ↑(x' 4)))
+cc1 : ↑q' * (↑(x 1) - ↑(x 4)) = 31 * ↑A' * (↑(x 2) - ↑(x 4)) + 462 * ↑B' * ↑(x 4)
+cc2 : ↑q' * (↑(x 3) - ↑(x 4)) = -15 * ↑A' * (↑(x 0) - ↑(x 4)) + 462 * ↑C' * ↑(x 4)
+cc3 : ↑q' * (↑(x 4) + 1) = -(15 * ↑B' * (↑(x 0) - ↑(x 4)) + 31 * ↑C' * (↑(x 2) - ↑(x 4)))
+Ec1 : ↑(x 1) - ↑(x 4) = 31 * (↑A' / ↑q') * (↑(x 2) - ↑(x 4)) + 462 * (↑B' / ↑q') * ↑(x 4)
+Ec2 : ↑(x 3) - ↑(x 4) = -15 * (↑A' / ↑q') * (↑(x 0) - ↑(x 4)) + 462 * (↑C' / ↑q') * ↑(x 4)
+Ec3 : ↑(x 4) + 1 = -(15 * (↑B' / ↑q') * (↑(x 0) - ↑(x 4)) + 31 * (↑C' / ↑q') * (↑(x 2) - ↑(x 4)))
+cd1 : ↑q' * (↑(x' 1) - ↑(x' 4)) = 31 * ↑A' * (↑(x' 2) - ↑(x' 4)) + 462 * ↑B' * ↑(x' 4)
+cd2 : ↑q' * (↑(x' 3) - ↑(x' 4)) = -15 * ↑A' * (↑(x' 0) - ↑(x' 4)) + 462 * ↑C' * ↑(x' 4)
+cd3 : ↑q' * (↑(x' 4) + 1) = -(15 * ↑B' * (↑(x' 0) - ↑(x' 4)) + 31 * ↑C' * (↑(x' 2) - ↑(x' 4)))
+Ed1 : ↑(x' 1) - ↑(x' 4) = 31 * (↑A' / ↑q') * (↑(x' 2) - ↑(x' 4)) + 462 * (↑B' / ↑q') * ↑(x' 4)
+Ed2 : ↑(x' 3) - ↑(x' 4) = -15 * (↑A' / ↑q') * (↑(x' 0) - ↑(x' 4)) + 462 * (↑C' / ↑q') * ↑(x' 4)
+Ed3 : ↑(x' 4) + 1 = -(15 * (↑B' / ↑q') * (↑(x' 0) - ↑(x' 4)) + 31 * (↑C' / ↑q') * (↑(x' 2) - ↑(x' 4)))
+Δα : ℝ
+hΔα : Δα = ↑A / ↑q - ↑A' / ↑q'
+Δβ : ℝ
+hΔβ : Δβ = ↑B / ↑q - ↑B' / ↑q'
+Δγ : ℝ
+hΔγ : Δγ = ↑C / ↑q - ↑C' / ↑q'
+D1 : 31 * Δα * (↑(x 2) - ↑(x 4)) + 462 * Δβ * ↑(x 4) = 0
+D2 : -15 * Δα * (↑(x 0) - ↑(x 4)) + 462 * Δγ * ↑(x 4) = 0
+D3 : 15 * Δβ * (↑(x 0) - ↑(x 4)) + 31 * Δγ * (↑(x 2) - ↑(x 4)) = 0
+D1' : 31 * Δα * (↑(x' 2) - ↑(x' 4)) + 462 * Δβ * ↑(x' 4) = 0
+D2' : -15 * Δα * (↑(x' 0) - ↑(x' 4)) + 462 * Δγ * ↑(x' 4) = 0
+D3' : 15 * Δβ * (↑(x' 0) - ↑(x' 4)) + 31 * Δγ * (↑(x' 2) - ↑(x' 4)) = 0
+hΔ : ¬(Δα = 0 ∧ Δβ = 0 ∧ Δγ = 0)
+hα : Δα = 0
+hβ : Δβ = 0
+hγ : Δγ ≠ 0
+hw0 : ↑(x 4) = 0
+hw0' : ↑(x' 4) = 0
+hv0 : ↑(x 2) - ↑(x 4) = 0
+hv0' : ↑(x' 2) - ↑(x' 4) = 0
+T : 15 * (↑B / ↑q) * (↑(x 0) - ↑(x 4)) = -1
+⊢ 2 + ↑B * (↑q)⁻¹ * ↑(x' 0) * 30 - ↑B * (↑q)⁻¹ * ↑(x' 4) * 30 - (↑q)⁻¹ * ↑(x' 4) * ↑C * 62 +
+        (↑q)⁻¹ * ↑C * ↑(x' 2) * 62 +
+      ↑(x' 4) * 2 =
+    0
+Rooms/Target_B6_1061_A_full_probe.lean:1435:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1583:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1646:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B6_1061_A_full_probe.lean:1634:5: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1634:19: warning: Variable name `hqW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hqW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1634:46: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1637:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1686:19: warning: This simp argument is unused:
+  ZMod.intCast_zmod_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hXdef]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1708:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1710:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:1788:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:1843:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B6_1061_A_full_probe.lean:1895:74: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.zero_apply, mul_zero, mul_one,
+    add_zero, zero_add] at L0 L1 L2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B6_1061_A_full_probe.lean:2180:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:2323:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:2365:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:2390:8: warning: declaration uses `sorry`
+Rooms/Target_B6_1061_A_full_probe.lean:2412:8: warning: declaration uses `sorry`

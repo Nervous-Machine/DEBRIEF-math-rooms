@@ -1877,6 +1877,400 @@
    "gap_ids": [
     "EG6"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T03:47:21Z",
+   "provenance": {
+    "source": "contributed cycle file build-2026-11-26-typed.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "build-2026-11-26-typed",
+   "dated": "2026-11-26",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "hypothesis": "With every room typed by what its step does (case split, extremal or averaging, algebraic identity, literature import, two-structure coupling, quantitative improvement, assembly), its conditionals written as Lean hypothesis terms and its library inputs named, and with no room allowed to stay open untried, the types predict which rooms the searcher closes (identities, splits and assembly over couplings and improvements), the human paper's rooms again buy most of the structure over the statement alone, every literature import stays open, no fit appears, and the record ends with one hinge vector per room carrying an outcome.",
+   "signals": "predictions P1–P10 in prereg_build_6.yaml, scored by score.py, hinges.py and the registrar's blind re-typing",
+   "endpoints": "none public until the runs are filed",
+   "measurements_needed": "two planners (Opus 5.5, with the papers) and four searcher arms (Fable 5.1), two with rooms under the probe-first rule and two from the statement alone",
+   "bears_on": "the FORMALIZE class of the math gap register (Erdős 1061 and 1133 have no formal deduction on the record); Heidi Bennett's question of 2026-11-26 whether joins can be typed and hinges carried as vectors matched to statements; DEBRIEF-math-rooms EG6",
+   "pinned": {
+    "sha256": "32df6b2b3f9a00018367afeb04b0ae0b5af70382e9336c8099476fcd3409536c",
+    "file": "prereg_build_6.yaml"
+   },
+   "preregistered": {
+    "question": "Do join types predict reach; does the paper's route buy structure over the statement; and does the record end with a hinge vector per room?",
+    "rule": "P1–P10 as written; misses recorded; planners' per-node predictions sealed by hash before any searcher of that target runs; the first accepted FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8",
+     "P9",
+     "P10"
+    ],
+    "commit": "prereg_build_6.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 10,
+     "arms": 4,
+     "planners": 2,
+     "targets": 2,
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered build 6: two human proofs with no Lean deduction on the record, Li's resolution of Erdős 1061 and Yang's proof of Erdős 1133, with every room typed by what its step does, its conditionals written as Lean hypotheses, no room allowed to stay open untried, and one hinge vector per room written to an atlas with its outcome.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6",
+    "HG5"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T03:47:21Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-B6_1061_A_full_probe.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-B6_1061_A_full_probe",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "With Li's argument as typed rooms and no room allowed to stay open untried, which rooms does the searcher close, and do the types predict it?",
+    "rule": "hold rule plus the probe-first rule enforced by rooms/check.sh with rooms/probe_check.py; rooms/score.py with the blueprint and, after the seal opened, the planner's predictions; rooms/hinges.py writes one hinge vector per room; the first accepted FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P8",
+     "P9",
+     "P10"
+    ],
+    "commit": "prereg_build_6.yaml",
+    "results": [
+     "results/B6_1061_A_full_probe/score.json",
+     "results/B6_1061_A_full_probe/hinges.yaml",
+     "results/B6_1061_A_full_probe/final.lean",
+     "results/B6_1061_A_full_probe/calls.tsv",
+     "blueprint_1061_predictions.yaml"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 45,
+     "refused_calls": 0,
+     "error_calls": 16,
+     "first_FINAL": "sorry",
+     "residual": true,
+     "fit_total": 0,
+     "rooms_proved": "32 of 46 non-literature rooms; 0 of 2 literature_import rooms; the root's body complete and resting on the open chain N45 → N47 → N48",
+     "statements_changed": "0; three rooms compiled under set_option maxHeartbeats 400000 (the permitted ceiling)",
+     "every_non_literature_room_attempted": "true (tool-enforced; no FINAL refused)",
+     "reach_by_type_actual": "algebraic_identity 12/14, case_split 5/6, extremal_averaging 9/12, assembly 5/9, two_structure_coupling 1/4, quantitative_improvement 0/1, literature_import 0/2",
+     "reach_by_type_predicted": "algebraic_identity 0.68, case_split 0.46, assembly 0.34, extremal_averaging 0.26, quantitative_improvement 0.08, two_structure_coupling 0.07, literature_import 0.01",
+     "planner_root_reached": "0.0 (correct, because of the Bienvenu import)",
+     "planner_hardest_rooms": "N23 lattice_coords and N38 local_denominator, both left open; the planner's expectation that two_structure_coupling fails first held",
+     "planner_error_log2_median": "joins −3.3, leaves −2.6 (attempts over-predicted five to ten fold)",
+     "room_believed_false_as_drawn": "N34 lattice_reduction, which omits p.Prime; the searcher gave two counterexamples, wrote the proof modulo the false step, left it as sorry and changed nothing",
+     "open_rooms_named": "CRT witnesses mod a large modulus (N21, N38), the exact lattice index and the Gauss-reduced volume (N22, N23), the squarefree count in a progression (N25), the local density and the prime tail (N29, N30), the sieve and the plane-count assemblies (N31, N45, N47), the singular-series product comparison (N42, Mathlib lacks a comparison of infinite products of positive reals), the polylog inequalities with explicit thresholds (N46), and the shell summation (N48)",
+     "seal": "opened after both 1061 arms; sha256 matched",
+     "tokens": 463559,
+     "minutes": "76 of 180",
+     "lines": 2448,
+     "declarations": 59,
+     "depth": 6,
+     "parent_control": "B6_1061_B_full_noplan, 15 own lemmas on a different route, one room open, 10 minutes"
+    },
+    "misses": []
+   },
+   "spoken": "Given Li's argument as forty-eight typed rooms and made to try every one, the searcher proved thirty-two of the forty-six that are not citations: nearly every identity and case split, three quarters of the averaging steps, half the assemblies, one of four couplings and none of the quantitative step. The open rooms are the lattice geometry, the sieve's local densities and the final summation, named one by one. One room it believes false as drawn, with counterexamples, and it left it open rather than repair it. The types separated the way the planner said they would, though the planner again expected far less to close.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T03:47:21Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-B6_1061_B_full_noplan.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-B6_1061_B_full_noplan",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "From Li's statement alone, with no paper and no rooms, how much of Erdős 1061 does the searcher build, and where does it stop?",
+    "rule": "hold rule; rooms/check.sh logs every call; rooms/score.py computes every number with --blueprint none; the first FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P6",
+     "P7"
+    ],
+    "commit": "prereg_build_6.yaml",
+    "results": [
+     "results/B6_1061_B_full_noplan/score.json",
+     "results/B6_1061_B_full_noplan/final.lean",
+     "results/B6_1061_B_full_noplan/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 6,
+     "error_calls": 2,
+     "first_FINAL": "sorry",
+     "residual": true,
+     "fit_total": 0,
+     "lemmas_proved": "15 of 16 own lemmas (18 declarations with S and a definition)",
+     "left_open": "prim_sum_eventually_lower, the superpolylogarithmic lower bound on primitive solutions; the root is proved from it",
+     "proved_on_the_way": "a linear lower bound x/18 − 1 ≤ S x from the family (6k+1, 2(6k+1)); the lifting lemma (u,v) → (um,vm) for m coprime to uv(u+v); injectivity of lifts of primitive solutions",
+     "distinctive_move_of_the_paper_present": "no (no coefficient triple, no quadric, no ruling planes, no sieve; the searcher's own numerics guessed that primitive solutions are sporadic)",
+     "tokens": 92174,
+     "minutes": "10 of 180 (stopped early by the searcher's own judgement)",
+     "lines": 280,
+     "declarations": 18,
+     "depth": 5
+    },
+    "misses": []
+   },
+   "spoken": "From the statement alone the searcher built the easy half in ten minutes: the divisor function is multiplicative, one solution lifts to infinitely many, a linear lower bound on the count, and the root reduced to one named lemma, that primitive solutions outgrow every power of the logarithm. It wrote that this is where the content of the theorem lives, that it had no route to it without the paper, and that its own numerics suggest the primitive solutions are sporadic rather than a family. Nothing was changed. It stopped at ten of its hundred and eighty minutes, which under the probe rule of the rooms arm it could not have done.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T03:47:21Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-B6_1133_A_full_probe.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-B6_1133_A_full_probe",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "With the paper's rooms typed by the planner and no room allowed to stay open untried, which rooms of Yang's argument does the searcher close, and do the types predict it?",
+    "rule": "hold rule plus the probe-first rule enforced by rooms/check.sh with rooms/probe_check.py; rooms/score.py with the blueprint and, after the seal opened, the planner's predictions; rooms/hinges.py writes one hinge vector per room; the first accepted FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P8",
+     "P9",
+     "P10"
+    ],
+    "commit": "prereg_build_6.yaml",
+    "results": [
+     "results/B6_1133_A_full_probe/score.json",
+     "results/B6_1133_A_full_probe/hinges.yaml",
+     "results/B6_1133_A_full_probe/final.lean",
+     "results/B6_1133_A_full_probe/calls.tsv",
+     "blueprint_1133_predictions.yaml"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "check_calls": 9,
+     "refused_calls": 0,
+     "error_calls": 4,
+     "first_FINAL": "sorry (the three literature_import rooms only)",
+     "residual": true,
+     "fit_total": 0,
+     "rooms_proved": "31 of 31 non-literature rooms and ROOT; 0 of 3 literature_import rooms",
+     "statements_changed": "0 (one helper added; two planner hypotheses in N17 unused)",
+     "reach_by_type_actual": "algebraic_identity 13/13, assembly 9/9, case_split 3/3, extremal_averaging 3/3, two_structure_coupling 2/2, quantitative_improvement 1/1, literature_import 0/3",
+     "reach_by_type_predicted": "algebraic_identity 0.72, case_split 0.78, extremal_averaging 0.63, assembly 0.51, quantitative_improvement 0.60, two_structure_coupling 0.43, literature_import 0.06",
+     "planner_root_reached": "0.005 (correct, because of the imports); ROOT step predicted 0.7",
+     "planner_hardest_rooms": "N17 (coupling, reached 0.4) and N29 (reached 0.35), both proved",
+     "planner_error_log2_median": "joins −2.1, leaves −2.8 (attempts over-predicted four to seven fold)",
+     "seal": "opened after both 1133 arms; sha256 matched",
+     "tokens": 223948,
+     "minutes": "28 of 180",
+     "lines": 1097,
+     "declarations": 36,
+     "depth": 8,
+     "parent_control": "B6_1133_B_full_noplan, 12 own lemmas on a different route, one analytic room open, 17 minutes"
+    },
+    "misses": [
+     "P4 at this arm (no coupling or improvement room was left open; both couplings and the improvement room were proved)",
+     "P9 held here (29 of 34 types agree, 85 percent)"
+    ]
+   },
+   "spoken": "Given Yang's argument as thirty-four typed rooms, the searcher proved every room that was not a literature import, including the two the planner typed as couplings and the one it called hardest, and the root from them, in nine calls and twenty-eight minutes. The only open rooms are the three results the paper cites from the literature. The planner predicted it would close about two thirds of the identities and under half of the couplings; it closed all of them. With the route in hand, every join type gave way; without it, the control arm took a different route and stopped at one analytic room.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T03:47:21Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-B6_1133_B_full_noplan.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-B6_1133_B_full_noplan",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "From the formal-conjectures statement alone, with no paper and no rooms, how much of Erdős 1133 does the searcher build, and where does it stop?",
+    "rule": "hold rule; rooms/check.sh logs every call; rooms/score.py computes every number with --blueprint none; the first FINAL is the scored result",
+    "predictions": [
+     "P1",
+     "P6",
+     "P7"
+    ],
+    "commit": "prereg_build_6.yaml",
+    "results": [
+     "results/B6_1133_B_full_noplan/score.json",
+     "results/B6_1133_B_full_noplan/final.lean",
+     "results/B6_1133_B_full_noplan/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 6,
+     "error_calls": 2,
+     "first_FINAL": "sorry",
+     "residual": true,
+     "fit_total": 0,
+     "lemmas_proved": "12 of 13 own lemmas (22 declarations with definitions)",
+     "left_open": "exists_volume_coverSetOn_le, an exponentially small volume bound for sup-norm-bounded interpolation on arbitrary nodes; the root is proved from it",
+     "route": "the trivial case C < 1 closed; the problem reduced to a Hamming-covering statement about the value vectors of bounded polynomials; a measure pigeonhole and a union bound over agreement sets; the combinatorial count of agreement sets closed by an entropy weighting; one analytic room left",
+     "distinctive_move_of_the_paper_present": "no (no Bernstein space, no trigonometric obstruction, no Olevskii–Ulanovskii; the searcher chose a volume route and named the analytic room as the content)",
+     "tokens": 126921,
+     "minutes": "17 of 180 (stopped early by the searcher's own judgement)",
+     "lines": 284,
+     "declarations": 22,
+     "depth": 6
+    },
+    "misses": []
+   },
+   "spoken": "From the statement alone the searcher drew its own route in seventeen minutes: the trivial case, a reduction to a covering problem about the value vectors of bounded polynomials, a measure pigeonhole, a union bound, and an entropy count of the agreement sets, all proved. It left one analytic room, an exponentially small volume for the interpolation set, wrote that this is the whole content of the problem and that Mathlib has nothing close, and stopped. The route is not the paper's. Nothing was changed.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T03:47:21Z",
+   "provenance": {
+    "source": "contributed cycle file score-2026-11-27-build6.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "score-2026-11-27-build6",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Which of P1 to P10 held, and what does the first table of reach by join type look like?",
+    "rule": "scored from the check logs, the files, Lean's warnings, the opened seals and the registrar's blind re-typing; misses recorded; amendment A1",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7",
+     "P8",
+     "P9",
+     "P10"
+    ],
+    "commit": "prereg_build_6.yaml",
+    "results": [
+     "results/B6_1061_A_full_probe/score.json",
+     "results/B6_1061_B_full_noplan/score.json",
+     "results/B6_1133_A_full_probe/score.json",
+     "results/B6_1133_B_full_noplan/score.json",
+     "atlas/hinges.yaml",
+     "results/registrar_retyping_build6.yaml",
+     "blueprint_1061_predictions.yaml",
+     "blueprint_1133_predictions.yaml"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "held": "P1, P2, P3, P5, P6, P7, P8",
+     "missed": "P4 on 1133 (both couplings and the improvement room closed), P9 on 1061 (67 percent agreement against 80; 1133 held at 85), P10 by the letter (two types, coupling and improvement, sit at exactly 0.5 pooled, on six and two rooms)",
+     "pooled_reach_by_type": "algebraic_identity 25/27 (0.93), case_split 8/9 (0.89), extremal_averaging 12/15 (0.80), assembly 14/18 (0.78), two_structure_coupling 3/6 (0.50), quantitative_improvement 1/2 (0.50), literature_import 0/5 (0.00)",
+     "P2_groups": "identities, splits and assembly 47/54 (0.87) against couplings and improvements 4/8 (0.50)",
+     "rooms_proved_A_vs_lemmas_B": "1061 32 rooms against 15 lemmas; 1133 31 rooms against 12 lemmas",
+     "distinctive_moves_in_B": "none in either",
+     "planner_root_reached": "0.0 and 0.005",
+     "planner_reach_by_type_direction": "ordering largely right on 1061 (identities first, couplings and the quantitative step last), magnitudes under-predicted everywhere; on 1133 every type predicted between 0.43 and 0.78 closed at 1.0",
+     "planner_attempt_error_log2_median": "−3.3 and −2.1 at joins",
+     "hinge_vectors_in_atlas": "84 with outcomes and predictions",
+     "retyping_disagreements": "21 of 82 rooms, almost all on the boundaries identity/split, bound/averaging, glue/identity; agreement on literature imports complete, on couplings 5 of 8",
+     "fit_total_all_arms": "0, 0, 0, 0",
+     "probe_rule_refusals": "0 (every open room had its attempt)",
+     "room_believed_false": "1061 N34 (planner omitted p.Prime), left open with counterexamples",
+     "tokens": "463559, 92174, 223948, 126921",
+     "minutes": "76, 10, 28, 17"
+    },
+    "misses": [
+     "P4 (1133)",
+     "P9 (1061)",
+     "P10 letter"
+    ]
+   },
+   "spoken": "Seven of ten predictions held. The join types separated on the hinge that was out of reach and did not on the one that was in reach: identities, splits and assembly closed at near nine in ten, couplings and the quantitative step at one in two, citations at zero. The paper's rooms were again worth most of the proof over the statement alone. A second reader agreed with the planner's types on five rooms in six, with every disagreement on the blurry middle of the scale. Eighty-four hinge vectors now carry an outcome. Nothing was changed in any arm, including one room the searcher showed false as drawn.",
+   "finding_ids": [
+    "F6"
+   ],
+   "gap_ids": [
+    "EG6",
+    "EG7"
+   ]
   }
  ],
  "findings": [
@@ -2120,6 +2514,55 @@
    "certainty": {
     "earned": true,
     "how": "deterministic: the files, logs and scorers are committed; anyone can recompile in the pinned project"
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-27T03:46:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the build's registration (prereg_build_6.yaml, sha256 32df6b2b3f9a00018367afeb04b0ae0b5af70382e9336c8099476fcd3409536c, committed before any planner or searcher ran), the sealed planner predictions (hashes committed first, opened after the arms), and the committed logs and files"
+   },
+   "audience": "briefing",
+   "finding_id": "F6",
+   "kind": "learned",
+   "spoken": "Joins can be typed by what the step does, and the type predicts reach where reach is partial. Over two human proofs with no Lean on the record, typed into 82 rooms and every room attempted, identities, case splits and assembly closed at about nine in ten, averaging steps at four in five, two-structure couplings and the quantitative step at one in two, and citations at zero. Where the paper's route was fully in reach every type closed, so the type is moot there. The paper's rooms were again worth most of the proof over the statement alone. A second reader agreed with the planner's types on five rooms in six, disagreeing only on the blurry middle of the scale. Eighty-four hinge vectors now carry a type, conditionals as Lean hypotheses, library inputs, a sealed prediction and an outcome. Nothing was changed in any arm, including a room the searcher showed false as drawn.",
+   "evidence": {
+    "numbers": {
+     "arms": 4,
+     "planners": 2,
+     "rooms_typed": 82,
+     "pooled_reach_by_type": "identity 25/27, case_split 8/9, averaging 12/15, assembly 14/18, coupling 3/6, improvement 1/2, literature 0/5",
+     "rooms_vs_statement_alone": "1061: 32 rooms against 15 lemmas; 1133: 31 rooms against 12 lemmas",
+     "fit": "0, 0, 0, 0",
+     "retyping_agreement": "1133 85 percent, 1061 67 percent",
+     "planner_root_reached": "0.0 and 0.005, both correct",
+     "predictions_held": "P1, P2, P3, P5, P6, P7, P8",
+     "predictions_missed": "P4 (1133), P9 (1061), P10 letter",
+     "hinge_vectors": 84
+    },
+    "cycles": [
+     "build-2026-11-26-typed",
+     "data-2026-11-27-B6_1061_A_full_probe",
+     "data-2026-11-27-B6_1061_B_full_noplan",
+     "data-2026-11-27-B6_1133_A_full_probe",
+     "data-2026-11-27-B6_1133_B_full_noplan",
+     "score-2026-11-27-build6"
+    ],
+    "confirmed_by": [
+     "the scorers on the committed logs and files; both seals opened with matching hashes; all six transcripts audited with audit.py; the registrar's re-typing written before the outcomes were compared"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "seven of ten predictions written before the runs held, including the one about reach by type; the misses are one target whose route was fully in reach, one blueprint where two readers agreed on two rooms in three rather than four in five, and two hard types sitting at exactly one half on eight rooms",
+    "note": "A first table, not a rate: 82 rooms, two proofs, one planner model, one searcher model. The type set's middle three (identity, split, assembly against averaging) are not yet reproducible across readers at the registered threshold on the larger blueprint; that is EG7, and it is what a revision of the types has to fix before any prior is built on the rates."
+   },
+   "certainty": {
+    "earned": true,
+    "how": "deterministic: blueprints, seals, files, logs, scorers and the re-typing are committed; anyone can recompile in the pinned project"
    }
   }
  ],
@@ -2461,6 +2904,20 @@
      "before_data": true,
      "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
      "result": "hypothesis build-2026-11-26-corner by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) bears on this gap (see HG4)"
+    },
+    {
+     "cycle": "score-2026-11-27-build6",
+     "dated": "2026-11-27",
+     "hypothesis": "with no room allowed to stay open untried, the outcomes per room give reach by join type",
+     "before_data": true,
+     "result": "held: every non-literature room of both blueprints received an attempt; 63 of 77 closed; the 14 open rooms of 1061 are named one by one; the remaining never-attempted rooms of the build 3 no-checker arms are still unforced"
+    },
+    {
+     "cycle": "build-2026-11-26-typed",
+     "hypothesis": "With every room typed by what its step does (case split, extremal or averaging, algebraic identity, literature import, two-structure coupling, quantitative…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "hypothesis build-2026-11-26-typed by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) bears on this gap (see HG5)"
     }
    ],
    "closes_with": [
@@ -2570,6 +3027,84 @@
     "spoken": "The measurement named by the submitter, made public at an endpoint."
    },
    "expected_signal": "predictions P1–P8 in prereg_build_5.yaml, scored from the check logs and the files by score.py and forced_score.py; genuineness and the per-arm cap enforced by…",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-27T03:46:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "gap_id": "EG7",
+   "title": "The join types are reproducible at the ends of the scale and not in the middle: a second reader agreed with the planner on 85 percent of one blueprint and 67 percent of the other, disagreeing on identity against split, bound against averaging, and glue against identity",
+   "status": "proposed",
+   "opened_cycle": "score-2026-11-27-build6",
+   "priority": 2,
+   "history": [],
+   "closes_with": [
+    {
+     "what": "a revised type set with written boundary rules for the middle three, applied blind by two readers to the 82 existing rooms and to the next build's rooms, reaching at least 80 percent agreement on each blueprint",
+     "kind": "measurement",
+     "external": false,
+     "who_could_act": "Nervous Machine, or any two readers with the blueprints"
+    }
+   ],
+   "spoken": "The types predicted reach, but two readers only agree on them two times in three on the larger proof. A rate built on a type that readers cannot reproduce is not a rate.",
+   "ask": {
+    "spoken": "Sharpen or merge the middle types and re-type the 82 rooms blind."
+   },
+   "expected_signal": "a registered re-typing with the agreement predicted first",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T03:47:21Z",
+   "provenance": {
+    "source": "hypothesis cycle build-2026-11-26-typed"
+   },
+   "audience": "briefing",
+   "gap_id": "HG5",
+   "title": "With every room typed by what its step does (case split, extremal or averaging, algebraic identity, literature import, two-structure coupling, quantitative…",
+   "status": "immovable",
+   "opened_cycle": "build-2026-11-26-typed",
+   "priority": 6,
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+    "github": null,
+    "cycle": "build-2026-11-26-typed",
+    "sha256": "32df6b2b3f9a00018367afeb04b0ae0b5af70382e9336c8099476fcd3409536c",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "build-2026-11-26-typed",
+     "hypothesis": "With every room typed by what its step does (case split, extremal or averaging, algebraic identity, literature import, two-structure coupling, quantitative…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar); pinned sha256 32df6b2b3f9a…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "two planners (Opus 5.5, with the papers) and four searcher arms (Fable 5.1), two with rooms under the probe-first rule and two from the statement alone",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "With every room typed by what its step does (case split, extremal or averaging, algebraic identity, literature import, two-structure coupling, quantitative improvement, assembly), its conditionals written as Lean hypothesis terms and its library inputs named, and with no room allowed to stay open untried, the types predict which rooms the searcher closes (identities, splits and assembly over couplings and improvements), the human paper's rooms again buy most of the structure over the statement alone, every literature import stays open, no fit appears, and the record ends with one hinge vector per room carrying an outcome.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P10 in prereg_build_6.yaml, scored by score.py, hinges.py and the registrar's blind re-typing",
    "resolution_by": "none registered"
   }
  ],

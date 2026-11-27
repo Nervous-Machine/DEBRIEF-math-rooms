@@ -1,0 +1,57 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-B6_1061_A_full_probe
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: With Li's argument as typed rooms and no room allowed to stay open untried, which rooms does the searcher
+    close, and do the types predict it?
+  rule: hold rule plus the probe-first rule enforced by rooms/check.sh with rooms/probe_check.py; rooms/score.py with
+    the blueprint and, after the seal opened, the planner's predictions; rooms/hinges.py writes one hinge vector per
+    room; the first accepted FINAL is the scored result
+  predictions: [P1, P2, P3, P4, P5, P6, P8, P9, P10]
+  commit: prereg_build_6.yaml
+  results:
+  - results/B6_1061_A_full_probe/score.json
+  - results/B6_1061_A_full_probe/hinges.yaml
+  - results/B6_1061_A_full_probe/final.lean
+  - results/B6_1061_A_full_probe/calls.tsv
+  - blueprint_1061_predictions.yaml
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 45
+    refused_calls: 0
+    error_calls: 16
+    first_FINAL: sorry
+    residual: true
+    fit_total: 0
+    rooms_proved: 32 of 46 non-literature rooms; 0 of 2 literature_import rooms; the root's body complete and resting on the open chain N45 → N47 → N48
+    statements_changed: 0; three rooms compiled under set_option maxHeartbeats 400000 (the permitted ceiling)
+    every_non_literature_room_attempted: true (tool-enforced; no FINAL refused)
+    reach_by_type_actual: algebraic_identity 12/14, case_split 5/6, extremal_averaging 9/12, assembly 5/9, two_structure_coupling 1/4, quantitative_improvement 0/1, literature_import 0/2
+    reach_by_type_predicted: algebraic_identity 0.68, case_split 0.46, assembly 0.34, extremal_averaging 0.26, quantitative_improvement 0.08, two_structure_coupling 0.07, literature_import 0.01
+    planner_root_reached: 0.0 (correct, because of the Bienvenu import)
+    planner_hardest_rooms: N23 lattice_coords and N38 local_denominator, both left open; the planner's expectation that two_structure_coupling fails first held
+    planner_error_log2_median: joins −3.3, leaves −2.6 (attempts over-predicted five to ten fold)
+    room_believed_false_as_drawn: N34 lattice_reduction, which omits p.Prime; the searcher gave two counterexamples, wrote the proof modulo the false step, left it as sorry and changed nothing
+    open_rooms_named: CRT witnesses mod a large modulus (N21, N38), the exact lattice index and the Gauss-reduced volume (N22, N23), the squarefree count in a progression (N25), the local density and the prime tail (N29, N30), the sieve and the plane-count assemblies (N31, N45, N47), the singular-series product comparison (N42, Mathlib lacks a comparison of infinite products of positive reals), the polylog inequalities with explicit thresholds (N46), and the shell summation (N48)
+    seal: opened after both 1061 arms; sha256 matched
+    tokens: 463559
+    minutes: 76 of 180
+    lines: 2448
+    declarations: 59
+    depth: 6
+    parent_control: B6_1061_B_full_noplan, 15 own lemmas on a different route, one room open, 10 minutes
+  misses: []
+spoken: 'Given Li''s argument as forty-eight typed rooms and made to try every one, the searcher proved thirty-two of
+  the forty-six that are not citations: nearly every identity and case split, three quarters of the averaging steps,
+  half the assemblies, one of four couplings and none of the quantitative step. The open rooms are the lattice
+  geometry, the sieve''s local densities and the final summation, named one by one. One room it believes false as
+  drawn, with counterexamples, and it left it open rather than repair it. The types separated the way the planner
+  said they would, though the planner again expected far less to close.'
+finding_ids: []
+gap_ids:
+- EG6
