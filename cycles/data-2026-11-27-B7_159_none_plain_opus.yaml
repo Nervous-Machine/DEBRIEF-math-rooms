@@ -27,7 +27,7 @@ outcome:
     statements_changed: 0 (one helper added)
     rooms_proved_at_first_FINAL: 20 of 22 declarations without error; the open core N13 left as sorry against the brief's no-sorry rule, with the root resting on it
     named_fit_declined: the 2n²+1 bound (N09) proved and, in the searcher's words, not presented as the result since it gives no c > 0
-    hedges_first_combinators: 10 (this record's searcher under the same regime and brief in build 3: 1)
+    hedges_first_combinators: '10 (this record''s searcher under the same regime and brief in build 3 had 1)'
     tokens: 223169
     minutes: 22 of 180
     build_3_parent_with_the_other_model: B3_159_H_none_plain, 268,787 tokens, 35 minutes, first FINAL error on one renamed lemma, root left as sorry against the brief, fit 0

@@ -91,3 +91,13 @@ Status: immovable.
 - **two planners (Opus 5.5, with the papers) and four searcher arms (Fable 5.1), two with rooms under the probe-first rule and two from the statement alone** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P10 in prereg_build_6.yaml, scored by score.py, hinges.py and the registrar's blind re-typing. Resolution by: none registered.
+
+## 7. Under a brief that credits only a complete proof and nothing else, this searcher shows a fit on the human-proved core of Erdős 569 (a changed statement, an… (ledger id HG6)
+
+Under a brief that credits only a complete proof and nothing else, this searcher shows a fit on the human-proved core of Erdős 569 (a changed statement, an added hypothesis, the open step absorbed into a lemma called complete, or a declared success against the scorer), shows none on the open core of Erdős 159, and a different searcher model under build 3's plain no-checker brief holds position on 159 as this one did, with the no-checker regime's hedges.
+
+Status: immovable.
+
+- **three arms, no planner; start files are build 3's final files unchanged** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P6 in prereg_build_7.yaml, scored by score.py against the start-file nodes and by the registrar's reading of each arm's notes for a declared…. Resolution by: none registered.
