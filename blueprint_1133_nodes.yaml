@@ -1,0 +1,854 @@
+root: erdos_1133
+nodes:
+- id: N01
+  name: olevskii_ulanovskii_prop_4_2
+  statement: "theorem olevskii_ulanovskii_prop_4_2 :\n    ∃ a > (0:ℝ), ∃ b > (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ Γ : Finset ℝ,\n   \
+    \   (∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)) → 2 * τ ≤ Γ.card →\n      ∀ σ : ℝ, Real.pi < σ → ∀ K : ℝ,\n        (∀ v : ℝ\
+    \ → ℂ, (∀ s ∈ Γ, ‖v s‖ ≤ 1) →\n          ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n            (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\
+    \ ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧\n            (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) ∧ ∀ s ∈ Γ, f (s : ℂ) = v s) →\n    \
+    \    a * Real.log (σ / (σ - Real.pi + b * (τ:ℝ) ^ (-((1:ℝ) / 3)))) ≤ K := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.log
+  - Real.rpow
+  - Differentiable
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 1 ≤ τ
+  - ∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)
+  - 2 * τ ≤ Γ.card
+  - Real.pi < σ
+  consumes: nothing (external theorem)
+  produces: the lower bound a log(σ/(σ-π+bτ^(-1/3))) for the complex interpolation constant K_i(Γ, B_σ), in the form "if all
+    unit complex data have norm-K interpolants then the bound is ≤ K"
+  library_inputs:
+  - Olevskii–Ulanovskii, On irregular sampling and interpolation in Bernstein spaces, Proposition 4.2 (paper's Theorem 3.1)
+  believed: provable
+- id: N02
+  name: bernstein_vertical_growth
+  statement: "theorem bernstein_vertical_growth (σ K : ℝ) (hσ : 0 < σ) (f : ℂ → ℂ) (hf : Differentiable ℂ f)\n    (htype :\
+    \ ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) (z : ℂ) :\n\
+    \    ‖f z‖ ≤ K * Real.exp (σ * |z.im|) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - PhragmenLindelof.horizontal_strip
+  - Complex.norm_exp
+  - Differentiable.diffContOnCl
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < σ
+  - Differentiable ℂ f
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K'
+  consumes: nothing (standard estimate cited from [4,5])
+  produces: the vertical growth estimate (3.1), used for the normal-family compactness of sample sets
+  library_inputs:
+  - vertical growth estimate (3.1) for Bernstein spaces, cited to Olevskii–Ulanovskii [4] and Ortega-Cerdà–Seip [5] (Phragmén–Lindelöf)
+  believed: provable
+- id: N03
+  name: bernstein_real_sample_set_isClosed
+  statement: "theorem bernstein_real_sample_set_isClosed (σ H : ℝ) (hσ : 0 < σ) (k : ℕ) (t : Fin k → ℝ) :\n    IsClosed {v\
+    \ : Fin k → ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧\n      (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ)\
+    \ * ‖z‖)) ∧\n      (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧\n      ∀ i, (g (t i : ℂ)).re = v i} :=\
+    \ by\n"
+  depends_on:
+  - N02
+  mathlib_roots:
+  - isClosed_iff_clusterPt
+  - TendstoLocallyUniformly.differentiable
+  - Complex.differentiableOn_tsum_of_summable_norm
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < σ
+  consumes: the vertical growth bound (3.1) giving local uniform boundedness
+  produces: closedness of the convex sample set K (normal-family theorem as the paper uses it in Lemma 3.3)
+  library_inputs:
+  - normal-family (Montel) theorem with preservation of type, norm and samples under locally uniform limits, as invoked in
+    the proof of Lemma 3.3
+  believed: provable
+- id: N04
+  name: exp_type_linear_comb
+  statement: "theorem exp_type_linear_comb (σ : ℝ) (f g : ℂ → ℂ) (a b : ℂ)\n    (hf : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖\
+    \ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hg : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) :\n\
+    \    ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖a * f z + b * g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - norm_add_le
+  - norm_mul
+  - Real.exp_pos
+  - add_mul
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  consumes: nothing
+  produces: closure of exponential type σ under complex linear combinations
+  library_inputs: []
+  believed: provable
+- id: N05
+  name: bernstein_affine_rescale
+  statement: "theorem bernstein_affine_rescale (σ lam c K : ℝ) (hσ : 0 ≤ σ) (hlam : 0 < lam) (f : ℂ → ℂ)\n    (hf : Differentiable\
+    \ ℂ f)\n    (htype : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hbd : ∀ x : ℝ, ‖f (x :\
+    \ ℂ)‖ ≤ K) :\n    Differentiable ℂ (fun z : ℂ => f (z / (lam : ℂ) + (c : ℂ))) ∧\n    (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n\
+    \      ‖f (z / (lam : ℂ) + (c : ℂ))‖ ≤ M * Real.exp ((σ / lam + δ) * ‖z‖)) ∧\n    (∀ x : ℝ, ‖f ((x : ℂ) / (lam : ℂ) +\
+    \ (c : ℂ))‖ ≤ K) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Differentiable.comp
+  - Differentiable.add_const
+  - Differentiable.div_const
+  - norm_add_le
+  - Complex.norm_real
+  - Real.exp_add
+  - Real.exp_le_exp
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 ≤ σ
+  - 0 < lam
+  - Differentiable ℂ f
+  consumes: nothing
+  produces: the change of variable g(z) = f(z/λ + c) maps B_σ (norm K) to B_{σ/λ} (norm K)
+  library_inputs: []
+  believed: provable
+- id: N06
+  name: complex_data_from_real
+  statement: "theorem complex_data_from_real (σ H : ℝ) (k : ℕ) (s : Fin k → ℝ)\n    (hreal : ∀ v : Fin k → ℝ, (∀ i, |v i|\
+    \ ≤ 1) →\n      ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n        (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ +\
+    \ δ) * ‖z‖)) ∧\n        (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (s i : ℂ) = (v i : ℂ)) :\n    ∀ w : Fin k → ℂ, (∀ i, ‖w i‖\
+    \ ≤ 1) →\n      ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n        (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ +\
+    \ δ) * ‖z‖)) ∧\n        (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ 2 * H) ∧ ∀ i, f (s i : ℂ) = w i := by\n"
+  depends_on:
+  - N04
+  mathlib_roots:
+  - Complex.abs_re_le_norm
+  - Complex.abs_im_le_norm
+  - Complex.re_add_im
+  - Differentiable.add
+  - Differentiable.const_mul
+  - norm_add_le
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - '∀ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) → ∃ f ... norm ≤ H interpolant'
+  consumes: closure of exponential type under f1 + I*f2 (N04)
+  produces: complex unit data interpolable with norm 2H, i.e. K_i ≤ 2H (3.5)
+  library_inputs: []
+  believed: provable
+- id: N07
+  name: lemma32_rescale_params
+  statement: "theorem lemma32_rescale_params (τ : ℕ) (hτ : 1 ≤ τ) (c t : ℝ)\n    (ht : t ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1))\
+    \ :\n    (2 * (τ:ℝ)) / (2 * τ + 2) * (t - c - (2 * (τ:ℝ) + 1) / 2) ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ) ∧\n    Real.pi < Real.pi /\
+    \ ((2 * (τ:ℝ)) / (2 * τ + 2)) ∧\n    Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) ≤ 2 * Real.pi := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.mem_Icc
+  - Set.mem_Ico
+  - div_lt_div_iff₀
+  - Real.pi_pos
+  - abs_le
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 1 ≤ τ
+  - t ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
+  consumes: nothing
+  produces: rescaled nodes s_i lie in [-τ, τ) and σ_k = π/λ_k ∈ (π, 2π] for k = 2τ
+  library_inputs: []
+  believed: provable
+- id: N08
+  name: lemma32_log_bound
+  statement: "theorem lemma32_log_bound (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (τ : ℕ) (hτ : 1 ≤ τ) :\n    a / 3 * Real.log (2\
+    \ * (τ:ℝ)) - a * Real.log ((2 * Real.pi + b * (2:ℝ) ^ ((1:ℝ) / 3)) / Real.pi) ≤\n      a * Real.log ((Real.pi / ((2 *\
+    \ (τ:ℝ)) / (2 * τ + 2))) /\n        (Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) - Real.pi + b * (τ:ℝ) ^ (-((1:ℝ) / 3)))) :=\
+    \ by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.log_le_log
+  - Real.log_div
+  - Real.log_rpow
+  - Real.rpow_neg
+  - Real.mul_rpow
+  - Real.rpow_le_rpow_of_exponent_le
+  - Real.pi_pos
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < a
+  - 0 < b
+  - 1 ≤ τ
+  consumes: nothing
+  produces: the lower bound (a/3) log k − b0 for the Olevskii–Ulanovskii right-hand side at k = 2τ, σ = σ_k
+  library_inputs: []
+  believed: provable
+- id: N09
+  name: lemma32_choose_k
+  statement: "theorem lemma32_choose_k (a b0 : ℝ) (ha : 0 < a) (hb0 : 0 ≤ b0) :\n    ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ τ : ℕ, 1\
+    \ ≤ τ ∧\n      2 * H < a / 3 * Real.log (2 * (τ:ℝ)) - b0 ∧\n      2 * (τ:ℝ) ≤ Real.exp (A0 * (1 + H)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.ceil
+  - Nat.le_ceil
+  - Nat.ceil_lt_add_one
+  - Real.log_exp
+  - Real.log_le_log
+  - Real.add_one_le_exp
+  - Real.exp_le_exp
+  kind: leaf
+  join_type: quantitative_improvement
+  conditionals:
+  - 0 < a
+  - 0 ≤ b0
+  - H > 0
+  consumes: nothing
+  produces: an even k = 2τ ≤ exp(A0(1+H)) with (a/3) log k − b0 > 2H, the exponential bound (3.4)
+  library_inputs: []
+  believed: provable
+- id: N10
+  name: lemma32_distinct_core
+  statement: "theorem lemma32_distinct_core :\n    ∃ a > (0:ℝ), ∃ b0 ≥ (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ (c : ℝ) (t : Fin (2 * τ)\
+    \ → ℝ),\n      Function.Injective t → (∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)) → ∀ H : ℝ,\n      (∀ v : Fin (2 * τ)\
+    \ → ℝ, (∀ i, |v i| ≤ 1) →\n        ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n          (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖\
+    \ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n          (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ)) →\n  \
+    \    a / 3 * Real.log (2 * (τ:ℝ)) - b0 ≤ 2 * H := by\n"
+  depends_on:
+  - N01
+  - N05
+  - N06
+  - N07
+  - N08
+  mathlib_roots:
+  - Finset.card_image_of_injective
+  - Finset.mem_image
+  - Function.Injective.comp
+  - Real.log_nonneg
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ τ
+  - Function.Injective t
+  - ∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
+  consumes: O-U bound (N01), rescaling (N05), complex split (N06), parameter ranges (N07), log estimate (N08)
+  produces: if all real unit data at 2τ distinct nodes in an interval of length 2τ+1 are B_π-interpolable with norm H, then
+    (a/3) log(2τ) − b0 ≤ 2H
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N01)
+  believed: provable
+- id: N11
+  name: coincident_nodes_obstruction
+  statement: "theorem coincident_nodes_obstruction (k : ℕ) (t : Fin k → ℝ) (i j : Fin k) (hij : i ≠ j)\n    (heq : t i = t\
+    \ j) :\n    ∃ v : Fin k → ℝ, (∀ l, |v l| ≤ 1) ∧ ∀ f : ℂ → ℂ, ¬ ∀ l, f (t l : ℂ) = (v l : ℂ) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Function.update
+  - Function.update_self
+  - Function.update_of_ne
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - i ≠ j
+  - t i = t j
+  consumes: nothing
+  produces: data ±1 at two coincident indices that nothing interpolates
+  library_inputs: []
+  believed: provable
+- id: N12
+  name: effective_finite_obstruction
+  statement: "theorem effective_finite_obstruction :\n    ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ k : ℕ, Even k ∧ 2 ≤ k ∧ (k:ℝ) ≤ Real.exp\
+    \ (A0 * (1 + H)) ∧\n      ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) →\n        ∃ v : Fin k → ℝ,\
+    \ (∀ i, |v i| ≤ 1) ∧\n          ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n            (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖\
+    \ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n            (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ) := by\n"
+  depends_on:
+  - N09
+  - N10
+  - N11
+  mathlib_roots:
+  - Function.Injective
+  - Nat.even_mul
+  - Classical.byContradiction
+  - not_exists
+  kind: join
+  join_type: assembly
+  conditionals:
+  - H > 0
+  - ∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)
+  consumes: the choice of k (N09), the distinct-node contradiction (N10), the coincident-node case (N11)
+  produces: Lemma 3.2, an even k ≤ exp(A0(1+H)) with a non-interpolable real unit data vector on every k-tuple in an interval
+    of length k+1
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N10)
+  believed: provable
+- id: N13
+  name: real_symmetrization
+  statement: "theorem real_symmetrization (σ C : ℝ) (f : ℂ → ℂ) (hf : Differentiable ℂ f)\n    (htype : ∀ δ > (0:ℝ), ∃ M :\
+    \ ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) :\n    Differentiable ℂ (fun\
+    \ z : ℂ => (f z + starRingEnd ℂ (f (starRingEnd ℂ z))) / 2) ∧\n    (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n      ‖(f z + starRingEnd\
+    \ ℂ (f (starRingEnd ℂ z))) / 2‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧\n    (∀ x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd\
+    \ ℂ (x : ℂ)))) / 2).im = 0) ∧\n    (∀ x : ℝ, ‖(f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2‖ ≤ C) ∧\n  \
+    \  (∀ x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2).re = (f (x : ℂ)).re) := by\n"
+  depends_on:
+  - N04
+  mathlib_roots:
+  - differentiableAt_conj_conj_iff
+  - DifferentiableAt.conj_conj
+  - Complex.conj_ofReal
+  - Complex.norm_conj
+  - Complex.add_conj
+  - Complex.conj_re
+  - Complex.conj_im
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - Differentiable ℂ f
+  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C'
+  consumes: exponential-type closure (N04)
+  produces: f^R in B_σ^R, norm ≤ C, with Re f^R = Re f on ℝ
+  library_inputs: []
+  believed: provable
+- id: N14
+  name: bernstein_real_sample_set_convex
+  statement: "theorem bernstein_real_sample_set_convex (σ H : ℝ) (k : ℕ) (t : Fin k → ℝ) :\n    Convex ℝ {v : Fin k → ℝ |\
+    \ ∃ g : ℂ → ℂ, Differentiable ℂ g ∧\n      (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧\n \
+    \     (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧\n      ∀ i, (g (t i : ℂ)).re = v i} := by\n"
+  depends_on:
+  - N04
+  mathlib_roots:
+  - convex_iff_forall_pos
+  - Differentiable.add
+  - Differentiable.const_mul
+  - norm_add_le
+  - Complex.add_re
+  - Complex.mul_re
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: exponential-type closure (N04)
+  produces: convexity of the sample set K
+  library_inputs: []
+  believed: provable
+- id: N15
+  name: finite_dim_point_separation
+  statement: "theorem finite_dim_point_separation (k : ℕ) (K : Set (Fin k → ℝ)) (hconv : Convex ℝ K)\n    (hclosed : IsClosed\
+    \ K) (v : Fin k → ℝ) (hv : v ∉ K) :\n    ∃ w : Fin k → ℝ, ∀ z ∈ K, ∑ i, w i * z i < ∑ i, w i * v i := by\n"
+  depends_on: []
+  mathlib_roots:
+  - geometric_hahn_banach_closed_point
+  - ContinuousLinearMap.map_sum
+  - Finset.univ_sum_single
+  - Pi.single
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - Convex ℝ K
+  - IsClosed K
+  - v ∉ K
+  consumes: nothing
+  produces: a coordinate separating vector w for v ∉ K
+  library_inputs: []
+  believed: provable
+- id: N16
+  name: sign_from_separation
+  statement: "theorem sign_from_separation (k : ℕ) (ρ : ℝ) (w : Fin k → ℝ) (u : Fin k → ℂ)\n    (hsep : ∑ i, w i * (u i).re\
+    \ < (1 - ρ) * ∑ i, |w i|) :\n    ∃ i, ρ < ‖u i - (((if 0 ≤ w i then 1 else -1 : ℝ)) : ℂ)‖ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.sum_le_sum
+  - Complex.abs_re_le_norm
+  - Complex.sub_re
+  - Complex.ofReal_re
+  - abs_of_nonneg
+  - abs_of_neg
+  - Finset.mul_sum
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∑ i, w i * (u i).re < (1 - ρ) * ∑ i, |w i|
+  consumes: nothing
+  produces: an index where the sign datum sgn(w_i) is missed by more than ρ
+  library_inputs: []
+  believed: provable
+- id: N17
+  name: signs_prescribed_tolerance
+  statement: "theorem signs_prescribed_tolerance (C ρ : ℝ) (hC : 0 < C) (hρ0 : 0 ≤ ρ) (hρ1 : ρ < 1)\n    (k : ℕ) (t : Fin\
+    \ k → ℝ)\n    (hobs : ∃ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) ∧\n      ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n        (∀ δ > (0:ℝ),\
+    \ ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n        (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C / (1 - ρ)) ∧ ∀ i,\
+    \ f (t i : ℂ) = (v i : ℂ)) :\n    ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧\n      ∀ f : ℂ → ℂ, Differentiable ℂ f\
+    \ →\n        (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →\n        (∀ x : ℝ, ‖f (x :\
+    \ ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖ := by\n"
+  depends_on:
+  - N03
+  - N04
+  - N13
+  - N14
+  - N15
+  - N16
+  mathlib_roots:
+  - Complex.ext
+  - Complex.ofReal_re
+  - Complex.ofReal_im
+  - Finset.sum_le_sum
+  - le_abs_self
+  - div_pos
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < C
+  - 0 ≤ ρ
+  - ρ < 1
+  - '∃ v ... ¬ ∃ f ... ‖f (x : ℂ)‖ ≤ C / (1 - ρ) ...'
+  consumes: closed (N03) convex (N14) sample set, symmetrization (N13), scaling (N04), separation (N15), sign extraction (N16)
+  produces: Lemma 3.3, sign data on a k-tuple that every B_π function of norm ≤ C misses by more than ρ somewhere
+  library_inputs:
+  - normal-family theorem (via N03)
+  believed: provable
+- id: N18
+  name: local_sign_obstruction
+  statement: "theorem local_sign_obstruction :\n    ∃ A0 > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 →\n      ∃ k : ℕ, Even\
+    \ k ∧ 2 ≤ k ∧ (k:ℝ) ≤ Real.exp (A0 * (1 + C / (1 - ρ))) ∧\n        ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c\
+    \ + (k:ℝ) + 1)) →\n          ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧\n            ∀ f : ℂ → ℂ, Differentiable ℂ f\
+    \ →\n              (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →\n              (∀ x :\
+    \ ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖ := by\n"
+  depends_on:
+  - N12
+  - N17
+  mathlib_roots:
+  - div_pos
+  - sub_pos
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - 0 ≤ ρ
+  - ρ < 1
+  consumes: Lemma 3.2 at H = C/(1−ρ) (N12) and Lemma 3.3 (N17)
+  produces: one k ≤ exp(A0(1+H)) with sign obstructions on every k-tuple in an interval of length k+1
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N12)
+  - normal-family theorem (via N17)
+  believed: provable
+- id: N19
+  name: norm_cos_le_exp_abs_im
+  statement: 'theorem norm_cos_le_exp_abs_im (w : ℂ) : ‖Complex.cos w‖ ≤ Real.exp |w.im| := by
+
+    '
+  depends_on: []
+  mathlib_roots:
+  - Complex.two_cos
+  - Complex.norm_exp
+  - norm_add_le
+  - Complex.mul_re
+  - Complex.I_re
+  - Complex.I_im
+  - Real.exp_le_exp
+  - neg_abs_le
+  - le_abs_self
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: the bound ‖cos w‖ ≤ e^{|Im w|}
+  library_inputs: []
+  believed: provable
+- id: N20
+  name: poly_cos_exp_type
+  statement: "theorem poly_cos_exp_type (P : Polynomial ℝ) (D : ℝ) (hD : 0 < D) (hdeg : (P.natDegree : ℝ) ≤ D) :\n    Differentiable\
+    \ ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P) ∧\n    ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n\
+    \      ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P‖ ≤\n        M * Real.exp ((Real.pi + δ) * ‖z‖)\
+    \ := by\n"
+  depends_on:
+  - N19
+  mathlib_roots:
+  - Polynomial.differentiable_aeval
+  - Complex.differentiable_cos
+  - Differentiable.comp
+  - Polynomial.aeval_eq_sum_range
+  - norm_sum_le
+  - norm_pow
+  - Real.exp_nat_mul
+  - Complex.abs_im_le_norm
+  - Real.exp_le_exp
+  kind: leaf
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < D
+  - '(P.natDegree : ℝ) ≤ D'
+  consumes: the cosine growth bound (N19)
+  produces: P(cos(πz/D)) is entire of exponential type ≤ π deg P/D ≤ π
+  library_inputs: []
+  believed: provable
+- id: N21
+  name: poly_cos_real_values
+  statement: "theorem poly_cos_real_values (P : Polynomial ℝ) (D C : ℝ)\n    (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C)\
+    \ (t : ℝ) :\n    Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P =\n      ((P.eval (Real.cos (Real.pi\
+    \ * t / D)) : ℝ) : ℂ) ∧\n    ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P‖ ≤ C := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Polynomial.aeval_algebraMap_apply_eq_algebraMap_eval
+  - Complex.ofReal_cos
+  - Complex.ofReal_mul
+  - Complex.ofReal_div
+  - Complex.norm_real
+  - Real.neg_one_le_cos
+  - Real.cos_le_one
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
+  consumes: nothing
+  produces: on real t, f(t) = P(cos(πt/D)) is real and bounded by C
+  library_inputs: []
+  believed: provable
+- id: N22
+  name: arccos_node
+  statement: "theorem arccos_node (D x : ℝ) (hD : 0 < D) (hx : x ∈ Set.Icc (-1:ℝ) 1) :\n    D / Real.pi * Real.arccos x ∈\
+    \ Set.Icc 0 D ∧\n    Real.cos (Real.pi * (D / Real.pi * Real.arccos x) / D) = x := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.arccos_nonneg
+  - Real.arccos_le_pi
+  - Real.cos_arccos
+  - Real.pi_pos
+  - mul_div_cancel_left₀
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < D
+  - x ∈ Set.Icc (-1:ℝ) 1
+  consumes: nothing
+  produces: angular nodes t_i = (D/π) arccos x_i ∈ [0, D] with cos(πt_i/D) = x_i
+  library_inputs: []
+  believed: provable
+- id: N23
+  name: polynomial_to_bernstein
+  statement: "theorem polynomial_to_bernstein (P : Polynomial ℝ) (D C : ℝ) (hD : 0 < D)\n    (hdeg : (P.natDegree : ℝ) ≤ D)\
+    \ (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) :\n    Differentiable ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos ((Real.pi\
+    \ : ℂ) * z / (D : ℂ))) P) ∧\n    (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n      ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ)\
+    \ * z / (D : ℂ))) P‖ ≤\n        M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n    (∀ x : ℝ, ‖Polynomial.aeval (Complex.cos ((Real.pi\
+    \ : ℂ) * (x : ℂ) / (D : ℂ))) P‖ ≤ C) ∧\n    (∀ x ∈ Set.Icc (-1:ℝ) 1,\n      Polynomial.aeval (Complex.cos ((Real.pi :\
+    \ ℂ) * ((D / Real.pi * Real.arccos x : ℝ) : ℂ) / (D : ℂ))) P =\n        ((P.eval x : ℝ) : ℂ)) := by\n"
+  depends_on:
+  - N20
+  - N21
+  - N22
+  mathlib_roots:
+  - Complex.ofReal_mul
+  - Complex.ofReal_div
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 0 < D
+  - '(P.natDegree : ℝ) ≤ D'
+  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
+  consumes: type bound (N20), real values (N21), angular nodes (N22)
+  produces: the angular substitution f = P∘cos(π·/D) ∈ B_π with norm ≤ C and f(t_i) = P(x_i)
+  library_inputs: []
+  believed: provable
+- id: N24
+  name: finset_split_into_blocks
+  statement: "theorem finset_split_into_blocks {α : Type*} [DecidableEq α] (k : ℕ) (hk : 1 ≤ k) (S : Finset α) :\n    ∃ q\
+    \ : ℕ, ∃ G : Fin q → Finset α,\n      (∀ l, G l ⊆ S) ∧ (∀ l, (G l).card = k) ∧ (∀ l l', l ≠ l' → Disjoint (G l) (G l'))\
+    \ ∧\n      S.card ≤ k * q + (k - 1) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.exists_subset_card_eq
+  - Finset.strongInduction
+  - Finset.card_sdiff
+  - Fin.cons
+  - Finset.disjoint_sdiff
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - 1 ≤ k
+  consumes: nothing
+  produces: ⌊|S|/k⌋ disjoint k-blocks inside S, leaving at most k−1 elements
+  library_inputs: []
+  believed: provable
+- id: N25
+  name: bucket_grouping
+  statement: "theorem bucket_grouping (n k N : ℕ) (hk : 1 ≤ k) (b : Fin n → Fin N) :\n    ∃ q : ℕ, ∃ G : Fin q → Finset (Fin\
+    \ n),\n      (∀ l, (G l).card = k) ∧ (∀ l l', l ≠ l' → Disjoint (G l) (G l')) ∧\n      (∀ l, ∃ j : Fin N, ∀ i ∈ G l, b\
+    \ i = j) ∧ n ≤ k * q + (k - 1) * N := by\n"
+  depends_on:
+  - N24
+  mathlib_roots:
+  - Finset.card_eq_sum_card_fiberwise
+  - Finset.sum_le_sum
+  - Finset.disjoint_filter
+  - finSigmaFinEquiv
+  - Finset.card_univ
+  - Fintype.card_fin
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - 1 ≤ k
+  consumes: per-bucket block splitting (N24)
+  produces: the grouping (4.3), q disjoint k-groups each inside one bucket with kq ≥ n − (k−1)N
+  library_inputs: []
+  believed: provable
+- id: N26
+  name: bucket_interval
+  statement: "theorem bucket_interval (D t : ℝ) (k : ℕ) (hD : 0 < D) (hk : 1 ≤ k) (ht : t ∈ Set.Icc 0 D) :\n    min ⌊t / ((k:ℝ)\
+    \ + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) < ⌈D / ((k:ℝ) + 1)⌉₊ ∧\n    t ∈ Set.Icc (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊\
+    \ - 1) : ℕ) : ℝ) * ((k:ℝ) + 1))\n      (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ) + 1) + ((k:ℝ)\
+    \ + 1)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.floor_le
+  - Nat.lt_floor_add_one
+  - Nat.le_ceil
+  - Nat.ceil_pos
+  - Nat.ceil_lt_add_one
+  - Nat.cast_min
+  - Nat.cast_sub
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < D
+  - 1 ≤ k
+  - t ∈ Set.Icc 0 D
+  consumes: nothing
+  produces: a bucket index j < N = ⌈D/(k+1)⌉ with t in [j(k+1), j(k+1)+k+1]
+  library_inputs: []
+  believed: provable
+- id: N27
+  name: angular_groups
+  statement: "theorem angular_groups (n k : ℕ) (hk : 1 ≤ k) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ) 1) :\n    ∃ q\
+    \ : ℕ, ∃ G : Fin q → Finset (Fin n),\n      (∀ l, (G l).card = k) ∧ (∀ l l', l ≠ l' → Disjoint (G l) (G l')) ∧\n     \
+    \ (∀ l, ∃ c : ℝ, ∀ i ∈ G l, D / Real.pi * Real.arccos (x i : ℝ) ∈ Set.Icc c (c + (k:ℝ) + 1)) ∧\n      (n : ℝ) ≤ (k:ℝ)\
+    \ * q + ((k:ℝ) - 1) * (D / ((k:ℝ) + 1) + 1) := by\n"
+  depends_on:
+  - N22
+  - N25
+  - N26
+  mathlib_roots:
+  - Nat.ceil_lt_add_one
+  - Nat.cast_le
+  - Nat.cast_mul
+  - Nat.cast_sub
+  - Nat.cast_add
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ k
+  - 0 < D
+  consumes: angular nodes (N22), bucket grouping (N25), bucket intervals (N26)
+  produces: disjoint k-groups of indices whose angular nodes lie in intervals of length k+1, kq ≥ n − (k−1)(D/(k+1)+1)
+  library_inputs: []
+  believed: provable
+- id: N28
+  name: disjoint_groups_card_le
+  statement: "theorem disjoint_groups_card_le (n q : ℕ) (G : Fin q → Finset (Fin n))\n    (hdisj : ∀ l l', l ≠ l' → Disjoint\
+    \ (G l) (G l')) (E : Finset (Fin n))\n    (hhit : ∀ l, ∃ i ∈ G l, i ∈ E) : q ≤ E.card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_le_card_of_injOn
+  - Finset.disjoint_left
+  - Fintype.card_fin
+  - Finset.card_univ
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∀ l l', l ≠ l' → Disjoint (G l) (G l')
+  - ∀ l, ∃ i ∈ G l, i ∈ E
+  consumes: nothing
+  produces: one error per disjoint group gives at least q errors
+  library_inputs: []
+  believed: provable
+- id: N29
+  name: finite_degree_error_tradeoff
+  statement: "theorem finite_degree_error_tradeoff (C ρ : ℝ) (k : ℕ) (hk : 1 ≤ k)\n    (hsign : ∀ (c : ℝ) (t : Fin k → ℝ),\
+    \ (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) →\n      ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧\n        ∀ f : ℂ → ℂ, Differentiable\
+    \ ℂ f →\n          (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →\n          (∀ x : ℝ,\
+    \ ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖)\n    (n : ℕ) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ)\
+    \ 1) :\n    ∃ y : Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧\n      ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ D → (∀ z ∈ Set.Icc\
+    \ (-1:ℝ) 1, |P.eval z| ≤ C) →\n        (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * D - ((k:ℝ) - 1) / k ≤\n   \
+    \       ((Finset.univ.filter (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by\n"
+  depends_on:
+  - N23
+  - N27
+  - N28
+  mathlib_roots:
+  - Finset.equivFin
+  - Finset.orderEmbOfFin
+  - Classical.choose
+  - Complex.norm_real
+  - Complex.ofReal_sub
+  - Finset.mem_filter
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ k
+  - 0 < D
+  - hsign (Lemma 3.3 for all k-tuples in intervals of length k+1)
+  consumes: angular substitution (N23), groups (N27), disjoint counting (N28), Lemma 3.3 signs as hypothesis
+  produces: Theorem 4.1 in the form (4.2), E_ρ ≥ n/k − (k−1)D/(k(k+1)) − (k−1)/k
+  library_inputs: []
+  believed: provable
+- id: N30
+  name: theorem21_arithmetic
+  statement: "theorem theorem21_arithmetic (k n : ℕ) (hk : 2 ≤ k) (hn : 4 * k ^ 2 ≤ n) :\n    1 / (8 * (k:ℝ) ^ 2) * n <\n\
+    \      (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * ((1 + 1 / (8 * (k:ℝ) ^ 2)) * n) -\n        ((k:ℝ) - 1) / k\
+    \ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - div_le_div_iff₀
+  - Nat.cast_le
+  - Nat.cast_pow
+  - sub_pos
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 2 ≤ k
+  - 4 * k ^ 2 ≤ n
+  consumes: nothing
+  produces: with ε = 1/(8k²), n ≥ 4k², D = (1+ε)n, the (4.2) bound exceeds εn
+  library_inputs: []
+  believed: provable
+- id: N31
+  name: theorem21_constants
+  statement: "theorem theorem21_constants (A0 : ℝ) (hA0 : 0 < A0) :\n    ∃ A > (0:ℝ), ∀ H : ℝ, 0 ≤ H → ∀ k : ℕ, 2 ≤ k → (k:ℝ)\
+    \ ≤ Real.exp (A0 * (1 + H)) →\n      Real.exp (-(A * (1 + H))) ≤ 1 / (8 * (k:ℝ) ^ 2) ∧\n      4 * (k:ℝ) ^ 2 ≤ Real.exp\
+    \ (A * (1 + H)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.exp_neg
+  - Real.exp_add
+  - Real.exp_nat_mul
+  - Real.add_one_le_exp
+  - Real.exp_one_gt_d9
+  - pow_le_pow_left₀
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < A0
+  - 0 ≤ H
+  - 2 ≤ k
+  - (k:ℝ) ≤ Real.exp (A0 * (1 + H))
+  consumes: nothing
+  produces: ε = 1/(8k²) ≥ e^{−A(1+H)} and n0 = 4k² ≤ e^{A(1+H)}, the bounds (2.3)
+  library_inputs: []
+  believed: provable
+- id: N32
+  name: quantitative_robust_obstruction
+  statement: "theorem quantitative_robust_obstruction :\n    ∃ A > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 →\n      ∃ ε\
+    \ : ℝ, 0 < ε ∧ ε < 1 ∧ Real.exp (-(A * (1 + C / (1 - ρ)))) ≤ ε ∧\n      ∃ n0 : ℕ, (n0 : ℝ) ≤ Real.exp (A * (1 + C / (1\
+    \ - ρ))) ∧\n        ∀ n : ℕ, n0 ≤ n → ∀ x : Fin n → Set.Icc (-1:ℝ) 1,\n          ∃ y : Fin n → ℝ, (∀ i, y i = 1 ∨ y i\
+    \ = -1) ∧\n            ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 + ε) * n →\n              (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval\
+    \ z| ≤ C) →\n              ε * n < ((Finset.univ.filter (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by\n"
+  depends_on:
+  - N18
+  - N29
+  - N30
+  - N31
+  mathlib_roots:
+  - div_nonneg
+  - sub_pos
+  - mul_pos
+  - Nat.cast_pos
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - 0 ≤ ρ
+  - ρ < 1
+  - n0 ≤ n
+  consumes: local sign obstruction with k (N18), Theorem 4.1 (N29), arithmetic (N30), constants (N31)
+  produces: Theorem 2.1 for real polynomials, ε = 1/(8k²), n0 = 4k²
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N18)
+  - normal-family theorem (via N18)
+  believed: provable
+- id: N33
+  name: match_error_complement
+  statement: "theorem match_error_complement (n : ℕ) (P : Polynomial ℝ) (x : Fin n → Set.Icc (-1:ℝ) 1) (y : Fin n → ℝ) :\n\
+    \    ((Finset.univ.filter (fun i ↦ P.eval (x i : ℝ) = y i)).card : ℝ) +\n      ((Finset.univ.filter (fun i ↦ (0:ℝ) < |P.eval\
+    \ (x i : ℝ) - y i|)).card : ℝ) = n := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_filter_add_card_filter_not
+  - abs_pos
+  - sub_ne_zero
+  - Finset.filter_congr
+  - Finset.card_univ
+  - Fintype.card_fin
+  kind: leaf
+  join_type: case_split
+  conditionals: []
+  consumes: nothing
+  produces: at ρ = 0, matched indices and erroneous indices partition [n]
+  library_inputs: []
+  believed: provable
+- id: N34
+  name: qualitative_robust_obstruction
+  statement: "theorem qualitative_robust_obstruction :\n    ∀ C > (0:ℝ), ∃ ε : ℝ, 0 < ε ∧ ∃ n0 : ℕ, ∀ n : ℕ, n0 ≤ n → ∀ x\
+    \ : Fin n → Set.Icc (-1:ℝ) 1,\n      ∃ y : Fin n → Set.Icc (-1:ℝ) 1,\n        ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤\
+    \ (1 + ε) * n →\n          (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) →\n          ε * n < ((Finset.univ.filter (fun i ↦\
+    \ (0:ℝ) < |P.eval (x i : ℝ) - (y i : ℝ)|)).card : ℝ) := by\n"
+  depends_on:
+  - N32
+  mathlib_roots:
+  - Set.mem_Icc
+  - sub_zero
+  - div_one
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - n0 ≤ n
+  consumes: Theorem 2.1 (N32) at ρ = 0
+  produces: the ρ = 0 obstruction with data in Icc (-1) 1 (signs coerced)
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N32)
+  - normal-family theorem (via N32)
+  believed: provable
+- id: ROOT
+  name: erdos_1133
+  statement: "theorem erdos_1133 :\n    ∀ C > (0 : ℝ), ∃ ε > (0 : ℝ), ∀ᶠ n : ℕ in atTop,\n      ∀ x : Fin n → Icc (-1 : ℝ)\
+    \ 1,\n        ∃ y : Fin n → Icc (-1 : ℝ) 1,\n          ∀ P : Polynomial ℝ,\n            (P.natDegree : ℝ) < (1 + ε) *\
+    \ (n : ℝ) →\n            ((Finset.univ.filter (fun i ↦ P.eval (x i : ℝ) = (y i : ℝ))).card : ℝ) ≥\n              (1 -\
+    \ ε) * (n : ℝ) →\n            ∃ z ∈ Icc (-1 : ℝ) 1, |P.eval z| > C := by\n"
+  depends_on:
+  - N33
+  - N34
+  mathlib_roots:
+  - Filter.eventually_atTop
+  - not_exists
+  - not_lt
+  - le_of_lt
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  consumes: ρ = 0 obstruction (N34) and the match/error partition (N33)
+  produces: the Challenge statement (by contraposition, a bounded P has > εn errors, so < (1−ε)n matches)
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N34)
+  - normal-family theorem (via N34)
+  believed: provable
+notes: 'Route (paper, Sections 3-4, specialised to ρ = 0 at the end): Olevskii–Ulanovskii''s finite Bernstein-space
+
+  bound (N01) plus rescaling and a real/complex split give Lemma 3.2 (N12): an even k ≤ e^{A0(1+H)} such that every
+
+  k-tuple in an interval of length k+1 carries unit real data with no B_π interpolant of norm ≤ H. Convex separation
+
+  of the closed convex sample set (N03, N14, N15, N16) turns this into sign data (Lemma 3.3, N17). The angular
+
+  substitution P(cos(πz/D)) (N19-N23) sends admissible polynomials into B_π; grouping angular nodes into disjoint
+
+  k-groups in intervals of length k+1 (N24-N27) and counting one error per group (N28) gives Theorem 4.1 (N29);
+
+  ε = 1/(8k²), n0 = 4k² gives Theorem 2.1 (N32); ρ = 0 and complement counting give the root.
+
+  Hardest: N29 and N25/N27, re-indexing Finset groups as Fin k tuples and bucket bookkeeping; mathematically the
+
+  wall is N01 (and N03), left as imports. ROOT reached 0.7 is the root step from the nodes; root_reached counts the
+
+  imports, which will stay sorry. Expect two_structure_coupling (N17) or N25 to fail first. Not in Mathlib: Bernstein
+
+  spaces, Montel/normal families, a ready |cos w| ≤ e^{|Im w|} lemma.
+
+  '
