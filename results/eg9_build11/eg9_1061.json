@@ -1,0 +1,352 @@
+{
+ "theta_unused_for_access": 0.578,
+ "proofs": [
+  {
+   "proof": "s1061",
+   "counts": {
+    "P": 33,
+    "F": 13,
+    "U": 0,
+    "X": 0,
+    "-": 0
+   },
+   "median": {
+    "P": 0.149,
+    "F": 0.231,
+    "U": null,
+    "X": null,
+    "-": null
+   },
+   "max_F": 0.424,
+   "min_U": null,
+   "informative": false,
+   "P1_median_U_gt_median_F": null,
+   "P2_min_U_gt_max_F": null,
+   "P3_median_U_gt_median_P": null,
+   "rows": [
+    {
+     "id": "N03",
+     "name": "sigma_values_triple",
+     "class": "P",
+     "access": 0.0,
+     "hypothesis_side": false
+    },
+    {
+     "id": "N04",
+     "name": "sigma_mul_two_primes",
+     "class": "P",
+     "access": 0.2,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N05",
+     "name": "shifted_product_identity",
+     "class": "P",
+     "access": 0.075,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N06",
+     "name": "friendly_triple_activation",
+     "class": "P",
+     "access": 0.136,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N07",
+     "name": "core_from_sextuple",
+     "class": "P",
+     "access": 0.125,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N08",
+     "name": "core_fiber_le_eight",
+     "class": "P",
+     "access": 0.102,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N09",
+     "name": "multiplier_solution",
+     "class": "P",
+     "access": 0.2,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N10",
+     "name": "multiplier_disjoint",
+     "class": "P",
+     "access": 0.107,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N11",
+     "name": "coprime_density",
+     "class": "P",
+     "access": 0.158,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N12",
+     "name": "S_ge_card",
+     "class": "P",
+     "access": 0.096,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N13",
+     "name": "ruling_plane_identity",
+     "class": "P",
+     "access": 0.133,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N14",
+     "name": "determinant_table",
+     "class": "P",
+     "access": 0.158,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N15",
+     "name": "finite_complexity_real",
+     "class": "P",
+     "access": 0.158,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N16",
+     "name": "archimedean_bounds",
+     "class": "P",
+     "access": 0.133,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N17",
+     "name": "zero_form_criteria",
+     "class": "P",
+     "access": 0.1,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N18",
+     "name": "integral_lift",
+     "class": "P",
+     "access": 0.2,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N19",
+     "name": "onPlane_equations",
+     "class": "P",
+     "access": 0.2,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N20",
+     "name": "good_coprime",
+     "class": "P",
+     "access": 0.201,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N21",
+     "name": "local_witness",
+     "class": "F",
+     "access": 0.424,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N22",
+     "name": "projected_index",
+     "class": "F",
+     "access": 0.191,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N23",
+     "name": "lattice_coords",
+     "class": "F",
+     "access": 0.165,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N24",
+     "name": "region_bounds_int",
+     "class": "P",
+     "access": 0.123,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N25",
+     "name": "sqfree_progression_count",
+     "class": "F",
+     "access": 0.177,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N26",
+     "name": "H_sum_bound",
+     "class": "P",
+     "access": 0.15,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N27",
+     "name": "good_denominators",
+     "class": "P",
+     "access": 0.15,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N28",
+     "name": "residue_blocks",
+     "class": "P",
+     "access": 0.0,
+     "hypothesis_side": false
+    },
+    {
+     "id": "N29",
+     "name": "local_density",
+     "class": "F",
+     "access": 0.236,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N30",
+     "name": "large_prime_tail",
+     "class": "F",
+     "access": 0.197,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N31",
+     "name": "parameter_sieve",
+     "class": "F",
+     "access": 0.247,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N32",
+     "name": "planes_meet_once",
+     "class": "P",
+     "access": 0.12,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N33",
+     "name": "union_card_bound",
+     "class": "P",
+     "access": 0.144,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N35",
+     "name": "nonzero_forms_count",
+     "class": "P",
+     "access": 0.394,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N36",
+     "name": "local_W",
+     "class": "P",
+     "access": 0.407,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N37",
+     "name": "local_away",
+     "class": "P",
+     "access": 0.357,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N38",
+     "name": "local_denominator",
+     "class": "F",
+     "access": 0.398,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N39",
+     "name": "fc_lattice",
+     "class": "P",
+     "access": 0.089,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N40",
+     "name": "beta_local",
+     "class": "P",
+     "access": 0.15,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N41",
+     "name": "ap_product",
+     "class": "P",
+     "access": 0.0,
+     "hypothesis_side": false
+    },
+    {
+     "id": "N42",
+     "name": "singular_series_lower",
+     "class": "F",
+     "access": 0.348,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N43",
+     "name": "collision_line",
+     "class": "P",
+     "access": 0.149,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N44",
+     "name": "prime_weight_to_count",
+     "class": "P",
+     "access": 0.18,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N45",
+     "name": "plane_prime_count",
+     "class": "F",
+     "access": 0.231,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N46",
+     "name": "threshold_lemma",
+     "class": "F",
+     "access": 0.369,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N47",
+     "name": "two_height_core",
+     "class": "F",
+     "access": 0.219,
+     "hypothesis_side": true
+    },
+    {
+     "id": "N48",
+     "name": "S_lower_bound",
+     "class": "F",
+     "access": 0.225,
+     "hypothesis_side": true
+    },
+    {
+     "id": "ROOT",
+     "name": "li_1061",
+     "class": "P",
+     "access": 0.2,
+     "hypothesis_side": true
+    }
+   ]
+  }
+ ]
+}

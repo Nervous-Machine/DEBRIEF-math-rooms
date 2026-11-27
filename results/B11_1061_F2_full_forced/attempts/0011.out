@@ -1,0 +1,644 @@
+Rooms/Target_B11_1061_F2_full_forced.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:409:6: warning: `mul_le_one₀` has been deprecated: No replacement, use constituent lemmas from proof.
+Rooms/Target_B11_1061_F2_full_forced.lean:667:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:667:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:668:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:668:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:788:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:808:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:827:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:921:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1101:10: warning: This simp argument is unused:
+  ZMod.natCast_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_zmod_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1101:29: warning: This simp argument is unused:
+  ZMod.natCast_zmod_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1134:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1158:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1174:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1206:26: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1206:47: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1435:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1583:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1646:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1634:5: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1634:19: warning: Variable name `hqW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hqW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1634:46: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1637:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1686:19: warning: This simp argument is unused:
+  ZMod.intCast_zmod_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hXdef]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1708:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1710:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1806:5: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1806:46: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1807:5: warning: Variable name `hsq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1942:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1994:74: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.zero_apply, mul_zero, mul_one,
+    add_zero, zero_add] at L0 L1 L2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:2366:4: warning: Unused tactic linter: `beta_reduce` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B11_1061_F2_full_forced.lean:2387:4: warning: Unused tactic linter: `beta_reduce` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B11_1061_F2_full_forced.lean:2471:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:2873:68: error: mod_cast has type
+  |x k| = x k
+but is expected to have type
+  ↑(x k).natAbs = ↑(x k)
+Rooms/Target_B11_1061_F2_full_forced.lean:2879:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(x 0).natAbs
+in the target expression
+  15 * (|x 0| * |x 1|) + 31 * (|x 2| * |x 3|) = 508 * (|x 4| * |x 5|)
+
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+InReg : ℝ → (Fin 6 → ℤ) → Prop
+hInReg :
+  ∀ (T : ℝ) (x : Fin 6 → ℤ),
+    InReg T x ↔
+      -2 * T ≤ 15 * (↑(x 0) - ↑(x 4)) ∧
+        15 * (↑(x 0) - ↑(x 4)) ≤ -T ∧ |31 * (↑(x 2) - ↑(x 4))| ≤ 1 / 100000 * |15 * (↑(x 0) - ↑(x 4))|
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+cl Cu ch Ch : ℝ
+hcl : 0 < cl
+hch : 0 < ch
+hchCh : ch < Ch
+hreg :
+  ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ) (x : Fin 6 → ℤ),
+    1 ≤ q →
+      100 ≤ Z →
+        10 ≤ T →
+          ↑q * Z ^ 2 ≤ ↑A →
+            ↑A ≤ 2 * ↑q * Z ^ 2 →
+              ↑q * Z ≤ ↑B →
+                ↑B ≤ 2 * ↑q * Z →
+                  ↑q * Z ≤ ↑C →
+                    ↑C ≤ 2 * ↑q * Z →
+                      OnPl (↑q) A B C x →
+                        InReg T x →
+                          cl * Z * T ≤ ↑(x 0) ∧
+                            cl * Z * T ≤ ↑(x 2) ∧
+                              cl * Z * T ≤ ↑(x 4) ∧
+                                cl * Z ^ 2 * T ≤ ↑(x 1) ∧
+                                  cl * Z ^ 2 * T ≤ ↑(x 3) ∧
+                                    cl * Z ^ 2 * T ≤ ↑(x 5) ∧
+                                      (∀ (i : Fin 6), ↑(x i) ≤ Cu * Z ^ 2 * T) ∧
+                                        ch * Z ^ 3 * T ^ 2 ≤ 508 * ↑(x 4) * ↑(x 5) ∧
+                                          508 * ↑(x 4) * ↑(x 5) ≤ Ch * Z ^ 3 * T ^ 2
+hCh : 0 < Ch
+κ : ℝ
+hκ : 0 < κ
+T0 c3 : ℝ
+hc3 : 0 < c3
+hppc :
+  ∀ (T Z : ℝ) (q : ℕ) (A B C : ℤ),
+    T0 ≤ T →
+      100 ≤ Z →
+        1 ≤ q →
+          Squarefree q →
+            q % 4619990760 = 1 →
+              ↑q ≤ Real.log T ^ (κ + 1) →
+                Z ≤ Real.log T ^ (κ + 1) →
+                  Good Z q A B C →
+                    ∃ F,
+                      (∀ x ∈ F,
+                          OnPl (↑q) A B C x ∧
+                            InReg T x ∧ Function.Injective x ∧ ∀ (i : Fin 6), 0 < x i ∧ Nat.Prime (x i).natAbs) ∧
+                        c3 * T ^ 2 / (↑q ^ 2 * Real.log T ^ 6) ≤ ↑F.card
+M0 cW Q0 : ℝ
+hcW : 0 < cW
+hden :
+  ∀ (Q : ℝ),
+    Q0 ≤ Q →
+      ∃ F,
+        (∀ q ∈ F, Q ≤ ↑q ∧ ↑q ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧ ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0) ∧
+          cW * Q ≤ ↑F.card
+Z0 q0 c2 : ℝ
+hZ0 : 100 ≤ Z0
+hc2 : 0 < c2
+hsieve :
+  ∀ (q : ℕ) (Z : ℝ),
+    Squarefree q →
+      q % 4619990760 = 1 →
+        ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0 →
+          q0 ≤ ↑q → Z0 ≤ Z → ∃ F, (∀ t ∈ F, Good Z q t.1 t.2.1 t.2.2) ∧ c2 * ↑q ^ 3 * Z ^ 4 ≤ ↑F.card
+M : ℝ := cW * c2 * c3 / 4
+hM : M = cW * c2 * c3 / 4
+hMpos : 0 < M
+K1 : ℝ := (cW + 1) * (8 * c2 + 1)
+hK1 : K1 = (cW + 1) * (8 * c2 + 1)
+hK1pos : 0 < K1
+ε : ℝ := M / (2 * K1 ^ 2)
+hε : ε = M / (2 * K1 ^ 2)
+hεpos : 0 < ε
+Y0 : ℝ
+hthr :
+  ∀ (Y Q Z : ℝ),
+    Y0 ≤ Y →
+      1 ≤ Q →
+        Q ≤ Real.log Y ^ κ →
+          1 ≤ Z →
+            Z ≤ Real.log Y ^ κ →
+              Real.log Y / 3 ≤ Real.log √(Y / (Ch * Z ^ 3)) ∧
+                Real.log √(Y / (Ch * Z ^ 3)) ≤ Real.log Y ∧
+                  max T0 (max 10 (2 / cl)) ≤ √(Y / (Ch * Z ^ 3)) ∧
+                    max T0 (max 10 (2 / cl)) ≤ Z * √(Y / (Ch * Z ^ 3)) ∧
+                      2 * Q ≤ Real.log √(Y / (Ch * Z ^ 3)) ^ (κ + 1) ∧
+                        Z ≤ Real.log √(Y / (Ch * Z ^ 3)) ^ (κ + 1) ∧
+                          0 * (2 * Q) ^ 2 ≤ √(Y / (Ch * Z ^ 3)) ∧
+                            (2 * Q) ^ 2 * Real.log √(Y / (Ch * Z ^ 3)) ^ 6 ≤ ε * √(Y / (Ch * Z ^ 3)) ∧
+                              Q ^ 6 * Z ^ 4 * Real.log √(Y / (Ch * Z ^ 3)) ^ 6 ≤ ε * √(Y / (Ch * Z ^ 3)) ^ 2
+Y Q Z : ℝ
+hY : max Y0 (Real.exp 1) ≤ Y
+hQ : max Q0 (max 1 q0) ≤ Q
+hQY : Q ≤ Real.log Y ^ κ
+hZ : max Z0 100 ≤ Z
+hZY : Z ≤ Real.log Y ^ κ
+hY0 : Y0 ≤ Y
+hYe : Real.exp 1 ≤ Y
+hQ0 : Q0 ≤ Q
+hQ1 : 1 ≤ Q
+hq0 : q0 ≤ Q
+hZ0' : Z0 ≤ Z
+hZ100 : 100 ≤ Z
+hZ1 : 1 ≤ Z
+hlogY : 1 ≤ Real.log Y
+hYpos : 0 < Y
+T : ℝ := √(Y / (Ch * Z ^ 3))
+hT0 : max T0 (max 10 (2 / cl)) ≤ T
+hTdef : T = √(Y / (Ch * Z ^ 3))
+L : ℝ := Real.log T
+hL1 : Real.log Y / 3 ≤ L
+hL2 : L ≤ Real.log Y
+hQT : 2 * Q ≤ L ^ (κ + 1)
+hZT : Z ≤ L ^ (κ + 1)
+hpair : Q ^ 6 * Z ^ 4 * L ^ 6 ≤ ε * T ^ 2
+hLdef : L = Real.log T
+hT0T : T0 ≤ T
+hT10 : 10 ≤ T
+h2cl : 2 / cl ≤ T
+hTpos : 0 < T
+hT2 : T ^ 2 = Y / (Ch * Z ^ 3)
+hYT : Ch * Z ^ 3 * T ^ 2 = Y
+hLpos : 0 < L
+hQpos : 0 < Q
+hZpos : 0 < Z
+Fq0 : Finset ℕ
+hFq0 : ∀ q ∈ Fq0, Q ≤ ↑q ∧ ↑q ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧ ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0
+hFq0card : cW * Q ≤ ↑Fq0.card
+Fq : Finset ℕ
+hFqsub : Fq ⊆ Fq0
+hFqcard : Fq.card = ⌈cW * Q⌉₊
+hFqlo : cW * Q ≤ ↑Fq.card
+hFqhi : ↑Fq.card ≤ cW * Q + 1
+G : ℕ → Finset (ℤ × ℤ × ℤ)
+hG :
+  ∀ q ∈ Fq,
+    (∀ t ∈ G q, Good Z q t.1 t.2.1 t.2.2) ∧ c2 * ↑q ^ 3 * Z ^ 4 ≤ ↑(G q).card ∧ ↑(G q).card ≤ c2 * ↑q ^ 3 * Z ^ 4 + 1
+s : Finset ((_ : ℕ) × ℤ × ℤ × ℤ) := Fq.sigma fun q => G q
+hs : s = Fq.sigma fun q => G q
+P : (_ : ℕ) × ℤ × ℤ × ℤ → Finset (Fin 6 → ℤ)
+hP :
+  ∀ i ∈ s,
+    (∀ x ∈ P i,
+        OnPl (↑i.fst) i.snd.1 i.snd.2.1 i.snd.2.2 x ∧
+          InReg T x ∧ Function.Injective x ∧ ∀ (k : Fin 6), 0 < x k ∧ Nat.Prime (x k).natAbs) ∧
+      c3 * T ^ 2 / (↑i.fst ^ 2 * L ^ 6) ≤ ↑(P i).card
+hinter : ∀ i ∈ s, ∀ j ∈ s, i ≠ j → (P i ∩ P j).card ≤ 1
+h200 : 200 ≤ cl * Z * T
+h200' : cl * Z * T ≤ cl * Z ^ 2 * T
+hall6 : ∀ (k : Fin 6), k = 0 ∨ k = 1 ∨ k = 2 ∨ k = 3 ∨ k = 4 ∨ k = 5
+U : Finset (Fin 6 → ℤ) := s.biUnion P
+hunion : ∑ i ∈ s, (P i).card ≤ U.card + s.card.choose 2
+hU :
+  ∀ x ∈ U,
+    (∀ (k : Fin 6), 0 < x k ∧ Nat.Prime (x k).natAbs ∧ 127 < x k) ∧
+      Function.Injective x ∧
+        15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5 ∧
+          15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * (x 4 + x 5) = 462 ∧
+            ch * Z ^ 3 * T ^ 2 ≤ 508 * ↑(x 4) * ↑(x 5) ∧ 508 * ↑(x 4) * ↑(x 5) ≤ Ch * Z ^ 3 * T ^ 2
+hUdef : U = s.biUnion P
+V : Finset (Fin 6 → ℕ) := Finset.image (fun x k => (x k).natAbs) U
+hVdef : V = Finset.image (fun x k => (x k).natAbs) U
+hVcard : V.card = U.card
+x : Fin 6 → ℤ
+hx : x ∈ U
+hp : (fun k => (x k).natAbs) ∈ V
+hk : ∀ (k : Fin 6), 0 < x k ∧ Nat.Prime (x k).natAbs ∧ 127 < x k
+hinj : Function.Injective x
+e1 : 15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5
+e2 : 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * (x 4 + x 5) = 462
+r6 : ch * Z ^ 3 * T ^ 2 ≤ 508 * ↑(x 4) * ↑(x 5)
+r7 : 508 * ↑(x 4) * ↑(x 5) ≤ Ch * Z ^ 3 * T ^ 2
+habs : ∀ (k : Fin 6), ↑(x k).natAbs = x k
+habsR : ∀ (k : Fin 6), ↑(x k).natAbs = ↑(x k)
+⊢ 15 * (|x 0| * |x 1|) + 31 * (|x 2| * |x 3|) = 508 * (|x 4| * |x 5|)
+Rooms/Target_B11_1061_F2_full_forced.lean:2887:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑(x 0).natAbs
+in the target expression
+  15 * (|x 0| + |x 1|) + 31 * (|x 2| + |x 3|) = 508 * (|x 4| + |x 5|) + 462
+
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+InReg : ℝ → (Fin 6 → ℤ) → Prop
+hInReg :
+  ∀ (T : ℝ) (x : Fin 6 → ℤ),
+    InReg T x ↔
+      -2 * T ≤ 15 * (↑(x 0) - ↑(x 4)) ∧
+        15 * (↑(x 0) - ↑(x 4)) ≤ -T ∧ |31 * (↑(x 2) - ↑(x 4))| ≤ 1 / 100000 * |15 * (↑(x 0) - ↑(x 4))|
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+cl Cu ch Ch : ℝ
+hcl : 0 < cl
+hch : 0 < ch
+hchCh : ch < Ch
+hreg :
+  ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ) (x : Fin 6 → ℤ),
+    1 ≤ q →
+      100 ≤ Z →
+        10 ≤ T →
+          ↑q * Z ^ 2 ≤ ↑A →
+            ↑A ≤ 2 * ↑q * Z ^ 2 →
+              ↑q * Z ≤ ↑B →
+                ↑B ≤ 2 * ↑q * Z →
+                  ↑q * Z ≤ ↑C →
+                    ↑C ≤ 2 * ↑q * Z →
+                      OnPl (↑q) A B C x →
+                        InReg T x →
+                          cl * Z * T ≤ ↑(x 0) ∧
+                            cl * Z * T ≤ ↑(x 2) ∧
+                              cl * Z * T ≤ ↑(x 4) ∧
+                                cl * Z ^ 2 * T ≤ ↑(x 1) ∧
+                                  cl * Z ^ 2 * T ≤ ↑(x 3) ∧
+                                    cl * Z ^ 2 * T ≤ ↑(x 5) ∧
+                                      (∀ (i : Fin 6), ↑(x i) ≤ Cu * Z ^ 2 * T) ∧
+                                        ch * Z ^ 3 * T ^ 2 ≤ 508 * ↑(x 4) * ↑(x 5) ∧
+                                          508 * ↑(x 4) * ↑(x 5) ≤ Ch * Z ^ 3 * T ^ 2
+hCh : 0 < Ch
+κ : ℝ
+hκ : 0 < κ
+T0 c3 : ℝ
+hc3 : 0 < c3
+hppc :
+  ∀ (T Z : ℝ) (q : ℕ) (A B C : ℤ),
+    T0 ≤ T →
+      100 ≤ Z →
+        1 ≤ q →
+          Squarefree q →
+            q % 4619990760 = 1 →
+              ↑q ≤ Real.log T ^ (κ + 1) →
+                Z ≤ Real.log T ^ (κ + 1) →
+                  Good Z q A B C →
+                    ∃ F,
+                      (∀ x ∈ F,
+                          OnPl (↑q) A B C x ∧
+                            InReg T x ∧ Function.Injective x ∧ ∀ (i : Fin 6), 0 < x i ∧ Nat.Prime (x i).natAbs) ∧
+                        c3 * T ^ 2 / (↑q ^ 2 * Real.log T ^ 6) ≤ ↑F.card
+M0 cW Q0 : ℝ
+hcW : 0 < cW
+hden :
+  ∀ (Q : ℝ),
+    Q0 ≤ Q →
+      ∃ F,
+        (∀ q ∈ F, Q ≤ ↑q ∧ ↑q ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧ ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0) ∧
+          cW * Q ≤ ↑F.card
+Z0 q0 c2 : ℝ
+hZ0 : 100 ≤ Z0
+hc2 : 0 < c2
+hsieve :
+  ∀ (q : ℕ) (Z : ℝ),
+    Squarefree q →
+      q % 4619990760 = 1 →
+        ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0 →
+          q0 ≤ ↑q → Z0 ≤ Z → ∃ F, (∀ t ∈ F, Good Z q t.1 t.2.1 t.2.2) ∧ c2 * ↑q ^ 3 * Z ^ 4 ≤ ↑F.card
+M : ℝ := cW * c2 * c3 / 4
+hM : M = cW * c2 * c3 / 4
+hMpos : 0 < M
+K1 : ℝ := (cW + 1) * (8 * c2 + 1)
+hK1 : K1 = (cW + 1) * (8 * c2 + 1)
+hK1pos : 0 < K1
+ε : ℝ := M / (2 * K1 ^ 2)
+hε : ε = M / (2 * K1 ^ 2)
+hεpos : 0 < ε
+Y0 : ℝ
+hthr :
+  ∀ (Y Q Z : ℝ),
+    Y0 ≤ Y →
+      1 ≤ Q →
+        Q ≤ Real.log Y ^ κ →
+          1 ≤ Z →
+            Z ≤ Real.log Y ^ κ →
+              Real.log Y / 3 ≤ Real.log √(Y / (Ch * Z ^ 3)) ∧
+                Real.log √(Y / (Ch * Z ^ 3)) ≤ Real.log Y ∧
+                  max T0 (max 10 (2 / cl)) ≤ √(Y / (Ch * Z ^ 3)) ∧
+                    max T0 (max 10 (2 / cl)) ≤ Z * √(Y / (Ch * Z ^ 3)) ∧
+                      2 * Q ≤ Real.log √(Y / (Ch * Z ^ 3)) ^ (κ + 1) ∧
+                        Z ≤ Real.log √(Y / (Ch * Z ^ 3)) ^ (κ + 1) ∧
+                          0 * (2 * Q) ^ 2 ≤ √(Y / (Ch * Z ^ 3)) ∧
+                            (2 * Q) ^ 2 * Real.log √(Y / (Ch * Z ^ 3)) ^ 6 ≤ ε * √(Y / (Ch * Z ^ 3)) ∧
+                              Q ^ 6 * Z ^ 4 * Real.log √(Y / (Ch * Z ^ 3)) ^ 6 ≤ ε * √(Y / (Ch * Z ^ 3)) ^ 2
+Y Q Z : ℝ
+hY : max Y0 (Real.exp 1) ≤ Y
+hQ : max Q0 (max 1 q0) ≤ Q
+hQY : Q ≤ Real.log Y ^ κ
+hZ : max Z0 100 ≤ Z
+hZY : Z ≤ Real.log Y ^ κ
+hY0 : Y0 ≤ Y
+hYe : Real.exp 1 ≤ Y
+hQ0 : Q0 ≤ Q
+hQ1 : 1 ≤ Q
+hq0 : q0 ≤ Q
+hZ0' : Z0 ≤ Z
+hZ100 : 100 ≤ Z
+hZ1 : 1 ≤ Z
+hlogY : 1 ≤ Real.log Y
+hYpos : 0 < Y
+T : ℝ := √(Y / (Ch * Z ^ 3))
+hT0 : max T0 (max 10 (2 / cl)) ≤ T
+hTdef : T = √(Y / (Ch * Z ^ 3))
+L : ℝ := Real.log T
+hL1 : Real.log Y / 3 ≤ L
+hL2 : L ≤ Real.log Y
+hQT : 2 * Q ≤ L ^ (κ + 1)
+hZT : Z ≤ L ^ (κ + 1)
+hpair : Q ^ 6 * Z ^ 4 * L ^ 6 ≤ ε * T ^ 2
+hLdef : L = Real.log T
+hT0T : T0 ≤ T
+hT10 : 10 ≤ T
+h2cl : 2 / cl ≤ T
+hTpos : 0 < T
+hT2 : T ^ 2 = Y / (Ch * Z ^ 3)
+hYT : Ch * Z ^ 3 * T ^ 2 = Y
+hLpos : 0 < L
+hQpos : 0 < Q
+hZpos : 0 < Z
+Fq0 : Finset ℕ
+hFq0 : ∀ q ∈ Fq0, Q ≤ ↑q ∧ ↑q ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧ ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0
+hFq0card : cW * Q ≤ ↑Fq0.card
+Fq : Finset ℕ
+hFqsub : Fq ⊆ Fq0
+hFqcard : Fq.card = ⌈cW * Q⌉₊
+hFqlo : cW * Q ≤ ↑Fq.card
+hFqhi : ↑Fq.card ≤ cW * Q + 1
+G : ℕ → Finset (ℤ × ℤ × ℤ)
+hG :
+  ∀ q ∈ Fq,
+    (∀ t ∈ G q, Good Z q t.1 t.2.1 t.2.2) ∧ c2 * ↑q ^ 3 * Z ^ 4 ≤ ↑(G q).card ∧ ↑(G q).card ≤ c2 * ↑q ^ 3 * Z ^ 4 + 1
+s : Finset ((_ : ℕ) × ℤ × ℤ × ℤ) := Fq.sigma fun q => G q
+hs : s = Fq.sigma fun q => G q
+P : (_ : ℕ) × ℤ × ℤ × ℤ → Finset (Fin 6 → ℤ)
+hP :
+  ∀ i ∈ s,
+    (∀ x ∈ P i,
+        OnPl (↑i.fst) i.snd.1 i.snd.2.1 i.snd.2.2 x ∧
+          InReg T x ∧ Function.Injective x ∧ ∀ (k : Fin 6), 0 < x k ∧ Nat.Prime (x k).natAbs) ∧
+      c3 * T ^ 2 / (↑i.fst ^ 2 * L ^ 6) ≤ ↑(P i).card
+hinter : ∀ i ∈ s, ∀ j ∈ s, i ≠ j → (P i ∩ P j).card ≤ 1
+h200 : 200 ≤ cl * Z * T
+h200' : cl * Z * T ≤ cl * Z ^ 2 * T
+hall6 : ∀ (k : Fin 6), k = 0 ∨ k = 1 ∨ k = 2 ∨ k = 3 ∨ k = 4 ∨ k = 5
+U : Finset (Fin 6 → ℤ) := s.biUnion P
+hunion : ∑ i ∈ s, (P i).card ≤ U.card + s.card.choose 2
+hU :
+  ∀ x ∈ U,
+    (∀ (k : Fin 6), 0 < x k ∧ Nat.Prime (x k).natAbs ∧ 127 < x k) ∧
+      Function.Injective x ∧
+        15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5 ∧
+          15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * (x 4 + x 5) = 462 ∧
+            ch * Z ^ 3 * T ^ 2 ≤ 508 * ↑(x 4) * ↑(x 5) ∧ 508 * ↑(x 4) * ↑(x 5) ≤ Ch * Z ^ 3 * T ^ 2
+hUdef : U = s.biUnion P
+V : Finset (Fin 6 → ℕ) := Finset.image (fun x k => (x k).natAbs) U
+hVdef : V = Finset.image (fun x k => (x k).natAbs) U
+hVcard : V.card = U.card
+x : Fin 6 → ℤ
+hx : x ∈ U
+hp : (fun k => (x k).natAbs) ∈ V
+hk : ∀ (k : Fin 6), 0 < x k ∧ Nat.Prime (x k).natAbs ∧ 127 < x k
+hinj : Function.Injective x
+e1 : 15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5
+e2 : 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * (x 4 + x 5) = 462
+r6 : ch * Z ^ 3 * T ^ 2 ≤ 508 * ↑(x 4) * ↑(x 5)
+r7 : 508 * ↑(x 4) * ↑(x 5) ≤ Ch * Z ^ 3 * T ^ 2
+habs : ∀ (k : Fin 6), ↑(x k).natAbs = x k
+habsR : ∀ (k : Fin 6), ↑(x k).natAbs = ↑(x k)
+h22 : 15 * ((x 0).natAbs * (x 1).natAbs) + 31 * ((x 2).natAbs * (x 3).natAbs) = 508 * ((x 4).natAbs * (x 5).natAbs)
+⊢ 15 * (|x 0| + |x 1|) + 31 * (|x 2| + |x 3|) = 508 * (|x 4| + |x 5|) + 462
+Rooms/Target_B11_1061_F2_full_forced.lean:2927:47: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B11_1061_F2_full_forced.lean:2926:62: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B11_1061_F2_full_forced.lean:2921:50: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Rooms/Target_B11_1061_F2_full_forced.lean:2921:50: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

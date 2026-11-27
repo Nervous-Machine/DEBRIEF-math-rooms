@@ -1,0 +1,5 @@
+'Erdos1061.li_1061' depends on axioms: [propext,
+ Classical.choice,
+ Erdos1061.bienvenu_lemma12_singular_series,
+ Erdos1061.bienvenu_prop21_uniform,
+ Quot.sound]

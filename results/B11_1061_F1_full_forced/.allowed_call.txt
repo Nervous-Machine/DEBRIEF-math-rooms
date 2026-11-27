@@ -1,0 +1,16 @@
+bienvenu_prop21_uniform
+bienvenu_lemma12_singular_series
+lattice_reduction
+local_denominator
+singular_series_lower
+plane_prime_count
+threshold_lemma
+two_height_core
+S_lower_bound
+local_witness
+projected_index
+lattice_coords
+sqfree_progression_count
+local_density
+large_prime_tail
+parameter_sieve

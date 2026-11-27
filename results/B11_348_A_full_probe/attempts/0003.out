@@ -1,0 +1,50 @@
+Rooms/Target_B11_348_A_full_probe.lean:256:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:257:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:257:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:260:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:261:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:261:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:263:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:264:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:264:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:548:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:557:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:570:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:580:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:595:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:611:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:628:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:686:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:696:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:714:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:722:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:729:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:741:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:748:8: warning: declaration uses `sorry`

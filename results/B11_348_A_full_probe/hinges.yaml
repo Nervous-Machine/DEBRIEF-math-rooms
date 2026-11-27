@@ -1,0 +1,1179 @@
+arm: B11_348_A_full_probe
+blueprint: blueprint_348_nodes.yaml
+hinges:
+- arm: B11_348_A_full_probe
+  id: N01
+  name: mem_subseqSums'_updateFinset
+  kind: join
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing; unfolds the Challenge definitions and Function.updateFinset
+  produces: deletion = summing the original sequence over index sets disjoint from the deleted set
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 45000
+    minutes: 8
+    reached: 0.9
+  outcome: proved
+  attempts: 1
+  statement_sha256: 867c60a098d8f897
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem mem_subseqSums''_updateFinset (a : ℕ → ℕ) (s : Finset ℕ) (x : ℕ) : x ∈ subseqSums'' (Function.updateFinset
+    a s 0) ↔ ∃ B : Finset ℕ, Disjoint B s ∧ x = ∑ i ∈ B, a i := by'
+- arm: B11_348_A_full_probe
+  id: N02
+  name: subseqSums'_updateFinset_anti
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - s ⊆ t
+  consumes: the disjoint-index description of subset sums after deletion (N01)
+  produces: deleting more indices can only shrink the subset-sum set
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9bf0a7243af0907f
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem subseqSums''_updateFinset_anti (a : ℕ → ℕ) {s t : Finset ℕ} (hst : s ⊆ t) : subseqSums'' (Function.updateFinset
+    a t 0) ⊆ subseqSums'' (Function.updateFinset a s 0) := by'
+- arm: B11_348_A_full_probe
+  id: N03
+  name: complete_updateFinset_anti
+  kind: join
+  join_type: assembly
+  conditionals:
+  - s ⊆ t
+  - IsAddCompleteNatSeq' (Function.updateFinset a t 0)
+  consumes: monotonicity of subset sums in the deleted set (N02)
+  produces: completeness survives restoring terms; incompleteness survives deleting more
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 12000
+    minutes: 3
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: eb82db176d473755
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem complete_updateFinset_anti (a : ℕ → ℕ) {s t : Finset ℕ} (hst : s ⊆ t) (ht : IsAddCompleteNatSeq''
+    (Function.updateFinset a t 0)) : IsAddCompleteNatSeq'' (Function.updateFinset a s 0) := by'
+- arm: B11_348_A_full_probe
+  id: N04
+  name: complete_iff_threshold
+  kind: join
+  join_type: assembly
+  conditionals: []
+  consumes: the filter definition of IsAddCompleteNatSeq'
+  produces: an explicit completeness threshold T ≥ 1
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 4
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: ca1094eab3f17416
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem complete_iff_threshold (c : ℕ → ℕ) : IsAddCompleteNatSeq'' c ↔ ∃ T, 1 ≤ T ∧ ∀ x, T ≤ x → x
+    ∈ subseqSums'' c := by'
+- arm: B11_348_A_full_probe
+  id: N05
+  name: updateFinset_insert_of_eq_zero
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - a i = 0
+  consumes: nothing
+  produces: deleting a zero term changes nothing (handles the zero terms a ℕ-valued sequence may carry)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 4
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: a66d88b7e0f026e9
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem updateFinset_insert_of_eq_zero (a : ℕ → ℕ) (D : Finset ℕ) (i : ℕ) (hi : a i = 0) : Function.updateFinset
+    a (insert i D) 0 = Function.updateFinset a D 0 := by'
+- arm: B11_348_A_full_probe
+  id: N06
+  name: restore_deleted
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - x ∈ subseqSums' (Function.updateFinset a E 0)
+  consumes: N01's disjoint-index form
+  produces: FS(A \ E) ⊆ FS(D) + FS(A \ (D ∪ E)) with FS(D) ⊆ [0, ∑ D]
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 10
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 4f2e51551c262507
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem restore_deleted (a : ℕ → ℕ) (D E : Finset ℕ) (x : ℕ) (hx : x ∈ subseqSums'' (Function.updateFinset
+    a E 0)) : ∃ d ≤ ∑ i ∈ D, a i, ∃ y ∈ subseqSums'' (Function.updateFinset a (D ∪ E) 0), x = d + y := by'
+- arm: B11_348_A_full_probe
+  id: N07
+  name: not_complete_of_long_gaps
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - ∀ M, ∃ u, M ≤ u ∧ ∀ x, u ≤ x → x ≤ u + C → x ∉ R
+  consumes: nothing
+  produces: gaps longer than C survive adding a bounded set of restored sums (the u + C point is missed)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 80e0370f6a92c6da
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem not_complete_of_long_gaps (R : Set ℕ) (C : ℕ) (hgap : ∀ M, ∃ u, M ≤ u ∧ ∀ x, u ≤ x → x ≤ u
+    + C → x ∉ R) : ¬ ∀ᶠ x in Filter.atTop, ∃ d ≤ C, ∃ y ∈ R, x = d + y := by'
+- arm: B11_348_A_full_probe
+  id: N08
+  name: monotone_bddAbove_eventually_const
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - Monotone b
+  - BddAbove (Set.range b)
+  consumes: nothing
+  produces: a bounded nondecreasing ℕ sequence is eventually constant
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3a5e0ca607836dc8
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem monotone_bddAbove_eventually_const (b : ℕ → ℕ) (hb : Monotone b) (hbdd : BddAbove (Set.range
+    b)) : ∃ N c, ∀ k, N ≤ k → b k = c := by'
+- arm: B11_348_A_full_probe
+  id: N09
+  name: pow_two_mem_subseqSums'
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: binary expansion; 1, 2, 4, ... represents every natural number
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 2b1f8929df3b831c
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem pow_two_mem_subseqSums'' (x : ℕ) : x ∈ subseqSums'' (fun i : ℕ => 2 ^ i) := by'
+- arm: B11_348_A_full_probe
+  id: N10
+  name: pow_two_delete_missing
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - x % 2 ^ (j + 1) = 2 ^ j
+  consumes: N01's disjoint-index form
+  produces: after deleting 2^j no subset sum is ≡ 2^j mod 2^(j+1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 18
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 338eb3beae9d67a2
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem pow_two_delete_missing (j x : ℕ) (hx : x % 2 ^ (j + 1) = 2 ^ j) : x ∉ subseqSums'' (Function.updateFinset
+    (fun i : ℕ => 2 ^ i) {j} 0) := by'
+- arm: B11_348_A_full_probe
+  id: N11
+  name: pow_two_delete_incomplete
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - t.Nonempty
+  consumes: the residue obstruction (N10) and monotonicity in the deleted set (N03)
+  produces: every nonempty deletion from the powers of two is incomplete
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: a6ddb101287a256c
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem pow_two_delete_incomplete (t : Finset ℕ) (ht : t.Nonempty) : ¬ IsAddCompleteNatSeq'' (Function.updateFinset
+    (fun i : ℕ => 2 ^ i) t 0) := by'
+- arm: B11_348_A_full_probe
+  id: N12
+  name: fib_prefix_sum
+  kind: join
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: F_1 + ... + F_k = F_{k+2} - 1 in Lean indexing
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 4
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: a85e8a8f4844a2f8
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem fib_prefix_sum (k : ℕ) : ∑ i ∈ Finset.range k, Nat.fib (i + 1) + 1 = Nat.fib (k + 2) := by'
+- arm: B11_348_A_full_probe
+  id: N13
+  name: interval_criterion
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - ∀ k, c k ≤ ∑ i ∈ Finset.range k, c i + 1
+  consumes: nothing
+  produces: Brown's interval induction; each prefix represents [0, prefix total]
+  library_inputs:
+  - Brown 1961, Note on complete sequences of integers (interval criterion; the paper recalls its proof)
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: d2149524d03af99f
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem interval_criterion (c : ℕ → ℕ) (hc : ∀ k, c k ≤ ∑ i ∈ Finset.range k, c i + 1) : ∀ k x, x
+    ≤ ∑ i ∈ Finset.range k, c i → ∃ B ⊆ Finset.range k, ∑ i ∈ B, c i = x := by'
+- arm: B11_348_A_full_probe
+  id: N14
+  name: fib_delete_one_complete
+  kind: leaf
+  join_type: case_split
+  conditionals: []
+  consumes: Brown's criterion (N13) and the Fibonacci prefix identity (N12)
+  produces: Fibonacci 1,1,2,3,... stays complete after any single deletion (cases s < j, s = j, s > j)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 120000
+    minutes: 22
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 86659ea3239c3ab9
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem fib_delete_one_complete (j : ℕ) : IsAddCompleteNatSeq'' (Function.updateFinset (fun i : ℕ
+    => Nat.fib (i + 1)) {j} 0) := by'
+- arm: B11_348_A_full_probe
+  id: N15
+  name: fib_delete_two_missing
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - i < j
+  - 1 ≤ d
+  - d ≤ Nat.fib (i + 1)
+  consumes: the prefix identity (N12) and the disjoint-index form (N01)
+  produces: Graham's missing integers F_{j+2t+1} - d after deleting two Fibonacci occurrences (induction on t, forced
+    use of the top term)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: 74837cb1603d3076
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem fib_delete_two_missing (i j : ℕ) (hij : i < j) (t d : ℕ) (hd1 : 1 ≤ d) (hd : d ≤ Nat.fib (i
+    + 1)) : Nat.fib (j + 2 * t + 2) - d ∉ subseqSums'' (Function.updateFinset (fun r : ℕ => Nat.fib (r + 1)) {i,
+    j} 0) := by'
+- arm: B11_348_A_full_probe
+  id: N16
+  name: fib_delete_incomplete
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - 2 ≤ t.card
+  consumes: missing integers for each pair (N15) and monotonicity in the deleted set (N03)
+  produces: every deletion of ≥ 2 Fibonacci occurrences is incomplete
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 15
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3f82d879bbba894e
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem fib_delete_incomplete (t : Finset ℕ) (ht : 2 ≤ t.card) : ¬ IsAddCompleteNatSeq'' (Function.updateFinset
+    (fun r : ℕ => Nat.fib (r + 1)) t 0) := by'
+- arm: B11_348_A_full_probe
+  id: N17
+  name: exists_witness_zero
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - 0 < n
+  consumes: binary completeness (N09) and incompleteness after any nonempty deletion (N11)
+  produces: the witness for every pair (0, n)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: bb0c369f52fb4747
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem exists_witness_zero (n : ℕ) (hn : 0 < n) : ∃ a : ℕ → ℕ, Monotone a ∧ (∀ s : Finset ℕ, s.card
+    = 0 → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)) ∧ ∀ t : Finset ℕ, t.card = n → ¬ IsAddCompleteNatSeq''
+    (Function.updateFinset a t 0) := by'
+- arm: B11_348_A_full_probe
+  id: N18
+  name: exists_witness_one
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - 1 < n
+  consumes: single-deletion completeness (N14) and multi-deletion incompleteness (N16)
+  produces: the witness for every pair (1, n)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 54c157a911bde225
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem exists_witness_one (n : ℕ) (hn : 1 < n) : ∃ a : ℕ → ℕ, Monotone a ∧ (∀ s : Finset ℕ, s.card
+    = 1 → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)) ∧ ∀ t : Finset ℕ, t.card = n → ¬ IsAddCompleteNatSeq''
+    (Function.updateFinset a t 0) := by'
+- arm: B11_348_A_full_probe
+  id: N19
+  name: prefix_complement
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - B ⊆ Finset.range j
+  consumes: nothing
+  produces: complementation within a prefix (x ∈ P_j iff S_j - x ∈ P_j)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 4
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: d3e76e754dc71935
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem prefix_complement (b : ℕ → ℕ) (j : ℕ) (B : Finset ℕ) (hB : B ⊆ Finset.range j) : ∑ i ∈ B,
+    b i ≤ ∑ i ∈ Finset.range j, b i ∧ ∑ i ∈ Finset.range j \ B, b i = ∑ i ∈ Finset.range j, b i - ∑ i ∈ B, b i :=
+    by'
+- arm: B11_348_A_full_probe
+  id: N20
+  name: prefix_extend
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - j ≤ N
+  - B ⊆ Finset.range j
+  - K ⊆ Finset.Ico j N
+  consumes: nothing
+  produces: adding available (post-cut) occurrences to a prefix representation without reuse
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 30000
+    minutes: 6
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: d609d5ce31503a0f
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem prefix_extend (b : ℕ → ℕ) (j N : ℕ) (hjN : j ≤ N) (B K : Finset ℕ) (hB : B ⊆ Finset.range
+    j) (hK : K ⊆ Finset.Ico j N) : B ∪ K ⊆ Finset.range N ∧ ∑ i ∈ B ∪ K, b i = ∑ i ∈ B, b i + ∑ i ∈ K, b i := by'
+- arm: B11_348_A_full_probe
+  id: N21
+  name: small_prefix
+  kind: join
+  join_type: extremal_averaging
+  conditionals: []
+  consumes: nothing
+  produces: one prefix P_J containing every globally represented integer below T
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 85681154dadf1340
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem small_prefix (b : ℕ → ℕ) (T : ℕ) : ∃ J, ∀ w, w < T → w ∈ subseqSums'' b → ∃ B ⊆ Finset.range
+    J, ∑ i ∈ B, b i = w := by'
+- arm: B11_348_A_full_probe
+  id: N22
+  name: locate_missing
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - Monotone b
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - T ≤ x
+  - x + T ≤ ∑ i ∈ Finset.range N, b i
+  - ¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = x
+  consumes: prefix complementation (N19)
+  produces: Lemma 6, every central missing integer sits within T below an earlier cut total
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 130000
+    minutes: 25
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: e3ec8506df330b83
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem locate_missing (b : ℕ → ℕ) (hb : Monotone b) (T : ℕ) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b)
+    (N x : ℕ) (hx1 : T ≤ x) (hx2 : x + T ≤ ∑ i ∈ Finset.range N, b i) (hmiss : ¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B,
+    b i = x) : ∃ j < N, x ≤ ∑ i ∈ Finset.range j, b i ∧ ∑ i ∈ Finset.range j, b i < x + T := by'
+- arm: B11_348_A_full_probe
+  id: N23
+  name: missing_ge_next
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - Monotone b
+  - x ∈ subseqSums' b
+  - ¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = x
+  consumes: nothing
+  produces: a globally represented integer missing from P_N is at least b N
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 7
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9e0a10a93eb900f1
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem missing_ge_next (b : ℕ → ℕ) (hb : Monotone b) (N x : ℕ) (hx : x ∈ subseqSums'' b) (hmiss :
+    ¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = x) : b N ≤ x := by'
+- arm: B11_348_A_full_probe
+  id: N24
+  name: initial_state
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - Monotone b
+  - ¬ BddAbove (Set.range b)
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  consumes: Lemma 6 (N22), the small-integer prefix (N21), lateness of missing sums (N23), complementation (N19)
+  produces: arbitrarily late one-label states (j, N, {u}) with u globally missing
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 150000
+    minutes: 28
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: c55ff803a89f6231
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem initial_state (b : ℕ → ℕ) (hb : Monotone b) (hunb : ¬ BddAbove (Set.range b)) (T : ℕ) (hT
+    : ∀ x, T ≤ x → x ∈ subseqSums'' b) (L : ℕ) : ∃ N₀, ∀ N, N₀ ≤ N → ∀ x, T ≤ x → x + T ≤ ∑ i ∈ Finset.range N,
+    b i → (¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = x) → ∃ j u, L ≤ j ∧ j < N ∧ u ∉ subseqSums'' b ∧ u ≤ ∑ i ∈ Finset.range
+    j, b i ∧ ¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = ∑ i ∈ Finset.range j, b i - u := by'
+- arm: B11_348_A_full_probe
+  id: N25
+  name: normalize_state
+  kind: join
+  join_type: case_split
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - ¬ BddAbove (Set.range b)
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  consumes: adding available block copies to a representation (N20)
+  produces: normalized states with the same labels and the same constant/distinct type, cut still late
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: f4c393e4239d2cf6
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem normalize_state (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hunb : ¬ BddAbove (Set.range
+    b)) (T : ℕ) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (L : ℕ) : ∃ J₀, ∀ (j N : ℕ) (E : Finset ℕ), J₀ ≤ j → (j <
+    N ∧ E.Nonempty ∧ (∀ e ∈ E, e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range j, b i ∧ ¬ ∃ B ⊆ Finset.range N, ∑ i
+    ∈ B, b i = ∑ i ∈ Finset.range j, b i - e)) → ∃ j'' N'', L ≤ j'' ∧ (j'' < N'' ∧ E.Nonempty ∧ (∀ e ∈ E, e ∉ subseqSums''
+    b ∧ e ≤ ∑ i ∈ Finset.range j'', b i ∧ ¬ ∃ B ⊆ Finset.range N'', ∑ i ∈ B, b i = ∑ i ∈ Finset.range j'', b i -
+    e)) ∧ (0 < j'' ∧ ((∀ r ∈ Finset.Ico j'' N'', b r = b j'') → b (j'' - 1) < b j'')) ∧ ((∀ r ∈ Finset.Ico j N,
+    b r = b j) ↔ (∀ r ∈ Finset.Ico j'' N'', b r = b j'')) := by'
+- arm: B11_348_A_full_probe
+  id: N26
+  name: gap_bound
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - Monotone b
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - T ≤ b j
+  - j ≤ k
+  - b j < b k
+  - ∀ r ∈ Finset.Ico j k, b r = b j
+  consumes: complementation (N19) and extension by the occurrence at index j (N20)
+  produces: Lemma 7, the next value jump after a late cut is at most the least label
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 160000
+    minutes: 30
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: 445764a85af0ae44
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem gap_bound (b : ℕ → ℕ) (hb : Monotone b) (T : ℕ) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (j
+    N : ℕ) (E : Finset ℕ) (hst : j < N ∧ E.Nonempty ∧ (∀ e ∈ E, e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range j, b
+    i ∧ ¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = ∑ i ∈ Finset.range j, b i - e)) (hTj : T ≤ b j) (k : ℕ) (hjk : j
+    ≤ k) (hlt : b j < b k) (hblock : ∀ r ∈ Finset.Ico j k, b r = b j) : ∀ e ∈ E, b k - b j ≤ e := by'
+- arm: B11_348_A_full_probe
+  id: N27
+  name: recut
+  kind: join
+  join_type: extremal_averaging
+  conditionals:
+  - Monotone b
+  - ¬ BddAbove (Set.range b)
+  - 1 ≤ T
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - R.Nonempty
+  - ∀ x ∈ R, ∀ y ∈ R, x ≤ y + 2 * T
+  consumes: Lemma 6 (N22), the small-integer prefix (N21), complementation (N19)
+  produces: Lemma 8, a late cluster of missing sums shares one cut l, giving a new state (l, j, E') with |E'| =
+    |R|
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 230000
+    minutes: 40
+    reached: 0.35
+  outcome: proved
+  attempts: 0
+  statement_sha256: 025a1ab2abc2df40
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem recut (b : ℕ → ℕ) (hb : Monotone b) (hunb : ¬ BddAbove (Set.range b)) (T : ℕ) (hT1 : 1 ≤ T)
+    (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (L : ℕ) : ∃ M₀, ∀ (j : ℕ) (R : Finset ℕ), R.Nonempty → (∀ x ∈ R, M₀ ≤
+    x ∧ x + T ≤ ∑ i ∈ Finset.range j, b i ∧ ¬ ∃ B ⊆ Finset.range j, ∑ i ∈ B, b i = x) → (∀ x ∈ R, ∀ y ∈ R, x ≤ y
+    + 2 * T) → ∃ (l : ℕ) (E'' : Finset ℕ), L ≤ l ∧ (l < j ∧ E''.Nonempty ∧ (∀ e ∈ E'', e ∉ subseqSums'' b ∧ e ≤
+    ∑ i ∈ Finset.range l, b i ∧ ¬ ∃ B ⊆ Finset.range j, ∑ i ∈ B, b i = ∑ i ∈ Finset.range l, b i - e)) ∧ E''.card
+    = R.card ∧ (∀ x ∈ R, ∃ e ∈ E'', x + e = ∑ i ∈ Finset.range l, b i) ∧ (∀ e ∈ E'', ∑ i ∈ Finset.range l, b i -
+    e ∈ R) := by'
+- arm: B11_348_A_full_probe
+  id: N28
+  name: distinct_transition
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - ¬ BddAbove (Set.range b)
+  - 1 ≤ T
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - 'Filter.Tendsto (fun k => (∑ i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop'
+  - ∃ r ∈ Finset.Ico j N, b r ≠ b j
+  consumes: Lemma 7 (N26) for the jump b - a ≤ h, Lemma 8 (N27) for the recut, block extension (N20)
+  produces: a distinct state yields a later state with strictly more labels
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 230000
+    minutes: 40
+    reached: 0.35
+  outcome: proved
+  attempts: 1
+  statement_sha256: 0c19e46af56c1b31
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem distinct_transition (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hunb : ¬ BddAbove
+    (Set.range b)) (T : ℕ) (hT1 : 1 ≤ T) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (hδ : Filter.Tendsto (fun k => (∑
+    i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop) (L : ℕ) : ∃ J₀, ∀ (j N : ℕ) (E : Finset
+    ℕ), J₀ ≤ j → (j < N ∧ E.Nonempty ∧ (∀ e ∈ E, e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range j, b i ∧ ¬ ∃ B ⊆ Finset.range
+    N, ∑ i ∈ B, b i = ∑ i ∈ Finset.range j, b i - e)) → (∃ r ∈ Finset.Ico j N, b r ≠ b j) → ∃ (l : ℕ) (E'' : Finset
+    ℕ), L ≤ l ∧ (l < j ∧ E''.Nonempty ∧ (∀ e ∈ E'', e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range l, b i ∧ ¬ ∃ B ⊆
+    Finset.range j, ∑ i ∈ B, b i = ∑ i ∈ Finset.range l, b i - e)) ∧ E.card < E''.card := by'
+- arm: B11_348_A_full_probe
+  id: N29
+  name: constant_transition
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - ¬ BddAbove (Set.range b)
+  - 1 ≤ T
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - 'Filter.Tendsto (fun k => (∑ i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop'
+  - 0 < j
+  - ∀ r ∈ Finset.Ico j N, b r = b j
+  - b (j - 1) < b j
+  consumes: Lemma 8 (N27) for the recut, Lemma 7 (N26) applied to the recut state against the block arithmetic S_j
+    = S_l + r b
+  produces: a normalized constant state yields a later state with the same number of labels that is distinct or
+    has a larger least label (r = 1 forced)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 260000
+    minutes: 45
+    reached: 0.3
+  outcome: proved
+  attempts: 1
+  statement_sha256: 192728d68cd88f98
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem constant_transition (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hunb : ¬ BddAbove
+    (Set.range b)) (T : ℕ) (hT1 : 1 ≤ T) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (hδ : Filter.Tendsto (fun k => (∑
+    i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop) (L : ℕ) : ∃ J₀, ∀ (j N : ℕ) (E : Finset
+    ℕ), J₀ ≤ j → (j < N ∧ E.Nonempty ∧ (∀ e ∈ E, e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range j, b i ∧ ¬ ∃ B ⊆ Finset.range
+    N, ∑ i ∈ B, b i = ∑ i ∈ Finset.range j, b i - e)) → 0 < j → (∀ r ∈ Finset.Ico j N, b r = b j) → b (j - 1) <
+    b j → ∃ (l : ℕ) (E'' : Finset ℕ), L ≤ l ∧ (l < j ∧ E''.Nonempty ∧ (∀ e ∈ E'', e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈
+    Finset.range l, b i ∧ ¬ ∃ B ⊆ Finset.range j, ∑ i ∈ B, b i = ∑ i ∈ Finset.range l, b i - e)) ∧ E''.card = E.card
+    ∧ ((∃ r ∈ Finset.Ico l j, b r ≠ b l) ∨ ∀ e'' ∈ E'', ∃ e ∈ E, e < e'') := by'
+- arm: B11_348_A_full_probe
+  id: N30
+  name: potential_step
+  kind: join
+  join_type: case_split
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - ¬ BddAbove (Set.range b)
+  - 1 ≤ T
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - 'Filter.Tendsto (fun k => (∑ i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop'
+  consumes: both transitions (N28, N29) and normalization (N25)
+  produces: Φ ≥ t at arbitrarily late normalized states implies Φ ≥ t + 1 at arbitrarily late normalized states
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 200000
+    minutes: 35
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: a2d7739fd4d96a9c
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem potential_step (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hunb : ¬ BddAbove (Set.range
+    b)) (T : ℕ) (hT1 : 1 ≤ T) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (hδ : Filter.Tendsto (fun k => (∑ i ∈ Finset.range
+    k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop) (t : ℕ) (ht : ∀ L, ∃ (j N : ℕ) (E : Finset ℕ), L ≤ j ∧
+    (j < N ∧ E.Nonempty ∧ (∀ e ∈ E, e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range j, b i ∧ ¬ ∃ B ⊆ Finset.range N,
+    ∑ i ∈ B, b i = ∑ i ∈ Finset.range j, b i - e)) ∧ (0 < j ∧ ((∀ r ∈ Finset.Ico j N, b r = b j) → b (j - 1) < b
+    j)) ∧ ((∀ r ∈ Finset.Ico j N, b r = b j) → ∀ e ∈ E, t ≤ (T + 1) * E.card + e) ∧ ((∃ r ∈ Finset.Ico j N, b r
+    ≠ b j) → t ≤ (T + 1) * (E.card + 1))) : ∀ L, ∃ (j N : ℕ) (E : Finset ℕ), L ≤ j ∧ (j < N ∧ E.Nonempty ∧ (∀ e
+    ∈ E, e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range j, b i ∧ ¬ ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = ∑ i ∈ Finset.range
+    j, b i - e)) ∧ (0 < j ∧ ((∀ r ∈ Finset.Ico j N, b r = b j) → b (j - 1) < b j)) ∧ ((∀ r ∈ Finset.Ico j N, b r
+    = b j) → ∀ e ∈ E, t + 1 ≤ (T + 1) * E.card + e) ∧ ((∃ r ∈ Finset.Ico j N, b r ≠ b j) → t + 1 ≤ (T + 1) * (E.card
+    + 1)) := by'
+- arm: B11_348_A_full_probe
+  id: N31
+  name: potential_bound
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  consumes: nothing
+  produces: labels lie in [1, T-1], so the potential is below (T+1)^2
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 14
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: e72ab0683fa80a56
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem potential_bound (b : ℕ → ℕ) (T : ℕ) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (j N : ℕ) (E :
+    Finset ℕ) (hst : j < N ∧ E.Nonempty ∧ (∀ e ∈ E, e ∉ subseqSums'' b ∧ e ≤ ∑ i ∈ Finset.range j, b i ∧ ¬ ∃ B ⊆
+    Finset.range N, ∑ i ∈ B, b i = ∑ i ∈ Finset.range j, b i - e)) : ¬ (((∀ r ∈ Finset.Ico j N, b r = b j) → ∀ e
+    ∈ E, (T + 1) * (T + 1) ≤ (T + 1) * E.card + e) ∧ ((∃ r ∈ Finset.Ico j N, b r ≠ b j) → (T + 1) * (T + 1) ≤ (T
+    + 1) * (E.card + 1))) := by'
+- arm: B11_348_A_full_probe
+  id: N32
+  name: central_unbounded
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - ¬ BddAbove (Set.range b)
+  - 1 ≤ T
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - 'Filter.Tendsto (fun k => (∑ i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop'
+  consumes: initial states (N24), normalization (N25), the potential step (N30) iterated (T+1)^2 times, the potential
+    bound (N31)
+  produces: Theorem 2 for unbounded sequences
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 180000
+    minutes: 32
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: f3d903e400978285
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem central_unbounded (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hunb : ¬ BddAbove (Set.range
+    b)) (T : ℕ) (hT1 : 1 ≤ T) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (hδ : Filter.Tendsto (fun k => (∑ i ∈ Finset.range
+    k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop) : ∀ᶠ N in Filter.atTop, ∀ x, T ≤ x → x + T ≤ ∑ i ∈ Finset.range
+    N, b i → ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = x := by'
+- arm: B11_348_A_full_probe
+  id: N33
+  name: central_bounded
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - BddAbove (Set.range b)
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  consumes: eventual constancy (N08) and complementation (N19)
+  produces: Theorem 2 for bounded sequences (direct range x ≤ v a, reflected range x ≥ C)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 170000
+    minutes: 30
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: a7674bdab095ea73
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem central_bounded (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hbdd : BddAbove (Set.range
+    b)) (T : ℕ) (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) : ∀ᶠ N in Filter.atTop, ∀ x, T ≤ x → x + T ≤ ∑ i ∈ Finset.range
+    N, b i → ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = x := by'
+- arm: B11_348_A_full_probe
+  id: N34
+  name: central_interval
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - 1 ≤ T
+  - ∀ x, T ≤ x → x ∈ subseqSums' b
+  - 'Filter.Tendsto (fun k => (∑ i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop'
+  consumes: the bounded (N33) and unbounded (N32) cases
+  produces: Theorem 2 (central-interval theorem)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 12000
+    minutes: 3
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 5e489ab29b644898
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem central_interval (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (T : ℕ) (hT1 : 1 ≤ T)
+    (hT : ∀ x, T ≤ x → x ∈ subseqSums'' b) (hδ : Filter.Tendsto (fun k => (∑ i ∈ Finset.range k, (b i : ℤ)) - (b
+    k : ℤ)) Filter.atTop Filter.atTop) : ∀ᶠ N in Filter.atTop, ∀ x, T ≤ x → x + T ≤ ∑ i ∈ Finset.range N, b i →
+    ∃ B ⊆ Finset.range N, ∑ i ∈ B, b i = x := by'
+- arm: B11_348_A_full_probe
+  id: N35
+  name: slack_tendsto
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - ∀ i, ∀ᶠ x in Filter.atTop, ∃ d ≤ C, ∃ y ∈ subseqSums' (Function.updateFinset b {i} 0), x = d + y
+  consumes: eventual constancy (N08) for the bounded case, the disjoint-index form (N01)
+  produces: Lemma 3 in the form needed after a finite deletion D (restored sums bounded by C), prefix slack → ∞
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 180000
+    minutes: 32
+    reached: 0.5
+  outcome: proved
+  attempts: 0
+  statement_sha256: c3f131773aef5b96
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem slack_tendsto (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (C : ℕ) (hdel : ∀ i, ∀ᶠ
+    x in Filter.atTop, ∃ d ≤ C, ∃ y ∈ subseqSums'' (Function.updateFinset b {i} 0), x = d + y) : Filter.Tendsto
+    (fun k => (∑ i ∈ Finset.range k, (b i : ℤ)) - (b k : ℤ)) Filter.atTop Filter.atTop := by'
+- arm: B11_348_A_full_probe
+  id: N36
+  name: not_bddAbove_of_deletion_minimal
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - Monotone b
+  - IsAddCompleteNatSeq' b
+  - ∀ i, ¬ IsAddCompleteNatSeq' (Function.updateFinset b {i} 0)
+  consumes: eventual constancy (N08), the disjoint-index form (N01)
+  produces: a deletion-minimal sequence is unbounded (a late constant occurrence can be swapped out)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 120000
+    minutes: 22
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: 5f9357ec3e5da276
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem not_bddAbove_of_deletion_minimal (b : ℕ → ℕ) (hb : Monotone b) (hcomp : IsAddCompleteNatSeq''
+    b) (hmin : ∀ i, ¬ IsAddCompleteNatSeq'' (Function.updateFinset b {i} 0)) : ¬ BddAbove (Set.range b) := by'
+- arm: B11_348_A_full_probe
+  id: N37
+  name: tail_gaps
+  kind: leaf
+  join_type: two_structure_coupling
+  conditionals:
+  - ∀ i, 0 < b i
+  - 2 * T ≤ ∑ i ∈ Finset.range k, b i
+  - k ≤ j
+  - ¬ IsAddCompleteNatSeq' (Function.updateFinset b {j} 0)
+  consumes: the central interval of the prefix P_k and incompleteness after deleting index j, with the disjoint-index
+    form (N01)
+  produces: arbitrarily late gaps longer than S_k - 2T + 1 in the tail subset sums Q
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 210000
+    minutes: 38
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: 4e09bcaa021428d1
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem tail_gaps (b : ℕ → ℕ) (hpos : ∀ i, 0 < b i) (T k : ℕ) (hk2T : 2 * T ≤ ∑ i ∈ Finset.range k,
+    b i) (hcent : ∀ x, T ≤ x → x + T ≤ ∑ i ∈ Finset.range k, b i → ∃ B ⊆ Finset.range k, ∑ i ∈ B, b i = x) (j :
+    ℕ) (hkj : k ≤ j) (hminj : ¬ IsAddCompleteNatSeq'' (Function.updateFinset b {j} 0)) (M : ℕ) : ∃ q, M ≤ q ∧ (∃
+    B : Finset ℕ, (∀ i ∈ B, k ≤ i ∧ i ≠ j) ∧ ∑ i ∈ B, b i = q) ∧ ∀ y, (∃ B : Finset ℕ, (∀ i ∈ B, k ≤ i ∧ i ≠ j)
+    ∧ ∑ i ∈ B, b i = y) → y ≤ q ∨ q + (∑ i ∈ Finset.range k, b i - 2 * T + 1) < y := by'
+- arm: B11_348_A_full_probe
+  id: N38
+  name: pair_split
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - i < k
+  - k ≤ j
+  - x ∈ subseqSums' (Function.updateFinset b {i, j} 0)
+  consumes: the disjoint-index form (N01)
+  produces: FS(B minus b_i, b_j) ⊆ F + Q with F ⊆ [0, S_k - b_i]
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.75
+  outcome: proved
+  attempts: 1
+  statement_sha256: 9359c84d7c2fa619
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem pair_split (b : ℕ → ℕ) (i k j : ℕ) (hik : i < k) (hkj : k ≤ j) (x : ℕ) (hx : x ∈ subseqSums''
+    (Function.updateFinset b {i, j} 0)) : ∃ f y, x = f + y ∧ f + b i ≤ ∑ r ∈ Finset.range k, b r ∧ ∃ B : Finset
+    ℕ, (∀ r ∈ B, k ≤ r ∧ r ≠ j) ∧ ∑ r ∈ B, b r = y := by'
+- arm: B11_348_A_full_probe
+  id: N39
+  name: gap_pair
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - IsAddCompleteNatSeq' b
+  - ∀ i, ¬ IsAddCompleteNatSeq' (Function.updateFinset b {i} 0)
+  - 1 ≤ T
+  consumes: unboundedness (N36), tail gaps (N37), the pair split (N38)
+  produces: Lemma 4, a pair whose deletion leaves arbitrarily late missing runs of length C + 1
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 170000
+    minutes: 30
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: b6d6b48bc9da6c75
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem gap_pair (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hcomp : IsAddCompleteNatSeq''
+    b) (hmin : ∀ i, ¬ IsAddCompleteNatSeq'' (Function.updateFinset b {i} 0)) (T : ℕ) (hT1 : 1 ≤ T) (hcent : ∀ᶠ k
+    in Filter.atTop, ∀ x, T ≤ x → x + T ≤ ∑ i ∈ Finset.range k, b i → ∃ B ⊆ Finset.range k, ∑ i ∈ B, b i = x) (C
+    : ℕ) : ∃ i j, i ≠ j ∧ ∀ M, ∃ u, M ≤ u ∧ ∀ x, u ≤ x → x ≤ u + C → x ∉ subseqSums'' (Function.updateFinset b {i,
+    j} 0) := by'
+- arm: B11_348_A_full_probe
+  id: N40
+  name: positive_core_gap
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Monotone b
+  - ∀ i, 0 < b i
+  - IsAddCompleteNatSeq' b
+  - ∀ i, ¬ IsAddCompleteNatSeq' (Function.updateFinset b {i} 0)
+  - ∀ i, ∀ᶠ x in Filter.atTop, ∃ d ≤ C, ∃ y ∈ subseqSums' (Function.updateFinset b {i} 0), x = d + y
+  consumes: threshold (N04), Lemma 3 (N35), Theorem 2 (N34), Lemma 4 (N39)
+  produces: the reindexed remaining sequence, if deletion-minimal, has a pair with long late gaps
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 8
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: d48005b416d5107c
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem positive_core_gap (b : ℕ → ℕ) (hb : Monotone b) (hpos : ∀ i, 0 < b i) (hcomp : IsAddCompleteNatSeq''
+    b) (hmin : ∀ i, ¬ IsAddCompleteNatSeq'' (Function.updateFinset b {i} 0)) (C : ℕ) (hdel : ∀ i, ∀ᶠ x in Filter.atTop,
+    ∃ d ≤ C, ∃ y ∈ subseqSums'' (Function.updateFinset b {i} 0), x = d + y) : ∃ i j, i ≠ j ∧ ∀ M, ∃ u, M ≤ u ∧ ∀
+    x, u ≤ x → x ≤ u + C → x ∉ subseqSums'' (Function.updateFinset b {i, j} 0) := by'
+- arm: B11_348_A_full_probe
+  id: N41
+  name: exists_enum_compl
+  kind: leaf
+  join_type: assembly
+  conditionals: []
+  consumes: nothing
+  produces: the increasing enumeration of the surviving indices (the paper's A \ D as a sequence)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 50000
+    minutes: 10
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9e01d94e1eab8807
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem exists_enum_compl (D : Finset ℕ) : ∃ e : ℕ → ℕ, StrictMono e ∧ Set.range e = {i | i ∉ D} :=
+    by'
+- arm: B11_348_A_full_probe
+  id: N42
+  name: subseqSums'_reindex
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - StrictMono e
+  - Set.range e = {i | i ∉ D}
+  consumes: the disjoint-index form (N01)
+  produces: deletions from the reindexed sequence are deletions from a that contain D
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 130000
+    minutes: 24
+    reached: 0.55
+  outcome: proved
+  attempts: 1
+  statement_sha256: bf16c5aae666f993
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem subseqSums''_reindex (a : ℕ → ℕ) (D : Finset ℕ) (e : ℕ → ℕ) (he : StrictMono e) (hr : Set.range
+    e = {i | i ∉ D}) (E : Finset ℕ) : subseqSums'' (Function.updateFinset (fun k => a (e k)) E 0) = subseqSums''
+    (Function.updateFinset a (D ∪ E.image e) 0) := by'
+- arm: B11_348_A_full_probe
+  id: N43
+  name: complete_of_pairs
+  kind: join
+  join_type: assembly
+  conditionals:
+  - '∀ s : Finset ℕ, s.card = 2 → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)'
+  - D.card ≤ 2
+  consumes: monotonicity in the deleted set (N03)
+  produces: tolerance of every pair deletion gives tolerance of every deletion of at most two
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 5
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 82f07f3c2f52d11f
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem complete_of_pairs (a : ℕ → ℕ) (h2 : ∀ s : Finset ℕ, s.card = 2 → IsAddCompleteNatSeq'' (Function.updateFinset
+    a s 0)) (D : Finset ℕ) (hD : D.card ≤ 2) : IsAddCompleteNatSeq'' (Function.updateFinset a D 0) := by'
+- arm: B11_348_A_full_probe
+  id: N44
+  name: extend_deletion
+  kind: join
+  join_type: assembly
+  conditionals:
+  - Monotone a
+  - '∀ s : Finset ℕ, s.card = 2 → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)'
+  - IsAddCompleteNatSeq' (Function.updateFinset a D 0)
+  consumes: zero deletions (N05), reindexing (N41, N42), restoring D (N06), the gap pair (N40), gaps defeat restoration
+    (N07), pair tolerance (N43)
+  produces: Proposition 5, any completeness-preserving finite deletion extends by one occurrence
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 240000
+    minutes: 42
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: f1d53586ab0f5bc4
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem extend_deletion (a : ℕ → ℕ) (ha : Monotone a) (h2 : ∀ s : Finset ℕ, s.card = 2 → IsAddCompleteNatSeq''
+    (Function.updateFinset a s 0)) (D : Finset ℕ) (hD : IsAddCompleteNatSeq'' (Function.updateFinset a D 0)) : ∃
+    i, i ∉ D ∧ IsAddCompleteNatSeq'' (Function.updateFinset a (insert i D) 0) := by'
+- arm: B11_348_A_full_probe
+  id: N45
+  name: exists_complete_deletion
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - Monotone a
+  - '∀ s : Finset ℕ, s.card = 2 → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)'
+  consumes: the extension step (N44) and the empty deletion (N43)
+  produces: for every r some deletion of r occurrences leaves a complete sequence
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: fc5c0ab196c0e1d8
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem exists_complete_deletion (a : ℕ → ℕ) (ha : Monotone a) (h2 : ∀ s : Finset ℕ, s.card = 2 →
+    IsAddCompleteNatSeq'' (Function.updateFinset a s 0)) (r : ℕ) : ∃ D : Finset ℕ, D.card = r ∧ IsAddCompleteNatSeq''
+    (Function.updateFinset a D 0) := by'
+- arm: B11_348_A_full_probe
+  id: N46
+  name: exclusion_of_two_le
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 2 ≤ m
+  - Monotone a
+  - '∀ s : Finset ℕ, s.card = m → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)'
+  consumes: restoring extra terms (N03) and the iterated extension (N45)
+  produces: the exclusion of m ≥ 2, some n-deletion stays complete
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 5
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6cc83b794bce8a61
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem exclusion_of_two_le (m n : ℕ) (hm : 2 ≤ m) (a : ℕ → ℕ) (ha : Monotone a) (hs : ∀ s : Finset
+    ℕ, s.card = m → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)) : ∃ t : Finset ℕ, t.card = n ∧ IsAddCompleteNatSeq''
+    (Function.updateFinset a t 0) := by'
+- arm: B11_348_A_full_probe
+  id: ROOT
+  name: erdos_348
+  kind: join
+  join_type: assembly
+  conditionals: []
+  consumes: the witnesses for m = 0 (N17) and m = 1 (N18), the exclusion of m ≥ 2 (N46)
+  produces: the set equality
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 70000
+    minutes: 12
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: d94e3cf8eac9279d
+  blueprint: blueprint_348_nodes.yaml
+  statement: 'theorem erdos_348 : { (m, n) | (m) (n) (_ : m < n) (a : ℕ → ℕ) (_ : Monotone a) (_ : ∀ s, s.card =
+    m → IsAddCompleteNatSeq'' (Function.updateFinset a s 0)) (_ : ∀ t, t.card = n → ¬IsAddCompleteNatSeq'' (Function.updateFinset
+    a t 0)) } = erdos_348.answer := by'

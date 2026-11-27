@@ -151,3 +151,13 @@ Status: immovable.
 - **rooms/match2.py on the five build 8c queries and two proofs not in the atlas; rooms/atlas_graph2.py** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P10 in prereg_build_10_match.yaml. Resolution by: none registered.
+
+## 13. On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher access under the corrected reader than the rooms… (ledger id HG12)
+
+On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher access under the corrected reader than the rooms of the same proof that close when forced.
+
+Status: immovable.
+
+- **a planner, a probe arm and a forced arm on Erdős 348; two forced arms on the thirteen 1061 rooms build 6 left open; rooms/eg9_access.py** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P7 in prereg_build_11_eg9.yaml. Resolution by: none registered.

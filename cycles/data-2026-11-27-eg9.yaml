@@ -1,0 +1,43 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-eg9
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer)
+preregistered:
+  question: Is a room that resists forcing better surrounded than the rooms that give way?
+  rule: 'rooms/eg9_access.py over the arms'' files as registered; amendment A1 (what ran, the leak from the planner''s
+    reply, the seal check, the audit, and a registrar verification outside the registration)'
+  predictions: [P1, P2, P3, P4, P5, P6, P7]
+  commit: prereg_build_11_eg9.yaml
+  results:
+  - results/B11_348_A_full_probe/score.json
+  - results/B11_348_A_full_probe/hinges.yaml
+  - results/B11_1061_F1_full_forced/forced.json
+  - results/B11_1061_F2_full_forced/forced.json
+  - results/eg9_build11/eg9_1061.txt
+  - results/eg9_build11/merge1061/README.md
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    erdos348_probe_arm: 46 of 46 rooms and the root, standard axioms, comparator pass, 21 minutes, 11 calls
+    erdos1061_forced_rooms_closed: 13 of 13 (genuine attempts 1 to 6; median 2)
+    rooms_that_stayed_open_under_forcing: 0
+    erdos1061_access_median: 'closed in the probe arm 0.149; closed when forced 0.231'
+    merged_1061_development: 'li_1061 depends on the three standard axioms and the two cited Bienvenu statements only (registrar verification, not scored)'
+    held: P5, P6
+    missed: P4, P7
+    not_testable: P1, P2, P3
+  misses:
+  - P4
+  - P7
+spoken: 'The test found no step to test. Every one of the thirteen steps the earlier searcher had left open in the
+  sum-of-divisors proof gave way when a fresh searcher was made to try, none needing more than six attempts. The new
+  problem, Erdős 348, was rebuilt from Geneson''s paper in twenty-one minutes with nothing left open. The question of
+  whether hard steps sit in crowded neighbourhoods stays open until a step resists. Put together, the two forced files
+  leave Li''s theorem resting on two cited results and nothing else, a claim that still needs someone to read those two
+  statements against the literature.'
+finding_ids:
+- F10
+gap_ids:
+- EG9

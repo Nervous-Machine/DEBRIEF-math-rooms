@@ -1,0 +1,237 @@
+Rooms/Target_B11_1061_F1_full_forced.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:409:6: warning: `mul_le_one₀` has been deprecated: No replacement, use constituent lemmas from proof.
+Rooms/Target_B11_1061_F1_full_forced.lean:667:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:667:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:668:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:668:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:798:12: warning: `Prime.not_unit` has been deprecated: Use `Prime.not_isUnit` instead
+Rooms/Target_B11_1061_F1_full_forced.lean:807:25: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:989:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:1083:33: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1152:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B11_1061_F1_full_forced.lean:1154:45: error: Application type mismatch: The argument
+  hpr
+has type
+  Nat.Prime p
+but is expected to have type
+  Prime p
+in the application
+  Nat.prime_iff.mpr hpr
+Rooms/Target_B11_1061_F1_full_forced.lean:1158:19: error(lean.unknownIdentifier): Unknown constant `Nat.dvd_sub'`
+Rooms/Target_B11_1061_F1_full_forced.lean:1164:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1165:29: error: No goals to be solved
+Rooms/Target_B11_1061_F1_full_forced.lean:1177:8: error(lean.unknownIdentifier): Unknown constant `Nat.Coprime.mul`
+Rooms/Target_B11_1061_F1_full_forced.lean:1232:6: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+Rooms/Target_B11_1061_F1_full_forced.lean:1235:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B11_1061_F1_full_forced.lean:1239:47: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+Rooms/Target_B11_1061_F1_full_forced.lean:1240:61: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+Rooms/Target_B11_1061_F1_full_forced.lean:1245:37: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+Rooms/Target_B11_1061_F1_full_forced.lean:1246:39: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+Rooms/Target_B11_1061_F1_full_forced.lean:1249:4: error: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+Rooms/Target_B11_1061_F1_full_forced.lean:1422:10: warning: This simp argument is unused:
+  ZMod.natCast_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_zmod_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1422:29: warning: This simp argument is unused:
+  ZMod.natCast_zmod_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1455:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:1479:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:1495:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:1527:26: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1527:47: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1756:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:1904:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1967:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1955:5: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1955:19: warning: Variable name `hqW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hqW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1955:46: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1958:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2007:19: warning: This simp argument is unused:
+  ZMod.intCast_zmod_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hXdef]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2029:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2031:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2109:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:2164:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2216:74: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.zero_apply, mul_zero, mul_one,
+    add_zero, zero_add] at L0 L1 L2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2501:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:2644:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:2686:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:2711:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:2733:8: warning: declaration uses `sorry`

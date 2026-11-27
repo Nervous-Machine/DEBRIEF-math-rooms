@@ -116,7 +116,14 @@ Without a blueprint the searcher drew the same route in seven lemmas and compile
 | unseen proofs reaching the threshold | not tested | 0 of 17 and 6 of 41 |
 | best other match from the same proof | 0.87 | 0.92 |
 
-Next: a registered test of the reversed access picture on a fifth target (EG9); the case-split boundary in the types and a human re-typing (EG7); a reader for the five guides; the longitudinal rerun when a newer searcher model is available.
+**Build 11, the test that found no step to test (27 Nov 2026).** A test of whether steps no searcher can take sit in crowded neighbourhoods needs such a step, and this build produced none. A fifth Erdős problem, posted after the model's training, was rebuilt from its paper with nothing left open. All thirteen steps the earlier searcher had left in the sum-of-divisors proof gave way when forced, none needing more than six attempts, so the question stays open. Merged, the two forced files leave Li's theorem resting on the two results it cites and nothing else; whether those two statements match the literature is still unread. Full account: [trace/ROOMS-11.md](trace/ROOMS-11.md).
+
+| sample | closed first time | forced | closed when forced | resisted |
+|---|---|---|---|---|
+| Erdős 348 (fifth target) | 46 of 46 and the root | 0 | | |
+| Erdős 1061 | 33 | 13 | 13 | 0 |
+
+Next: a target with a step that holds under forcing, or a higher forced budget on the 569 core, for EG9; a read of the two cited statements under Li's theorem; the case-split boundary in the types and a human re-typing (EG7); a reader for the five guides; the longitudinal rerun when a newer searcher model is available.
 
 ## Why this theorem
 

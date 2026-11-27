@@ -1,0 +1,11 @@
+0001	2026-11-27T21:34:28Z	N01	error	rc=1	secs=4	bytes=41483
+0002	2026-11-27T21:34:43Z	N42	error	rc=1	secs=3	bytes=41483
+0003	2026-11-27T21:35:21Z	N15	sorry	rc=0	secs=3	bytes=41673
+0004	2026-11-27T21:38:26Z	N38	error	rc=1	secs=4	bytes=51059
+0005	2026-11-27T21:38:42Z	N37	error	rc=1	secs=3	bytes=51105
+0006	2026-11-27T21:38:57Z	N33	sorry	rc=0	secs=3	bytes=51141
+0007	2026-11-27T21:42:57Z	N24	error	rc=1	secs=4	bytes=58139
+0008	2026-11-27T21:43:08Z	N25	sorry	rc=0	secs=4	bytes=58139
+0009	2026-11-27T21:45:44Z	N28	error	rc=1	secs=5	bytes=70472
+0010	2026-11-27T21:45:56Z	N29	ok	rc=0	secs=5	bytes=70432
+0011	2026-11-27T21:46:29Z	FINAL	ok	rc=0	secs=4	bytes=70432

@@ -1,0 +1,71 @@
+Rooms/Target_B11_348_A_full_probe.lean:256:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:257:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:257:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:260:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:261:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:261:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:263:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:264:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:264:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:548:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:557:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:570:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:580:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:595:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:611:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:628:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:686:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:726:6: error: linarith failed to find a contradiction
+b : ℕ → ℕ
+hb : Monotone b
+hpos : ∀ (i : ℕ), 0 < b i
+hbdd : BddAbove (Set.range b)
+T : ℕ
+hT : ∀ (x : ℕ), T ≤ x → x ∈ subseqSums' b
+N0 c : ℕ
+hc : ∀ (k : ℕ), N0 ≤ k → b k = c
+hcpos : 0 < c
+N : ℕ
+hN : N0 ≤ N
+B : Finset ℕ
+hyle : ∑ i ∈ B, b i ≤ (N - N0) * c
+h2 : ∑ i ∈ B with ¬i < N0, b i = {i ∈ B | ¬i < N0}.card * c
+hsplit : ∑ x ∈ B with x < N0, b x + ∑ x ∈ B with ¬x < N0, b x = ∑ x ∈ B, b x
+h : ¬{i ∈ B | ¬i < N0}.card ≤ N - N0
+h' : N - N0 + 1 ≤ {i ∈ B | ¬i < N0}.card
+this : (N - N0 + 1) * c ≤ {i ∈ B | ¬i < N0}.card * c
+⊢ False
+failed
+Rooms/Target_B11_348_A_full_probe.lean:918:58: warning: Variable name `hkj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hkj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

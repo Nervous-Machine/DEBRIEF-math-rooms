@@ -3287,6 +3287,121 @@
    "gap_ids": [
     "HG11"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T22:15:34Z",
+   "provenance": {
+    "source": "contributed cycle file build-2026-11-27-eg9.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "build-2026-11-27-eg9",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+   "hypothesis": "On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher access under the corrected reader than the rooms of the same proof that close when forced.",
+   "signals": "predictions P1–P7 in prereg_build_11_eg9.yaml",
+   "endpoints": "none public until filed",
+   "measurements_needed": "a planner, a probe arm and a forced arm on Erdős 348; two forced arms on the thirteen 1061 rooms build 6 left open; rooms/eg9_access.py",
+   "bears_on": "gap EG9",
+   "pinned": {
+    "sha256": "497bbb1b7273842e9e376f4780af314845c5dcd30c47bba0b0298be55f6c49c2",
+    "file": "prereg_build_11_eg9.yaml"
+   },
+   "preregistered": {
+    "question": "Is a room that resists forcing better surrounded than the rooms that give way?",
+    "rule": "P1–P7 as written; the uninformative-case rule and EG9's closing rule as written; misses recorded",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7"
+    ],
+    "commit": "prereg_build_11_eg9.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 7,
+     "arms": 4,
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered a test of whether a step no searcher can take is better surrounded by existing steps than the steps that give way, on a fifth Erdős problem and on thirteen steps of a fourth that were never forced.",
+   "finding_ids": [],
+   "gap_ids": [
+    "HG12"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T22:15:34Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-eg9.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-eg9",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer)",
+   "preregistered": {
+    "question": "Is a room that resists forcing better surrounded than the rooms that give way?",
+    "rule": "rooms/eg9_access.py over the arms' files as registered; amendment A1 (what ran, the leak from the planner's reply, the seal check, the audit, and a registrar verification outside the registration)",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5",
+     "P6",
+     "P7"
+    ],
+    "commit": "prereg_build_11_eg9.yaml",
+    "results": [
+     "results/B11_348_A_full_probe/score.json",
+     "results/B11_348_A_full_probe/hinges.yaml",
+     "results/B11_1061_F1_full_forced/forced.json",
+     "results/B11_1061_F2_full_forced/forced.json",
+     "results/eg9_build11/eg9_1061.txt",
+     "results/eg9_build11/merge1061/README.md"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "erdos348_probe_arm": "46 of 46 rooms and the root, standard axioms, comparator pass, 21 minutes, 11 calls",
+     "erdos1061_forced_rooms_closed": "13 of 13 (genuine attempts 1 to 6; median 2)",
+     "rooms_that_stayed_open_under_forcing": 0,
+     "erdos1061_access_median": "closed in the probe arm 0.149; closed when forced 0.231",
+     "merged_1061_development": "li_1061 depends on the three standard axioms and the two cited Bienvenu statements only (registrar verification, not scored)",
+     "held": "P5, P6",
+     "missed": "P4, P7",
+     "not_testable": "P1, P2, P3"
+    },
+    "misses": [
+     "P4",
+     "P7"
+    ]
+   },
+   "spoken": "The test found no step to test. Every one of the thirteen steps the earlier searcher had left open in the sum-of-divisors proof gave way when a fresh searcher was made to try, none needing more than six attempts. The new problem, Erdős 348, was rebuilt from Geneson's paper in twenty-one minutes with nothing left open. The question of whether hard steps sit in crowded neighbourhoods stays open until a step resists. Put together, the two forced files leave Li's theorem resting on two cited results and nothing else, a claim that still needs someone to read those two statements against the literature.",
+   "finding_ids": [
+    "F10"
+   ],
+   "gap_ids": [
+    "EG9"
+   ]
   }
  ],
  "findings": [
@@ -3711,6 +3826,47 @@
     "status": "accepted",
     "basis": "four of six predictions held, a fifth by the measure added before scoring and disclosed; one searcher model, fourteen arms",
     "note": "The attribution by mention at FINAL was the registered measure and it misses the main case; the attempt-tag measure was added after seeing that and is labelled as such. Discovered rooms are indexed by statement; whether they are mathematically useful beyond their arm is unread."
+   },
+   "certainty": {
+    "earned": true,
+    "how": "deterministic: files, logs and scorers committed"
+   }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Opus 5.5 as the operating agent",
+   "created_at": "2026-11-27T23:00:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "prereg_build_11_eg9.yaml (sha256 497bbb1b…, committed before any arm ran), the arms' forced.json and score.json, and the registrar's merge verification in results/eg9_build11/merge1061/"
+   },
+   "audience": "briefing",
+   "finding_id": "F10",
+   "kind": "learned",
+   "spoken": "The steps a searcher leaves open after one attempt are, at this size, nearly always within its reach: all thirteen left in the sum-of-divisors proof closed when a fresh searcher was made to try, at a median of two attempts and never more than six, and a fifth Erdős problem, posted after the model's training, was rebuilt from its paper with nothing left open. A first attempt that fails is a weak signal of a hard step. Put together, the forced files leave Li's theorem depending on the two results it cites and on nothing else, which turns the open formalization question for that claim into a question about two statements.",
+   "evidence": {
+    "numbers": {
+     "erdos1061_forced_rooms_closed": "13 of 13",
+     "genuine_attempts": "1 to 6, median 2",
+     "erdos348_rooms_closed_first_arm": "46 of 46 and the root",
+     "rooms_that_resisted_forcing": 0,
+     "li_1061_dependencies": "propext, Classical.choice, Quot.sound, bienvenu_prop21_uniform, bienvenu_lemma12_singular_series",
+     "predictions_held": "P5, P6",
+     "predictions_missed": "P4, P7"
+    },
+    "cycles": [
+     "build-2026-11-27-eg9",
+     "data-2026-11-27-eg9"
+    ],
+    "confirmed_by": [
+     "forced_score.py and score.py on the committed attempt logs; Lean's #print axioms on the merged file in the pinned project"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "two of seven predictions held and the rest missed or untestable; the reach result is a count from committed logs; the dependency result is Lean's own report",
+    "note": "One searcher model. Each forced arm closed its rooms with the other arm's rooms as sorry; the merge that joins them is a registrar verification outside the registration. The two Bienvenu statements are the planner's renderings of cited results and nobody has read them against the literature; a statement stronger than the literature would make the deduction vacuous."
    },
    "certainty": {
     "earned": true,
@@ -4638,7 +4794,15 @@
    "status": "proposed",
    "opened_cycle": "data-2026-11-27-match2",
    "priority": 3,
-   "history": [],
+   "history": [
+    {
+     "cycle": "data-2026-11-27-eg9",
+     "dated": "2026-11-27",
+     "hypothesis": "on hinges outside the lead's sample, rooms that resist forcing have higher access than rooms that give way",
+     "before_data": true,
+     "result": "not testable: no room resisted forcing (1061: 13 of 13 closed; 348: nothing left open), so neither proof had a room to compare; the gap stays open and needs a target with a step that holds under forcing, or a higher cap on the one core known to hold"
+    }
+   ],
    "closes_with": [
     {
      "what": "a registered test of the reversed prediction (an unclosed hinge has higher access than the forced closures of its own proof) with the corrected reader, on the hinges of a fifth target run to the same forced-attempt protocol",
@@ -4652,6 +4816,53 @@
     "spoken": "Register the reversed prediction and test it on a target the atlas has not seen."
    },
    "expected_signal": "a registered access cycle with the direction predicted first",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T22:15:34Z",
+   "provenance": {
+    "source": "hypothesis cycle build-2026-11-27-eg9"
+   },
+   "audience": "briefing",
+   "gap_id": "HG12",
+   "title": "On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher access under the corrected reader than the rooms…",
+   "status": "immovable",
+   "opened_cycle": "build-2026-11-27-eg9",
+   "priority": 13,
+   "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+    "github": null,
+    "cycle": "build-2026-11-27-eg9",
+    "sha256": "497bbb1b7273842e9e376f4780af314845c5dcd30c47bba0b0298be55f6c49c2",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "build-2026-11-27-eg9",
+     "hypothesis": "On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher access under the corrected reader than the rooms…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar); pinned sha256 497bbb1b7273…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "a planner, a probe arm and a forced arm on Erdős 348; two forced arms on the thirteen 1061 rooms build 6 left open; rooms/eg9_access.py",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher access under the corrected reader than the rooms of the same proof that close when forced.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P7 in prereg_build_11_eg9.yaml",
    "resolution_by": "none registered"
   }
  ],

@@ -108,3 +108,40 @@ instruments:
   audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
   briefs: {planner: "c4bcc452c349f42c…", probe: "6d9c5443e4d8ea33…", forced_multi: "0a16afa97336ff26…"}
   atlas_before: {hinges: "a1864a6432a31caf…", discovered: "0c8faf5598525ae0…"}
+
+# ---- Amendment A1 ---- appended after every arm finished and the EG9 scorer ran; the registered text above is unedited.
+amendments_appended:
+  - id: A1
+    written: "2026-11-27, after the 348 planner and probe arm, both 1061 forced arms, the seal check and rooms/eg9_access.py"
+    what_happened: >
+      planner_348 (Opus 5.5, 167,101 tokens, about 11 minutes): 46 rooms and ROOT, 22 joins; assembly 17,
+      algebraic_identity 14, case_split 7, extremal_averaging 5, two_structure_coupling 3, no literature_import, no
+      quantitative_improvement; root_reached 0.08. Leaked to the registrar from its reply before the probe arm: the
+      counts by type, root_reached, reach_by_type and the rooms it called hardest (N29, N37, then N27, N28). Seal:
+      blueprint_348_predictions.yaml sha256 8accba2e…, committed in e049fc2 before the probe arm; opened after the arm
+      finished; the hash matched. B11_348_A_full_probe (Fable 5.1, 235,620 tokens, 21:26–21:46Z): 11 calls, 0 refused,
+      6 errors; FINAL ok; all 46 rooms and the root proved; comparator pass, standard axioms only, fit 0; 10 helper
+      lemmas; no statement changed. No room was open, so no 348 forced arm ran. B11_1061_F1_full_forced (448,447 tokens,
+      14 calls, 50 minutes to FINAL): all seven forced rooms closed, at 1, 1, 2, 2, 2, 3 and 2 genuine attempts.
+      B11_1061_F2_full_forced (318,726 tokens, 20 calls, 36 minutes): all six closed, at 2, 2, 6, 4, 3 and 2. Neither
+      forced arm had a refusal, a changed statement or a fit; N34 was used by no proof. All four transcripts audited:
+      no web, network, git or sealed-file access, no path outside the permitted inputs.
+    results: >
+      1061 (rooms/eg9_access.py, results/eg9_build11/eg9_1061.txt): P 33, F 13, U 0, X 0; median access P 0.149, F
+      0.231; not informative. 348: P 46, F 0, U 0; not informative.
+    scorecard: >
+      Held: P5 (fit 0 in every arm), P6 (the 348 probe arm closed 46 of 46). Missed: P4 (neither proof informative: no
+      forced room stayed open), P7 (13 of 13 closed against at most 9). Not testable: P1, P2, P3. Closing rule: P4 failed,
+      so EG9 stays open with this cycle in its history.
+    registrar_verification: >
+      Outside the registration and not scored: the two forced arms' files merge without conflict over their common
+      start, and the merge compiles. With N34 deleted (used by nothing) and the two literature rooms stated as axioms,
+      Lean reports that li_1061 depends on the three standard axioms and on Erdos1061.bienvenu_prop21_uniform and
+      Erdos1061.bienvenu_lemma12_singular_series only (results/eg9_build11/merge1061/). The faithfulness of those two
+      statements to the cited results, and of the registrar's root statement to Li's Theorem 1.1, is unread.
+    reading: >
+      The EG9 test needs a room that resists forcing, and this build produced none: every room the 1061 probe arm left
+      after one attempt closed within six, as the untried rooms of build 8 did. Across builds 4, 5, 8 and 11 the only
+      planner room that has held under forcing is the 569 core, and the 159 core held only because its rooms were the
+      open problem. A test of EG9 needs targets with genuinely hard non-literature steps, or the forced cap raised on
+      the one core known to hold.

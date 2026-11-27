@@ -6,7 +6,7 @@ _Rendered from the briefing record. Items marked internal in the ledger (how the
 
 Record quality: full ledger. Opened 2026-11-25 with the registration of the first build: Erdős Problem 766, the Dirac–Erdős bound. The planner's blueprint and sealed predictions, the three regimes and the scoring follow as cycles. The same day: the planner ran, its predictions were sealed, the three regimes ran and were scored, and the hypothesis was refuted for this build (F1). On 25–26 November build 2 (arXiv:2608.18608, an argument posted after the model's cutoff) ran four arms concurrently; every arm passed, the no-checker arm blind, the statement-only arm by the author's own route; F2 refuted; EG3 opened for the statement. On 26 November build 3 (Erdős 569 solved by a human paper, Erdős 159 open; rooms from the question; hold-position rule) ran five arms; every arm held position; F3 accepted; EG2 resolved; EG4 and EG5 opened.
 
-**Standing.** Certified 0. Accepted 7. Refuted 2. Open gaps 15. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
+**Standing.** Certified 0. Accepted 8. Refuted 2. Open gaps 16. An open gap is an input or question nobody has settled; it is not a finding and has no standing.
 
 ## Findings
 
@@ -21,6 +21,7 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | F7 | learned | **accepted** | four of six predictions written before the runs held; the registered falsifier, a fit or a false claim under the incentive, did not fire; one run per arm; two models | build-2026-11-27-incentive, data-2026-11-27-B7_569_full_incentive, data-2026-11-27-B7_159_full_incentive, data-2026-11-27-B7_159_none_plain_opus, score-2026-11-27-build7 |
 | F8 | learned | **accepted** | five of five build 8b predictions held, after four of eight in build 4 where the same falsifier fired; eight forced rooms over three builds, one searcher model | build-2026-11-26-forced, score-2026-11-26-build4, data-2026-11-27-B8_blindhold_full_forced, data-2026-11-27-B8_blindplain_full_forced, score-2026-11-27-build8-forced |
 | F9 | learned | **accepted** | four of six predictions held, a fifth by the measure added before scoring and disclosed; one searcher model, fourteen arms | discovered-2026-11-27, data-2026-11-27-discovered |
+| F10 | learned | **accepted** | two of seven predictions held and the rest missed or untestable; the reach result is a count from committed logs; the dependency result is Lean's own report | build-2026-11-27-eg9, data-2026-11-27-eg9 |
 
 ## Cycles, in order
 
@@ -78,6 +79,8 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | graph-2026-11-27 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) | hypothesis | yes | admitted |
 | data-2026-11-27-match2 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer) | data | yes | mixed |
 | match2-2026-11-27 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar) | hypothesis | yes | admitted |
+| build-2026-11-27-eg9 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar) | hypothesis | yes | admitted |
+| data-2026-11-27-eg9 | 2026-11-27 | Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer) | data | yes | mixed |
 
 ## Gaps, in the order that would settle things fastest
 
@@ -103,6 +106,7 @@ Record quality: full ledger. Opened 2026-11-25 with the registration of the firs
 | 10 | Searchers create rooms the planner did not draw at the hinges that flip and, in greater number, at the hinges that do not; the rooms survive to FINAL; and the… | immovable | the extractor over fourteen arms with a reference structure | whoever can make that measurement public | predictions P1–P6 in prereg_build_9_discovered.yaml | none registered |
 | 11 | In the graph of every room on the record, with neighbourhoods by statement shape, the two hinges that never closed are the ones whose two shores no existing… | immovable | rooms/atlas_graph.py over atlas/hinges.yaml and atlas/discovered.yaml; the CVOT write | whoever can make that measurement public | predictions P1–P5 in prereg_build_9_graph.yaml | none registered |
 | 12 | With hypotheses read from inside quantified statements and a rarity-weighted constants feature, the statement matcher keeps its within-proof retrieval,… | immovable | rooms/match2.py on the five build 8c queries and two proofs not in the atlas; rooms/atlas_graph2.py | whoever can make that measurement public | predictions P1–P10 in prereg_build_10_match.yaml | none registered |
+| 13 | On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher access under the corrected reader than the rooms… | immovable | a planner, a probe arm and a forced arm on Erdős 348; two forced arms on the thirteen 1061 rooms build 6 left open; rooms/eg9_access.py | whoever can make that measurement public | predictions P1–P7 in prereg_build_11_eg9.yaml | none registered |
 
 ## Corrections, retractions, ruled out
 

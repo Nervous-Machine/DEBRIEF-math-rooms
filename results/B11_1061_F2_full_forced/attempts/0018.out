@@ -1,0 +1,591 @@
+Rooms/Target_B11_1061_F2_full_forced.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:409:6: warning: `mul_le_one₀` has been deprecated: No replacement, use constituent lemmas from proof.
+Rooms/Target_B11_1061_F2_full_forced.lean:667:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:667:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:668:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:668:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:788:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:808:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:827:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:921:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1101:10: warning: This simp argument is unused:
+  ZMod.natCast_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_zmod_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1101:29: warning: This simp argument is unused:
+  ZMod.natCast_zmod_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1134:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1158:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1174:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1206:26: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1206:47: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1435:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F2_full_forced.lean:1583:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1646:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1634:5: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1634:19: warning: Variable name `hqW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hqW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1634:46: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1637:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1686:19: warning: This simp argument is unused:
+  ZMod.intCast_zmod_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hXdef]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1708:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1710:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1806:5: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1806:46: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1807:5: warning: Variable name `hsq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1942:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F2_full_forced.lean:1994:74: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.zero_apply, mul_zero, mul_one,
+    add_zero, zero_add] at L0 L1 L2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F2_full_forced.lean:2366:4: warning: Unused tactic linter: `beta_reduce` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B11_1061_F2_full_forced.lean:2387:4: warning: Unused tactic linter: `beta_reduce` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B11_1061_F2_full_forced.lean:2930:22: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Rooms/Target_B11_1061_F2_full_forced.lean:3046:107: error: unsolved goals
+OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop
+hOnPl :
+  ∀ (q A B C : ℤ) (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔
+      q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧
+        q * (x 3 - x 4) = -15 * A * (x 0 - x 4) + 462 * C * x 4 ∧
+          q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧
+            508 * x 5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462
+InReg : ℝ → (Fin 6 → ℤ) → Prop
+hInReg :
+  ∀ (T : ℝ) (x : Fin 6 → ℤ),
+    InReg T x ↔
+      -2 * T ≤ 15 * (↑(x 0) - ↑(x 4)) ∧
+        15 * (↑(x 0) - ↑(x 4)) ≤ -T ∧ |31 * (↑(x 2) - ↑(x 4))| ≤ 1 / 100000 * |15 * (↑(x 0) - ↑(x 4))|
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+τ : ℝ
+hτ : 0 < τ
+cstar : ℝ
+hcstar : 0 < cstar
+hss :
+  ∀ (q : ℕ) (A B C : ℤ) (Z : ℝ),
+    1 ≤ q →
+      q % 4619990760 = 1 →
+        100 ≤ Z →
+          Good Z q A B C →
+            Squarefree q →
+              ∀ (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (β : ℕ → ℝ),
+                (∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j) →
+                  (∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃ n, x = fun i => c i + ∑ j, L i j * n j) →
+                    (∃ δ,
+                        δ ∣ 508 ∧
+                          |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) -
+                                15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| =
+                            465 * ↑q ^ 2 * ↑δ) →
+                      (∀ (p : ℕ),
+                          β p =
+                            (↑p / (↑p - 1)) ^ 6 / ↑p ^ 2 *
+                              ↑{n ∈ Fintype.piFinset fun x => Finset.range p |
+                                    ∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ↑(n j)}.card) →
+                        (∀ (p : ℕ), Nat.Prime p → 0 < β p) ∧
+                          (Multipliable fun p => β ↑p) ∧ cstar ≤ ∏' (p : Nat.Primes), β ↑p
+C0 C1 C2 : ℝ
+hC1 : 0 < C1
+hlat :
+  ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ),
+    1 ≤ q →
+      q % 4619990760 = 1 →
+        4619990760 ∣ A →
+          4619990760 ∣ B →
+            4619990760 ∣ C →
+              IsCoprime (A * B * C) ↑q →
+                100 ≤ Z →
+                  ↑q * Z ^ 2 ≤ ↑A →
+                    ↑A < 2 * ↑q * Z ^ 2 →
+                      ↑q * Z ≤ ↑B →
+                        ↑B < 2 * ↑q * Z →
+                          ↑q * Z ≤ ↑C →
+                            ↑C < 2 * ↑q * Z →
+                              C0 * ↑q ^ 2 ≤ T →
+                                ∃ c L δ,
+                                  δ ∣ 508 ∧
+                                    (∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j) ∧
+                                      (∀ (x : Fin 6 → ℤ),
+                                          OnPl (↑q) A B C x → ∃! n, x = fun i => c i + ∑ j, L i j * n j) ∧
+                                        |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) -
+                                                15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| =
+                                            465 * ↑q ^ 2 * ↑δ ∧
+                                          (∀ (i : Fin 6),
+                                              |↑(c i)| ≤ C2 * Z ^ 2 * ↑q ^ 2 ∧
+                                                ∀ (j : Fin 2), |↑(L i j)| ≤ C2 * Z ^ 2 * ↑q ^ 2) ∧
+                                            ∀ (K : Set (Fin 2 → ℝ)),
+                                              (∀ (v : Fin 2 → ℝ),
+                                                  v ∈ K ↔
+                                                    -2 * T ≤
+                                                        15 *
+                                                          (↑(c 0) + ∑ j, ↑(L 0 j) * v j -
+                                                            (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ∧
+                                                      15 *
+                                                            (↑(c 0) + ∑ j, ↑(L 0 j) * v j -
+                                                              (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ≤
+                                                          -T ∧
+                                                        |31 *
+                                                              (↑(c 2) + ∑ j, ↑(L 2 j) * v j -
+                                                                (↑(c 4) + ∑ j, ↑(L 4 j) * v j))| ≤
+                                                          1 / 100000 *
+                                                            |15 *
+                                                                (↑(c 0) + ∑ j, ↑(L 0 j) * v j -
+                                                                  (↑(c 4) + ∑ j, ↑(L 4 j) * v j))|) →
+                                                Convex ℝ K ∧
+                                                  MeasureTheory.volume K =
+                                                      ENNReal.ofReal (3 / 100000 * T ^ 2 / (465 * ↑q ^ 2 * ↑δ)) ∧
+                                                    ∀ v ∈ K, ∀ (j : Fin 2), |v j| ≤ C1 * T
+cl Cu ch Ch : ℝ
+hcl : 0 < cl
+hch : 0 < ch
+hchCh : ch < Ch
+hreg :
+  ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ) (x : Fin 6 → ℤ),
+    1 ≤ q →
+      100 ≤ Z →
+        10 ≤ T →
+          ↑q * Z ^ 2 ≤ ↑A →
+            ↑A ≤ 2 * ↑q * Z ^ 2 →
+              ↑q * Z ≤ ↑B →
+                ↑B ≤ 2 * ↑q * Z →
+                  ↑q * Z ≤ ↑C →
+                    ↑C ≤ 2 * ↑q * Z →
+                      OnPl (↑q) A B C x →
+                        InReg T x →
+                          cl * Z * T ≤ ↑(x 0) ∧
+                            cl * Z * T ≤ ↑(x 2) ∧
+                              cl * Z * T ≤ ↑(x 4) ∧
+                                cl * Z ^ 2 * T ≤ ↑(x 1) ∧
+                                  cl * Z ^ 2 * T ≤ ↑(x 3) ∧
+                                    cl * Z ^ 2 * T ≤ ↑(x 5) ∧
+                                      (∀ (i : Fin 6), ↑(x i) ≤ Cu * Z ^ 2 * T) ∧
+                                        ch * Z ^ 3 * T ^ 2 ≤ 508 * ↑(x 4) * ↑(x 5) ∧
+                                          508 * ↑(x 4) * ↑(x 5) ≤ Ch * Z ^ 3 * T ^ 2
+ca Ca : ℝ
+hca : 0 < ca
+hcaCa : ca < Ca
+harch :
+  ∀ (Z T α β γ r s x1 x2 x3 x4 x5 x6 : ℝ),
+    100 ≤ Z →
+      10 ≤ T →
+        Z ^ 2 ≤ α →
+          α ≤ 2 * Z ^ 2 →
+            Z ≤ β →
+              β ≤ 2 * Z →
+                Z ≤ γ →
+                  γ ≤ 2 * Z →
+                    -2 * T ≤ r →
+                      r ≤ -T →
+                        |s| ≤ 1 / 100000 * |r| →
+                          x1 = -1 + (1 / 15 - β) * r - γ * s →
+                            x2 = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α - 462 * β * γ - γ) * s →
+                              x3 = -1 - β * r + (1 / 31 - γ) * s →
+                                x4 = -1 - 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s →
+                                  x5 = -1 - β * r - γ * s →
+                                    x6 = (15 * (x1 + x2) + 31 * (x3 + x4) - 508 * x5 - 462) / 508 →
+                                      ca * Z * T ≤ x1 ∧
+                                        x1 ≤ Ca * Z * T ∧
+                                          ca * Z * T ≤ x3 ∧
+                                            x3 ≤ Ca * Z * T ∧
+                                              ca * Z * T ≤ x5 ∧
+                                                x5 ≤ Ca * Z * T ∧
+                                                  ca * Z ^ 2 * T ≤ x2 ∧
+                                                    x2 ≤ Ca * Z ^ 2 * T ∧
+                                                      ca * Z ^ 2 * T ≤ x4 ∧
+                                                        x4 ≤ Ca * Z ^ 2 * T ∧ ca * Z ^ 2 * T ≤ x6 ∧ x6 ≤ Ca * Z ^ 2 * T
+C1' : ℝ := max C1 1
+hC1' : C1' = max C1 1
+hC1'1 : 1 ≤ C1'
+hC1C1' : C1 ≤ C1'
+Cu' : ℝ := max Cu 1
+hCu' : Cu' = max Cu 1
+hCu'1 : 1 ≤ Cu'
+hCuCu' : Cu ≤ Cu'
+k0 : ℝ := 3 / (100000 * 465 * 508)
+hk0 : k0 = 3 / (100000 * 465 * 508)
+hk0pos : 0 < k0
+N0 : ℝ
+hbien :
+  ∀ (N : ℝ) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (K : Set (Fin 2 → ℝ)) (β : ℕ → ℝ) (F : Finset (Fin 2 → ℤ)),
+    N0 ≤ N →
+      (∀ (i j : Fin 6), i ≠ j → LinearIndependent ℚ ![fun k => ↑(L i k), fun k => ↑(L j k)]) →
+        (∀ (p : ℕ),
+            β p =
+              (↑p / (↑p - 1)) ^ 6 / ↑p ^ 2 *
+                ↑{n ∈ Fintype.piFinset fun x => Finset.range p | ∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ↑(n j)}.card) →
+          (∀ (p : ℕ), Nat.Prime p → 0 < β p) →
+            ((∑ i, |↑(c i)|) / N + ∑ i, ∑ j, |↑(L i j)|) / Real.log N ^ (4 * τ) ≤ 18 * |C2| + 1 →
+              Convex ℝ K →
+                (∀ v ∈ K, ∀ (j : Fin 2), |v j| ≤ N) →
+                  k0 / C1' ^ 2 * N ^ 2 * Real.log N ^ (-(2 * τ)) ≤ (MeasureTheory.volume K).toReal →
+                    (∀ v ∈ K, ∀ (i : Fin 6), N ^ (9 / 10) ≤ ↑(c i) + ∑ j, ↑(L i j) * v j) →
+                      (∀ (n : Fin 2 → ℤ), n ∈ F ↔ (fun j => ↑(n j)) ∈ K) →
+                        |(∑ n ∈ F,
+                                  ∏ i,
+                                    if 0 < c i + ∑ j, L i j * n j ∧ Nat.Prime (c i + ∑ j, L i j * n j).natAbs then
+                                      Real.log ↑(c i + ∑ j, L i j * n j)
+                                    else 0) /
+                                ((MeasureTheory.volume K).toReal * ∏' (p : Nat.Primes), β ↑p) -
+                              1| ≤
+                          1 / 2
+K8 : ℝ := 256 * 72 * (2 * C1' + 3) / (k0 * cstar)
+hK8 : K8 = 256 * 72 * (2 * C1' + 3) / (k0 * cstar)
+hK8pos : 0 < K8
+hpoly : ∀ (a K : ℝ), 0 < K → ∀ᶠ (T : ℝ) in atTop, K * Real.log T ^ a ≤ T
+hlogo : ∀ᶠ (T : ℝ) in atTop, 2 * τ * Real.log (Real.log T) ≤ Real.log T / 2
+T0 : ℝ
+hT0 :
+  ∀ (b : ℝ),
+    T0 ≤ b →
+      max 10 (max N0 ((C1' / (100 * ca)) ^ 10)) ≤ b ∧
+        max 1 (2 * Real.log Cu') ≤ Real.log b ∧
+          (|C0| + 1) * Real.log b ^ (2 * τ) ≤ b ∧
+            K8 * Real.log b ^ (2 * τ + 6) ≤ b ∧ 2 * τ * Real.log (Real.log b) ≤ Real.log b / 2
+T Z : ℝ
+q : ℕ
+A B C : ℤ
+hT : T0 ≤ T
+hZ : 100 ≤ Z
+hq : 1 ≤ q
+hsq : Squarefree q
+hqW : q % 4619990760 = 1
+hG : Good Z q A B C
+hT10 : 10 ≤ T
+hTN0 : N0 ≤ T
+hTc : (C1' / (100 * ca)) ^ 10 ≤ T
+ℓ : ℝ := Real.log T
+hqT : ↑q ≤ ℓ ^ τ
+hZT : Z ≤ ℓ ^ τ
+hpC0 : (|C0| + 1) * ℓ ^ (2 * τ) ≤ T
+hpK8 : K8 * ℓ ^ (2 * τ + 6) ≤ T
+hloglog : 2 * τ * Real.log ℓ ≤ ℓ / 2
+hℓ1 : 1 ≤ ℓ
+hℓCu : 2 * Real.log Cu' ≤ ℓ
+hℓdef : ℓ = Real.log T
+hTpos : 0 < T
+hℓpos : 0 < ℓ
+hWA : 4619990760 ∣ A
+hWB : 4619990760 ∣ B
+hWC : 4619990760 ∣ C
+hA1 : ↑q * Z ^ 2 ≤ ↑A
+hA2 : ↑A < 2 * ↑q * Z ^ 2
+hB1 : ↑q * Z ≤ ↑B
+hB2 : ↑B < 2 * ↑q * Z
+hCC1 : ↑q * Z ≤ ↑C
+hCC2 : ↑C < 2 * ↑q * Z
+hdivq : ∀ (p : ℕ), Nat.Prime p → p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)
+hdivo :
+  ∀ (p : ℕ),
+    Nat.Prime p →
+      ¬p ∣ 4619990760 * q →
+        ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+            ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨ ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+hcopABC : IsCoprime (A * B * C) ↑q
+hq1R : 1 ≤ ↑q
+hqpos : 0 < ↑q
+hZpos : 0 < Z
+hsqr : ∀ (x : ℝ), 0 ≤ x → x ≤ ℓ ^ τ → x ^ 2 ≤ ℓ ^ (2 * τ)
+hq2 : ↑q ^ 2 ≤ ℓ ^ (2 * τ)
+hZ2 : Z ^ 2 ≤ ℓ ^ (2 * τ)
+hℓ2τ : 0 < ℓ ^ (2 * τ)
+hTC0 : C0 * ↑q ^ 2 ≤ T
+c : Fin 6 → ℤ
+L : Fin 6 → Fin 2 → ℤ
+δ : ℕ
+hδ : δ ∣ 508
+hpar : ∀ (n : Fin 2 → ℤ), OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j
+hsurj : ∀ (x : Fin 6 → ℤ), OnPl (↑q) A B C x → ∃! n, x = fun i => c i + ∑ j, L i j * n j
+hdet :
+  |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * ↑q ^ 2 * ↑δ
+hbd : ∀ (i : Fin 6), |↑(c i)| ≤ C2 * Z ^ 2 * ↑q ^ 2 ∧ ∀ (j : Fin 2), |↑(L i j)| ≤ C2 * Z ^ 2 * ↑q ^ 2
+hK :
+  ∀ (K : Set (Fin 2 → ℝ)),
+    (∀ (v : Fin 2 → ℝ),
+        v ∈ K ↔
+          -2 * T ≤ 15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ∧
+            15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ≤ -T ∧
+              |31 * (↑(c 2) + ∑ j, ↑(L 2 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j))| ≤
+                1 / 100000 * |15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j))|) →
+      Convex ℝ K ∧
+        MeasureTheory.volume K = ENNReal.ofReal (3 / 100000 * T ^ 2 / (465 * ↑q ^ 2 * ↑δ)) ∧
+          ∀ v ∈ K, ∀ (j : Fin 2), |v j| ≤ C1 * T
+K : Set (Fin 2 → ℝ) :=
+  {v |
+    -2 * T ≤ 15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ∧
+      15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ≤ -T ∧
+        |31 * (↑(c 2) + ∑ j, ↑(L 2 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j))| ≤
+          1 / 100000 * |15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j))|}
+hKdef :
+  K =
+    {v |
+      -2 * T ≤ 15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ∧
+        15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j)) ≤ -T ∧
+          |31 * (↑(c 2) + ∑ j, ↑(L 2 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j))| ≤
+            1 / 100000 * |15 * (↑(c 0) + ∑ j, ↑(L 0 j) * v j - (↑(c 4) + ∑ j, ↑(L 4 j) * v j))|}
+hKconv : Convex ℝ K
+hKvol : MeasureTheory.volume K = ENNReal.ofReal (3 / 100000 * T ^ 2 / (465 * ↑q ^ 2 * ↑δ))
+hKbox : ∀ v ∈ K, ∀ (j : Fin 2), |v j| ≤ C1 * T
+hδpos : 0 < δ
+hδle : δ ≤ 508
+hδR1 : 1 ≤ ↑δ
+hδR : ↑δ ≤ 508
+hvolR : (MeasureTheory.volume K).toReal = 3 / 100000 * T ^ 2 / (465 * ↑q ^ 2 * ↑δ)
+hvol_lo : k0 * T ^ 2 / ↑q ^ 2 ≤ (MeasureTheory.volume K).toReal
+β : ℕ → ℝ :=
+  fun p =>
+    (↑p / (↑p - 1)) ^ 6 / ↑p ^ 2 *
+      ↑{n ∈ Fintype.piFinset fun x => Finset.range p | ∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ↑(n j)}.card
+hβdef :
+  β = fun p =>
+    (↑p / (↑p - 1)) ^ 6 / ↑p ^ 2 *
+      ↑{n ∈ Fintype.piFinset fun x => Finset.range p | ∀ (i : Fin 6), ¬↑p ∣ c i + ∑ j, L i j * ↑(n j)}.card
+hβpos : ∀ (p : ℕ), Nat.Prime p → 0 < β p
+hβmult : Multipliable fun p => β ↑p
+hβS : cstar ≤ ∏' (p : Nat.Primes), β ↑p
+hSpos : 0 < ∏' (p : Nat.Primes), β ↑p
+hminor : ∀ (i j : Fin 6), i ≠ j → L i 0 * L j 1 - L i 1 * L j 0 ≠ 0
+hfc : ∀ (i j : Fin 6), i ≠ j → LinearIndependent ℚ ![fun k => ↑(L i k), fun k => ↑(L j k)]
+N : ℝ := C1' * T
+hNdef : N = C1' * T
+hTN : T ≤ N
+hNpos : 0 < N
+hlogN : ℓ ≤ Real.log N
+M : ℕ := ⌈N⌉₊
+hMdef : M = ⌈N⌉₊
+hMN : N ≤ ↑M
+hMN' : ↑M < N + 1
+box : Finset (Fin 2 → ℤ) := Fintype.piFinset fun x => Finset.Icc (-↑M) ↑M
+hbox : box = Fintype.piFinset fun x => Finset.Icc (-↑M) ↑M
+F : Finset (Fin 2 → ℤ) := {n ∈ box | (fun j => ↑(n j)) ∈ K}
+hFdef : F = {n ∈ box | (fun j => ↑(n j)) ∈ K}
+hFK : ∀ (n : Fin 2 → ℤ), n ∈ F ↔ (fun j => ↑(n j)) ∈ K
+hlowK : ∀ v ∈ K, ∀ (i : Fin 6), ca * Z * T ≤ ↑(c i) + ∑ j, ↑(L i j) * v j
+hlow : ∀ v ∈ K, ∀ (i : Fin 6), N ^ (9 / 10) ≤ ↑(c i) + ∑ j, ↑(L i j) * v j
+hcoef : ((∑ i, |↑(c i)|) / N + ∑ i, ∑ j, |↑(L i j)|) / Real.log N ^ (4 * τ) ≤ 18 * |C2| + 1
+hKboxN : ∀ v ∈ K, ∀ (j : Fin 2), |v j| ≤ N
+hvolB : k0 / C1' ^ 2 * N ^ 2 * Real.log N ^ (-(2 * τ)) ≤ (MeasureTheory.volume K).toReal
+hB :
+  |(∑ n ∈ F,
+            ∏ i,
+              if 0 < c i + ∑ j, L i j * n j ∧ Nat.Prime (c i + ∑ j, L i j * n j).natAbs then
+                Real.log ↑(c i + ∑ j, L i j * n j)
+              else 0) /
+          ((MeasureTheory.volume K).toReal * ∏' (p : Nat.Primes), β ↑p) -
+        1| ≤
+    1 / 2
+hInt : ∀ n ∈ F, (OnPl (↑q) A B C fun i => c i + ∑ j, L i j * n j) ∧ InReg T fun i => c i + ∑ j, L i j * n j
+V : ℝ := Cu' * Z ^ 2 * T
+hVdef : V = Cu' * Z ^ 2 * T
+hV1 : 1 ≤ V
+G : Finset (Fin 2 → ℤ) :=
+  {n ∈ F |
+    ∀ (i : Fin 6),
+      0 < (fun n i => c i + ∑ j, L i j * n j) n i ∧ Nat.Prime ((fun n i => c i + ∑ j, L i j * n j) n i).natAbs}
+hpw :
+  (∑ n ∈ F,
+      ∏ i,
+        if 0 < c i + ∑ j, L i j * n j ∧ Nat.Prime (c i + ∑ j, L i j * n j).natAbs then
+          Real.log ↑(c i + ∑ j, L i j * n j)
+        else 0) ≤
+    Real.log V ^ 6 * ↑G.card
+hGdef :
+  G =
+    {n ∈ F |
+      ∀ (i : Fin 6),
+        0 < (fun n i => c i + ∑ j, L i j * n j) n i ∧ Nat.Prime ((fun n i => c i + ∑ j, L i j * n j) n i).natAbs}
+hX :
+  ((MeasureTheory.volume K).toReal * ∏' (p : Nat.Primes), β ↑p) / 2 ≤
+    ∑ n ∈ F,
+      ∏ i,
+        if 0 < c i + ∑ j, L i j * n j ∧ Nat.Prime (c i + ∑ j, L i j * n j).natAbs then
+          Real.log ↑(c i + ∑ j, L i j * n j)
+        else 0
+hlogV : Real.log V ≤ 2 * ℓ
+hlogV0 : 0 ≤ Real.log V
+hlogV6 : Real.log V ^ 6 ≤ 64 * ℓ ^ 6
+hGlo : k0 * cstar * T ^ 2 / (128 * ↑q ^ 2 * ℓ ^ 6) ≤ ↑G.card
+xm : (Fin 2 → ℤ) → Fin 6 → ℤ := fun n i => c i + ∑ j, L i j * n j
+hfV : ∀ n ∈ F, ∀ (i : Fin 6), ↑(xm n i) ≤ V
+hxm : xm = fun n i => c i + ∑ j, L i j * n j
+Bd : Finset (Fin 2 → ℤ) := {n ∈ G | ¬Function.Injective (xm n)}
+hBd : Bd = {n ∈ G | ¬Function.Injective (xm n)}
+hBcard : ↑Bd.card ≤ 36 * (2 * ↑M + 1)
+hxinj : ∀ (n m : Fin 2 → ℤ), xm n = xm m → n = m
+hsd : ↑G.card ≤ ↑(G \ Bd).card + ↑Bd.card
+hcoll : 36 * (2 * ↑M + 1) ≤ k0 * cstar * T ^ 2 / (256 * ↑q ^ 2 * ℓ ^ 6)
+⊢ ℓ ^ 6 * (Real.log T)⁻¹ ^ 6 * 128 = 128

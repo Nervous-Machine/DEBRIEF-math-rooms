@@ -1,0 +1,50 @@
+
+== s1061 (blueprint_1061_nodes.yaml); counts {'P': 33, 'F': 13, 'U': 0, 'X': 0, '-': 0}; informative False
+  F  0.424   H  N21   local_witness
+  F  0.398   H  N38   local_denominator
+  F  0.369   H  N46   threshold_lemma
+  F  0.348   H  N42   singular_series_lower
+  F  0.247   H  N31   parameter_sieve
+  F  0.236   H  N29   local_density
+  F  0.231   H  N45   plane_prime_count
+  F  0.225   H  N48   S_lower_bound
+  F  0.219   H  N47   two_height_core
+  F  0.197   H  N30   large_prime_tail
+  F  0.191   H  N22   projected_index
+  F  0.177   H  N25   sqfree_progression_count
+  F  0.165   H  N23   lattice_coords
+  P  0.407   H  N36   local_W
+  P  0.394   H  N35   nonzero_forms_count
+  P  0.357   H  N37   local_away
+  P  0.201   H  N20   good_coprime
+  P  0.2     H  N04   sigma_mul_two_primes
+  P  0.2     H  N09   multiplier_solution
+  P  0.2     H  N18   integral_lift
+  P  0.2     H  N19   onPlane_equations
+  P  0.2     H  ROOT  li_1061
+  P  0.18    H  N44   prime_weight_to_count
+  P  0.158   H  N11   coprime_density
+  P  0.158   H  N14   determinant_table
+  P  0.158   H  N15   finite_complexity_real
+  P  0.15    H  N26   H_sum_bound
+  P  0.15    H  N27   good_denominators
+  P  0.15    H  N40   beta_local
+  P  0.149   H  N43   collision_line
+  P  0.144   H  N33   union_card_bound
+  P  0.136   H  N06   friendly_triple_activation
+  P  0.133   H  N13   ruling_plane_identity
+  P  0.133   H  N16   archimedean_bounds
+  P  0.125   H  N07   core_from_sextuple
+  P  0.123   H  N24   region_bounds_int
+  P  0.12    H  N32   planes_meet_once
+  P  0.107   H  N10   multiplier_disjoint
+  P  0.102   H  N08   core_fiber_le_eight
+  P  0.1     H  N17   zero_form_criteria
+  P  0.096   H  N12   S_ge_card
+  P  0.089   H  N39   fc_lattice
+  P  0.075   H  N05   shifted_product_identity
+  P  0.0     -  N03   sigma_values_triple
+  P  0.0     -  N28   residue_blocks
+  P  0.0     -  N41   ap_product
+  median P 0.149  F 0.231  U None  |  max F 0.424  min U None
+  P1 None  P2 None  P3 None

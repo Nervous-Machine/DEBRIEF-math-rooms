@@ -1,0 +1,107 @@
+Rooms/Target_B11_348_A_full_probe.lean:189:4: error: linarith failed to find a contradiction
+case a
+t : Finset ℕ
+j : ℕ
+hj : j ∈ t
+hc : IsAddCompleteNatSeq' (Function.updateFinset (fun i => 2 ^ i) t 0)
+M : ℕ
+hM : ∀ (b : ℕ), M ≤ b → b ∈ subseqSums' (Function.updateFinset (fun i => 2 ^ i) {j} 0)
+hpos : 1 ≤ 2 ^ (j + 1)
+hlt : 2 ^ j < 2 ^ (j + 1)
+a✝ : 2 ^ j + 2 ^ (j + 1) * M < M
+⊢ False
+failed
+Rooms/Target_B11_348_A_full_probe.lean:255:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:256:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:256:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:259:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:260:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:260:22: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:262:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:263:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:263:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_348_A_full_probe.lean:333:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  g ≥ 1
+  f ≥ 0
+  e ≥ 1
+  c ≥ 0
+  c - e ≤ 0
+  c - g ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+  a - f ≤ -1
+where
+ a := ↑j
+ b := ↑i
+ c := ↑(Nat.fib (i + 1))
+ e := ↑(Nat.fib (j + 1))
+ f := ↑r
+ g := ↑(Nat.fib (j + 2 * 0 + 2))
+Rooms/Target_B11_348_A_full_probe.lean:348:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 1
+  g ≥ 0
+  f ≥ 0
+  e ≥ 1
+  c ≥ 0
+  c - e ≤ 0
+  c - h ≥ 0
+  b ≥ 0
+  a ≥ 0
+  a - b ≥ 1
+  a - f + 2*g ≤ -3
+where
+ a := ↑j
+ b := ↑i
+ c := ↑(Nat.fib (i + 1))
+ e := ↑(Nat.fib (j + 1))
+ f := ↑r
+ g := ↑t
+ h := ↑(Nat.fib (j + 2 * (t + 1) + 2))
+Rooms/Target_B11_348_A_full_probe.lean:545:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:554:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:567:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:577:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:592:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:608:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:625:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:683:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:693:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:711:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:719:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:726:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:738:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:745:8: warning: declaration uses `sorry`
+Rooms/Target_B11_348_A_full_probe.lean:812:10: error: failed to synthesize
+  (x : ℕ) → Decidable (x ∈ Set.range e)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

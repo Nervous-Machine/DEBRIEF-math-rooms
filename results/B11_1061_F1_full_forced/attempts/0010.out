@@ -1,0 +1,442 @@
+Rooms/Target_B11_1061_F1_full_forced.lean:29:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:50:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:94:42: warning: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:50: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:63: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:76: warning: Variable name `hu'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:313:91: warning: Variable name `hv'` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv'
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:409:6: warning: `mul_le_one₀` has been deprecated: No replacement, use constituent lemmas from proof.
+Rooms/Target_B11_1061_F1_full_forced.lean:667:50: warning: Variable name `h2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:667:69: warning: Variable name `h3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:668:5: warning: Variable name `h7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:668:24: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:798:12: warning: `Prime.not_unit` has been deprecated: Use `Prime.not_isUnit` instead
+Rooms/Target_B11_1061_F1_full_forced.lean:807:25: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:989:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:1083:33: warning: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1152:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B11_1061_F1_full_forced.lean:1163:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B11_1061_F1_full_forced.lean:1235:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B11_1061_F1_full_forced.lean:1430:10: warning: This simp argument is unused:
+  ZMod.natCast_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_zmod_val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1430:29: warning: This simp argument is unused:
+  ZMod.natCast_zmod_val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ZMod.natCast_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1482:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B11_1061_F1_full_forced.lean:1781:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1809:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B11_1061_F1_full_forced.lean:1829:16: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_1061_F1_full_forced.lean:1836:16: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_1061_F1_full_forced.lean:1864:18: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B11_1061_F1_full_forced.lean:1878:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B11_1061_F1_full_forced.lean:2298:24: warning: `Finset.one_le_prod'` has been deprecated: Use `Finset.one_le_prod` instead
+
+Hint: Replace the deprecated name:
+  Finset.one_le_prod'̵
+Rooms/Target_B11_1061_F1_full_forced.lean:2330:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2437:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun x =>
+    ∀ (p : ℕ),
+      Nat.Prime p →
+        P < p →
+          ¬p ∣ 4619990760 * q →
+            ¬(↑p ∣ 4619990760 * ?m.4438 ∧ ↑p ∣ 462 * (4619990760 * ?m.4450) + ↑q ∨
+                ↑p ∣ 4619990760 * ?m.4468 ∧ ↑p ∣ 462 * (4619990760 * ?m.4480) + ↑q ∨
+                  ↑p ∣ 31 * (4619990760 * ?m.4500) - 462 * (4619990760 * ?m.4506) - ↑q ∧
+                    ↑p ∣ 15 * (4619990760 * ?m.4538) + 462 * (4619990760 * ?m.4544) + ↑q)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+Rooms/Target_B11_1061_F1_full_forced.lean:2283:107: error: unsolved goals
+Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop
+hGood :
+  ∀ (Z : ℝ) (q : ℕ) (A B C : ℤ),
+    Good Z q A B C ↔
+      4619990760 ∣ A ∧
+        4619990760 ∣ B ∧
+          4619990760 ∣ C ∧
+            ↑q * Z ^ 2 ≤ ↑A ∧
+              ↑A < 2 * ↑q * Z ^ 2 ∧
+                ↑q * Z ≤ ↑B ∧
+                  ↑B < 2 * ↑q * Z ∧
+                    ↑q * Z ≤ ↑C ∧
+                      ↑C < 2 * ↑q * Z ∧
+                        (∀ (p : ℕ),
+                            Nat.Prime p →
+                              p ∣ q → ¬↑p ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+                          ∀ (p : ℕ),
+                            Nat.Prime p →
+                              ¬p ∣ 4619990760 * q →
+                                ¬(↑p ∣ A ∧ ↑p ∣ 462 * B + ↑q ∨
+                                    ↑p ∣ A ∧ ↑p ∣ 462 * C + ↑q ∨
+                                      ↑p ∣ 31 * A - 462 * B - ↑q ∧ ↑p ∣ 15 * A + 462 * C + ↑q)
+M0 ϑ : ℝ
+hϑ : 0 < ϑ
+hloc :
+  ∀ (q P m : ℕ),
+    Squarefree q →
+      q % 4619990760 = 1 →
+        ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0 →
+          m = q * ∏ p ∈ Finset.range (P + 1) with Nat.Prime p ∧ ¬p ∣ 4619990760 * q, p →
+            ∃ Ω,
+              ϑ * ↑m ^ 3 ≤ ↑Ω.card ∧
+                ∀ (a b c : ℤ),
+                  (↑a, ↑b, ↑c) ∈ Ω →
+                    (∀ (p : ℕ),
+                        Nat.Prime p →
+                          p ∣ q →
+                            ¬↑p ∣
+                                4619990760 * a * (4619990760 * b) * (4619990760 * c) *
+                                      (462 * (4619990760 * c) + 15 * (4619990760 * a)) *
+                                    (31 * (4619990760 * a) - 462 * (4619990760 * b)) *
+                                  (15 * (4619990760 * b) + 31 * (4619990760 * c))) ∧
+                      ∀ (p : ℕ),
+                        Nat.Prime p →
+                          p ≤ P →
+                            ¬p ∣ 4619990760 * q →
+                              ¬(↑p ∣ 4619990760 * a ∧ ↑p ∣ 462 * (4619990760 * b) + ↑q ∨
+                                  ↑p ∣ 4619990760 * a ∧ ↑p ∣ 462 * (4619990760 * c) + ↑q ∨
+                                    ↑p ∣ 31 * (4619990760 * a) - 462 * (4619990760 * b) - ↑q ∧
+                                      ↑p ∣ 15 * (4619990760 * a) + 462 * (4619990760 * c) + ↑q)
+Ct : ℝ
+htail :
+  ∀ (q P : ℕ) (Z : ℝ),
+    2 ≤ q →
+      100 ≤ Z →
+        1 ≤ P →
+          ∀ (F : Finset (ℤ × ℤ × ℤ)),
+            (∀ t ∈ F,
+                ↑q * Z ^ 2 ≤ ↑t.1 ∧
+                  ↑t.1 < 2 * ↑q * Z ^ 2 ∧
+                    ↑q * Z ≤ ↑t.2.1 ∧
+                      ↑t.2.1 < 2 * ↑q * Z ∧
+                        ↑q * Z ≤ ↑t.2.2 ∧
+                          ↑t.2.2 < 2 * ↑q * Z ∧
+                            ∃ p,
+                              Nat.Prime p ∧
+                                P < p ∧
+                                  ¬p ∣ 4619990760 * q ∧
+                                    (↑p ∣ t.1 ∧ ↑p ∣ 462 * t.2.1 + ↑q ∨
+                                      ↑p ∣ t.1 ∧ ↑p ∣ 462 * t.2.2 + ↑q ∨
+                                        ↑p ∣ 31 * t.1 - 462 * t.2.1 - ↑q ∧ ↑p ∣ 15 * t.1 + 462 * t.2.2 + ↑q)) →
+              ↑F.card ≤ Ct * (↑q ^ 3 * Z ^ 4 / ↑P + ↑q ^ 2 * Z ^ 3 * Real.log (↑q * Z) + ↑q ^ 2 * Z ^ 4)
+W : ℝ := 4619990760
+hW : W = 4619990760
+hW0 : 0 < W
+K : ℝ := ϑ / (8 * W ^ 3)
+hK : K = ϑ / (8 * W ^ 3)
+hK0 : 0 < K
+C' : ℝ := max Ct 1
+hC' : C' = max Ct 1
+hC'1 : 1 ≤ C'
+hCtC : Ct ≤ C'
+P : ℕ := ⌈4 * C' / K⌉₊ + 1
+hP : P = ⌈4 * C' / K⌉₊ + 1
+MP : ℕ := ∏ p ∈ Finset.range (P + 1) with Nat.Prime p, p
+hMP : MP = ∏ p ∈ Finset.range (P + 1) with Nat.Prime p, p
+hMP1 : 1 ≤ MP
+q : ℕ
+Z : ℝ
+hsq : Squarefree q
+hqW : q % 4619990760 = 1
+hH : ∑ p ∈ q.primeFactors, 1 / ↑p ≤ M0
+hq0 : 4 * C' / K + 2 ≤ ↑q
+hZ0 : max 100 (max (4 * W * (1 + ↑MP)) ((8 * C' / K) ^ 2)) ≤ Z
+hZ100 : 100 ≤ Z
+hZW : 4 * W * (1 + ↑MP) ≤ Z
+hZC : (8 * C' / K) ^ 2 ≤ Z
+hqC : 4 * C' / K + 2 ≤ ↑q
+hCK : 0 ≤ 4 * C' / K
+hq2 : 2 ≤ q
+hqR : 2 ≤ ↑q
+hq0' : 0 < ↑q
+hZ0' : 0 < Z
+hP1 : 1 ≤ P
+hPR : 4 * C' / K ≤ ↑P
+S : Finset ℕ := {p ∈ Finset.range (P + 1) | Nat.Prime p ∧ ¬p ∣ 4619990760 * q}
+hS : S = {p ∈ Finset.range (P + 1) | Nat.Prime p ∧ ¬p ∣ 4619990760 * q}
+m : ℕ := q * ∏ p ∈ S, p
+hm : m = q * ∏ p ∈ S, p
+Ω : Finset (ZMod m × ZMod m × ZMod m)
+hΩc : ϑ * ↑m ^ 3 ≤ ↑Ω.card
+hΩ :
+  ∀ (a b c : ℤ),
+    (↑a, ↑b, ↑c) ∈ Ω →
+      (∀ (p : ℕ),
+          Nat.Prime p →
+            p ∣ q →
+              ¬↑p ∣
+                  4619990760 * a * (4619990760 * b) * (4619990760 * c) *
+                        (462 * (4619990760 * c) + 15 * (4619990760 * a)) *
+                      (31 * (4619990760 * a) - 462 * (4619990760 * b)) *
+                    (15 * (4619990760 * b) + 31 * (4619990760 * c))) ∧
+        ∀ (p : ℕ),
+          Nat.Prime p →
+            p ≤ P →
+              ¬p ∣ 4619990760 * q →
+                ¬(↑p ∣ 4619990760 * a ∧ ↑p ∣ 462 * (4619990760 * b) + ↑q ∨
+                    ↑p ∣ 4619990760 * a ∧ ↑p ∣ 462 * (4619990760 * c) + ↑q ∨
+                      ↑p ∣ 31 * (4619990760 * a) - 462 * (4619990760 * b) - ↑q ∧
+                        ↑p ∣ 15 * (4619990760 * a) + 462 * (4619990760 * c) + ↑q)
+hSle : ∏ p ∈ S, p ≤ MP
+hSpos : 0 < ∏ p ∈ S, p
+hm0 : 0 < m
+this : NeZero m
+hmR : 0 < ↑m
+hmq : ↑m ≤ ↑q * ↑MP
+hMPR : 1 ≤ ↑MP
+x1 : ℝ := ↑q * Z ^ 2 / W
+hx1 : x1 = ↑q * Z ^ 2 / W
+x2 : ℝ := ↑q * Z / W
+hx2 : x2 = ↑q * Z / W
+hx12 : x1 = x2 * Z
+hx2big : 4 * ↑q * (1 + ↑MP) ≤ x2
+hx2pos : 8 ≤ x2
+hx1x2 : x2 ≤ x1
+a1 : ℤ := ⌈x1⌉
+ha1 : a1 = ⌈x1⌉
+a2 : ℤ := ⌈x2⌉
+ha2 : a2 = ⌈x2⌉
+L1 : ℕ := ⌊x1⌋₊ - 1
+hL1 : L1 = ⌊x1⌋₊ - 1
+L2 : ℕ := ⌊x2⌋₊ - 1
+hL2 : L2 = ⌊x2⌋₊ - 1
+hf1 : 1 ≤ ⌊x1⌋₊
+hf2 : 1 ≤ ⌊x2⌋₊
+hL1R : ↑L1 = ↑⌊x1⌋₊ - 1
+hL2R : ↑L2 = ↑⌊x2⌋₊ - 1
+hfl1 : ↑⌊x1⌋₊ ≤ x1
+hfl2 : ↑⌊x2⌋₊ ≤ x2
+hfu1 : x1 < ↑⌊x1⌋₊ + 1
+hfu2 : x2 < ↑⌊x2⌋₊ + 1
+hc1l : x1 ≤ ↑a1
+hc1u : ↑a1 < x1 + 1
+hc2l : x2 ≤ ↑a2
+hc2u : ↑a2 < x2 + 1
+B : Finset (ℤ × ℤ × ℤ) :=
+  {x ∈ Finset.Ico a1 (a1 + ↑L1) ×ˢ Finset.Ico a2 (a2 + ↑L2) ×ˢ Finset.Ico a2 (a2 + ↑L2) | (↑x.1, ↑x.2.1, ↑x.2.2) ∈ Ω}
+hB :
+  B =
+    {x ∈ Finset.Ico a1 (a1 + ↑L1) ×ˢ Finset.Ico a2 (a2 + ↑L2) ×ˢ Finset.Ico a2 (a2 + ↑L2) | (↑x.1, ↑x.2.1, ↑x.2.2) ∈ Ω}
+hblock : Ω.card * ((L1 / m - 1) * (L2 / m - 1) * (L2 / m - 1)) ≤ B.card
+hbox :
+  ∀ x ∈ B,
+    ↑q * Z ^ 2 ≤ ↑(4619990760 * x.1) ∧
+      ↑(4619990760 * x.1) < 2 * ↑q * Z ^ 2 ∧
+        ↑q * Z ≤ ↑(4619990760 * x.2.1) ∧
+          ↑(4619990760 * x.2.1) < 2 * ↑q * Z ∧ ↑q * Z ≤ ↑(4619990760 * x.2.2) ∧ ↑(4619990760 * x.2.2) < 2 * ↑q * Z
+hmain : K * ↑q ^ 3 * Z ^ 4 ≤ ↑B.card
+F0 : ?m.4629 := sorry
+⊢ ∃ F, (∀ t ∈ F, Good Z q t.1 t.2.1 t.2.2) ∧ K / 4 * ↑q ^ 3 * Z ^ 4 ≤ ↑F.card
+Rooms/Target_B11_1061_F1_full_forced.lean:2559:26: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2559:47: warning: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2788:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:2936:5: warning: Variable name `hpar` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpar
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2999:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2987:5: warning: Variable name `hq1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2987:19: warning: Variable name `hqW` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hqW
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2987:46: warning: Variable name `hZ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hZ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:2990:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:3039:19: warning: This simp argument is unused:
+  ZMod.intCast_zmod_cast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hXdef]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:3061:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:3063:85: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hXdef, Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:3141:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:3196:5: warning: Variable name `hsurj` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsurj
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B11_1061_F1_full_forced.lean:3248:74: warning: This simp argument is unused:
+  Matrix.head_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Fin.sum_univ_two, Matrix.cons_val_zero, Matrix.cons_val_one, Pi.zero_apply, mul_zero, mul_one,
+    add_zero, zero_add] at L0 L1 L2
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B11_1061_F1_full_forced.lean:3533:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:3676:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:3718:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:3743:8: warning: declaration uses `sorry`
+Rooms/Target_B11_1061_F1_full_forced.lean:3765:8: warning: declaration uses `sorry`

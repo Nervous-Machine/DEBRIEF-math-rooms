@@ -1,0 +1,28 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: build-2026-11-27-eg9
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar)
+hypothesis: On hinges that did not form the lead, a room that stays open after twelve genuine forced attempts has higher
+  access under the corrected reader than the rooms of the same proof that close when forced.
+signals: predictions P1–P7 in prereg_build_11_eg9.yaml
+endpoints: none public until filed
+measurements_needed: a planner, a probe arm and a forced arm on Erdős 348; two forced arms on the thirteen 1061 rooms build 6 left open; rooms/eg9_access.py
+bears_on: gap EG9
+pinned:
+  sha256: 497bbb1b7273842e9e376f4780af314845c5dcd30c47bba0b0298be55f6c49c2
+  file: prereg_build_11_eg9.yaml
+preregistered:
+  question: Is a room that resists forcing better surrounded than the rooms that give way?
+  rule: P1–P7 as written; the uninformative-case rule and EG9's closing rule as written; misses recorded
+  predictions: [P1, P2, P3, P4, P5, P6, P7]
+  commit: prereg_build_11_eg9.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers: {predictions: 7, arms: 4, signals_have_public_endpoint: false}
+spoken: 'Nervous Machine registered a test of whether a step no searcher can take is better surrounded by existing
+  steps than the steps that give way, on a fifth Erdős problem and on thirteen steps of a fourth that were never forced.'
+finding_ids: []
+gap_ids: []

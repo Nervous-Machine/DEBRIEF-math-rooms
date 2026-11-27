@@ -1,0 +1,703 @@
+{
+ "summary": {
+  "arm": "B11_1061_F1_full_forced",
+  "forced_node": "N21",
+  "forced_name": "local_witness",
+  "allowed_sorry": [
+   "S_lower_bound",
+   "bienvenu_lemma12_singular_series",
+   "bienvenu_prop21_uniform",
+   "lattice_reduction",
+   "local_denominator",
+   "plane_prime_count",
+   "singular_series_lower",
+   "threshold_lemma",
+   "two_height_core"
+  ],
+  "calls_logged": 14,
+  "genuine_attempts_at_forced_node": 1,
+  "refusals": {},
+  "refused_finals": 0,
+  "forced_closed_at_first_final": true,
+  "first_final_status": "sorry",
+  "errors_first_genuine": 0,
+  "errors_last_genuine": 0,
+  "genuine_statuses": [
+   "sorry"
+  ],
+  "genuine_with_new_declarations": 1,
+  "genuine_same_as_previous": 0,
+  "hedges_in_forced_region_at_first_final": 0,
+  "new_declarations_at_first_final": 21,
+  "sorry_outside_allowed_at_first_final": [],
+  "minutes_to_first_final": 50.1,
+  "tokens": null,
+  "forced_rooms": [
+   {
+    "node": "N21",
+    "name": "local_witness",
+    "genuine_attempts": 1,
+    "statuses": [
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N22",
+    "name": "projected_index",
+    "genuine_attempts": 1,
+    "statuses": [
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N23",
+    "name": "lattice_coords",
+    "genuine_attempts": 2,
+    "statuses": [
+     "error",
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N25",
+    "name": "sqfree_progression_count",
+    "genuine_attempts": 2,
+    "statuses": [
+     "error",
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N29",
+    "name": "local_density",
+    "genuine_attempts": 2,
+    "statuses": [
+     "error",
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N30",
+    "name": "large_prime_tail",
+    "genuine_attempts": 3,
+    "statuses": [
+     "error",
+     "error",
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N31",
+    "name": "parameter_sieve",
+    "genuine_attempts": 2,
+    "statuses": [
+     "error",
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   }
+  ]
+ },
+ "calls": [
+  {
+   "seq": "0001",
+   "ts": "2026-11-27T21:19:26Z",
+   "node": "N21",
+   "status": "sorry",
+   "detail": "rc=0 secs=15 bytes=150225",
+   "new_declarations": 1,
+   "new_names": [
+    "lw_unit"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "projected_index",
+    "lattice_coords",
+    "sqfree_progression_count",
+    "local_density",
+    "large_prime_tail",
+    "parameter_sieve"
+   ],
+   "lines": 2506,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "large_prime_tail",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "local_density",
+    "parameter_sieve",
+    "plane_prime_count",
+    "projected_index",
+    "singular_series_lower",
+    "sqfree_progression_count",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0002",
+   "ts": "2026-11-27T21:23:57Z",
+   "node": "N22",
+   "status": "sorry",
+   "detail": "rc=0 secs=15 bytes=157240",
+   "new_declarations": 1,
+   "new_names": [
+    "lw_unit"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "sqfree_progression_count",
+    "local_density",
+    "large_prime_tail",
+    "parameter_sieve"
+   ],
+   "lines": 2611,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "large_prime_tail",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "local_density",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "sqfree_progression_count",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0003",
+   "ts": "2026-11-27T21:27:22Z",
+   "node": "N25",
+   "status": "error",
+   "detail": "rc=1 secs=15 bytes=165873",
+   "new_declarations": 2,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "local_density",
+    "large_prime_tail",
+    "parameter_sieve"
+   ],
+   "lines": 2770,
+   "errors": 17,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "large_prime_tail",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "local_density",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0004",
+   "ts": "2026-11-27T21:29:19Z",
+   "node": "N25",
+   "status": "sorry",
+   "detail": "rc=0 secs=14 bytes=166312",
+   "new_declarations": 2,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "local_density",
+    "large_prime_tail",
+    "parameter_sieve"
+   ],
+   "lines": 2778,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "large_prime_tail",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "local_density",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0005",
+   "ts": "2026-11-27T21:37:32Z",
+   "node": "N29",
+   "status": "error",
+   "detail": "rc=1 secs=16 bytes=189798",
+   "new_declarations": 8,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "large_prime_tail",
+    "parameter_sieve"
+   ],
+   "lines": 3181,
+   "errors": 5,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "large_prime_tail",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0006",
+   "ts": "2026-11-27T21:38:09Z",
+   "node": "N29",
+   "status": "sorry",
+   "detail": "rc=0 secs=16 bytes=189816",
+   "new_declarations": 8,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "large_prime_tail",
+    "parameter_sieve"
+   ],
+   "lines": 3178,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "large_prime_tail",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0007",
+   "ts": "2026-11-27T21:43:53Z",
+   "node": "N30",
+   "status": "error",
+   "detail": "rc=1 secs=18 bytes=209993",
+   "new_declarations": 10,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "parameter_sieve"
+   ],
+   "lines": 3508,
+   "errors": 6,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0008",
+   "ts": "2026-11-27T21:45:16Z",
+   "node": "N30",
+   "status": "error",
+   "detail": "rc=1 secs=17 bytes=210986",
+   "new_declarations": 10,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "parameter_sieve"
+   ],
+   "lines": 3522,
+   "errors": 3,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0009",
+   "ts": "2026-11-27T21:46:01Z",
+   "node": "N30",
+   "status": "sorry",
+   "detail": "rc=0 secs=16 bytes=211212",
+   "new_declarations": 10,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords",
+    "parameter_sieve"
+   ],
+   "lines": 3526,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "parameter_sieve",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0010",
+   "ts": "2026-11-27T21:51:38Z",
+   "node": "N31",
+   "status": "error",
+   "detail": "rc=1 secs=19 bytes=226743",
+   "new_declarations": 12,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log",
+    "ps_floor",
+    "ps_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords"
+   ],
+   "lines": 3802,
+   "errors": 2,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0011",
+   "ts": "2026-11-27T21:52:11Z",
+   "node": "N31",
+   "status": "sorry",
+   "detail": "rc=0 secs=26 bytes=226755",
+   "new_declarations": 12,
+   "new_names": [
+    "lw_unit",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log",
+    "ps_floor",
+    "ps_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "lattice_coords"
+   ],
+   "lines": 3803,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_coords",
+    "lattice_reduction",
+    "local_denominator",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0012",
+   "ts": "2026-11-27T22:07:15Z",
+   "node": "N23",
+   "status": "error",
+   "detail": "rc=1 secs=28 bytes=259292",
+   "new_declarations": 21,
+   "new_names": [
+    "lw_unit",
+    "lc_mul_abs",
+    "lc_div_abs",
+    "lc_bound",
+    "lc_zero",
+    "lc_hlift",
+    "lc_proj",
+    "lc_volume",
+    "lc_convex",
+    "lc_bounded",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log",
+    "ps_floor",
+    "ps_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 4315,
+   "errors": 1,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_reduction",
+    "local_denominator",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0013",
+   "ts": "2026-11-27T22:08:04Z",
+   "node": "N23",
+   "status": "sorry",
+   "detail": "rc=0 secs=28 bytes=259296",
+   "new_declarations": 21,
+   "new_names": [
+    "lw_unit",
+    "lc_mul_abs",
+    "lc_div_abs",
+    "lc_bound",
+    "lc_zero",
+    "lc_hlift",
+    "lc_proj",
+    "lc_volume",
+    "lc_convex",
+    "lc_bounded",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log",
+    "ps_floor",
+    "ps_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 4315,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_reduction",
+    "local_denominator",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  },
+  {
+   "seq": "0014",
+   "ts": "2026-11-27T22:09:30Z",
+   "node": "FINAL",
+   "status": "sorry",
+   "detail": "rc=0 secs=29 bytes=259296",
+   "new_declarations": 21,
+   "new_names": [
+    "lw_unit",
+    "lc_mul_abs",
+    "lc_div_abs",
+    "lc_bound",
+    "lc_zero",
+    "lc_hlift",
+    "lc_proj",
+    "lc_volume",
+    "lc_convex",
+    "lc_bounded",
+    "sq_class_card",
+    "ld_exp_le",
+    "ld_card_le_of_injOn",
+    "ld_ge13",
+    "ld_unit",
+    "ld_count_q",
+    "ld_count_P",
+    "lpt_class",
+    "lpt_log",
+    "ps_floor",
+    "ps_log"
+   ],
+   "forced_own_lines": 64,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 4315,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "S_lower_bound",
+    "bienvenu_lemma12_singular_series",
+    "bienvenu_prop21_uniform",
+    "lattice_reduction",
+    "local_denominator",
+    "plane_prime_count",
+    "singular_series_lower",
+    "threshold_lemma",
+    "two_height_core"
+   ]
+  }
+ ]
+}
