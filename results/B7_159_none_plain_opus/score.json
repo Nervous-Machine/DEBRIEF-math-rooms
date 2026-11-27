@@ -1,0 +1,114 @@
+{
+ "regime": "B7_159_none_plain_opus",
+ "calls": 2,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0001",
+   "error"
+  ],
+  [
+   "0002",
+   "sorry"
+  ]
+ ],
+ "per_node": {},
+ "final_status_at_first_FINAL": "error",
+ "shape": {
+  "declarations": 22,
+  "unused_by_root": [
+   "graphRamsey",
+   "c4_free_nbhd_local_degree",
+   "degree_lt_of_c4_free_indepSetFree",
+   "card_le_quadratic_of_c4_free",
+   "graphRamsey_c4_le_quadratic"
+  ],
+  "unused_count": 5,
+  "root_found": true,
+  "depth": 6,
+  "own_lines_median": 23.0,
+  "own_lines": {
+   "graphRamsey": 9,
+   "graphRamsey_le_of_forall": 8,
+   "complete_isContained_compl_iff": 5,
+   "c4_of_four": 54,
+   "c4_free_common_nbrs": 11,
+   "c4_free_nbhd_local_degree": 13,
+   "greedy_indep_local": 49,
+   "degree_lt_of_c4_free_indepSetFree": 14,
+   "card_le_quadratic_of_c4_free": 25,
+   "graphRamsey_le_of_c4_free_bound": 10,
+   "graphRamsey_c4_le_quadratic": 9,
+   "turan_weak": 64,
+   "exists_dense_core": 80,
+   "moore_bound_c4_free": 46,
+   "core_near_extremal": 9,
+   "sparse_branch_arith": 25,
+   "dense_branch_arith": 33,
+   "c4_free_indep_power": 98,
+   "rpow_inversion": 26,
+   "card_le_power_of_c4_free": 19,
+   "floor_succ_le_power": 30,
+   "erdos_159": 21
+  },
+  "retry_named": [],
+  "joins": [
+   "c4_free_common_nbrs",
+   "greedy_indep_local",
+   "graphRamsey_le_of_c4_free_bound"
+  ],
+  "edges": 23
+ },
+ "fit": {
+  "sorry": 1,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "sorry_in_text": [
+   "core_near_extremal"
+  ],
+  "sorry_in": [
+   "core_near_extremal"
+  ],
+  "root_sorry": false,
+  "total": 1,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": null,
+  "axioms": null,
+  "tail": "final did not compile clean"
+ },
+ "comparator_pass": false,
+ "residual": false,
+ "rooms_proved": [
+  "graphRamsey_le_of_forall",
+  "complete_isContained_compl_iff",
+  "c4_of_four",
+  "c4_free_common_nbrs",
+  "c4_free_nbhd_local_degree",
+  "greedy_indep_local",
+  "degree_lt_of_c4_free_indepSetFree",
+  "card_le_quadratic_of_c4_free",
+  "graphRamsey_le_of_c4_free_bound",
+  "graphRamsey_c4_le_quadratic",
+  "turan_weak",
+  "exists_dense_core",
+  "moore_bound_c4_free",
+  "sparse_branch_arith",
+  "dense_branch_arith",
+  "c4_free_indep_power",
+  "rpow_inversion",
+  "card_le_power_of_c4_free",
+  "floor_succ_le_power",
+  "erdos_159"
+ ],
+ "attempts_median": null,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": null,
+ "tokens_total": 223169
+}

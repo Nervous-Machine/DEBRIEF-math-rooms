@@ -1,0 +1,145 @@
+{
+ "regime": "B7_159_full_incentive",
+ "calls": 2,
+ "refused": 0,
+ "final_calls": [
+  [
+   "0002",
+   "sorry"
+  ]
+ ],
+ "per_node": {
+  "core_near_extremal": {
+   "attempts": 1,
+   "ok": 0,
+   "error": 1,
+   "timeout": 0,
+   "secs": 4
+  }
+ },
+ "final_status_at_first_FINAL": "sorry",
+ "shape": {
+  "declarations": 31,
+  "unused_by_root": [
+   "graphRamsey",
+   "indepSetFree_pos",
+   "c4_free_nbhd_local_degree",
+   "degree_lt_of_c4_free_indepSetFree",
+   "card_le_quadratic_of_c4_free",
+   "graphRamsey_c4_le_quadratic"
+  ],
+  "unused_count": 6,
+  "root_found": true,
+  "depth": 8,
+  "own_lines_median": 18,
+  "own_lines": {
+   "graphRamsey": 11,
+   "cycleGraph_four_adj_cases": 7,
+   "c4Copy": 30,
+   "card_lt_of_indepSetFree": 8,
+   "indepSetFree_pos": 13,
+   "graphRamsey_le_of_forall": 8,
+   "complete_isContained_compl_iff": 5,
+   "c4_free_common_nbrs": 11,
+   "c4_free_nbhd_local_degree": 10,
+   "greedy_indep_local": 42,
+   "degree_lt_of_c4_free_indepSetFree": 11,
+   "card_le_quadratic_of_c4_free": 19,
+   "graphRamsey_le_of_c4_free_bound": 9,
+   "graphRamsey_c4_le_quadratic": 11,
+   "filter_univ_adj_eq": 6,
+   "card_filter_adj_le_degree": 6,
+   "turan_weak": 63,
+   "sum_filter_adj_erase_le": 38,
+   "dense_core_aux": 28,
+   "exists_dense_core": 16,
+   "moore_bound_c4_free": 48,
+   "core_near_extremal": 9,
+   "sparse_branch_arith": 25,
+   "dense_branch_arith": 29,
+   "sparse_case": 18,
+   "dense_case": 65,
+   "c4_free_indep_power": 68,
+   "rpow_inversion": 24,
+   "card_le_power_of_c4_free": 22,
+   "floor_succ_le_power": 28,
+   "erdos_159": 20
+  },
+  "retry_named": [
+   "dense_core_aux"
+  ],
+  "joins": [
+   "card_lt_of_indepSetFree",
+   "c4_free_common_nbrs",
+   "greedy_indep_local",
+   "graphRamsey_le_of_c4_free_bound",
+   "filter_univ_adj_eq"
+  ],
+  "edges": 35
+ },
+ "fit": {
+  "sorry": 1,
+  "admit": 0,
+  "axiom": 0,
+  "native_decide": 0,
+  "unsafe": 0,
+  "maxHeartbeats_raised": 0,
+  "challenge_changed": [],
+  "nodes_changed": [],
+  "sorry_in_text": [
+   "core_near_extremal"
+  ],
+  "sorry_in": [
+   "core_near_extremal"
+  ],
+  "root_sorry": false,
+  "total": 1,
+  "fit_total": 0
+ },
+ "axioms": {
+  "rc": 0,
+  "axioms": [
+   "propext",
+   "sorryAx",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "tail": "/Axioms.lean:306:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\n\nHint: Replace the deprecated name:\n  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲\nRooms/Axioms.lean:310:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\n\nHint: Replace the deprecated name:\n  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲\nRooms/Axioms.lean:423:8: warning: declaration uses `sorry`\nRooms/Axioms.lean:458:28: warning: Variable name `hM` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hM\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'Erdos159.erdos_159' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]\n"
+ },
+ "comparator_pass": false,
+ "residual": true,
+ "rooms_proved": [
+  "cycleGraph_four_adj_cases",
+  "card_lt_of_indepSetFree",
+  "indepSetFree_pos",
+  "graphRamsey_le_of_forall",
+  "complete_isContained_compl_iff",
+  "c4_free_common_nbrs",
+  "c4_free_nbhd_local_degree",
+  "greedy_indep_local",
+  "degree_lt_of_c4_free_indepSetFree",
+  "card_le_quadratic_of_c4_free",
+  "graphRamsey_le_of_c4_free_bound",
+  "graphRamsey_c4_le_quadratic",
+  "filter_univ_adj_eq",
+  "card_filter_adj_le_degree",
+  "turan_weak",
+  "sum_filter_adj_erase_le",
+  "dense_core_aux",
+  "exists_dense_core",
+  "moore_bound_c4_free",
+  "sparse_branch_arith",
+  "dense_branch_arith",
+  "sparse_case",
+  "dense_case",
+  "c4_free_indep_power",
+  "rpow_inversion",
+  "card_le_power_of_c4_free",
+  "floor_succ_le_power",
+  "erdos_159"
+ ],
+ "attempts_median": 1,
+ "attempts_median_joins": null,
+ "attempts_median_leaves": 1,
+ "tokens_total": 71072
+}

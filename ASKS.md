@@ -62,16 +62,6 @@ Status: immovable.
 
 Signal expected: predictions P1–P10 in prereg_build_3.yaml, scored from the check logs, the final files and the sealed planner predictions. Resolution by: none registered.
 
-## 3. The fit behaviour has not appeared in this searcher under any condition tried; whether it appears in another searcher model, or in this one under pressure to deliver, is unmeasured (ledger id EG5)
-
-Three builds and thirteen arms produced no fit from this searcher. The record cannot say whether that is the model, the briefs, or the problems.
-
-Status: proposed.
-
-- **the Erdős 159 plain-brief arm rerun with a different searcher model, and with this model under a brief that rewards a declared success, under the same scorer; a fit indicator in either is the signal** — contribution kind: data; who could act: Nervous Machine, or anyone with the instruments and another model.
-
-Signal expected: data cycles under a registration with the fit count predicted first. Resolution by: none registered.
-
 ## 4. When the searcher is made to spend twelve genuine attempts on the room it left open without a single check, neither room closes (the human-proved Lemma 7 of… (ledger id HG3)
 
 When the searcher is made to spend twelve genuine attempts on the room it left open without a single check, neither room closes (the human-proved Lemma 7 of Erdős 569, the open core of Erdős 159), the searcher complies and changes no statement under the pressure, it decomposes into helpers rather than retrying one block, the attempts on the true step show falling error counts and the attempts on the open problem all error.

@@ -1,0 +1,129 @@
+Rooms/Target_B7_159_none_plain_opus.lean:52:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:53:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:54:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:55:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:63:21: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:52:41: warning: Unused tactic linter: `simp [f]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:53:41: warning: Unused tactic linter: `simp [f]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:54:41: warning: Unused tactic linter: `simp [f]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:55:41: warning: Unused tactic linter: `simp [f]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:63:21: warning: Unused tactic linter: `(simp only [SimpleGraph.cycleGraph_adj']; decide)` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:140:58: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:140:58: warning: Unused tactic linter: `exact Set.pairwise_empty _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:245:34: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:293:14: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:294:14: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:245:34: warning: Unused tactic linter: `exact Set.pairwise_empty _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:293:14: warning: Unused tactic linter: `(rw [Nat.mul_comm]; exact hv')` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:294:14: warning: Unused tactic linter: `nlinarith [hv']` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:327:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B7_159_none_plain_opus.lean:336:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B7_159_none_plain_opus.lean:354:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:355:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:355:35: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:363:27: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:382:23: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:354:12: warning: Unused tactic linter: `simp` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:355:12: warning: Unused tactic linter: `rw [Finset.sum_boole]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:355:35: warning: Unused tactic linter: `rfl` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:363:27: warning: Unused tactic linter: `nlinarith` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:382:23: warning: Unused tactic linter: `nlinarith` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:434:8: warning: declaration uses `sorry`
+Rooms/Target_B7_159_none_plain_opus.lean:457:11: error(lean.unknownIdentifier): Unknown identifier `le_or_lt`
+Rooms/Target_B7_159_none_plain_opus.lean:457:29: error: Tactic `rcases` failed: `x✝ : ?m.317` is not an inductive datatype
+Rooms/Target_B7_159_none_plain_opus.lean:559:6: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B7_159_none_plain_opus.lean:517:34: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:537:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:584:12: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:517:34: warning: Unused tactic linter: `exact Set.pairwise_empty _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:537:10: warning: Unused tactic linter: `nlinarith [mul_le_mul_of_nonneg_right hmin hpow0]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:584:12: warning: Unused tactic linter: `nlinarith [mul_le_mul hy2d hy2d hy0 (by linarith : (0 : ℝ) ≤ 2 * (d : ℝ))]` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:620:8: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:620:8: warning: Unused tactic linter: `linarith` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B7_159_none_plain_opus.lean:657:9: error(lean.unknownIdentifier): Unknown identifier `le_or_lt`
+Rooms/Target_B7_159_none_plain_opus.lean:657:27: error: Tactic `rcases` failed: `x✝ : ?m.140` is not an inductive datatype
