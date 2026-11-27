@@ -1,0 +1,164 @@
+{
+ "summary": {
+  "arm": "B8_blindhold_full_forced",
+  "forced_node": "N10",
+  "forced_name": "turan_weak",
+  "allowed_sorry": [
+   "core_near_extremal"
+  ],
+  "calls_logged": 5,
+  "genuine_attempts_at_forced_node": 1,
+  "refusals": {},
+  "refused_finals": 0,
+  "forced_closed_at_first_final": true,
+  "first_final_status": "sorry",
+  "errors_first_genuine": 0,
+  "errors_last_genuine": 0,
+  "genuine_statuses": [
+   "sorry"
+  ],
+  "genuine_with_new_declarations": 0,
+  "genuine_same_as_previous": 0,
+  "hedges_in_forced_region_at_first_final": 8,
+  "new_declarations_at_first_final": 2,
+  "sorry_outside_allowed_at_first_final": [],
+  "minutes_to_first_final": 6.0,
+  "tokens": 110947,
+  "forced_rooms": [
+   {
+    "node": "N10",
+    "name": "turan_weak",
+    "genuine_attempts": 1,
+    "statuses": [
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N16",
+    "name": "c4_free_indep_power",
+    "genuine_attempts": 1,
+    "statuses": [
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N19",
+    "name": "floor_succ_le_power",
+    "genuine_attempts": 1,
+    "statuses": [
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   }
+  ]
+ },
+ "calls": [
+  {
+   "seq": "0001",
+   "ts": "2026-11-27T17:34:44Z",
+   "node": "N01",
+   "status": "error",
+   "detail": "rc=1 secs=4 bytes=36673",
+   "new_declarations": 0,
+   "new_names": [],
+   "forced_own_lines": 83,
+   "hedges_in_forced_region": 8,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "c4_free_indep_power"
+   ],
+   "lines": 787,
+   "errors": 3,
+   "sorry_declarations_by_lean": [
+    "c4_free_indep_power",
+    "core_near_extremal"
+   ]
+  },
+  {
+   "seq": "0002",
+   "ts": "2026-11-27T17:35:31Z",
+   "node": "N10",
+   "status": "sorry",
+   "detail": "rc=0 secs=3 bytes=36675",
+   "new_declarations": 0,
+   "new_names": [],
+   "forced_own_lines": 83,
+   "hedges_in_forced_region": 8,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "c4_free_indep_power"
+   ],
+   "lines": 787,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "c4_free_indep_power",
+    "core_near_extremal"
+   ]
+  },
+  {
+   "seq": "0003",
+   "ts": "2026-11-27T17:35:48Z",
+   "node": "N19",
+   "status": "sorry",
+   "detail": "rc=0 secs=3 bytes=36675",
+   "new_declarations": 0,
+   "new_names": [],
+   "forced_own_lines": 83,
+   "hedges_in_forced_region": 8,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "c4_free_indep_power"
+   ],
+   "lines": 787,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "c4_free_indep_power",
+    "core_near_extremal"
+   ]
+  },
+  {
+   "seq": "0004",
+   "ts": "2026-11-27T17:39:52Z",
+   "node": "N16",
+   "status": "sorry",
+   "detail": "rc=0 secs=4 bytes=43412",
+   "new_declarations": 2,
+   "new_names": [
+    "c4_free_indep_sparse",
+    "c4_free_indep_dense"
+   ],
+   "forced_own_lines": 83,
+   "hedges_in_forced_region": 8,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 905,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "core_near_extremal"
+   ]
+  },
+  {
+   "seq": "0005",
+   "ts": "2026-11-27T17:40:47Z",
+   "node": "FINAL",
+   "status": "sorry",
+   "detail": "rc=0 secs=4 bytes=43412",
+   "new_declarations": 2,
+   "new_names": [
+    "c4_free_indep_sparse",
+    "c4_free_indep_dense"
+   ],
+   "forced_own_lines": 83,
+   "hedges_in_forced_region": 8,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 905,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "core_near_extremal"
+   ]
+  }
+ ]
+}

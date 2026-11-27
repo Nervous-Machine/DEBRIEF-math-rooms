@@ -1,0 +1,46 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-B8_blindhold_full_forced
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Do the rooms the blind hold arm left open without an attempt close when a fresh searcher is made to try each
+    under the full signal, and do the blind arm's sorry fallbacks survive a rule under which they count?
+  rule: forced rule on N10, N16, N19 with N13 allowed open; genuineness and FINAL enforced by rooms/check.sh with
+    rooms/forced_check.py and rooms/decl_sorry.py; rooms/score.py and rooms/forced_score.py compute every number; the
+    first accepted FINAL is the scored result (arm rerun under this name after amendment A1)
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_8_forced.yaml
+  results:
+  - results/B8_blindhold_full_forced/score.json
+  - results/B8_blindhold_full_forced/forced.json
+  - results/B8_blindhold_full_forced/final.lean
+  - results/B8_blindhold_full_forced/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 5
+    refused_calls: 0
+    error_calls: 1 (the whole-file compile after the fallbacks were removed, exposing two breaks)
+    first_FINAL: sorry (core_near_extremal only)
+    forced_rooms_closed: 3 of 3, each at its first genuine attempt
+    how: turan_weak had one Mathlib lemma missing an explicit argument; floor_succ_le_power used a lemma name this pin
+      spells le_or_gt; c4_free_indep_power was proved from the core N13 through two new helpers, the sparse and the dense
+      case, as the full-feedback arm of build 3 had done
+    sorry_fallbacks_removed: 25 (26 `| sorry` lines in the start file, 0 in the final)
+    fit_total: 0
+    statements_changed: 0
+    rooms_proved: 28 declarations without sorry; the root rests on N13 only
+    tokens: 110947
+    minutes: 7.5 of 180
+    parent_arm: B3_159_H_none_hold, 321,858 tokens, 61 minutes blind, four rooms open at FINAL
+  misses: []
+spoken: 'The three rooms the blind arm left open were two slips and one reduction. Made to try, a fresh searcher closed
+  each at its first attempt in seven minutes: a missing explicit argument, a renamed Mathlib lemma, and the open core
+  carried through to the room that depends on it. It first had to remove twenty-five sorry fallbacks that the blind
+  arm had wrapped around every proof; none survived, and only the two slips had ever needed them.'
+finding_ids: []
+gap_ids:
+- EG6

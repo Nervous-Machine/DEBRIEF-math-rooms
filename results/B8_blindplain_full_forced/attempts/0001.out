@@ -1,0 +1,159 @@
+Rooms/Target_B8_blindplain_full_forced.lean:75:42: warning: This simp argument is unused:
+  SimpleGraph.Walk.IsPath.nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.support_cons, SimpleGraph.Walk.support_nil,
+    SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu, hbv, hua', hva', hub', hvb',
+    hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B8_blindplain_full_forced.lean:76:91: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, hau, hav, hbu, hbv, hua',
+    hva', hub', hvb', hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B8_blindplain_full_forced.lean:77:19: warning: This simp argument is unused:
+  hbv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu,
+    hua', hva', hub', hvb', hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B8_blindplain_full_forced.lean:77:30: warning: This simp argument is unused:
+  hva'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu,
+    hbv, hua', hub', hvb', hab, hba, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B8_blindplain_full_forced.lean:77:53: warning: This simp argument is unused:
+  hba
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SimpleGraph.Walk.cons_isPath_iff, SimpleGraph.Walk.IsPath.nil, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil, SimpleGraph.Walk.edges_cons, SimpleGraph.Walk.edges_nil, Sym2.eq_iff, hau, hav, hbu,
+    hbv, hua', hva', hub', hvb', hab, huv, hvu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Rooms/Target_B8_blindplain_full_forced.lean:73:21: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:77:72: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:73:21: warning: Unused tactic linter: `simp` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:77:68: warning: Unused tactic linter: `<;>` should be replaced with `;` or be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:77:72: warning: Unused tactic linter: `tauto` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:254:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:255:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:253:17: warning: Unused tactic linter: `done` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:254:10: warning: Unused tactic linter: `norm_num` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:255:10: warning: Unused tactic linter: `exact Nat.zero_le _` does nothing.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+Rooms/Target_B8_blindplain_full_forced.lean:308:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+Rooms/Target_B8_blindplain_full_forced.lean:318:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+Rooms/Target_B8_blindplain_full_forced.lean:346:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B8_blindplain_full_forced.lean:435:8: warning: declaration uses `sorry`
+Rooms/Target_B8_blindplain_full_forced.lean:467:28: warning: Variable name `hM` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hM
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Rooms/Target_B8_blindplain_full_forced.lean:549:44: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑0
+in the target expression
+  K * 0 ^ (1 / 2 + δ) ≤ 0
+
+case inl.refine_2
+δ η : ℝ
+hδ : 0 < δ
+hδ' : δ ≤ 1 / 8
+hη : 4 * δ ≤ η
+hcore :
+  ∀ (κ : ℝ),
+    0 < κ →
+      ∃ K,
+        0 < K ∧
+          ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [inst : DecidableRel G.Adj] (s : Finset V),
+            ¬(SimpleGraph.cycleGraph 4).IsContained G →
+              (∀ v ∈ s, κ * ↑s.card ^ (1 / 2 - δ) ≤ ↑(Finset.filter (G.Adj v) s).card) →
+                ∃ t ⊆ s, G.IsIndepSet ↑t ∧ K * ↑s.card ^ (1 / 2 + η) ≤ ↑t.card
+K₁ : ℝ
+hK₁ : 0 < K₁
+hK₁p :
+  ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [inst : DecidableRel G.Adj] (s : Finset V),
+    ¬(SimpleGraph.cycleGraph 4).IsContained G →
+      (∀ v ∈ s, 1 / 2 * ↑s.card ^ (1 / 2 - δ) ≤ ↑(Finset.filter (G.Adj v) s).card) →
+        ∃ t ⊆ s, G.IsIndepSet ↑t ∧ K₁ * ↑s.card ^ (1 / 2 + η) ≤ ↑t.card
+h8 : 0 < 8 ^ (-(1 / 2 + η))
+hK2 : 0 < K₁ * 8 ^ (-(1 / 2 + η))
+K : ℝ
+hKdef : K = min (1 / 16) (min (1 / 10) (K₁ * 8 ^ (-(1 / 2 + η))))
+hK16 : K ≤ 1 / 16
+hK10 : K ≤ 1 / 10
+hKK : K ≤ K₁ * 8 ^ (-(1 / 2 + η))
+hK0 : 0 < K
+G : SimpleGraph (Fin 0)
+hdec : DecidableRel G.Adj
+hG : ¬(SimpleGraph.cycleGraph 4).IsContained G
+⊢ K * 0 ^ (1 / 2 + δ) ≤ 0
+Rooms/Target_B8_blindplain_full_forced.lean:564:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B8_blindplain_full_forced.lean:579:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+Rooms/Target_B8_blindplain_full_forced.lean:580:8: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Rooms/Target_B8_blindplain_full_forced.lean:645:8: warning: declaration uses `sorry`
+Rooms/Target_B8_blindplain_full_forced.lean:680:8: warning: declaration uses `sorry`

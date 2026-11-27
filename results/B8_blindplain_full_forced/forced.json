@@ -1,0 +1,184 @@
+{
+ "summary": {
+  "arm": "B8_blindplain_full_forced",
+  "forced_node": "N16",
+  "forced_name": "c4_free_indep_power",
+  "allowed_sorry": [
+   "core_near_extremal"
+  ],
+  "calls_logged": 5,
+  "genuine_attempts_at_forced_node": 2,
+  "refusals": {},
+  "refused_finals": 0,
+  "forced_closed_at_first_final": true,
+  "first_final_status": "sorry",
+  "errors_first_genuine": 1,
+  "errors_last_genuine": 0,
+  "genuine_statuses": [
+   "error",
+   "sorry"
+  ],
+  "genuine_with_new_declarations": 2,
+  "genuine_same_as_previous": 0,
+  "hedges_in_forced_region_at_first_final": 0,
+  "new_declarations_at_first_final": 3,
+  "sorry_outside_allowed_at_first_final": [],
+  "minutes_to_first_final": 2.7,
+  "tokens": 143062,
+  "forced_rooms": [
+   {
+    "node": "N16",
+    "name": "c4_free_indep_power",
+    "genuine_attempts": 2,
+    "statuses": [
+     "error",
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "N18",
+    "name": "card_le_power_of_c4_free",
+    "genuine_attempts": 1,
+    "statuses": [
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   },
+   {
+    "node": "ROOT",
+    "name": "erdos_159",
+    "genuine_attempts": 1,
+    "statuses": [
+     "sorry"
+    ],
+    "closed_at_first_final": true
+   }
+  ]
+ },
+ "calls": [
+  {
+   "seq": "0001",
+   "ts": "2026-11-27T17:40:36Z",
+   "node": "N16",
+   "status": "error",
+   "detail": "rc=1 secs=4 bytes=34194",
+   "new_declarations": 3,
+   "new_names": [
+    "two_le_rpow_of_sixteen_le",
+    "dense_degree_bound",
+    "core_size_bound"
+   ],
+   "forced_own_lines": 92,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "card_le_power_of_c4_free",
+    "erdos_159"
+   ],
+   "lines": 688,
+   "errors": 1,
+   "sorry_declarations_by_lean": [
+    "card_le_power_of_c4_free",
+    "core_near_extremal",
+    "erdos_159"
+   ]
+  },
+  {
+   "seq": "0002",
+   "ts": "2026-11-27T17:41:02Z",
+   "node": "N16",
+   "status": "sorry",
+   "detail": "rc=0 secs=4 bytes=34196",
+   "new_declarations": 3,
+   "new_names": [
+    "two_le_rpow_of_sixteen_le",
+    "dense_degree_bound",
+    "core_size_bound"
+   ],
+   "forced_own_lines": 93,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "card_le_power_of_c4_free",
+    "erdos_159"
+   ],
+   "lines": 689,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "card_le_power_of_c4_free",
+    "core_near_extremal",
+    "erdos_159"
+   ]
+  },
+  {
+   "seq": "0003",
+   "ts": "2026-11-27T17:41:31Z",
+   "node": "N18",
+   "status": "sorry",
+   "detail": "rc=0 secs=5 bytes=35337",
+   "new_declarations": 3,
+   "new_names": [
+    "two_le_rpow_of_sixteen_le",
+    "dense_degree_bound",
+    "core_size_bound"
+   ],
+   "forced_own_lines": 93,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [
+    "erdos_159"
+   ],
+   "lines": 709,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "core_near_extremal",
+    "erdos_159"
+   ]
+  },
+  {
+   "seq": "0004",
+   "ts": "2026-11-27T17:42:00Z",
+   "node": "ROOT",
+   "status": "sorry",
+   "detail": "rc=0 secs=4 bytes=36190",
+   "new_declarations": 3,
+   "new_names": [
+    "two_le_rpow_of_sixteen_le",
+    "dense_degree_bound",
+    "core_size_bound"
+   ],
+   "forced_own_lines": 93,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 727,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "core_near_extremal"
+   ]
+  },
+  {
+   "seq": "0005",
+   "ts": "2026-11-27T17:43:19Z",
+   "node": "FINAL",
+   "status": "sorry",
+   "detail": "rc=0 secs=4 bytes=36190",
+   "new_declarations": 3,
+   "new_names": [
+    "two_le_rpow_of_sixteen_le",
+    "dense_degree_bound",
+    "core_size_bound"
+   ],
+   "forced_own_lines": 93,
+   "hedges_in_forced_region": 0,
+   "same_as_previous_at_node": false,
+   "sorry_outside_allowed": [],
+   "lines": 727,
+   "errors": 0,
+   "sorry_declarations_by_lean": [
+    "core_near_extremal"
+   ]
+  }
+ ]
+}

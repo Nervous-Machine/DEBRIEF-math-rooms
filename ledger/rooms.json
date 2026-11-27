@@ -2891,6 +2891,51 @@
     "earned": true,
     "how": "deterministic: the files, logs and scorer are committed; the incentive arms' finals are byte-identical to committed starts"
    }
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-27T17:45:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the registrations prereg_build_8_forced.yaml (sha256 4f945c97…), prereg_build_8_retype.yaml (08f04982…) and prereg_build_8_match.yaml (a3dd2e29…), each committed before its runs, and the committed logs and files"
+   },
+   "audience": "briefing",
+   "finding_id": "F8",
+   "kind": "learned",
+   "spoken": "Every room this searcher left open without a check call that a checker-assisted arm could prove closed when a fresh searcher was made to try it: Lemma 7 at the first attempt in build 4, and the six blind slips and reductions of the Erdős 159 blind arms at one or two attempts each in build 8, with the blind arm's twenty-five sorry fallbacks removed on the way. The one room no arm could prove, the paper's dense core, held through a hundred and eight. An untried room is unclassified; the forced probe classifies it cheaply, and on this record the agent's own estimate of reach was never the thing to trust.",
+   "evidence": {
+    "numbers": {
+     "rooms_forced_total": "8 across builds 4, 5 and 8",
+     "closed": "7 (Lemma 7; turan_weak; floor_succ_le_power; c4_free_indep_power twice; card_le_power_of_c4_free; erdos_159 from the core)",
+     "not_closed": "1 (core_ge_three_nonstar at 12, 36 and 108)",
+     "attempts_to_close": "1, 1, 1, 1, 2, 1, 1",
+     "fallbacks_removed": "25 (26 `| sorry` lines to 0)",
+     "fit": "0 in every forced arm",
+     "minutes_build8": "7.5 and 10",
+     "predictions_build8b": "5 of 5 held"
+    },
+    "cycles": [
+     "build-2026-11-26-forced",
+     "score-2026-11-26-build4",
+     "data-2026-11-27-B8_blindhold_full_forced",
+     "data-2026-11-27-B8_blindplain_full_forced",
+     "score-2026-11-27-build8-forced"
+    ],
+    "confirmed_by": [
+     "the scorers on the committed logs and files; the final files recompiled in the pinned project; transcripts audited with audit.py"
+    ]
+   },
+   "standing": {
+    "status": "accepted",
+    "basis": "five of five build 8b predictions held, after four of eight in build 4 where the same falsifier fired; eight forced rooms over three builds, one searcher model",
+    "note": "The rooms forced in build 8 were known to be in reach (proved under full feedback in build 3), so this measures the forced rule on blind slips and reductions, not reach at the frontier; Lemma 7 in build 4 is the frontier case. EG6 is resolved on these eight."
+   },
+   "certainty": {
+    "earned": true,
+    "how": "deterministic: files, logs and scorers committed"
+   }
   }
  ],
  "gaps": [
@@ -3228,7 +3273,7 @@
    "audience": "briefing",
    "gap_id": "EG6",
    "title": "The searcher's own estimate of reach ran conservative on a true step; which of the other rooms left open across builds 3 and 4 are reachable when forced is unmeasured",
-   "status": "proposed",
+   "status": "resolved_learned",
    "opened_cycle": "score-2026-11-26-build4",
    "priority": 2,
    "history": [
@@ -3259,6 +3304,13 @@
      "before_data": true,
      "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
      "result": "hypothesis build-2026-11-26-typed by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) bears on this gap (see HG5)"
+    },
+    {
+     "cycle": "score-2026-11-27-build8-forced",
+     "dated": "2026-11-27",
+     "hypothesis": "the six rooms the Erdős 159 blind arms left open without an attempt close when forced under the full signal",
+     "before_data": true,
+     "result": "yes, all six at one or two attempts; with Lemma 7 (build 4) and the paper's core (build 5) that is eight rooms forced: seven in reach, one not at 108; the gap's measurements are made"
     }
    ],
    "closes_with": [
@@ -3274,7 +3326,7 @@
     "spoken": "Force the remaining declared-unreachable rooms, starting with the paper's core case in the statement-only arm."
    },
    "expected_signal": "data cycles under a registration with the closure predicted first",
-   "resolution_by": "none registered"
+   "resolution_by": "score-2026-11-27-build8-forced"
   },
   {
    "schema_version": "nm-debrief-v1",

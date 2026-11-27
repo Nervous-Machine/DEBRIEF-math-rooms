@@ -1,0 +1,5 @@
+0001	2026-11-27T17:34:44Z	N01	error	rc=1	secs=4	bytes=36673
+0002	2026-11-27T17:35:31Z	N10	sorry	rc=0	secs=3	bytes=36675
+0003	2026-11-27T17:35:48Z	N19	sorry	rc=0	secs=3	bytes=36675
+0004	2026-11-27T17:39:52Z	N16	sorry	rc=0	secs=4	bytes=43412
+0005	2026-11-27T17:40:47Z	FINAL	sorry	rc=0	secs=4	bytes=43412

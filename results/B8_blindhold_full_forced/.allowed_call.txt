@@ -1,0 +1,4 @@
+core_near_extremal
+turan_weak
+c4_free_indep_power
+floor_succ_le_power

@@ -1,0 +1,33 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: score-2026-11-27-build8-forced
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)
+preregistered:
+  question: Which of P1 to P5 held?
+  rule: scored from the check logs, the files and Lean's warnings; amendments A1 and A2
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_8_forced.yaml
+  results:
+  - results/B8_blindhold_full_forced/forced.json
+  - results/B8_blindplain_full_forced/forced.json
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    held: P1, P2, P3, P4, P5
+    forced_rooms_closed: 6 of 6
+    attempts_per_room: 1, 1, 1, 2, 1, 1
+    sorry_fallbacks_in_hold_final: 0 (26 in the start)
+    fit_total: 0, 0
+    minutes: 7.5, 10
+    tokens: 110947, 143062
+    unregistered_observation: the misnamed first plain arm, refused its first call, worked out that its regime was blind, closed all three rooms in one blind compile with four first-combinator hedges, and called an accepted FINAL; recorded in amendment A2 as a second blind arm, not as data
+  misses: []
+spoken: 'Every room the blind arms had left open without an attempt closed when a fresh searcher was made to try it with
+  the checker on, none needing more than two attempts and neither arm more than ten minutes. The sorry fallbacks the
+  blind arm wrapped around every proof did not survive a rule under which they counted. Five of five predictions held.'
+finding_ids:
+- F8
+gap_ids:
+- EG6

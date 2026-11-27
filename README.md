@@ -90,7 +90,16 @@ Without a blueprint the searcher drew the same route in seven lemmas and compile
 | 159, evaluated on completion | Fable 5.1 | incentive | sorry | 0 | no | 0 | 2.5 |
 | 159, blind, sorry forbidden | Opus 5.5 | plain | error | 0 | fresh file | 1 | 22 |
 
-Next: sharpen or merge the middle join types and re-type the 82 rooms blind (EG7); the unattempted rooms of the no-checker arms under the forced rule; a statement matcher over the hinge atlas; readers for the registrar-written statements and the two sub-family theorems.
+**Build 8, four items in order (27 Nov 2026).** Under revised join types with written boundary rules, two readers on two models agreed on four rooms in five on both proofs, the threshold the gap set; the remaining disagreement is one boundary, and the coupling type nearly vanished under its written test, leaving `estimate` as the type that carries the reach signal (one in two closed, against nine in ten computations). The six rooms the blind arms had left open without an attempt all closed when a fresh searcher was made to try them, none needing more than two attempts, with the blind arm's twenty-five sorry fallbacks removed on the way; eight rooms forced over three builds, seven closed, the one that held is the one no arm could prove. A first statement matcher over the 164 hinge vectors retrieves rooms inside a proof and refuses a proof from another field, but cannot tell two number-theory proofs apart. Reading guides for the four registrar-written statements and the two by-product theorems are written for a person to sign. Full account: [trace/ROOMS-8.md](trace/ROOMS-8.md).
+
+| item | result | predictions |
+|---|---|---|
+| re-typing under types v2 | agreement 0.82 and 0.83 | 3 of 5 held; EG7 open on a letter miss |
+| forced rule on the blind arms' untried rooms | 6 of 6 closed, 1–2 attempts each | 5 of 5 held; EG6 resolved |
+| statement matcher | within-proof retrieval 15 of 16; cross-area refusal 0.22; same-area confusion 0.62 | 3 of 5 held; EG8 opened |
+| reading guides | five written | awaiting a reader |
+
+Next: the semantic feature for the matcher (EG8); the case-split boundary in the types and a human re-typing (EG7); a reader for the five guides; a second searcher model under the probe rule.
 
 ## Why this theorem
 

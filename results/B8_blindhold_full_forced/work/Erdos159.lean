@@ -29,10 +29,8 @@ end SimpleGraph
 namespace Erdos159
 
 /-! ## Rooms N01–N19 of the planner's blueprint (build 3), in blueprint order.
-Each room's statement is the planner's statement verbatim.  Every proof is written without a
-checker; each is wrapped as `first | (proof) | sorry` so that a proof that does not elaborate
-falls back to `sorry` instead of breaking the file.  Which rooms are actually closed is read off
-Lean's `declaration uses 'sorry'` output at FINAL. -/
+Each room's statement is the planner's statement verbatim.  The earlier blind arm's fallbacks
+have been removed (B8); only the proof branches remain. -/
 
 -- N01
 theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β]
@@ -49,7 +47,6 @@ theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β]
      apply Nat.sInf_le
      simp only [Set.mem_setOf_eq]
      exact h)
-  | sorry
 
 -- N02
 theorem complete_isContained_compl_iff {V : Type*} (C : SimpleGraph V) (n : ℕ) :
@@ -65,7 +62,6 @@ theorem complete_isContained_compl_iff {V : Type*} (C : SimpleGraph V) (n : ℕ)
      · intro h
        rw [← SimpleGraph.cliqueFree_compl] at h
        exact (SimpleGraph.not_cliqueFree_iff_top_isContained n).mp h)
-  | sorry
 
 /-- Helper for N03: two distinct vertices with two distinct common neighbours give a copy of `C₄`. -/
 theorem c4_of_common_nbrs {V : Type*} (G : SimpleGraph V) {u v a b : V} (huv : u ≠ v)
@@ -110,7 +106,6 @@ theorem c4_of_common_nbrs {V : Type*} (G : SimpleGraph V) {u v a b : V} (huv : u
          | (simp at hxy; exact hab hxy) | (simp at hxy; exact hab hxy.symm)
      exact ⟨⟨⟨fun i : Fin 4 => if i = 0 then u else if i = 1 then a else if i = 2 then v else b,
        fun hxy => hmap _ _ hxy⟩, hf⟩⟩)
-  | sorry
 
 -- N03
 theorem c4_free_common_nbrs {V : Type*} [Fintype V] [DecidableEq V]
@@ -128,7 +123,6 @@ theorem c4_free_common_nbrs {V : Type*} [Fintype V] [DecidableEq V]
      by_contra hab
      simp only [Finset.mem_inter, SimpleGraph.mem_neighborFinset] at ha hb
      exact hG (c4_of_common_nbrs G huv ha.1 ha.2 hb.1 hb.2 hab))
-  | sorry
 
 -- N04
 theorem c4_free_nbhd_local_degree {V : Type*} [Fintype V] [DecidableEq V]
@@ -146,7 +140,6 @@ theorem c4_free_nbhd_local_degree {V : Type*} [Fintype V] [DecidableEq V]
      rw [Finset.mem_filter, SimpleGraph.mem_neighborFinset] at hx
      rw [Finset.mem_inter, SimpleGraph.mem_neighborFinset, SimpleGraph.mem_neighborFinset]
      exact hx)
-  | sorry
 
 /-- Helper for N05: the greedy bound, by induction on an upper bound for the cardinality of `s`. -/
 theorem greedy_indep_local_aux {V : Type*} [Fintype V] [DecidableEq V]
@@ -223,7 +216,6 @@ theorem greedy_indep_local_aux {V : Type*} [Fintype V] [DecidableEq V]
               omega)
            | nlinarith [ht'card, h1, h2, h3]
            | linarith [ht'card, h1, h2, h3])
-  | sorry
 
 -- N05
 theorem greedy_indep_local {V : Type*} [Fintype V] [DecidableEq V]
@@ -233,7 +225,6 @@ theorem greedy_indep_local {V : Type*} [Fintype V] [DecidableEq V]
   first
   | exact greedy_indep_local_aux G D s.card s le_rfl hD
   | exact greedy_indep_local_aux G D s.card s (le_refl _) hD
-  | sorry
 
 /-- Helper for N06/N07: an independent set in an `n`-independent-set-free graph has fewer than `n`
 vertices. -/
@@ -250,7 +241,6 @@ theorem card_lt_of_isIndepSet_of_indepSetFree {V : Type*} (G : SimpleGraph V) {n
      refine ⟨?_, hucard⟩
      intro x hx y hy hxy
      exact ht (Finset.coe_subset.mpr hut hx) (Finset.coe_subset.mpr hut hy) hxy)
-  | sorry
 
 -- N06
 theorem degree_lt_of_c4_free_indepSetFree {V : Type*} [Fintype V] [DecidableEq V]
@@ -269,7 +259,6 @@ theorem degree_lt_of_c4_free_indepSetFree {V : Type*} [Fintype V] [DecidableEq V
      | omega
      | linarith
      | nlinarith)
-  | sorry
 
 -- N07
 theorem card_le_quadratic_of_c4_free {N n : ℕ} (G : SimpleGraph (Fin N)) [DecidableRel G.Adj]
@@ -289,7 +278,6 @@ theorem card_le_quadratic_of_c4_free {N n : ℕ} (G : SimpleGraph (Fin N)) [Deci
      | nlinarith [Nat.mul_le_mul (le_refl (2 * n + 1)) h2, htcard]
      | nlinarith [Nat.mul_le_mul_left (2 * n + 1) h2, htcard]
      | nlinarith [htcard, h2])
-  | sorry
 
 -- N08
 theorem graphRamsey_le_of_c4_free_bound (n N : ℕ)
@@ -305,7 +293,6 @@ theorem graphRamsey_le_of_c4_free_bound (n N : ℕ)
      by_cases hC : (SimpleGraph.cycleGraph 4).IsContained C
      · exact Or.inl hC
      · exact Or.inr ((complete_isContained_compl_iff C n).mpr (h C hC)))
-  | sorry
 
 -- N09
 theorem graphRamsey_c4_le_quadratic (n : ℕ) :
@@ -322,7 +309,6 @@ theorem graphRamsey_c4_le_quadratic (n : ℕ) :
      classical
      have h1 := card_le_quadratic_of_c4_free G hG hα
      linarith)
-  | sorry
 
 /-- Helper for N10: Markov step in the form needed, `c * (4m+1) ≤ n * (2m)` gives `2c ≤ n`. -/
 theorem two_mul_le_of_markov (c n m : ℕ) (h : c * (4 * m + 1) ≤ n * (2 * m)) : 2 * c ≤ n := by
@@ -332,7 +318,6 @@ theorem two_mul_le_of_markov (c n m : ℕ) (h : c * (4 * m + 1) ≤ n * (2 * m))
      have hc' : n + 1 ≤ 2 * c := Nat.lt_of_not_le hc
      have h2 := Nat.mul_le_mul_right (4 * m + 1) hc'
      nlinarith [h, h2, Nat.zero_le m, Nat.zero_le c, Nat.zero_le n])
-  | sorry
 
 -- N10
 theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] :
@@ -360,7 +345,7 @@ theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [
          | (simp only [SimpleGraph.degree, SimpleGraph.neighborFinset_eq_filter]
             done)
        have hsum : ∑ u : V, G.degree u = 2 * G.edgeFinset.card :=
-         SimpleGraph.sum_degrees_eq_twice_card_edges
+         SimpleGraph.sum_degrees_eq_twice_card_edges G
        have hD : ∀ v ∈ Finset.univ.filter
            (fun v => Fintype.card V * G.degree v ≤ 4 * G.edgeFinset.card),
            ((Finset.univ.filter
@@ -416,7 +401,6 @@ theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [
        first
        | nlinarith [h4, h5, h6, h7, h8, hsplit]
        | linarith [h4, h5, h6, h7, h8, hsplit])
-  | sorry
 
 /-- Helper for N11: removing `v` from `s` loses at most one neighbour of `u`, and only if `u ~ v`. -/
 theorem filter_card_le_erase_add {V : Type*} [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
@@ -442,7 +426,6 @@ theorem filter_card_le_erase_add {V : Type*} [DecidableEq V] (G : SimpleGraph V)
        intro hxv
        subst hxv
        exact h hx.2)
-  | sorry
 
 /-- Helper for N11: the degree sum inside `s` drops by at most `2 deg_s(v)` when `v` is removed. -/
 theorem phi_le_phi_erase_add {V : Type*} [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
@@ -469,7 +452,6 @@ theorem phi_le_phi_erase_add {V : Type*} [DecidableEq V] (G : SimpleGraph V) [De
      first
      | omega
      | linarith [hsum, h2, h3, h4])
-  | sorry
 
 /-- Helper for N11: the dense-core extraction, by induction on an upper bound for the cardinality. -/
 theorem exists_dense_core_aux {V : Type*} [Fintype V] [DecidableEq V]
@@ -506,7 +488,6 @@ theorem exists_dense_core_aux {V : Type*} [Fintype V] [DecidableEq V]
            Nat.le_of_lt_succ (lt_of_lt_of_le (Finset.card_erase_lt_of_mem hv) hs)
          obtain ⟨t, hts, htne, ht⟩ := ih (s.erase v) hle hs'ne hΦ'
          exact ⟨t, Finset.Subset.trans hts (Finset.erase_subset v s), htne, ht⟩)
-  | sorry
 
 -- N11
 theorem exists_dense_core {V : Type*} [Fintype V] [DecidableEq V] [Nonempty V]
@@ -535,7 +516,6 @@ theorem exists_dense_core {V : Type*} [Fintype V] [DecidableEq V] [Nonempty V]
        exists_dense_core_aux G d (Finset.univ : Finset V).card Finset.univ le_rfl
          Finset.univ_nonempty hΦ
      exact ⟨t, htne, ht⟩)
-  | sorry
 
 -- N12
 theorem moore_bound_c4_free {V : Type*} [Fintype V] [DecidableEq V]
@@ -588,7 +568,6 @@ theorem moore_bound_c4_free {V : Type*} [Fintype V] [DecidableEq V]
        first
        | nlinarith [h1, h2, h3, hA, hAs]
        | linarith [h1, h2, h3, hA, hAs])
-  | sorry
 
 -- N13 (open core: left open; see NOTES.md)
 theorem core_near_extremal :
@@ -631,7 +610,6 @@ theorem sparse_branch_arith (δ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 2) (N E
        | nlinarith [ht, hE, hB, ht0.le, mul_le_mul_of_nonneg_right hE ht0.le,
            mul_le_mul_of_nonneg_right hB ht0.le]
      exact le_of_mul_le_mul_right h5 hBpos)
-  | sorry
 
 -- N15
 theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK : 0 < K)
@@ -668,14 +646,131 @@ theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) 
          (le_of_eq (inv_mul_cancel_left₀ h6.ne' _))
      rw [h5, mul_assoc]
      exact mul_le_mul_of_nonneg_left h9 hK.le)
-  | sorry
 
--- N16 (join over N10–N15; inherits the open room N13, left open; see NOTES.md)
+/-- Helper for N16: the sparse branch, N10 (Turán-type bound) fed into N14. -/
+theorem c4_free_indep_sparse (δ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 2) (N : ℕ) (hN : 1 ≤ N)
+    (G : SimpleGraph (Fin N)) [DecidableRel G.Adj]
+    (hE : (G.edgeFinset.card : ℝ) ≤ (N : ℝ) ^ ((3 : ℝ) / 2 - δ)) :
+    ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧
+      (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ 10 * (t.card : ℝ) := by
+  obtain ⟨t, htind, htcard⟩ := turan_weak G
+  refine ⟨t, htind, ?_⟩
+  rw [Fintype.card_fin] at htcard
+  have hN' : (1 : ℝ) ≤ (N : ℝ) := Nat.one_le_cast.mpr hN
+  have hE0 : (0 : ℝ) ≤ (G.edgeFinset.card : ℝ) := Nat.cast_nonneg _
+  have ht : (N : ℝ) ^ 2 ≤ 2 * (4 * (G.edgeFinset.card : ℝ) + (N : ℝ)) * (t.card : ℝ) := by
+    exact_mod_cast htcard
+  exact sparse_branch_arith δ hδ hδ' (N : ℝ) (G.edgeFinset.card : ℝ) (t.card : ℝ) hN' hE0 hE ht
+
+/-- Helper for N16: the dense branch.  From `N^(3/2-δ) < E`, N11 with `d = ⌊N^(1/2-δ)⌋₊` gives a
+core `s` of minimum degree `≥ d`; N12 gives `N^(1-2δ) ≤ 8 |s|`; the N13 data with `κ = 1/2` gives
+the independent set inside `s`; N15 converts the bound in `|s|` into a bound in `N`. -/
+theorem c4_free_indep_dense (δ η K : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK : 0 < K)
+    (h13 : ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
+        (s : Finset V), ¬ (SimpleGraph.cycleGraph 4).IsContained G →
+        (∀ v ∈ s, (1 / 2 : ℝ) * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj v)).card : ℝ)) →
+        ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card : ℝ))
+    (N : ℕ) (hN : 1 ≤ N) (G : SimpleGraph (Fin N)) [DecidableRel G.Adj]
+    (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G)
+    (hE : (N : ℝ) ^ ((3 : ℝ) / 2 - δ) < (G.edgeFinset.card : ℝ)) :
+    ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧
+      K * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) * (N : ℝ) ^ ((1 : ℝ) / 2 + η / 2) ≤ (t.card : ℝ) := by
+  have hN' : (1 : ℝ) ≤ (N : ℝ) := Nat.one_le_cast.mpr hN
+  have hNpos : (0 : ℝ) < (N : ℝ) := lt_of_lt_of_le one_pos hN'
+  have hexp0 : (0 : ℝ) ≤ (1 : ℝ) / 2 - δ := by linarith
+  obtain ⟨x, hx⟩ : ∃ x : ℝ, x = (N : ℝ) ^ ((1 : ℝ) / 2 - δ) := ⟨_, rfl⟩
+  have hx1 : (1 : ℝ) ≤ x := by
+    rw [hx]
+    exact Real.one_le_rpow hN' hexp0
+  have hx0 : (0 : ℝ) ≤ x := le_trans zero_le_one hx1
+  obtain ⟨d, hd⟩ : ∃ d : ℕ, d = ⌊x⌋₊ := ⟨_, rfl⟩
+  have hd1 : 0 < d := by
+    rw [hd]
+    exact Nat.floor_pos.mpr hx1
+  have hdx : (d : ℝ) ≤ x := by
+    rw [hd]
+    exact Nat.floor_le hx0
+  have hxd : x < (d : ℝ) + 1 := by
+    rw [hd]
+    exact Nat.lt_floor_add_one x
+  have hd1' : (1 : ℝ) ≤ (d : ℝ) := by exact_mod_cast hd1
+  have hxd2 : x / 2 ≤ (d : ℝ) := by linarith
+  have hdN : (d : ℝ) * (N : ℝ) ≤ (G.edgeFinset.card : ℝ) := by
+    have h1 : x * (N : ℝ) = (N : ℝ) ^ ((3 : ℝ) / 2 - δ) := by
+      rw [hx, ← Real.rpow_add_one hNpos.ne']
+      congr 1
+      ring
+    have h2 : (d : ℝ) * (N : ℝ) ≤ x * (N : ℝ) := mul_le_mul_of_nonneg_right hdx hNpos.le
+    linarith
+  have hdN' : d * Fintype.card (Fin N) ≤ G.edgeFinset.card := by
+    rw [Fintype.card_fin]
+    exact_mod_cast hdN
+  haveI : Nonempty (Fin N) := ⟨⟨0, hN⟩⟩
+  obtain ⟨s, hsne, hsmin⟩ := exists_dense_core G d hdN'
+  have hmoore : d * d ≤ 2 * s.card := moore_bound_c4_free G hG s d hsne hsmin
+  have hsN : s.card ≤ N := by
+    have h1 := Finset.card_le_univ s
+    rwa [Fintype.card_fin] at h1
+  have hsN' : (s.card : ℝ) ≤ (N : ℝ) := Nat.cast_le.mpr hsN
+  have hs0 : (0 : ℝ) ≤ (s.card : ℝ) := Nat.cast_nonneg _
+  have hdeg : ∀ v ∈ s,
+      (1 / 2 : ℝ) * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj v)).card : ℝ) := by
+    intro v hv
+    have h1 : (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ x := by
+      rw [hx]
+      exact Real.rpow_le_rpow hs0 hsN' hexp0
+    have h2 : (d : ℝ) ≤ ((s.filter (G.Adj v)).card : ℝ) := Nat.cast_le.mpr (hsmin v hv)
+    linarith
+  obtain ⟨t, _, htind, htcard⟩ := h13 (Fin N) G s hG hdeg
+  refine ⟨t, htind, ?_⟩
+  have hmoore' : (d : ℝ) * (d : ℝ) ≤ 2 * (s.card : ℝ) := by exact_mod_cast hmoore
+  have hNM : (N : ℝ) ^ (1 - 2 * δ) ≤ 8 * (s.card : ℝ) := by
+    have h1 : (N : ℝ) ^ (1 - 2 * δ) = x ^ (2 : ℝ) := by
+      rw [hx, ← Real.rpow_mul hNpos.le]
+      congr 1
+      ring
+    rw [h1, Real.rpow_two]
+    have h3 : (x / 2) * (x / 2) ≤ (d : ℝ) * (d : ℝ) :=
+      mul_le_mul hxd2 hxd2 (by linarith) (by linarith)
+    nlinarith [h3, hmoore']
+  have h15 := dense_branch_arith δ η K hδ hδ' hη hK (N : ℝ) (s.card : ℝ) hN' hs0 hNM
+  exact le_trans h15 htcard
+
+-- N16 (join over N10–N15; rests on the open room N13, which is left open; see NOTES.md)
 theorem c4_free_indep_power :
     ∃ ε K : ℝ, 0 < ε ∧ 0 < K ∧ ∀ (N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel G.Adj],
       ¬ (SimpleGraph.cycleGraph 4).IsContained G →
       ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧ K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (t.card : ℝ) := by
-  sorry
+  obtain ⟨δ, η, hδ, hδ', hη, h13⟩ := core_near_extremal
+  obtain ⟨K', hK', h13'⟩ := h13 (1 / 2 : ℝ) (by norm_num)
+  have hK8 : 0 < K' * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) :=
+    mul_pos hK' (Real.rpow_pos_of_pos (by norm_num) _)
+  refine ⟨δ, min (1 / 10) (K' * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))), hδ, lt_min (by norm_num) hK8, ?_⟩
+  intro N G inst hG
+  rcases Nat.eq_zero_or_pos N with hN0 | hNpos
+  · subst hN0
+    refine ⟨∅, ?_, ?_⟩
+    · rw [Finset.coe_empty]
+      exact Set.pairwise_empty _
+    · have hne : ((1 : ℝ) / 2 + δ) ≠ 0 := (by linarith : (0 : ℝ) < (1 : ℝ) / 2 + δ).ne'
+      rw [Finset.card_empty, Nat.cast_zero, Real.zero_rpow hne, mul_zero]
+  · have hN' : (1 : ℝ) ≤ (N : ℝ) := Nat.one_le_cast.mpr hNpos
+    have hpow0 : (0 : ℝ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 + δ) := Real.rpow_nonneg (Nat.cast_nonneg N) _
+    rcases le_or_gt (G.edgeFinset.card : ℝ) ((N : ℝ) ^ ((3 : ℝ) / 2 - δ)) with hE | hE
+    · obtain ⟨t, htind, ht⟩ := c4_free_indep_sparse δ hδ (by linarith) N hNpos G hE
+      refine ⟨t, htind, ?_⟩
+      have h1 : min (1 / 10) (K' * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤
+          (1 / 10) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) :=
+        mul_le_mul_of_nonneg_right (min_le_left _ _) hpow0
+      linarith
+    · obtain ⟨t, htind, ht⟩ := c4_free_indep_dense δ η K' hδ hδ' hη hK' h13' N hNpos G hG hE
+      refine ⟨t, htind, ?_⟩
+      have h1 : (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 + η / 2) :=
+        Real.rpow_le_rpow_of_exponent_le hN' (by linarith)
+      have h2 : min (1 / 10) (K' * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤
+          (K' * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))) * (N : ℝ) ^ ((1 : ℝ) / 2 + η / 2) :=
+        mul_le_mul (min_le_right _ _) h1 hpow0 hK8.le
+      linarith
 
 -- N17
 theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ N) (hx : 0 ≤ x)
@@ -720,7 +815,6 @@ theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ 
      | (rw [div_eq_mul_inv] at h2
         exact h2.trans (mul_comm _ _).le)
      | linarith [h2])
-  | sorry
 
 -- N18 (join over N16, N17; inherits N16, which is left open)
 theorem card_le_power_of_c4_free :
@@ -742,7 +836,6 @@ theorem card_le_power_of_c4_free :
        have htn' : (t.card : ℝ) ≤ (n : ℝ) := Nat.cast_le.mpr htn.le
        have hx : K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (n : ℝ) := le_trans htcard htn'
        exact rpow_inversion K ε (N : ℝ) (n : ℝ) hK hε (Nat.cast_nonneg N) (Nat.cast_nonneg n) hx)
-  | sorry
 
 -- N19
 theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ) (hn : 1 ≤ n)
@@ -757,7 +850,7 @@ theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ
      first
      | rw [Nat.cast_add, Nat.cast_one]
      | push_cast
-     rcases le_or_lt 0 x with hx0 | hx0
+     rcases le_or_gt 0 x with hx0 | hx0
      · have hfl : (⌊x⌋₊ : ℝ) ≤ x := Nat.floor_le hx0
        first
        | linarith [hfl, hx, hpow, hCP]
@@ -769,7 +862,6 @@ theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ
        first
        | linarith [hpow, hCP]
        | nlinarith [hpow, hC, hCP])
-  | sorry
 
 /-!
 The statement below is `erdos_159` of FormalConjectures/ErdosProblems/159.lean in google-deepmind/formal-conjectures
@@ -808,6 +900,5 @@ theorem erdos_159 :
          (SimpleGraph.completeGraph (Fin n)) : ℕ) : ℝ) ≤ ((⌊C * (n : ℝ) ^ (2 - c)⌋₊ + 1 : ℕ) : ℝ) :=
        Nat.cast_le.mpr hle
      exact le_trans h4 h3)
-  | sorry
 
 end Erdos159

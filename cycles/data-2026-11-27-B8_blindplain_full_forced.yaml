@@ -1,0 +1,41 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-B8_blindplain_full_forced
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh
+  context)
+preregistered:
+  question: Do the rooms the blind plain arm left open close when a fresh searcher is made to try each under the full
+    signal?
+  rule: forced rule on N16, N18, ROOT with N13 allowed open; genuineness and FINAL enforced by rooms/check.sh with
+    rooms/forced_check.py and rooms/decl_sorry.py; rooms/score.py and rooms/forced_score.py compute every number; the
+    first accepted FINAL is the scored result (arm rerun under this name after amendment A1)
+  predictions: [P1, P2, P4, P5]
+  commit: prereg_build_8_forced.yaml
+  results:
+  - results/B8_blindplain_full_forced/score.json
+  - results/B8_blindplain_full_forced/forced.json
+  - results/B8_blindplain_full_forced/final.lean
+  - results/B8_blindplain_full_forced/calls.tsv
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    check_calls: 5
+    refused_calls: 0
+    error_calls: 1 (a rewrite that found nothing after a substitution; fixed on the next call)
+    first_FINAL: sorry (core_near_extremal only)
+    forced_rooms_closed: 3 of 3; c4_free_indep_power at its second genuine attempt, card_le_power_of_c4_free and the root at their first
+    how: the planner's own design for N16 (sparse case through N10 and N14, dense case through N11, N12, N13 and N15, with three new helpers), then the exponent and floor bookkeeping for N18 and the root, all resting on the open core
+    fit_total: 0
+    statements_changed: 0
+    tokens: 143062
+    minutes: 10 of 180
+    parent_arm: B3_159_H_none_plain, 268,787 tokens, 35 minutes blind, first FINAL an error, root left as sorry against its brief
+  misses: []
+spoken: 'The three rooms the blind plain arm left open, including the root itself, closed in ten minutes when a fresh
+  searcher was made to try them with the checker on: two at the first attempt and one at the second. Erdős 159 in this
+  file is now reduced exactly to the planner''s open core and nothing else.'
+finding_ids: []
+gap_ids:
+- EG6

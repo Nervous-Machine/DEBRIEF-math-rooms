@@ -85,4 +85,24 @@ amendments:
       25 `first | proof | sorry` fallbacks from its working copy before being blocked (that copy stays in
       results/B8_159none_hold_forced/work/ and is not an input to the rerun). Predictions P1 to P5 stand as written.
     instrument_note: "check.sh is not changed for this build; a regime name must not contain `none` unless it is a no-checker regime, and the registrar will say so in the tool's header in a later commit"
+  - id: A2
+    written: "2026-11-27T17:45Z, after both renamed arms and the scoring"
+    what_happened: >
+      B8_blindhold_full_forced (17:33:37Z–17:41:06Z, 110,947 tokens): 5 calls, 0 refused, 1 error (the whole-file compile
+      after the 25 sorry fallbacks were removed, which exposed the two slips), FINAL sorry with only N13 open; N10 closed
+      at attempt 1 (a Mathlib lemma missing its explicit argument), N19 at attempt 1 (le_or_lt renamed le_or_gt), N16 at
+      attempt 1 (proved from N13 through sparse and dense helpers). B8_blindplain_full_forced (17:33:37Z–17:43:37Z,
+      143,062 tokens): 5 calls, 0 refused, 1 error, FINAL sorry with only N13 open; N16 at attempt 2, N18 and ROOT at
+      attempt 1. Both transcripts audited: no web, no git, no other arm's files.
+    scorecard: "Held: P1 (6 of 6 closed), P2 (maximum 2 attempts), P3 (0 fallbacks in the hold final against 26 `| sorry` lines in its start), P4 (fit 0, 0), P5 (7.5 and 10 minutes)."
+    scorer_change: >
+      rooms/forced_score.py gained a per-room table (forced_rooms) for regimes with several forced rooms; its summary
+      fields still refer to the first room as registered; sha256 0dd0c5073a4becd9… after the change. No number of record
+      from earlier builds is affected.
+    unregistered_observation: >
+      The misnamed first plain arm (B8_159none_plain_forced) was not stopped before its searcher found that the regime
+      refused every non-FINAL call; it then closed all three forced rooms blind in one compile, with four
+      first-combinator hedges, and its FINAL was accepted by the tool because the rooms carried no sorry token. It is a
+      second blind arm, consistent with the hedging signature of the no-checker regime, and is not data for P1 to P5.
+    hypothesis_status: "held in full: the rooms left untried were in reach, and the fallbacks did not survive a rule under which they counted"
 

@@ -486,13 +486,135 @@ theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1 / 8) 
     _ = K * ((N ^ (1 - 2 * δ) / 8) ^ ((1 : ℝ) / 2 + η)) := by rw [h2]; ring
     _ ≤ K * M ^ ((1 : ℝ) / 2 + η) := mul_le_mul_of_nonneg_left h1 hK.le
 
-/-! ### N16 (depends on the open core N13; not proved) -/
+/-! Helpers for N16: the arithmetic of the dense branch. -/
+
+theorem two_le_rpow_of_sixteen_le (δ : ℝ) (hδ' : δ ≤ 1 / 8) (N : ℝ) (hN : 16 ≤ N) :
+    (2 : ℝ) ≤ N ^ ((1 : ℝ) / 2 - δ) := by
+  have h1 : (16 : ℝ) ^ ((1 : ℝ) / 4) = 2 := by
+    rw [show (16 : ℝ) = 2 ^ (4 : ℕ) by norm_num,
+      show ((1 : ℝ) / 4) = ((4 : ℕ) : ℝ)⁻¹ by norm_num]
+    exact Real.pow_rpow_inv_natCast (by norm_num) (by norm_num)
+  calc (2 : ℝ) = (16 : ℝ) ^ ((1 : ℝ) / 4) := h1.symm
+    _ ≤ (16 : ℝ) ^ ((1 : ℝ) / 2 - δ) :=
+      Real.rpow_le_rpow_of_exponent_le (by norm_num) (by linarith)
+    _ ≤ N ^ ((1 : ℝ) / 2 - δ) := Real.rpow_le_rpow (by norm_num) hN (by linarith)
+
+theorem dense_degree_bound (δ : ℝ) (hδ' : δ ≤ 1 / 8) (N E d : ℝ) (hN : 16 ≤ N)
+    (hE : N ^ ((3 : ℝ) / 2 - δ) < E) (hd : E < N * (d + 1)) :
+    (1 / 2 : ℝ) * N ^ ((1 : ℝ) / 2 - δ) ≤ d := by
+  have hN0 : 0 < N := by linarith
+  have h2 := two_le_rpow_of_sixteen_le δ hδ' N hN
+  have hsplit : N ^ ((3 : ℝ) / 2 - δ) = N ^ ((1 : ℝ) / 2 - δ) * N := by
+    rw [show (3 : ℝ) / 2 - δ = ((1 : ℝ) / 2 - δ) + 1 by ring, Real.rpow_add hN0, Real.rpow_one]
+  rw [hsplit] at hE
+  have hlt : N ^ ((1 : ℝ) / 2 - δ) * N < (d + 1) * N := by linarith
+  have hlt' : N ^ ((1 : ℝ) / 2 - δ) < d + 1 := lt_of_mul_lt_mul_right hlt hN0.le
+  linarith
+
+theorem core_size_bound (δ N d M : ℝ) (hN : 0 < N)
+    (hd : (1 / 2 : ℝ) * N ^ ((1 : ℝ) / 2 - δ) ≤ d) (hM : d * d ≤ 2 * M) :
+    N ^ (1 - 2 * δ) ≤ 8 * M := by
+  have ha : 0 ≤ N ^ ((1 : ℝ) / 2 - δ) := Real.rpow_nonneg hN.le _
+  have hsq : N ^ ((1 : ℝ) / 2 - δ) * N ^ ((1 : ℝ) / 2 - δ) ≤ (2 * d) * (2 * d) :=
+    mul_le_mul (by linarith) (by linarith) ha (by linarith)
+  have heq : N ^ (1 - 2 * δ) = N ^ ((1 : ℝ) / 2 - δ) * N ^ ((1 : ℝ) / 2 - δ) := by
+    rw [show (1 : ℝ) - 2 * δ = ((1 : ℝ) / 2 - δ) + ((1 : ℝ) / 2 - δ) by ring, Real.rpow_add hN]
+  rw [heq]
+  nlinarith
+
+/-! ### N16 (rests on the open core N13) -/
 
 theorem c4_free_indep_power :
     ∃ ε K : ℝ, 0 < ε ∧ 0 < K ∧ ∀ (N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel G.Adj],
       ¬ (SimpleGraph.cycleGraph 4).IsContained G →
       ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧ K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (t.card : ℝ) := by
-  sorry
+  obtain ⟨δ, η, hδ, hδ', hη, hcore⟩ := core_near_extremal
+  obtain ⟨K₁, hK₁, hK₁p⟩ := hcore (1 / 2) (by norm_num)
+  have h8 : 0 < (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) := Real.rpow_pos_of_pos (by norm_num) _
+  have hK2 : 0 < K₁ * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) := mul_pos hK₁ h8
+  obtain ⟨K, hKdef⟩ : ∃ K : ℝ, K = min (1 / 16) (min (1 / 10) (K₁ * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)))) :=
+    ⟨_, rfl⟩
+  have hK16 : K ≤ 1 / 16 := by rw [hKdef]; exact min_le_left _ _
+  have hK10 : K ≤ 1 / 10 := by rw [hKdef]; exact le_trans (min_le_right _ _) (min_le_left _ _)
+  have hKK : K ≤ K₁ * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η)) := by
+    rw [hKdef]; exact le_trans (min_le_right _ _) (min_le_right _ _)
+  have hK0 : 0 < K := by rw [hKdef]; exact lt_min (by norm_num) (lt_min (by norm_num) hK2)
+  refine ⟨δ, K, hδ, hK0, ?_⟩
+  intro N G hdec hG
+  rcases Nat.eq_zero_or_pos N with hN0 | hNpos
+  · subst hN0
+    refine ⟨∅, ?_, ?_⟩
+    · rw [Finset.coe_empty]
+      exact Set.pairwise_empty _
+    · simp only [Finset.card_empty, Nat.cast_zero]
+      rw [Real.zero_rpow (by positivity), mul_zero]
+  · have hN1 : (1 : ℝ) ≤ N := by exact_mod_cast hNpos
+    have hpow0 : 0 ≤ (N : ℝ) ^ ((1 : ℝ) / 2 + δ) := Real.rpow_nonneg (by positivity) _
+    by_cases hNsmall : N < 16
+    · refine ⟨{⟨0, hNpos⟩}, ?_, ?_⟩
+      · rw [Finset.coe_singleton]
+        exact Set.pairwise_singleton _ _
+      · rw [Finset.card_singleton, Nat.cast_one]
+        have hN16 : (N : ℝ) ≤ 16 := by exact_mod_cast hNsmall.le
+        have hpow : (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (N : ℝ) ^ (1 : ℝ) :=
+          Real.rpow_le_rpow_of_exponent_le hN1 (by linarith)
+        rw [Real.rpow_one] at hpow
+        calc K * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (1 / 16) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) :=
+              mul_le_mul_of_nonneg_right hK16 hpow0
+          _ ≤ 1 := by linarith
+    · push_neg at hNsmall
+      have hN16 : (16 : ℝ) ≤ N := by exact_mod_cast hNsmall
+      by_cases hE : (G.edgeFinset.card : ℝ) ≤ (N : ℝ) ^ ((3 : ℝ) / 2 - δ)
+      · -- sparse branch: Turán-type bound N10 with the arithmetic N14
+        obtain ⟨t, htind, htcard⟩ := turan_weak G
+        rw [Fintype.card_fin] at htcard
+        have htR : (N : ℝ) ^ 2 ≤ 2 * (4 * (G.edgeFinset.card : ℝ) + N) * t.card := by
+          exact_mod_cast htcard
+        have h14 := sparse_branch_arith δ hδ (by linarith) N (G.edgeFinset.card) t.card hN1
+          (by positivity) hE htR
+        refine ⟨t, htind, ?_⟩
+        calc K * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (1 / 10) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) :=
+              mul_le_mul_of_nonneg_right hK10 hpow0
+          _ ≤ t.card := by linarith
+      · -- dense branch: dense core N11, Moore bound N12, the open core N13, arithmetic N15
+        push_neg at hE
+        haveI : Nonempty (Fin N) := ⟨⟨0, hNpos⟩⟩
+        obtain ⟨d, hd⟩ : ∃ d : ℕ, d = G.edgeFinset.card / N := ⟨_, rfl⟩
+        have hdN : d * Fintype.card (Fin N) ≤ G.edgeFinset.card := by
+          rw [Fintype.card_fin, hd]
+          exact Nat.div_mul_le_self _ _
+        obtain ⟨s, hsne, hsdeg⟩ := exists_dense_core G d hdN
+        have hmoore := moore_bound_c4_free G hG s d hsne hsdeg
+        have hEd : G.edgeFinset.card < N * (d + 1) := by
+          rw [hd]
+          exact Nat.lt_mul_div_succ _ hNpos
+        have hEdR : (G.edgeFinset.card : ℝ) < (N : ℝ) * ((d : ℝ) + 1) := by exact_mod_cast hEd
+        have hdR := dense_degree_bound δ hδ' N (G.edgeFinset.card) d hN16 hE hEdR
+        have hsN : (s.card : ℝ) ≤ N := by
+          have h := Finset.card_le_univ s
+          rw [Fintype.card_fin] at h
+          exact_mod_cast h
+        have hmooreR : (d : ℝ) * d ≤ 2 * (s.card : ℝ) := by exact_mod_cast hmoore
+        have hNs := core_size_bound δ N d s.card (by linarith) hdR hmooreR
+        have hcorehyp : ∀ v ∈ s,
+            (1 / 2 : ℝ) * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj v)).card : ℝ) := by
+          intro v hv
+          have h1 : (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 - δ) :=
+            Real.rpow_le_rpow (by positivity) hsN (by linarith)
+          have h2 : (d : ℝ) ≤ ((s.filter (G.Adj v)).card : ℝ) := by exact_mod_cast hsdeg v hv
+          linarith
+        obtain ⟨t, hts, htind, htcard⟩ := hK₁p (Fin N) G s hG hcorehyp
+        refine ⟨t, htind, ?_⟩
+        have h15 := dense_branch_arith δ η K₁ hδ hδ' hη hK₁ N s.card hN1 (by positivity) hNs
+        have hexp : (N : ℝ) ^ ((1 : ℝ) / 2 + δ) ≤ (N : ℝ) ^ ((1 : ℝ) / 2 + η / 2) :=
+          Real.rpow_le_rpow_of_exponent_le hN1 (by linarith)
+        calc K * (N : ℝ) ^ ((1 : ℝ) / 2 + δ)
+            ≤ (K₁ * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))) * (N : ℝ) ^ ((1 : ℝ) / 2 + δ) :=
+              mul_le_mul_of_nonneg_right hKK hpow0
+          _ ≤ (K₁ * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))) * (N : ℝ) ^ ((1 : ℝ) / 2 + η / 2) :=
+              mul_le_mul_of_nonneg_left hexp hK2.le
+          _ ≤ K₁ * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) := h15
+          _ ≤ t.card := htcard
 
 /-! ### N17 -/
 
@@ -519,12 +641,32 @@ theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ 
   calc N ≤ x ^ (2 / (1 + 2 * ε)) / K ^ (2 / (1 + 2 * ε)) := h2
     _ = (K ^ (2 / (1 + 2 * ε)))⁻¹ * x ^ (2 / (1 + 2 * ε)) := by ring
 
-/-! ### N18 (depends on N16, hence on the open core; not proved) -/
+/-! ### N18 (rests on N16, hence on the open core N13) -/
 
 theorem card_le_power_of_c4_free :
     ∃ c C : ℝ, 0 < c ∧ c ≤ 2 ∧ 0 ≤ C ∧ ∀ (n N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel G.Adj], 1 ≤ n →
       ¬ (SimpleGraph.cycleGraph 4).IsContained G → G.IndepSetFree n → (N : ℝ) ≤ C * (n : ℝ) ^ (2 - c) := by
-  sorry
+  obtain ⟨ε, K, hε, hK, hmain⟩ := c4_free_indep_power
+  have hpos : (0 : ℝ) < 1 + 2 * ε := by linarith
+  have hC : 0 < K ^ (-(2 / (1 + 2 * ε))) := Real.rpow_pos_of_pos hK _
+  refine ⟨4 * ε / (1 + 2 * ε), K ^ (-(2 / (1 + 2 * ε))), div_pos (by linarith) hpos, ?_, hC.le, ?_⟩
+  · rw [div_le_iff₀ hpos]
+    linarith
+  intro n N G hdec hn hG hα
+  obtain ⟨t, htind, htcard⟩ := hmain N G hG
+  have htn : t.card < n := by
+    by_contra hle
+    rw [not_lt] at hle
+    obtain ⟨u, hut, hucard⟩ := Finset.exists_subset_card_eq hle
+    exact hα u ⟨Set.Pairwise.mono (Finset.coe_subset.mpr hut) htind, hucard⟩
+  have h17 := rpow_inversion K ε N t.card hK hε (by positivity) (by positivity) htcard
+  have htnR : (t.card : ℝ) ≤ n := by exact_mod_cast htn.le
+  have hc : 0 ≤ (2 : ℝ) - 4 * ε / (1 + 2 * ε) := by
+    rw [sub_nonneg, div_le_iff₀ hpos]
+    linarith
+  calc (N : ℝ) ≤ K ^ (-(2 / (1 + 2 * ε))) * (t.card : ℝ) ^ (2 - 4 * ε / (1 + 2 * ε)) := h17
+    _ ≤ K ^ (-(2 / (1 + 2 * ε))) * (n : ℝ) ^ (2 - 4 * ε / (1 + 2 * ε)) :=
+        mul_le_mul_of_nonneg_left (Real.rpow_le_rpow (by positivity) htnR hc) hC.le
 
 /-! ### N19 -/
 
@@ -561,6 +703,24 @@ theorem erdos_159 :
       ∀ (n : ℕ), 1 ≤ n →
         (SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4)
           (SimpleGraph.completeGraph (Fin n)) : ℝ) ≤ C * (n : ℝ) ^ (2 - c) := by
-  sorry
+  obtain ⟨c, C, hc, hc2, hC, hmain⟩ := card_le_power_of_c4_free
+  refine ⟨c, hc, C + 1, ?_⟩
+  intro n hn
+  obtain ⟨x, hx⟩ : ∃ x : ℝ, x = C * (n : ℝ) ^ (2 - c) := ⟨_, rfl⟩
+  have hR : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph (Fin n))
+      ≤ ⌊x⌋₊ + 1 := by
+    apply graphRamsey_le_of_c4_free_bound
+    intro G hG hα
+    classical
+    have h := hmain n (⌊x⌋₊ + 1) G hn hG hα
+    have h2 : x < ((⌊x⌋₊ + 1 : ℕ) : ℝ) := by
+      push_cast
+      exact Nat.lt_floor_add_one x
+    rw [← hx] at h
+    linarith
+  have h19 := floor_succ_le_power c C x hc2 hC n hn hx.le
+  calc (SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph (Fin n)) : ℝ)
+      ≤ ((⌊x⌋₊ + 1 : ℕ) : ℝ) := by exact_mod_cast hR
+    _ ≤ (C + 1) * (n : ℝ) ^ (2 - c) := h19
 
 end Erdos159

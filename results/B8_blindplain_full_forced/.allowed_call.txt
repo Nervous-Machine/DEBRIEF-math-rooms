@@ -1,0 +1,4 @@
+core_near_extremal
+c4_free_indep_power
+card_le_power_of_c4_free
+erdos_159

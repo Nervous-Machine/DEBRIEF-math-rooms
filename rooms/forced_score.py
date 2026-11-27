@@ -37,7 +37,10 @@ def main():
     tokens = int(sys.argv[sys.argv.index("--tokens") + 1]) if "--tokens" in sys.argv else None
     d = os.path.join(repo, "results", arm)
     conf = dict(l.rstrip("\n").split("=", 1) for l in open(os.path.join(d, "forced.conf")) if "=" in l)
-    fnode, fname = conf["node"], conf["name"]
+    # build 8: several forced rooms (nodes=, names=); the summary's forced_node fields refer to the first, and a per-room
+    # table is added under "forced_rooms"
+    fnodes = (conf.get("nodes") or conf.get("node", "")).split(","); fnames = (conf.get("names") or conf.get("name", "")).split(",")
+    fnode, fname = fnodes[0], fnames[0]
     allowed = {l.strip() for l in open(os.path.join(repo, conf["allowed"])) if l.strip()} if os.path.exists(os.path.join(repo, conf["allowed"])) else set()
     start = open(os.path.join(repo, conf["start"]), encoding="utf-8").read()
     start_names = {n for n, *_ in decls(start)}
@@ -98,6 +101,14 @@ def main():
                "new_declarations_at_first_final": first_final.get("new_declarations") if first_final else None,
                "sorry_outside_allowed_at_first_final": first_final.get("sorry_outside_allowed") if first_final else None,
                "minutes_to_first_final": mins(rows[0]["ts"], first_final["ts"]) if rows and first_final else None, "tokens": tokens}
+    per_room = []
+    for fn, nm in zip(fnodes, fnames):
+        g = [r for r in rows if r["node"] == fn and r["status"] != "refused"]
+        closed_r = None
+        if first_final and "sorry_declarations_by_lean" in first_final:
+            closed_r = first_final["status"] != "error" and not any(n.split(".")[-1] == nm for n in first_final["sorry_declarations_by_lean"])
+        per_room.append({"node": fn, "name": nm, "genuine_attempts": len(g), "statuses": [r["status"] for r in g], "closed_at_first_final": closed_r})
+    summary["forced_rooms"] = per_room
     json.dump({"summary": summary, "calls": rows}, open(os.path.join(d, "forced.json"), "w"), indent=1, ensure_ascii=False)
     print(json.dumps(summary, indent=1, ensure_ascii=False))
 

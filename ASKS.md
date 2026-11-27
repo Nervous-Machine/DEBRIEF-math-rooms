@@ -32,16 +32,6 @@ Status: proposed.
 
 Signal expected: a read cycle. Resolution by: none registered.
 
-## 2. The searcher's own estimate of reach ran conservative on a true step; which of the other rooms left open across builds 3 and 4 are reachable when forced is unmeasured (ledger id EG6)
-
-Build 4 found one room the searcher had declared out of reach and proved it at the first forced attempt. The record cannot yet say whether that is the exception or the rule for the rooms it leaves open.
-
-Status: proposed.
-
-- **the 569 statement-only arm's open core case (the paper's content, left as sorry in B3_569_B without a check call) under the forced rule; and the two 159 no-checker arms' unattempted rooms under the same rule; a room that closes is the signal** — contribution kind: data; who could act: Nervous Machine, or anyone with the instruments.
-
-Signal expected: data cycles under a registration with the closure predicted first. Resolution by: none registered.
-
 ## 2. The join types are reproducible at the ends of the scale and not in the middle: a second reader agreed with the planner on 85 percent of one blueprint and 67 percent of the other, disagreeing on identity against split, bound against averaging, and glue against identity (ledger id EG7)
 
 The types predicted reach, but two readers only agree on them two times in three on the larger proof. A rate built on a type that readers cannot reproduce is not a rate.
@@ -61,6 +51,16 @@ Status: immovable.
 - **two planner runs and five arms** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P10 in prereg_build_3.yaml, scored from the check logs, the final files and the sealed planner predictions. Resolution by: none registered.
+
+## 3. The statement matcher over the hinge atlas separates proofs across areas and rooms within a proof, but not two proofs in the same area: a Diophantine statement matched divisor-function rooms at 0.62 against a registered ceiling of 0.45 (ledger id EG8)
+
+Shape finds the right rooms inside a proof and refuses a proof from another field. It cannot tell two number-theory proofs apart. The matcher needs to know which constants a statement is about, not only what shape it has.
+
+Status: proposed.
+
+- **a semantic feature for the matcher (the Mathlib constants and defined predicates a statement uses, weighted by their rarity across the atlas), registered with a new threshold and tested on the same five queries plus statements from a fifth proof** — contribution kind: data; who could act: Nervous Machine, or anyone with the atlas.
+
+Signal expected: a registered matcher cycle with the threshold predicted first. Resolution by: none registered.
 
 ## 4. When the searcher is made to spend twelve genuine attempts on the room it left open without a single check, neither room closes (the human-proved Lemma 7 of… (ledger id HG3)
 
