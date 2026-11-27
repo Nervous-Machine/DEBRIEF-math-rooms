@@ -1,731 +1,4 @@
 hinges:
-- arm: B6_1133_A_full_probe
-  id: N01
-  name: olevskii_ulanovskii_prop_4_2
-  kind: leaf
-  join_type: literature_import
-  conditionals:
-  - 1 ≤ τ
-  - ∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)
-  - 2 * τ ≤ Γ.card
-  - Real.pi < σ
-  consumes: nothing (external theorem)
-  produces: the lower bound a log(σ/(σ-π+bτ^(-1/3))) for the complex interpolation constant K_i(Γ, B_σ), in the
-    form "if all unit complex data have norm-K interpolants then the bound is ≤ K"
-  library_inputs:
-  - Olevskii–Ulanovskii, On irregular sampling and interpolation in Bernstein spaces, Proposition 4.2 (paper's Theorem
-    3.1)
-  believed: provable
-  predicted:
-    attempts: 12
-    tokens: 400000
-    minutes: 60
-    reached: 0.01
-  outcome: open
-  attempts: 0
-  statement_sha256: d0f525ec83269070
-- arm: B6_1133_A_full_probe
-  id: N02
-  name: bernstein_vertical_growth
-  kind: leaf
-  join_type: literature_import
-  conditionals:
-  - 0 < σ
-  - Differentiable ℂ f
-  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
-  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K'
-  consumes: nothing (standard estimate cited from [4,5])
-  produces: the vertical growth estimate (3.1), used for the normal-family compactness of sample sets
-  library_inputs:
-  - vertical growth estimate (3.1) for Bernstein spaces, cited to Olevskii–Ulanovskii [4] and Ortega-Cerdà–Seip
-    [5] (Phragmén–Lindelöf)
-  believed: provable
-  predicted:
-    attempts: 12
-    tokens: 350000
-    minutes: 55
-    reached: 0.15
-  outcome: open
-  attempts: 0
-  statement_sha256: 1759c59cdd94ef8a
-- arm: B6_1133_A_full_probe
-  id: N03
-  name: bernstein_real_sample_set_isClosed
-  kind: leaf
-  join_type: literature_import
-  conditionals:
-  - 0 < σ
-  consumes: the vertical growth bound (3.1) giving local uniform boundedness
-  produces: closedness of the convex sample set K (normal-family theorem as the paper uses it in Lemma 3.3)
-  library_inputs:
-  - normal-family (Montel) theorem with preservation of type, norm and samples under locally uniform limits, as
-    invoked in the proof of Lemma 3.3
-  believed: provable
-  predicted:
-    attempts: 12
-    tokens: 400000
-    minutes: 60
-    reached: 0.02
-  outcome: open
-  attempts: 0
-  statement_sha256: 1dece4cda380910f
-- arm: B6_1133_A_full_probe
-  id: N04
-  name: exp_type_linear_comb
-  kind: join
-  join_type: algebraic_identity
-  conditionals:
-  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
-  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
-  consumes: nothing
-  produces: closure of exponential type σ under complex linear combinations
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 2
-    tokens: 25000
-    minutes: 6
-    reached: 0.85
-  outcome: proved
-  attempts: 1
-  statement_sha256: 2ebd40157d270b8b
-- arm: B6_1133_A_full_probe
-  id: N05
-  name: bernstein_affine_rescale
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - 0 ≤ σ
-  - 0 < lam
-  - Differentiable ℂ f
-  consumes: nothing
-  produces: the change of variable g(z) = f(z/λ + c) maps B_σ (norm K) to B_{σ/λ} (norm K)
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 60000
-    minutes: 14
-    reached: 0.75
-  outcome: proved
-  attempts: 0
-  statement_sha256: 3a2ab315f394c2c4
-- arm: B6_1133_A_full_probe
-  id: N06
-  name: complex_data_from_real
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - '∀ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) → ∃ f ... norm ≤ H interpolant'
-  consumes: closure of exponential type under f1 + I*f2 (N04)
-  produces: complex unit data interpolable with norm 2H, i.e. K_i ≤ 2H (3.5)
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 60000
-    minutes: 14
-    reached: 0.75
-  outcome: proved
-  attempts: 0
-  statement_sha256: 413dc7bd5e23e858
-- arm: B6_1133_A_full_probe
-  id: N07
-  name: lemma32_rescale_params
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - 1 ≤ τ
-  - t ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
-  consumes: nothing
-  produces: rescaled nodes s_i lie in [-τ, τ) and σ_k = π/λ_k ∈ (π, 2π] for k = 2τ
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 3
-    tokens: 35000
-    minutes: 8
-    reached: 0.85
-  outcome: proved
-  attempts: 0
-  statement_sha256: a261d98df3059a1e
-- arm: B6_1133_A_full_probe
-  id: N08
-  name: lemma32_log_bound
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - 0 < a
-  - 0 < b
-  - 1 ≤ τ
-  consumes: nothing
-  produces: the lower bound (a/3) log k − b0 for the Olevskii–Ulanovskii right-hand side at k = 2τ, σ = σ_k
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 7
-    tokens: 120000
-    minutes: 25
-    reached: 0.55
-  outcome: proved
-  attempts: 1
-  statement_sha256: 69a31b75ff5d67eb
-- arm: B6_1133_A_full_probe
-  id: N09
-  name: lemma32_choose_k
-  kind: leaf
-  join_type: quantitative_improvement
-  conditionals:
-  - 0 < a
-  - 0 ≤ b0
-  - H > 0
-  consumes: nothing
-  produces: an even k = 2τ ≤ exp(A0(1+H)) with (a/3) log k − b0 > 2H, the exponential bound (3.4)
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 6
-    tokens: 100000
-    minutes: 22
-    reached: 0.6
-  outcome: proved
-  attempts: 1
-  statement_sha256: 427f77a92c2bf1a3
-- arm: B6_1133_A_full_probe
-  id: N10
-  name: lemma32_distinct_core
-  kind: join
-  join_type: assembly
-  conditionals:
-  - 1 ≤ τ
-  - Function.Injective t
-  - ∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
-  consumes: O-U bound (N01), rescaling (N05), complex split (N06), parameter ranges (N07), log estimate (N08)
-  produces: if all real unit data at 2τ distinct nodes in an interval of length 2τ+1 are B_π-interpolable with norm
-    H, then (a/3) log(2τ) − b0 ≤ 2H
-  library_inputs:
-  - Olevskii–Ulanovskii Proposition 4.2 (via N01)
-  believed: provable
-  predicted:
-    attempts: 9
-    tokens: 220000
-    minutes: 40
-    reached: 0.4
-  outcome: proved
-  attempts: 1
-  statement_sha256: cbc09de7cb311f94
-- arm: B6_1133_A_full_probe
-  id: N11
-  name: coincident_nodes_obstruction
-  kind: leaf
-  join_type: case_split
-  conditionals:
-  - i ≠ j
-  - t i = t j
-  consumes: nothing
-  produces: data ±1 at two coincident indices that nothing interpolates
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 2
-    tokens: 20000
-    minutes: 5
-    reached: 0.95
-  outcome: proved
-  attempts: 0
-  statement_sha256: 8de55a061bc55772
-- arm: B6_1133_A_full_probe
-  id: N12
-  name: effective_finite_obstruction
-  kind: join
-  join_type: assembly
-  conditionals:
-  - H > 0
-  - ∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)
-  consumes: the choice of k (N09), the distinct-node contradiction (N10), the coincident-node case (N11)
-  produces: Lemma 3.2, an even k ≤ exp(A0(1+H)) with a non-interpolable real unit data vector on every k-tuple in
-    an interval of length k+1
-  library_inputs:
-  - Olevskii–Ulanovskii Proposition 4.2 (via N10)
-  believed: provable
-  predicted:
-    attempts: 6
-    tokens: 120000
-    minutes: 25
-    reached: 0.55
-  outcome: proved
-  attempts: 0
-  statement_sha256: 412202a3a614e33f
-- arm: B6_1133_A_full_probe
-  id: N13
-  name: real_symmetrization
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - Differentiable ℂ f
-  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C'
-  consumes: exponential-type closure (N04)
-  produces: f^R in B_σ^R, norm ≤ C, with Re f^R = Re f on ℝ
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 6
-    tokens: 110000
-    minutes: 22
-    reached: 0.6
-  outcome: proved
-  attempts: 0
-  statement_sha256: dd33c905d6f79246
-- arm: B6_1133_A_full_probe
-  id: N14
-  name: bernstein_real_sample_set_convex
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals: []
-  consumes: exponential-type closure (N04)
-  produces: convexity of the sample set K
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 70000
-    minutes: 15
-    reached: 0.75
-  outcome: proved
-  attempts: 0
-  statement_sha256: 947b1a2c47853384
-- arm: B6_1133_A_full_probe
-  id: N15
-  name: finite_dim_point_separation
-  kind: leaf
-  join_type: assembly
-  conditionals:
-  - Convex ℝ K
-  - IsClosed K
-  - v ∉ K
-  consumes: nothing
-  produces: a coordinate separating vector w for v ∉ K
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 5
-    tokens: 80000
-    minutes: 18
-    reached: 0.6
-  outcome: proved
-  attempts: 0
-  statement_sha256: e8b892faecbd570e
-- arm: B6_1133_A_full_probe
-  id: N16
-  name: sign_from_separation
-  kind: leaf
-  join_type: extremal_averaging
-  conditionals:
-  - ∑ i, w i * (u i).re < (1 - ρ) * ∑ i, |w i|
-  consumes: nothing
-  produces: an index where the sign datum sgn(w_i) is missed by more than ρ
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 60000
-    minutes: 14
-    reached: 0.8
-  outcome: proved
-  attempts: 0
-  statement_sha256: e918475894392c15
-- arm: B6_1133_A_full_probe
-  id: N17
-  name: signs_prescribed_tolerance
-  kind: join
-  join_type: two_structure_coupling
-  conditionals:
-  - 0 < C
-  - 0 ≤ ρ
-  - ρ < 1
-  - '∃ v ... ¬ ∃ f ... ‖f (x : ℂ)‖ ≤ C / (1 - ρ) ...'
-  consumes: closed (N03) convex (N14) sample set, symmetrization (N13), scaling (N04), separation (N15), sign extraction
-    (N16)
-  produces: Lemma 3.3, sign data on a k-tuple that every B_π function of norm ≤ C misses by more than ρ somewhere
-  library_inputs:
-  - normal-family theorem (via N03)
-  believed: provable
-  predicted:
-    attempts: 9
-    tokens: 220000
-    minutes: 40
-    reached: 0.4
-  outcome: proved
-  attempts: 0
-  statement_sha256: 4de4ad267e22b028
-- arm: B6_1133_A_full_probe
-  id: N18
-  name: local_sign_obstruction
-  kind: join
-  join_type: assembly
-  conditionals:
-  - C > 0
-  - 0 ≤ ρ
-  - ρ < 1
-  consumes: Lemma 3.2 at H = C/(1−ρ) (N12) and Lemma 3.3 (N17)
-  produces: one k ≤ exp(A0(1+H)) with sign obstructions on every k-tuple in an interval of length k+1
-  library_inputs:
-  - Olevskii–Ulanovskii Proposition 4.2 (via N12)
-  - normal-family theorem (via N17)
-  believed: provable
-  predicted:
-    attempts: 3
-    tokens: 45000
-    minutes: 10
-    reached: 0.6
-  outcome: proved
-  attempts: 0
-  statement_sha256: 08e8148cc7c06f0b
-- arm: B6_1133_A_full_probe
-  id: N19
-  name: norm_cos_le_exp_abs_im
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals: []
-  consumes: nothing
-  produces: the bound ‖cos w‖ ≤ e^{|Im w|}
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 55000
-    minutes: 12
-    reached: 0.75
-  outcome: proved
-  attempts: 0
-  statement_sha256: f98944bf4dbc449e
-- arm: B6_1133_A_full_probe
-  id: N20
-  name: poly_cos_exp_type
-  kind: leaf
-  join_type: two_structure_coupling
-  conditionals:
-  - 0 < D
-  - '(P.natDegree : ℝ) ≤ D'
-  consumes: the cosine growth bound (N19)
-  produces: P(cos(πz/D)) is entire of exponential type ≤ π deg P/D ≤ π
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 8
-    tokens: 160000
-    minutes: 30
-    reached: 0.45
-  outcome: proved
-  attempts: 0
-  statement_sha256: 6429dd048d7713a0
-- arm: B6_1133_A_full_probe
-  id: N21
-  name: poly_cos_real_values
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
-  consumes: nothing
-  produces: on real t, f(t) = P(cos(πt/D)) is real and bounded by C
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 5
-    tokens: 80000
-    minutes: 16
-    reached: 0.7
-  outcome: proved
-  attempts: 0
-  statement_sha256: cf8d83e50f731a06
-- arm: B6_1133_A_full_probe
-  id: N22
-  name: arccos_node
-  kind: join
-  join_type: algebraic_identity
-  conditionals:
-  - 0 < D
-  - x ∈ Set.Icc (-1:ℝ) 1
-  consumes: nothing
-  produces: angular nodes t_i = (D/π) arccos x_i ∈ [0, D] with cos(πt_i/D) = x_i
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 2
-    tokens: 25000
-    minutes: 6
-    reached: 0.85
-  outcome: proved
-  attempts: 0
-  statement_sha256: a092782be61b9216
-- arm: B6_1133_A_full_probe
-  id: N23
-  name: polynomial_to_bernstein
-  kind: join
-  join_type: assembly
-  conditionals:
-  - 0 < D
-  - '(P.natDegree : ℝ) ≤ D'
-  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
-  consumes: type bound (N20), real values (N21), angular nodes (N22)
-  produces: the angular substitution f = P∘cos(π·/D) ∈ B_π with norm ≤ C and f(t_i) = P(x_i)
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 60000
-    minutes: 14
-    reached: 0.6
-  outcome: proved
-  attempts: 0
-  statement_sha256: 6237fe1b03592997
-- arm: B6_1133_A_full_probe
-  id: N24
-  name: finset_split_into_blocks
-  kind: leaf
-  join_type: case_split
-  conditionals:
-  - 1 ≤ k
-  consumes: nothing
-  produces: ⌊|S|/k⌋ disjoint k-blocks inside S, leaving at most k−1 elements
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 7
-    tokens: 140000
-    minutes: 28
-    reached: 0.55
-  outcome: proved
-  attempts: 0
-  statement_sha256: d5490bf5ec4ffc2e
-- arm: B6_1133_A_full_probe
-  id: N25
-  name: bucket_grouping
-  kind: leaf
-  join_type: extremal_averaging
-  conditionals:
-  - 1 ≤ k
-  consumes: per-bucket block splitting (N24)
-  produces: the grouping (4.3), q disjoint k-groups each inside one bucket with kq ≥ n − (k−1)N
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 9
-    tokens: 200000
-    minutes: 38
-    reached: 0.4
-  outcome: proved
-  attempts: 1
-  statement_sha256: c499f4019d9378d2
-- arm: B6_1133_A_full_probe
-  id: N26
-  name: bucket_interval
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - 0 < D
-  - 1 ≤ k
-  - t ∈ Set.Icc 0 D
-  consumes: nothing
-  produces: a bucket index j < N = ⌈D/(k+1)⌉ with t in [j(k+1), j(k+1)+k+1]
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 6
-    tokens: 110000
-    minutes: 22
-    reached: 0.6
-  outcome: proved
-  attempts: 0
-  statement_sha256: a1d160e66b3a1047
-- arm: B6_1133_A_full_probe
-  id: N27
-  name: angular_groups
-  kind: join
-  join_type: assembly
-  conditionals:
-  - 1 ≤ k
-  - 0 < D
-  consumes: angular nodes (N22), bucket grouping (N25), bucket intervals (N26)
-  produces: disjoint k-groups of indices whose angular nodes lie in intervals of length k+1, kq ≥ n − (k−1)(D/(k+1)+1)
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 9
-    tokens: 200000
-    minutes: 38
-    reached: 0.4
-  outcome: proved
-  attempts: 0
-  statement_sha256: 58ff75bc7f0654c7
-- arm: B6_1133_A_full_probe
-  id: N28
-  name: disjoint_groups_card_le
-  kind: leaf
-  join_type: extremal_averaging
-  conditionals:
-  - ∀ l l', l ≠ l' → Disjoint (G l) (G l')
-  - ∀ l, ∃ i ∈ G l, i ∈ E
-  consumes: nothing
-  produces: one error per disjoint group gives at least q errors
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 3
-    tokens: 40000
-    minutes: 10
-    reached: 0.7
-  outcome: proved
-  attempts: 0
-  statement_sha256: 53c973709f82b09b
-- arm: B6_1133_A_full_probe
-  id: N29
-  name: finite_degree_error_tradeoff
-  kind: join
-  join_type: assembly
-  conditionals:
-  - 1 ≤ k
-  - 0 < D
-  - hsign (Lemma 3.3 for all k-tuples in intervals of length k+1)
-  consumes: angular substitution (N23), groups (N27), disjoint counting (N28), Lemma 3.3 signs as hypothesis
-  produces: Theorem 4.1 in the form (4.2), E_ρ ≥ n/k − (k−1)D/(k(k+1)) − (k−1)/k
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 11
-    tokens: 280000
-    minutes: 50
-    reached: 0.35
-  outcome: proved
-  attempts: 1
-  statement_sha256: 2599a879080ed0c6
-- arm: B6_1133_A_full_probe
-  id: N30
-  name: theorem21_arithmetic
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - 2 ≤ k
-  - 4 * k ^ 2 ≤ n
-  consumes: nothing
-  produces: with ε = 1/(8k²), n ≥ 4k², D = (1+ε)n, the (4.2) bound exceeds εn
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 5
-    tokens: 80000
-    minutes: 16
-    reached: 0.7
-  outcome: proved
-  attempts: 0
-  statement_sha256: 57d9aa014cdee974
-- arm: B6_1133_A_full_probe
-  id: N31
-  name: theorem21_constants
-  kind: leaf
-  join_type: algebraic_identity
-  conditionals:
-  - 0 < A0
-  - 0 ≤ H
-  - 2 ≤ k
-  - (k:ℝ) ≤ Real.exp (A0 * (1 + H))
-  consumes: nothing
-  produces: ε = 1/(8k²) ≥ e^{−A(1+H)} and n0 = 4k² ≤ e^{A(1+H)}, the bounds (2.3)
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 5
-    tokens: 80000
-    minutes: 16
-    reached: 0.65
-  outcome: proved
-  attempts: 0
-  statement_sha256: 137b0929f7d35d9f
-- arm: B6_1133_A_full_probe
-  id: N32
-  name: quantitative_robust_obstruction
-  kind: join
-  join_type: assembly
-  conditionals:
-  - C > 0
-  - 0 ≤ ρ
-  - ρ < 1
-  - n0 ≤ n
-  consumes: local sign obstruction with k (N18), Theorem 4.1 (N29), arithmetic (N30), constants (N31)
-  produces: Theorem 2.1 for real polynomials, ε = 1/(8k²), n0 = 4k²
-  library_inputs:
-  - Olevskii–Ulanovskii Proposition 4.2 (via N18)
-  - normal-family theorem (via N18)
-  believed: provable
-  predicted:
-    attempts: 7
-    tokens: 150000
-    minutes: 30
-    reached: 0.45
-  outcome: proved
-  attempts: 0
-  statement_sha256: e184487abaecf6db
-- arm: B6_1133_A_full_probe
-  id: N33
-  name: match_error_complement
-  kind: leaf
-  join_type: case_split
-  conditionals: []
-  consumes: nothing
-  produces: at ρ = 0, matched indices and erroneous indices partition [n]
-  library_inputs: []
-  believed: provable
-  predicted:
-    attempts: 3
-    tokens: 40000
-    minutes: 9
-    reached: 0.85
-  outcome: proved
-  attempts: 0
-  statement_sha256: 87707eafe4a54065
-- arm: B6_1133_A_full_probe
-  id: N34
-  name: qualitative_robust_obstruction
-  kind: leaf
-  join_type: assembly
-  conditionals:
-  - C > 0
-  - n0 ≤ n
-  consumes: Theorem 2.1 (N32) at ρ = 0
-  produces: the ρ = 0 obstruction with data in Icc (-1) 1 (signs coerced)
-  library_inputs:
-  - Olevskii–Ulanovskii Proposition 4.2 (via N32)
-  - normal-family theorem (via N32)
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 60000
-    minutes: 12
-    reached: 0.6
-  outcome: proved
-  attempts: 0
-  statement_sha256: 605c04031285f84f
-- arm: B6_1133_A_full_probe
-  id: ROOT
-  name: erdos_1133
-  kind: join
-  join_type: assembly
-  conditionals:
-  - C > 0
-  consumes: ρ = 0 obstruction (N34) and the match/error partition (N33)
-  produces: the Challenge statement (by contraposition, a bounded P has > εn errors, so < (1−ε)n matches)
-  library_inputs:
-  - Olevskii–Ulanovskii Proposition 4.2 (via N34)
-  - normal-family theorem (via N34)
-  believed: provable
-  predicted:
-    attempts: 4
-    tokens: 60000
-    minutes: 12
-    reached: 0.7
-  outcome: proved
-  attempts: 2
-  statement_sha256: c72faa118f1d9da7
 - arm: B6_1061_A_full_probe
   id: N01
   name: bienvenu_prop21_uniform
@@ -757,6 +30,17 @@ hinges:
   outcome: open
   attempts: 0
   statement_sha256: b892e6dd232ff214
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem bienvenu_prop21_uniform (d t : ℕ) (A0 B0 L0 cV ε : ℝ) (hcV : 0 < cV) (hε : 0 < ε) : ∃ N0 :
+    ℝ, ∀ (N : ℝ) (c : Fin t → ℤ) (L : Fin t → Fin d → ℤ) (K : Set (Fin d → ℝ)) (β : ℕ → ℝ) (F : Finset (Fin d →
+    ℤ)), N0 ≤ N → (∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]) → (∀ p : ℕ,
+    β p = ((p : ℝ) / (p - 1)) ^ t / (p : ℝ) ^ d * ((Fintype.piFinset fun _ : Fin d => Finset.range p).filter (fun
+    n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) → (∀ p : ℕ, p.Prime → 0 < β p) → ((∑ i, |(c i : ℝ)|)
+    / N + ∑ i, ∑ j, |(L i j : ℝ)|) / Real.log N ^ B0 ≤ L0 → Convex ℝ K → (∀ v ∈ K, ∀ j, |v j| ≤ N) → cV * N ^ d
+    * Real.log N ^ (-A0) ≤ (MeasureTheory.volume K).toReal → (∀ v ∈ K, ∀ i, N ^ ((9 : ℝ) / 10) ≤ (c i : ℝ) + ∑ j,
+    (L i j : ℝ) * v j) → (∀ n : Fin d → ℤ, n ∈ F ↔ (fun j => (n j : ℝ)) ∈ K) → |(∑ n ∈ F, ∏ i, (if 0 < c i + (∑
+    j, L i j * n j) ∧ (c i + ∑ j, L i j * n j).natAbs.Prime then Real.log ((c i + ∑ j, L i j * n j : ℤ) : ℝ) else
+    0)) / ((MeasureTheory.volume K).toReal * ∏'' p : Nat.Primes, β p) - 1| ≤ ε := by'
 - arm: B6_1061_A_full_probe
   id: N02
   name: bienvenu_lemma12_singular_series
@@ -778,6 +62,12 @@ hinges:
   outcome: open
   attempts: 0
   statement_sha256: 509c6bccab0a17b6
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem bienvenu_lemma12_singular_series (d t : ℕ) (c : Fin t → ℤ) (L : Fin t → Fin d → ℤ) (β : ℕ
+    → ℝ) (hfc : ∀ i j, i ≠ j → LinearIndependent ℚ ![fun k => (L i k : ℚ), fun k => (L j k : ℚ)]) (hβ : ∀ p : ℕ,
+    β p = ((p : ℝ) / (p - 1)) ^ t / (p : ℝ) ^ d * ((Fintype.piFinset fun _ : Fin d => Finset.range p).filter (fun
+    n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) (hpos : ∀ p : ℕ, p.Prime → 0 < β p) : Multipliable
+    (fun p : Nat.Primes => β p) ∧ 0 < ∏'' p : Nat.Primes, β p := by'
 - arm: B6_1061_A_full_probe
   id: N03
   name: sigma_values_triple
@@ -796,6 +86,9 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: 47290a3af570a597
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem sigma_values_triple : σ 1 54000 = 193440 ∧ σ 1 111600 = 399776 ∧ σ 1 1828800 = 6551168 :=
+    by'
 - arm: B6_1061_A_full_probe
   id: N04
   name: sigma_mul_two_primes
@@ -820,6 +113,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 849098bbca2e5b00
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem sigma_mul_two_primes (K p r : ℕ) (hK : 0 < K) (hp : p.Prime) (hr : r.Prime) (hpr : p ≠ r)
+    (hpK : ¬ p ∣ K) (hrK : ¬ r ∣ K) : σ 1 (K * (p * r)) = σ 1 K * ((p + 1) * (r + 1)) := by'
 - arm: B6_1061_A_full_probe
   id: N05
   name: shifted_product_identity
@@ -840,6 +136,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 7494a56d2b6cd866
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem shifted_product_identity (p1 p2 p3 p4 p5 p6 : ℤ) (h22 : 15 * p1 * p2 + 31 * p3 * p4 = 508
+    * p5 * p6) (h23 : 15 * (p1 + p2) + 31 * (p3 + p4) - 508 * (p5 + p6) = 462) : 15 * (p1 + 1) * (p2 + 1) + 31 *
+    (p3 + 1) * (p4 + 1) = 508 * (p5 + 1) * (p6 + 1) := by'
 - arm: B6_1061_A_full_probe
   id: N06
   name: friendly_triple_activation
@@ -862,6 +162,11 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: e2c7b732804d7c4c
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem friendly_triple_activation (p : Fin 6 → ℕ) (hp : ∀ i, (p i).Prime ∧ 127 < p i) (hinj : Function.Injective
+    p) (h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)) (h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3)
+    = 508 * (p 4 + p 5) + 462) : 54000 * (p 0 * p 1) + 111600 * (p 2 * p 3) = 1828800 * (p 4 * p 5) ∧ σ 1 (54000
+    * (p 0 * p 1)) + σ 1 (111600 * (p 2 * p 3)) = σ 1 (1828800 * (p 4 * p 5)) := by'
 - arm: B6_1061_A_full_probe
   id: N07
   name: core_from_sextuple
@@ -884,6 +189,12 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: d9c245feccf646f2
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem core_from_sextuple (p : Fin 6 → ℕ) (hp : ∀ i, (p i).Prime ∧ 127 < p i) (hinj : Function.Injective
+    p) (h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)) (h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3)
+    = 508 * (p 4 + p 5) + 462) : Nat.Coprime (15 * (p 0 * p 1)) (31 * (p 2 * p 3)) ∧ σ 1 (3600 * (15 * (p 0 * p
+    1))) + σ 1 (3600 * (31 * (p 2 * p 3))) = σ 1 (3600 * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))) ∧ (3600 * (15 *
+    (p 0 * p 1)) * (31 * (p 2 * p 3)) * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))).primeFactors.card ≤ 11 := by'
 - arm: B6_1061_A_full_probe
   id: N08
   name: core_fiber_le_eight
@@ -904,6 +215,10 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: ef7b36f58703fd6f
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem core_fiber_le_eight (Sx : Finset (Fin 6 → ℕ)) (hS : ∀ p ∈ Sx, (∀ i, (p i).Prime ∧ 127 < p
+    i) ∧ Function.Injective p ∧ 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)) : Sx.card ≤ 8 * (Sx.image
+    fun p => (15 * (p 0 * p 1), 31 * (p 2 * p 3))).card := by'
 - arm: B6_1061_A_full_probe
   id: N09
   name: multiplier_solution
@@ -924,6 +239,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: bc91731ca5379e79
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem multiplier_solution (u v g : ℕ) (hg : Nat.Coprime g (3600 * u * v * (u + v))) (h : σ 1 (3600
+    * u) + σ 1 (3600 * v) = σ 1 (3600 * (u + v))) : σ 1 (3600 * g * u) + σ 1 (3600 * g * v) = σ 1 (3600 * g * u
+    + 3600 * g * v) := by'
 - arm: B6_1061_A_full_probe
   id: N10
   name: multiplier_disjoint
@@ -950,6 +269,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 065ae952ddf96fc0
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem multiplier_disjoint (u v u'' v'' g g'' : ℕ) (hu : 0 < u) (hv : 0 < v) (hu'' : 0 < u'') (hv''
+    : 0 < v'') (hcop : Nat.Coprime u v) (hcop'' : Nat.Coprime u'' v'') (hg : 0 < g) (hg'' : 0 < g'') (h1 : 3600
+    * g * u = 3600 * g'' * u'') (h2 : 3600 * g * v = 3600 * g'' * v'') : g = g'' ∧ u = u'' ∧ v = v'' := by'
 - arm: B6_1061_A_full_probe
   id: N11
   name: coprime_density
@@ -971,6 +294,9 @@ hinges:
   outcome: proved
   attempts: 4
   statement_sha256: d91a9ec58ac496c9
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem coprime_density : ∃ c6 X0 : ℝ, 0 < c6 ∧ ∀ (n : ℕ) (X : ℝ), n ≠ 0 → n.primeFactors.card ≤ 11
+    → X0 ≤ X → c6 * X ≤ ((Finset.Icc 1 ⌊X⌋₊).filter (fun g => Nat.Coprime g n)).card := by'
 - arm: B6_1061_A_full_probe
   id: N12
   name: S_ge_card
@@ -990,6 +316,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: b9d10bd3fe8cd782
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem S_ge_card (x : ℝ) (F : Finset (ℕ × ℕ)) (hF : ∀ ab ∈ F, 1 ≤ ab.1 ∧ 1 ≤ ab.2 ∧ (ab.1 : ℝ) +
+    ab.2 ≤ x ∧ σ 1 ab.1 + σ 1 ab.2 = σ 1 (ab.1 + ab.2)) : (F.card : ℝ) ≤ S x := by'
 - arm: B6_1061_A_full_probe
   id: N13
   name: ruling_plane_identity
@@ -1008,6 +337,14 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 34971ccd4f3501a0
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem ruling_plane_identity (α β γ r s x1 x2 x3 x4 x5 x6 : ℝ) (hx1 : x1 = -1 + (1 / 15 - β) * r
+    - γ * s) (hx2 : x2 = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α - 462 * β * γ - γ) * s) (hx3 : x3 = -1 - β *
+    r + (1 / 31 - γ) * s) (hx4 : x4 = -1 - 462 * γ + (-α - 462 * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s) (hx5 :
+    x5 = -1 - β * r - γ * s) (hx6 : x6 = (15 * (x1 + x2) + 31 * (x3 + x4) - 508 * x5 - 462) / 508) : 15 * x1 * x2
+    + 31 * x3 * x4 = 508 * x5 * x6 ∧ 15 * (x1 + x2) + 31 * (x3 + x4) - 508 * (x5 + x6) = 462 ∧ 508 * x6 = -(6930
+    * β + 14322 * γ + 46) + (-31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β + 1) * r + (15 * α - 6930 * β * γ
+    - 14322 * γ ^ 2 + 416 * γ + 1) * s := by'
 - arm: B6_1061_A_full_probe
   id: N14
   name: determinant_table
@@ -1026,6 +363,19 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: bd84acc2f84004b8
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem determinant_table (α β γ a1 b1 a2 b2 a3 b3 a4 b4 a5 b5 a6 b6 : ℝ) (ha1 : a1 = 1 / 15 - β)
+    (hb1 : b1 = -γ) (ha2 : a2 = -462 * β ^ 2 - β) (hb2 : b2 = α - 462 * β * γ - γ) (ha3 : a3 = -β) (hb3 : b3 = 1
+    / 31 - γ) (ha4 : a4 = -α - 462 * β * γ - β) (hb4 : b4 = -462 * γ ^ 2 - γ) (ha5 : a5 = -β) (hb5 : b5 = -γ) (ha6
+    : a6 = (15 * (a1 + a2) + 31 * (a3 + a4) - 508 * a5) / 508) (hb6 : b6 = (15 * (b1 + b2) + 31 * (b3 + b4) - 508
+    * b5) / 508) : a1 * b2 - b1 * a2 = -(15 * α * β - α + 462 * β * γ + γ) / 15 ∧ a1 * b3 - b1 * a3 = -(15 * β +
+    31 * γ - 1) / 465 ∧ a1 * b4 - b1 * a4 = -γ * (15 * α + 462 * γ + 1) / 15 ∧ a1 * b5 - b1 * a5 = -γ / 15 ∧ a1
+    * b6 - b1 * a6 = -(15 * α + 462 * γ + 1) * (15 * β + 31 * γ - 1) / 7620 ∧ a2 * b3 - b2 * a3 = β * (31 * α -
+    462 * β - 1) / 31 ∧ a2 * b4 - b2 * a4 = α * (α + β - γ) ∧ a2 * b5 - b2 * a5 = α * β ∧ a2 * b6 - b2 * a6 = (α
+    + β - γ) * (31 * α - 462 * β - 1) / 508 ∧ a3 * b4 - b3 * a4 = -(31 * α * γ - α - 462 * β * γ - β) / 31 ∧ a3
+    * b5 - b3 * a5 = β / 31 ∧ a3 * b6 - b3 * a6 = -(31 * α - 462 * β - 1) * (15 * β + 31 * γ - 1) / 15748 ∧ a4 *
+    b5 - b4 * a5 = α * γ ∧ a4 * b6 - b4 * a6 = -(α + β - γ) * (15 * α + 462 * γ + 1) / 508 ∧ a5 * b6 - b5 * a6 =
+    -(15 * α * β + 31 * α * γ + β - γ) / 508 := by'
 - arm: B6_1061_A_full_probe
   id: N15
   name: finite_complexity_real
@@ -1051,6 +401,16 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 6ebf1cfb2216ff5e
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem finite_complexity_real (Z α β γ a1 b1 a2 b2 a3 b3 a4 b4 a5 b5 a6 b6 : ℝ) (hZ : 100 ≤ Z) (hα1
+    : Z ^ 2 ≤ α) (hα2 : α ≤ 2 * Z ^ 2) (hβ1 : Z ≤ β) (hβ2 : β ≤ 2 * Z) (hγ1 : Z ≤ γ) (hγ2 : γ ≤ 2 * Z) (ha1 : a1
+    = 1 / 15 - β) (hb1 : b1 = -γ) (ha2 : a2 = -462 * β ^ 2 - β) (hb2 : b2 = α - 462 * β * γ - γ) (ha3 : a3 = -β)
+    (hb3 : b3 = 1 / 31 - γ) (ha4 : a4 = -α - 462 * β * γ - β) (hb4 : b4 = -462 * γ ^ 2 - γ) (ha5 : a5 = -β) (hb5
+    : b5 = -γ) (ha6 : a6 = (15 * (a1 + a2) + 31 * (a3 + a4) - 508 * a5) / 508) (hb6 : b6 = (15 * (b1 + b2) + 31
+    * (b3 + b4) - 508 * b5) / 508) : a1 * b2 - b1 * a2 ≠ 0 ∧ a1 * b3 - b1 * a3 ≠ 0 ∧ a1 * b4 - b1 * a4 ≠ 0 ∧ a1
+    * b5 - b1 * a5 ≠ 0 ∧ a1 * b6 - b1 * a6 ≠ 0 ∧ a2 * b3 - b2 * a3 ≠ 0 ∧ a2 * b4 - b2 * a4 ≠ 0 ∧ a2 * b5 - b2 *
+    a5 ≠ 0 ∧ a2 * b6 - b2 * a6 ≠ 0 ∧ a3 * b4 - b3 * a4 ≠ 0 ∧ a3 * b5 - b3 * a5 ≠ 0 ∧ a3 * b6 - b3 * a6 ≠ 0 ∧ a4
+    * b5 - b4 * a5 ≠ 0 ∧ a4 * b6 - b4 * a6 ≠ 0 ∧ a5 * b6 - b5 * a6 ≠ 0 := by'
 - arm: B6_1061_A_full_probe
   id: N16
   name: archimedean_bounds
@@ -1080,6 +440,15 @@ hinges:
   outcome: proved
   attempts: 2
   statement_sha256: ec952681a97780aa
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem archimedean_bounds : ∃ c C : ℝ, 0 < c ∧ c < C ∧ ∀ (Z T α β γ r s x1 x2 x3 x4 x5 x6 : ℝ), 100
+    ≤ Z → 10 ≤ T → Z ^ 2 ≤ α → α ≤ 2 * Z ^ 2 → Z ≤ β → β ≤ 2 * Z → Z ≤ γ → γ ≤ 2 * Z → -2 * T ≤ r → r ≤ -T → |s|
+    ≤ 1 / 100000 * |r| → x1 = -1 + (1 / 15 - β) * r - γ * s → x2 = -1 - 462 * β + (-462 * β ^ 2 - β) * r + (α -
+    462 * β * γ - γ) * s → x3 = -1 - β * r + (1 / 31 - γ) * s → x4 = -1 - 462 * γ + (-α - 462 * β * γ - β) * r +
+    (-462 * γ ^ 2 - γ) * s → x5 = -1 - β * r - γ * s → x6 = (15 * (x1 + x2) + 31 * (x3 + x4) - 508 * x5 - 462) /
+    508 → (c * Z * T ≤ x1 ∧ x1 ≤ C * Z * T ∧ c * Z * T ≤ x3 ∧ x3 ≤ C * Z * T ∧ c * Z * T ≤ x5 ∧ x5 ≤ C * Z * T ∧
+    c * Z ^ 2 * T ≤ x2 ∧ x2 ≤ C * Z ^ 2 * T ∧ c * Z ^ 2 * T ≤ x4 ∧ x4 ≤ C * Z ^ 2 * T ∧ c * Z ^ 2 * T ≤ x6 ∧ x6
+    ≤ C * Z ^ 2 * T) := by'
 - arm: B6_1061_A_full_probe
   id: N17
   name: zero_form_criteria
@@ -1102,6 +471,13 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 5dd06d5386c63381
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem zero_form_criteria {F : Type*} [Field F] (h2 : (2 : F) ≠ 0) (h3 : (3 : F) ≠ 0) (h7 : (7 :
+    F) ≠ 0) (h11 : (11 : F) ≠ 0) (α β γ : F) : ((-1 - 462 * β = 0 ∧ -462 * β ^ 2 - β = 0 ∧ α - 462 * β * γ - γ =
+    0) ↔ (α = 0 ∧ 462 * β + 1 = 0)) ∧ ((-1 - 462 * γ = 0 ∧ -α - 462 * β * γ - β = 0 ∧ -462 * γ ^ 2 - γ = 0) ↔ (α
+    = 0 ∧ 462 * γ + 1 = 0)) ∧ ((6930 * β + 14322 * γ + 46 = 0 ∧ -31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β
+    + 1 = 0 ∧ 15 * α - 6930 * β * γ - 14322 * γ ^ 2 + 416 * γ + 1 = 0) ↔ (31 * α - 462 * β - 1 = 0 ∧ 15 * α + 462
+    * γ + 1 = 0)) := by'
 - arm: B6_1061_A_full_probe
   id: N18
   name: integral_lift
@@ -1122,6 +498,16 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: b834a0667e331f05
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem integral_lift (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6 →
+    ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A * (x
+    0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15 *
+    (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q A B C : ℤ) (x : Fin 6 → ℤ) (hq : q ≠ 0) (hx : OnPl q A
+    B C x) : ∀ α β γ r s : ℝ, α = A / q → β = B / q → γ = C / q → r = 15 * ((x 0 : ℝ) - x 4) → s = 31 * ((x 2 :
+    ℝ) - x 4) → (x 0 : ℝ) = -1 + (1 / 15 - β) * r - γ * s ∧ (x 1 : ℝ) = -1 - 462 * β + (-462 * β ^ 2 - β) * r +
+    (α - 462 * β * γ - γ) * s ∧ (x 2 : ℝ) = -1 - β * r + (1 / 31 - γ) * s ∧ (x 3 : ℝ) = -1 - 462 * γ + (-α - 462
+    * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s ∧ (x 4 : ℝ) = -1 - β * r - γ * s ∧ (x 5 : ℝ) = (15 * ((x 0 : ℝ) +
+    x 1) + 31 * ((x 2 : ℝ) + x 3) - 508 * (x 4 : ℝ) - 462) / 508 := by'
 - arm: B6_1061_A_full_probe
   id: N19
   name: onPlane_equations
@@ -1142,6 +528,13 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: baa86f366626569d
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem onPlane_equations (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin
+    6 → ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A
+    * (x 0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 =
+    15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q A B C : ℤ) (x : Fin 6 → ℤ) (hq : q ≠ 0) (hx : OnPl
+    q A B C x) : 15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5 ∧ 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 *
+    (x 4 + x 5) = 462 := by'
 - arm: B6_1061_A_full_probe
   id: N20
   name: good_coprime
@@ -1161,6 +554,14 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 3f2470bcab4b1c6e
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem good_coprime (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q A B C, Good Z q A B C ↔ ((4619990760
+    : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧ (q
+    : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧ (∀ p : ℕ, p.Prime → p ∣ q → ¬ (p
+    : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧ (∀ p : ℕ, p.Prime → ¬ p ∣
+    4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨ ((p : ℤ)
+    ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (Z : ℝ) (q : ℕ) (A B C : ℤ) (hG : Good Z q A B
+    C) : IsCoprime A (q : ℤ) ∧ IsCoprime B (q : ℤ) ∧ IsCoprime C (q : ℤ) ∧ IsCoprime (A * B * C) (q : ℤ) := by'
 - arm: B6_1061_A_full_probe
   id: N21
   name: local_witness
@@ -1185,6 +586,13 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: d11a688761da4f03
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem local_witness (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6 →
+    ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A * (x
+    0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15 *
+    (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 =
+    1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C) (hCq : IsCoprime C (q
+    : ℤ)) : ∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ ∀ p : ℕ, p.Prime → p ∣ 4619990760 → ∀ i, ¬ (p : ℤ) ∣ x i := by'
 - arm: B6_1061_A_full_probe
   id: N22
   name: projected_index
@@ -1209,6 +617,14 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: c8c6069ea9340ce7
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem projected_index (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6
+    → ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A *
+    (x 0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15
+    * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760
+    = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C) (hcop : IsCoprime (A
+    * B * C) (q : ℤ)) : ∃ (z : ℤ × ℤ) (Γ : AddSubgroup (ℤ × ℤ)) (δ : ℕ), δ ∣ 508 ∧ Γ.index = q ^ 2 * δ ∧ ∀ y : ℤ
+    × ℤ, (∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ x 0 - x 4 = y.1 ∧ x 2 - x 4 = y.2) ↔ y - z ∈ Γ := by'
 - arm: B6_1061_A_full_probe
   id: N23
   name: lattice_coords
@@ -1242,6 +658,23 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 01d07a40a5b0dcee
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem lattice_coords (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6 →
+    ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A * (x
+    0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15 *
+    (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) : ∃ C0 C1 C2 : ℝ, 0 < C1 ∧ ∀ (q : ℕ) (A B C : ℤ) (Z T : ℝ),
+    1 ≤ q → q % 4619990760 = 1 → (4619990760 : ℤ) ∣ A → (4619990760 : ℤ) ∣ B → (4619990760 : ℤ) ∣ C → IsCoprime
+    (A * B * C) (q : ℤ) → 100 ≤ Z → (q : ℝ) * Z ^ 2 ≤ A → (A : ℝ) < 2 * q * Z ^ 2 → (q : ℝ) * Z ≤ B → (B : ℝ) <
+    2 * q * Z → (q : ℝ) * Z ≤ C → (C : ℝ) < 2 * q * Z → C0 * (q : ℝ) ^ 2 ≤ T → ∃ (c : Fin 6 → ℤ) (L : Fin 6 → Fin
+    2 → ℤ) (δ : ℕ), δ ∣ 508 ∧ (∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)) ∧ (∀ x, OnPl q A
+    B C x → ∃! n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4
+    1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ ∧ (∀ i, |(c i : ℝ)| ≤ C2 * Z ^
+    2 * (q : ℝ) ^ 2 ∧ ∀ j, |(L i j : ℝ)| ≤ C2 * Z ^ 2 * (q : ℝ) ^ 2) ∧ ∀ K : Set (Fin 2 → ℝ), (∀ v, v ∈ K ↔ (-2
+    * T ≤ 15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j)) ∧ 15 * (((c 0 : ℝ)
+    + ∑ j, (L 0 j : ℝ) * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j)) ≤ -T ∧ |31 * (((c 2 : ℝ) + ∑ j, (L 2 j : ℝ)
+    * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))| ≤ 1 / 100000 * |15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) -
+    ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))|)) → Convex ℝ K ∧ MeasureTheory.volume K = ENNReal.ofReal (3 / 100000
+    * T ^ 2 / (465 * (q : ℝ) ^ 2 * δ)) ∧ ∀ v ∈ K, ∀ j, |v j| ≤ C1 * T := by'
 - arm: B6_1061_A_full_probe
   id: N24
   name: region_bounds_int
@@ -1271,6 +704,18 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: 37bae3336dca3c4f
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem region_bounds_int (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin
+    6 → ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A
+    * (x 0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 =
+    15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (InReg : ℝ → (Fin 6 → ℤ) → Prop) (hInReg : ∀ T (x :
+    Fin 6 → ℤ), InReg T x ↔ (-2 * T ≤ 15 * ((x 0 : ℝ) - x 4) ∧ 15 * ((x 0 : ℝ) - x 4) ≤ -T ∧ |31 * ((x 2 : ℝ) -
+    x 4)| ≤ 1 / 100000 * |15 * ((x 0 : ℝ) - x 4)|)) : ∃ cl Cu ch Ch : ℝ, 0 < cl ∧ 0 < ch ∧ ch < Ch ∧ ∀ (q : ℕ) (A
+    B C : ℤ) (Z T : ℝ) (x : Fin 6 → ℤ), 1 ≤ q → 100 ≤ Z → 10 ≤ T → (q : ℝ) * Z ^ 2 ≤ A → (A : ℝ) ≤ 2 * q * Z ^ 2
+    → (q : ℝ) * Z ≤ B → (B : ℝ) ≤ 2 * q * Z → (q : ℝ) * Z ≤ C → (C : ℝ) ≤ 2 * q * Z → OnPl q A B C x → InReg T x
+    → (cl * Z * T ≤ x 0 ∧ cl * Z * T ≤ x 2 ∧ cl * Z * T ≤ x 4 ∧ cl * Z ^ 2 * T ≤ x 1 ∧ cl * Z ^ 2 * T ≤ x 3 ∧ cl
+    * Z ^ 2 * T ≤ x 5 ∧ (∀ i, (x i : ℝ) ≤ Cu * Z ^ 2 * T) ∧ ch * Z ^ 3 * T ^ 2 ≤ 508 * (x 4 : ℝ) * x 5 ∧ 508 * (x
+    4 : ℝ) * x 5 ≤ Ch * Z ^ 3 * T ^ 2) := by'
 - arm: B6_1061_A_full_probe
   id: N25
   name: sqfree_progression_count
@@ -1290,6 +735,9 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 501a2bfff188e665
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem sqfree_progression_count : ∃ csf Q1 : ℝ, 0 < csf ∧ ∀ Q : ℝ, Q1 ≤ Q → ∃ F : Finset ℕ, (∀ q
+    ∈ F, Q ≤ q ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q) ∧ csf * Q ≤ F.card := by'
 - arm: B6_1061_A_full_probe
   id: N26
   name: H_sum_bound
@@ -1309,6 +757,9 @@ hinges:
   outcome: proved
   attempts: 2
   statement_sha256: 467439b1446d5d9a
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem H_sum_bound : ∃ CH Q1 : ℝ, ∀ Q : ℝ, Q1 ≤ Q → ∑ q ∈ (Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊).filter (fun
+    q => q % 4619990760 = 1), ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ CH * Q := by'
 - arm: B6_1061_A_full_probe
   id: N27
   name: good_denominators
@@ -1328,6 +779,10 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: 263f8ee14f57b381
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem good_denominators : ∃ M0 cW Q0 : ℝ, 0 < cW ∧ ∀ Q : ℝ, Q0 ≤ Q → ∃ F : Finset ℕ, (∀ q ∈ F, Q
+    ≤ q ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧ ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0) ∧ cW * Q
+    ≤ F.card := by'
 - arm: B6_1061_A_full_probe
   id: N28
   name: residue_blocks
@@ -1347,6 +802,11 @@ hinges:
   outcome: proved
   attempts: 2
   statement_sha256: fbe6023255417b03
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem residue_blocks (m : ℕ) [NeZero m] (Ω : Finset (ZMod m × ZMod m × ZMod m)) (a1 a2 a3 : ℤ) (L1
+    L2 L3 : ℕ) : Ω.card * ((L1 / m - 1) * (L2 / m - 1) * (L3 / m - 1)) ≤ ((Finset.Ico a1 (a1 + L1) ×ˢ (Finset.Ico
+    a2 (a2 + L2) ×ˢ Finset.Ico a3 (a3 + L3))).filter (fun x => ((x.1 : ZMod m), (x.2.1 : ZMod m), (x.2.2 : ZMod
+    m)) ∈ Ω)).card := by'
 - arm: B6_1061_A_full_probe
   id: N29
   name: local_density
@@ -1368,6 +828,16 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 2ad40a8adbb38414
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem local_density (M0 : ℝ) : ∃ ϑ : ℝ, 0 < ϑ ∧ ∀ (q P m : ℕ), Squarefree q → q % 4619990760 = 1
+    → ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0 → m = q * ∏ p ∈ (Finset.range (P + 1)).filter (fun p => p.Prime ∧ ¬
+    p ∣ 4619990760 * q), p → ∃ Ω : Finset (ZMod m × ZMod m × ZMod m), ϑ * (m : ℝ) ^ 3 ≤ Ω.card ∧ ∀ a b c : ℤ, ((a
+    : ZMod m), (b : ZMod m), (c : ZMod m)) ∈ Ω → (∀ p : ℕ, p.Prime → p ∣ q → ¬ (p : ℤ) ∣ (4619990760 * a) * (4619990760
+    * b) * (4619990760 * c) * (462 * (4619990760 * c) + 15 * (4619990760 * a)) * (31 * (4619990760 * a) - 462 *
+    (4619990760 * b)) * (15 * (4619990760 * b) + 31 * (4619990760 * c))) ∧ (∀ p : ℕ, p.Prime → p ≤ P → ¬ p ∣ 4619990760
+    * q → ¬ (((p : ℤ) ∣ 4619990760 * a ∧ (p : ℤ) ∣ 462 * (4619990760 * b) + q) ∨ ((p : ℤ) ∣ 4619990760 * a ∧ (p
+    : ℤ) ∣ 462 * (4619990760 * c) + q) ∨ ((p : ℤ) ∣ 31 * (4619990760 * a) - 462 * (4619990760 * b) - q ∧ (p : ℤ)
+    ∣ 15 * (4619990760 * a) + 462 * (4619990760 * c) + q))) := by'
 - arm: B6_1061_A_full_probe
   id: N30
   name: large_prime_tail
@@ -1390,6 +860,13 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 4de3a63c4eb1756f
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem large_prime_tail : ∃ Ct : ℝ, ∀ (q P : ℕ) (Z : ℝ), 2 ≤ q → 100 ≤ Z → 1 ≤ P → ∀ F : Finset (ℤ
+    × ℤ × ℤ), (∀ t ∈ F, (q : ℝ) * Z ^ 2 ≤ t.1 ∧ (t.1 : ℝ) < 2 * q * Z ^ 2 ∧ (q : ℝ) * Z ≤ t.2.1 ∧ (t.2.1 : ℝ) <
+    2 * q * Z ∧ (q : ℝ) * Z ≤ t.2.2 ∧ (t.2.2 : ℝ) < 2 * q * Z ∧ ∃ p : ℕ, p.Prime ∧ P < p ∧ ¬ p ∣ 4619990760 * q
+    ∧ (((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.1 + q) ∨ ((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.2 + q) ∨ ((p : ℤ) ∣ 31
+    * t.1 - 462 * t.2.1 - q ∧ (p : ℤ) ∣ 15 * t.1 + 462 * t.2.2 + q))) → (F.card : ℝ) ≤ Ct * ((q : ℝ) ^ 3 * Z ^ 4
+    / P + (q : ℝ) ^ 2 * Z ^ 3 * Real.log (q * Z) + (q : ℝ) ^ 2 * Z ^ 4) := by'
 - arm: B6_1061_A_full_probe
   id: N31
   name: parameter_sieve
@@ -1413,6 +890,15 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 56186c9a350d4ec9
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem parameter_sieve (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q A B C, Good Z q A B C ↔ ((4619990760
+    : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^ 2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧ (q
+    : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧ (∀ p : ℕ, p.Prime → p ∣ q → ¬ (p
+    : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧ (∀ p : ℕ, p.Prime → ¬ p ∣
+    4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨ ((p : ℤ)
+    ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (M0 : ℝ) : ∃ Z0 q0 c2 : ℝ, 100 ≤ Z0 ∧ 0 < c2 ∧
+    ∀ (q : ℕ) (Z : ℝ), Squarefree q → q % 4619990760 = 1 → ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0 → q0 ≤ q → Z0
+    ≤ Z → ∃ F : Finset (ℤ × ℤ × ℤ), (∀ t ∈ F, Good Z q t.1 t.2.1 t.2.2) ∧ c2 * (q : ℝ) ^ 3 * Z ^ 4 ≤ F.card := by'
 - arm: B6_1061_A_full_probe
   id: N32
   name: planes_meet_once
@@ -1440,6 +926,15 @@ hinges:
   outcome: proved
   attempts: 5
   statement_sha256: c1892a39b81efcfc
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem planes_meet_once (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6
+    → ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A *
+    (x 0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15
+    * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q q'' A B C A'' B'' C'' : ℤ) (x x'' : Fin 6 → ℤ) (hq :
+    0 < q) (hq'' : 0 < q'') (hA : IsCoprime A q) (hB : IsCoprime B q) (hC : IsCoprime C q) (hA'' : IsCoprime A''
+    q'') (hB'' : IsCoprime B'' q'') (hC'' : IsCoprime C'' q'') (hne : (q, A, B, C) ≠ (q'', A'', B'', C'')) (h1 :
+    OnPl q A B C x) (h2 : OnPl q A B C x'') (h3 : OnPl q'' A'' B'' C'' x) (h4 : OnPl q'' A'' B'' C'' x'') : x =
+    x'' := by'
 - arm: B6_1061_A_full_probe
   id: N33
   name: union_card_bound
@@ -1459,6 +954,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 0bf6966370c1af9f
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem union_card_bound {ι α : Type*} [DecidableEq α] (s : Finset ι) (f : ι → Finset α) (h : ∀ i
+    ∈ s, ∀ j ∈ s, i ≠ j → (f i ∩ f j).card ≤ 1) : ∑ i ∈ s, (f i).card ≤ (s.biUnion f).card + s.card.choose 2 :=
+    by'
 - arm: B6_1061_A_full_probe
   id: N34
   name: lattice_reduction
@@ -1479,6 +978,10 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 59b491e61e748820
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem lattice_reduction {ι : Type*} [Fintype ι] (p : ℕ) (L L'' : AddSubgroup (ι → ℤ)) (hle : L''
+    ≤ L) (hp : ¬ p ∣ L''.relIndex L) : (∀ x ∈ L, ∃ y ∈ L'', ∃ z ∈ L, x = y + p • z) ∧ (∀ y ∈ L'', (∃ z ∈ L, y =
+    p • z) → ∃ z'' ∈ L'', y = p • z'') := by'
 - arm: B6_1061_A_full_probe
   id: N35
   name: nonzero_forms_count
@@ -1499,6 +1002,10 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: a33c8403079692bc
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem nonzero_forms_count (p : ℕ) (hp : p.Prime) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (hnz :
+    ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j)) : p ^ 2 - 6 * p ≤ ((Fintype.piFinset fun _ : Fin 2 => Finset.range
+    p).filter (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card := by'
 - arm: B6_1061_A_full_probe
   id: N36
   name: local_W
@@ -1525,6 +1032,15 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 04bd0cb399466c80
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem local_W (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6 → ℤ), OnPl
+    q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A * (x 0 - x 4)
+    + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15 * (x 0 + x
+    1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hA :
+    (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C) (hCq : IsCoprime C (q : ℤ)) (c
+    : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
+    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) : ∀ p : ℕ, p.Prime → p
+    ∣ 4619990760 → ∃ n : Fin 2 → ℕ, (∀ j, n j < p) ∧ ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ) := by'
 - arm: B6_1061_A_full_probe
   id: N37
   name: local_away
@@ -1551,6 +1067,21 @@ hinges:
   outcome: proved
   attempts: 3
   statement_sha256: 575d3d449602136e
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem local_away (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A * (x 0
+    - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15 * (x
+    0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q A B C, Good
+    Z q A B C ↔ ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^ 2 ≤ A ∧ (A :
+    ℝ) < 2 * q * Z ^ 2 ∧ (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧ (∀ p :
+    ℕ, p.Prime → p ∣ q → ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+    (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ)
+    ∣ 462 * C + q) ∨ ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (q : ℕ) (A B C : ℤ) (Z
+    : ℝ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C) (c : Fin 6 → ℤ) (L : Fin
+    6 → Fin 2 → ℤ) (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)) (hsurj : ∀ x, OnPl q
+    A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) (hdet : ∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L
+    4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ) : ∀
+    p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by'
 - arm: B6_1061_A_full_probe
   id: N38
   name: local_denominator
@@ -1576,6 +1107,20 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: be8912f2b214ee6f
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem local_denominator (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin
+    6 → ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A
+    * (x 0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 =
+    15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q A B
+    C, Good Z q A B C ↔ ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^ 2 ≤
+    A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧ (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z
+    ∧ (∀ p : ℕ, p.Prime → p ∣ q → ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31
+    * C)) ∧ (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧
+    (p : ℤ) ∣ 462 * C + q) ∨ ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (q : ℕ) (A B
+    C : ℤ) (Z : ℝ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C) (hsq : Squarefree
+    q) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j
+    * n j)) (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) : ∀ p : ℕ, p.Prime
+    → p ∣ q → ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by'
 - arm: B6_1061_A_full_probe
   id: N39
   name: fc_lattice
@@ -1602,6 +1147,21 @@ hinges:
   outcome: proved
   attempts: 2
   statement_sha256: f38ae5c20c4e723f
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem fc_lattice (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A * (x 0
+    - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15 * (x
+    0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q A B C, Good
+    Z q A B C ↔ ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^ 2 ≤ A ∧ (A :
+    ℝ) < 2 * q * Z ^ 2 ∧ (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧ (∀ p :
+    ℕ, p.Prime → p ∣ q → ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+    (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ)
+    ∣ 462 * C + q) ∨ ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (q : ℕ) (A B C : ℤ) (Z
+    : ℝ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C) (c : Fin 6 → ℤ) (L : Fin
+    6 → Fin 2 → ℤ) (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j)) (hsurj : ∀ x, OnPl q
+    A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) (hdet : ∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L
+    4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ) : ∀
+    i j : Fin 6, i ≠ j → L i 0 * L j 1 - L i 1 * L j 0 ≠ 0 := by'
 - arm: B6_1061_A_full_probe
   id: N40
   name: beta_local
@@ -1629,6 +1189,24 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 845a8f9995caa645
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem beta_local (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin 6 → ℤ),
+    OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A * (x 0
+    - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 = 15 * (x
+    0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q A B C, Good
+    Z q A B C ↔ ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^ 2 ≤ A ∧ (A :
+    ℝ) < 2 * q * Z ^ 2 ∧ (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧ (∀ p :
+    ℕ, p.Prime → p ∣ q → ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+    (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ)
+    ∣ 462 * C + q) ∨ ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (q : ℕ) (A B C : ℤ) (Z
+    : ℝ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 = 1) (hZ : 100 ≤ Z) (hG : Good Z q A B C) (hsq : Squarefree q) (c :
+    Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
+    (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) (hdet : ∃ δ : ℕ, δ ∣ 508
+    ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q
+    : ℤ) ^ 2 * δ) (β : ℕ → ℝ) (hβ : ∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 * ((Fintype.piFinset fun
+    _ : Fin 2 => Finset.range p).filter (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) : ∀ p :
+    ℕ, p.Prime → (p ∣ 4619990760 → 1 / (p : ℝ) ^ 2 * ((p : ℝ) / (p - 1)) ^ 6 ≤ β p) ∧ (¬ p ∣ 4619990760 → (1 - 6
+    / (p : ℝ)) * ((p : ℝ) / (p - 1)) ^ 6 ≤ β p) := by'
 - arm: B6_1061_A_full_probe
   id: N41
   name: ap_product
@@ -1647,6 +1225,12 @@ hinges:
   outcome: proved
   attempts: 4
   statement_sha256: 3a2f4c6be2671d73
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem ap_product : Multipliable (fun p : Nat.Primes => (if ((p : ℕ) ∣ 4619990760) then 1 / ((p :
+    ℕ) : ℝ) ^ 2 * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6 else (1 - 6 / ((p : ℕ) : ℝ)) * (((p : ℕ) : ℝ) / (((p
+    : ℕ) : ℝ) - 1)) ^ 6)) ∧ 0 < ∏'' p : Nat.Primes, (if ((p : ℕ) ∣ 4619990760) then 1 / ((p : ℕ) : ℝ) ^ 2 * (((p
+    : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6 else (1 - 6 / ((p : ℕ) : ℝ)) * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^
+    6) := by'
 - arm: B6_1061_A_full_probe
   id: N42
   name: singular_series_lower
@@ -1671,6 +1255,23 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 23c521f34a4318be
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem singular_series_lower (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x :
+    Fin 6 → ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15
+    * A * (x 0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x
+    5 = 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q
+    A B C, Good Z q A B C ↔ ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^
+    2 ≤ A ∧ (A : ℝ) < 2 * q * Z ^ 2 ∧ (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q
+    * Z ∧ (∀ p : ℕ, p.Prime → p ∣ q → ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B
+    + 31 * C)) ∧ (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ)
+    ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨ ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) : ∃ cstar
+    : ℝ, 0 < cstar ∧ ∀ (q : ℕ) (A B C : ℤ) (Z : ℝ), 1 ≤ q → q % 4619990760 = 1 → 100 ≤ Z → Good Z q A B C → Squarefree
+    q → ∀ (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (β : ℕ → ℝ), (∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑
+    j, L i j * n j)) → (∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) → (∃ δ : ℕ,
+    δ ∣ 508 ∧ |15 * (L 0 0 - L 4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| =
+    465 * (q : ℤ) ^ 2 * δ) → (∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 * ((Fintype.piFinset fun _ :
+    Fin 2 => Finset.range p).filter (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) → (∀ p : ℕ,
+    p.Prime → 0 < β p) ∧ Multipliable (fun p : Nat.Primes => β p) ∧ cstar ≤ ∏'' p : Nat.Primes, β p := by'
 - arm: B6_1061_A_full_probe
   id: N43
   name: collision_line
@@ -1690,6 +1291,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 14ca65a5ecd731bb
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem collision_line (a b e : ℤ) (M : ℕ) (hab : a ≠ 0 ∨ b ≠ 0) : ((Finset.Icc (-(M : ℤ)) M ×ˢ Finset.Icc
+    (-(M : ℤ)) M).filter (fun n => a * n.1 + b * n.2 = e)).card ≤ 2 * M + 1 := by'
 - arm: B6_1061_A_full_probe
   id: N44
   name: prime_weight_to_count
@@ -1710,6 +1314,11 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: d3eef5168cbe597a
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem prime_weight_to_count {d t : ℕ} (F : Finset (Fin d → ℤ)) (f : (Fin d → ℤ) → Fin t → ℤ) (V
+    : ℝ) (hV : 1 ≤ V) (hf : ∀ n ∈ F, ∀ i, (f n i : ℝ) ≤ V) : ∑ n ∈ F, ∏ i, (if 0 < f n i ∧ (f n i).natAbs.Prime
+    then Real.log (f n i : ℝ) else 0) ≤ Real.log V ^ t * ((F.filter (fun n => ∀ i, 0 < f n i ∧ (f n i).natAbs.Prime)).card
+    : ℝ) := by'
 - arm: B6_1061_A_full_probe
   id: N45
   name: plane_prime_count
@@ -1739,6 +1348,22 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: 71b45deb2457f757
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem plane_prime_count (OnPl : ℤ → ℤ → ℤ → ℤ → (Fin 6 → ℤ) → Prop) (hOnPl : ∀ q A B C (x : Fin
+    6 → ℤ), OnPl q A B C x ↔ (q * (x 1 - x 4) = 31 * A * (x 2 - x 4) + 462 * B * x 4 ∧ q * (x 3 - x 4) = -15 * A
+    * (x 0 - x 4) + 462 * C * x 4 ∧ q * (x 4 + 1) = -(15 * B * (x 0 - x 4) + 31 * C * (x 2 - x 4)) ∧ 508 * x 5 =
+    15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (InReg : ℝ → (Fin 6 → ℤ) → Prop) (hInReg : ∀ T (x :
+    Fin 6 → ℤ), InReg T x ↔ (-2 * T ≤ 15 * ((x 0 : ℝ) - x 4) ∧ 15 * ((x 0 : ℝ) - x 4) ≤ -T ∧ |31 * ((x 2 : ℝ) -
+    x 4)| ≤ 1 / 100000 * |15 * ((x 0 : ℝ) - x 4)|)) (Good : ℝ → ℕ → ℤ → ℤ → ℤ → Prop) (hGood : ∀ Z q A B C, Good
+    Z q A B C ↔ ((4619990760 : ℤ) ∣ A ∧ (4619990760 : ℤ) ∣ B ∧ (4619990760 : ℤ) ∣ C ∧ (q : ℝ) * Z ^ 2 ≤ A ∧ (A :
+    ℝ) < 2 * q * Z ^ 2 ∧ (q : ℝ) * Z ≤ B ∧ (B : ℝ) < 2 * q * Z ∧ (q : ℝ) * Z ≤ C ∧ (C : ℝ) < 2 * q * Z ∧ (∀ p :
+    ℕ, p.Prime → p ∣ q → ¬ (p : ℤ) ∣ A * B * C * (462 * C + 15 * A) * (31 * A - 462 * B) * (15 * B + 31 * C)) ∧
+    (∀ p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ)
+    ∣ 462 * C + q) ∨ ((p : ℤ) ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) : ∀ τ : ℝ, 0 < τ → ∃
+    T0 c3 : ℝ, 0 < c3 ∧ ∀ (T Z : ℝ) (q : ℕ) (A B C : ℤ), T0 ≤ T → 100 ≤ Z → 1 ≤ q → Squarefree q → q % 4619990760
+    = 1 → (q : ℝ) ≤ Real.log T ^ τ → Z ≤ Real.log T ^ τ → Good Z q A B C → ∃ F : Finset (Fin 6 → ℤ), (∀ x ∈ F, OnPl
+    q A B C x ∧ InReg T x ∧ Function.Injective x ∧ ∀ i, 0 < x i ∧ (x i).natAbs.Prime) ∧ c3 * T ^ 2 / ((q : ℝ) ^
+    2 * Real.log T ^ 6) ≤ F.card := by'
 - arm: B6_1061_A_full_probe
   id: N46
   name: threshold_lemma
@@ -1765,6 +1390,14 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: ca9560f34e341450
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem threshold_lemma (κ : ℝ) (hκ : 0 < κ) (Ch T0 C0 ε : ℝ) (hCh : 0 < Ch) (hε : 0 < ε) : ∃ Y0 :
+    ℝ, ∀ Y Q Z : ℝ, Y0 ≤ Y → 1 ≤ Q → Q ≤ Real.log Y ^ κ → 1 ≤ Z → Z ≤ Real.log Y ^ κ → Real.log Y / 3 ≤ Real.log
+    (Real.sqrt (Y / (Ch * Z ^ 3))) ∧ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ≤ Real.log Y ∧ T0 ≤ Real.sqrt (Y /
+    (Ch * Z ^ 3)) ∧ T0 ≤ Z * Real.sqrt (Y / (Ch * Z ^ 3)) ∧ 2 * Q ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ (κ
+    + 1) ∧ Z ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ (κ + 1) ∧ C0 * (2 * Q) ^ 2 ≤ Real.sqrt (Y / (Ch * Z ^ 3))
+    ∧ (2 * Q) ^ 2 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ∧ Q ^ 6 * Z ^
+    4 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ^ 2 := by'
 - arm: B6_1061_A_full_probe
   id: N47
   name: two_height_core
@@ -1790,6 +1423,12 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: bc2a9a38067e1f5a
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem two_height_core : ∃ c0 : ℝ, 0 < c0 ∧ c0 < 1 ∧ ∀ κ : ℝ, 0 < κ → ∃ cκ Yκ Qκ Zκ : ℝ, 0 < cκ ∧
+    ∀ Y Q Z : ℝ, Yκ ≤ Y → Qκ ≤ Q → Q ≤ Real.log Y ^ κ → Zκ ≤ Z → Z ≤ Real.log Y ^ κ → ∃ F : Finset (ℕ × ℕ), (∀ uv
+    ∈ F, 0 < uv.1 ∧ 0 < uv.2 ∧ Nat.Coprime uv.1 uv.2 ∧ c0 * Y ≤ ((uv.1 + uv.2 : ℕ) : ℝ) ∧ ((uv.1 + uv.2 : ℕ) : ℝ)
+    ≤ Y ∧ σ 1 (3600 * uv.1) + σ 1 (3600 * uv.2) = σ 1 (3600 * (uv.1 + uv.2)) ∧ (3600 * uv.1 * uv.2 * (uv.1 + uv.2)).primeFactors.card
+    ≤ 11) ∧ cκ * Y * Q ^ 2 * Z / Real.log Y ^ 6 ≤ F.card := by'
 - arm: B6_1061_A_full_probe
   id: N48
   name: S_lower_bound
@@ -1810,6 +1449,9 @@ hinges:
   outcome: open
   attempts: 1
   statement_sha256: ac05c9aa0a1e87f6
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem S_lower_bound : ∀ κ : ℝ, 0 < κ → ∃ c X1 : ℝ, 0 < c ∧ ∀ x : ℝ, X1 ≤ x → c * x * Real.log x
+    ^ (3 * κ - 5) ≤ S x := by'
 - arm: B6_1061_A_full_probe
   id: ROOT
   name: li_1061
@@ -1829,3 +1471,2657 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: d054eb98e9d47195
+  blueprint: blueprint_1061_nodes.yaml
+  statement: 'theorem li_1061 : ∀ R : ℝ, 0 < R → Tendsto (fun x : ℝ ↦ S x / (x * Real.log x ^ R)) atTop atTop :=
+    by'
+- arm: B6_1133_A_full_probe
+  id: N01
+  name: olevskii_ulanovskii_prop_4_2
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 1 ≤ τ
+  - ∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)
+  - 2 * τ ≤ Γ.card
+  - Real.pi < σ
+  consumes: nothing (external theorem)
+  produces: the lower bound a log(σ/(σ-π+bτ^(-1/3))) for the complex interpolation constant K_i(Γ, B_σ), in the
+    form "if all unit complex data have norm-K interpolants then the bound is ≤ K"
+  library_inputs:
+  - Olevskii–Ulanovskii, On irregular sampling and interpolation in Bernstein spaces, Proposition 4.2 (paper's Theorem
+    3.1)
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.01
+  outcome: open
+  attempts: 0
+  statement_sha256: d0f525ec83269070
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem olevskii_ulanovskii_prop_4_2 : ∃ a > (0:ℝ), ∃ b > (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ Γ : Finset ℝ,
+    (∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)) → 2 * τ ≤ Γ.card → ∀ σ : ℝ, Real.pi < σ → ∀ K : ℝ, (∀ v : ℝ → ℂ, (∀ s
+    ∈ Γ, ‖v s‖ ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ
+    + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) ∧ ∀ s ∈ Γ, f (s : ℂ) = v s) → a * Real.log (σ / (σ - Real.pi + b *
+    (τ:ℝ) ^ (-((1:ℝ) / 3)))) ≤ K := by'
+- arm: B6_1133_A_full_probe
+  id: N02
+  name: bernstein_vertical_growth
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < σ
+  - Differentiable ℂ f
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K'
+  consumes: nothing (standard estimate cited from [4,5])
+  produces: the vertical growth estimate (3.1), used for the normal-family compactness of sample sets
+  library_inputs:
+  - vertical growth estimate (3.1) for Bernstein spaces, cited to Olevskii–Ulanovskii [4] and Ortega-Cerdà–Seip
+    [5] (Phragmén–Lindelöf)
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 350000
+    minutes: 55
+    reached: 0.15
+  outcome: open
+  attempts: 0
+  statement_sha256: 1759c59cdd94ef8a
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_vertical_growth (σ K : ℝ) (hσ : 0 < σ) (f : ℂ → ℂ) (hf : Differentiable ℂ f) (htype
+    : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) (z :
+    ℂ) : ‖f z‖ ≤ K * Real.exp (σ * |z.im|) := by'
+- arm: B6_1133_A_full_probe
+  id: N03
+  name: bernstein_real_sample_set_isClosed
+  kind: leaf
+  join_type: literature_import
+  conditionals:
+  - 0 < σ
+  consumes: the vertical growth bound (3.1) giving local uniform boundedness
+  produces: closedness of the convex sample set K (normal-family theorem as the paper uses it in Lemma 3.3)
+  library_inputs:
+  - normal-family (Montel) theorem with preservation of type, norm and samples under locally uniform limits, as
+    invoked in the proof of Lemma 3.3
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 400000
+    minutes: 60
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: 1dece4cda380910f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_real_sample_set_isClosed (σ H : ℝ) (hσ : 0 < σ) (k : ℕ) (t : Fin k → ℝ) : IsClosed
+    {v : Fin k → ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ
+    + δ) * ‖z‖)) ∧ (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧ ∀ i, (g (t i : ℂ)).re = v i} :=
+    by'
+- arm: B6_1133_A_full_probe
+  id: N04
+  name: exp_type_linear_comb
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  - '∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)'
+  consumes: nothing
+  produces: closure of exponential type σ under complex linear combinations
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 6
+    reached: 0.85
+  outcome: proved
+  attempts: 1
+  statement_sha256: 2ebd40157d270b8b
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem exp_type_linear_comb (σ : ℝ) (f g : ℂ → ℂ) (a b : ℂ) (hf : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,
+    ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hg : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))
+    : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖a * f z + b * g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖) := by'
+- arm: B6_1133_A_full_probe
+  id: N05
+  name: bernstein_affine_rescale
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 ≤ σ
+  - 0 < lam
+  - Differentiable ℂ f
+  consumes: nothing
+  produces: the change of variable g(z) = f(z/λ + c) maps B_σ (norm K) to B_{σ/λ} (norm K)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3a2ab315f394c2c4
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_affine_rescale (σ lam c K : ℝ) (hσ : 0 ≤ σ) (hlam : 0 < lam) (f : ℂ → ℂ) (hf : Differentiable
+    ℂ f) (htype : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖
+    ≤ K) : Differentiable ℂ (fun z : ℂ => f (z / (lam : ℂ) + (c : ℂ))) ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f (z /
+    (lam : ℂ) + (c : ℂ))‖ ≤ M * Real.exp ((σ / lam + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f ((x : ℂ) / (lam : ℂ) + (c : ℂ))‖
+    ≤ K) := by'
+- arm: B6_1133_A_full_probe
+  id: N06
+  name: complex_data_from_real
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - '∀ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) → ∃ f ... norm ≤ H interpolant'
+  consumes: closure of exponential type under f1 + I*f2 (N04)
+  produces: complex unit data interpolable with norm 2H, i.e. K_i ≤ 2H (3.5)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 413dc7bd5e23e858
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem complex_data_from_real (σ H : ℝ) (k : ℕ) (s : Fin k → ℝ) (hreal : ∀ v : Fin k → ℝ, (∀ i, |v
+    i| ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) *
+    ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (s i : ℂ) = (v i : ℂ)) : ∀ w : Fin k → ℂ, (∀ i, ‖w i‖ ≤ 1) → ∃ f
+    : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧ (∀ x :
+    ℝ, ‖f (x : ℂ)‖ ≤ 2 * H) ∧ ∀ i, f (s i : ℂ) = w i := by'
+- arm: B6_1133_A_full_probe
+  id: N07
+  name: lemma32_rescale_params
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 1 ≤ τ
+  - t ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
+  consumes: nothing
+  produces: rescaled nodes s_i lie in [-τ, τ) and σ_k = π/λ_k ∈ (π, 2π] for k = 2τ
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 35000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: a261d98df3059a1e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_rescale_params (τ : ℕ) (hτ : 1 ≤ τ) (c t : ℝ) (ht : t ∈ Set.Icc c (c + 2 * (τ:ℝ) +
+    1)) : (2 * (τ:ℝ)) / (2 * τ + 2) * (t - c - (2 * (τ:ℝ) + 1) / 2) ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ) ∧ Real.pi < Real.pi
+    / ((2 * (τ:ℝ)) / (2 * τ + 2)) ∧ Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) ≤ 2 * Real.pi := by'
+- arm: B6_1133_A_full_probe
+  id: N08
+  name: lemma32_log_bound
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < a
+  - 0 < b
+  - 1 ≤ τ
+  consumes: nothing
+  produces: the lower bound (a/3) log k − b0 for the Olevskii–Ulanovskii right-hand side at k = 2τ, σ = σ_k
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 120000
+    minutes: 25
+    reached: 0.55
+  outcome: proved
+  attempts: 1
+  statement_sha256: 69a31b75ff5d67eb
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_log_bound (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (τ : ℕ) (hτ : 1 ≤ τ) : a / 3 * Real.log
+    (2 * (τ:ℝ)) - a * Real.log ((2 * Real.pi + b * (2:ℝ) ^ ((1:ℝ) / 3)) / Real.pi) ≤ a * Real.log ((Real.pi / ((2
+    * (τ:ℝ)) / (2 * τ + 2))) / (Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) - Real.pi + b * (τ:ℝ) ^ (-((1:ℝ) / 3)))) :=
+    by'
+- arm: B6_1133_A_full_probe
+  id: N09
+  name: lemma32_choose_k
+  kind: leaf
+  join_type: quantitative_improvement
+  conditionals:
+  - 0 < a
+  - 0 ≤ b0
+  - H > 0
+  consumes: nothing
+  produces: an even k = 2τ ≤ exp(A0(1+H)) with (a/3) log k − b0 > 2H, the exponential bound (3.4)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 100000
+    minutes: 22
+    reached: 0.6
+  outcome: proved
+  attempts: 1
+  statement_sha256: 427f77a92c2bf1a3
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_choose_k (a b0 : ℝ) (ha : 0 < a) (hb0 : 0 ≤ b0) : ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ τ :
+    ℕ, 1 ≤ τ ∧ 2 * H < a / 3 * Real.log (2 * (τ:ℝ)) - b0 ∧ 2 * (τ:ℝ) ≤ Real.exp (A0 * (1 + H)) := by'
+- arm: B6_1133_A_full_probe
+  id: N10
+  name: lemma32_distinct_core
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ τ
+  - Function.Injective t
+  - ∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)
+  consumes: O-U bound (N01), rescaling (N05), complex split (N06), parameter ranges (N07), log estimate (N08)
+  produces: if all real unit data at 2τ distinct nodes in an interval of length 2τ+1 are B_π-interpolable with norm
+    H, then (a/3) log(2τ) − b0 ≤ 2H
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N01)
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 220000
+    minutes: 40
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: cbc09de7cb311f94
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_distinct_core : ∃ a > (0:ℝ), ∃ b0 ≥ (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ (c : ℝ) (t : Fin (2
+    * τ) → ℝ), Function.Injective t → (∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)) → ∀ H : ℝ, (∀ v : Fin (2 * τ) →
+    ℝ, (∀ i, |v i| ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp
+    ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ)) → a / 3 * Real.log (2 *
+    (τ:ℝ)) - b0 ≤ 2 * H := by'
+- arm: B6_1133_A_full_probe
+  id: N11
+  name: coincident_nodes_obstruction
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - i ≠ j
+  - t i = t j
+  consumes: nothing
+  produces: data ±1 at two coincident indices that nothing interpolates
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 20000
+    minutes: 5
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: 8de55a061bc55772
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem coincident_nodes_obstruction (k : ℕ) (t : Fin k → ℝ) (i j : Fin k) (hij : i ≠ j) (heq : t
+    i = t j) : ∃ v : Fin k → ℝ, (∀ l, |v l| ≤ 1) ∧ ∀ f : ℂ → ℂ, ¬ ∀ l, f (t l : ℂ) = (v l : ℂ) := by'
+- arm: B6_1133_A_full_probe
+  id: N12
+  name: effective_finite_obstruction
+  kind: join
+  join_type: assembly
+  conditionals:
+  - H > 0
+  - ∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)
+  consumes: the choice of k (N09), the distinct-node contradiction (N10), the coincident-node case (N11)
+  produces: Lemma 3.2, an even k ≤ exp(A0(1+H)) with a non-interpolable real unit data vector on every k-tuple in
+    an interval of length k+1
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N10)
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 120000
+    minutes: 25
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: 412202a3a614e33f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem effective_finite_obstruction : ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ k : ℕ, Even k ∧ 2 ≤ k ∧ (k:ℝ)
+    ≤ Real.exp (A0 * (1 + H)) ∧ ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) → ∃ v : Fin k
+    → ℝ, (∀ i, |v i| ≤ 1) ∧ ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp
+    ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ) := by'
+- arm: B6_1133_A_full_probe
+  id: N13
+  name: real_symmetrization
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - Differentiable ℂ f
+  - '∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C'
+  consumes: exponential-type closure (N04)
+  produces: f^R in B_σ^R, norm ≤ C, with Re f^R = Re f on ℝ
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 110000
+    minutes: 22
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: dd33c905d6f79246
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem real_symmetrization (σ C : ℝ) (f : ℂ → ℂ) (hf : Differentiable ℂ f) (htype : ∀ δ > (0:ℝ),
+    ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) : Differentiable ℂ
+    (fun z : ℂ => (f z + starRingEnd ℂ (f (starRingEnd ℂ z))) / 2) ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖(f z + starRingEnd
+    ℂ (f (starRingEnd ℂ z))) / 2‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧ (∀ x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd
+    ℂ (x : ℂ)))) / 2).im = 0) ∧ (∀ x : ℝ, ‖(f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2‖ ≤ C) ∧ (∀
+    x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2).re = (f (x : ℂ)).re) := by'
+- arm: B6_1133_A_full_probe
+  id: N14
+  name: bernstein_real_sample_set_convex
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: exponential-type closure (N04)
+  produces: convexity of the sample set K
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 70000
+    minutes: 15
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 947b1a2c47853384
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_real_sample_set_convex (σ H : ℝ) (k : ℕ) (t : Fin k → ℝ) : Convex ℝ {v : Fin k →
+    ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))
+    ∧ (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧ ∀ i, (g (t i : ℂ)).re = v i} := by'
+- arm: B6_1133_A_full_probe
+  id: N15
+  name: finite_dim_point_separation
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - Convex ℝ K
+  - IsClosed K
+  - v ∉ K
+  consumes: nothing
+  produces: a coordinate separating vector w for v ∉ K
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 18
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: e8b892faecbd570e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem finite_dim_point_separation (k : ℕ) (K : Set (Fin k → ℝ)) (hconv : Convex ℝ K) (hclosed :
+    IsClosed K) (v : Fin k → ℝ) (hv : v ∉ K) : ∃ w : Fin k → ℝ, ∀ z ∈ K, ∑ i, w i * z i < ∑ i, w i * v i := by'
+- arm: B6_1133_A_full_probe
+  id: N16
+  name: sign_from_separation
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∑ i, w i * (u i).re < (1 - ρ) * ∑ i, |w i|
+  consumes: nothing
+  produces: an index where the sign datum sgn(w_i) is missed by more than ρ
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: e918475894392c15
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem sign_from_separation (k : ℕ) (ρ : ℝ) (w : Fin k → ℝ) (u : Fin k → ℂ) (hsep : ∑ i, w i * (u
+    i).re < (1 - ρ) * ∑ i, |w i|) : ∃ i, ρ < ‖u i - (((if 0 ≤ w i then 1 else -1 : ℝ)) : ℂ)‖ := by'
+- arm: B6_1133_A_full_probe
+  id: N17
+  name: signs_prescribed_tolerance
+  kind: join
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < C
+  - 0 ≤ ρ
+  - ρ < 1
+  - '∃ v ... ¬ ∃ f ... ‖f (x : ℂ)‖ ≤ C / (1 - ρ) ...'
+  consumes: closed (N03) convex (N14) sample set, symmetrization (N13), scaling (N04), separation (N15), sign extraction
+    (N16)
+  produces: Lemma 3.3, sign data on a k-tuple that every B_π function of norm ≤ C misses by more than ρ somewhere
+  library_inputs:
+  - normal-family theorem (via N03)
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 220000
+    minutes: 40
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 4de4ad267e22b028
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem signs_prescribed_tolerance (C ρ : ℝ) (hC : 0 < C) (hρ0 : 0 ≤ ρ) (hρ1 : ρ < 1) (k : ℕ) (t :
+    Fin k → ℝ) (hobs : ∃ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) ∧ ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M
+    : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C / (1 - ρ)) ∧ ∀ i, f (t
+    i : ℂ) = (v i : ℂ)) : ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable ℂ f → (∀ δ >
+    (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ <
+    ‖f (t i : ℂ) - (s i : ℂ)‖ := by'
+- arm: B6_1133_A_full_probe
+  id: N18
+  name: local_sign_obstruction
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - 0 ≤ ρ
+  - ρ < 1
+  consumes: Lemma 3.2 at H = C/(1−ρ) (N12) and Lemma 3.3 (N17)
+  produces: one k ≤ exp(A0(1+H)) with sign obstructions on every k-tuple in an interval of length k+1
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N12)
+  - normal-family theorem (via N17)
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 45000
+    minutes: 10
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 08e8148cc7c06f0b
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem local_sign_obstruction : ∃ A0 > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 → ∃ k : ℕ, Even
+    k ∧ 2 ≤ k ∧ (k:ℝ) ≤ Real.exp (A0 * (1 + C / (1 - ρ))) ∧ ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c
+    + (k:ℝ) + 1)) → ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable ℂ f → (∀ δ > (0:ℝ),
+    ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t
+    i : ℂ) - (s i : ℂ)‖ := by'
+- arm: B6_1133_A_full_probe
+  id: N19
+  name: norm_cos_le_exp_abs_im
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals: []
+  consumes: nothing
+  produces: the bound ‖cos w‖ ≤ e^{|Im w|}
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 55000
+    minutes: 12
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: f98944bf4dbc449e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem norm_cos_le_exp_abs_im (w : ℂ) : ‖Complex.cos w‖ ≤ Real.exp |w.im| := by'
+- arm: B6_1133_A_full_probe
+  id: N20
+  name: poly_cos_exp_type
+  kind: leaf
+  join_type: two_structure_coupling
+  conditionals:
+  - 0 < D
+  - '(P.natDegree : ℝ) ≤ D'
+  consumes: the cosine growth bound (N19)
+  produces: P(cos(πz/D)) is entire of exponential type ≤ π deg P/D ≤ π
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 160000
+    minutes: 30
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6429dd048d7713a0
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem poly_cos_exp_type (P : Polynomial ℝ) (D : ℝ) (hD : 0 < D) (hdeg : (P.natDegree : ℝ) ≤ D) :
+    Differentiable ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P) ∧ ∀ δ > (0:ℝ),
+    ∃ M : ℝ, ∀ z : ℂ, ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P‖ ≤ M * Real.exp ((Real.pi
+    + δ) * ‖z‖) := by'
+- arm: B6_1133_A_full_probe
+  id: N21
+  name: poly_cos_real_values
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
+  consumes: nothing
+  produces: on real t, f(t) = P(cos(πt/D)) is real and bounded by C
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: cf8d83e50f731a06
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem poly_cos_real_values (P : Polynomial ℝ) (D C : ℝ) (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z|
+    ≤ C) (t : ℝ) : Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P = ((P.eval (Real.cos (Real.pi
+    * t / D)) : ℝ) : ℂ) ∧ ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P‖ ≤ C := by'
+- arm: B6_1133_A_full_probe
+  id: N22
+  name: arccos_node
+  kind: join
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < D
+  - x ∈ Set.Icc (-1:ℝ) 1
+  consumes: nothing
+  produces: angular nodes t_i = (D/π) arccos x_i ∈ [0, D] with cos(πt_i/D) = x_i
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 25000
+    minutes: 6
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: a092782be61b9216
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem arccos_node (D x : ℝ) (hD : 0 < D) (hx : x ∈ Set.Icc (-1:ℝ) 1) : D / Real.pi * Real.arccos
+    x ∈ Set.Icc 0 D ∧ Real.cos (Real.pi * (D / Real.pi * Real.arccos x) / D) = x := by'
+- arm: B6_1133_A_full_probe
+  id: N23
+  name: polynomial_to_bernstein
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 0 < D
+  - '(P.natDegree : ℝ) ≤ D'
+  - ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C
+  consumes: type bound (N20), real values (N21), angular nodes (N22)
+  produces: the angular substitution f = P∘cos(π·/D) ∈ B_π with norm ≤ C and f(t_i) = P(x_i)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 14
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6237fe1b03592997
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem polynomial_to_bernstein (P : Polynomial ℝ) (D C : ℝ) (hD : 0 < D) (hdeg : (P.natDegree : ℝ)
+    ≤ D) (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) : Differentiable ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos
+    ((Real.pi : ℂ) * z / (D : ℂ))) P) ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖Polynomial.aeval (Complex.cos ((Real.pi
+    : ℂ) * z / (D : ℂ))) P‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖Polynomial.aeval (Complex.cos ((Real.pi
+    : ℂ) * (x : ℂ) / (D : ℂ))) P‖ ≤ C) ∧ (∀ x ∈ Set.Icc (-1:ℝ) 1, Polynomial.aeval (Complex.cos ((Real.pi : ℂ) *
+    ((D / Real.pi * Real.arccos x : ℝ) : ℂ) / (D : ℂ))) P = ((P.eval x : ℝ) : ℂ)) := by'
+- arm: B6_1133_A_full_probe
+  id: N24
+  name: finset_split_into_blocks
+  kind: leaf
+  join_type: case_split
+  conditionals:
+  - 1 ≤ k
+  consumes: nothing
+  produces: ⌊|S|/k⌋ disjoint k-blocks inside S, leaving at most k−1 elements
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 140000
+    minutes: 28
+    reached: 0.55
+  outcome: proved
+  attempts: 0
+  statement_sha256: d5490bf5ec4ffc2e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem finset_split_into_blocks {α : Type*} [DecidableEq α] (k : ℕ) (hk : 1 ≤ k) (S : Finset α) :
+    ∃ q : ℕ, ∃ G : Fin q → Finset α, (∀ l, G l ⊆ S) ∧ (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l)
+    (G l'')) ∧ S.card ≤ k * q + (k - 1) := by'
+- arm: B6_1133_A_full_probe
+  id: N25
+  name: bucket_grouping
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - 1 ≤ k
+  consumes: per-bucket block splitting (N24)
+  produces: the grouping (4.3), q disjoint k-groups each inside one bucket with kq ≥ n − (k−1)N
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 200000
+    minutes: 38
+    reached: 0.4
+  outcome: proved
+  attempts: 1
+  statement_sha256: c499f4019d9378d2
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bucket_grouping (n k N : ℕ) (hk : 1 ≤ k) (b : Fin n → Fin N) : ∃ q : ℕ, ∃ G : Fin q → Finset
+    (Fin n), (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l) (G l'')) ∧ (∀ l, ∃ j : Fin N, ∀ i ∈ G l,
+    b i = j) ∧ n ≤ k * q + (k - 1) * N := by'
+- arm: B6_1133_A_full_probe
+  id: N26
+  name: bucket_interval
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < D
+  - 1 ≤ k
+  - t ∈ Set.Icc 0 D
+  consumes: nothing
+  produces: a bucket index j < N = ⌈D/(k+1)⌉ with t in [j(k+1), j(k+1)+k+1]
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 110000
+    minutes: 22
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: a1d160e66b3a1047
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bucket_interval (D t : ℝ) (k : ℕ) (hD : 0 < D) (hk : 1 ≤ k) (ht : t ∈ Set.Icc 0 D) : min ⌊t
+    / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) < ⌈D / ((k:ℝ) + 1)⌉₊ ∧ t ∈ Set.Icc (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D /
+    ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ) + 1)) (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ)
+    + 1) + ((k:ℝ) + 1)) := by'
+- arm: B6_1133_A_full_probe
+  id: N27
+  name: angular_groups
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ k
+  - 0 < D
+  consumes: angular nodes (N22), bucket grouping (N25), bucket intervals (N26)
+  produces: disjoint k-groups of indices whose angular nodes lie in intervals of length k+1, kq ≥ n − (k−1)(D/(k+1)+1)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 200000
+    minutes: 38
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 58ff75bc7f0654c7
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem angular_groups (n k : ℕ) (hk : 1 ≤ k) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ) 1)
+    : ∃ q : ℕ, ∃ G : Fin q → Finset (Fin n), (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l) (G l''))
+    ∧ (∀ l, ∃ c : ℝ, ∀ i ∈ G l, D / Real.pi * Real.arccos (x i : ℝ) ∈ Set.Icc c (c + (k:ℝ) + 1)) ∧ (n : ℝ) ≤ (k:ℝ)
+    * q + ((k:ℝ) - 1) * (D / ((k:ℝ) + 1) + 1) := by'
+- arm: B6_1133_A_full_probe
+  id: N28
+  name: disjoint_groups_card_le
+  kind: leaf
+  join_type: extremal_averaging
+  conditionals:
+  - ∀ l l', l ≠ l' → Disjoint (G l) (G l')
+  - ∀ l, ∃ i ∈ G l, i ∈ E
+  consumes: nothing
+  produces: one error per disjoint group gives at least q errors
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 10
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 53c973709f82b09b
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem disjoint_groups_card_le (n q : ℕ) (G : Fin q → Finset (Fin n)) (hdisj : ∀ l l'', l ≠ l'' →
+    Disjoint (G l) (G l'')) (E : Finset (Fin n)) (hhit : ∀ l, ∃ i ∈ G l, i ∈ E) : q ≤ E.card := by'
+- arm: B6_1133_A_full_probe
+  id: N29
+  name: finite_degree_error_tradeoff
+  kind: join
+  join_type: assembly
+  conditionals:
+  - 1 ≤ k
+  - 0 < D
+  - hsign (Lemma 3.3 for all k-tuples in intervals of length k+1)
+  consumes: angular substitution (N23), groups (N27), disjoint counting (N28), Lemma 3.3 signs as hypothesis
+  produces: Theorem 4.1 in the form (4.2), E_ρ ≥ n/k − (k−1)D/(k(k+1)) − (k−1)/k
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 280000
+    minutes: 50
+    reached: 0.35
+  outcome: proved
+  attempts: 1
+  statement_sha256: 2599a879080ed0c6
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem finite_degree_error_tradeoff (C ρ : ℝ) (k : ℕ) (hk : 1 ≤ k) (hsign : ∀ (c : ℝ) (t : Fin k
+    → ℝ), (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) → ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable
+    ℂ f → (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤
+    C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖) (n : ℕ) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ) 1) : ∃ y :
+    Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧ ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ D → (∀ z ∈ Set.Icc (-1:ℝ) 1,
+    |P.eval z| ≤ C) → (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * D - ((k:ℝ) - 1) / k ≤ ((Finset.univ.filter
+    (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by'
+- arm: B6_1133_A_full_probe
+  id: N30
+  name: theorem21_arithmetic
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 2 ≤ k
+  - 4 * k ^ 2 ≤ n
+  consumes: nothing
+  produces: with ε = 1/(8k²), n ≥ 4k², D = (1+ε)n, the (4.2) bound exceeds εn
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 57d9aa014cdee974
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem theorem21_arithmetic (k n : ℕ) (hk : 2 ≤ k) (hn : 4 * k ^ 2 ≤ n) : 1 / (8 * (k:ℝ) ^ 2) * n
+    < (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * ((1 + 1 / (8 * (k:ℝ) ^ 2)) * n) - ((k:ℝ) - 1) / k := by'
+- arm: B6_1133_A_full_probe
+  id: N31
+  name: theorem21_constants
+  kind: leaf
+  join_type: algebraic_identity
+  conditionals:
+  - 0 < A0
+  - 0 ≤ H
+  - 2 ≤ k
+  - (k:ℝ) ≤ Real.exp (A0 * (1 + H))
+  consumes: nothing
+  produces: ε = 1/(8k²) ≥ e^{−A(1+H)} and n0 = 4k² ≤ e^{A(1+H)}, the bounds (2.3)
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 80000
+    minutes: 16
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: 137b0929f7d35d9f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem theorem21_constants (A0 : ℝ) (hA0 : 0 < A0) : ∃ A > (0:ℝ), ∀ H : ℝ, 0 ≤ H → ∀ k : ℕ, 2 ≤ k
+    → (k:ℝ) ≤ Real.exp (A0 * (1 + H)) → Real.exp (-(A * (1 + H))) ≤ 1 / (8 * (k:ℝ) ^ 2) ∧ 4 * (k:ℝ) ^ 2 ≤ Real.exp
+    (A * (1 + H)) := by'
+- arm: B6_1133_A_full_probe
+  id: N32
+  name: quantitative_robust_obstruction
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - 0 ≤ ρ
+  - ρ < 1
+  - n0 ≤ n
+  consumes: local sign obstruction with k (N18), Theorem 4.1 (N29), arithmetic (N30), constants (N31)
+  produces: Theorem 2.1 for real polynomials, ε = 1/(8k²), n0 = 4k²
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N18)
+  - normal-family theorem (via N18)
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 150000
+    minutes: 30
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: e184487abaecf6db
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem quantitative_robust_obstruction : ∃ A > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 → ∃ ε :
+    ℝ, 0 < ε ∧ ε < 1 ∧ Real.exp (-(A * (1 + C / (1 - ρ)))) ≤ ε ∧ ∃ n0 : ℕ, (n0 : ℝ) ≤ Real.exp (A * (1 + C / (1
+    - ρ))) ∧ ∀ n : ℕ, n0 ≤ n → ∀ x : Fin n → Set.Icc (-1:ℝ) 1, ∃ y : Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧ ∀ P
+    : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 + ε) * n → (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) → ε * n < ((Finset.univ.filter
+    (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by'
+- arm: B6_1133_A_full_probe
+  id: N33
+  name: match_error_complement
+  kind: leaf
+  join_type: case_split
+  conditionals: []
+  consumes: nothing
+  produces: at ρ = 0, matched indices and erroneous indices partition [n]
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 40000
+    minutes: 9
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 87707eafe4a54065
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem match_error_complement (n : ℕ) (P : Polynomial ℝ) (x : Fin n → Set.Icc (-1:ℝ) 1) (y : Fin
+    n → ℝ) : ((Finset.univ.filter (fun i ↦ P.eval (x i : ℝ) = y i)).card : ℝ) + ((Finset.univ.filter (fun i ↦ (0:ℝ)
+    < |P.eval (x i : ℝ) - y i|)).card : ℝ) = n := by'
+- arm: B6_1133_A_full_probe
+  id: N34
+  name: qualitative_robust_obstruction
+  kind: leaf
+  join_type: assembly
+  conditionals:
+  - C > 0
+  - n0 ≤ n
+  consumes: Theorem 2.1 (N32) at ρ = 0
+  produces: the ρ = 0 obstruction with data in Icc (-1) 1 (signs coerced)
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N32)
+  - normal-family theorem (via N32)
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 605c04031285f84f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem qualitative_robust_obstruction : ∀ C > (0:ℝ), ∃ ε : ℝ, 0 < ε ∧ ∃ n0 : ℕ, ∀ n : ℕ, n0 ≤ n →
+    ∀ x : Fin n → Set.Icc (-1:ℝ) 1, ∃ y : Fin n → Set.Icc (-1:ℝ) 1, ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 +
+    ε) * n → (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) → ε * n < ((Finset.univ.filter (fun i ↦ (0:ℝ) < |P.eval (x
+    i : ℝ) - (y i : ℝ)|)).card : ℝ) := by'
+- arm: B6_1133_A_full_probe
+  id: ROOT
+  name: erdos_1133
+  kind: join
+  join_type: assembly
+  conditionals:
+  - C > 0
+  consumes: ρ = 0 obstruction (N34) and the match/error partition (N33)
+  produces: the Challenge statement (by contraposition, a bounded P has > εn errors, so < (1−ε)n matches)
+  library_inputs:
+  - Olevskii–Ulanovskii Proposition 4.2 (via N34)
+  - normal-family theorem (via N34)
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 60000
+    minutes: 12
+    reached: 0.7
+  outcome: proved
+  attempts: 2
+  statement_sha256: c72faa118f1d9da7
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem erdos_1133 : ∀ C > (0 : ℝ), ∃ ε > (0 : ℝ), ∀ᶠ n : ℕ in atTop, ∀ x : Fin n → Icc (-1 : ℝ) 1,
+    ∃ y : Fin n → Icc (-1 : ℝ) 1, ∀ P : Polynomial ℝ, (P.natDegree : ℝ) < (1 + ε) * (n : ℝ) → ((Finset.univ.filter
+    (fun i ↦ P.eval (x i : ℝ) = (y i : ℝ))).card : ℝ) ≥ (1 - ε) * (n : ℝ) → ∃ z ∈ Icc (-1 : ℝ) 1, |P.eval z| > C
+    := by'
+- arm: B3_569_A_full_hold
+  id: N01
+  name: cycleGraph_no_isolated
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 40000
+    minutes: 5
+    reached: 0.95
+  outcome: proved
+  attempts: 2
+  statement_sha256: f1e74832ae98db61
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycleGraph_no_isolated (k : ℕ) (hk : 3 ≤ k) : ∀ v : Fin k, ∃ w, (SimpleGraph.cycleGraph k).Adj
+    v w := by'
+- arm: B3_569_A_full_hold
+  id: N02
+  name: cycleGraph_edgeSet_ncard
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 150000
+    minutes: 20
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 8c0a7cba4a1ade3f
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycleGraph_edgeSet_ncard (k : ℕ) (hk : 3 ≤ k) : (SimpleGraph.cycleGraph k).edgeSet.ncard =
+    k := by'
+- arm: B3_569_A_full_hold
+  id: N03
+  name: isContained_top_of_card_le
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 40000
+    minutes: 5
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: 358a88f3c9a4ba6a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem isContained_top_of_card_le {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (h : Fintype.card
+    W ≤ Fintype.card V) : H.IsContained (⊤ : SimpleGraph V) := by'
+- arm: B3_569_A_full_hold
+  id: N04
+  name: isContained_of_induce
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 20000
+    minutes: 3
+    reached: 0.97
+  outcome: proved
+  attempts: 0
+  statement_sha256: 803d10c1fc9ff970
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem isContained_of_induce {W V : Type} {H : SimpleGraph W} {C : SimpleGraph V} (s : Set V) (h
+    : H.IsContained (C.induce s)) : H.IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N05
+  name: isContained_compl_of_compl_induce
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 60000
+    minutes: 8
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1ad26ca9f3a576b4
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem isContained_compl_of_compl_induce {W V : Type} {H : SimpleGraph W} {C : SimpleGraph V} (s
+    : Set V) (h : H.IsContained (C.induce s)ᶜ) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N06
+  name: degree_sum_ncard
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 4ed8301966b03ab2
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem degree_sum_ncard {W : Type} [Fintype W] (H : SimpleGraph W) : ∑ v, (H.neighborSet v).ncard
+    = 2 * H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N07
+  name: card_le_two_mul_ncard
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 60000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: f42035d9efb55ea0
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem card_le_two_mul_ncard {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w)
+    : Fintype.card W ≤ 2 * H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N08
+  name: connected_card_le_ncard_add_one
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 30000
+    minutes: 4
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3a052b236c5978be
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem connected_card_le_ncard_add_one {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected)
+    : Fintype.card W ≤ H.edgeSet.ncard + 1 := by'
+- arm: B3_569_A_full_hold
+  id: N09
+  name: ramsey_zero_edges
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 50000
+    minutes: 6
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: a966b849d5b87ec8
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_zero_edges {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w) (hm
+    : H.edgeSet.ncard = 0) {V : Type} (C : SimpleGraph V) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N10
+  name: one_edge_isContained_of_adj
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 200000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 77766de3c7a648de
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem one_edge_isContained_of_adj {W V : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj
+    v w) (hm : H.edgeSet.ncard = 1) (D : SimpleGraph V) {x y : V} (hxy : D.Adj x y) : H.IsContained D := by'
+- arm: B3_569_A_full_hold
+  id: N11
+  name: ramsey_one_edge
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 63f33d8f6b740666
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_one_edge (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v,
+    ∃ w, H.Adj v w) (hm : H.edgeSet.ncard = 1) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * 1 + 1
+    ≤ Fintype.card V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N12
+  name: cycle_of_closed_seq
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: be4eb3174268c976
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycle_of_closed_seq {V : Type} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k) (f : ℕ → V) (hinj
+    : Set.InjOn f (Set.Iio k)) (hadj : ∀ i, i + 1 < k → C.Adj (f i) (f (i + 1))) (hclose : C.Adj (f (k - 1)) (f
+    0)) : (SimpleGraph.cycleGraph k).IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N13
+  name: cycle_of_path_in_nbhd
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: a9daa720fdebbaba
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycle_of_path_in_nbhd {V : Type} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k) (v : V) (S : Set
+    V) (hS : ∀ s ∈ S, C.Adj v s) (hv : v ∉ S) (hP : (SimpleGraph.pathGraph (k - 1)).IsContained (C.induce S)) :
+    (SimpleGraph.cycleGraph k).IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N14
+  name: goddard_kleitman_sidorenko
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.03
+  outcome: open
+  attempts: 0
+  statement_sha256: d8aad79c9d31d505
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem goddard_kleitman_sidorenko {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj
+    v w) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 1 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 3).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N15
+  name: step_triangle
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 80000
+    minutes: 10
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1b28cf273aad032b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_triangle (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (hW : Fintype.card
+    W = 3) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * k + 1 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N16
+  name: haggkvist
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 2000000
+    minutes: 180
+    reached: 0.1
+  outcome: open
+  attempts: 0
+  statement_sha256: dd7b3bbbb5ea6c60
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem haggkvist (k a b : ℕ) (hk : 2 ≤ k) (ha : 1 ≤ a) (hb : 1 ≤ b) (V : Type) [Fintype V] (C : SimpleGraph
+    V) (hV : a + b + k - 2 ≤ Fintype.card V) : (SimpleGraph.pathGraph k).IsContained C ∨ (completeBipartiteGraph
+    (Fin a) (Fin b)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N17
+  name: haggkvist_parts
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3c15b0783656c169
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem haggkvist_parts (k a b : ℕ) (hk : 2 ≤ k) {V : Type} [Fintype V] (C : SimpleGraph V) (X : Finset
+    V) (hX : a + b + k - 2 ≤ X.card) : (SimpleGraph.pathGraph k).IsContained C ∨ ∃ P Q : Finset V, P ⊆ X ∧ Q ⊆ X
+    ∧ a ≤ P.card ∧ b ≤ Q.card ∧ ∀ x ∈ P, ∀ y ∈ Q, Cᶜ.Adj x y := by'
+- arm: B3_569_A_full_hold
+  id: N18
+  name: multipartite_parts
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+  outcome: proved
+  attempts: 1
+  statement_sha256: 8f1195014c169085
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem multipartite_parts (k : ℕ) (hk : 2 ≤ k) (t : ℕ) (n : Fin t → ℕ) {V : Type} [Fintype V] (C
+    : SimpleGraph V) (X : Finset V) (hX : (k - 2) * (t - 1) + ∑ i, n i ≤ X.card) : (SimpleGraph.pathGraph k).IsContained
+    C ∨ ∃ P : Fin t → Finset V, (∀ i, P i ⊆ X) ∧ (∀ i, n i ≤ (P i).card) ∧ ∀ i j, i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j,
+    Cᶜ.Adj x y := by'
+- arm: B3_569_A_full_hold
+  id: N19
+  name: embed_colored_into_parts
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.5
+  outcome: proved
+  attempts: 1
+  statement_sha256: 19581dbcb89340d6
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem embed_colored_into_parts {W V : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ) (c : H.Coloring
+    (Fin t)) (D : SimpleGraph V) (P : Fin t → Finset V) (hP : ∀ i, (Finset.univ.filter (fun w => c w = i)).card
+    ≤ (P i).card) (hcross : ∀ i j, i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j, D.Adj x y) : H.IsContained D := by'
+- arm: B3_569_A_full_hold
+  id: N20
+  name: lemma5_path_coloring
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 120000
+    minutes: 15
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: ff5abf05f43b6622
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma5_path_coloring (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (t :
+    ℕ) (c : H.Coloring (Fin t)) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : Fintype.card W + (k - 2) * (t -
+    1) ≤ Fintype.card V) : (SimpleGraph.pathGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N21
+  name: cor6_path_ramsey
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 70000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: db0f20840648aa1a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cor6_path_ramsey (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (V : Type)
+    [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * (Fintype.card W - 1) + 1 ≤ Fintype.card V) : (SimpleGraph.pathGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N22
+  name: jayawardene_C4
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: 64a2155fe5d6216a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem jayawardene_C4 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (m : ℕ) (hm :
+    H.edgeSet.ncard = m) (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 1 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 4).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N23
+  name: jayawardene_C5
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: d9b79d301b287b71
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem jayawardene_C5 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hW : 4 ≤ Fintype.card
+    W) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 2 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 5).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N24
+  name: jayawardene_C6
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: 222a1c5e16e97938
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem jayawardene_C6 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hW : 6 ≤ Fintype.card
+    W) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 2 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 6).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N25
+  name: ramsey_C5_K3
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 1500000
+    minutes: 150
+    reached: 0.12
+  outcome: open
+  attempts: 0
+  statement_sha256: b51b86e4f11615a9
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C5_K3 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 9 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    5).IsContained C ∨ (⊤ : SimpleGraph (Fin 3)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N26
+  name: ramsey_C6_K3
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 1800000
+    minutes: 170
+    reached: 0.08
+  outcome: open
+  attempts: 0
+  statement_sha256: 0af4b777501f160d
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C6_K3 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 11 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    6).IsContained C ∨ (⊤ : SimpleGraph (Fin 3)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N27
+  name: ramsey_C6_K4
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: f741d2c901889977
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C6_K4 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 16 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    6).IsContained C ∨ (⊤ : SimpleGraph (Fin 4)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N28
+  name: ramsey_C6_K5
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.01
+  outcome: open
+  attempts: 0
+  statement_sha256: 1e1d15a0eaed6ad0
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C6_K5 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 21 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    6).IsContained C ∨ (⊤ : SimpleGraph (Fin 5)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N29
+  name: lemma4_small_cycles
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 62377d281b792c53
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma4_small_cycles (k : ℕ) (hk : k = 4 ∨ k = 5 ∨ k = 6) {W : Type} [Fintype W] (H : SimpleGraph
+    W) (hc : H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph
+    V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ :=
+    by'
+- arm: B3_569_A_full_hold
+  id: N30
+  name: claim8
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: 18dbeeb11de6f249
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem claim8 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V) (hw : Set.InjOn
+    w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i,
+    i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) (hfree :
+    ¬ (SimpleGraph.cycleGraph k).IsContained C) : ∀ i, i ≤ 4 → u i = u (k - 4 + i) := by'
+- arm: B3_569_A_full_hold
+  id: N31
+  name: claim9
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: 759a2388e0f93e00
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem claim9 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V) (hw : Set.InjOn
+    w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i,
+    i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) (hfree :
+    ¬ (SimpleGraph.cycleGraph k).IsContained C) : ∀ i, i ≤ 2 → u i ≠ u (i + 2) := by'
+- arm: B3_569_A_full_hold
+  id: N32
+  name: lemma7
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+  outcome: open
+  attempts: 0
+  statement_sha256: 62ce9269600a5808
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma7 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V) (hw : Set.InjOn
+    w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i,
+    i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) : (SimpleGraph.cycleGraph
+    k).IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N33
+  name: lemma7_bridge
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.55
+  outcome: proved
+  attempts: 1
+  statement_sha256: 46dca63ca78a3704
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma7_bridge (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Set V)
+    (hU : ∀ x ∈ U, C.Adj v x) (hGam : ∀ y ∈ Gam, ∃ x ∈ U, C.Adj x y) (hdisj : Disjoint U Gam) (hvG : v ∉ Gam) (hP
+    : (SimpleGraph.pathGraph (k + 1)).IsContained (C.induce Gam)) : (SimpleGraph.cycleGraph k).IsContained C :=
+    by'
+- arm: B3_569_A_full_hold
+  id: N34
+  name: exists_critical_vertex_set
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 650000
+    minutes: 75
+    reached: 0.3
+  outcome: proved
+  attempts: 1
+  statement_sha256: 6c104cf890dbf26b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_critical_vertex_set {W : Type} [Fintype W] (H : SimpleGraph W) (s : ℕ) (h : ¬ H.Colorable
+    s) : ∃ X : Finset W, ¬ (H.induce (X : Set W)).Colorable s ∧ ∀ x ∈ X, s ≤ (H.neighborSet x ∩ (X : Set W)).ncard
+    := by'
+- arm: B3_569_A_full_hold
+  id: N35
+  name: prop10
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: e346b3a193451a65
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem prop10 {W : Type} [Fintype W] (H : SimpleGraph W) (hδ : ∀ v, 2 ≤ (H.neighborSet v).ncard)
+    (t : ℕ) (ht : ¬ H.Colorable (t - 1)) : 2 * Fintype.card W + t * (t - 3) ≤ 2 * H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N36
+  name: exists_chromatic
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: a5d55fec85ad3c57
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_chromatic {W : Type} [Fintype W] (H : SimpleGraph W) (hm : 1 ≤ H.edgeSet.ncard) : ∃
+    t, 2 ≤ t ∧ H.Colorable t ∧ ¬ H.Colorable (t - 1) := by'
+- arm: B3_569_A_full_hold
+  id: N37
+  name: choose_ineq
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 715cc8f01a70001e
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem choose_ineq (n s : ℕ) (hs : 2 ≤ s) (hsn : 2 * s + 1 ≤ n) : 4 * (n - 2).choose (s - 2) < n.choose
+    s := by'
+- arm: B3_569_A_full_hold
+  id: N38
+  name: sum_induced_edges_powersetCard
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 800000
+    minutes: 90
+    reached: 0.25
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1cfb10d556d4f162
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem sum_induced_edges_powersetCard {W : Type} [Fintype W] (H : SimpleGraph W) (s : ℕ) (hs : 2
+    ≤ s) : ∑ T ∈ Finset.univ.powersetCard s, (H.induce (T : Set W)).edgeSet.ncard = H.edgeSet.ncard * (Fintype.card
+    W - 2).choose (s - 2) := by'
+- arm: B3_569_A_full_hold
+  id: N39
+  name: exists_sparse_half
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 300000
+    minutes: 35
+    reached: 0.5
+  outcome: proved
+  attempts: 1
+  statement_sha256: 3083973c3cb8af55
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_sparse_half {W : Type} [Fintype W] (H : SimpleGraph W) (hn : 3 ≤ Fintype.card W) (hm
+    : 1 ≤ H.edgeSet.ncard) : ∃ T : Finset W, T.card = (Fintype.card W + 1) / 2 - 1 ∧ 4 * (H.induce (T : Set W)).edgeSet.ncard
+    < H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N40
+  name: ramsey_with_isolated
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 700000
+    minutes: 80
+    reached: 0.3
+  outcome: proved
+  attempts: 2
+  statement_sha256: f7bd5390d2f929cc
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_with_isolated (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype
+    W''] (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V'']
+    (C'' : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨
+    H''.IsContained C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (e : ℕ) (he : H.edgeSet.ncard = e) (hem : e
+    < m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV1 : (k - 1) * e + 1 ≤ Fintype.card V) (hV2 : Fintype.card
+    W ≤ Fintype.card V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N41
+  name: glue_components
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: ff8cff57fd1a78c3
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem glue_components {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W) (hA :
+    ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) (C : SimpleGraph V) (f : SimpleGraph.Copy (H.induce A) Cᶜ) (h2 : (H.induce
+    Aᶜ).IsContained (C.induce (Set.range ⇑f)ᶜ)ᶜ) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N42
+  name: split_of_not_connected
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 80000
+    minutes: 10
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: affaef2554e8b2dc
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem split_of_not_connected {W : Type} [Fintype W] [Nonempty W] (H : SimpleGraph W) (hc : ¬ H.Connected)
+    : ∃ A : Set W, A.Nonempty ∧ Aᶜ.Nonempty ∧ ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A) := by'
+- arm: B3_569_A_full_hold
+  id: N43
+  name: edge_split_of_closed
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6ea2fd5b0ffa02d6
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem edge_split_of_closed {W : Type} [Fintype W] (H : SimpleGraph W) (A : Set W) (hA : ∀ x y, H.Adj
+    x y → (x ∈ A ↔ y ∈ A)) : (H.induce A).edgeSet.ncard + (H.induce Aᶜ).edgeSet.ncard = H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N44
+  name: induce_no_isolated_of_closed
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 30000
+    minutes: 4
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: aa0bab3c50872533
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem induce_no_isolated_of_closed {W : Type} (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w) (A
+    : Set W) (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) : ∀ v : A, ∃ w, (H.induce A).Adj v w := by'
+- arm: B3_569_A_full_hold
+  id: N45
+  name: step_disconnected
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+  outcome: proved
+  attempts: 1
+  statement_sha256: 1345604de3aeb913
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_disconnected (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype W'']
+    (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V''] (C''
+    : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨ H''.IsContained
+    C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w) (hm : H.edgeSet.ncard = m) (hc :
+    ¬ H.Connected) (hne : Nonempty W) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N46
+  name: extend_by_vertex
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1893576b6ceb13e7
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem extend_by_vertex {W V : Type} (H : SimpleGraph W) (u : W) (D : SimpleGraph V) (f : SimpleGraph.Copy
+    (H.induce ({u}ᶜ : Set W)) D) (x : V) (hx : x ∉ Set.range ⇑f) (hadj : ∀ w : ({u}ᶜ : Set W), H.Adj u w → D.Adj
+    x (f w)) : H.IsContained D := by'
+- arm: B3_569_A_full_hold
+  id: N47
+  name: delete_vertex_edges
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 350000
+    minutes: 40
+    reached: 0.5
+  outcome: proved
+  attempts: 0
+  statement_sha256: eb61c92374a145b8
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem delete_vertex_edges {W : Type} [Fintype W] (H : SimpleGraph W) (u : W) : (H.induce ({u}ᶜ :
+    Set W)).edgeSet.ncard + (H.neighborSet u).ncard = H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N48
+  name: delete_min_vertex_no_isolated
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9498be7fa1eb1c2b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem delete_min_vertex_no_isolated {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected)
+    (hm : 2 ≤ H.edgeSet.ncard) (u : W) (hu : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard) : ∀ v : ({u}ᶜ
+    : Set W), ∃ w, (H.induce ({u}ᶜ : Set W)).Adj v w := by'
+- arm: B3_569_A_full_hold
+  id: N49
+  name: red_star_pigeonhole
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 130000
+    minutes: 15
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6b554aaebc31a906
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem red_star_pigeonhole {V : Type} (C : SimpleGraph V) (T X : Finset V) (hT : T.Nonempty) (hX
+    : ∀ x ∈ X, ∃ t ∈ T, C.Adj t x) : ∃ v ∈ T, ∃ S : Finset V, S ⊆ X ∧ (∀ s ∈ S, C.Adj v s) ∧ X.card ≤ T.card * S.card
+    := by'
+- arm: B3_569_A_full_hold
+  id: N50
+  name: exists_red_star
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 800000
+    minutes: 90
+    reached: 0.3
+  outcome: proved
+  attempts: 1
+  statement_sha256: eb46e19a526ca887
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_red_star (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype W'']
+    (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V''] (C''
+    : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨ H''.IsContained
+    C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard = m) (hm2 : 2 ≤ m)
+    (u : W) (hu : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard) (V : Type) [Fintype V] (C : SimpleGraph
+    V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) (hcyc : ¬ (SimpleGraph.cycleGraph k).IsContained C) (hH : ¬ H.IsContained
+    Cᶜ) : ∃ v : V, ∃ S : Finset V, v ∉ S ∧ (∀ s ∈ S, C.Adj v s) ∧ (k - 1) * m + 2 ≤ (H.neighborSet u).ncard * S.card
+    + Fintype.card W := by'
+- arm: B3_569_A_full_hold
+  id: N51
+  name: step_min_degree_one
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 180000
+    minutes: 20
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: a9b5870cd46ab65b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_min_degree_one (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (hc :
+    H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) {V : Type} (C : SimpleGraph V) (v : V) (S : Finset V) (hvS :
+    v ∉ S) (hS : ∀ s ∈ S, C.Adj v s) (hsize : (k - 1) * m + 2 ≤ 1 * S.card + Fintype.card W) : (SimpleGraph.cycleGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N52
+  name: S_size_bound
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 200000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: b6d3e9a2ed182d99
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem S_size_bound (k n m d s : ℕ) (hk : 3 ≤ k) (hd : 2 ≤ d) (hnd : n * d ≤ 2 * m) (hs : (k - 1)
+    * m + 2 ≤ d * s + n) : (k - 2) * (n / 2) + 1 ≤ s := by'
+- arm: B3_569_A_full_hold
+  id: N53
+  name: blue_clique_in_S
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: a09e604701205f6a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem blue_clique_in_S (k q : ℕ) (hk : 3 ≤ k) {V : Type} (C : SimpleGraph V) (S : Finset V) (hS
+    : (k - 2) * q + 1 ≤ S.card) : (SimpleGraph.pathGraph (k - 1)).IsContained (C.induce (S : Set V)) ∨ ∃ U : Finset
+    V, U ⊆ S ∧ U.card = q + 1 ∧ ∀ x ∈ U, ∀ y ∈ U, x ≠ y → Cᶜ.Adj x y := by'
+- arm: B3_569_A_full_hold
+  id: N54
+  name: gamma_bound
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 150000
+    minutes: 18
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: cbb65689ea7862cb
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem gamma_bound (k : ℕ) (hk : 7 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ) (c : H.Coloring
+    (Fin t)) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Finset V) (hU : ∀ x ∈ U, C.Adj v x) (hGam : ∀ y ∈ Gam,
+    ∃ x ∈ U, C.Adj x y) (hdisj : Disjoint U Gam) (hvG : v ∉ Gam) (hfree : ¬ (SimpleGraph.cycleGraph k).IsContained
+    C) (hH : ¬ H.IsContained Cᶜ) : Gam.card + 1 ≤ Fintype.card W + (k - 1) * (t - 1) := by'
+- arm: B3_569_A_full_hold
+  id: N55
+  name: glue_clique_sparse
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3612b4e46fe2b335
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem glue_clique_sparse {W V : Type} [Fintype W] (H : SimpleGraph W) (T : Finset W) (C : SimpleGraph
+    V) (U1 U2 : Finset V) (hdisj : Disjoint U1 U2) (hcard : Fintype.card W - T.card ≤ U1.card) (hclique : ∀ x ∈
+    U1, ∀ y ∈ U1, x ≠ y → Cᶜ.Adj x y) (hcross : ∀ x ∈ U1, ∀ y ∈ U2, Cᶜ.Adj x y) (h2 : (H.induce (T : Set W)).IsContained
+    (C.induce (U2 : Set V))ᶜ) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N56
+  name: final_arith
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.5
+  outcome: proved
+  attempts: 1
+  statement_sha256: 1072f536dedd8aa7
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem final_arith (k n m t g u2 e2 h2 : ℕ) (hk : 7 ≤ k) (hn : 4 ≤ n) (hmn : n ≤ m) (ht : 2 ≤ t)
+    (hprop : 2 * n + t * (t - 3) ≤ 2 * m) (htot : (k - 1) * m + 1 ≤ 1 + (n / 2 + 1) + g + u2) (hg : g + 1 ≤ n +
+    (k - 1) * (t - 1)) (hu2 : u2 ≤ (k - 1) * e2 ∨ u2 < h2) (he2 : 4 * e2 < m) (hh2 : 2 * h2 ≤ n) : False := by'
+- arm: B3_569_A_full_hold
+  id: N57
+  name: step_large_deg_two
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 1500000
+    minutes: 150
+    reached: 0.2
+  outcome: proved
+  attempts: 1
+  statement_sha256: 64c3376d30dd6003
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_large_deg_two (k : ℕ) (hk : 7 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype W'']
+    (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V''] (C''
+    : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨ H''.IsContained
+    C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard = m) (hδ : ∀ w, 2
+    ≤ (H.neighborSet w).ncard) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V)
+    (v : V) (S : Finset V) (hvS : v ∉ S) (hS : ∀ s ∈ S, C.Adj v s) (hsize : (k - 2) * (Fintype.card W / 2) + 1 ≤
+    S.card) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N58
+  name: step_connected_large
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: 91622063e0d5d1ba
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_connected_large (k : ℕ) (hk : 7 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype
+    W''] (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V'']
+    (C'' : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨
+    H''.IsContained C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard =
+    m) (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N59
+  name: main_property
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 60a2d2ea0d3786d5
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem main_property (k : ℕ) (hk : 3 ≤ k) (m : ℕ) : ∀ (W : Type) [Fintype W] (H : SimpleGraph W),
+    (∀ v, ∃ w, H.Adj v w) → H.edgeSet.ncard = m → ∀ (V : Type) [Fintype V] (C : SimpleGraph V), (k - 1) * m + 1
+    ≤ Fintype.card V → (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: ROOT
+  name: cambie_freschi
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 50000
+    minutes: 6
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: 89ee00271e0f5f85
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cambie_freschi (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph
+    k) H ≤ (k - 1) * m + 1 := by'
+- arm: B3_159_H_full_hold
+  id: N01
+  name: graphRamsey_le_of_forall
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 3000
+    minutes: 2
+    reached: 0.97
+  outcome: proved
+  attempts: 0
+  statement_sha256: 474a0b6a5913ce0c
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β] (G : SimpleGraph α) (H : SimpleGraph
+    β) (N : ℕ) (h : ∀ C : SimpleGraph (Fin N), G.IsContained C ∨ H.IsContained Cᶜ) : SimpleGraph.graphRamsey G H
+    ≤ N'
+- arm: B3_159_H_full_hold
+  id: N02
+  name: complete_isContained_compl_iff
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 5000
+    minutes: 4
+    reached: 0.92
+  outcome: proved
+  attempts: 0
+  statement_sha256: a2cbb23f3ea53e58
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem complete_isContained_compl_iff {V : Type*} (C : SimpleGraph V) (n : ℕ) : (SimpleGraph.completeGraph
+    (Fin n)).IsContained Cᶜ ↔ ¬ C.IndepSetFree n'
+- arm: B3_159_H_full_hold
+  id: N03
+  name: c4_free_common_nbrs
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 25000
+    minutes: 20
+    reached: 0.8
+  outcome: proved
+  attempts: 1
+  statement_sha256: 885e663a71680c49
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem c4_free_common_nbrs {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {u v : V} (huv : u ≠ v) : (G.neighborFinset u ∩ G.neighborFinset
+    v).card ≤ 1'
+- arm: B3_159_H_full_hold
+  id: N04
+  name: c4_free_nbhd_local_degree
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 8000
+    minutes: 6
+    reached: 0.88
+  outcome: proved
+  attempts: 0
+  statement_sha256: 2de154b1d182c574
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem c4_free_nbhd_local_degree {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (v w : V) (hw : G.Adj v w) : ((G.neighborFinset v).filter
+    (G.Adj w)).card ≤ 1'
+- arm: B3_159_H_full_hold
+  id: N05
+  name: greedy_indep_local
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 45000
+    minutes: 35
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: a5e20c2fb10b93b4
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem greedy_indep_local {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (s : Finset V) (D : ℕ) (hD : ∀ v ∈ s, (s.filter (G.Adj v)).card ≤ D) : ∃ t ⊆ s, G.IsIndepSet (t : Set
+    V) ∧ s.card ≤ (D + 1) * t.card'
+- arm: B3_159_H_full_hold
+  id: N06
+  name: degree_lt_of_c4_free_indepSetFree
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 20000
+    minutes: 15
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9d069442cb6cb32f
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem degree_lt_of_c4_free_indepSetFree {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph
+    V) [DecidableRel G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {n : ℕ} (hα : G.IndepSetFree n) (v
+    : V) : G.degree v < 2 * n'
+- arm: B3_159_H_full_hold
+  id: N07
+  name: card_le_quadratic_of_c4_free
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 20000
+    minutes: 15
+    reached: 0.72
+  outcome: proved
+  attempts: 0
+  statement_sha256: 161ab9a7274396ec
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem card_le_quadratic_of_c4_free {N n : ℕ} (G : SimpleGraph (Fin N)) [DecidableRel G.Adj] (hG
+    : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (hα : G.IndepSetFree n) : N ≤ 2 * n * n'
+- arm: B3_159_H_full_hold
+  id: N08
+  name: graphRamsey_le_of_c4_free_bound
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 4000
+    minutes: 3
+    reached: 0.93
+  outcome: proved
+  attempts: 0
+  statement_sha256: 635dc7951937d46e
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem graphRamsey_le_of_c4_free_bound (n N : ℕ) (h : ∀ G : SimpleGraph (Fin N), ¬ (SimpleGraph.cycleGraph
+    4).IsContained G → ¬ G.IndepSetFree n) : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph
+    (Fin n)) ≤ N'
+- arm: B3_159_H_full_hold
+  id: N09
+  name: graphRamsey_c4_le_quadratic
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 6000
+    minutes: 5
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 80e1ed4856fc8270
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem graphRamsey_c4_le_quadratic (n : ℕ) : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph
+    (Fin n)) ≤ 2 * n * n + 1'
+- arm: B3_159_H_full_hold
+  id: N10
+  name: turan_weak
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 60000
+    minutes: 45
+    reached: 0.55
+  outcome: proved
+  attempts: 1
+  statement_sha256: 64ab12f66b0decc6
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
+    : ∃ t : Finset V, G.IsIndepSet (t : Set V) ∧ Fintype.card V ^ 2 ≤ 2 * (4 * G.edgeFinset.card + Fintype.card
+    V) * t.card'
+- arm: B3_159_H_full_hold
+  id: N11
+  name: exists_dense_core
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 70000
+    minutes: 55
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9b1190456f5de260
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem exists_dense_core {V : Type*} [Fintype V] [DecidableEq V] [Nonempty V] (G : SimpleGraph V)
+    [DecidableRel G.Adj] (d : ℕ) (hd : d * Fintype.card V ≤ G.edgeFinset.card) : ∃ s : Finset V, s.Nonempty ∧ ∀
+    v ∈ s, d ≤ (s.filter (G.Adj v)).card'
+- arm: B3_159_H_full_hold
+  id: N12
+  name: moore_bound_c4_free
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 60000
+    minutes: 45
+    reached: 0.5
+  outcome: proved
+  attempts: 0
+  statement_sha256: f6eedabf70035d4d
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem moore_bound_c4_free {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) (d : ℕ) (hs : s.Nonempty) (hmin : ∀
+    v ∈ s, d ≤ (s.filter (G.Adj v)).card) : d * d ≤ 2 * s.card'
+- arm: B3_159_H_full_hold
+  id: N13
+  name: core_near_extremal
+  kind: open_core
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 60
+    tokens: 1500000
+    minutes: 900
+    reached: 0.01
+  outcome: open
+  attempts: 0
+  statement_sha256: 3f491a9992632816
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem core_near_extremal : ∃ δ η : ℝ, 0 < δ ∧ δ ≤ 1 / 8 ∧ 4 * δ ≤ η ∧ ∀ κ : ℝ, 0 < κ → ∃ K : ℝ,
+    0 < K ∧ ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (s : Finset V), ¬
+    (SimpleGraph.cycleGraph 4).IsContained G → (∀ v ∈ s, κ * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj
+    v)).card : ℝ)) → ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card : ℝ)'
+- arm: B3_159_H_full_hold
+  id: N14
+  name: sparse_branch_arith
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 30000
+    minutes: 20
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: d414d993d93bbe17
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem sparse_branch_arith (δ : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 2) (N E t : ℝ) (hN : 1 ≤ N) (hE0
+    : 0 ≤ E) (hE : E ≤ N ^ ((3 : ℝ) / 2 - δ)) (ht : N ^ 2 ≤ 2 * (4 * E + N) * t) : N ^ ((1 : ℝ) / 2 + δ) ≤ 10 *
+    t'
+- arm: B3_159_H_full_hold
+  id: N15
+  name: dense_branch_arith
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 40000
+    minutes: 25
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: a7d6cc9e3a87c139
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK : 0 <
+    K) (N M : ℝ) (hN : 1 ≤ N) (hM : 0 ≤ M) (hNM : N ^ (1 - 2 * δ) ≤ 8 * M) : K * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))
+    * N ^ ((1 : ℝ) / 2 + η / 2) ≤ K * M ^ ((1 : ℝ) / 2 + η)'
+- arm: B3_159_H_full_hold
+  id: N16
+  name: c4_free_indep_power
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 25
+    tokens: 200000
+    minutes: 150
+    reached: 0.01
+  outcome: proved
+  attempts: 2
+  statement_sha256: 195efc1a8e46d2cd
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem c4_free_indep_power : ∃ ε K : ℝ, 0 < ε ∧ 0 < K ∧ ∀ (N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel
+    G.Adj], ¬ (SimpleGraph.cycleGraph 4).IsContained G → ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧
+    K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (t.card : ℝ)'
+- arm: B3_159_H_full_hold
+  id: N17
+  name: rpow_inversion
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 30000
+    minutes: 20
+    reached: 0.72
+  outcome: proved
+  attempts: 0
+  statement_sha256: 793a2f190a6de946
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ N) (hx : 0 ≤ x) (h : K *
+    N ^ ((1 : ℝ) / 2 + ε) ≤ x) : N ≤ K ^ (-(2 / (1 + 2 * ε))) * x ^ (2 - 4 * ε / (1 + 2 * ε))'
+- arm: B3_159_H_full_hold
+  id: N18
+  name: card_le_power_of_c4_free
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 6
+    tokens: 40000
+    minutes: 30
+    reached: 0.01
+  outcome: proved
+  attempts: 0
+  statement_sha256: 2b35d5c51d7e548b
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem card_le_power_of_c4_free : ∃ c C : ℝ, 0 < c ∧ c ≤ 2 ∧ 0 ≤ C ∧ ∀ (n N : ℕ) (G : SimpleGraph
+    (Fin N)) [DecidableRel G.Adj], 1 ≤ n → ¬ (SimpleGraph.cycleGraph 4).IsContained G → G.IndepSetFree n → (N :
+    ℝ) ≤ C * (n : ℝ) ^ (2 - c)'
+- arm: B3_159_H_full_hold
+  id: N19
+  name: floor_succ_le_power
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 12000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 7fe48b58c6a6c8a5
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ) (hn : 1 ≤ n) (hx : x ≤ C
+    * (n : ℝ) ^ (2 - c)) : ((⌊x⌋₊ + 1 : ℕ) : ℝ) ≤ (C + 1) * (n : ℝ) ^ (2 - c)'
+- arm: B3_159_H_full_hold
+  id: ROOT
+  name: erdos_159
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 4
+    tokens: 25000
+    minutes: 20
+    reached: 0.01
+  outcome: proved
+  attempts: 0
+  statement_sha256: 2c08da68cd8e868c
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem erdos_159 : ∃ (c : ℝ) (_ : 0 < c) (C : ℝ), ∀ (n : ℕ), 1 ≤ n → (SimpleGraph.graphRamsey (SimpleGraph.cycleGraph
+    4) (SimpleGraph.completeGraph (Fin n)) : ℝ) ≤ C * (n : ℝ) ^ (2 - c)'

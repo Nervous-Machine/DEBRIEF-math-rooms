@@ -41,7 +41,7 @@ def main():
              "library_inputs": n.get("library_inputs", []), "believed": n.get("believed"),
              "predicted": preds.get(nid), "outcome": outcome,
              "attempts": attempts.get(nid, 0) + attempts.get(name, 0),
-             "statement_sha256": hashlib.sha256(stmt.encode()).hexdigest()[:16]}
+             "statement_sha256": hashlib.sha256(stmt.encode()).hexdigest()[:16], "blueprint": nodes_path, "statement": stmt}
         vectors.append(v)
     yaml.safe_dump({"arm": arm, "blueprint": nodes_path, "hinges": vectors}, open(os.path.join(d, "hinges.yaml"), "w"), sort_keys=False, allow_unicode=True, width=110)
     by_type = {}
