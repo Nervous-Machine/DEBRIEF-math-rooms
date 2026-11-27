@@ -1,0 +1,527 @@
+root: erdos_1133
+nodes:
+- id: N01
+  name: olevskii_ulanovskii_prop_4_2
+  statement: "theorem olevskii_ulanovskii_prop_4_2 :\n    ∃ a > (0:ℝ), ∃ b > (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ Γ : Finset ℝ,\n   \
+    \   (∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)) → 2 * τ ≤ Γ.card →\n      ∀ σ : ℝ, Real.pi < σ → ∀ K : ℝ,\n        (∀ v : ℝ\
+    \ → ℂ, (∀ s ∈ Γ, ‖v s‖ ≤ 1) →\n          ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n            (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\
+    \ ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧\n            (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) ∧ ∀ s ∈ Γ, f (s : ℂ) = v s) →\n    \
+    \    a * Real.log (σ / (σ - Real.pi + b * (τ:ℝ) ^ (-((1:ℝ) / 3)))) ≤ K := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.log
+  - Real.rpow
+  - Differentiable
+  kind: leaf
+- id: N02
+  name: bernstein_vertical_growth
+  statement: "theorem bernstein_vertical_growth (σ K : ℝ) (hσ : 0 < σ) (f : ℂ → ℂ) (hf : Differentiable ℂ f)\n    (htype :\
+    \ ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) (z : ℂ) :\n\
+    \    ‖f z‖ ≤ K * Real.exp (σ * |z.im|) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - PhragmenLindelof.horizontal_strip
+  - Complex.norm_exp
+  - Differentiable.diffContOnCl
+  kind: leaf
+- id: N03
+  name: bernstein_real_sample_set_isClosed
+  statement: "theorem bernstein_real_sample_set_isClosed (σ H : ℝ) (hσ : 0 < σ) (k : ℕ) (t : Fin k → ℝ) :\n    IsClosed {v\
+    \ : Fin k → ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧\n      (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ)\
+    \ * ‖z‖)) ∧\n      (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧\n      ∀ i, (g (t i : ℂ)).re = v i} :=\
+    \ by\n"
+  depends_on:
+  - N02
+  mathlib_roots:
+  - isClosed_iff_clusterPt
+  - TendstoLocallyUniformly.differentiable
+  - Complex.differentiableOn_tsum_of_summable_norm
+  kind: leaf
+- id: N04
+  name: exp_type_linear_comb
+  statement: "theorem exp_type_linear_comb (σ : ℝ) (f g : ℂ → ℂ) (a b : ℂ)\n    (hf : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖\
+    \ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hg : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) :\n\
+    \    ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖a * f z + b * g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - norm_add_le
+  - norm_mul
+  - Real.exp_pos
+  - add_mul
+  kind: join
+- id: N05
+  name: bernstein_affine_rescale
+  statement: "theorem bernstein_affine_rescale (σ lam c K : ℝ) (hσ : 0 ≤ σ) (hlam : 0 < lam) (f : ℂ → ℂ)\n    (hf : Differentiable\
+    \ ℂ f)\n    (htype : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hbd : ∀ x : ℝ, ‖f (x :\
+    \ ℂ)‖ ≤ K) :\n    Differentiable ℂ (fun z : ℂ => f (z / (lam : ℂ) + (c : ℂ))) ∧\n    (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n\
+    \      ‖f (z / (lam : ℂ) + (c : ℂ))‖ ≤ M * Real.exp ((σ / lam + δ) * ‖z‖)) ∧\n    (∀ x : ℝ, ‖f ((x : ℂ) / (lam : ℂ) +\
+    \ (c : ℂ))‖ ≤ K) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Differentiable.comp
+  - Differentiable.add_const
+  - Differentiable.div_const
+  - norm_add_le
+  - Complex.norm_real
+  - Real.exp_add
+  - Real.exp_le_exp
+  kind: leaf
+- id: N06
+  name: complex_data_from_real
+  statement: "theorem complex_data_from_real (σ H : ℝ) (k : ℕ) (s : Fin k → ℝ)\n    (hreal : ∀ v : Fin k → ℝ, (∀ i, |v i|\
+    \ ≤ 1) →\n      ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n        (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ +\
+    \ δ) * ‖z‖)) ∧\n        (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (s i : ℂ) = (v i : ℂ)) :\n    ∀ w : Fin k → ℂ, (∀ i, ‖w i‖\
+    \ ≤ 1) →\n      ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n        (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ +\
+    \ δ) * ‖z‖)) ∧\n        (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ 2 * H) ∧ ∀ i, f (s i : ℂ) = w i := by\n"
+  depends_on:
+  - N04
+  mathlib_roots:
+  - Complex.abs_re_le_norm
+  - Complex.abs_im_le_norm
+  - Complex.re_add_im
+  - Differentiable.add
+  - Differentiable.const_mul
+  - norm_add_le
+  kind: leaf
+- id: N07
+  name: lemma32_rescale_params
+  statement: "theorem lemma32_rescale_params (τ : ℕ) (hτ : 1 ≤ τ) (c t : ℝ)\n    (ht : t ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1))\
+    \ :\n    (2 * (τ:ℝ)) / (2 * τ + 2) * (t - c - (2 * (τ:ℝ) + 1) / 2) ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ) ∧\n    Real.pi < Real.pi /\
+    \ ((2 * (τ:ℝ)) / (2 * τ + 2)) ∧\n    Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) ≤ 2 * Real.pi := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Set.mem_Icc
+  - Set.mem_Ico
+  - div_lt_div_iff₀
+  - Real.pi_pos
+  - abs_le
+  kind: leaf
+- id: N08
+  name: lemma32_log_bound
+  statement: "theorem lemma32_log_bound (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (τ : ℕ) (hτ : 1 ≤ τ) :\n    a / 3 * Real.log (2\
+    \ * (τ:ℝ)) - a * Real.log ((2 * Real.pi + b * (2:ℝ) ^ ((1:ℝ) / 3)) / Real.pi) ≤\n      a * Real.log ((Real.pi / ((2 *\
+    \ (τ:ℝ)) / (2 * τ + 2))) /\n        (Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) - Real.pi + b * (τ:ℝ) ^ (-((1:ℝ) / 3)))) :=\
+    \ by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.log_le_log
+  - Real.log_div
+  - Real.log_rpow
+  - Real.rpow_neg
+  - Real.mul_rpow
+  - Real.rpow_le_rpow_of_exponent_le
+  - Real.pi_pos
+  kind: leaf
+- id: N09
+  name: lemma32_choose_k
+  statement: "theorem lemma32_choose_k (a b0 : ℝ) (ha : 0 < a) (hb0 : 0 ≤ b0) :\n    ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ τ : ℕ, 1\
+    \ ≤ τ ∧\n      2 * H < a / 3 * Real.log (2 * (τ:ℝ)) - b0 ∧\n      2 * (τ:ℝ) ≤ Real.exp (A0 * (1 + H)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.ceil
+  - Nat.le_ceil
+  - Nat.ceil_lt_add_one
+  - Real.log_exp
+  - Real.log_le_log
+  - Real.add_one_le_exp
+  - Real.exp_le_exp
+  kind: leaf
+- id: N10
+  name: lemma32_distinct_core
+  statement: "theorem lemma32_distinct_core :\n    ∃ a > (0:ℝ), ∃ b0 ≥ (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ (c : ℝ) (t : Fin (2 * τ)\
+    \ → ℝ),\n      Function.Injective t → (∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)) → ∀ H : ℝ,\n      (∀ v : Fin (2 * τ)\
+    \ → ℝ, (∀ i, |v i| ≤ 1) →\n        ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n          (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖\
+    \ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n          (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ)) →\n  \
+    \    a / 3 * Real.log (2 * (τ:ℝ)) - b0 ≤ 2 * H := by\n"
+  depends_on:
+  - N01
+  - N05
+  - N06
+  - N07
+  - N08
+  mathlib_roots:
+  - Finset.card_image_of_injective
+  - Finset.mem_image
+  - Function.Injective.comp
+  - Real.log_nonneg
+  kind: join
+- id: N11
+  name: coincident_nodes_obstruction
+  statement: "theorem coincident_nodes_obstruction (k : ℕ) (t : Fin k → ℝ) (i j : Fin k) (hij : i ≠ j)\n    (heq : t i = t\
+    \ j) :\n    ∃ v : Fin k → ℝ, (∀ l, |v l| ≤ 1) ∧ ∀ f : ℂ → ℂ, ¬ ∀ l, f (t l : ℂ) = (v l : ℂ) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Function.update
+  - Function.update_self
+  - Function.update_of_ne
+  kind: leaf
+- id: N12
+  name: effective_finite_obstruction
+  statement: "theorem effective_finite_obstruction :\n    ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ k : ℕ, Even k ∧ 2 ≤ k ∧ (k:ℝ) ≤ Real.exp\
+    \ (A0 * (1 + H)) ∧\n      ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) →\n        ∃ v : Fin k → ℝ,\
+    \ (∀ i, |v i| ≤ 1) ∧\n          ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n            (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖\
+    \ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n            (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ) := by\n"
+  depends_on:
+  - N09
+  - N10
+  - N11
+  mathlib_roots:
+  - Function.Injective
+  - Nat.even_mul
+  - Classical.byContradiction
+  - not_exists
+  kind: join
+- id: N13
+  name: real_symmetrization
+  statement: "theorem real_symmetrization (σ C : ℝ) (f : ℂ → ℂ) (hf : Differentiable ℂ f)\n    (htype : ∀ δ > (0:ℝ), ∃ M :\
+    \ ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))\n    (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) :\n    Differentiable ℂ (fun\
+    \ z : ℂ => (f z + starRingEnd ℂ (f (starRingEnd ℂ z))) / 2) ∧\n    (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n      ‖(f z + starRingEnd\
+    \ ℂ (f (starRingEnd ℂ z))) / 2‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧\n    (∀ x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd\
+    \ ℂ (x : ℂ)))) / 2).im = 0) ∧\n    (∀ x : ℝ, ‖(f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2‖ ≤ C) ∧\n  \
+    \  (∀ x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2).re = (f (x : ℂ)).re) := by\n"
+  depends_on:
+  - N04
+  mathlib_roots:
+  - differentiableAt_conj_conj_iff
+  - DifferentiableAt.conj_conj
+  - Complex.conj_ofReal
+  - Complex.norm_conj
+  - Complex.add_conj
+  - Complex.conj_re
+  - Complex.conj_im
+  kind: leaf
+- id: N14
+  name: bernstein_real_sample_set_convex
+  statement: "theorem bernstein_real_sample_set_convex (σ H : ℝ) (k : ℕ) (t : Fin k → ℝ) :\n    Convex ℝ {v : Fin k → ℝ |\
+    \ ∃ g : ℂ → ℂ, Differentiable ℂ g ∧\n      (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧\n \
+    \     (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧\n      ∀ i, (g (t i : ℂ)).re = v i} := by\n"
+  depends_on:
+  - N04
+  mathlib_roots:
+  - convex_iff_forall_pos
+  - Differentiable.add
+  - Differentiable.const_mul
+  - norm_add_le
+  - Complex.add_re
+  - Complex.mul_re
+  kind: leaf
+- id: N15
+  name: finite_dim_point_separation
+  statement: "theorem finite_dim_point_separation (k : ℕ) (K : Set (Fin k → ℝ)) (hconv : Convex ℝ K)\n    (hclosed : IsClosed\
+    \ K) (v : Fin k → ℝ) (hv : v ∉ K) :\n    ∃ w : Fin k → ℝ, ∀ z ∈ K, ∑ i, w i * z i < ∑ i, w i * v i := by\n"
+  depends_on: []
+  mathlib_roots:
+  - geometric_hahn_banach_closed_point
+  - ContinuousLinearMap.map_sum
+  - Finset.univ_sum_single
+  - Pi.single
+  kind: leaf
+- id: N16
+  name: sign_from_separation
+  statement: "theorem sign_from_separation (k : ℕ) (ρ : ℝ) (w : Fin k → ℝ) (u : Fin k → ℂ)\n    (hsep : ∑ i, w i * (u i).re\
+    \ < (1 - ρ) * ∑ i, |w i|) :\n    ∃ i, ρ < ‖u i - (((if 0 ≤ w i then 1 else -1 : ℝ)) : ℂ)‖ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.sum_le_sum
+  - Complex.abs_re_le_norm
+  - Complex.sub_re
+  - Complex.ofReal_re
+  - abs_of_nonneg
+  - abs_of_neg
+  - Finset.mul_sum
+  kind: leaf
+- id: N17
+  name: signs_prescribed_tolerance
+  statement: "theorem signs_prescribed_tolerance (C ρ : ℝ) (hC : 0 < C) (hρ0 : 0 ≤ ρ) (hρ1 : ρ < 1)\n    (k : ℕ) (t : Fin\
+    \ k → ℝ)\n    (hobs : ∃ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) ∧\n      ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧\n        (∀ δ > (0:ℝ),\
+    \ ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n        (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C / (1 - ρ)) ∧ ∀ i,\
+    \ f (t i : ℂ) = (v i : ℂ)) :\n    ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧\n      ∀ f : ℂ → ℂ, Differentiable ℂ f\
+    \ →\n        (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →\n        (∀ x : ℝ, ‖f (x :\
+    \ ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖ := by\n"
+  depends_on:
+  - N03
+  - N04
+  - N13
+  - N14
+  - N15
+  - N16
+  mathlib_roots:
+  - Complex.ext
+  - Complex.ofReal_re
+  - Complex.ofReal_im
+  - Finset.sum_le_sum
+  - le_abs_self
+  - div_pos
+  kind: join
+- id: N18
+  name: local_sign_obstruction
+  statement: "theorem local_sign_obstruction :\n    ∃ A0 > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 →\n      ∃ k : ℕ, Even\
+    \ k ∧ 2 ≤ k ∧ (k:ℝ) ≤ Real.exp (A0 * (1 + C / (1 - ρ))) ∧\n        ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c\
+    \ + (k:ℝ) + 1)) →\n          ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧\n            ∀ f : ℂ → ℂ, Differentiable ℂ f\
+    \ →\n              (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →\n              (∀ x :\
+    \ ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖ := by\n"
+  depends_on:
+  - N12
+  - N17
+  mathlib_roots:
+  - div_pos
+  - sub_pos
+  kind: join
+- id: N19
+  name: norm_cos_le_exp_abs_im
+  statement: 'theorem norm_cos_le_exp_abs_im (w : ℂ) : ‖Complex.cos w‖ ≤ Real.exp |w.im| := by
+
+    '
+  depends_on: []
+  mathlib_roots:
+  - Complex.two_cos
+  - Complex.norm_exp
+  - norm_add_le
+  - Complex.mul_re
+  - Complex.I_re
+  - Complex.I_im
+  - Real.exp_le_exp
+  - neg_abs_le
+  - le_abs_self
+  kind: leaf
+- id: N20
+  name: poly_cos_exp_type
+  statement: "theorem poly_cos_exp_type (P : Polynomial ℝ) (D : ℝ) (hD : 0 < D) (hdeg : (P.natDegree : ℝ) ≤ D) :\n    Differentiable\
+    \ ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P) ∧\n    ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n\
+    \      ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P‖ ≤\n        M * Real.exp ((Real.pi + δ) * ‖z‖)\
+    \ := by\n"
+  depends_on:
+  - N19
+  mathlib_roots:
+  - Polynomial.differentiable_aeval
+  - Complex.differentiable_cos
+  - Differentiable.comp
+  - Polynomial.aeval_eq_sum_range
+  - norm_sum_le
+  - norm_pow
+  - Real.exp_nat_mul
+  - Complex.abs_im_le_norm
+  - Real.exp_le_exp
+  kind: leaf
+- id: N21
+  name: poly_cos_real_values
+  statement: "theorem poly_cos_real_values (P : Polynomial ℝ) (D C : ℝ)\n    (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C)\
+    \ (t : ℝ) :\n    Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P =\n      ((P.eval (Real.cos (Real.pi\
+    \ * t / D)) : ℝ) : ℂ) ∧\n    ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P‖ ≤ C := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Polynomial.aeval_algebraMap_apply_eq_algebraMap_eval
+  - Complex.ofReal_cos
+  - Complex.ofReal_mul
+  - Complex.ofReal_div
+  - Complex.norm_real
+  - Real.neg_one_le_cos
+  - Real.cos_le_one
+  kind: leaf
+- id: N22
+  name: arccos_node
+  statement: "theorem arccos_node (D x : ℝ) (hD : 0 < D) (hx : x ∈ Set.Icc (-1:ℝ) 1) :\n    D / Real.pi * Real.arccos x ∈\
+    \ Set.Icc 0 D ∧\n    Real.cos (Real.pi * (D / Real.pi * Real.arccos x) / D) = x := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.arccos_nonneg
+  - Real.arccos_le_pi
+  - Real.cos_arccos
+  - Real.pi_pos
+  - mul_div_cancel_left₀
+  kind: join
+- id: N23
+  name: polynomial_to_bernstein
+  statement: "theorem polynomial_to_bernstein (P : Polynomial ℝ) (D C : ℝ) (hD : 0 < D)\n    (hdeg : (P.natDegree : ℝ) ≤ D)\
+    \ (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) :\n    Differentiable ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos ((Real.pi\
+    \ : ℂ) * z / (D : ℂ))) P) ∧\n    (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,\n      ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ)\
+    \ * z / (D : ℂ))) P‖ ≤\n        M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧\n    (∀ x : ℝ, ‖Polynomial.aeval (Complex.cos ((Real.pi\
+    \ : ℂ) * (x : ℂ) / (D : ℂ))) P‖ ≤ C) ∧\n    (∀ x ∈ Set.Icc (-1:ℝ) 1,\n      Polynomial.aeval (Complex.cos ((Real.pi :\
+    \ ℂ) * ((D / Real.pi * Real.arccos x : ℝ) : ℂ) / (D : ℂ))) P =\n        ((P.eval x : ℝ) : ℂ)) := by\n"
+  depends_on:
+  - N20
+  - N21
+  - N22
+  mathlib_roots:
+  - Complex.ofReal_mul
+  - Complex.ofReal_div
+  kind: join
+- id: N24
+  name: finset_split_into_blocks
+  statement: "theorem finset_split_into_blocks {α : Type*} [DecidableEq α] (k : ℕ) (hk : 1 ≤ k) (S : Finset α) :\n    ∃ q\
+    \ : ℕ, ∃ G : Fin q → Finset α,\n      (∀ l, G l ⊆ S) ∧ (∀ l, (G l).card = k) ∧ (∀ l l', l ≠ l' → Disjoint (G l) (G l'))\
+    \ ∧\n      S.card ≤ k * q + (k - 1) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.exists_subset_card_eq
+  - Finset.strongInduction
+  - Finset.card_sdiff
+  - Fin.cons
+  - Finset.disjoint_sdiff
+  kind: leaf
+- id: N25
+  name: bucket_grouping
+  statement: "theorem bucket_grouping (n k N : ℕ) (hk : 1 ≤ k) (b : Fin n → Fin N) :\n    ∃ q : ℕ, ∃ G : Fin q → Finset (Fin\
+    \ n),\n      (∀ l, (G l).card = k) ∧ (∀ l l', l ≠ l' → Disjoint (G l) (G l')) ∧\n      (∀ l, ∃ j : Fin N, ∀ i ∈ G l, b\
+    \ i = j) ∧ n ≤ k * q + (k - 1) * N := by\n"
+  depends_on:
+  - N24
+  mathlib_roots:
+  - Finset.card_eq_sum_card_fiberwise
+  - Finset.sum_le_sum
+  - Finset.disjoint_filter
+  - finSigmaFinEquiv
+  - Finset.card_univ
+  - Fintype.card_fin
+  kind: leaf
+- id: N26
+  name: bucket_interval
+  statement: "theorem bucket_interval (D t : ℝ) (k : ℕ) (hD : 0 < D) (hk : 1 ≤ k) (ht : t ∈ Set.Icc 0 D) :\n    min ⌊t / ((k:ℝ)\
+    \ + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) < ⌈D / ((k:ℝ) + 1)⌉₊ ∧\n    t ∈ Set.Icc (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊\
+    \ - 1) : ℕ) : ℝ) * ((k:ℝ) + 1))\n      (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ) + 1) + ((k:ℝ)\
+    \ + 1)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Nat.floor_le
+  - Nat.lt_floor_add_one
+  - Nat.le_ceil
+  - Nat.ceil_pos
+  - Nat.ceil_lt_add_one
+  - Nat.cast_min
+  - Nat.cast_sub
+  kind: leaf
+- id: N27
+  name: angular_groups
+  statement: "theorem angular_groups (n k : ℕ) (hk : 1 ≤ k) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ) 1) :\n    ∃ q\
+    \ : ℕ, ∃ G : Fin q → Finset (Fin n),\n      (∀ l, (G l).card = k) ∧ (∀ l l', l ≠ l' → Disjoint (G l) (G l')) ∧\n     \
+    \ (∀ l, ∃ c : ℝ, ∀ i ∈ G l, D / Real.pi * Real.arccos (x i : ℝ) ∈ Set.Icc c (c + (k:ℝ) + 1)) ∧\n      (n : ℝ) ≤ (k:ℝ)\
+    \ * q + ((k:ℝ) - 1) * (D / ((k:ℝ) + 1) + 1) := by\n"
+  depends_on:
+  - N22
+  - N25
+  - N26
+  mathlib_roots:
+  - Nat.ceil_lt_add_one
+  - Nat.cast_le
+  - Nat.cast_mul
+  - Nat.cast_sub
+  - Nat.cast_add
+  kind: join
+- id: N28
+  name: disjoint_groups_card_le
+  statement: "theorem disjoint_groups_card_le (n q : ℕ) (G : Fin q → Finset (Fin n))\n    (hdisj : ∀ l l', l ≠ l' → Disjoint\
+    \ (G l) (G l')) (E : Finset (Fin n))\n    (hhit : ∀ l, ∃ i ∈ G l, i ∈ E) : q ≤ E.card := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_le_card_of_injOn
+  - Finset.disjoint_left
+  - Fintype.card_fin
+  - Finset.card_univ
+  kind: leaf
+- id: N29
+  name: finite_degree_error_tradeoff
+  statement: "theorem finite_degree_error_tradeoff (C ρ : ℝ) (k : ℕ) (hk : 1 ≤ k)\n    (hsign : ∀ (c : ℝ) (t : Fin k → ℝ),\
+    \ (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) →\n      ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧\n        ∀ f : ℂ → ℂ, Differentiable\
+    \ ℂ f →\n          (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) →\n          (∀ x : ℝ,\
+    \ ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖)\n    (n : ℕ) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ)\
+    \ 1) :\n    ∃ y : Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧\n      ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ D → (∀ z ∈ Set.Icc\
+    \ (-1:ℝ) 1, |P.eval z| ≤ C) →\n        (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * D - ((k:ℝ) - 1) / k ≤\n   \
+    \       ((Finset.univ.filter (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by\n"
+  depends_on:
+  - N23
+  - N27
+  - N28
+  mathlib_roots:
+  - Finset.equivFin
+  - Finset.orderEmbOfFin
+  - Classical.choose
+  - Complex.norm_real
+  - Complex.ofReal_sub
+  - Finset.mem_filter
+  kind: join
+- id: N30
+  name: theorem21_arithmetic
+  statement: "theorem theorem21_arithmetic (k n : ℕ) (hk : 2 ≤ k) (hn : 4 * k ^ 2 ≤ n) :\n    1 / (8 * (k:ℝ) ^ 2) * n <\n\
+    \      (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * ((1 + 1 / (8 * (k:ℝ) ^ 2)) * n) -\n        ((k:ℝ) - 1) / k\
+    \ := by\n"
+  depends_on: []
+  mathlib_roots:
+  - div_le_div_iff₀
+  - Nat.cast_le
+  - Nat.cast_pow
+  - sub_pos
+  kind: leaf
+- id: N31
+  name: theorem21_constants
+  statement: "theorem theorem21_constants (A0 : ℝ) (hA0 : 0 < A0) :\n    ∃ A > (0:ℝ), ∀ H : ℝ, 0 ≤ H → ∀ k : ℕ, 2 ≤ k → (k:ℝ)\
+    \ ≤ Real.exp (A0 * (1 + H)) →\n      Real.exp (-(A * (1 + H))) ≤ 1 / (8 * (k:ℝ) ^ 2) ∧\n      4 * (k:ℝ) ^ 2 ≤ Real.exp\
+    \ (A * (1 + H)) := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Real.exp_neg
+  - Real.exp_add
+  - Real.exp_nat_mul
+  - Real.add_one_le_exp
+  - Real.exp_one_gt_d9
+  - pow_le_pow_left₀
+  kind: leaf
+- id: N32
+  name: quantitative_robust_obstruction
+  statement: "theorem quantitative_robust_obstruction :\n    ∃ A > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 →\n      ∃ ε\
+    \ : ℝ, 0 < ε ∧ ε < 1 ∧ Real.exp (-(A * (1 + C / (1 - ρ)))) ≤ ε ∧\n      ∃ n0 : ℕ, (n0 : ℝ) ≤ Real.exp (A * (1 + C / (1\
+    \ - ρ))) ∧\n        ∀ n : ℕ, n0 ≤ n → ∀ x : Fin n → Set.Icc (-1:ℝ) 1,\n          ∃ y : Fin n → ℝ, (∀ i, y i = 1 ∨ y i\
+    \ = -1) ∧\n            ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 + ε) * n →\n              (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval\
+    \ z| ≤ C) →\n              ε * n < ((Finset.univ.filter (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by\n"
+  depends_on:
+  - N18
+  - N29
+  - N30
+  - N31
+  mathlib_roots:
+  - div_nonneg
+  - sub_pos
+  - mul_pos
+  - Nat.cast_pos
+  kind: join
+- id: N33
+  name: match_error_complement
+  statement: "theorem match_error_complement (n : ℕ) (P : Polynomial ℝ) (x : Fin n → Set.Icc (-1:ℝ) 1) (y : Fin n → ℝ) :\n\
+    \    ((Finset.univ.filter (fun i ↦ P.eval (x i : ℝ) = y i)).card : ℝ) +\n      ((Finset.univ.filter (fun i ↦ (0:ℝ) < |P.eval\
+    \ (x i : ℝ) - y i|)).card : ℝ) = n := by\n"
+  depends_on: []
+  mathlib_roots:
+  - Finset.card_filter_add_card_filter_not
+  - abs_pos
+  - sub_ne_zero
+  - Finset.filter_congr
+  - Finset.card_univ
+  - Fintype.card_fin
+  kind: leaf
+- id: N34
+  name: qualitative_robust_obstruction
+  statement: "theorem qualitative_robust_obstruction :\n    ∀ C > (0:ℝ), ∃ ε : ℝ, 0 < ε ∧ ∃ n0 : ℕ, ∀ n : ℕ, n0 ≤ n → ∀ x\
+    \ : Fin n → Set.Icc (-1:ℝ) 1,\n      ∃ y : Fin n → Set.Icc (-1:ℝ) 1,\n        ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤\
+    \ (1 + ε) * n →\n          (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) →\n          ε * n < ((Finset.univ.filter (fun i ↦\
+    \ (0:ℝ) < |P.eval (x i : ℝ) - (y i : ℝ)|)).card : ℝ) := by\n"
+  depends_on:
+  - N32
+  mathlib_roots:
+  - Set.mem_Icc
+  - sub_zero
+  - div_one
+  kind: leaf
+- id: ROOT
+  name: erdos_1133
+  statement: "theorem erdos_1133 :\n    ∀ C > (0 : ℝ), ∃ ε > (0 : ℝ), ∀ᶠ n : ℕ in atTop,\n      ∀ x : Fin n → Icc (-1 : ℝ)\
+    \ 1,\n        ∃ y : Fin n → Icc (-1 : ℝ) 1,\n          ∀ P : Polynomial ℝ,\n            (P.natDegree : ℝ) < (1 + ε) *\
+    \ (n : ℝ) →\n            ((Finset.univ.filter (fun i ↦ P.eval (x i : ℝ) = (y i : ℝ))).card : ℝ) ≥\n              (1 -\
+    \ ε) * (n : ℝ) →\n            ∃ z ∈ Icc (-1 : ℝ) 1, |P.eval z| > C := by\n"
+  depends_on:
+  - N33
+  - N34
+  mathlib_roots:
+  - Filter.eventually_atTop
+  - not_exists
+  - not_lt
+  - le_of_lt
+  kind: join

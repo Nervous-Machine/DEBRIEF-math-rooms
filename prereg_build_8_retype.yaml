@@ -1,0 +1,64 @@
+# Pre-registration, cycle "retype-2026-11-27": build 8a, gap EG7, the blind re-typing under revised join types.
+# Written 2026-11-27T17:24Z, BEFORE either reader has run. Amendments are appended below a marker line after the
+# runs; this registered text is never edited and ends before any amendments key.
+#
+# Occasion. Build 6's seven join types predicted reach but two readers agreed on them only 85 percent of the time on
+# one blueprint and 67 percent on the other, with every disagreement on three boundaries: a computation against a finite
+# split, a bound against an averaging step, glue against the identity it glues. A rate built on a type two readers
+# cannot reproduce is not a rate. Heidi Bennett (2026-11-27): "Let's execute in that order", EG7 first.
+#
+# Revision. rooms/TYPES_V2.md: `algebraic_identity` becomes `computation` (equalities, iffs, witnesses, definitional
+# facts, and inequalities that hold identically); `extremal_averaging` becomes `estimate` (any inequality whose truth
+# needs a size condition); `assembly` requires two or more dependencies and no new inequality, enumeration or
+# calculation; `case_split` requires that the enumeration be the content; `literature_import`, `two_structure_coupling`
+# and `quantitative_improvement` are unchanged. The types are now walked in a fixed decision order with written tests.
+#
+# Design. Two fresh reader contexts, one on each of two models (Claude Fable 5.1 and Claude Opus 5.5), each type all 82
+# rooms plus the two ROOT entries from the untyped blueprints and TYPES_V2.md alone. Neither sees the planner's types,
+# the atlas, the outcomes or the other reader's file. Agreement is scored pairwise per blueprint; reach by type is then
+# recomputed on the rooms where the readers agree, using the outcomes already in the atlas.
+#
+# Caveats before the data. (1) Two readers, two blueprints, one pass; the threshold is the one EG7 wrote, 80 percent
+# per blueprint. (2) The readers are models, not mathematicians; agreement between two models under a written rule is
+# the thing measured, and a human re-typing would be a separate cycle. (3) Reach by v2 type reuses build 6's
+# outcomes, so it is a re-labelling of existing data, not a new measurement of reach. (4) The registrar wrote the rules
+# after seeing the build 6 disagreements and may not read as a reader.
+
+mission: rooms-2026-11
+cycle: "retype-2026-11-27"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)"
+dated: "2026-11-27"
+question: >
+  Under a type system with a fixed decision order and written boundary rules, do two independent readers agree on the
+  join type of at least 80 percent of rooms on each blueprint; where do they still disagree; and does the reach
+  ordering of build 6 survive the re-labelling?
+
+inputs:
+  types: {path: rooms/TYPES_V2.md, sha256: "f274eaf8ce33347c4febd98d5c66c50448d94fee27633faa3df579498ef9fdd9"}
+  reader_brief: {path: rooms/RETYPE_PROMPT.md, sha256: "f9c92279c1e2bd284ab2b57d625c401bad7cf69a858f33954f7f78885f938d14"}
+  untyped_blueprints:
+    - {path: retype/blueprint_1061_untyped.yaml, sha256: "e6ef1a8f5f18cb19a38aad69285a7523bfdc00e3b31f73b754002a1e7126fcb0", rooms: 48, note: "join_type, believed, conditionals, consumes, produces, library_inputs and the planner's notes removed"}
+    - {path: retype/blueprint_1133_untyped.yaml, sha256: "7f3f205e107ccafa71f1e508a73cbf0c60ae13ae5930d871cd810ccc4e5c7aef", rooms: 34}
+  outcomes: {path: atlas/hinges.yaml, sha256: "4217a67bfa5ff0db1751dfad3f6e47e9247db4a92629fee42a72d67d2f384d70", note: "build 6 outcomes, read only by the scorer"}
+  scorer: {path: rooms/retype_score.py, sha256: "6ea8c87fe8ac723358183ca910371499b6c27b2ca01337a31c9e076d25d2c9b4"}
+
+readers:
+  reader_A: {model: claude-fable-5-1, context: fresh, output: retype/reader_A_1061.yaml and retype/reader_A_1133.yaml}
+  reader_B: {model: claude-opus-5-5, context: fresh, output: retype/reader_B_1061.yaml and retype/reader_B_1133.yaml}
+
+predictions:
+  - {id: P1, says: "the two readers agree on at least 80 percent of rooms on each blueprint (at least 39 of 49 on 1061 including ROOT, at least 28 of 35 on 1133 including ROOT)"}
+  - {id: P2, says: "the remaining disagreements are mostly on the estimate/computation boundary: at least half of the disagreeing pairs involve those two types"}
+  - {id: P3, says: "the readers agree on every room the planner typed literature_import, and on at least 5 of the 8 rooms the planner typed two_structure_coupling"}
+  - {id: P4, says: "reach by consensus v2 type keeps build 6's ordering: computation and case_split above estimate and assembly, all four above coupling and improvement, with literature at zero"}
+  - {id: P5, says: "the two readers' type counts differ by at most 6 rooms in any one type on the larger blueprint"}
+
+falsifiers: >
+  P1 failing means the written rules did not make the middle reproducible and the type set needs a further revision or
+  fewer types before any prior is built on the rates; P4 failing means the build 6 ordering was an artifact of the v1
+  labels.
+
+standing_consequences:
+  P1_and_P4_hold: "EG7 resolves (resolved_learned); TYPES_V2 becomes the type system of record for the atlas, and the atlas is re-labelled with the consensus types in a following commit"
+  P1_fails: "EG7 stays open with the disagreement table as its new data"
