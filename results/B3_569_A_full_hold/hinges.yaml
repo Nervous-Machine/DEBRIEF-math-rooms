@@ -1,0 +1,1328 @@
+arm: B3_569_A_full_hold
+blueprint: blueprint_569_nodes.yaml
+hinges:
+- arm: B3_569_A_full_hold
+  id: N01
+  name: cycleGraph_no_isolated
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 40000
+    minutes: 5
+    reached: 0.95
+  outcome: proved
+  attempts: 2
+  statement_sha256: f1e74832ae98db61
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycleGraph_no_isolated (k : ℕ) (hk : 3 ≤ k) : ∀ v : Fin k, ∃ w, (SimpleGraph.cycleGraph k).Adj
+    v w := by'
+- arm: B3_569_A_full_hold
+  id: N02
+  name: cycleGraph_edgeSet_ncard
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 150000
+    minutes: 20
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 8c0a7cba4a1ade3f
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycleGraph_edgeSet_ncard (k : ℕ) (hk : 3 ≤ k) : (SimpleGraph.cycleGraph k).edgeSet.ncard =
+    k := by'
+- arm: B3_569_A_full_hold
+  id: N03
+  name: isContained_top_of_card_le
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 40000
+    minutes: 5
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: 358a88f3c9a4ba6a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem isContained_top_of_card_le {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (h : Fintype.card
+    W ≤ Fintype.card V) : H.IsContained (⊤ : SimpleGraph V) := by'
+- arm: B3_569_A_full_hold
+  id: N04
+  name: isContained_of_induce
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 20000
+    minutes: 3
+    reached: 0.97
+  outcome: proved
+  attempts: 0
+  statement_sha256: 803d10c1fc9ff970
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem isContained_of_induce {W V : Type} {H : SimpleGraph W} {C : SimpleGraph V} (s : Set V) (h
+    : H.IsContained (C.induce s)) : H.IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N05
+  name: isContained_compl_of_compl_induce
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 60000
+    minutes: 8
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1ad26ca9f3a576b4
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem isContained_compl_of_compl_induce {W V : Type} {H : SimpleGraph W} {C : SimpleGraph V} (s
+    : Set V) (h : H.IsContained (C.induce s)ᶜ) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N06
+  name: degree_sum_ncard
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 4ed8301966b03ab2
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem degree_sum_ncard {W : Type} [Fintype W] (H : SimpleGraph W) : ∑ v, (H.neighborSet v).ncard
+    = 2 * H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N07
+  name: card_le_two_mul_ncard
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 60000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: f42035d9efb55ea0
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem card_le_two_mul_ncard {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w)
+    : Fintype.card W ≤ 2 * H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N08
+  name: connected_card_le_ncard_add_one
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 30000
+    minutes: 4
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3a052b236c5978be
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem connected_card_le_ncard_add_one {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected)
+    : Fintype.card W ≤ H.edgeSet.ncard + 1 := by'
+- arm: B3_569_A_full_hold
+  id: N09
+  name: ramsey_zero_edges
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 50000
+    minutes: 6
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: a966b849d5b87ec8
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_zero_edges {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w) (hm
+    : H.edgeSet.ncard = 0) {V : Type} (C : SimpleGraph V) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N10
+  name: one_edge_isContained_of_adj
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 200000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 77766de3c7a648de
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem one_edge_isContained_of_adj {W V : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj
+    v w) (hm : H.edgeSet.ncard = 1) (D : SimpleGraph V) {x y : V} (hxy : D.Adj x y) : H.IsContained D := by'
+- arm: B3_569_A_full_hold
+  id: N11
+  name: ramsey_one_edge
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: 63f33d8f6b740666
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_one_edge (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v,
+    ∃ w, H.Adj v w) (hm : H.edgeSet.ncard = 1) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * 1 + 1
+    ≤ Fintype.card V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N12
+  name: cycle_of_closed_seq
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: be4eb3174268c976
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycle_of_closed_seq {V : Type} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k) (f : ℕ → V) (hinj
+    : Set.InjOn f (Set.Iio k)) (hadj : ∀ i, i + 1 < k → C.Adj (f i) (f (i + 1))) (hclose : C.Adj (f (k - 1)) (f
+    0)) : (SimpleGraph.cycleGraph k).IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N13
+  name: cycle_of_path_in_nbhd
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: a9daa720fdebbaba
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cycle_of_path_in_nbhd {V : Type} (C : SimpleGraph V) (k : ℕ) (hk : 3 ≤ k) (v : V) (S : Set
+    V) (hS : ∀ s ∈ S, C.Adj v s) (hv : v ∉ S) (hP : (SimpleGraph.pathGraph (k - 1)).IsContained (C.induce S)) :
+    (SimpleGraph.cycleGraph k).IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N14
+  name: goddard_kleitman_sidorenko
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.03
+  outcome: open
+  attempts: 0
+  statement_sha256: d8aad79c9d31d505
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem goddard_kleitman_sidorenko {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj
+    v w) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 1 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 3).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N15
+  name: step_triangle
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 80000
+    minutes: 10
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1b28cf273aad032b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_triangle (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (hW : Fintype.card
+    W = 3) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * k + 1 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N16
+  name: haggkvist
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 2000000
+    minutes: 180
+    reached: 0.1
+  outcome: open
+  attempts: 0
+  statement_sha256: dd7b3bbbb5ea6c60
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem haggkvist (k a b : ℕ) (hk : 2 ≤ k) (ha : 1 ≤ a) (hb : 1 ≤ b) (V : Type) [Fintype V] (C : SimpleGraph
+    V) (hV : a + b + k - 2 ≤ Fintype.card V) : (SimpleGraph.pathGraph k).IsContained C ∨ (completeBipartiteGraph
+    (Fin a) (Fin b)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N17
+  name: haggkvist_parts
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3c15b0783656c169
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem haggkvist_parts (k a b : ℕ) (hk : 2 ≤ k) {V : Type} [Fintype V] (C : SimpleGraph V) (X : Finset
+    V) (hX : a + b + k - 2 ≤ X.card) : (SimpleGraph.pathGraph k).IsContained C ∨ ∃ P Q : Finset V, P ⊆ X ∧ Q ⊆ X
+    ∧ a ≤ P.card ∧ b ≤ Q.card ∧ ∀ x ∈ P, ∀ y ∈ Q, Cᶜ.Adj x y := by'
+- arm: B3_569_A_full_hold
+  id: N18
+  name: multipartite_parts
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+  outcome: proved
+  attempts: 1
+  statement_sha256: 8f1195014c169085
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem multipartite_parts (k : ℕ) (hk : 2 ≤ k) (t : ℕ) (n : Fin t → ℕ) {V : Type} [Fintype V] (C
+    : SimpleGraph V) (X : Finset V) (hX : (k - 2) * (t - 1) + ∑ i, n i ≤ X.card) : (SimpleGraph.pathGraph k).IsContained
+    C ∨ ∃ P : Fin t → Finset V, (∀ i, P i ⊆ X) ∧ (∀ i, n i ≤ (P i).card) ∧ ∀ i j, i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j,
+    Cᶜ.Adj x y := by'
+- arm: B3_569_A_full_hold
+  id: N19
+  name: embed_colored_into_parts
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.5
+  outcome: proved
+  attempts: 1
+  statement_sha256: 19581dbcb89340d6
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem embed_colored_into_parts {W V : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ) (c : H.Coloring
+    (Fin t)) (D : SimpleGraph V) (P : Fin t → Finset V) (hP : ∀ i, (Finset.univ.filter (fun w => c w = i)).card
+    ≤ (P i).card) (hcross : ∀ i j, i ≠ j → ∀ x ∈ P i, ∀ y ∈ P j, D.Adj x y) : H.IsContained D := by'
+- arm: B3_569_A_full_hold
+  id: N20
+  name: lemma5_path_coloring
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 120000
+    minutes: 15
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: ff5abf05f43b6622
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma5_path_coloring (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (t :
+    ℕ) (c : H.Coloring (Fin t)) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : Fintype.card W + (k - 2) * (t -
+    1) ≤ Fintype.card V) : (SimpleGraph.pathGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N21
+  name: cor6_path_ramsey
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 70000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: db0f20840648aa1a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cor6_path_ramsey (k : ℕ) (hk : 2 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (V : Type)
+    [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * (Fintype.card W - 1) + 1 ≤ Fintype.card V) : (SimpleGraph.pathGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N22
+  name: jayawardene_C4
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: 64a2155fe5d6216a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem jayawardene_C4 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (m : ℕ) (hm :
+    H.edgeSet.ncard = m) (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 1 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 4).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N23
+  name: jayawardene_C5
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: d9b79d301b287b71
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem jayawardene_C5 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hW : 4 ≤ Fintype.card
+    W) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 2 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 5).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N24
+  name: jayawardene_C6
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: 222a1c5e16e97938
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem jayawardene_C6 {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hW : 6 ≤ Fintype.card
+    W) (m : ℕ) (hm : H.edgeSet.ncard = m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 2 * m + 2 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph 6).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N25
+  name: ramsey_C5_K3
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 1500000
+    minutes: 150
+    reached: 0.12
+  outcome: open
+  attempts: 0
+  statement_sha256: b51b86e4f11615a9
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C5_K3 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 9 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    5).IsContained C ∨ (⊤ : SimpleGraph (Fin 3)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N26
+  name: ramsey_C6_K3
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 12
+    tokens: 1800000
+    minutes: 170
+    reached: 0.08
+  outcome: open
+  attempts: 0
+  statement_sha256: 0af4b777501f160d
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C6_K3 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 11 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    6).IsContained C ∨ (⊤ : SimpleGraph (Fin 3)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N27
+  name: ramsey_C6_K4
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.02
+  outcome: open
+  attempts: 0
+  statement_sha256: f741d2c901889977
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C6_K4 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 16 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    6).IsContained C ∨ (⊤ : SimpleGraph (Fin 4)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N28
+  name: ramsey_C6_K5
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: likely_false
+  predicted:
+    attempts: 12
+    tokens: 2500000
+    minutes: 180
+    reached: 0.01
+  outcome: open
+  attempts: 0
+  statement_sha256: 1e1d15a0eaed6ad0
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_C6_K5 (V : Type) [Fintype V] (C : SimpleGraph V) (hV : 21 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    6).IsContained C ∨ (⊤ : SimpleGraph (Fin 5)).IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N29
+  name: lemma4_small_cycles
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 62377d281b792c53
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma4_small_cycles (k : ℕ) (hk : k = 4 ∨ k = 5 ∨ k = 6) {W : Type} [Fintype W] (H : SimpleGraph
+    W) (hc : H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph
+    V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ :=
+    by'
+- arm: B3_569_A_full_hold
+  id: N30
+  name: claim8
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: 18dbeeb11de6f249
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem claim8 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V) (hw : Set.InjOn
+    w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i,
+    i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) (hfree :
+    ¬ (SimpleGraph.cycleGraph k).IsContained C) : ∀ i, i ≤ 4 → u i = u (k - 4 + i) := by'
+- arm: B3_569_A_full_hold
+  id: N31
+  name: claim9
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: 759a2388e0f93e00
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem claim9 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V) (hw : Set.InjOn
+    w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i,
+    i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) (hfree :
+    ¬ (SimpleGraph.cycleGraph k).IsContained C) : ∀ i, i ≤ 2 → u i ≠ u (i + 2) := by'
+- arm: B3_569_A_full_hold
+  id: N32
+  name: lemma7
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+  outcome: open
+  attempts: 0
+  statement_sha256: 62ce9269600a5808
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma7 (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (w u : ℕ → V) (hw : Set.InjOn
+    w (Set.Iic k)) (hwadj : ∀ i, i < k → C.Adj (w i) (w (i + 1))) (hvu : ∀ i, i ≤ k → C.Adj v (u i)) (huw : ∀ i,
+    i ≤ k → C.Adj (u i) (w i)) (huw'' : ∀ i j, i ≤ k → j ≤ k → u i ≠ w j) (hvw : ∀ j, j ≤ k → v ≠ w j) : (SimpleGraph.cycleGraph
+    k).IsContained C := by'
+- arm: B3_569_A_full_hold
+  id: N33
+  name: lemma7_bridge
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.55
+  outcome: proved
+  attempts: 1
+  statement_sha256: 46dca63ca78a3704
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem lemma7_bridge (k : ℕ) (hk : 7 ≤ k) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Set V)
+    (hU : ∀ x ∈ U, C.Adj v x) (hGam : ∀ y ∈ Gam, ∃ x ∈ U, C.Adj x y) (hdisj : Disjoint U Gam) (hvG : v ∉ Gam) (hP
+    : (SimpleGraph.pathGraph (k + 1)).IsContained (C.induce Gam)) : (SimpleGraph.cycleGraph k).IsContained C :=
+    by'
+- arm: B3_569_A_full_hold
+  id: N34
+  name: exists_critical_vertex_set
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 650000
+    minutes: 75
+    reached: 0.3
+  outcome: proved
+  attempts: 1
+  statement_sha256: 6c104cf890dbf26b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_critical_vertex_set {W : Type} [Fintype W] (H : SimpleGraph W) (s : ℕ) (h : ¬ H.Colorable
+    s) : ∃ X : Finset W, ¬ (H.induce (X : Set W)).Colorable s ∧ ∀ x ∈ X, s ≤ (H.neighborSet x ∩ (X : Set W)).ncard
+    := by'
+- arm: B3_569_A_full_hold
+  id: N35
+  name: prop10
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: e346b3a193451a65
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem prop10 {W : Type} [Fintype W] (H : SimpleGraph W) (hδ : ∀ v, 2 ≤ (H.neighborSet v).ncard)
+    (t : ℕ) (ht : ¬ H.Colorable (t - 1)) : 2 * Fintype.card W + t * (t - 3) ≤ 2 * H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N36
+  name: exists_chromatic
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 100000
+    minutes: 12
+    reached: 0.8
+  outcome: proved
+  attempts: 0
+  statement_sha256: a5d55fec85ad3c57
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_chromatic {W : Type} [Fintype W] (H : SimpleGraph W) (hm : 1 ≤ H.edgeSet.ncard) : ∃
+    t, 2 ≤ t ∧ H.Colorable t ∧ ¬ H.Colorable (t - 1) := by'
+- arm: B3_569_A_full_hold
+  id: N37
+  name: choose_ineq
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 715cc8f01a70001e
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem choose_ineq (n s : ℕ) (hs : 2 ≤ s) (hsn : 2 * s + 1 ≤ n) : 4 * (n - 2).choose (s - 2) < n.choose
+    s := by'
+- arm: B3_569_A_full_hold
+  id: N38
+  name: sum_induced_edges_powersetCard
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 11
+    tokens: 800000
+    minutes: 90
+    reached: 0.25
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1cfb10d556d4f162
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem sum_induced_edges_powersetCard {W : Type} [Fintype W] (H : SimpleGraph W) (s : ℕ) (hs : 2
+    ≤ s) : ∑ T ∈ Finset.univ.powersetCard s, (H.induce (T : Set W)).edgeSet.ncard = H.edgeSet.ncard * (Fintype.card
+    W - 2).choose (s - 2) := by'
+- arm: B3_569_A_full_hold
+  id: N39
+  name: exists_sparse_half
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 300000
+    minutes: 35
+    reached: 0.5
+  outcome: proved
+  attempts: 1
+  statement_sha256: 3083973c3cb8af55
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_sparse_half {W : Type} [Fintype W] (H : SimpleGraph W) (hn : 3 ≤ Fintype.card W) (hm
+    : 1 ≤ H.edgeSet.ncard) : ∃ T : Finset W, T.card = (Fintype.card W + 1) / 2 - 1 ∧ 4 * (H.induce (T : Set W)).edgeSet.ncard
+    < H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N40
+  name: ramsey_with_isolated
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 700000
+    minutes: 80
+    reached: 0.3
+  outcome: proved
+  attempts: 2
+  statement_sha256: f7bd5390d2f929cc
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem ramsey_with_isolated (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype
+    W''] (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V'']
+    (C'' : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨
+    H''.IsContained C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (e : ℕ) (he : H.edgeSet.ncard = e) (hem : e
+    < m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV1 : (k - 1) * e + 1 ≤ Fintype.card V) (hV2 : Fintype.card
+    W ≤ Fintype.card V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N41
+  name: glue_components
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: ff8cff57fd1a78c3
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem glue_components {W V : Type} [Fintype W] [Fintype V] (H : SimpleGraph W) (A : Set W) (hA :
+    ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) (C : SimpleGraph V) (f : SimpleGraph.Copy (H.induce A) Cᶜ) (h2 : (H.induce
+    Aᶜ).IsContained (C.induce (Set.range ⇑f)ᶜ)ᶜ) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N42
+  name: split_of_not_connected
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 80000
+    minutes: 10
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: affaef2554e8b2dc
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem split_of_not_connected {W : Type} [Fintype W] [Nonempty W] (H : SimpleGraph W) (hc : ¬ H.Connected)
+    : ∃ A : Set W, A.Nonempty ∧ Aᶜ.Nonempty ∧ ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A) := by'
+- arm: B3_569_A_full_hold
+  id: N43
+  name: edge_split_of_closed
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6ea2fd5b0ffa02d6
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem edge_split_of_closed {W : Type} [Fintype W] (H : SimpleGraph W) (A : Set W) (hA : ∀ x y, H.Adj
+    x y → (x ∈ A ↔ y ∈ A)) : (H.induce A).edgeSet.ncard + (H.induce Aᶜ).edgeSet.ncard = H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N44
+  name: induce_no_isolated_of_closed
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 30000
+    minutes: 4
+    reached: 0.95
+  outcome: proved
+  attempts: 0
+  statement_sha256: aa0bab3c50872533
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem induce_no_isolated_of_closed {W : Type} (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w) (A
+    : Set W) (hA : ∀ x y, H.Adj x y → (x ∈ A ↔ y ∈ A)) : ∀ v : A, ∃ w, (H.induce A).Adj v w := by'
+- arm: B3_569_A_full_hold
+  id: N45
+  name: step_disconnected
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 600000
+    minutes: 70
+    reached: 0.35
+  outcome: proved
+  attempts: 1
+  statement_sha256: 1345604de3aeb913
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_disconnected (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype W'']
+    (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V''] (C''
+    : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨ H''.IsContained
+    C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (h0 : ∀ v, ∃ w, H.Adj v w) (hm : H.edgeSet.ncard = m) (hc :
+    ¬ H.Connected) (hne : Nonempty W) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card
+    V) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N46
+  name: extend_by_vertex
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 1893576b6ceb13e7
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem extend_by_vertex {W V : Type} (H : SimpleGraph W) (u : W) (D : SimpleGraph V) (f : SimpleGraph.Copy
+    (H.induce ({u}ᶜ : Set W)) D) (x : V) (hx : x ∉ Set.range ⇑f) (hadj : ∀ w : ({u}ᶜ : Set W), H.Adj u w → D.Adj
+    x (f w)) : H.IsContained D := by'
+- arm: B3_569_A_full_hold
+  id: N47
+  name: delete_vertex_edges
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 350000
+    minutes: 40
+    reached: 0.5
+  outcome: proved
+  attempts: 0
+  statement_sha256: eb61c92374a145b8
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem delete_vertex_edges {W : Type} [Fintype W] (H : SimpleGraph W) (u : W) : (H.induce ({u}ᶜ :
+    Set W)).edgeSet.ncard + (H.neighborSet u).ncard = H.edgeSet.ncard := by'
+- arm: B3_569_A_full_hold
+  id: N48
+  name: delete_min_vertex_no_isolated
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9498be7fa1eb1c2b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem delete_min_vertex_no_isolated {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected)
+    (hm : 2 ≤ H.edgeSet.ncard) (u : W) (hu : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard) : ∀ v : ({u}ᶜ
+    : Set W), ∃ w, (H.induce ({u}ᶜ : Set W)).Adj v w := by'
+- arm: B3_569_A_full_hold
+  id: N49
+  name: red_star_pigeonhole
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 130000
+    minutes: 15
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 6b554aaebc31a906
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem red_star_pigeonhole {V : Type} (C : SimpleGraph V) (T X : Finset V) (hT : T.Nonempty) (hX
+    : ∀ x ∈ X, ∃ t ∈ T, C.Adj t x) : ∃ v ∈ T, ∃ S : Finset V, S ⊆ X ∧ (∀ s ∈ S, C.Adj v s) ∧ X.card ≤ T.card * S.card
+    := by'
+- arm: B3_569_A_full_hold
+  id: N50
+  name: exists_red_star
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 800000
+    minutes: 90
+    reached: 0.3
+  outcome: proved
+  attempts: 1
+  statement_sha256: eb46e19a526ca887
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem exists_red_star (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype W'']
+    (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V''] (C''
+    : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨ H''.IsContained
+    C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard = m) (hm2 : 2 ≤ m)
+    (u : W) (hu : ∀ w, (H.neighborSet u).ncard ≤ (H.neighborSet w).ncard) (V : Type) [Fintype V] (C : SimpleGraph
+    V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) (hcyc : ¬ (SimpleGraph.cycleGraph k).IsContained C) (hH : ¬ H.IsContained
+    Cᶜ) : ∃ v : V, ∃ S : Finset V, v ∉ S ∧ (∀ s ∈ S, C.Adj v s) ∧ (k - 1) * m + 2 ≤ (H.neighborSet u).ncard * S.card
+    + Fintype.card W := by'
+- arm: B3_569_A_full_hold
+  id: N51
+  name: step_min_degree_one
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 180000
+    minutes: 20
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: a9b5870cd46ab65b
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_min_degree_one (k : ℕ) (hk : 3 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (hc :
+    H.Connected) (m : ℕ) (hm : H.edgeSet.ncard = m) {V : Type} (C : SimpleGraph V) (v : V) (S : Finset V) (hvS :
+    v ∉ S) (hS : ∀ s ∈ S, C.Adj v s) (hsize : (k - 1) * m + 2 ≤ 1 * S.card + Fintype.card W) : (SimpleGraph.cycleGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N52
+  name: S_size_bound
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 200000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: b6d3e9a2ed182d99
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem S_size_bound (k n m d s : ℕ) (hk : 3 ≤ k) (hd : 2 ≤ d) (hnd : n * d ≤ 2 * m) (hs : (k - 1)
+    * m + 2 ≤ d * s + n) : (k - 2) * (n / 2) + 1 ≤ s := by'
+- arm: B3_569_A_full_hold
+  id: N53
+  name: blue_clique_in_S
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 220000
+    minutes: 25
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: a09e604701205f6a
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem blue_clique_in_S (k q : ℕ) (hk : 3 ≤ k) {V : Type} (C : SimpleGraph V) (S : Finset V) (hS
+    : (k - 2) * q + 1 ≤ S.card) : (SimpleGraph.pathGraph (k - 1)).IsContained (C.induce (S : Set V)) ∨ ∃ U : Finset
+    V, U ⊆ S ∧ U.card = q + 1 ∧ ∀ x ∈ U, ∀ y ∈ U, x ≠ y → Cᶜ.Adj x y := by'
+- arm: B3_569_A_full_hold
+  id: N54
+  name: gamma_bound
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 150000
+    minutes: 18
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: cbb65689ea7862cb
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem gamma_bound (k : ℕ) (hk : 7 ≤ k) {W : Type} [Fintype W] (H : SimpleGraph W) (t : ℕ) (c : H.Coloring
+    (Fin t)) {V : Type} (C : SimpleGraph V) (v : V) (U Gam : Finset V) (hU : ∀ x ∈ U, C.Adj v x) (hGam : ∀ y ∈ Gam,
+    ∃ x ∈ U, C.Adj x y) (hdisj : Disjoint U Gam) (hvG : v ∉ Gam) (hfree : ¬ (SimpleGraph.cycleGraph k).IsContained
+    C) (hH : ¬ H.IsContained Cᶜ) : Gam.card + 1 ≤ Fintype.card W + (k - 1) * (t - 1) := by'
+- arm: B3_569_A_full_hold
+  id: N55
+  name: glue_clique_sparse
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 9
+    tokens: 550000
+    minutes: 60
+    reached: 0.4
+  outcome: proved
+  attempts: 0
+  statement_sha256: 3612b4e46fe2b335
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem glue_clique_sparse {W V : Type} [Fintype W] (H : SimpleGraph W) (T : Finset W) (C : SimpleGraph
+    V) (U1 U2 : Finset V) (hdisj : Disjoint U1 U2) (hcard : Fintype.card W - T.card ≤ U1.card) (hclique : ∀ x ∈
+    U1, ∀ y ∈ U1, x ≠ y → Cᶜ.Adj x y) (hcross : ∀ x ∈ U1, ∀ y ∈ U2, Cᶜ.Adj x y) (h2 : (H.induce (T : Set W)).IsContained
+    (C.induce (U2 : Set V))ᶜ) : H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N56
+  name: final_arith
+  kind: leaf
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 350000
+    minutes: 40
+    reached: 0.5
+  outcome: proved
+  attempts: 1
+  statement_sha256: 1072f536dedd8aa7
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem final_arith (k n m t g u2 e2 h2 : ℕ) (hk : 7 ≤ k) (hn : 4 ≤ n) (hmn : n ≤ m) (ht : 2 ≤ t)
+    (hprop : 2 * n + t * (t - 3) ≤ 2 * m) (htot : (k - 1) * m + 1 ≤ 1 + (n / 2 + 1) + g + u2) (hg : g + 1 ≤ n +
+    (k - 1) * (t - 1)) (hu2 : u2 ≤ (k - 1) * e2 ∨ u2 < h2) (he2 : 4 * e2 < m) (hh2 : 2 * h2 ≤ n) : False := by'
+- arm: B3_569_A_full_hold
+  id: N57
+  name: step_large_deg_two
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 1500000
+    minutes: 150
+    reached: 0.2
+  outcome: proved
+  attempts: 1
+  statement_sha256: 64c3376d30dd6003
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_large_deg_two (k : ℕ) (hk : 7 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype W'']
+    (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V''] (C''
+    : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨ H''.IsContained
+    C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard = m) (hδ : ∀ w, 2
+    ≤ (H.neighborSet w).ncard) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V)
+    (v : V) (S : Finset V) (hvS : v ∉ S) (hS : ∀ s ∈ S, C.Adj v s) (hsize : (k - 2) * (Fintype.card W / 2) + 1 ≤
+    S.card) : (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N58
+  name: step_connected_large
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 7
+    tokens: 400000
+    minutes: 45
+    reached: 0.45
+  outcome: proved
+  attempts: 1
+  statement_sha256: 91622063e0d5d1ba
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem step_connected_large (k : ℕ) (hk : 7 ≤ k) (m : ℕ) (ih : ∀ m'' < m, ∀ (W'' : Type) [Fintype
+    W''] (H'' : SimpleGraph W''), (∀ v, ∃ w, H''.Adj v w) → H''.edgeSet.ncard = m'' → ∀ (V'' : Type) [Fintype V'']
+    (C'' : SimpleGraph V''), (k - 1) * m'' + 1 ≤ Fintype.card V'' → (SimpleGraph.cycleGraph k).IsContained C'' ∨
+    H''.IsContained C''ᶜ) {W : Type} [Fintype W] (H : SimpleGraph W) (hc : H.Connected) (hm : H.edgeSet.ncard =
+    m) (hm2 : 2 ≤ m) (V : Type) [Fintype V] (C : SimpleGraph V) (hV : (k - 1) * m + 1 ≤ Fintype.card V) : (SimpleGraph.cycleGraph
+    k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: N59
+  name: main_property
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 250000
+    minutes: 30
+    reached: 0.6
+  outcome: proved
+  attempts: 0
+  statement_sha256: 60a2d2ea0d3786d5
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem main_property (k : ℕ) (hk : 3 ≤ k) (m : ℕ) : ∀ (W : Type) [Fintype W] (H : SimpleGraph W),
+    (∀ v, ∃ w, H.Adj v w) → H.edgeSet.ncard = m → ∀ (V : Type) [Fintype V] (C : SimpleGraph V), (k - 1) * m + 1
+    ≤ Fintype.card V → (SimpleGraph.cycleGraph k).IsContained C ∨ H.IsContained Cᶜ := by'
+- arm: B3_569_A_full_hold
+  id: ROOT
+  name: cambie_freschi
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 50000
+    minutes: 6
+    reached: 0.9
+  outcome: proved
+  attempts: 0
+  statement_sha256: 89ee00271e0f5f85
+  blueprint: blueprint_569_nodes.yaml
+  statement: 'theorem cambie_freschi (k : ℕ) (hk : 3 ≤ k) (m : ℕ) (W : Type) [Fintype W] (H : SimpleGraph W) [DecidableRel
+    H.Adj] (h0 : ∀ v, 0 < H.degree v) (hm : H.edgeSet.ncard = m) : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph
+    k) H ≤ (k - 1) * m + 1 := by'

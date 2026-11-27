@@ -101,3 +101,23 @@ Status: immovable.
 - **three arms, no planner; start files are build 3's final files unchanged** — contribution kind: data; who could act: whoever can make that measurement public.
 
 Signal expected: predictions P1–P6 in prereg_build_7.yaml, scored by score.py against the start-file nodes and by the registrar's reading of each arm's notes for a declared…. Resolution by: none registered.
+
+## 8. A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof… (ledger id HG7)
+
+A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof for statements it has not seen, nothing confident for statements from an unrelated proof, and the hinge of the same mechanism for a statement that shares it.
+
+Status: immovable.
+
+- **the matcher run on the committed atlas of 164 vectors** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P5 in prereg_build_8_match.yaml on five queries whose statements are not in the atlas. Resolution by: none registered.
+
+## 9. Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on… (ledger id HG8)
+
+Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on each blueprint, their remaining disagreements sit on the estimate/computation boundary, and build 6's reach ordering survives the re-labelling.
+
+Status: immovable.
+
+- **two fresh readers on two models typing 82 rooms plus two roots from untyped blueprints** — contribution kind: data; who could act: whoever can make that measurement public.
+
+Signal expected: predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py. Resolution by: none registered.

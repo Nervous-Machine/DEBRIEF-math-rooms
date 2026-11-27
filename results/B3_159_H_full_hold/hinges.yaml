@@ -1,0 +1,438 @@
+arm: B3_159_H_full_hold
+blueprint: blueprint_159_nodes.yaml
+hinges:
+- arm: B3_159_H_full_hold
+  id: N01
+  name: graphRamsey_le_of_forall
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 3000
+    minutes: 2
+    reached: 0.97
+  outcome: proved
+  attempts: 0
+  statement_sha256: 474a0b6a5913ce0c
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem graphRamsey_le_of_forall {α β : Type*} [Fintype α] [Fintype β] (G : SimpleGraph α) (H : SimpleGraph
+    β) (N : ℕ) (h : ∀ C : SimpleGraph (Fin N), G.IsContained C ∨ H.IsContained Cᶜ) : SimpleGraph.graphRamsey G H
+    ≤ N'
+- arm: B3_159_H_full_hold
+  id: N02
+  name: complete_isContained_compl_iff
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 5000
+    minutes: 4
+    reached: 0.92
+  outcome: proved
+  attempts: 0
+  statement_sha256: a2cbb23f3ea53e58
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem complete_isContained_compl_iff {V : Type*} (C : SimpleGraph V) (n : ℕ) : (SimpleGraph.completeGraph
+    (Fin n)).IsContained Cᶜ ↔ ¬ C.IndepSetFree n'
+- arm: B3_159_H_full_hold
+  id: N03
+  name: c4_free_common_nbrs
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 5
+    tokens: 25000
+    minutes: 20
+    reached: 0.8
+  outcome: proved
+  attempts: 1
+  statement_sha256: 885e663a71680c49
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem c4_free_common_nbrs {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {u v : V} (huv : u ≠ v) : (G.neighborFinset u ∩ G.neighborFinset
+    v).card ≤ 1'
+- arm: B3_159_H_full_hold
+  id: N04
+  name: c4_free_nbhd_local_degree
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 8000
+    minutes: 6
+    reached: 0.88
+  outcome: proved
+  attempts: 0
+  statement_sha256: 2de154b1d182c574
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem c4_free_nbhd_local_degree {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (v w : V) (hw : G.Adj v w) : ((G.neighborFinset v).filter
+    (G.Adj w)).card ≤ 1'
+- arm: B3_159_H_full_hold
+  id: N05
+  name: greedy_indep_local
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 45000
+    minutes: 35
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: a5e20c2fb10b93b4
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem greedy_indep_local {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (s : Finset V) (D : ℕ) (hD : ∀ v ∈ s, (s.filter (G.Adj v)).card ≤ D) : ∃ t ⊆ s, G.IsIndepSet (t : Set
+    V) ∧ s.card ≤ (D + 1) * t.card'
+- arm: B3_159_H_full_hold
+  id: N06
+  name: degree_lt_of_c4_free_indepSetFree
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 20000
+    minutes: 15
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9d069442cb6cb32f
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem degree_lt_of_c4_free_indepSetFree {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph
+    V) [DecidableRel G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) {n : ℕ} (hα : G.IndepSetFree n) (v
+    : V) : G.degree v < 2 * n'
+- arm: B3_159_H_full_hold
+  id: N07
+  name: card_le_quadratic_of_c4_free
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 4
+    tokens: 20000
+    minutes: 15
+    reached: 0.72
+  outcome: proved
+  attempts: 0
+  statement_sha256: 161ab9a7274396ec
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem card_le_quadratic_of_c4_free {N n : ℕ} (G : SimpleGraph (Fin N)) [DecidableRel G.Adj] (hG
+    : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (hα : G.IndepSetFree n) : N ≤ 2 * n * n'
+- arm: B3_159_H_full_hold
+  id: N08
+  name: graphRamsey_le_of_c4_free_bound
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 1
+    tokens: 4000
+    minutes: 3
+    reached: 0.93
+  outcome: proved
+  attempts: 0
+  statement_sha256: 635dc7951937d46e
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem graphRamsey_le_of_c4_free_bound (n N : ℕ) (h : ∀ G : SimpleGraph (Fin N), ¬ (SimpleGraph.cycleGraph
+    4).IsContained G → ¬ G.IndepSetFree n) : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph
+    (Fin n)) ≤ N'
+- arm: B3_159_H_full_hold
+  id: N09
+  name: graphRamsey_c4_le_quadratic
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 2
+    tokens: 6000
+    minutes: 5
+    reached: 0.7
+  outcome: proved
+  attempts: 0
+  statement_sha256: 80e1ed4856fc8270
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem graphRamsey_c4_le_quadratic (n : ℕ) : SimpleGraph.graphRamsey (SimpleGraph.cycleGraph 4) (SimpleGraph.completeGraph
+    (Fin n)) ≤ 2 * n * n + 1'
+- arm: B3_159_H_full_hold
+  id: N10
+  name: turan_weak
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 60000
+    minutes: 45
+    reached: 0.55
+  outcome: proved
+  attempts: 1
+  statement_sha256: 64ab12f66b0decc6
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem turan_weak {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj]
+    : ∃ t : Finset V, G.IsIndepSet (t : Set V) ∧ Fintype.card V ^ 2 ≤ 2 * (4 * G.edgeFinset.card + Fintype.card
+    V) * t.card'
+- arm: B3_159_H_full_hold
+  id: N11
+  name: exists_dense_core
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 12
+    tokens: 70000
+    minutes: 55
+    reached: 0.45
+  outcome: proved
+  attempts: 0
+  statement_sha256: 9b1190456f5de260
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem exists_dense_core {V : Type*} [Fintype V] [DecidableEq V] [Nonempty V] (G : SimpleGraph V)
+    [DecidableRel G.Adj] (d : ℕ) (hd : d * Fintype.card V ≤ G.edgeFinset.card) : ∃ s : Finset V, s.Nonempty ∧ ∀
+    v ∈ s, d ≤ (s.filter (G.Adj v)).card'
+- arm: B3_159_H_full_hold
+  id: N12
+  name: moore_bound_c4_free
+  kind: lemma
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 10
+    tokens: 60000
+    minutes: 45
+    reached: 0.5
+  outcome: proved
+  attempts: 0
+  statement_sha256: f6eedabf70035d4d
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem moore_bound_c4_free {V : Type*} [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
+    G.Adj] (hG : ¬ (SimpleGraph.cycleGraph 4).IsContained G) (s : Finset V) (d : ℕ) (hs : s.Nonempty) (hmin : ∀
+    v ∈ s, d ≤ (s.filter (G.Adj v)).card) : d * d ≤ 2 * s.card'
+- arm: B3_159_H_full_hold
+  id: N13
+  name: core_near_extremal
+  kind: open_core
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 60
+    tokens: 1500000
+    minutes: 900
+    reached: 0.01
+  outcome: open
+  attempts: 0
+  statement_sha256: 3f491a9992632816
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem core_near_extremal : ∃ δ η : ℝ, 0 < δ ∧ δ ≤ 1 / 8 ∧ 4 * δ ≤ η ∧ ∀ κ : ℝ, 0 < κ → ∃ K : ℝ,
+    0 < K ∧ ∀ (V : Type) [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel G.Adj] (s : Finset V), ¬
+    (SimpleGraph.cycleGraph 4).IsContained G → (∀ v ∈ s, κ * (s.card : ℝ) ^ ((1 : ℝ) / 2 - δ) ≤ ((s.filter (G.Adj
+    v)).card : ℝ)) → ∃ t ⊆ s, G.IsIndepSet (t : Set V) ∧ K * (s.card : ℝ) ^ ((1 : ℝ) / 2 + η) ≤ (t.card : ℝ)'
+- arm: B3_159_H_full_hold
+  id: N14
+  name: sparse_branch_arith
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 30000
+    minutes: 20
+    reached: 0.75
+  outcome: proved
+  attempts: 0
+  statement_sha256: d414d993d93bbe17
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem sparse_branch_arith (δ : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 2) (N E t : ℝ) (hN : 1 ≤ N) (hE0
+    : 0 ≤ E) (hE : E ≤ N ^ ((3 : ℝ) / 2 - δ)) (ht : N ^ 2 ≤ 2 * (4 * E + N) * t) : N ^ ((1 : ℝ) / 2 + δ) ≤ 10 *
+    t'
+- arm: B3_159_H_full_hold
+  id: N15
+  name: dense_branch_arith
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 8
+    tokens: 40000
+    minutes: 25
+    reached: 0.65
+  outcome: proved
+  attempts: 0
+  statement_sha256: a7d6cc9e3a87c139
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem dense_branch_arith (δ η K : ℝ) (hδ : 0 < δ) (hδ'' : δ ≤ 1 / 8) (hη : 4 * δ ≤ η) (hK : 0 <
+    K) (N M : ℝ) (hN : 1 ≤ N) (hM : 0 ≤ M) (hNM : N ^ (1 - 2 * δ) ≤ 8 * M) : K * (8 : ℝ) ^ (-((1 : ℝ) / 2 + η))
+    * N ^ ((1 : ℝ) / 2 + η / 2) ≤ K * M ^ ((1 : ℝ) / 2 + η)'
+- arm: B3_159_H_full_hold
+  id: N16
+  name: c4_free_indep_power
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 25
+    tokens: 200000
+    minutes: 150
+    reached: 0.01
+  outcome: proved
+  attempts: 2
+  statement_sha256: 195efc1a8e46d2cd
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem c4_free_indep_power : ∃ ε K : ℝ, 0 < ε ∧ 0 < K ∧ ∀ (N : ℕ) (G : SimpleGraph (Fin N)) [DecidableRel
+    G.Adj], ¬ (SimpleGraph.cycleGraph 4).IsContained G → ∃ t : Finset (Fin N), G.IsIndepSet (t : Set (Fin N)) ∧
+    K * (N : ℝ) ^ ((1 : ℝ) / 2 + ε) ≤ (t.card : ℝ)'
+- arm: B3_159_H_full_hold
+  id: N17
+  name: rpow_inversion
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 6
+    tokens: 30000
+    minutes: 20
+    reached: 0.72
+  outcome: proved
+  attempts: 0
+  statement_sha256: 793a2f190a6de946
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem rpow_inversion (K ε N x : ℝ) (hK : 0 < K) (hε : 0 < ε) (hN : 0 ≤ N) (hx : 0 ≤ x) (h : K *
+    N ^ ((1 : ℝ) / 2 + ε) ≤ x) : N ≤ K ^ (-(2 / (1 + 2 * ε))) * x ^ (2 - 4 * ε / (1 + 2 * ε))'
+- arm: B3_159_H_full_hold
+  id: N18
+  name: card_le_power_of_c4_free
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 6
+    tokens: 40000
+    minutes: 30
+    reached: 0.01
+  outcome: proved
+  attempts: 0
+  statement_sha256: 2b35d5c51d7e548b
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem card_le_power_of_c4_free : ∃ c C : ℝ, 0 < c ∧ c ≤ 2 ∧ 0 ≤ C ∧ ∀ (n N : ℕ) (G : SimpleGraph
+    (Fin N)) [DecidableRel G.Adj], 1 ≤ n → ¬ (SimpleGraph.cycleGraph 4).IsContained G → G.IndepSetFree n → (N :
+    ℝ) ≤ C * (n : ℝ) ^ (2 - c)'
+- arm: B3_159_H_full_hold
+  id: N19
+  name: floor_succ_le_power
+  kind: arith
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: provable
+  predicted:
+    attempts: 3
+    tokens: 12000
+    minutes: 8
+    reached: 0.85
+  outcome: proved
+  attempts: 0
+  statement_sha256: 7fe48b58c6a6c8a5
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem floor_succ_le_power (c C x : ℝ) (hc : c ≤ 2) (hC : 0 ≤ C) (n : ℕ) (hn : 1 ≤ n) (hx : x ≤ C
+    * (n : ℝ) ^ (2 - c)) : ((⌊x⌋₊ + 1 : ℕ) : ℝ) ≤ (C + 1) * (n : ℝ) ^ (2 - c)'
+- arm: B3_159_H_full_hold
+  id: ROOT
+  name: erdos_159
+  kind: join
+  join_type: null
+  conditionals: []
+  consumes: null
+  produces: null
+  library_inputs: []
+  believed: unsure
+  predicted:
+    attempts: 4
+    tokens: 25000
+    minutes: 20
+    reached: 0.01
+  outcome: proved
+  attempts: 0
+  statement_sha256: 2c08da68cd8e868c
+  blueprint: blueprint_159_nodes.yaml
+  statement: 'theorem erdos_159 : ∃ (c : ℝ) (_ : 0 < c) (C : ℝ), ∀ (n : ℕ), 1 ≤ n → (SimpleGraph.graphRamsey (SimpleGraph.cycleGraph
+    4) (SimpleGraph.completeGraph (Fin n)) : ℝ) ≤ C * (n : ℝ) ^ (2 - c)'

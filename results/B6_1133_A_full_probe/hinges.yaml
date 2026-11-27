@@ -26,6 +26,12 @@ hinges:
   outcome: open
   attempts: 0
   statement_sha256: d0f525ec83269070
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem olevskii_ulanovskii_prop_4_2 : ∃ a > (0:ℝ), ∃ b > (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ Γ : Finset ℝ,
+    (∀ s ∈ Γ, s ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ)) → 2 * τ ≤ Γ.card → ∀ σ : ℝ, Real.pi < σ → ∀ K : ℝ, (∀ v : ℝ → ℂ, (∀ s
+    ∈ Γ, ‖v s‖ ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ
+    + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) ∧ ∀ s ∈ Γ, f (s : ℂ) = v s) → a * Real.log (σ / (σ - Real.pi + b *
+    (τ:ℝ) ^ (-((1:ℝ) / 3)))) ≤ K := by'
 - arm: B6_1133_A_full_probe
   id: N02
   name: bernstein_vertical_growth
@@ -50,6 +56,10 @@ hinges:
   outcome: open
   attempts: 0
   statement_sha256: 1759c59cdd94ef8a
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_vertical_growth (σ K : ℝ) (hσ : 0 < σ) (f : ℂ → ℂ) (hf : Differentiable ℂ f) (htype
+    : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) (z :
+    ℂ) : ‖f z‖ ≤ K * Real.exp (σ * |z.im|) := by'
 - arm: B6_1133_A_full_probe
   id: N03
   name: bernstein_real_sample_set_isClosed
@@ -71,6 +81,11 @@ hinges:
   outcome: open
   attempts: 0
   statement_sha256: 1dece4cda380910f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_real_sample_set_isClosed (σ H : ℝ) (hσ : 0 < σ) (k : ℕ) (t : Fin k → ℝ) : IsClosed
+    {v : Fin k → ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ
+    + δ) * ‖z‖)) ∧ (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧ ∀ i, (g (t i : ℂ)).re = v i} :=
+    by'
 - arm: B6_1133_A_full_probe
   id: N04
   name: exp_type_linear_comb
@@ -91,6 +106,10 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: 2ebd40157d270b8b
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem exp_type_linear_comb (σ : ℝ) (f g : ℂ → ℂ) (a b : ℂ) (hf : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,
+    ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hg : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))
+    : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖a * f z + b * g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖) := by'
 - arm: B6_1133_A_full_probe
   id: N05
   name: bernstein_affine_rescale
@@ -112,6 +131,12 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 3a2ab315f394c2c4
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_affine_rescale (σ lam c K : ℝ) (hσ : 0 ≤ σ) (hlam : 0 < lam) (f : ℂ → ℂ) (hf : Differentiable
+    ℂ f) (htype : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖
+    ≤ K) : Differentiable ℂ (fun z : ℂ => f (z / (lam : ℂ) + (c : ℂ))) ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f (z /
+    (lam : ℂ) + (c : ℂ))‖ ≤ M * Real.exp ((σ / lam + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f ((x : ℂ) / (lam : ℂ) + (c : ℂ))‖
+    ≤ K) := by'
 - arm: B6_1133_A_full_probe
   id: N06
   name: complex_data_from_real
@@ -131,6 +156,12 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 413dc7bd5e23e858
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem complex_data_from_real (σ H : ℝ) (k : ℕ) (s : Fin k → ℝ) (hreal : ∀ v : Fin k → ℝ, (∀ i, |v
+    i| ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) *
+    ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (s i : ℂ) = (v i : ℂ)) : ∀ w : Fin k → ℂ, (∀ i, ‖w i‖ ≤ 1) → ∃ f
+    : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧ (∀ x :
+    ℝ, ‖f (x : ℂ)‖ ≤ 2 * H) ∧ ∀ i, f (s i : ℂ) = w i := by'
 - arm: B6_1133_A_full_probe
   id: N07
   name: lemma32_rescale_params
@@ -151,6 +182,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: a261d98df3059a1e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_rescale_params (τ : ℕ) (hτ : 1 ≤ τ) (c t : ℝ) (ht : t ∈ Set.Icc c (c + 2 * (τ:ℝ) +
+    1)) : (2 * (τ:ℝ)) / (2 * τ + 2) * (t - c - (2 * (τ:ℝ) + 1) / 2) ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ) ∧ Real.pi < Real.pi
+    / ((2 * (τ:ℝ)) / (2 * τ + 2)) ∧ Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) ≤ 2 * Real.pi := by'
 - arm: B6_1133_A_full_probe
   id: N08
   name: lemma32_log_bound
@@ -172,6 +207,11 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: 69a31b75ff5d67eb
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_log_bound (a b : ℝ) (ha : 0 < a) (hb : 0 < b) (τ : ℕ) (hτ : 1 ≤ τ) : a / 3 * Real.log
+    (2 * (τ:ℝ)) - a * Real.log ((2 * Real.pi + b * (2:ℝ) ^ ((1:ℝ) / 3)) / Real.pi) ≤ a * Real.log ((Real.pi / ((2
+    * (τ:ℝ)) / (2 * τ + 2))) / (Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) - Real.pi + b * (τ:ℝ) ^ (-((1:ℝ) / 3)))) :=
+    by'
 - arm: B6_1133_A_full_probe
   id: N09
   name: lemma32_choose_k
@@ -193,6 +233,9 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: 427f77a92c2bf1a3
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_choose_k (a b0 : ℝ) (ha : 0 < a) (hb0 : 0 ≤ b0) : ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ τ :
+    ℕ, 1 ≤ τ ∧ 2 * H < a / 3 * Real.log (2 * (τ:ℝ)) - b0 ∧ 2 * (τ:ℝ) ≤ Real.exp (A0 * (1 + H)) := by'
 - arm: B6_1133_A_full_probe
   id: N10
   name: lemma32_distinct_core
@@ -216,6 +259,12 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: cbc09de7cb311f94
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem lemma32_distinct_core : ∃ a > (0:ℝ), ∃ b0 ≥ (0:ℝ), ∀ τ : ℕ, 1 ≤ τ → ∀ (c : ℝ) (t : Fin (2
+    * τ) → ℝ), Function.Injective t → (∀ i, t i ∈ Set.Icc c (c + 2 * (τ:ℝ) + 1)) → ∀ H : ℝ, (∀ v : Fin (2 * τ) →
+    ℝ, (∀ i, |v i| ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp
+    ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ)) → a / 3 * Real.log (2 *
+    (τ:ℝ)) - b0 ≤ 2 * H := by'
 - arm: B6_1133_A_full_probe
   id: N11
   name: coincident_nodes_obstruction
@@ -236,6 +285,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 8de55a061bc55772
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem coincident_nodes_obstruction (k : ℕ) (t : Fin k → ℝ) (i j : Fin k) (hij : i ≠ j) (heq : t
+    i = t j) : ∃ v : Fin k → ℝ, (∀ l, |v l| ≤ 1) ∧ ∀ f : ℂ → ℂ, ¬ ∀ l, f (t l : ℂ) = (v l : ℂ) := by'
 - arm: B6_1133_A_full_probe
   id: N12
   name: effective_finite_obstruction
@@ -258,6 +310,11 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 412202a3a614e33f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem effective_finite_obstruction : ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ k : ℕ, Even k ∧ 2 ≤ k ∧ (k:ℝ)
+    ≤ Real.exp (A0 * (1 + H)) ∧ ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) → ∃ v : Fin k
+    → ℝ, (∀ i, |v i| ≤ 1) ∧ ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp
+    ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ) := by'
 - arm: B6_1133_A_full_probe
   id: N13
   name: real_symmetrization
@@ -278,6 +335,13 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: dd33c905d6f79246
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem real_symmetrization (σ C : ℝ) (f : ℂ → ℂ) (hf : Differentiable ℂ f) (htype : ∀ δ > (0:ℝ),
+    ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) : Differentiable ℂ
+    (fun z : ℂ => (f z + starRingEnd ℂ (f (starRingEnd ℂ z))) / 2) ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖(f z + starRingEnd
+    ℂ (f (starRingEnd ℂ z))) / 2‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧ (∀ x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd
+    ℂ (x : ℂ)))) / 2).im = 0) ∧ (∀ x : ℝ, ‖(f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2‖ ≤ C) ∧ (∀
+    x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2).re = (f (x : ℂ)).re) := by'
 - arm: B6_1133_A_full_probe
   id: N14
   name: bernstein_real_sample_set_convex
@@ -296,6 +360,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 947b1a2c47853384
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bernstein_real_sample_set_convex (σ H : ℝ) (k : ℕ) (t : Fin k → ℝ) : Convex ℝ {v : Fin k →
+    ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))
+    ∧ (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧ ∀ i, (g (t i : ℂ)).re = v i} := by'
 - arm: B6_1133_A_full_probe
   id: N15
   name: finite_dim_point_separation
@@ -317,6 +385,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: e8b892faecbd570e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem finite_dim_point_separation (k : ℕ) (K : Set (Fin k → ℝ)) (hconv : Convex ℝ K) (hclosed :
+    IsClosed K) (v : Fin k → ℝ) (hv : v ∉ K) : ∃ w : Fin k → ℝ, ∀ z ∈ K, ∑ i, w i * z i < ∑ i, w i * v i := by'
 - arm: B6_1133_A_full_probe
   id: N16
   name: sign_from_separation
@@ -336,6 +407,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: e918475894392c15
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem sign_from_separation (k : ℕ) (ρ : ℝ) (w : Fin k → ℝ) (u : Fin k → ℂ) (hsep : ∑ i, w i * (u
+    i).re < (1 - ρ) * ∑ i, |w i|) : ∃ i, ρ < ‖u i - (((if 0 ≤ w i then 1 else -1 : ℝ)) : ℂ)‖ := by'
 - arm: B6_1133_A_full_probe
   id: N17
   name: signs_prescribed_tolerance
@@ -360,6 +434,13 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 4de4ad267e22b028
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem signs_prescribed_tolerance (C ρ : ℝ) (hC : 0 < C) (hρ0 : 0 ≤ ρ) (hρ1 : ρ < 1) (k : ℕ) (t :
+    Fin k → ℝ) (hobs : ∃ v : Fin k → ℝ, (∀ i, |v i| ≤ 1) ∧ ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M
+    : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C / (1 - ρ)) ∧ ∀ i, f (t
+    i : ℂ) = (v i : ℂ)) : ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable ℂ f → (∀ δ >
+    (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ <
+    ‖f (t i : ℂ) - (s i : ℂ)‖ := by'
 - arm: B6_1133_A_full_probe
   id: N18
   name: local_sign_obstruction
@@ -383,6 +464,12 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 08e8148cc7c06f0b
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem local_sign_obstruction : ∃ A0 > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 → ∃ k : ℕ, Even
+    k ∧ 2 ≤ k ∧ (k:ℝ) ≤ Real.exp (A0 * (1 + C / (1 - ρ))) ∧ ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c
+    + (k:ℝ) + 1)) → ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable ℂ f → (∀ δ > (0:ℝ),
+    ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t
+    i : ℂ) - (s i : ℂ)‖ := by'
 - arm: B6_1133_A_full_probe
   id: N19
   name: norm_cos_le_exp_abs_im
@@ -401,6 +488,8 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: f98944bf4dbc449e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem norm_cos_le_exp_abs_im (w : ℂ) : ‖Complex.cos w‖ ≤ Real.exp |w.im| := by'
 - arm: B6_1133_A_full_probe
   id: N20
   name: poly_cos_exp_type
@@ -421,6 +510,11 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 6429dd048d7713a0
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem poly_cos_exp_type (P : Polynomial ℝ) (D : ℝ) (hD : 0 < D) (hdeg : (P.natDegree : ℝ) ≤ D) :
+    Differentiable ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P) ∧ ∀ δ > (0:ℝ),
+    ∃ M : ℝ, ∀ z : ℂ, ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P‖ ≤ M * Real.exp ((Real.pi
+    + δ) * ‖z‖) := by'
 - arm: B6_1133_A_full_probe
   id: N21
   name: poly_cos_real_values
@@ -440,6 +534,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: cf8d83e50f731a06
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem poly_cos_real_values (P : Polynomial ℝ) (D C : ℝ) (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z|
+    ≤ C) (t : ℝ) : Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P = ((P.eval (Real.cos (Real.pi
+    * t / D)) : ℝ) : ℂ) ∧ ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P‖ ≤ C := by'
 - arm: B6_1133_A_full_probe
   id: N22
   name: arccos_node
@@ -460,6 +558,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: a092782be61b9216
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem arccos_node (D x : ℝ) (hD : 0 < D) (hx : x ∈ Set.Icc (-1:ℝ) 1) : D / Real.pi * Real.arccos
+    x ∈ Set.Icc 0 D ∧ Real.cos (Real.pi * (D / Real.pi * Real.arccos x) / D) = x := by'
 - arm: B6_1133_A_full_probe
   id: N23
   name: polynomial_to_bernstein
@@ -481,6 +582,13 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 6237fe1b03592997
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem polynomial_to_bernstein (P : Polynomial ℝ) (D C : ℝ) (hD : 0 < D) (hdeg : (P.natDegree : ℝ)
+    ≤ D) (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) : Differentiable ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos
+    ((Real.pi : ℂ) * z / (D : ℂ))) P) ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖Polynomial.aeval (Complex.cos ((Real.pi
+    : ℂ) * z / (D : ℂ))) P‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖Polynomial.aeval (Complex.cos ((Real.pi
+    : ℂ) * (x : ℂ) / (D : ℂ))) P‖ ≤ C) ∧ (∀ x ∈ Set.Icc (-1:ℝ) 1, Polynomial.aeval (Complex.cos ((Real.pi : ℂ) *
+    ((D / Real.pi * Real.arccos x : ℝ) : ℂ) / (D : ℂ))) P = ((P.eval x : ℝ) : ℂ)) := by'
 - arm: B6_1133_A_full_probe
   id: N24
   name: finset_split_into_blocks
@@ -500,6 +608,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: d5490bf5ec4ffc2e
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem finset_split_into_blocks {α : Type*} [DecidableEq α] (k : ℕ) (hk : 1 ≤ k) (S : Finset α) :
+    ∃ q : ℕ, ∃ G : Fin q → Finset α, (∀ l, G l ⊆ S) ∧ (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l)
+    (G l'')) ∧ S.card ≤ k * q + (k - 1) := by'
 - arm: B6_1133_A_full_probe
   id: N25
   name: bucket_grouping
@@ -519,6 +631,10 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: c499f4019d9378d2
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bucket_grouping (n k N : ℕ) (hk : 1 ≤ k) (b : Fin n → Fin N) : ∃ q : ℕ, ∃ G : Fin q → Finset
+    (Fin n), (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l) (G l'')) ∧ (∀ l, ∃ j : Fin N, ∀ i ∈ G l,
+    b i = j) ∧ n ≤ k * q + (k - 1) * N := by'
 - arm: B6_1133_A_full_probe
   id: N26
   name: bucket_interval
@@ -540,6 +656,11 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: a1d160e66b3a1047
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem bucket_interval (D t : ℝ) (k : ℕ) (hD : 0 < D) (hk : 1 ≤ k) (ht : t ∈ Set.Icc 0 D) : min ⌊t
+    / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) < ⌈D / ((k:ℝ) + 1)⌉₊ ∧ t ∈ Set.Icc (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D /
+    ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ) + 1)) (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ)
+    + 1) + ((k:ℝ) + 1)) := by'
 - arm: B6_1133_A_full_probe
   id: N27
   name: angular_groups
@@ -560,6 +681,11 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 58ff75bc7f0654c7
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem angular_groups (n k : ℕ) (hk : 1 ≤ k) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ) 1)
+    : ∃ q : ℕ, ∃ G : Fin q → Finset (Fin n), (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l) (G l''))
+    ∧ (∀ l, ∃ c : ℝ, ∀ i ∈ G l, D / Real.pi * Real.arccos (x i : ℝ) ∈ Set.Icc c (c + (k:ℝ) + 1)) ∧ (n : ℝ) ≤ (k:ℝ)
+    * q + ((k:ℝ) - 1) * (D / ((k:ℝ) + 1) + 1) := by'
 - arm: B6_1133_A_full_probe
   id: N28
   name: disjoint_groups_card_le
@@ -580,6 +706,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 53c973709f82b09b
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem disjoint_groups_card_le (n q : ℕ) (G : Fin q → Finset (Fin n)) (hdisj : ∀ l l'', l ≠ l'' →
+    Disjoint (G l) (G l'')) (E : Finset (Fin n)) (hhit : ∀ l, ∃ i ∈ G l, i ∈ E) : q ≤ E.card := by'
 - arm: B6_1133_A_full_probe
   id: N29
   name: finite_degree_error_tradeoff
@@ -601,6 +730,14 @@ hinges:
   outcome: proved
   attempts: 1
   statement_sha256: 2599a879080ed0c6
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem finite_degree_error_tradeoff (C ρ : ℝ) (k : ℕ) (hk : 1 ≤ k) (hsign : ∀ (c : ℝ) (t : Fin k
+    → ℝ), (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) → ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable
+    ℂ f → (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤
+    C) → ∃ i, ρ < ‖f (t i : ℂ) - (s i : ℂ)‖) (n : ℕ) (D : ℝ) (hD : 0 < D) (x : Fin n → Set.Icc (-1:ℝ) 1) : ∃ y :
+    Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧ ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ D → (∀ z ∈ Set.Icc (-1:ℝ) 1,
+    |P.eval z| ≤ C) → (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * D - ((k:ℝ) - 1) / k ≤ ((Finset.univ.filter
+    (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by'
 - arm: B6_1133_A_full_probe
   id: N30
   name: theorem21_arithmetic
@@ -621,6 +758,9 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 57d9aa014cdee974
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem theorem21_arithmetic (k n : ℕ) (hk : 2 ≤ k) (hn : 4 * k ^ 2 ≤ n) : 1 / (8 * (k:ℝ) ^ 2) * n
+    < (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * ((1 + 1 / (8 * (k:ℝ) ^ 2)) * n) - ((k:ℝ) - 1) / k := by'
 - arm: B6_1133_A_full_probe
   id: N31
   name: theorem21_constants
@@ -643,6 +783,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 137b0929f7d35d9f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem theorem21_constants (A0 : ℝ) (hA0 : 0 < A0) : ∃ A > (0:ℝ), ∀ H : ℝ, 0 ≤ H → ∀ k : ℕ, 2 ≤ k
+    → (k:ℝ) ≤ Real.exp (A0 * (1 + H)) → Real.exp (-(A * (1 + H))) ≤ 1 / (8 * (k:ℝ) ^ 2) ∧ 4 * (k:ℝ) ^ 2 ≤ Real.exp
+    (A * (1 + H)) := by'
 - arm: B6_1133_A_full_probe
   id: N32
   name: quantitative_robust_obstruction
@@ -667,6 +811,12 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: e184487abaecf6db
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem quantitative_robust_obstruction : ∃ A > (0:ℝ), ∀ C > (0:ℝ), ∀ ρ : ℝ, 0 ≤ ρ → ρ < 1 → ∃ ε :
+    ℝ, 0 < ε ∧ ε < 1 ∧ Real.exp (-(A * (1 + C / (1 - ρ)))) ≤ ε ∧ ∃ n0 : ℕ, (n0 : ℝ) ≤ Real.exp (A * (1 + C / (1
+    - ρ))) ∧ ∀ n : ℕ, n0 ≤ n → ∀ x : Fin n → Set.Icc (-1:ℝ) 1, ∃ y : Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧ ∀ P
+    : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 + ε) * n → (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) → ε * n < ((Finset.univ.filter
+    (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by'
 - arm: B6_1133_A_full_probe
   id: N33
   name: match_error_complement
@@ -685,6 +835,10 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 87707eafe4a54065
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem match_error_complement (n : ℕ) (P : Polynomial ℝ) (x : Fin n → Set.Icc (-1:ℝ) 1) (y : Fin
+    n → ℝ) : ((Finset.univ.filter (fun i ↦ P.eval (x i : ℝ) = y i)).card : ℝ) + ((Finset.univ.filter (fun i ↦ (0:ℝ)
+    < |P.eval (x i : ℝ) - y i|)).card : ℝ) = n := by'
 - arm: B6_1133_A_full_probe
   id: N34
   name: qualitative_robust_obstruction
@@ -707,6 +861,11 @@ hinges:
   outcome: proved
   attempts: 0
   statement_sha256: 605c04031285f84f
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem qualitative_robust_obstruction : ∀ C > (0:ℝ), ∃ ε : ℝ, 0 < ε ∧ ∃ n0 : ℕ, ∀ n : ℕ, n0 ≤ n →
+    ∀ x : Fin n → Set.Icc (-1:ℝ) 1, ∃ y : Fin n → Set.Icc (-1:ℝ) 1, ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 +
+    ε) * n → (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) → ε * n < ((Finset.univ.filter (fun i ↦ (0:ℝ) < |P.eval (x
+    i : ℝ) - (y i : ℝ)|)).card : ℝ) := by'
 - arm: B6_1133_A_full_probe
   id: ROOT
   name: erdos_1133
@@ -728,3 +887,8 @@ hinges:
   outcome: proved
   attempts: 2
   statement_sha256: c72faa118f1d9da7
+  blueprint: blueprint_1133_nodes.yaml
+  statement: 'theorem erdos_1133 : ∀ C > (0 : ℝ), ∃ ε > (0 : ℝ), ∀ᶠ n : ℕ in atTop, ∀ x : Fin n → Icc (-1 : ℝ) 1,
+    ∃ y : Fin n → Icc (-1 : ℝ) 1, ∀ P : Polynomial ℝ, (P.natDegree : ℝ) < (1 + ε) * (n : ℝ) → ((Finset.univ.filter
+    (fun i ↦ P.eval (x i : ℝ) = (y i : ℝ))).card : ℝ) ≥ (1 - ε) * (n : ℝ) → ∃ z ∈ Icc (-1 : ℝ) 1, |P.eval z| > C
+    := by'

@@ -2550,6 +2550,392 @@
    "gap_ids": [
     "EG5"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-B8_blindhold_full_forced.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-B8_blindhold_full_forced",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Do the rooms the blind hold arm left open without an attempt close when a fresh searcher is made to try each under the full signal, and do the blind arm's sorry fallbacks survive a rule under which they count?",
+    "rule": "forced rule on N10, N16, N19 with N13 allowed open; genuineness and FINAL enforced by rooms/check.sh with rooms/forced_check.py and rooms/decl_sorry.py; rooms/score.py and rooms/forced_score.py compute every number; the first accepted FINAL is the scored result (arm rerun under this name after amendment A1)",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_8_forced.yaml",
+    "results": [
+     "results/B8_blindhold_full_forced/score.json",
+     "results/B8_blindhold_full_forced/forced.json",
+     "results/B8_blindhold_full_forced/final.lean",
+     "results/B8_blindhold_full_forced/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 5,
+     "refused_calls": 0,
+     "error_calls": "1 (the whole-file compile after the fallbacks were removed, exposing two breaks)",
+     "first_FINAL": "sorry (core_near_extremal only)",
+     "forced_rooms_closed": "3 of 3, each at its first genuine attempt",
+     "how": "turan_weak had one Mathlib lemma missing an explicit argument; floor_succ_le_power used a lemma name this pin spells le_or_gt; c4_free_indep_power was proved from the core N13 through two new helpers, the sparse and the dense case, as the full-feedback arm of build 3 had done",
+     "sorry_fallbacks_removed": "25 (26 `| sorry` lines in the start file, 0 in the final)",
+     "fit_total": 0,
+     "statements_changed": 0,
+     "rooms_proved": "28 declarations without sorry; the root rests on N13 only",
+     "tokens": 110947,
+     "minutes": "7.5 of 180",
+     "parent_arm": "B3_159_H_none_hold, 321,858 tokens, 61 minutes blind, four rooms open at FINAL"
+    },
+    "misses": []
+   },
+   "spoken": "The three rooms the blind arm left open were two slips and one reduction. Made to try, a fresh searcher closed each at its first attempt in seven minutes: a missing explicit argument, a renamed Mathlib lemma, and the open core carried through to the room that depends on it. It first had to remove twenty-five sorry fallbacks that the blind arm had wrapped around every proof; none survived, and only the two slips had ever needed them.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-B8_blindplain_full_forced.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-B8_blindplain_full_forced",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; searcher Claude Fable 5.1 in a fresh context)",
+   "preregistered": {
+    "question": "Do the rooms the blind plain arm left open close when a fresh searcher is made to try each under the full signal?",
+    "rule": "forced rule on N16, N18, ROOT with N13 allowed open; genuineness and FINAL enforced by rooms/check.sh with rooms/forced_check.py and rooms/decl_sorry.py; rooms/score.py and rooms/forced_score.py compute every number; the first accepted FINAL is the scored result (arm rerun under this name after amendment A1)",
+    "predictions": [
+     "P1",
+     "P2",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_8_forced.yaml",
+    "results": [
+     "results/B8_blindplain_full_forced/score.json",
+     "results/B8_blindplain_full_forced/forced.json",
+     "results/B8_blindplain_full_forced/final.lean",
+     "results/B8_blindplain_full_forced/calls.tsv"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "check_calls": 5,
+     "refused_calls": 0,
+     "error_calls": "1 (a rewrite that found nothing after a substitution; fixed on the next call)",
+     "first_FINAL": "sorry (core_near_extremal only)",
+     "forced_rooms_closed": "3 of 3; c4_free_indep_power at its second genuine attempt, card_le_power_of_c4_free and the root at their first",
+     "how": "the planner's own design for N16 (sparse case through N10 and N14, dense case through N11, N12, N13 and N15, with three new helpers), then the exponent and floor bookkeeping for N18 and the root, all resting on the open core",
+     "fit_total": 0,
+     "statements_changed": 0,
+     "tokens": 143062,
+     "minutes": "10 of 180",
+     "parent_arm": "B3_159_H_none_plain, 268,787 tokens, 35 minutes blind, first FINAL an error, root left as sorry against its brief"
+    },
+    "misses": []
+   },
+   "spoken": "The three rooms the blind plain arm left open, including the root itself, closed in ten minutes when a fresh searcher was made to try them with the checker on: two at the first attempt and one at the second. Erdős 159 in this file is now reduced exactly to the planner's open core and nothing else.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG6"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-match.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-match",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)",
+   "preregistered": {
+    "question": "Does shape alone find the right rooms and refuse the wrong ones?",
+    "rule": "rooms/match.py on atlas/hinges.yaml (164 vectors); outputs saved verbatim; amendment A1",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_8_match.yaml",
+    "results": [
+     "results/match_build8c/Q1.txt",
+     "results/match_build8c/Q2.txt",
+     "results/match_build8c/Q3.txt",
+     "results/match_build8c/Q4.txt",
+     "results/match_build8c/Q5.txt"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "held": "P1 (15 of 16 own lemmas of the statement-only 569 file match 569 rooms first), P4 (erdos_1133 against the other three proofs scored 0.22), P5 (self-consistency 143 of 164, 0.87)",
+     "missed": "P2 second clause (the residue matches the 569 step lemmas that share its hypotheses, not lemma7 or the root), P3 (the Diophantine statement matches 1061 number-theory rooms at 0.62, above the 0.45 ceiling)",
+     "Q2_top": "step_disconnected 0.54, ramsey_with_isolated 0.54, step_connected_large 0.54",
+     "Q3_top": "friendly_triple_activation 0.62 (1061)",
+     "what_separates": "proofs across areas of mathematics (graph theory against analysis), and rooms of the same shape within a proof",
+     "what_does_not": "proofs within an area; a Diophantine equation and a sum-of-divisors count share ℕ, Prime, powers and equalities"
+    },
+    "misses": [
+     "P2 (second clause)",
+     "P3"
+    ]
+   },
+   "spoken": "Shape finds the rooms of the same proof nine times in ten and finds nothing in a proof from another area of mathematics. It cannot tell two number-theory proofs apart: a Diophantine equation matched the divisor-function rooms at a score the registrar had predicted would mean a match. The retrieval works; the threshold does not, and the next instrument is a semantic feature, which Mathlib constants and defined predicates a statement uses, weighted by their rarity in the atlas.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG8"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "contributed cycle file data-2026-11-27-retype.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "data-2026-11-27-retype",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; readers Claude Fable 5.1 and Claude Opus 5.5 in fresh contexts)",
+   "preregistered": {
+    "question": "Do two readers reproduce the join types under written rules, and does the reach ordering survive?",
+    "rule": "rooms/retype_score.py on the two readers' files against atlas outcomes; amendment A1",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_8_retype.yaml",
+    "results": [
+     "retype/reader_A_1061.yaml",
+     "retype/reader_B_1061.yaml",
+     "retype/reader_A_1133.yaml",
+     "retype/reader_B_1133.yaml",
+     "results/retype_1061_score.txt",
+     "results/retype_1133_score.txt"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "mixed",
+    "numbers": {
+     "agreement_1061": "40 of 49 (0.82)",
+     "agreement_1133": "29 of 35 (0.83)",
+     "threshold": "0.80 on each, met",
+     "disagreement_pairs": "computation/estimate 8, case_split/estimate 2, case_split/computation 2, assembly/case_split 2, estimate/literature 1",
+     "reach_by_consensus_v2_pooled": "assembly 10/10, computation 29/33 (0.88), estimate 11/20 (0.55), two_structure_coupling 0/1, literature_import 0/3, case_split no consensus room",
+     "couplings_under_v2": "1 of the planner's 6 kept by both readers (N45 plane_prime_count)",
+     "held": "P1, P2, P5",
+     "missed": "P3 (literature 4 of 5; couplings 3 of 6), P4 by the letter (assembly above computation)",
+     "EG7": "stays open under the registered rule (P4 missed by the letter), agreement threshold met",
+     "atlas": "join_type_v2 written beside v1 on 84 vectors, with both readers' types"
+    },
+    "misses": [
+     "P3",
+     "P4 letter"
+    ]
+   },
+   "spoken": "Two readers on two models, given the rules and nothing else, agreed on the type of four rooms in five on both proofs, which v1 had not managed on the larger one. The disagreement that remains is one boundary: a finite case split against a computation or an estimate. Under the new rules the planner's six couplings shrank to one, and the type that carries the reach signal is the estimate: one in two closed, against nine in ten computations and every assembly. The ordering predicted before the run held except that assembly sat above computation, so the gap stays open by its own rule with the threshold met.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG7"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "contributed cycle file match-2026-11-27.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "match-2026-11-27",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "hypothesis": "A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof for statements it has not seen, nothing confident for statements from an unrelated proof, and the hinge of the same mechanism for a statement that shares it.",
+   "signals": "predictions P1–P5 in prereg_build_8_match.yaml on five queries whose statements are not in the atlas",
+   "endpoints": "none public until filed",
+   "measurements_needed": "the matcher run on the committed atlas of 164 vectors",
+   "bears_on": "Heidi Bennett's question of 2026-11-26 whether a hinge vector carrying conditionals can be matched to statements; the atlas as a prior for the next planner",
+   "pinned": {
+    "sha256": "a3dd2e29ae7c55228075192455111be5b025e28bb259091e420cb6ce657bb092",
+    "file": "prereg_build_8_match.yaml"
+   },
+   "preregistered": {
+    "question": "Does shape alone find the right rooms and refuse the wrong ones?",
+    "rule": "P1–P5 as written; the development runs disclosed in the registration; misses recorded",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_8_match.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 5,
+     "queries": 5,
+     "atlas_vectors": 164,
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered the first statement matcher over the hinge atlas and five queries on statements the atlas has not seen, with the threshold written down before the queries ran.",
+   "finding_ids": [],
+   "gap_ids": [
+    "HG7"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "contributed cycle file retype-2026-11-27.yaml"
+   },
+   "audience": "briefing",
+   "kind": "hypothesis",
+   "cycle": "retype-2026-11-27",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "hypothesis": "Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on each blueprint, their remaining disagreements sit on the estimate/computation boundary, and build 6's reach ordering survives the re-labelling.",
+   "signals": "predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py",
+   "endpoints": "none public until filed",
+   "measurements_needed": "two fresh readers on two models typing 82 rooms plus two roots from untyped blueprints",
+   "bears_on": "DEBRIEF-math-rooms EG7 (the join types must be reproducible across readers before a rate is built on them)",
+   "pinned": {
+    "sha256": "08f04982fe55ab4d2c559736270cba7ffeda435a23c6d412a23188759372fc2d",
+    "file": "prereg_build_8_retype.yaml"
+   },
+   "preregistered": {
+    "question": "Do two readers reproduce the join types under written rules, and does the reach ordering survive?",
+    "rule": "P1–P5 as written; misses recorded; EG7 resolves only if P1 and P4 hold",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_8_retype.yaml",
+    "results": [],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "admitted",
+    "numbers": {
+     "predictions": 5,
+     "readers": 2,
+     "rooms": 82,
+     "signals_have_public_endpoint": false
+    }
+   },
+   "spoken": "Nervous Machine registered a blind re-typing of the 82 build 6 rooms under a revised type system with a decision order and written boundary rules, by two fresh readers on two models, with the agreement threshold written first.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG7",
+    "HG8"
+   ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "contributed cycle file score-2026-11-27-build8-forced.yaml"
+   },
+   "audience": "briefing",
+   "kind": "data",
+   "cycle": "score-2026-11-27-build8-forced",
+   "dated": "2026-11-27",
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)",
+   "preregistered": {
+    "question": "Which of P1 to P5 held?",
+    "rule": "scored from the check logs, the files and Lean's warnings; amendments A1 and A2",
+    "predictions": [
+     "P1",
+     "P2",
+     "P3",
+     "P4",
+     "P5"
+    ],
+    "commit": "prereg_build_8_forced.yaml",
+    "results": [
+     "results/B8_blindhold_full_forced/forced.json",
+     "results/B8_blindplain_full_forced/forced.json"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "held": "P1, P2, P3, P4, P5",
+     "forced_rooms_closed": "6 of 6",
+     "attempts_per_room": "1, 1, 1, 2, 1, 1",
+     "sorry_fallbacks_in_hold_final": "0 (26 in the start)",
+     "fit_total": "0, 0",
+     "minutes": "7.5, 10",
+     "tokens": "110947, 143062",
+     "unregistered_observation": "the misnamed first plain arm, refused its first call, worked out that its regime was blind, closed all three rooms in one blind compile with four first-combinator hedges, and called an accepted FINAL; recorded in amendment A2 as a second blind arm, not as data"
+    },
+    "misses": []
+   },
+   "spoken": "Every room the blind arms had left open without an attempt closed when a fresh searcher was made to try it with the checker on, none needing more than two attempts and neither arm more than ten minutes. The sorry fallbacks the blind arm wrapped around every proof did not survive a rule under which they counted. Five of five predictions held.",
+   "finding_ids": [
+    "F8"
+   ],
+   "gap_ids": [
+    "EG6"
+   ]
   }
  ],
  "findings": [
@@ -3444,6 +3830,13 @@
      "hypothesis": "two blind readers agree on at least 80 percent of rooms per blueprint under types v2, and the reach ordering survives",
      "before_data": true,
      "result": "agreement 0.82 and 0.83, threshold met; ordering held except assembly above computation (P4 by the letter), so the gap stays open under its registered rule; remaining disagreement is case_split against computation and estimate; couplings shrank from six to one under the one-structure test; join_type_v2 written to the atlas beside v1"
+    },
+    {
+     "cycle": "retype-2026-11-27",
+     "hypothesis": "Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "hypothesis retype-2026-11-27 by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar) bears on this gap (see HG8)"
     }
    ],
    "closes_with": [
@@ -3584,6 +3977,100 @@
     "spoken": "Add the semantic feature and re-derive the threshold."
    },
    "expected_signal": "a registered matcher cycle with the threshold predicted first",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "hypothesis cycle match-2026-11-27"
+   },
+   "audience": "briefing",
+   "gap_id": "HG7",
+   "title": "A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof…",
+   "status": "immovable",
+   "opened_cycle": "match-2026-11-27",
+   "priority": 8,
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+    "github": null,
+    "cycle": "match-2026-11-27",
+    "sha256": "a3dd2e29ae7c55228075192455111be5b025e28bb259091e420cb6ce657bb092",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "match-2026-11-27",
+     "hypothesis": "A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar); pinned sha256 a3dd2e29ae7c…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "the matcher run on the committed atlas of 164 vectors",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made anonymous, Jaccard scores) returns rooms of the right proof for statements it has not seen, nothing confident for statements from an unrelated proof, and the hinge of the same mechanism for a statement that shares it.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P5 in prereg_build_8_match.yaml on five queries whose statements are not in the atlas",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-27T17:48:13Z",
+   "provenance": {
+    "source": "hypothesis cycle retype-2026-11-27"
+   },
+   "audience": "briefing",
+   "gap_id": "HG8",
+   "title": "Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on…",
+   "status": "immovable",
+   "opened_cycle": "retype-2026-11-27",
+   "priority": 9,
+   "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+   "credit": {
+    "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+    "github": null,
+    "cycle": "retype-2026-11-27",
+    "sha256": "08f04982fe55ab4d2c559736270cba7ffeda435a23c6d412a23188759372fc2d",
+    "for": "hypothesis"
+   },
+   "history": [
+    {
+     "cycle": "retype-2026-11-27",
+     "hypothesis": "Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on…",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)",
+     "result": "registered by Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar); pinned sha256 08f04982fe55…; the measurement it needs does not exist yet"
+    }
+   ],
+   "closes_with": [
+    {
+     "what": "two fresh readers on two models typing 82 rooms plus two roots from untyped blueprints",
+     "kind": "data_release",
+     "external": true,
+     "who_could_act": "whoever can make that measurement public"
+    }
+   ],
+   "spoken": "Under a type system with a fixed decision order and written boundary rules, two independent readers agree on the join type of at least 80 percent of rooms on each blueprint, their remaining disagreements sit on the estimate/computation boundary, and build 6's reach ordering survives the re-labelling.",
+   "ask": {
+    "spoken": "The measurement named by the submitter, made public at an endpoint."
+   },
+   "expected_signal": "predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py",
    "resolution_by": "none registered"
   }
  ],
