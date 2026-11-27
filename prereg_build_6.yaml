@@ -1,0 +1,116 @@
+# Pre-registration, cycle "build-2026-11-26-typed": build 6 of the rooms experiment, typed joins on two human proofs
+# with no Lean deduction on the record. Written 2026-11-27T02:04Z, BEFORE any planner or searcher of this build has run. Both
+# Challenge files compile with their sorry in the pinned project. Amendments are appended below a marker line after the
+# runs; this registered text is never edited and ends before any amendments key.
+#
+# Occasion. Heidi Bennett (2026-11-26): can a join be typed so that the next proof starts with a better prior, and can
+# a vector carry a hinge's conditionals so that it can be matched to statements? This build adds three fields to every
+# room (join_type, conditionals as Lean hypothesis terms, library_inputs), scores reach by type, and writes one hinge
+# vector per room into an atlas. It also adds the probe-first rule from build 4: no room may be left open untried, so
+# every typed room gets an outcome. The targets come from the FORMALIZE class of the math gap register (claims with no
+# formal deduction): Eric Li's resolution of Erdős 1061 (arXiv:2606.25849v1, 2026-06-24) and Jia-Qi Yang's proof of
+# Erdős 1133 (the repository PDF pinned by the erdos1133 record, 2026-09-13; also arXiv:2609.14769). Erdős 856 is
+# excluded: its only artifact is an Overleaf link, and its fixed-file gap has to close first.
+#
+# Freshness. 1061: the only Lean on GitHub is formal-conjectures' statement of the open dichotomy; no proof anywhere
+# found (GitHub code search; Palomar). 1133: a complete Lean formalization exists, peilinliu66-dev/
+# jsp940-erdos1133-formalization at 83ab7d38 (2026-09-28, Apache-2.0, Lean v4.33.0, Mathlib db584cd6, with Codex),
+# ingested into competemath/tengoku on 2026-11-20 as 325 theorems; it was found by the registrar during the scan of
+# this build and is NOT an input to any planner or searcher here. Both models predate it (cutoffs before 2026-09-28),
+# so the arm remains a test of model against paper. It is recorded for the erdos1133 record as a candidate
+# formalization to be rerun under its own registration.
+#
+# Caveats before the data. (1) The 1061 Lean statement is the registrar's (Li's Theorem 1.1 over formal-conjectures'
+# counting function S, ordered pairs, as the paper counts); the 1133 statement is formal-conjectures' own, verbatim.
+# (2) The registrar read both papers' statements and section lists and may not plan or search. (3) Yang's 1133 is
+# dated 2026-09-13, after the searcher model's cutoff; Li's 1061 is dated 2026-06-24, inside the cutoff month. (4) The
+# join type is a reading, assigned by the planner before the run and re-read by the registrar from statements with
+# the planner's column hidden (P9); the first table of reach by type will be small and its misses are the data.
+# (5) The probe rule is tool-enforced; a literature_import room is exempt by the planner's typing, so a planner that
+# over-uses that type weakens the rule; P3 and the registrar re-typing watch for it.
+
+mission: rooms-2026-11
+cycle: "build-2026-11-26-typed"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)"
+dated: "2026-11-26"
+question: >
+  When every room carries a join type, its conditionals and its library inputs, and no room may be left open untried,
+  do the types predict which rooms the searcher closes; does the human paper's route again buy most of the structure
+  over the statement alone; and does the record now hold one hinge vector per room with an outcome, so that the next
+  planner can start from measured reach?
+
+targets:
+  erdos1061:
+    theorem: "Erdos1061.li_1061"
+    statement_in_words: "for every fixed R > 0, S(x) / (x (log x)^R) → ∞, where S counts ordered pairs a + b ≤ x with σ(a) + σ(b) = σ(a + b)"
+    lean_statement: {path: rooms/Challenge_1061.lean, sha256: "3f47f5af0e7a6b1ad6eea0112f24b7e43dbc645326b59c13eb4992f207b0b5a8", written_by: "the registrar, 2026-11-26, Li's Theorem 1.1 over formal-conjectures' S (Apache-2.0, verbatim)", read_by_others: "nobody yet"}
+    paper: {ref: "Li, E., A resolution of Erdős Problem 1061 on the sum-of-divisors function, arXiv:2606.25849v1, 2026-06-24, 12 pages", pdf_sha256: "ae820bc001f52589276ffd0cd146c547e9bc4d4dc3c7b60331a4803fd8c2812b", text_sha256: "b43e9d6203ee0f3645c79c710eb9bed763c2e952466a12bcb328464b3d1fbee5", given_to: [planner_1061], licence: "arXiv non-exclusive distribution; not vendored"}
+    known_literature_inputs: "Bienvenu's higher-dimensional Siegel–Walfisz theorem (the paper's one black box, Proposition 2.1 of Bienvenu); Lemma 1.2 singular series (as cited)"
+  erdos1133:
+    theorem: "Erdos1133.erdos_1133"
+    statement_in_words: "for every C > 0 there is ε > 0 such that for large n and any n nodes in [-1,1] there are labels in [-1,1] forcing every polynomial of degree < (1+ε)n that fits (1−ε)n of them above C somewhere on [-1,1]"
+    lean_statement: {path: rooms/Challenge_1133.lean, sha256: "c7cdb3c337fa6380cb6783ed79c87c650719f9a43524a0d8bc932e8b2e601f7b", written_by: "google-deepmind/formal-conjectures FormalConjectures/ErdosProblems/1133.lean at 9097e2f9, verbatim (Apache-2.0)"}
+    paper: {ref: "Yang, J.-Q., Erdős's Robust Polynomial Interpolation Problem: the Optimal Exponential Scale, repository JiaqiYang-Fdu/erdos1133 at 8c3b428f, 2026-09-13 (also arXiv:2609.14769)", pdf_sha256: "13ed0e95c8dd2ae2d0459aa923db618135a5b0a74f02d77e7671b9150bb507ee", text_sha256: "a02731192b127a935bf6cfd436da27d811c4add5027427aa650d3273975f546b", given_to: [planner_1133], licence: "none stated in the repository; not vendored"}
+    known_literature_inputs: "Olevskii–Ulanovskii, Proposition 4.2 (Yang's Theorem 3.1), the finite Bernstein-space estimate"
+
+prior:
+  mathlib: {commit: "ccbef15ebdb41c2addfac682131f83c75904c3c1", lean: "v4.35.0"}
+  excluded: ["any web access", "every earlier build's files and notes", "for every searcher: the papers and the planners' predictions", "the peilinliu66-dev formalization and tengoku"]
+
+roles:
+  planner_1061: {model: claude-opus-5-5, brief: rooms/PLANNER_TYPED_PROMPT.md, inputs: [paper 1061 (pdf and text), Challenge_1061.lean, mathlib source], output: "blueprint_1061 split into nodes (public, with join_type, conditionals, library_inputs) and predictions (sealed by sha256, held by Heidi Bennett until the 1061 arms finish)"}
+  planner_1133: {model: claude-opus-5-5, brief: rooms/PLANNER_TYPED_PROMPT.md, inputs: [paper 1133 (pdf and text), Challenge_1133.lean, mathlib source], output: "blueprint_1133 split the same way"}
+  searchers: {model: claude-fable-5-1, context: "fresh, one per arm", tool: "rooms/check.sh only", seal: "by instruction; audited after with rooms/audit.py"}
+
+arms:                       # fresh contexts; run concurrently (per-arm target files)
+  B6_1061_A_full_probe:  {target: erdos1061, inputs: [Challenge_1061, blueprint_1061_nodes, mathlib], brief: rooms/SEARCHER_PROBE_PROMPT.md, check_returns: "Lean's complete output", rule: "hold + probe-first"}
+  B6_1061_B_full_noplan: {target: erdos1061, inputs: [Challenge_1061, mathlib], brief: rooms/SEARCHER_HOLD_PROMPT.md, check_returns: "Lean's complete output", rule: "hold", note: "no paper, no rooms: the human-route control"}
+  B6_1133_A_full_probe:  {target: erdos1133, inputs: [Challenge_1133, blueprint_1133_nodes, mathlib], brief: rooms/SEARCHER_PROBE_PROMPT.md, check_returns: "Lean's complete output", rule: "hold + probe-first"}
+  B6_1133_B_full_noplan: {target: erdos1133, inputs: [Challenge_1133, mathlib], brief: rooms/SEARCHER_HOLD_PROMPT.md, check_returns: "Lean's complete output", rule: "hold", note: "no paper, no rooms: the human-route control"}
+
+probe_rule: >
+  results/<ARM>/probe.conf names the blueprint. At FINAL, rooms/probe_check.py lists every room that is not of type
+  literature_import, is open (sorry in its body, or not declared), and has no non-refused call tagged with its id or
+  name; FINAL is refused while that list is non-empty. The per-node cap of 12 is unchanged.
+
+caps: {attempts_per_node: 12, tokens_per_arm: 2000000, wall_minutes_per_arm: 180, lean_timeout_seconds: 600}
+
+measurements: >
+  rooms/score.py per arm as before (A arms with --blueprint, B arms with --blueprint none); rooms/hinges.py per A arm
+  with the blueprint and, after the seal opens, the predictions: one hinge vector per room (id, name, kind, join_type,
+  conditionals, consumes, produces, library_inputs, believed, predicted, outcome proved | open | absent, attempts,
+  statement hash) into results/<ARM>/hinges.yaml and merged into atlas/hinges.yaml; reach by join type (rooms, proved,
+  rate, median attempts) per arm and pooled; the registrar's blind re-typing of every room from its statement with the
+  planner's column hidden, compared to the planner's type; the registrar's reading of the B arms' files for each
+  paper's distinctive move (1061: the split-quadric or isotropic-graph parametrisation with the coefficient triple
+  (15, 31, 508) and multiplier 3600; 1133: a finite Bernstein or trigonometric obstruction built from the
+  Olevskii–Ulanovskii estimate), quoted.
+
+predictions:
+  - {id: P1, says: "every arm ends with the root as sorry (residual): both papers rest on a literature input not in Mathlib, so no arm passes the comparator"}
+  - {id: P2, says: "pooled over the two A arms, the proved rate of rooms typed algebraic_identity, case_split or assembly exceeds the proved rate of rooms typed two_structure_coupling or quantitative_improvement (literature_import excluded)"}
+  - {id: P3, says: "no literature_import room is proved in either A arm, and each planner draws at most eight of them"}
+  - {id: P4, says: "each planner draws at least one two_structure_coupling or quantitative_improvement room, and in each A arm at least one such room is left open after its attempt"}
+  - {id: P5, says: "probe compliance: no accepted FINAL in an A arm leaves a non-literature room untried, and each A arm has at most one refused FINAL"}
+  - {id: P6, says: "fit_total 0 in all four arms"}
+  - {id: P7, says: "each B arm proves fewer lemmas than its A arm proves rooms, and neither B arm's file contains its paper's distinctive move, by the registrar's reading"}
+  - {id: P8, says: "both planners put root_reached at or below 0.1"}
+  - {id: P9, says: "the registrar's blind re-typing agrees with the planner's join_type on at least 80 percent of rooms in each blueprint"}
+  - {id: P10, says: "the atlas holds at least 40 hinge vectors with outcomes after this build, and at most one type has a pooled proved rate between 0.4 and 0.6 (the types separate)"}
+
+falsifiers: >
+  P2 failing means the typing does not predict reach as drawn and the type set needs revision before any prior is
+  built on it; P9 failing means the type is not reproducible across readers and cannot carry a rate; P1 failing on
+  either target means a literature input was rebuilt from Mathlib within the caps, which is recorded as such.
+
+instruments:
+  check_tool: {path: rooms/check.sh, sha256: "d2d181afd846a4a8b90f417639e865c1f60cfbdd024d480d837e346361c93f1f", change: "probe-first rule for *probe* regimes; forced and plain regimes unchanged"}
+  probe_check: {path: rooms/probe_check.py, sha256: "b147728a1dc9393aff26c071407146300cc8670b4b7c1aacd25e56a9c8306c0c", new: true}
+  hinges: {path: rooms/hinges.py, sha256: "48c3e31bfae48bd46382b2e8f772dfa4545b4096c2f66ac1451533e961243d4f", new: true}
+  planner_typed_brief: {path: rooms/PLANNER_TYPED_PROMPT.md, sha256: "c4bcc452c349f42c5a531b8da23f3ac5c84e1122aa8be3190aab423dc052ba71", new: true}
+  searcher_probe_brief: {path: rooms/SEARCHER_PROBE_PROMPT.md, sha256: "6d9c5443e4d8ea33d811d4980e3e7cee253dcec502820b5680b398b5fbe8673c", new: true}
+  searcher_hold_brief: {path: rooms/SEARCHER_HOLD_PROMPT.md, sha256: "1ced10223437a5013eccf787738041c768c053941841d0053953feb696991c16"}
+  scorer: {path: rooms/score.py, sha256: "649e6ced4ccf1d23ab8c33d1e6028987f0834f23060cd1d58abc6d3b268e51a8"}
+  audit: {path: rooms/audit.py, sha256: "e45f8d8400c4aa76fd71f269734aa13f66a68a3ca79ef389058d75d2cb23273f"}
+  smoke_tests: "probe rule exercised once on a scratch regime with a two-room synthetic blueprint (FINAL refused naming the untried room; accepted after one tagged call); hinges.py exercised on build 3's 159 arm (20 vectors, untyped) and the output moved out of results/; neither is data"

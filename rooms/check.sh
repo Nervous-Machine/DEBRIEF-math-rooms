@@ -9,6 +9,7 @@
 #   R2_binary  the single word ok or error
 #   R3_none    nothing until NODE is FINAL; before that the call is refused and not compiled
 #   *forced*   (build 4) as *full*, plus the forced-attempt rule below
+#   *probe*    (build 6) as *full*, plus the probe-first rule below: no room may be left open untried
 # Caps: 12 calls per node (R1, R2), or cap= from results/<REGIME>/forced.conf in *forced* regimes (build 5). A call past the cap is
 # refused, logged, and not compiled. FINAL is always compiled.
 set -u
@@ -41,6 +42,16 @@ case "$REGIME" in *forced*)
     if [ "$DONE" -lt "$CAP" ] && ! python3 -I "$HERE/rooms/forced_check.py" "$FILE" "$HERE/$FALLOW" >/dev/null; then
       refuse "FINAL refused: $FNODE has $DONE of $CAP genuine attempts and the file still has sorry outside the allowed rooms"
     fi
+  fi ;;
+esac
+# *probe* regimes (build 6): results/<REGIME>/probe.conf names the blueprint (nodes=). FINAL is refused while any room other
+# than a literature_import is still open (sorry, or not declared) and has received no check call tagged with its id or name.
+case "$REGIME" in *probe*)
+  PCONF="$HERE/results/$REGIME/probe.conf"
+  [ -f "$PCONF" ] || { echo "tool error: probe.conf missing"; exit 4; }
+  if [ "$NODE" = FINAL ]; then
+    PNODES=$(sed -n 's/^nodes=//p' "$PCONF")
+    UNTRIED=$(python3 "$HERE/rooms/probe_check.py" "$FILE" "$HERE/$PNODES" "$HERE/results/$REGIME/calls.tsv") || refuse "FINAL refused by the probe rule: rooms left open without one check call: $UNTRIED"
   fi ;;
 esac
 limactl copy "$FILE" "primegaps:/home/heidibennett.guest/rooms/project/Rooms/Target_$REGIME.lean" >/dev/null 2>&1 || { echo "tool error: copy failed" ; exit 4; }
