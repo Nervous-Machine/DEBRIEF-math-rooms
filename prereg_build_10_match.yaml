@@ -1,0 +1,74 @@
+# Pre-registration, cycle "match2-2026-11-27": build 10, the matcher gap EG8. Written 2026-11-27T20:25Z, BEFORE the
+# v2 matcher ran on the atlas, before its threshold was computed, and before any registered query ran. Amendments are
+# appended below a marker line; this body is never edited.
+#
+# Occasion. Heidi Bennett (2026-11-27): "Yes, let's do it. EG8." EG8 asks for a semantic feature, a new threshold, the
+# same five queries of build 8c and statements from a fifth proof. Build 9b added a second need: the v1 reader splits a
+# statement at its top-level colon, so hypotheses written inside the conclusion ("∃ c, … ∧ ∀ G, … → …") are read as
+# conclusion, and every hinge written that way had an empty hypothesis side and access 0.
+#
+# The instrument (rooms/match2.py; rooms/match.py is left as registered for build 8c):
+#   - hypotheses read from inside the conclusion: leading ∀/∀ᶠ binders and bounded quantifiers (∀ C > 0) give
+#     hypotheses; ∃ binders and the conjuncts before the last give conclusion constraints; a top-level arrow chain puts
+#     its antecedents on the hypothesis side, stopping at a nested quantifier; a function-typed binder is not a
+#     hypothesis; the planner's `conditionals` field is not used (every statement read the same way);
+#   - a semantic feature: the constants a statement uses, IDF-weighted Jaccard, weights over the atlas;
+#   - score2 = 0.5 · shape (match.py formula on the new sides) + 0.5 · semantic;
+#   - threshold rule tau: for each atlas vector, its best score against vectors of the other targets (569 = the 569
+#     blueprint and the 569 statement-only lineage; 159; 1061; 1133); tau = their 95th percentile, nearest rank.
+#   rooms/atlas_graph2.py: build 9b's graph, access and shores under the v2 reader and score, neighbourhoods at tau.
+#
+# Disclosure. Development before this registration: the v2 reader was run on seven hand-written statements, none in the
+# atlas and none among the queries, and fixed three times (bounded quantifiers; arrows past a nested quantifier;
+# function-typed binders). Both new files were compiled. Nothing else: tau has not been computed, no atlas vector has
+# been read by v2, no query has run. The registrar expects P9 and P10 to miss (stated below); they are registered
+# because they are the build 9b question the new reader makes testable.
+
+mission: rooms-2026-11
+cycle: "match2-2026-11-27"
+kind: hypothesis
+by: "Nervous Machine (Heidi Bennett; Claude Opus 5.5 as registrar and scorer)"
+dated: "2026-11-27"
+question: >
+  With hypotheses read from inside quantified statements and a rarity-weighted constants feature, does the matcher keep
+  its within-proof retrieval, separate two proofs in the same area of mathematics at a threshold set by rule, refuse
+  statements from proofs it has never seen, and give the build 9b access measure a hypothesis side for every hinge?
+
+queries:
+  Q1: {source: results/B3_569_B_full_noplan_hold/final.lean, what: "its own lemmas (the root excluded from the count, as in build 8c)", exclude: start_569B_nodes.yaml, why: "the statement-only lineage's rooms entered the atlas in build 9b and are these lemmas; excluded so the query stays unseen"}
+  Q2: {source: results/B5_C108_full_forced/final.lean, what: core_of_residue_pure, exclude: none}
+  Q3: {source: rooms/Challenge_2608.lean, what: consecutive_exponents, exclude: none}
+  Q4: {source: rooms/Challenge_1133.lean, what: erdos_1133, exclude: blueprint_1133_nodes.yaml}
+  Q5: {source: atlas/hinges.yaml, what: "self-consistency: best other match from the same target"}
+  Q6: {source: results/R1_full/final.lean, what: "the 17 theorems of build 1's Erdős 766 proof (graph theory, not in the atlas)", exclude: none}
+  Q7: {source: results/B2_A_full/final.lean, what: "the 41 theorems of build 2's arXiv:2608.18608 proof (number theory, not in the atlas)", exclude: none}
+  Q8: {source: atlas/hinges.yaml and atlas/discovered.yaml, what: "hypothesis sides under v2 over the 358 graph nodes"}
+  Q9: {source: rooms/atlas_graph2.py at theta = tau, what: "build 9b's fifteen hinges: access and shores"}
+
+predictions:
+  - {id: P1, says: "Q1: top-1 from blueprint_569_nodes.yaml for at least 12 of the file's own lemmas (build 8c's P1)"}
+  - {id: P2, says: "Q2: top-1 from the 569 target, and lemma7 or cambie_freschi (ROOT) in the top 5 (build 8c's P2)"}
+  - {id: P3, says: "Q3: top-1 score below tau (build 8c's P3 with the threshold by rule)"}
+  - {id: P4, says: "Q4: top-1 score below tau"}
+  - {id: P5, says: "Q5: at least 0.85 of atlas vectors have their best other match in the same target"}
+  - {id: P6, says: "Q6: the two Dirac–Erdős statements (dirac_erdos_exists and the root erdos_766.variants.dirac_erdos) have top-1 below tau, and at most half of the 17 theorems have top-1 at or above tau"}
+  - {id: P7, says: "Q7: at most a quarter of the 41 theorems have top-1 at or above tau"}
+  - {id: P8, says: "Q8: at most 10% of the 358 nodes have an empty hypothesis side under v2, and none of core_near_extremal, c4_free_indep_power, card_le_power_of_c4_free, erdos_159 does"}
+  - {id: P9, says: "Q9: build 9b's P1 restated: the access of each of the two unclosed hinges is below that of every hinge that closed when forced (registrar expects a miss on the 569 core)"}
+  - {id: P10, says: "Q9: build 9b's P2 restated: shores differ for both unclosed hinges and are the same for at least four of the six forced closures (registrar expects a miss)"}
+
+falsifiers: >
+  P1 or P5 failing means the semantic feature has cost the within-proof retrieval. P3, P6 or P7 failing means the
+  matcher still cannot tell two proofs of one area apart at a threshold set by rule, and EG8 stays open. P8 failing
+  means the reader is still not reading the hypotheses. P9 and P10 bear on build 9b's picture, not on EG8.
+
+closes: "EG8 closes as learned if P1, P3, P4, P5 and at least one of P6, P7 hold; otherwise it stays open with this cycle in its history"
+
+instruments:
+  matcher_v2: {path: rooms/match2.py, sha256: "5af7dea238dc7974555a3b9f299e29dd7b59a8fc719e0dc2897c42cfb89975c9", new: true}
+  graph_v2: {path: rooms/atlas_graph2.py, sha256: "748decadf0b2f4692f8956fc1121eccaa0f14dca6644602ad85ca5bd54db8eed", new: true}
+  matcher_v1: {path: rooms/match.py, sha256: "1fbbfeabc910ac9327d8a6f671cea0f0a2159d8f6131a01b0e4068001d883306", unchanged: true}
+  graph_v1: {path: rooms/atlas_graph.py, sha256: "33132ebe815b458da4666fd8b464cd4b6b1b8f7f3880b3a0faaa1b2fd21cd80c", unchanged: true}
+  atlas_hinges: {path: atlas/hinges.yaml, sha256: "a1864a6432a31caf5fcbbceda2e1e497f40d14315d6c734e452acec115df159a", vectors: 182}
+  atlas_discovered: {path: atlas/discovered.yaml, sha256: "0c8faf5598525ae0039d296a6ecf717b947c974a7212e50168e6a244e9e69456", rooms: 176}
+  outputs: "results/match_build10/ (tau.txt, sides.txt, Q1.txt … Q7.txt, self.txt), results/atlas_graph2_build10.txt and .json"
