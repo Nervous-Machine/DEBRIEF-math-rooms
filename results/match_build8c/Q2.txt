@@ -1,0 +1,7 @@
+
+query:
+  0.54  blueprint_569_nodes.yaml     N45   step_disconnected                        type=None outcome=proved
+  0.54  blueprint_569_nodes.yaml     N40   ramsey_with_isolated                     type=None outcome=proved
+  0.54  blueprint_569_nodes.yaml     N58   step_connected_large                     type=None outcome=proved
+  0.52  blueprint_569_nodes.yaml     N57   step_large_deg_two                       type=None outcome=proved
+  0.40  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          type=None outcome=proved

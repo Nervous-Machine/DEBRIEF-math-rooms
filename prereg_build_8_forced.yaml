@@ -66,3 +66,23 @@ instruments:
   forced_scorer: {path: rooms/forced_score.py, sha256: "65f41d641c1c6fa9acdfb0094661d6109a0670883c64d7be01d4a507a1b3942a"}
   brief: {path: rooms/SEARCHER_FORCED_MULTI_PROMPT.md, sha256: "0a16afa97336ff26523c20f473a4cc870f94d39728a763078722b443685112ac", new: true}
   smoke_test: "the multi-room rule exercised once on a scratch regime with the hold file at cap 2: a call on the wrapper-laden file refused naming the wrapped declarations; a call with the wrappers' sorry removed refused naming the one other open room not in the forced set; a FINAL on a file whose forced rooms carried no sorry token was accepted (and errored, as the rule reads sorry, not errors); log moved out of results/"
+
+# ---- Amendment A1 ---- appended before any genuine attempt; the registered text above is unedited.
+amendments:
+  - id: A1
+    written: "2026-11-27T17:32Z, after the first arm's first call and before any compiled attempt in either arm"
+    defect: >
+      The registered arm names B8_159none_hold_forced and B8_159none_plain_forced contain the substring "none", and
+      rooms/check.sh selects the no-checker regime by `*none*` before it reaches the forced-regime logic; so every
+      non-FINAL call in both arms is refused as "no checker in this regime until FINAL". The first arm's searcher found
+      this on its first call (17:30:30Z, seq 0001 in results/B8_159none_hold_forced/calls.tsv, refused, not compiled),
+      stopped without calling FINAL, and reported it. The second arm had made no call at the time of writing. This is
+      the registrar's naming error, not the searchers'.
+    change: >
+      The two arms rerun under the names B8_blindhold_full_forced and B8_blindplain_full_forced, from the same start
+      files (sha256 358ac7d1… and afaae232…), the same forced rooms, allowed rooms and cap, in fresh contexts. The
+      instruments are unchanged. The first attempt's directories are kept as a record: the first searcher removed the
+      25 `first | proof | sorry` fallbacks from its working copy before being blocked (that copy stays in
+      results/B8_159none_hold_forced/work/ and is not an input to the rerun). Predictions P1 to P5 stand as written.
+    instrument_note: "check.sh is not changed for this build; a regime name must not contain `none` unless it is a no-checker regime, and the registrar will say so in the tool's header in a later commit"
+

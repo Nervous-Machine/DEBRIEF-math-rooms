@@ -1,0 +1,85 @@
+
+graphRamsey_le_of_forall:
+  0.80  blueprint_159_nodes.yaml     N01   graphRamsey_le_of_forall                 type=None outcome=proved
+  0.39  blueprint_1133_nodes.yaml    N28   disjoint_groups_card_le                  type=extremal_averaging outcome=proved
+  0.36  blueprint_159_nodes.yaml     N07   card_le_quadratic_of_c4_free             type=None outcome=proved
+
+isEmpty_of_ncard_edgeSet_eq_zero:
+  0.56  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           type=None outcome=proved
+  0.43  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        type=None outcome=proved
+  0.40  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              type=None outcome=proved
+
+cycleGraph_isContained_top:
+  0.69  blueprint_569_nodes.yaml     N01   cycleGraph_no_isolated                   type=None outcome=proved
+  0.66  blueprint_569_nodes.yaml     N59   main_property                            type=None outcome=proved
+  0.65  blueprint_569_nodes.yaml     N02   cycleGraph_edgeSet_ncard                 type=None outcome=proved
+
+isContained_of_ncard_edgeSet_eq_one:
+  0.77  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        type=None outcome=proved
+  0.74  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              type=None outcome=proved
+  0.61  blueprint_569_nodes.yaml     N46   extend_by_vertex                         type=None outcome=proved
+
+core_one:
+  0.64  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           type=None outcome=proved
+  0.52  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               type=None outcome=open
+  0.51  blueprint_569_nodes.yaml     N22   jayawardene_C4                           type=None outcome=open
+
+isContained_compl_of_comap:
+  0.80  blueprint_569_nodes.yaml     N04   isContained_of_induce                    type=None outcome=proved
+  0.80  blueprint_569_nodes.yaml     N05   isContained_compl_of_compl_induce        type=None outcome=proved
+  0.58  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        type=None outcome=proved
+
+isContained_of_extend:
+  0.88  blueprint_569_nodes.yaml     N46   extend_by_vertex                         type=None outcome=proved
+  0.68  blueprint_569_nodes.yaml     N41   glue_components                          type=None outcome=proved
+  0.68  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        type=None outcome=proved
+
+cycleGraph_isContained_of_isClique:
+  0.47  blueprint_569_nodes.yaml     N02   cycleGraph_edgeSet_ncard                 type=None outcome=proved
+  0.45  blueprint_569_nodes.yaml     N01   cycleGraph_no_isolated                   type=None outcome=proved
+  0.44  blueprint_569_nodes.yaml     N59   main_property                            type=None outcome=proved
+
+exists_isClique_of_compl_degree_le:
+  0.51  blueprint_569_nodes.yaml     N59   main_property                            type=None outcome=proved
+  0.49  blueprint_159_nodes.yaml     N05   greedy_indep_local                       type=None outcome=proved
+  0.48  blueprint_1133_nodes.yaml    N24   finset_split_into_blocks                 type=case_split outcome=proved
+
+star_isContained_of_le_degree:
+  0.71  blueprint_569_nodes.yaml     N19   embed_colored_into_parts                 type=None outcome=proved
+  0.70  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        type=None outcome=proved
+  0.70  blueprint_569_nodes.yaml     N46   extend_by_vertex                         type=None outcome=proved
+
+core_star:
+  0.52  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               type=None outcome=open
+  0.51  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          type=None outcome=proved
+  0.48  blueprint_569_nodes.yaml     N29   lemma4_small_cycles                      type=None outcome=proved
+
+cycleGraph_isContained_of_compl_degree_lt:
+  0.47  blueprint_569_nodes.yaml     N12   cycle_of_closed_seq                      type=None outcome=proved
+  0.47  blueprint_569_nodes.yaml     N32   lemma7                                   type=None outcome=open
+  0.40  blueprint_1133_nodes.yaml    N08   lemma32_log_bound                        type=algebraic_identity outcome=proved
+
+isContained_of_ncard_edgeSet_eq_two:
+  0.78  blueprint_569_nodes.yaml     N09   ramsey_zero_edges                        type=None outcome=proved
+  0.76  blueprint_569_nodes.yaml     N10   one_edge_isContained_of_adj              type=None outcome=proved
+  0.66  blueprint_569_nodes.yaml     N46   extend_by_vertex                         type=None outcome=proved
+
+core_two_nonstar:
+  0.55  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               type=None outcome=open
+  0.53  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          type=None outcome=proved
+  0.49  blueprint_569_nodes.yaml     N45   step_disconnected                        type=None outcome=proved
+
+core_ge_three_nonstar:
+  0.53  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               type=None outcome=open
+  0.51  blueprint_569_nodes.yaml     N11   ramsey_one_edge                          type=None outcome=proved
+  0.48  blueprint_569_nodes.yaml     N45   step_disconnected                        type=None outcome=proved
+
+core:
+  0.64  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           type=None outcome=proved
+  0.52  blueprint_569_nodes.yaml     N14   goddard_kleitman_sidorenko               type=None outcome=open
+  0.51  blueprint_569_nodes.yaml     N22   jayawardene_C4                           type=None outcome=open
+
+cambie_freschi:
+  1.10  blueprint_569_nodes.yaml     ROOT  cambie_freschi                           type=None outcome=proved
+  0.44  blueprint_1133_nodes.yaml    N08   lemma32_log_bound                        type=algebraic_identity outcome=proved
+  0.39  blueprint_159_nodes.yaml     N15   dense_branch_arith                       type=None outcome=proved

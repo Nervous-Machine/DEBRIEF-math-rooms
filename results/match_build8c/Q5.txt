@@ -1,0 +1,1 @@
+self-consistency: best other match is from the same blueprint for 143/164 = 0.87

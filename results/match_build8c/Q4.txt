@@ -1,0 +1,5 @@
+
+query:
+  0.22  blueprint_1061_nodes.yaml    N36   local_W                                  type=assembly outcome=proved
+  0.22  blueprint_1061_nodes.yaml    N18   integral_lift                            type=algebraic_identity outcome=proved
+  0.22  blueprint_1061_nodes.yaml    N34   lattice_reduction                        type=algebraic_identity outcome=open

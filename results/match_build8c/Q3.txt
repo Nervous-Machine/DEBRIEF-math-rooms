@@ -1,0 +1,5 @@
+
+query:
+  0.62  blueprint_1061_nodes.yaml    N06   friendly_triple_activation               type=assembly outcome=proved
+  0.57  blueprint_1061_nodes.yaml    N09   multiplier_solution                      type=algebraic_identity outcome=proved
+  0.45  blueprint_1061_nodes.yaml    N04   sigma_mul_two_primes                     type=algebraic_identity outcome=proved
