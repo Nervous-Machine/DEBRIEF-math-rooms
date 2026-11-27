@@ -1,0 +1,30 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: match-2026-11-27
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: A syntactic matcher over the hinge atlas (tokenised hypotheses and conclusion, bound variables made
+  anonymous, Jaccard scores) returns rooms of the right proof for statements it has not seen, nothing confident for
+  statements from an unrelated proof, and the hinge of the same mechanism for a statement that shares it.
+signals: predictions P1–P5 in prereg_build_8_match.yaml on five queries whose statements are not in the atlas
+endpoints: none public until filed
+measurements_needed: the matcher run on the committed atlas of 164 vectors
+bears_on: 'Heidi Bennett''s question of 2026-11-26 whether a hinge vector carrying conditionals can be matched to
+  statements; the atlas as a prior for the next planner'
+pinned:
+  sha256: a3dd2e29ae7c55228075192455111be5b025e28bb259091e420cb6ce657bb092
+  file: prereg_build_8_match.yaml
+preregistered:
+  question: Does shape alone find the right rooms and refuse the wrong ones?
+  rule: P1–P5 as written; the development runs disclosed in the registration; misses recorded
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_8_match.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers: {predictions: 5, queries: 5, atlas_vectors: 164, signals_have_public_endpoint: false}
+spoken: 'Nervous Machine registered the first statement matcher over the hinge atlas and five queries on statements
+  the atlas has not seen, with the threshold written down before the queries ran.'
+finding_ids: []
+gap_ids: []

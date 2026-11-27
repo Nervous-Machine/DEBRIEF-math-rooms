@@ -41,6 +41,10 @@ hinges:
     (L i j : ℝ) * v j) → (∀ n : Fin d → ℤ, n ∈ F ↔ (fun j => (n j : ℝ)) ∈ K) → |(∑ n ∈ F, ∏ i, (if 0 < c i + (∑
     j, L i j * n j) ∧ (c i + ∑ j, L i j * n j).natAbs.Prime then Real.log ((c i + ∑ j, L i j * n j : ℤ) : ℝ) else
     0)) / ((MeasureTheory.volume K).toReal * ∏'' p : Nat.Primes, β p) - 1| ≤ ε := by'
+  join_type_v2: literature_import
+  join_type_v2_readers:
+    A: literature_import
+    B: literature_import
 - arm: B6_1061_A_full_probe
   id: N02
   name: bienvenu_lemma12_singular_series
@@ -68,6 +72,10 @@ hinges:
     β p = ((p : ℝ) / (p - 1)) ^ t / (p : ℝ) ^ d * ((Fintype.piFinset fun _ : Fin d => Finset.range p).filter (fun
     n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) (hpos : ∀ p : ℕ, p.Prime → 0 < β p) : Multipliable
     (fun p : Nat.Primes => β p) ∧ 0 < ∏'' p : Nat.Primes, β p := by'
+  join_type_v2: literature_import
+  join_type_v2_readers:
+    A: literature_import
+    B: literature_import
 - arm: B6_1061_A_full_probe
   id: N03
   name: sigma_values_triple
@@ -89,6 +97,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem sigma_values_triple : σ 1 54000 = 193440 ∧ σ 1 111600 = 399776 ∧ σ 1 1828800 = 6551168 :=
     by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N04
   name: sigma_mul_two_primes
@@ -116,6 +128,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem sigma_mul_two_primes (K p r : ℕ) (hK : 0 < K) (hp : p.Prime) (hr : r.Prime) (hpr : p ≠ r)
     (hpK : ¬ p ∣ K) (hrK : ¬ r ∣ K) : σ 1 (K * (p * r)) = σ 1 K * ((p + 1) * (r + 1)) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N05
   name: shifted_product_identity
@@ -140,6 +156,10 @@ hinges:
   statement: 'theorem shifted_product_identity (p1 p2 p3 p4 p5 p6 : ℤ) (h22 : 15 * p1 * p2 + 31 * p3 * p4 = 508
     * p5 * p6) (h23 : 15 * (p1 + p2) + 31 * (p3 + p4) - 508 * (p5 + p6) = 462) : 15 * (p1 + 1) * (p2 + 1) + 31 *
     (p3 + 1) * (p4 + 1) = 508 * (p5 + 1) * (p6 + 1) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N06
   name: friendly_triple_activation
@@ -167,6 +187,10 @@ hinges:
     p) (h22 : 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)) (h23 : 15 * (p 0 + p 1) + 31 * (p 2 + p 3)
     = 508 * (p 4 + p 5) + 462) : 54000 * (p 0 * p 1) + 111600 * (p 2 * p 3) = 1828800 * (p 4 * p 5) ∧ σ 1 (54000
     * (p 0 * p 1)) + σ 1 (111600 * (p 2 * p 3)) = σ 1 (1828800 * (p 4 * p 5)) := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1061_A_full_probe
   id: N07
   name: core_from_sextuple
@@ -195,6 +219,10 @@ hinges:
     = 508 * (p 4 + p 5) + 462) : Nat.Coprime (15 * (p 0 * p 1)) (31 * (p 2 * p 3)) ∧ σ 1 (3600 * (15 * (p 0 * p
     1))) + σ 1 (3600 * (31 * (p 2 * p 3))) = σ 1 (3600 * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))) ∧ (3600 * (15 *
     (p 0 * p 1)) * (31 * (p 2 * p 3)) * (15 * (p 0 * p 1) + 31 * (p 2 * p 3))).primeFactors.card ≤ 11 := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N08
   name: core_fiber_le_eight
@@ -219,6 +247,10 @@ hinges:
   statement: 'theorem core_fiber_le_eight (Sx : Finset (Fin 6 → ℕ)) (hS : ∀ p ∈ Sx, (∀ i, (p i).Prime ∧ 127 < p
     i) ∧ Function.Injective p ∧ 15 * (p 0 * p 1) + 31 * (p 2 * p 3) = 508 * (p 4 * p 5)) : Sx.card ≤ 8 * (Sx.image
     fun p => (15 * (p 0 * p 1), 31 * (p 2 * p 3))).card := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: case_split
 - arm: B6_1061_A_full_probe
   id: N09
   name: multiplier_solution
@@ -243,6 +275,10 @@ hinges:
   statement: 'theorem multiplier_solution (u v g : ℕ) (hg : Nat.Coprime g (3600 * u * v * (u + v))) (h : σ 1 (3600
     * u) + σ 1 (3600 * v) = σ 1 (3600 * (u + v))) : σ 1 (3600 * g * u) + σ 1 (3600 * g * v) = σ 1 (3600 * g * u
     + 3600 * g * v) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N10
   name: multiplier_disjoint
@@ -273,6 +309,10 @@ hinges:
   statement: 'theorem multiplier_disjoint (u v u'' v'' g g'' : ℕ) (hu : 0 < u) (hv : 0 < v) (hu'' : 0 < u'') (hv''
     : 0 < v'') (hcop : Nat.Coprime u v) (hcop'' : Nat.Coprime u'' v'') (hg : 0 < g) (hg'' : 0 < g'') (h1 : 3600
     * g * u = 3600 * g'' * u'') (h2 : 3600 * g * v = 3600 * g'' * v'') : g = g'' ∧ u = u'' ∧ v = v'' := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N11
   name: coprime_density
@@ -297,6 +337,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem coprime_density : ∃ c6 X0 : ℝ, 0 < c6 ∧ ∀ (n : ℕ) (X : ℝ), n ≠ 0 → n.primeFactors.card ≤ 11
     → X0 ≤ X → c6 * X ≤ ((Finset.Icc 1 ⌊X⌋₊).filter (fun g => Nat.Coprime g n)).card := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N12
   name: S_ge_card
@@ -319,6 +363,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem S_ge_card (x : ℝ) (F : Finset (ℕ × ℕ)) (hF : ∀ ab ∈ F, 1 ≤ ab.1 ∧ 1 ≤ ab.2 ∧ (ab.1 : ℝ) +
     ab.2 ≤ x ∧ σ 1 ab.1 + σ 1 ab.2 = σ 1 (ab.1 + ab.2)) : (F.card : ℝ) ≤ S x := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N13
   name: ruling_plane_identity
@@ -345,6 +393,10 @@ hinges:
     + 31 * x3 * x4 = 508 * x5 * x6 ∧ 15 * (x1 + x2) + 31 * (x3 + x4) - 508 * (x5 + x6) = 462 ∧ 508 * x6 = -(6930
     * β + 14322 * γ + 46) + (-31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β + 1) * r + (15 * α - 6930 * β * γ
     - 14322 * γ ^ 2 + 416 * γ + 1) * s := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N14
   name: determinant_table
@@ -376,6 +428,10 @@ hinges:
     * b5 - b3 * a5 = β / 31 ∧ a3 * b6 - b3 * a6 = -(31 * α - 462 * β - 1) * (15 * β + 31 * γ - 1) / 15748 ∧ a4 *
     b5 - b4 * a5 = α * γ ∧ a4 * b6 - b4 * a6 = -(α + β - γ) * (15 * α + 462 * γ + 1) / 508 ∧ a5 * b6 - b5 * a6 =
     -(15 * α * β + 31 * α * γ + β - γ) / 508 := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N15
   name: finite_complexity_real
@@ -411,6 +467,10 @@ hinges:
     * b5 - b1 * a5 ≠ 0 ∧ a1 * b6 - b1 * a6 ≠ 0 ∧ a2 * b3 - b2 * a3 ≠ 0 ∧ a2 * b4 - b2 * a4 ≠ 0 ∧ a2 * b5 - b2 *
     a5 ≠ 0 ∧ a2 * b6 - b2 * a6 ≠ 0 ∧ a3 * b4 - b3 * a4 ≠ 0 ∧ a3 * b5 - b3 * a5 ≠ 0 ∧ a3 * b6 - b3 * a6 ≠ 0 ∧ a4
     * b5 - b4 * a5 ≠ 0 ∧ a4 * b6 - b4 * a6 ≠ 0 ∧ a5 * b6 - b5 * a6 ≠ 0 := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: case_split
 - arm: B6_1061_A_full_probe
   id: N16
   name: archimedean_bounds
@@ -449,6 +509,10 @@ hinges:
     508 → (c * Z * T ≤ x1 ∧ x1 ≤ C * Z * T ∧ c * Z * T ≤ x3 ∧ x3 ≤ C * Z * T ∧ c * Z * T ≤ x5 ∧ x5 ≤ C * Z * T ∧
     c * Z ^ 2 * T ≤ x2 ∧ x2 ≤ C * Z ^ 2 * T ∧ c * Z ^ 2 * T ≤ x4 ∧ x4 ≤ C * Z ^ 2 * T ∧ c * Z ^ 2 * T ≤ x6 ∧ x6
     ≤ C * Z ^ 2 * T) := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N17
   name: zero_form_criteria
@@ -478,6 +542,10 @@ hinges:
     = 0 ∧ 462 * γ + 1 = 0)) ∧ ((6930 * β + 14322 * γ + 46 = 0 ∧ -31 * α - 6930 * β ^ 2 - 14322 * β * γ + 416 * β
     + 1 = 0 ∧ 15 * α - 6930 * β * γ - 14322 * γ ^ 2 + 416 * γ + 1 = 0) ↔ (31 * α - 462 * β - 1 = 0 ∧ 15 * α + 462
     * γ + 1 = 0)) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N18
   name: integral_lift
@@ -508,6 +576,10 @@ hinges:
     (α - 462 * β * γ - γ) * s ∧ (x 2 : ℝ) = -1 - β * r + (1 / 31 - γ) * s ∧ (x 3 : ℝ) = -1 - 462 * γ + (-α - 462
     * β * γ - β) * r + (-462 * γ ^ 2 - γ) * s ∧ (x 4 : ℝ) = -1 - β * r - γ * s ∧ (x 5 : ℝ) = (15 * ((x 0 : ℝ) +
     x 1) + 31 * ((x 2 : ℝ) + x 3) - 508 * (x 4 : ℝ) - 462) / 508 := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N19
   name: onPlane_equations
@@ -535,6 +607,10 @@ hinges:
     15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q A B C : ℤ) (x : Fin 6 → ℤ) (hq : q ≠ 0) (hx : OnPl
     q A B C x) : 15 * x 0 * x 1 + 31 * x 2 * x 3 = 508 * x 4 * x 5 ∧ 15 * (x 0 + x 1) + 31 * (x 2 + x 3) - 508 *
     (x 4 + x 5) = 462 := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1061_A_full_probe
   id: N20
   name: good_coprime
@@ -562,6 +638,10 @@ hinges:
     4619990760 * q → ¬ (((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * B + q) ∨ ((p : ℤ) ∣ A ∧ (p : ℤ) ∣ 462 * C + q) ∨ ((p : ℤ)
     ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (Z : ℝ) (q : ℕ) (A B C : ℤ) (hG : Good Z q A B
     C) : IsCoprime A (q : ℤ) ∧ IsCoprime B (q : ℤ) ∧ IsCoprime C (q : ℤ) ∧ IsCoprime (A * B * C) (q : ℤ) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N21
   name: local_witness
@@ -593,6 +673,10 @@ hinges:
     (x 0 + x 1) + 31 * (x 2 + x 3) - 508 * x 4 - 462)) (q : ℕ) (A B C : ℤ) (hq1 : 1 ≤ q) (hqW : q % 4619990760 =
     1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C) (hCq : IsCoprime C (q
     : ℤ)) : ∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ ∀ p : ℕ, p.Prime → p ∣ 4619990760 → ∀ i, ¬ (p : ℤ) ∣ x i := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N22
   name: projected_index
@@ -625,6 +709,10 @@ hinges:
     = 1) (hA : (4619990760 : ℤ) ∣ A) (hB : (4619990760 : ℤ) ∣ B) (hC : (4619990760 : ℤ) ∣ C) (hcop : IsCoprime (A
     * B * C) (q : ℤ)) : ∃ (z : ℤ × ℤ) (Γ : AddSubgroup (ℤ × ℤ)) (δ : ℕ), δ ∣ 508 ∧ Γ.index = q ^ 2 * δ ∧ ∀ y : ℤ
     × ℤ, (∃ x : Fin 6 → ℤ, OnPl q A B C x ∧ x 0 - x 4 = y.1 ∧ x 2 - x 4 = y.2) ↔ y - z ∈ Γ := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N23
   name: lattice_coords
@@ -675,6 +763,10 @@ hinges:
     * v j) - ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))| ≤ 1 / 100000 * |15 * (((c 0 : ℝ) + ∑ j, (L 0 j : ℝ) * v j) -
     ((c 4 : ℝ) + ∑ j, (L 4 j : ℝ) * v j))|)) → Convex ℝ K ∧ MeasureTheory.volume K = ENNReal.ofReal (3 / 100000
     * T ^ 2 / (465 * (q : ℝ) ^ 2 * δ)) ∧ ∀ v ∈ K, ∀ j, |v j| ≤ C1 * T := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N24
   name: region_bounds_int
@@ -716,6 +808,10 @@ hinges:
     → (cl * Z * T ≤ x 0 ∧ cl * Z * T ≤ x 2 ∧ cl * Z * T ≤ x 4 ∧ cl * Z ^ 2 * T ≤ x 1 ∧ cl * Z ^ 2 * T ≤ x 3 ∧ cl
     * Z ^ 2 * T ≤ x 5 ∧ (∀ i, (x i : ℝ) ≤ Cu * Z ^ 2 * T) ∧ ch * Z ^ 3 * T ^ 2 ≤ 508 * (x 4 : ℝ) * x 5 ∧ 508 * (x
     4 : ℝ) * x 5 ≤ Ch * Z ^ 3 * T ^ 2) := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N25
   name: sqfree_progression_count
@@ -738,6 +834,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem sqfree_progression_count : ∃ csf Q1 : ℝ, 0 < csf ∧ ∀ Q : ℝ, Q1 ≤ Q → ∃ F : Finset ℕ, (∀ q
     ∈ F, Q ≤ q ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q) ∧ csf * Q ≤ F.card := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N26
   name: H_sum_bound
@@ -760,6 +860,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem H_sum_bound : ∃ CH Q1 : ℝ, ∀ Q : ℝ, Q1 ≤ Q → ∑ q ∈ (Finset.Icc ⌈Q⌉₊ ⌊2 * Q⌋₊).filter (fun
     q => q % 4619990760 = 1), ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ CH * Q := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N27
   name: good_denominators
@@ -783,6 +887,10 @@ hinges:
   statement: 'theorem good_denominators : ∃ M0 cW Q0 : ℝ, 0 < cW ∧ ∀ Q : ℝ, Q0 ≤ Q → ∃ F : Finset ℕ, (∀ q ∈ F, Q
     ≤ q ∧ (q : ℝ) ≤ 2 * Q ∧ q % 4619990760 = 1 ∧ Squarefree q ∧ ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0) ∧ cW * Q
     ≤ F.card := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N28
   name: residue_blocks
@@ -807,6 +915,10 @@ hinges:
     L2 L3 : ℕ) : Ω.card * ((L1 / m - 1) * (L2 / m - 1) * (L3 / m - 1)) ≤ ((Finset.Ico a1 (a1 + L1) ×ˢ (Finset.Ico
     a2 (a2 + L2) ×ˢ Finset.Ico a3 (a3 + L3))).filter (fun x => ((x.1 : ZMod m), (x.2.1 : ZMod m), (x.2.2 : ZMod
     m)) ∈ Ω)).card := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N29
   name: local_density
@@ -838,6 +950,10 @@ hinges:
     * q → ¬ (((p : ℤ) ∣ 4619990760 * a ∧ (p : ℤ) ∣ 462 * (4619990760 * b) + q) ∨ ((p : ℤ) ∣ 4619990760 * a ∧ (p
     : ℤ) ∣ 462 * (4619990760 * c) + q) ∨ ((p : ℤ) ∣ 31 * (4619990760 * a) - 462 * (4619990760 * b) - q ∧ (p : ℤ)
     ∣ 15 * (4619990760 * a) + 462 * (4619990760 * c) + q))) := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N30
   name: large_prime_tail
@@ -867,6 +983,10 @@ hinges:
     ∧ (((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.1 + q) ∨ ((p : ℤ) ∣ t.1 ∧ (p : ℤ) ∣ 462 * t.2.2 + q) ∨ ((p : ℤ) ∣ 31
     * t.1 - 462 * t.2.1 - q ∧ (p : ℤ) ∣ 15 * t.1 + 462 * t.2.2 + q))) → (F.card : ℝ) ≤ Ct * ((q : ℝ) ^ 3 * Z ^ 4
     / P + (q : ℝ) ^ 2 * Z ^ 3 * Real.log (q * Z) + (q : ℝ) ^ 2 * Z ^ 4) := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N31
   name: parameter_sieve
@@ -899,6 +1019,10 @@ hinges:
     ∣ 31 * A - 462 * B - q ∧ (p : ℤ) ∣ 15 * A + 462 * C + q))))) (M0 : ℝ) : ∃ Z0 q0 c2 : ℝ, 100 ≤ Z0 ∧ 0 < c2 ∧
     ∀ (q : ℕ) (Z : ℝ), Squarefree q → q % 4619990760 = 1 → ∑ p ∈ q.primeFactors, (1 : ℝ) / p ≤ M0 → q0 ≤ q → Z0
     ≤ Z → ∃ F : Finset (ℤ × ℤ × ℤ), (∀ t ∈ F, Good Z q t.1 t.2.1 t.2.2) ∧ c2 * (q : ℝ) ^ 3 * Z ^ 4 ≤ F.card := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N32
   name: planes_meet_once
@@ -935,6 +1059,10 @@ hinges:
     q'') (hB'' : IsCoprime B'' q'') (hC'' : IsCoprime C'' q'') (hne : (q, A, B, C) ≠ (q'', A'', B'', C'')) (h1 :
     OnPl q A B C x) (h2 : OnPl q A B C x'') (h3 : OnPl q'' A'' B'' C'' x) (h4 : OnPl q'' A'' B'' C'' x'') : x =
     x'' := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N33
   name: union_card_bound
@@ -958,6 +1086,10 @@ hinges:
   statement: 'theorem union_card_bound {ι α : Type*} [DecidableEq α] (s : Finset ι) (f : ι → Finset α) (h : ∀ i
     ∈ s, ∀ j ∈ s, i ≠ j → (f i ∩ f j).card ≤ 1) : ∑ i ∈ s, (f i).card ≤ (s.biUnion f).card + s.card.choose 2 :=
     by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N34
   name: lattice_reduction
@@ -982,6 +1114,10 @@ hinges:
   statement: 'theorem lattice_reduction {ι : Type*} [Fintype ι] (p : ℕ) (L L'' : AddSubgroup (ι → ℤ)) (hle : L''
     ≤ L) (hp : ¬ p ∣ L''.relIndex L) : (∀ x ∈ L, ∃ y ∈ L'', ∃ z ∈ L, x = y + p • z) ∧ (∀ y ∈ L'', (∃ z ∈ L, y =
     p • z) → ∃ z'' ∈ L'', y = p • z'') := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N35
   name: nonzero_forms_count
@@ -1006,6 +1142,10 @@ hinges:
   statement: 'theorem nonzero_forms_count (p : ℕ) (hp : p.Prime) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (hnz :
     ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j)) : p ^ 2 - 6 * p ≤ ((Fintype.piFinset fun _ : Fin 2 => Finset.range
     p).filter (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N36
   name: local_W
@@ -1041,6 +1181,10 @@ hinges:
     : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j * n j))
     (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) : ∀ p : ℕ, p.Prime → p
     ∣ 4619990760 → ∃ n : Fin 2 → ℕ, (∀ j, n j < p) ∧ ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N37
   name: local_away
@@ -1082,6 +1226,10 @@ hinges:
     A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) (hdet : ∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L
     4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ) : ∀
     p : ℕ, p.Prime → ¬ p ∣ 4619990760 * q → ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: computation
+    B: case_split
 - arm: B6_1061_A_full_probe
   id: N38
   name: local_denominator
@@ -1121,6 +1269,10 @@ hinges:
     q) (c : Fin 6 → ℤ) (L : Fin 6 → Fin 2 → ℤ) (hpar : ∀ n : Fin 2 → ℤ, OnPl q A B C (fun i => c i + ∑ j, L i j
     * n j)) (hsurj : ∀ x, OnPl q A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) : ∀ p : ℕ, p.Prime
     → p ∣ q → ∀ i, ¬ ((p : ℤ) ∣ c i ∧ ∀ j, (p : ℤ) ∣ L i j) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: computation
+    B: case_split
 - arm: B6_1061_A_full_probe
   id: N39
   name: fc_lattice
@@ -1162,6 +1314,10 @@ hinges:
     A B C x → ∃ n : Fin 2 → ℤ, x = fun i => c i + ∑ j, L i j * n j) (hdet : ∃ δ : ℕ, δ ∣ 508 ∧ |15 * (L 0 0 - L
     4 0) * (31 * (L 2 1 - L 4 1)) - 15 * (L 0 1 - L 4 1) * (31 * (L 2 0 - L 4 0))| = 465 * (q : ℤ) ^ 2 * δ) : ∀
     i j : Fin 6, i ≠ j → L i 0 * L j 1 - L i 1 * L j 0 ≠ 0 := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1061_A_full_probe
   id: N40
   name: beta_local
@@ -1207,6 +1363,10 @@ hinges:
     _ : Fin 2 => Finset.range p).filter (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) : ∀ p :
     ℕ, p.Prime → (p ∣ 4619990760 → 1 / (p : ℝ) ^ 2 * ((p : ℝ) / (p - 1)) ^ 6 ≤ β p) ∧ (¬ p ∣ 4619990760 → (1 - 6
     / (p : ℝ)) * ((p : ℝ) / (p - 1)) ^ 6 ≤ β p) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: assembly
+    B: case_split
 - arm: B6_1061_A_full_probe
   id: N41
   name: ap_product
@@ -1231,6 +1391,10 @@ hinges:
     : ℕ) : ℝ) - 1)) ^ 6)) ∧ 0 < ∏'' p : Nat.Primes, (if ((p : ℕ) ∣ 4619990760) then 1 / ((p : ℕ) : ℝ) ^ 2 * (((p
     : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^ 6 else (1 - 6 / ((p : ℕ) : ℝ)) * (((p : ℕ) : ℝ) / (((p : ℕ) : ℝ) - 1)) ^
     6) := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N42
   name: singular_series_lower
@@ -1272,6 +1436,10 @@ hinges:
     465 * (q : ℤ) ^ 2 * δ) → (∀ p : ℕ, β p = ((p : ℝ) / (p - 1)) ^ 6 / (p : ℝ) ^ 2 * ((Fintype.piFinset fun _ :
     Fin 2 => Finset.range p).filter (fun n => ∀ i, ¬ (p : ℤ) ∣ c i + ∑ j, L i j * (n j : ℤ))).card) → (∀ p : ℕ,
     p.Prime → 0 < β p) ∧ Multipliable (fun p : Nat.Primes => β p) ∧ cstar ≤ ∏'' p : Nat.Primes, β p := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N43
   name: collision_line
@@ -1294,6 +1462,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem collision_line (a b e : ℤ) (M : ℕ) (hab : a ≠ 0 ∨ b ≠ 0) : ((Finset.Icc (-(M : ℤ)) M ×ˢ Finset.Icc
     (-(M : ℤ)) M).filter (fun n => a * n.1 + b * n.2 = e)).card ≤ 2 * M + 1 := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: computation
 - arm: B6_1061_A_full_probe
   id: N44
   name: prime_weight_to_count
@@ -1319,6 +1491,10 @@ hinges:
     : ℝ) (hV : 1 ≤ V) (hf : ∀ n ∈ F, ∀ i, (f n i : ℝ) ≤ V) : ∑ n ∈ F, ∏ i, (if 0 < f n i ∧ (f n i).natAbs.Prime
     then Real.log (f n i : ℝ) else 0) ≤ Real.log V ^ t * ((F.filter (fun n => ∀ i, 0 < f n i ∧ (f n i).natAbs.Prime)).card
     : ℝ) := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N45
   name: plane_prime_count
@@ -1364,6 +1540,10 @@ hinges:
     = 1 → (q : ℝ) ≤ Real.log T ^ τ → Z ≤ Real.log T ^ τ → Good Z q A B C → ∃ F : Finset (Fin 6 → ℤ), (∀ x ∈ F, OnPl
     q A B C x ∧ InReg T x ∧ Function.Injective x ∧ ∀ i, 0 < x i ∧ (x i).natAbs.Prime) ∧ c3 * T ^ 2 / ((q : ℝ) ^
     2 * Real.log T ^ 6) ≤ F.card := by'
+  join_type_v2: two_structure_coupling
+  join_type_v2_readers:
+    A: two_structure_coupling
+    B: two_structure_coupling
 - arm: B6_1061_A_full_probe
   id: N46
   name: threshold_lemma
@@ -1398,6 +1578,10 @@ hinges:
     + 1) ∧ Z ≤ Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ (κ + 1) ∧ C0 * (2 * Q) ^ 2 ≤ Real.sqrt (Y / (Ch * Z ^ 3))
     ∧ (2 * Q) ^ 2 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ∧ Q ^ 6 * Z ^
     4 * Real.log (Real.sqrt (Y / (Ch * Z ^ 3))) ^ 6 ≤ ε * Real.sqrt (Y / (Ch * Z ^ 3)) ^ 2 := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N47
   name: two_height_core
@@ -1429,6 +1613,10 @@ hinges:
     ∈ F, 0 < uv.1 ∧ 0 < uv.2 ∧ Nat.Coprime uv.1 uv.2 ∧ c0 * Y ≤ ((uv.1 + uv.2 : ℕ) : ℝ) ∧ ((uv.1 + uv.2 : ℕ) : ℝ)
     ≤ Y ∧ σ 1 (3600 * uv.1) + σ 1 (3600 * uv.2) = σ 1 (3600 * (uv.1 + uv.2)) ∧ (3600 * uv.1 * uv.2 * (uv.1 + uv.2)).primeFactors.card
     ≤ 11) ∧ cκ * Y * Q ^ 2 * Z / Real.log Y ^ 6 ≤ F.card := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: N48
   name: S_lower_bound
@@ -1452,6 +1640,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem S_lower_bound : ∀ κ : ℝ, 0 < κ → ∃ c X1 : ℝ, 0 < c ∧ ∀ x : ℝ, X1 ≤ x → c * x * Real.log x
     ^ (3 * κ - 5) ≤ S x := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1061_A_full_probe
   id: ROOT
   name: li_1061
@@ -1474,6 +1666,10 @@ hinges:
   blueprint: blueprint_1061_nodes.yaml
   statement: 'theorem li_1061 : ∀ R : ℝ, 0 < R → Tendsto (fun x : ℝ ↦ S x / (x * Real.log x ^ R)) atTop atTop :=
     by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1133_A_full_probe
   id: N01
   name: olevskii_ulanovskii_prop_4_2
@@ -1505,6 +1701,10 @@ hinges:
     ∈ Γ, ‖v s‖ ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ
     + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) ∧ ∀ s ∈ Γ, f (s : ℂ) = v s) → a * Real.log (σ / (σ - Real.pi + b *
     (τ:ℝ) ^ (-((1:ℝ) / 3)))) ≤ K := by'
+  join_type_v2: literature_import
+  join_type_v2_readers:
+    A: literature_import
+    B: literature_import
 - arm: B6_1133_A_full_probe
   id: N02
   name: bernstein_vertical_growth
@@ -1533,6 +1733,10 @@ hinges:
   statement: 'theorem bernstein_vertical_growth (σ K : ℝ) (hσ : 0 < σ) (f : ℂ → ℂ) (hf : Differentiable ℂ f) (htype
     : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hbd : ∀ x : ℝ, ‖f (x : ℂ)‖ ≤ K) (z :
     ℂ) : ‖f z‖ ≤ K * Real.exp (σ * |z.im|) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: literature_import
 - arm: B6_1133_A_full_probe
   id: N03
   name: bernstein_real_sample_set_isClosed
@@ -1559,6 +1763,10 @@ hinges:
     {v : Fin k → ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ
     + δ) * ‖z‖)) ∧ (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧ ∀ i, (g (t i : ℂ)).re = v i} :=
     by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N04
   name: exp_type_linear_comb
@@ -1583,6 +1791,10 @@ hinges:
   statement: 'theorem exp_type_linear_comb (σ : ℝ) (f g : ℂ → ℂ) (a b : ℂ) (hf : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ,
     ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) (hg : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))
     : ∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖a * f z + b * g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N05
   name: bernstein_affine_rescale
@@ -1610,6 +1822,10 @@ hinges:
     ≤ K) : Differentiable ℂ (fun z : ℂ => f (z / (lam : ℂ) + (c : ℂ))) ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f (z /
     (lam : ℂ) + (c : ℂ))‖ ≤ M * Real.exp ((σ / lam + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f ((x : ℂ) / (lam : ℂ) + (c : ℂ))‖
     ≤ K) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N06
   name: complex_data_from_real
@@ -1635,6 +1851,10 @@ hinges:
     ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (s i : ℂ) = (v i : ℂ)) : ∀ w : Fin k → ℂ, (∀ i, ‖w i‖ ≤ 1) → ∃ f
     : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧ (∀ x :
     ℝ, ‖f (x : ℂ)‖ ≤ 2 * H) ∧ ∀ i, f (s i : ℂ) = w i := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N07
   name: lemma32_rescale_params
@@ -1659,6 +1879,10 @@ hinges:
   statement: 'theorem lemma32_rescale_params (τ : ℕ) (hτ : 1 ≤ τ) (c t : ℝ) (ht : t ∈ Set.Icc c (c + 2 * (τ:ℝ) +
     1)) : (2 * (τ:ℝ)) / (2 * τ + 2) * (t - c - (2 * (τ:ℝ) + 1) / 2) ∈ Set.Ico (-(τ:ℝ)) (τ:ℝ) ∧ Real.pi < Real.pi
     / ((2 * (τ:ℝ)) / (2 * τ + 2)) ∧ Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) ≤ 2 * Real.pi := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N08
   name: lemma32_log_bound
@@ -1685,6 +1909,10 @@ hinges:
     (2 * (τ:ℝ)) - a * Real.log ((2 * Real.pi + b * (2:ℝ) ^ ((1:ℝ) / 3)) / Real.pi) ≤ a * Real.log ((Real.pi / ((2
     * (τ:ℝ)) / (2 * τ + 2))) / (Real.pi / ((2 * (τ:ℝ)) / (2 * τ + 2)) - Real.pi + b * (τ:ℝ) ^ (-((1:ℝ) / 3)))) :=
     by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1133_A_full_probe
   id: N09
   name: lemma32_choose_k
@@ -1709,6 +1937,10 @@ hinges:
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem lemma32_choose_k (a b0 : ℝ) (ha : 0 < a) (hb0 : 0 ≤ b0) : ∃ A0 > (0:ℝ), ∀ H > (0:ℝ), ∃ τ :
     ℕ, 1 ≤ τ ∧ 2 * H < a / 3 * Real.log (2 * (τ:ℝ)) - b0 ∧ 2 * (τ:ℝ) ≤ Real.exp (A0 * (1 + H)) := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1133_A_full_probe
   id: N10
   name: lemma32_distinct_core
@@ -1738,6 +1970,10 @@ hinges:
     ℝ, (∀ i, |v i| ≤ 1) → ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp
     ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ)) → a / 3 * Real.log (2 *
     (τ:ℝ)) - b0 ≤ 2 * H := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1133_A_full_probe
   id: N11
   name: coincident_nodes_obstruction
@@ -1761,6 +1997,10 @@ hinges:
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem coincident_nodes_obstruction (k : ℕ) (t : Fin k → ℝ) (i j : Fin k) (hij : i ≠ j) (heq : t
     i = t j) : ∃ v : Fin k → ℝ, (∀ l, |v l| ≤ 1) ∧ ∀ f : ℂ → ℂ, ¬ ∀ l, f (t l : ℂ) = (v l : ℂ) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N12
   name: effective_finite_obstruction
@@ -1788,6 +2028,10 @@ hinges:
     ≤ Real.exp (A0 * (1 + H)) ∧ ∀ (c : ℝ) (t : Fin k → ℝ), (∀ i, t i ∈ Set.Icc c (c + (k:ℝ) + 1)) → ∃ v : Fin k
     → ℝ, (∀ i, |v i| ≤ 1) ∧ ¬ ∃ f : ℂ → ℂ, Differentiable ℂ f ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp
     ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ H) ∧ ∀ i, f (t i : ℂ) = (v i : ℂ) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: assembly
+    B: case_split
 - arm: B6_1133_A_full_probe
   id: N13
   name: real_symmetrization
@@ -1815,6 +2059,10 @@ hinges:
     ℂ (f (starRingEnd ℂ z))) / 2‖ ≤ M * Real.exp ((σ + δ) * ‖z‖)) ∧ (∀ x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd
     ℂ (x : ℂ)))) / 2).im = 0) ∧ (∀ x : ℝ, ‖(f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2‖ ≤ C) ∧ (∀
     x : ℝ, ((f (x : ℂ) + starRingEnd ℂ (f (starRingEnd ℂ (x : ℂ)))) / 2).re = (f (x : ℂ)).re) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N14
   name: bernstein_real_sample_set_convex
@@ -1837,6 +2085,10 @@ hinges:
   statement: 'theorem bernstein_real_sample_set_convex (σ H : ℝ) (k : ℕ) (t : Fin k → ℝ) : Convex ℝ {v : Fin k →
     ℝ | ∃ g : ℂ → ℂ, Differentiable ℂ g ∧ (∀ δ > (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖g z‖ ≤ M * Real.exp ((σ + δ) * ‖z‖))
     ∧ (∀ x : ℝ, (g (x : ℂ)).im = 0) ∧ (∀ x : ℝ, ‖g (x : ℂ)‖ ≤ H) ∧ ∀ i, (g (t i : ℂ)).re = v i} := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N15
   name: finite_dim_point_separation
@@ -1861,6 +2113,10 @@ hinges:
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem finite_dim_point_separation (k : ℕ) (K : Set (Fin k → ℝ)) (hconv : Convex ℝ K) (hclosed :
     IsClosed K) (v : Fin k → ℝ) (hv : v ∉ K) : ∃ w : Fin k → ℝ, ∀ z ∈ K, ∑ i, w i * z i < ∑ i, w i * v i := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N16
   name: sign_from_separation
@@ -1883,6 +2139,10 @@ hinges:
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem sign_from_separation (k : ℕ) (ρ : ℝ) (w : Fin k → ℝ) (u : Fin k → ℂ) (hsep : ∑ i, w i * (u
     i).re < (1 - ρ) * ∑ i, |w i|) : ∃ i, ρ < ‖u i - (((if 0 ≤ w i then 1 else -1 : ℝ)) : ℂ)‖ := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1133_A_full_probe
   id: N17
   name: signs_prescribed_tolerance
@@ -1914,6 +2174,10 @@ hinges:
     i : ℂ) = (v i : ℂ)) : ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable ℂ f → (∀ δ >
     (0:ℝ), ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ <
     ‖f (t i : ℂ) - (s i : ℂ)‖ := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1133_A_full_probe
   id: N18
   name: local_sign_obstruction
@@ -1943,6 +2207,10 @@ hinges:
     + (k:ℝ) + 1)) → ∃ s : Fin k → ℝ, (∀ i, s i = 1 ∨ s i = -1) ∧ ∀ f : ℂ → ℂ, Differentiable ℂ f → (∀ δ > (0:ℝ),
     ∃ M : ℝ, ∀ z : ℂ, ‖f z‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) → (∀ x : ℝ, ‖f (x : ℂ)‖ ≤ C) → ∃ i, ρ < ‖f (t
     i : ℂ) - (s i : ℂ)‖ := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1133_A_full_probe
   id: N19
   name: norm_cos_le_exp_abs_im
@@ -1963,6 +2231,10 @@ hinges:
   statement_sha256: f98944bf4dbc449e
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem norm_cos_le_exp_abs_im (w : ℂ) : ‖Complex.cos w‖ ≤ Real.exp |w.im| := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N20
   name: poly_cos_exp_type
@@ -1988,6 +2260,10 @@ hinges:
     Differentiable ℂ (fun z : ℂ => Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P) ∧ ∀ δ > (0:ℝ),
     ∃ M : ℝ, ∀ z : ℂ, ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * z / (D : ℂ))) P‖ ≤ M * Real.exp ((Real.pi
     + δ) * ‖z‖) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: computation
+    B: estimate
 - arm: B6_1133_A_full_probe
   id: N21
   name: poly_cos_real_values
@@ -2011,6 +2287,10 @@ hinges:
   statement: 'theorem poly_cos_real_values (P : Polynomial ℝ) (D C : ℝ) (hC : ∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z|
     ≤ C) (t : ℝ) : Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P = ((P.eval (Real.cos (Real.pi
     * t / D)) : ℝ) : ℂ) ∧ ‖Polynomial.aeval (Complex.cos ((Real.pi : ℂ) * (t : ℂ) / (D : ℂ))) P‖ ≤ C := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N22
   name: arccos_node
@@ -2034,6 +2314,10 @@ hinges:
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem arccos_node (D x : ℝ) (hD : 0 < D) (hx : x ∈ Set.Icc (-1:ℝ) 1) : D / Real.pi * Real.arccos
     x ∈ Set.Icc 0 D ∧ Real.cos (Real.pi * (D / Real.pi * Real.arccos x) / D) = x := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N23
   name: polynomial_to_bernstein
@@ -2062,6 +2346,10 @@ hinges:
     : ℂ) * z / (D : ℂ))) P‖ ≤ M * Real.exp ((Real.pi + δ) * ‖z‖)) ∧ (∀ x : ℝ, ‖Polynomial.aeval (Complex.cos ((Real.pi
     : ℂ) * (x : ℂ) / (D : ℂ))) P‖ ≤ C) ∧ (∀ x ∈ Set.Icc (-1:ℝ) 1, Polynomial.aeval (Complex.cos ((Real.pi : ℂ) *
     ((D / Real.pi * Real.arccos x : ℝ) : ℂ) / (D : ℂ))) P = ((P.eval x : ℝ) : ℂ)) := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1133_A_full_probe
   id: N24
   name: finset_split_into_blocks
@@ -2085,6 +2373,10 @@ hinges:
   statement: 'theorem finset_split_into_blocks {α : Type*} [DecidableEq α] (k : ℕ) (hk : 1 ≤ k) (S : Finset α) :
     ∃ q : ℕ, ∃ G : Fin q → Finset α, (∀ l, G l ⊆ S) ∧ (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l)
     (G l'')) ∧ S.card ≤ k * q + (k - 1) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N25
   name: bucket_grouping
@@ -2108,6 +2400,10 @@ hinges:
   statement: 'theorem bucket_grouping (n k N : ℕ) (hk : 1 ≤ k) (b : Fin n → Fin N) : ∃ q : ℕ, ∃ G : Fin q → Finset
     (Fin n), (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l) (G l'')) ∧ (∀ l, ∃ j : Fin N, ∀ i ∈ G l,
     b i = j) ∧ n ≤ k * q + (k - 1) * N := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N26
   name: bucket_interval
@@ -2134,6 +2430,10 @@ hinges:
     / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) < ⌈D / ((k:ℝ) + 1)⌉₊ ∧ t ∈ Set.Icc (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D /
     ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ) + 1)) (((min ⌊t / ((k:ℝ) + 1)⌋₊ (⌈D / ((k:ℝ) + 1)⌉₊ - 1) : ℕ) : ℝ) * ((k:ℝ)
     + 1) + ((k:ℝ) + 1)) := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N27
   name: angular_groups
@@ -2159,6 +2459,10 @@ hinges:
     : ∃ q : ℕ, ∃ G : Fin q → Finset (Fin n), (∀ l, (G l).card = k) ∧ (∀ l l'', l ≠ l'' → Disjoint (G l) (G l''))
     ∧ (∀ l, ∃ c : ℝ, ∀ i ∈ G l, D / Real.pi * Real.arccos (x i : ℝ) ∈ Set.Icc c (c + (k:ℝ) + 1)) ∧ (n : ℝ) ≤ (k:ℝ)
     * q + ((k:ℝ) - 1) * (D / ((k:ℝ) + 1) + 1) := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1133_A_full_probe
   id: N28
   name: disjoint_groups_card_le
@@ -2182,6 +2486,10 @@ hinges:
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem disjoint_groups_card_le (n q : ℕ) (G : Fin q → Finset (Fin n)) (hdisj : ∀ l l'', l ≠ l'' →
     Disjoint (G l) (G l'')) (E : Finset (Fin n)) (hhit : ∀ l, ∃ i ∈ G l, i ∈ E) : q ≤ E.card := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N29
   name: finite_degree_error_tradeoff
@@ -2211,6 +2519,10 @@ hinges:
     Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧ ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ D → (∀ z ∈ Set.Icc (-1:ℝ) 1,
     |P.eval z| ≤ C) → (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * D - ((k:ℝ) - 1) / k ≤ ((Finset.univ.filter
     (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1133_A_full_probe
   id: N30
   name: theorem21_arithmetic
@@ -2234,6 +2546,10 @@ hinges:
   blueprint: blueprint_1133_nodes.yaml
   statement: 'theorem theorem21_arithmetic (k n : ℕ) (hk : 2 ≤ k) (hn : 4 * k ^ 2 ≤ n) : 1 / (8 * (k:ℝ) ^ 2) * n
     < (n : ℝ) / k - ((k:ℝ) - 1) / ((k:ℝ) * ((k:ℝ) + 1)) * ((1 + 1 / (8 * (k:ℝ) ^ 2)) * n) - ((k:ℝ) - 1) / k := by'
+  join_type_v2: estimate
+  join_type_v2_readers:
+    A: estimate
+    B: estimate
 - arm: B6_1133_A_full_probe
   id: N31
   name: theorem21_constants
@@ -2260,6 +2576,10 @@ hinges:
   statement: 'theorem theorem21_constants (A0 : ℝ) (hA0 : 0 < A0) : ∃ A > (0:ℝ), ∀ H : ℝ, 0 ≤ H → ∀ k : ℕ, 2 ≤ k
     → (k:ℝ) ≤ Real.exp (A0 * (1 + H)) → Real.exp (-(A * (1 + H))) ≤ 1 / (8 * (k:ℝ) ^ 2) ∧ 4 * (k:ℝ) ^ 2 ≤ Real.exp
     (A * (1 + H)) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: estimate
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N32
   name: quantitative_robust_obstruction
@@ -2290,6 +2610,10 @@ hinges:
     - ρ))) ∧ ∀ n : ℕ, n0 ≤ n → ∀ x : Fin n → Set.Icc (-1:ℝ) 1, ∃ y : Fin n → ℝ, (∀ i, y i = 1 ∨ y i = -1) ∧ ∀ P
     : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 + ε) * n → (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) → ε * n < ((Finset.univ.filter
     (fun i ↦ ρ < |P.eval (x i : ℝ) - y i|)).card : ℝ) := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B6_1133_A_full_probe
   id: N33
   name: match_error_complement
@@ -2312,6 +2636,10 @@ hinges:
   statement: 'theorem match_error_complement (n : ℕ) (P : Polynomial ℝ) (x : Fin n → Set.Icc (-1:ℝ) 1) (y : Fin
     n → ℝ) : ((Finset.univ.filter (fun i ↦ P.eval (x i : ℝ) = y i)).card : ℝ) + ((Finset.univ.filter (fun i ↦ (0:ℝ)
     < |P.eval (x i : ℝ) - y i|)).card : ℝ) = n := by'
+  join_type_v2: computation
+  join_type_v2_readers:
+    A: computation
+    B: computation
 - arm: B6_1133_A_full_probe
   id: N34
   name: qualitative_robust_obstruction
@@ -2339,6 +2667,10 @@ hinges:
     ∀ x : Fin n → Set.Icc (-1:ℝ) 1, ∃ y : Fin n → Set.Icc (-1:ℝ) 1, ∀ P : Polynomial ℝ, (P.natDegree : ℝ) ≤ (1 +
     ε) * n → (∀ z ∈ Set.Icc (-1:ℝ) 1, |P.eval z| ≤ C) → ε * n < ((Finset.univ.filter (fun i ↦ (0:ℝ) < |P.eval (x
     i : ℝ) - (y i : ℝ)|)).card : ℝ) := by'
+  join_type_v2: null
+  join_type_v2_readers:
+    A: computation
+    B: estimate
 - arm: B6_1133_A_full_probe
   id: ROOT
   name: erdos_1133
@@ -2365,6 +2697,10 @@ hinges:
     ∃ y : Fin n → Icc (-1 : ℝ) 1, ∀ P : Polynomial ℝ, (P.natDegree : ℝ) < (1 + ε) * (n : ℝ) → ((Finset.univ.filter
     (fun i ↦ P.eval (x i : ℝ) = (y i : ℝ))).card : ℝ) ≥ (1 - ε) * (n : ℝ) → ∃ z ∈ Icc (-1 : ℝ) 1, |P.eval z| > C
     := by'
+  join_type_v2: assembly
+  join_type_v2_readers:
+    A: assembly
+    B: assembly
 - arm: B3_569_A_full_hold
   id: N01
   name: cycleGraph_no_isolated

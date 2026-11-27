@@ -1,0 +1,11 @@
+blueprint_1061_untyped.yaml: 40/49 agree = 0.82
+   disagreement ('computation', 'estimate') 4
+   disagreement ('case_split', 'estimate') 2
+   disagreement ('case_split', 'computation') 2
+   disagreement ('assembly', 'case_split') 1
+reach by consensus v2 type (rooms, proved, rate):
+   assembly                     3   3 1.00
+   computation                 17  14 0.82
+   estimate                    16   7 0.44
+   literature_import            2   0 0.00
+   two_structure_coupling       1   0 0.00

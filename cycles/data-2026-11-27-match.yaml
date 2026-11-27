@@ -1,0 +1,37 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-match
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer)
+preregistered:
+  question: Does shape alone find the right rooms and refuse the wrong ones?
+  rule: rooms/match.py on atlas/hinges.yaml (164 vectors); outputs saved verbatim; amendment A1
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_8_match.yaml
+  results:
+  - results/match_build8c/Q1.txt
+  - results/match_build8c/Q2.txt
+  - results/match_build8c/Q3.txt
+  - results/match_build8c/Q4.txt
+  - results/match_build8c/Q5.txt
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    held: P1 (15 of 16 own lemmas of the statement-only 569 file match 569 rooms first), P4 (erdos_1133 against the other three proofs: 0.22), P5 (self-consistency 143 of 164, 0.87)
+    missed: P2 second clause (the residue matches the 569 step lemmas that share its hypotheses, not lemma7 or the root), P3 (the Diophantine statement matches 1061 number-theory rooms at 0.62, above the 0.45 ceiling)
+    Q2_top: step_disconnected 0.54, ramsey_with_isolated 0.54, step_connected_large 0.54
+    Q3_top: friendly_triple_activation 0.62 (1061)
+    what_separates: proofs across areas of mathematics (graph theory against analysis), and rooms of the same shape within a proof
+    what_does_not: proofs within an area; a Diophantine equation and a sum-of-divisors count share ℕ, Prime, powers and equalities
+  misses:
+  - P2 (second clause)
+  - P3
+spoken: 'Shape finds the rooms of the same proof nine times in ten and finds nothing in a proof from another area of
+  mathematics. It cannot tell two number-theory proofs apart: a Diophantine equation matched the divisor-function rooms
+  at a score the registrar had predicted would mean a match. The retrieval works; the threshold does not, and the next
+  instrument is a semantic feature, which Mathlib constants and defined predicates a statement uses, weighted by their
+  rarity in the atlas.'
+finding_ids: []
+gap_ids:
+- EG8

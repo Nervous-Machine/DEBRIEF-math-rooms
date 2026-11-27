@@ -62,3 +62,36 @@ falsifiers: >
 standing_consequences:
   P1_and_P4_hold: "EG7 resolves (resolved_learned); TYPES_V2 becomes the type system of record for the atlas, and the atlas is re-labelled with the consensus types in a following commit"
   P1_fails: "EG7 stays open with the disagreement table as its new data"
+
+# ---- Amendment A1 ---- appended after both readers ran and the scoring; the registered text above is unedited.
+amendments:
+  - id: A1
+    written: "2026-11-27T17:37Z, after reader_A (Fable 5.1, 139,518 tokens) and reader_B (Opus 5.5, 107,815 tokens) and the scoring"
+    results: >
+      Agreement 1061: 40 of 49 (0.82); 1133: 29 of 35 (0.83). Disagreement pairs 1061: computation/estimate 4,
+      case_split/estimate 2, case_split/computation 2, assembly/case_split 1; 1133: computation/estimate 4,
+      estimate/literature_import 1 (N02, the vertical growth estimate: reader B read it as a cited classical result,
+      reader A as provable because its Mathlib roots name Phragmén–Lindelöf), assembly/case_split 1. Reach by consensus
+      v2 type, pooled: assembly 10/10, computation 29/33 (0.88), estimate 11/20 (0.55), two_structure_coupling 0/1,
+      literature_import 0/3; case_split has no consensus room (reader A typed none, reader B typed five on 1061 and one
+      on 1133). Both readers kept exactly one coupling, N45 plane_prime_count, and reclassified the planner's other five
+      couplings under the written one-structure test. Type counts: 1061 A 23 estimate / 19 computation / 4 assembly / 2
+      literature / 1 coupling; B 17 / 21 / 3 / 5 case_split / 2 / 1; 1133 A 7 / 18 / 9 / 1; B 6 / 18 / 8 / 1 case_split / 2.
+    scorecard: >
+      Held: P1 (0.82 and 0.83 against 0.80), P2 (8 of 15 disagreeing pairs involve estimate/computation), P5 (largest
+      per-type count difference on 1061 is 6, in estimate). Missed: P3 (literature rooms agreed on 4 of 5; the planner
+      typed 6 couplings, not 8 as the prediction said, and the readers agreed on 3 of them, under the registered
+      number either way), P4 by the letter (assembly 1.00 sits above computation 0.88; the ordering computation above
+      assembly was predicted; the rest of the ordering held: both above estimate, all above coupling, literature at zero).
+    standing_consequence: >
+      The registered rule resolves EG7 only if P1 and P4 both hold; P4 missed by the letter, so EG7 stays open under the
+      rule, with the agreement threshold met on both blueprints and recorded in its history. The consensus v2 type is
+      written to the atlas as join_type_v2 beside the planner's v1 type, with both readers' types kept; v1 is not
+      replaced. The readers' remaining disagreement is case_split against computation and estimate: the v2 case_split
+      test ("remove the enumeration and nothing is left") was read strictly by one reader and loosely by the other.
+    not_registered_but_observed: >
+      Under the one-structure test the coupling type nearly vanished (1 of 6), which moves the planner's hard rooms into
+      estimate; the type that carries the reach signal under v2 is estimate (0.55) against computation and assembly
+      (0.88, 1.00). Two models as readers reached the threshold that a model and the registrar missed under v1.
+    instruments: "unchanged since registration"
+

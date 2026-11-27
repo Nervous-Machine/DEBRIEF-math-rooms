@@ -1,0 +1,66 @@
+blueprint: blueprint_1061_untyped.yaml
+types:
+  N01: literature_import
+  N02: literature_import
+  N03: computation
+  N04: computation
+  N05: computation
+  N06: assembly
+  N07: computation
+  N08: case_split
+  N09: computation
+  N10: computation
+  N11: estimate
+  N12: computation
+  N13: computation
+  N14: computation
+  N15: case_split
+  N16: estimate
+  N17: computation
+  N18: computation
+  N19: assembly
+  N20: computation
+  N21: computation
+  N22: computation
+  N23: estimate
+  N24: estimate
+  N25: estimate
+  N26: estimate
+  N27: estimate
+  N28: computation
+  N29: estimate
+  N30: estimate
+  N31: estimate
+  N32: computation
+  N33: computation
+  N34: computation
+  N35: computation
+  N36: computation
+  N37: case_split
+  N38: case_split
+  N39: assembly
+  N40: case_split
+  N41: estimate
+  N42: estimate
+  N43: computation
+  N44: estimate
+  N45: two_structure_coupling
+  N46: estimate
+  N47: estimate
+  N48: estimate
+  ROOT: estimate
+notes: |
+  N45 (plane_prime_count): Q2 decided it. The prime count needs Bienvenu's analytic
+  estimate against the lattice parametrisation of the plane, and neither alone gives
+  it ("analytic estimate against a lattice constraint"). It is not assembly, because
+  Q2 comes first in the order.
+  N15 (finite_complexity_real): 15 pairwise non-coincidence checks, each closed by a
+  sign argument. Case_split, because the enumeration is the content. Its conclusion is
+  ≠, not a bound, so it is not estimate.
+  N24/N40: N24 applies N16 via N18 and then proves a new product bound, so the boundary
+  rule makes it estimate. N40 applies its dependencies across the p|W / p|q / other
+  split, so it is case_split, not assembly.
+  ROOT has one dependency, so it cannot be assembly. A Tendsto-to-infinity in x is
+  estimate.
+  Counting inequalities that hold for all parameters (N12, N28, N33, N35, N43) are
+  computation, by the identical-inequality rule.

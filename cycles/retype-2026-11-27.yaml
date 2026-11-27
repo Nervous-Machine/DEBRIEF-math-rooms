@@ -1,0 +1,30 @@
+# Cycle file; never edited after merge.
+kind: hypothesis
+cycle: retype-2026-11-27
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar)
+hypothesis: Under a type system with a fixed decision order and written boundary rules, two independent readers agree on
+  the join type of at least 80 percent of rooms on each blueprint, their remaining disagreements sit on the
+  estimate/computation boundary, and build 6's reach ordering survives the re-labelling.
+signals: predictions P1–P5 in prereg_build_8_retype.yaml, scored by rooms/retype_score.py
+endpoints: none public until filed
+measurements_needed: two fresh readers on two models typing 82 rooms plus two roots from untyped blueprints
+bears_on: 'DEBRIEF-math-rooms EG7 (the join types must be reproducible across readers before a rate is built on them)'
+pinned:
+  sha256: 08f04982fe55ab4d2c559736270cba7ffeda435a23c6d412a23188759372fc2d
+  file: prereg_build_8_retype.yaml
+preregistered:
+  question: Do two readers reproduce the join types under written rules, and does the reach ordering survive?
+  rule: P1–P5 as written; misses recorded; EG7 resolves only if P1 and P4 hold
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_8_retype.yaml
+  results: []
+  before_data: true
+outcome:
+  verdict: admitted
+  numbers: {predictions: 5, readers: 2, rooms: 82, signals_have_public_endpoint: false}
+spoken: 'Nervous Machine registered a blind re-typing of the 82 build 6 rooms under a revised type system with a decision
+  order and written boundary rules, by two fresh readers on two models, with the agreement threshold written first.'
+finding_ids: []
+gap_ids:
+- EG7

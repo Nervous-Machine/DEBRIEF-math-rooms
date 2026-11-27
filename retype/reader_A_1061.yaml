@@ -1,0 +1,61 @@
+blueprint: blueprint_1061_untyped.yaml
+types:
+  N01: literature_import
+  N02: literature_import
+  N03: computation
+  N04: computation
+  N05: computation
+  N06: assembly
+  N07: computation
+  N08: estimate
+  N09: computation
+  N10: computation
+  N11: estimate
+  N12: computation
+  N13: computation
+  N14: computation
+  N15: estimate
+  N16: estimate
+  N17: computation
+  N18: computation
+  N19: assembly
+  N20: computation
+  N21: computation
+  N22: computation
+  N23: estimate
+  N24: estimate
+  N25: estimate
+  N26: estimate
+  N27: estimate
+  N28: estimate
+  N29: estimate
+  N30: estimate
+  N31: estimate
+  N32: computation
+  N33: estimate
+  N34: computation
+  N35: estimate
+  N36: computation
+  N37: computation
+  N38: computation
+  N39: assembly
+  N40: assembly
+  N41: estimate
+  N42: estimate
+  N43: estimate
+  N44: estimate
+  N45: two_structure_coupling
+  N46: estimate
+  N47: estimate
+  N48: estimate
+  ROOT: estimate
+notes: |
+  Hardest: N45 (plane_prime_count): step 2's example "an analytic estimate against a lattice constraint"
+  fits exactly (Bienvenu's estimate applied on the lattice of plane points), so coupling, taken before
+  estimate. N40 (beta_local) and N12-style dichotomies: the p|W / p|q split only routes to a dependency,
+  so I read it as bookkeeping and typed assembly, not case_split. N23 (lattice_coords): mostly
+  parametrisation and volume, but it proves new size-dependent bounds (|c i|, |v j|, threshold C0 q^2 <= T),
+  so the boundary rule "applies deps AND proves a new bound" gave estimate. N15: the 15 nonvanishings
+  hold only by positivity from Z >= 100, so estimate. Pure counting bounds via injection or union bound
+  (N08, N28, N33, N35, N43, N44) typed estimate ("a count, a pigeonhole"); subset monotonicity (N12),
+  identities and tables (N03, N14) typed computation. ROOT: one dependency, limit needs x large, estimate.

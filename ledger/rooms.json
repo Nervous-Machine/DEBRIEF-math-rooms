@@ -3385,7 +3385,15 @@
    "status": "proposed",
    "opened_cycle": "score-2026-11-27-build6",
    "priority": 2,
-   "history": [],
+   "history": [
+    {
+     "cycle": "data-2026-11-27-retype",
+     "dated": "2026-11-27",
+     "hypothesis": "two blind readers agree on at least 80 percent of rooms per blueprint under types v2, and the reach ordering survives",
+     "before_data": true,
+     "result": "agreement 0.82 and 0.83, threshold met; ordering held except assembly above computation (P4 by the letter), so the gap stays open under its registered rule; remaining disagreement is case_split against computation and estimate; couplings shrank from six to one under the one-structure test; join_type_v2 written to the atlas beside v1"
+    }
+   ],
    "closes_with": [
     {
      "what": "a revised type set with written boundary rules for the middle three, applied blind by two readers to the 82 existing rooms and to the next build's rooms, reaching at least 80 percent agreement on each blueprint",
@@ -3493,6 +3501,37 @@
     "spoken": "The measurement named by the submitter, made public at an endpoint."
    },
    "expected_signal": "predictions P1–P6 in prereg_build_7.yaml, scored by score.py against the start-file nodes and by the registrar's reading of each arm's notes for a declared…",
+   "resolution_by": "none registered"
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "created_by": "hand-written from DEBRIEF/templates with Claude Fable 5.1 as the operating agent",
+   "created_at": "2026-11-27T17:34:00Z",
+   "mission_id": "rooms-2026-11",
+   "pod": "DEBRIEF-math-rooms",
+   "provenance": {
+    "source": "the experiment's own registration (prereg_build_erdos766.yaml, sha256 73218498ee01f3c93892dcb196268368ae786b27e6fe5f90a3a19c26571f0ecc) and the public artifacts it pins"
+   },
+   "audience": "briefing",
+   "gap_id": "EG8",
+   "title": "The statement matcher over the hinge atlas separates proofs across areas and rooms within a proof, but not two proofs in the same area: a Diophantine statement matched divisor-function rooms at 0.62 against a registered ceiling of 0.45",
+   "status": "proposed",
+   "opened_cycle": "data-2026-11-27-match",
+   "priority": 3,
+   "history": [],
+   "closes_with": [
+    {
+     "what": "a semantic feature for the matcher (the Mathlib constants and defined predicates a statement uses, weighted by their rarity across the atlas), registered with a new threshold and tested on the same five queries plus statements from a fifth proof",
+     "kind": "measurement",
+     "external": false,
+     "who_could_act": "Nervous Machine, or anyone with the atlas"
+    }
+   ],
+   "spoken": "Shape finds the right rooms inside a proof and refuses a proof from another field. It cannot tell two number-theory proofs apart. The matcher needs to know which constants a statement is about, not only what shape it has.",
+   "ask": {
+    "spoken": "Add the semantic feature and re-derive the threshold."
+   },
+   "expected_signal": "a registered matcher cycle with the threshold predicted first",
    "resolution_by": "none registered"
   }
  ],

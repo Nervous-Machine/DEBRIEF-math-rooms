@@ -1,0 +1,44 @@
+# Cycle file; never edited after merge.
+kind: data
+cycle: data-2026-11-27-retype
+dated: '2026-11-27'
+by: Nervous Machine (Heidi Bennett; Claude Fable 5.1 as registrar and scorer; readers Claude Fable 5.1 and Claude Opus
+  5.5 in fresh contexts)
+preregistered:
+  question: Do two readers reproduce the join types under written rules, and does the reach ordering survive?
+  rule: rooms/retype_score.py on the two readers' files against atlas outcomes; amendment A1
+  predictions: [P1, P2, P3, P4, P5]
+  commit: prereg_build_8_retype.yaml
+  results:
+  - retype/reader_A_1061.yaml
+  - retype/reader_B_1061.yaml
+  - retype/reader_A_1133.yaml
+  - retype/reader_B_1133.yaml
+  - results/retype_1061_score.txt
+  - results/retype_1133_score.txt
+  before_data: true
+outcome:
+  verdict: mixed
+  numbers:
+    agreement_1061: 40 of 49 (0.82)
+    agreement_1133: 29 of 35 (0.83)
+    threshold: 0.80 on each, met
+    disagreement_pairs: computation/estimate 8, case_split/estimate 2, case_split/computation 2, assembly/case_split 2, estimate/literature 1
+    reach_by_consensus_v2_pooled: assembly 10/10, computation 29/33 (0.88), estimate 11/20 (0.55), two_structure_coupling 0/1, literature_import 0/3, case_split no consensus room
+    couplings_under_v2: 1 of the planner's 6 kept by both readers (N45 plane_prime_count)
+    held: P1, P2, P5
+    missed: P3 (literature 4 of 5; couplings 3 of 6), P4 by the letter (assembly above computation)
+    EG7: stays open under the registered rule (P4 missed by the letter), agreement threshold met
+    atlas: join_type_v2 written beside v1 on 84 vectors, with both readers' types
+  misses:
+  - P3
+  - P4 letter
+spoken: 'Two readers on two models, given the rules and nothing else, agreed on the type of four rooms in five on both
+  proofs, which v1 had not managed on the larger one. The disagreement that remains is one boundary: a finite case split
+  against a computation or an estimate. Under the new rules the planner''s six couplings shrank to one, and the type
+  that carries the reach signal is the estimate: one in two closed, against nine in ten computations and every
+  assembly. The ordering predicted before the run held except that assembly sat above computation, so the gap stays
+  open by its own rule with the threshold met.'
+finding_ids: []
+gap_ids:
+- EG7

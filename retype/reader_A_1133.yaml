@@ -1,0 +1,47 @@
+blueprint: blueprint_1133_untyped.yaml
+types:
+  N01: literature_import
+  N02: estimate
+  N03: computation
+  N04: computation
+  N05: computation
+  N06: computation
+  N07: computation
+  N08: estimate
+  N09: estimate
+  N10: assembly
+  N11: computation
+  N12: assembly
+  N13: computation
+  N14: computation
+  N15: computation
+  N16: estimate
+  N17: assembly
+  N18: assembly
+  N19: computation
+  N20: computation
+  N21: computation
+  N22: computation
+  N23: assembly
+  N24: computation
+  N25: computation
+  N26: computation
+  N27: assembly
+  N28: estimate
+  N29: assembly
+  N30: estimate
+  N31: estimate
+  N32: assembly
+  N33: computation
+  N34: computation
+  ROOT: assembly
+notes: |
+  Hardest: N09 and N31 (choose_k, constants): the constant is written by a ceil/exp formula, but the
+  content is "there is a large enough tau/A so the bound holds", which the witness boundary rule names as
+  estimate; typed estimate. N12 (effective_finite_obstruction): the injective/coincident dichotomy only
+  routes to N10 or N11, the work is the contradiction between N09 and N10, so assembly rather than
+  case_split. N17 and N29: glue rooms whose only added inequalities are sum <= sum of abs, a rescaling by
+  1/(1-rho), or a cast of ceil_lt_add_one; read as bookkeeping, so assembly, not estimate. N20 typed
+  computation with the exp-type-preservation family (N04, N05, N13); the degree hypothesis is structural.
+  N34 specialises rho = 0 only, so computation. N02 is proved from Mathlib roots, so not literature_import;
+  a Phragmen-Lindelof bound, estimate. N03, N14 computation by the closedness/convexity clause.

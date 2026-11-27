@@ -1,0 +1,51 @@
+blueprint: blueprint_1133_untyped.yaml
+types:
+  N01: literature_import
+  N02: literature_import
+  N03: computation
+  N04: computation
+  N05: computation
+  N06: computation
+  N07: computation
+  N08: estimate
+  N09: estimate
+  N10: assembly
+  N11: computation
+  N12: case_split
+  N13: computation
+  N14: computation
+  N15: computation
+  N16: estimate
+  N17: assembly
+  N18: assembly
+  N19: computation
+  N20: estimate
+  N21: computation
+  N22: computation
+  N23: assembly
+  N24: computation
+  N25: computation
+  N26: computation
+  N27: assembly
+  N28: computation
+  N29: assembly
+  N30: estimate
+  N31: computation
+  N32: assembly
+  N33: computation
+  N34: estimate
+  ROOT: assembly
+notes: |
+  N12 (effective_finite_obstruction): it applies N09 and N10 when the nodes are
+  injective and N11 when they are not. Under the "applies dependencies AND enumerates
+  cases" rule that makes it case_split, not assembly.
+  N02 (bernstein_vertical_growth): a classical result (Bernstein/Phragmén–Lindelöf)
+  that the paper cites rather than proves, so literature_import under Q1. Read as
+  proved, it would be estimate.
+  N17 (signs_prescribed_tolerance): it chains separation, symmetrisation and N16, and
+  its only inequality (Σ w v ≤ Σ|w|) is bookkeeping, so assembly. Q2 was rejected
+  because the convex and analytic tools are used in sequence, not against each other.
+  N31: a constant chosen by explicit formula is computation. N08 and N20 are bounds
+  that need τ ≥ 1 or deg ≤ D, so estimate.
+  N34 has one dependency, so it cannot be assembly. Its bound needs n ≥ n0, so
+  estimate.

@@ -1,0 +1,9 @@
+blueprint_1133_untyped.yaml: 29/35 agree = 0.83
+   disagreement ('computation', 'estimate') 4
+   disagreement ('estimate', 'literature_import') 1
+   disagreement ('assembly', 'case_split') 1
+reach by consensus v2 type (rooms, proved, rate):
+   estimate                     4   4 1.00
+   assembly                     7   7 1.00
+   computation                 16  15 0.94
+   literature_import            1   0 0.00

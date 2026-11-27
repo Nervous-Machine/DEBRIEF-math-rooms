@@ -50,3 +50,28 @@ instruments:
   hinges: {path: rooms/hinges.py, sha256: "608cef635250fde3e3a853a847220baad5a4ae691ef4868d316e43266dce3e6b", change: "each vector now carries its statement text and blueprint name"}
   atlas: {path: atlas/hinges.yaml, sha256: "c31b2cc0dfc701864a0221ad69bea7f1315aa91e9c6d4de12f2ed06721ebd30f", vectors: 164}
   outputs: "results/match_build8c/Q1.txt … Q5.txt, the matcher's printed rankings verbatim"
+
+# ---- Amendment A1 ---- appended after the registered queries ran; the registered text above is unedited.
+amendments:
+  - id: A1
+    written: "2026-11-27T17:34Z, after Q1 to Q5 ran (outputs in results/match_build8c/)"
+    results: >
+      Q1: top-1 from the 569 blueprint for 15 of 16 own lemmas of the statement-only file. Q2: top-1 from the 569
+      blueprint (step_disconnected 0.54, ramsey_with_isolated 0.54, step_connected_large 0.54, step_large_deg_two 0.52,
+      ramsey_one_edge 0.40); neither lemma7 nor the root in the top 5. Q3: the Diophantine statement's top match is
+      friendly_triple_activation from the 1061 blueprint at 0.62, then multiplier_solution 0.57 and sigma_mul_two_primes
+      0.45: number-theory vocabulary (ℕ, Prime, powers, equalities over naturals) is shared across unrelated proofs.
+      Q4: with its own blueprint excluded, erdos_1133's top match is 0.22. Q5: 143 of 164 vectors (0.87) have their
+      best other match in the same blueprint.
+    scorecard: >
+      Held: P1, P4, P5. Missed: P2 on its second clause (the residue's shape matches the 569 step lemmas, which share
+      its hypotheses, rather than lemma7 or the root, which do not); P3 (0.62 against a predicted ceiling of 0.45: shape
+      alone does not separate two proofs in the same area of mathematics, and the 0.45 threshold is not a usable
+      confidence level). The score separates proofs across areas (graph theory against analysis, Q4) and within a proof
+      finds the rooms of the same shape (Q1, Q2 top-1); it does not separate proofs within an area (Q3).
+    reading: >
+      The matcher's useful output is the top-k of the same proof, which is a retrieval of hinges of the same shape; its
+      cross-proof use needs a semantic feature (which Mathlib constants and which defined predicates appear, weighted by
+      rarity in the atlas) before a threshold means anything. That is the next instrument, not a repair of this one.
+    instruments: "unchanged since registration"
+
